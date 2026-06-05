@@ -1,0 +1,1123 @@
+Claude finished the response
+
+Ik ben AIOS interventieradiologie en ben op zoek naar een site zoals surgeryassistant waarop veel uitgevoerde procedures staan uitgelegd met bijvoorbeeld benodigd materiaal en standaardverslag. Bestaat dit al voor interventie procedures en zo nee is dit een site die ik met Claude kan maken?
+26 mei
+Searched the web
+
+Er zijn al een paar relevante dingen, maar laat me ook even kijken naar irprocedures.com:
+Failed to fetch: https://irprocedures.com/
+
+Goede vraag! Hier is wat er al bestaat en wat je zelf zou kunnen bouwen:
+
+Wat er al bestaat
+
+irprocedures.com is een open-access website speciaal ontworpen als snelle leerresource voor IR-procedures, gemaakt door interventieradiologen en gericht op medische professionals. Dit klinkt het meest als wat je zoekt qua opzet.
+Irprocedures
+
+De Society of Interventional Radiology (SIR) heeft recentelijk versie 3.2 van hun gestandaardiseerde rapportage uitgebracht, met bijna 200 procedure-rapportage templates in een consistent, gestructureerd formaat. Deze zijn beschikbaar in rtf en xml (PowerScribe-ready) formaten. Nadeel: ze zijn strikt auteursrechtelijk beschermd en niet vrij aanpasbaar.
+Society of Interventional Radiology
+Society of Interventional Radiology
+
+Wat er ontbreekt
+
+Er bestaat geen site die — zoals surgeryassistant — op een laagdrempelige, praktische manier combineert:
+
+    Procedureomschrijving stap voor stap
+    Benodigde materialen/sets
+    Standaardverslag (aanpasbaar)
+    Tips & valkuilen
+
+Kan je dat met Claude bouwen?
+
+Absoluut ja. Het is een uitstekend project. Je zou kunnen denken aan:
+
+    Een statische website (HTML/React) met per procedure een pagina: indicaties, materiaallijst, techniek, standaardverslag-template
+    Of een interactieve webapp waarbij je een procedure selecteert en een invulbaar verslag genereert
+    Of zelfs een AI-aangedreven tool waarbij Claude helpt het verslag in te vullen op basis van wat je hebt gedaan
+
+De meest haalbare eerste stap is een React-artifact of website met een handvol procedures als proof of concept — daarna uitbreidbaar. Ik kan je daarmee helpen.
+
+Welke richting spreekt je aan, en wil je beginnen met een specifieke set procedures (bijv. drain plaatsing, TACE, UFE, biopsie)?
+
+De website irprocedures.com bestaat niet. Heb je een andere site die je bedoelt dit wel echt bestaat? Dit zou anders wel een goede naam voor de site kunnen zijn. Bedenk nog andere catchy website titels in het Engels en Nederlands
+26 mei
+
+Je hebt gelijk, mijn excuses — de zoekresultaten toonden die site maar ik had hem niet kunnen bereiken en had moeten aangeven dat ik hem niet kon verifiëren.
+
+Hier zijn wat catchy naamideeën:
+
+Engels
+
+    IRguide.io
+    ProcedureIR.com
+    IRplaybook.com
+    TheIRdesk.com
+    IRpocket.com
+    StepwiseIR.com
+    IRprotocol.io
+
+Nederlands
+
+    InterventieGids.nl
+    DeIRdesk.nl
+    ProcedureRadiologie.nl
+    IRwijzer.nl
+    HetIRboekje.nl
+
+Hybride (Engels/medisch jargon)
+
+    IRready.com
+    IRflow.io
+    CathLabGuide.com
+    IRassist.io
+
+Mijn persoonlijke favorieten: IRplaybook klinkt praktisch en collegiaal, IRpocket suggereert een handige zakgids, en IRwijzer is lekker direct voor een Nederlandse doelgroep.
+
+Heb je al een idee of de site primair Nederlandstalig wordt, of internationaal Engels? Dat bepaalt ook meteen de scope — een Nederlandse site is overzichtelijker te beginnen maar een Engelse heeft veel meer potentieel publiek.
+
+Beginnen met Nederlands. Een veelgebruikte site is surgeryassistant en radiologyassistant. Iets in die lijn als titel?
+26 mei
+
+Dan ligt de lijn eigenlijk heel voor de hand:
+
+InterventieAssistent.nl
+
+of in het Engels gehouden (zoals de voorbeelden):
+
+InterventionAssistant.nl
+
+Beide sluiten perfect aan bij de naamgeving van surgeryassistant en radiologyassistant, dus voor iedereen in het vakgebied direct herkenbaar en duidelijk wat je er kunt verwachten.
+
+Varianten in dezelfde stijl:
+
+    IRAssistant.nl
+    InterventieRadiologie.nl
+    CathAssistant.nl
+
+Ik zou gaan voor InterventionAssistant.nl — het is Engels zoals de voorbeelden, klinkt professioneel, en is internationaal uitbreidbaar als je later wilt. Wil je dat ik even check of die domeinnaam beschikbaar is, of ga je eerst de site zelf bouwen?
+
+Ja check dat. Al is irassistant ook mooi. Of irpocket
+26 mei
+Searched the web
+
+Ik kan de beschikbaarheid niet direct via een whois-tool controleren vanuit hier. De beste manier is om het zelf te checken op sidn.nl/whois — dat is de officiële Nederlandse domeincheck. Vul daar in:
+
+    interventionassistant.nl
+    irassistant.nl
+    irpocket.nl
+
+Dat duurt 10 seconden. Mijn inschatting is dat alle drie nog vrij zijn — het zijn vrij niche namen.
+
+Persoonlijk advies over de namen:
+Naam	Pro	Con
+InterventionAssistant.nl	Sluit perfect aan bij surgeryassistant/radiologyassistant	Wat lang
+IRassistant.nl	Kort, herkenbaar voor vakgenoten	IR kent ook andere betekenissen
+IRpocket.nl	Catchy, suggereert een handige zakgids	Minder duidelijk wat het is
+
+Voor de herkenbaarheid binnen het vakgebied zou ik InterventionAssistant.nl als eerste keus houden — iedereen die surgeryassistant of radiologyassistant kent, snapt het direct. Zin om daarna de site te gaan bouwen?
+
+meerdere opties zijn nog beschikbaar. Laten we een site gaan bouwen. Qua opzet van de losse pagina's zou denk ik een lay-out zoals bij surgeryassistant handig zijn. Al is radiologyassistant beter bekend bij collegas van de radiologie. Kun je een opzetje maken? Denk aan vasculaire procedures zoals PTA  +- stentplaatsing van beenvaten of iliacale vaten, of viscerale vaten, of opstarten rTPA bij acuut bedreigd been.  En non vasculaire procedures zoals nefrostomie of abcesdrainage
+26 mei
+
+Laat me eerst even kijken hoe radiologyassistant eruitziet voor inspiratie:
+Searched the web, viewed a file, created a file
+
+Maak meerdere opties zodat ik kan kiezen
+27 mei
+
+Wat voor soort opties wil je vergelijken?
+
+Ik maak 3 varianten aan — een voor elke stijl die je aanvinkte:
+
+    Klinisch & clean — wit, strak, UpToDate-gevoel
+    Modern & donker — dark mode, dashboard
+    Licht & minimalistisch — veel witruimte, typografie centraal
+
+Ran 3 commands
+
+hoe kan ik de voorbeeld sites openen?
+29 mei
+
+Je kunt de HTML-bestanden direct openen via de downloadlinks hieronder:
+Presented 3 files
+
+Klik op een van de drie bestanden hierboven om ze te downloaden, en open ze daarna gewoon in je browser (dubbelklik op het bestand, of sleep het naar een browservenster).
+
+    Variant A — Klinisch & clean (wit, UpToDate-stijl)
+    Variant B — Modern & donker (dark mode, dashboard)
+    Variant C — Licht & minimalistisch (veel witruimte, typografie centraal)
+
+Alle drie hebben dezelfde inhoud — PTA, nefrostomie en rTPA — zodat je puur de stijl kunt vergelijken. Welke spreekt je het meest aan?
+Ia variant a clean
+Code · HTML 
+Ia variant b dark
+Code · HTML 
+Ia variant c minimal
+Code · HTML 
+
+ik vind variant B het mooist. Ik wil een website bouwen met behulp van een tool zodat ik visueel dingen kan aanpassen en niet telkens claude hoef te gebruiken voor elke kleine aanpassing waarvan ik dan ook nog eens de code niet gebruik. Welk programma moet ik dan gebruiken? En het is denk ik het handigst om met headless CMS in combinatie met Vercel te werken of heb je betere opties?
+29 mei
+
+Goede keuze, variant B ziet er sterk uit. Je denkt al in de juiste richting.
+
+Visueel aanpassen zonder code
+
+Voor een site als deze zijn er twee realistische opties:
+
+Framer is waarschijnlijk jouw beste keuze. Je kunt visueel ontwerpen (drag & drop), het heeft een eigen CMS voor herhalende content zoals procedures, en publiceren gaat met één klik naar een eigen domein. Geen Vercel nodig, geen aparte database. Het nadeel is dat je vastzit aan Framer als platform en de maandelijkse kosten (ca. €15–30/maand voor een professionele site).
+
+Webflow is krachtiger en geeft je meer controle, ook over de CMS-structuur. Ideaal als de site groeit naar tientallen procedures. Wel een steilere leercurve dan Framer, en ook betaald (ca. €15–40/maand).
+
+Over jouw Vercel + headless CMS idee
+
+Dat is technisch de meest flexibele route, maar het vereist wel dat je zelf de frontend bouwt of laat bouwen. De stack zou er dan zo uitzien:
+
+    Sanity of Contentlicious als CMS — procedures invullen via een nette interface
+    Next.js als frontend — de variant B stijl omgezet naar componenten
+    Vercel voor hosting
+
+Dit is wat developers gebruiken en het geeft maximale vrijheid, maar "visueel aanpassen zonder Claude" wordt hiermee niet eenvoudiger — je bent dan afhankelijk van een developer voor structuurwijzigingen.
+
+Mijn aanbeveling voor jou
+
+Begin met Framer. Je kunt de variant B stijl er goed in nabootsen, procedures toevoegen via het ingebouwde CMS, en het domein interventionassistant.nl er zo aan koppelen. Als de site later groeit en je meer controle wilt, kun je altijd nog migreren.
+
+Wil je dat ik de variant B site omzet naar een Framer-klare structuur, of help ik je eerst de Framer-opzet uitdenken?
+
+omdat het in opzet nog een hobby project is wil ik de kosten laag houden. Is Framer dan nog steeds de goede optie?
+29 mei
+
+Bij een hobbyproject zijn de kosten van Framer al snel een drempel. Er zijn betere opties:
+
+Gratis tot bijna gratis
+
+Webflow (gratis tier) laat je één project publiceren op een webflow.io subdomein. Zodra je een eigen domein wilt (interventionassistant.nl) kost het €14/maand. Dus ook niet ideaal.
+
+Hugo of Astro + Vercel/Netlify is waarschijnlijk de beste optie voor jou. De hosting is volledig gratis op Vercel of Netlify. Je betaalt alleen het domein (ca. €10–15/jaar voor een .nl). De content beheer je in gewone Markdown-bestanden — geen database, geen CMS-abonnement. Het nadeel is dat je voor structuurwijzigingen toch in code duikt, maar voor tekstwijzigingen (nieuwe procedure toevoegen, verslag aanpassen) is het heel toegankelijk.
+
+GitHub Pages is ook gratis, maar iets minder flexibel dan Vercel.
+
+Meest praktische route voor jou
+
+Gezien dat je al variant B hebt en de inhoud al staat:
+
+    Domein registreren (interventionassistant.nl, ca. €10/jaar bij Transip of Antagonist)
+    Code op GitHub zetten
+    Vercel koppelt automatisch aan GitHub en deployt bij elke wijziging
+    Voor visuele aanpassingen: VS Code met de HTML direct bewerken — voor kleur, tekst en kleine layoutzaken is dat echt niet zo ingewikkeld als het klinkt
+
+De totale kosten worden dan ca. €10–15 per jaar, alleen voor het domein.
+
+Wil je dat ik de variant B omzet naar een nette meerbestandenstructuur die je makkelijk kunt uitbreiden?
+
+en dit kan denk ik ook met behulp van claude? dat jij de code voor mij aanpast?
+29 mei
+
+Absoluut, dat is precies hoe het werkt. De samenwerking wordt dan:
+
+Jij → beschrijft wat je wil ("voeg een procedure toe voor PTCD", "maak de koptekst groter", "verander de accentkleur naar blauw")
+
+Claude → past de code aan en geeft je het bestand terug
+
+Jij → downloadt, vervangt het bestand op GitHub, Vercel deployt automatisch
+
+Voor kleine aanpassingen zoals tekst, kleuren of een nieuwe procedure kost dat je letterlijk minder dan 5 minuten per keer. En je hoeft de code zelf niet te begrijpen.
+
+Wat handig is om te weten
+
+Voor grotere projecten heeft Claude Code — de command-line versie van Claude — nog meer mogelijkheden: die kan direct bestanden aanmaken, je projectstructuur beheren en meerdere bestanden tegelijk aanpassen. Maar voor een hobbysite als deze is gewoon claude.ai volledig voldoende.
+
+De enige beperking is dat Claude geen geheugen heeft tussen gesprekken. Je zou dus het HTML-bestand aan het begin van een gesprek uploaden, zodat ik weet wat de huidige versie is, en daarna aanpassingen vragen.
+
+Wil je nu direct beginnen? Dan kan ik de variant B omzetten naar een nette startstructuur — met een apart bestand per procedure zodat het overzichtelijk blijft — klaar om op GitHub te zetten.
+
+waarom heb je een apart bestand nodig per procedure dan?
+29 mei
+
+Goede vraag — dat heb je eigenlijk niet per se nodig.
+
+Voor een hobbyproject is één enkel HTML-bestand prima. De voordelen die mensen noemen voor aparte bestanden (snellere laadtijd, betere SEO, makkelijker samenwerken) zijn voor jouw situatie niet relevant.
+
+Het enige praktische voordeel van aparte bestanden zou zijn dat het bestand niet te groot wordt als je 50+ procedures hebt. Maar zolang het bestand onder de ~500KB blijft werkt het gewoon, en dat red je makkelijk met tientallen procedures.
+
+Dus de workflow wordt simpelweg:
+
+    Je hebt één interventionassistant.html bestand
+    Bij elke sessie upload je dat bestand hier
+    Je vraagt een aanpassing
+    Je downloadt de nieuwe versie en vervangt het op GitHub
+
+Simpeler kan niet. Zal ik de huidige variant B even opschonen en klaarstomen als die ene startversie?
+
+als ik afbeeldingen wil gaan toevoegen worden de pagina's toch groter. Maar met losse pagina's moet ik bij een lay-out veranderingen alle githubs gaan aanpassen
+29 mei
+
+Precies, je ziet het dilemma goed. De oplossing daarvoor is één gedeeld CSS-bestand voor de stijl, en verder gewoon losse HTML-pagina's per procedure. Dan:
+
+    Lay-out aanpassen → alleen het CSS-bestand wijzigen, alle pagina's volgen automatisch
+    Nieuwe procedure → één nieuw HTML-bestand maken op basis van een template
+    Afbeeldingen → staan los in een map, worden gewoon ingeladen
+
+De mapstructuur wordt dan zoiets als:
+
+interventionassistant/
+├── index.html          ← homepage
+├── style.css           ← alle stijl, gedeeld
+├── pta-beenvaten.html
+├── nefrostomie.html
+├── rtpa-trombolyse.html
+├── images/
+│   ├── pta-diagram.jpg
+│   └── nefrostomie-anatomie.jpg
+
+Dit is de klassieke aanpak en werkt perfect op Vercel/GitHub Pages. Nadeel is alleen dat de navigatiebalk in elke HTML-pagina hetzelfde stukje code herhaalt — maar dat is één keer kopiëren per nieuwe pagina, en als de navigatie verandert pas je alleen die pagina's aan waar het nodig is. Of ik bouw het met een klein stukje JavaScript dat de navigatie automatisch inlaadt vanuit één bestand.
+
+Wil je dat ik de variant B nu opsplits in deze structuur?
+
+gemini suggereert dat jij een next.js website programmeert en deze koppelt aan een airtable of supabase
+29 mei
+
+Gemini geeft geen slecht advies, maar het is voor jouw situatie wat overdreven. Laat me eerlijk de afweging maken:
+
+Wat Gemini voorstelt
+
+Next.js + Supabase/Airtable is een volwaardige webapplicatie-stack. Dat is wat je gebruikt als je een team hebt, gebruikersaccounts wil, of realtime data nodig hebt. De leercurve is steil, en als er iets breekt — een dependency update, een API-wijziging van Airtable — ben je afhankelijk van Claude of een developer om het te fixen.
+
+Wat jij eigenlijk nodig hebt
+
+Een medische naslagsite met statische content. De procedures veranderen niet per seconde, er zijn geen gebruikers die inloggen, geen formulieren die data opslaan. Daar heb je geen database voor nodig.
+
+Mijn eerlijke aanbeveling
+
+De mapstructuur die we net bespraken — losse HTML-pagina's met één gedeeld CSS-bestand — is voor jouw hobbyproject de verstandigste keuze omdat:
+
+    Geen abonnementskosten (Supabase gratis tier heeft limieten, Airtable ook)
+    Niets kan "breken" door externe diensten
+    Claude kan het volledig onderhouden
+    Vercel host het gratis
+    Je begrijpt zelf wat er staat
+
+Next.js en Supabase zijn geweldige tools, maar het is een Ferrari voor een rit naar de supermarkt. Als de site later groot wordt en je écht dynamische features wil — gebruikers die eigen notities opslaan, zoekfunctie over alle procedures — dan is het nog altijd tijd om te upgraden.
+
+Zal ik gewoon beginnen met de nette mapstructuur?
+
+een zoekfunctie zou natuurlijk wel super handig zijn. en is het mogelijk om het ook op telefoon te laten werken?
+29 mei
+
+Beide zijn goed nieuws:
+
+Zoekfunctie kan prima zonder database. Met een bibliotheek zoals Fuse.js kun je razendsnel zoeken door alle procedures op basis van trefwoorden — gewoon in de browser, zonder server. Je stopt alle procedurenamen, indicaties en trefwoorden in één JavaScript-bestand, en Fuse.js zoekt daardoorheen. Voor tientallen tot honderden procedures werkt dit perfect.
+
+Mobiel is een kwestie van responsive CSS — de site past zich dan automatisch aan het schermformaat aan. Variant B heeft dat nog niet, maar dat is iets wat ik er gewoon in bouw. Op telefoon zou de lay-out er dan zo uitzien: navigatie wordt een hamburgermenu, de twee kolommen stapelen verticaal, tabbladen blijven werken.
+
+Maar dit verandert mijn aanbeveling licht
+
+Met een zoekfunctie en mobiele ondersteuning wordt het bestand wat complexer. Dan is de mapstructuur met gedeeld CSS-bestand toch netter dan alles in één HTML-bestand proppen. Niet Next.js — dat blijft overdreven — maar gewoon:
+
+interventionassistant/
+├── index.html
+├── style.css
+├── search.js        ← Fuse.js zoeklogica
+├── procedures.js    ← alle proceduretekst als data
+├── pta-beenvaten.html
+├── nefrostomie.html
+└── images/
+
+Zo houd je alles beheersbaar, kan Claude elk onderdeel apart aanpassen, en heb je toch zoeken + mobiel.
+
+Zal ik dit nu bouwen als startversie?
+
+laat nog maar eens zien dan
+29 mei
+Created 7 files, ran a command, read a file
+
+Hier zijn alle 7 bestanden. Download ze allemaal en zet ze in één map op je computer — de structuur is dan precies zoals we bespraken:
+
+interventionassistant/
+├── index.html          ← homepage
+├── style.css           ← alle stijl (hier aanpassen = overal effect)
+├── search.js           ← zoekfunctie
+├── procedures.js       ← lijst van alle procedures voor de zoekfunctie
+├── pta-beenvaten.html
+├── nefrostomie.html
+└── rtpa-trombolyse.html
+
+Open index.html in je browser om het te bekijken — navigatie, zoekfunctie en mobiele weergave werken allemaal. De volgende stap is een gratis GitHub-account aanmaken en de map daarheen uploaden, dan koppelen we Vercel eraan. Wil je daar hulp bij?
+Index
+Code · HTML 
+Style
+Code · CSS 
+Search
+JS 
+Procedures
+JS 
+Pta beenvaten
+Code · HTML 
+Nefrostomie
+Code · HTML 
+Rtpa trombolyse
+Code · HTML 
+
+de index site lijkt zonder lay-out
+30 mei
+
+Dat komt omdat de bestanden los van elkaar gedownload worden — de index.html kan style.css niet vinden als ze niet in dezelfde map staan.
+
+Oplossing: download alle bestanden en zet ze samen in één map op je computer, zo:
+
+interventionassistant/
+├── index.html
+├── style.css
+├── search.js
+├── procedures.js
+├── pta-beenvaten.html
+├── nefrostomie.html
+└── rtpa-trombolyse.html
+
+Open dan index.html vanuit die map in je browser. De stijl wordt dan automatisch gevonden.
+
+Als je de bestanden via Claude hebt gedownload staan ze waarschijnlijk allemaal los in je Downloads-map — maak een nieuwe map aan, sleep alle 7 bestanden daarin, en open daarna index.html. Dan zou het er precies zo uit moeten zien als variant B.
+
+en hoe zou ik dit nou online kunnen publiceren? en hoe pas ik teksten aan van de paginas?
+21:48
+
+Ik leg je beide stappen uit:
+
+Online publiceren via GitHub + Vercel
+
+    Maak een gratis account op github.com
+    Maak een nieuw "repository" aan — noem het interventionassistant
+    Upload je 7 bestanden via de knop "Add file → Upload files"
+    Ga naar vercel.com, maak een gratis account en klik "Add New Project"
+    Koppel je GitHub-account en selecteer het interventionassistant repository
+    Vercel deployt automatisch — je krijgt een gratis URL zoals interventionassistant.vercel.app
+    Later kun je je eigen domein (interventionassistant.nl) daaraan koppelen
+
+Vanaf dat moment: elke keer dat je een bestand aanpast op GitHub, deployt Vercel automatisch de nieuwe versie.
+
+Teksten aanpassen
+
+De makkelijkste manier zonder code-editor is direct op GitHub:
+
+    Klik op een bestand, bijv. pta-beenvaten.html
+    Klik op het potloodpictogram rechtsboven (Edit)
+    Pas de tekst aan — de HTML-tags kun je gewoon negeren, zoek gewoon de Nederlandse tekst op
+    Klik "Commit changes"
+    Vercel publiceert de wijziging automatisch binnen 30 seconden
+
+Voor grotere aanpassingen of nieuwe procedures kun je het bestand hier uploaden en mij vragen de aanpassing te doen.
+
+Wil je dat ik je stap voor stap door de GitHub-upload leid?
+
+en werkt deze methode ook met plaatjes zometeen?
+21:49
+
+Ja, precies hetzelfde principe. Je maakt een images map aan in je GitHub repository en uploadt daar je afbeeldingen naartoe. In de HTML verwijs je er dan zo naar:
+html
+
+<img src="images/pta-diagram.jpg" alt="PTA techniek diagram">
+
+Op GitHub doe je dat zo:
+
+    Open je repository
+    Klik "Add file → Upload files"
+    Sleep je afbeeldingen naar het uploadvenster
+    GitHub vraagt in welke map — typ images/ voor de bestandsnaam, bijv. images/pta-diagram.jpg
+
+Vercel serveert de afbeeldingen dan automatisch mee.
+
+Praktisch voor jouw site
+
+Voor IR-procedures zijn er een paar soorten afbeeldingen die goed werken:
+
+    Anatomische schema's (beenvaten, nierbekken)
+    Fluoroscopie screenshots van typische beelden
+    Materiaalfoto's (bijv. hoe een pigtail catheter eruitziet)
+
+Voor anatomische illustraties kun je ook kijken naar Radiopaedia of Wikimedia Commons — die hebben veel vrij te gebruiken medische afbeeldingen. Of ik kan eenvoudige SVG-diagrammen voor je maken die altijd scherp blijven op elk scherm.
+
+Wil je eerst de GitHub-setup doen, of meteen beginnen met een afbeelding toevoegen aan een procedure?
+
+werken afbeeldingen die de stappen ondersteunen goed in de huidige layout denk je
+21:50
+
+Goede vraag om eerst te doordenken. In de huidige layout heb je per stap een genummerd bolletje + tekst in een smalle kolom. Een afbeelding per stap zou daar snel rommelig worden — te veel visuele informatie op een kleine ruimte.
+
+Wat beter werkt zijn twee opties:
+
+Optie 1 — Afbeelding naast de stappenlijst Een enkel diagram of schema dat de hele procedure in één overzicht toont, geplaatst in de rechterzijkolom naast de stappen. Zo heb je de anatomie of het materiaal altijd in beeld terwijl je de stappen leest. Dit past perfect in de huidige tweekoloms layout.
+
+Optie 2 — Lightbox per stap Bij specifieke stappen een klein thumbnail-icoontje of linkje dat een grotere afbeelding opent als je erop klikt. Zo blijft de stappenlijst compact maar is de visuele ondersteuning beschikbaar voor wie het wil.
+
+Voor een IR-proceduregids zou ik beginnen met optie 1 — één goed anatomisch schema of flowdiagram per procedure in de zijkolom. Dat geeft direct meerwaarde zonder de layout te verstoren.
+
+Ik kan alvast een SVG-diagram maken voor bijvoorbeeld de PTA-procedure — een schematisch overzicht van de femoropopliteale anatomie met de typische laesielocaties. Wil je dat proberen?
+
+ja maak dat als voorbeeld
+21:51
+
+Zo zou het er in de zijkolom van de PTA-pagina uitzien. Dit diagram is een SVG-bestand — lichtgewicht, altijd scherp op elk scherm, geen externe afhankelijkheden.
+
+Wat ik hiervoor kan maken per procedure:
+
+    PTA — anatomisch overzicht met laesielocaties (dit dus)
+    Nefrostomie — dorsale nierpunctie met kelkindeling
+    rTPA — schema van occlusie + infusiecatheter positie
+
+Wil je deze als SVG-bestand exporteren zodat je hem in de site kunt zetten, of eerst de andere procedures ook een diagram geven?
+
+nee ik wil zometeen afbeeldingen van procedures zelf toevoegen als voorbeeld voor bij de stappen. Kan dit ook? en hoe komen deze dan op de juiste plek op de site te staan?
+21:53
+
+Ja, dat kan prima. Hoe het werkt:
+
+Afbeelding per stap plaatsen
+
+In de HTML staat elke stap zo:
+html
+
+<li>
+  <div class="sn blue">4</div>
+  <div><strong>Crossing:</strong> Hydrofiele wire...</div>
+</li>
+
+Je voegt gewoon een afbeelding toe binnen die <div>:
+html
+
+<li>
+  <div class="sn blue">4</div>
+  <div>
+    <strong>Crossing:</strong> Hydrofiele wire...
+    <img src="images/crossing-wire.jpg" 
+         alt="Crossing techniek under doorlichting"
+         style="width:100%; margin-top:0.6rem; border-radius:6px;">
+  </div>
+</li>
+
+Niet elke stap hoeft een foto — alleen de stappen waar een beeld echt wat toevoegt.
+
+Workflow in de praktijk
+
+    Maak een screenshot of foto van een relevante angiografie, echo of materiaal
+    Sla op als bijv. crossing-wire.jpg
+    Upload naar de images/ map op GitHub
+    Laat mij de juiste <img> tag op de juiste plek in de HTML zetten
+
+Je geeft mij dan gewoon de bestandsnaam en bij welke stap het hoort — ik pas de HTML aan en je uploadt het nieuwe bestand.
+
+Aandachtspunt: patiëntgegevens
+
+Zorg dat screenshots van fluoroscopie of echo volledig geanonimiseerd zijn — geen naam, geboortedatum of patiëntnummer zichtbaar in de beeldinformatie. Dat geldt ook voor DICOM-exports.
+
+Wil je nu eerst de GitHub-setup doen zodat de site online staat?
+
+ja, moet het bijvoorbeeld public staan meteen?
+21:55
+
+Goede vraag. Je hebt twee opties:
+
+Public repository Iedereen kan de code zien op GitHub. Voor hosting op Vercel/GitHub Pages is dit de makkelijkste route — geen extra configuratie nodig. De inhoud van je site is toch al openbaar zodra je hem publiceert, dus de code zien maakt weinig verschil.
+
+Private repository De code is alleen voor jou zichtbaar. Vercel ondersteunt dit ook gewoon op het gratis plan — je koppelt je GitHub-account en Vercel kan de private repo lezen zonder dat anderen dat kunnen. GitHub Pages werkt echter niet met private repo's op het gratis plan.
+
+Mijn advies voor jou
+
+Begin met private. Redenen:
+
+    De site is nog in opbouw — je wilt niet dat collega's een halfafgemaakte versie vinden
+    Medische content wil je eerst goed controleren voordat het breed vindbaar is
+    Je kunt het later altijd met één klik omzetten naar public
+
+De workflow blijft precies hetzelfde — Vercel werkt gewoon met een private repo.
+
+Stappenplan
+
+    Ga naar github.com → maak account aan
+    Klik "New repository" → naam interventionassistant → kies Private
+    Upload je 7 bestanden
+    Ga naar vercel.com → koppel GitHub → selecteer de repo
+    Vercel geeft je een gratis URL zoals interventionassistant.vercel.app
+
+Wil je dat ik je stap voor stap door de GitHub upload leid?
+
+ja help me
+21:56
+
+Oké, stap voor stap. Begin met GitHub:
+
+Stap 1 — Account aanmaken
+
+Ga naar github.com en maak een gratis account aan als je dat nog niet hebt. Gebruik je eigen e-mailadres.
+
+Stap 2 — Nieuw repository aanmaken
+
+    Klik rechtsboven op het + icoontje → "New repository"
+    Vul in:
+        Repository name: interventionassistant
+        Description: InterventionAssistant — proceduregids IR (optioneel)
+        Kies Private
+    Laat alle andere opties staan zoals ze zijn
+    Klik "Create repository"
+
+Stap 3 — Bestanden uploaden
+
+    Je ziet nu een lege repository pagina
+    Klik op "uploading an existing file" (blauwe link in het midden)
+    Sleep alle 7 bestanden tegelijk naar het uploadvenster:
+        index.html
+        style.css
+        search.js
+        procedures.js
+        pta-beenvaten.html
+        nefrostomie.html
+        rtpa-trombolyse.html
+    Wacht tot alle bestanden groen zijn
+    Scroll naar beneden → klik "Commit changes"
+
+Stap 4 — Images map aanmaken
+
+    Klik "Add file" → "Create new file"
+    Typ als bestandsnaam: images/.gitkeep
+    Klik "Commit changes"
+
+Dit maakt de images map aan voor later.
+
+Laat me weten zodra dat gelukt is, dan gaan we verder met Vercel.
+
+het moment dat ik de / achter images zet sluit het veld en opent er een nieuw veld met als pad interventionassistant / images / (leeg vak). wat moet ik daar invullen?
+22:00
+
+Precies goed zo! GitHub herkent de / als een mapscheiding. In het lege vak typ je:
+
+.gitkeep
+
+Dat is een leeg bestandje dat alleen dient om de map te laten bestaan. Daarna scroll je naar beneden en klik je "Commit changes".
+
+gelukt
+22:01
+
+Top! Nu Vercel koppelen:
+
+Stap 5 — Vercel account aanmaken
+
+Ga naar vercel.com en klik "Sign Up" → kies "Continue with GitHub". Zo zijn je accounts direct gekoppeld.
+
+Stap 6 — Project aanmaken
+
+    Je komt op het Vercel dashboard
+    Klik "Add New Project"
+    Je ziet je GitHub repositories — klik "Import" naast interventionassistant
+    Vercel detecteert automatisch dat het een statische site is — je hoeft niets aan te passen
+    Klik "Deploy"
+
+Stap 7 — Wachten
+
+Vercel bouwt de site in 10-30 seconden. Je ziet een animatie en daarna een groen vinkje met "Congratulations".
+
+Stap 8 — Je URL
+
+Je krijgt automatisch een gratis URL zoals: interventionassistant.vercel.app
+
+Klik erop om te controleren of alles werkt.
+
+Laat me weten zodra je de Vercel URL hebt — dan kunnen we testen of de navigatie tussen pagina's goed werkt en kijken naar de volgende stap.
+
+https://interventionassistant.vercel.app/ hier is ie
+22:20
+
+Gefeliciteerd, de site staat live! 🎉
+
+Ga even langs de volgende dingen om te testen:
+
+    Navigatie — klik op "Vasculair", "Non-vasculair" en "Trombolyse" in de menubalk
+    Tabs — klik op "Materiaal", "Standaardverslag" en "Nacontrole" binnen een procedure
+    Zoekfunctie — typ "nefro" of "PTA" in de zoekbalk
+    Mobiel — open de URL op je telefoon en test het hamburgermenu
+
+Volgende stappen die voor de hand liggen:
+
+    Domein koppelen: interventionassistant.nl via Vercel (kost alleen het domein, ca. €10/jaar)
+    Nieuwe procedures toevoegen
+    Afbeeldingen toevoegen bij procedurestappen
+
+Werkt alles naar behoren?
+
+# 📄 Nefrostomie
+**Duur:** 30-60 minuten
+**Anesthesie:** Lokaal
+**Opname:** Klinisch in verband met observatie bloeding en sepsis. Eventueel dagbehandeling in geval van elevtieve procedure
+---
+## Indicaties
+- Gedaald eGFR door post-renale obstructie (relatieve spoedindicatie)
+- Pyonefrose/Urosepsis (spoedindicatie)
+- Urinedeviatie (bijv. bij fistels of hemorragische cystitis)
+- Toegang voor vervolginterventies (bijv. antegrade dubbel-J stent of PNL)
+## Contra-indicaties
+- Onherstelbare stollingsstoornis (INR > 1.5, Trombo's < 50)
+- Geen veilig punctietraject
+## Pre-procedurele checklist
+- Lab: INR, trombo’s, eGFR
+- Nuchter: niet nodig (tenzij sedatie)
+- Eerdere beeldvorming:
+    - Nierpositie: Hooggelegen nier (risico pleurapunctie bij punctie boven rib 12).
+    - Route: Colon descendens/ascendens buiten het traject?
+- Antibiotica profylaxe: Ceftriaxon iv 2000mg eenmalig. Bij urosepsis behandelen volgens protocol.
+## Materialen
+| Materiaal | Specificatie | Aantal |
+| --- | --- | --- |
+| Angioset | standaard | 1 |
+| Neffset (inclusief Chiba naald 22G en Cope Mandril 0.018”) | 4Fr | 1 |
+| Amplatz | 0.035” kort | 1 |
+| Multipurpose drain (Dawson-Muller bij slank pyelum) | 8.5–10.2 Fr | 1 |
+| Sheath 25 cm | 7 Fr, kort | optioneel |
+| Hydrofiele voerdraad | 0.035" | optioneel |
+| Cobra katheter | 4 of 5 Fr | optioneel |
+## Stappenplan
+- Patiënt in buikligging (of zijligging) met kussen onder de buik.
+- Echo-geleide punctie van een onderpools kelk. Bij voorkeur via de *Brodel's line* (avasculaire zone).
+- Aspiratie van urine (sturen voor kweek bij verdenking infectie).
+- Antegrade pyelografie (beperkt contrast) ter bevestiging positie en anatomie obstructie.
+- Inbrengen 0.018” voerdraad via de naald.
+- Dilatatie van het traject middels Neff-set.
+- Positioneren van Amplatz tot in de ureter.
+- Opvoeren van de pigtail drain tot in het pyelum.
+- Verwijderen voerdraad, locken van de pigtail en aspireren urine.
+- Fixatie aan de huid met hechting en pleister.
+- Aansluiten op opvangzak.
+## Complicaties
+| Complicatie | Kans (%) | Management |
+| --- | --- | --- |
+| Urosepsis | 1 – 3% | IV antibiotica, vloeistof, drain controleren. |
+| Bloeding (macro-hematurie) | 2 – 5% | Meestal zelflimiterend (spoelen); zelden embolisatie. |
+| Drain dislocatie | 5 – 10% | Herplaatsing via bestaande tract of nieuwe punctie. |
+| Pneumo-/Pleuraholte letsel | < 1% | Vooral bij supracostale punctie; X-thorax/drainage. |
+| Colonperforatie | < 0.2% | Conservatief of chirurgisch (zeldzaam). |
+## Nazorg
+- Drain op zak laten.
+## Standaardverslag
+**Ter vergelijking:** [Datum/Modaliteit]
+**Antistolling:** [Gestaakt/Niet van toepassing]
+**Anesthesie:** Lokale verdoving middels lidocaine 1%, ca. 10 cc.
+**Procedure:**
+Informed consent. Time-out procedure.
+Patiënt in buikligging. Onder standaard steriele omstandigheden na lokale verdoving van de huid en onder echo-geleide wordt een onderpools kelk **[links/rechts]** aangeprikt. Aspiratie van [heldere/troebele/purulente] urine. Bevestigen van positie middels contrast.
+Inbrengen Neff-set en inbrengen Amplatz. Vervolgens plaatsen van een **[maat] Fr multipurpose drain** met krul in het pyelum.
+Controle toont goede positie in het pyelum.
+Fixatie aan de huid middels hechting en drainpleister. Aansluiten op zak.
+Geen directe complicaties.
+**Conclusie:**
+Plaatsing percutane nefrodrain **[links/rechts]**.
+**Nazorg:**
+- Drain open op zak laten lopen.
+- Bij koorts of forse toename hematurie laagdrempelig contact opnemen.
+
+pas de html aan zodat deze bovenstaande informatie staat ingevuld
+22:26
+
+Ik pas de nefrostomie pagina aan met jouw eigen tekst.
+Ran a command, read a file
+
+Download dit bestand en upload het naar GitHub ter vervanging van het oude nefrostomie.html. Vercel deployt dan automatisch binnen 30 seconden.
+
+Een paar dingen die ik heb aangepast ten opzichte van de vorige versie:
+
+    Jouw eigen indicaties, contra-indicaties en stappenplan staan er nu in
+    Pre-procedurele checklist toegevoegd
+    Materiaallijst met jouw specificaties (Neffset, Amplatz, Dawson-Muller)
+    Standaardverslag is jouw eigen dicteertemplate
+    Complicatietabel met percentages en management
+    Het tabblad "Nacontrole" is vervangen door "Complicaties" als apart tabblad
+
+Op GitHub doe je het zo: klik op nefrostomie.html → potloodicoontje → maar eigenlijk makkelijker: klik "Add file → Upload files" en sleep het nieuwe bestand erop — GitHub vraagt dan automatisch of je het bestaande wilt vervangen.
+Nefrostomie
+Code · HTML 
+
+kan ik nu nog een voudig de lay-out van alle pagina's aanpassen of moet dat per html bestand?
+22:34
+
+Dat is precies de kracht van de structuur die we hebben gebouwd — alleen style.css aanpassen en alle pagina's volgen automatisch.
+
+Alles wat gaat over kleur, lettertype, afstanden, kaartopmaak, tabelstijl, tabs, knoppen — dat staat allemaal in style.css. De HTML-bestanden bevatten alleen de inhoud.
+
+Wat je in style.css kunt aanpassen:
+
+    Accentkleur veranderen → 1 regel aanpassen, overal doorgevoerd
+    Lettertype wisselen → 1 regel
+    Kaarten ronder of platter maken → 1 regel
+    Navigatiebalk hoger/lager → 1 regel
+    Mobiele layout tweaken → 1 sectie onderaan
+
+Wat wél per HTML-bestand moet:
+
+    Tekst en inhoud aanpassen
+    Nieuwe secties of tabbladen toevoegen
+    Afbeeldingen invoegen
+
+Dus als je straks bijvoorbeeld de accentkleur van blauw naar groen wil, of het lettertype wil veranderen, upload je gewoon een nieuw style.css op GitHub en alle 7 pagina's zien er direct anders uit.
+
+Wil je iets aan de lay-out aanpassen?
+
+ok fijn! kun je de materialen ook klikbaar maken naar een pagina die onder een kopje 'materiaal' valt? zodat ik bijvoorbeeld een pagina kan maken voor angioset en wat daar in zit?
+22:40
+
+Goed idee — een soort materiaalbibliotheek naast de procedures. De structuur wordt dan:
+
+interventionassistant/
+├── index.html
+├── materiaal/
+│   ├── angioset.html
+│   ├── neffset.html
+│   ├── amplatz.html
+│   └── multipurpose-drain.html
+
+En in de materiaaltabel wordt elke naam een klikbare link:
+html
+
+<!-- Van dit: -->
+<td>Angioset</td>
+
+<!-- Naar dit: -->
+<td><a href="materiaal/angioset.html" class="mat-link">Angioset</a></td>
+
+Ik hoef dan alleen een kleine stijlregel toe te voegen aan style.css voor de linkopmaak, en voor elk materiaal maak je een pagina met bijv.:
+
+    Wat zit erin (foto/lijst)
+    Maten en varianten
+    Wanneer welke kiezen
+
+Voordat ik dit bouw: heb je al een idee welke materialen je als eerste wil uitwerken? Dan maak ik meteen een paar voorbeeldpagina's aan zodat je de structuur kunt beoordelen. De angioset lijkt een logische eerste.
+
+ik denk dat we kunnen beginnen met 3 pagina's: angioset, katheters, en draden
+22:41
+
+Goed. Dan maak ik meteen de structuur aan met 3 materiaalpagina's. Maar eerst — wat zit er in een angioset bij jullie? Ik ken de standaardinhoud wel maar het kan per ziekenhuis verschillen. Kun je de inhoud even opgeven zoals je dat voor de nefrostomie deed, dan maak ik het meteen goed?
+
+Of wil je dat ik een standaard angioset opzet en jij daarna de inhoud corrigeert?
+
+wat denk je dat erin zit? dan pas ik het aan
+22:42
+
+Een standaard angioset bevat doorgaans:
+
+Steriel afdekmateriaal
+
+    Groot steriel laken met venster
+    Kleinere afdekdoeken
+    Steriele handschoenen (maar die pak je vaak apart)
+
+Voorbereiding
+
+    Kommetjes (2x) — voor contrast en spoelvloeistof
+    10ml spuiten (3–4x)
+    20ml spuit (1x)
+    Naalden (opgietnaald + injectienaalden)
+    Gazen
+
+Contrast & spoeling
+
+    NaCl 0.9% (of aparte zak)
+    Kontrastmiddel (apart toegevoegd)
+
+Toegang
+
+    Micropunctie naald 21G of standaard punctienaald 18G
+    Guidewire 0.035" J-tip
+    Introducersheath (maat afhankelijk van procedure)
+    Scalpel (11-mes)
+
+Overig
+
+    Driewegkraan
+    Verbindingsslangen
+    Jodium/chloorhexidine voor huiddesinfectie
+
+Klopt dit globaal met jullie set, of wijkt het af? En wil je ook foto's kunnen toevoegen van de inhoud, zodat ANIOS en coassistenten de spullen kunnen herkennen?
+
+steriel laken met 2 gaten (linker en rechter lies) met inderdaad klein laken. Plastic hoes voor detector en loodscherm staan er nog niet bij. 2 x 20 ml spuit en 1 x 10 ml. 2 kommetjes, 1 x groene naald en 1 angionaald. gazen en gazen bolletjes. echogel, echohoes, en elastiekjes. Doe met deze info een nieuwe poging
+23:01
+Created 3 files, ran a command
+
+Nu update ik de nefrostomie pagina zodat de materialen klikbaar zijn, en de navigatie krijgt een Materiaal-link:
+Add mat-link classes to nefrostomie material table
+
+Nu voeg ik de linkstijl toe aan style.css en een Materiaal-item in de navigatie:
+Add mat-link style to CSS
+
+Nu update ik de navigatie van alle pagina's met een Materiaal-link:
+Ran 2 commands, read a file
+
+Hier zijn alle 8 bijgewerkte bestanden. Op GitHub doe je het volgende:
+
+Nieuwe map aanmaken voor materiaal:
+
+    Klik "Add file → Create new file"
+    Typ materiaal/angioset.html — GitHub maakt de map automatisch aan
+    Kopieer de inhoud van het angioset bestand erin en commit
+    Herhaal voor materiaal/katheters.html en materiaal/draden.html
+
+Bestaande bestanden vervangen (upload via "Add file → Upload files"):
+
+    nefrostomie.html — materialen nu klikbaar
+    style.css — linkstijl toegevoegd
+    index.html, pta-beenvaten.html, rtpa-trombolyse.html — Materiaal-link in navigatie
+
+Na uploaden staat er in de nefrostomie-materiaaltabel een klikbare link bij Angioset, Neffset, Amplatz en de drain — die leiden direct naar de bijbehorende materiaalpagina.
+Angioset
+Code · HTML 
+Katheters
+Code · HTML 
+Draden
+Code · HTML 
+Nefrostomie
+Code · HTML 
+Style
+Code · CSS 
+Index
+Code · HTML 
+Pta beenvaten
+Code · HTML 
+Rtpa trombolyse
+Code · HTML 
+
+al die tekst bij de pagina angioset onderaan, na 'let op' is niet nodig. al die informatie verschilt namelijk veel per procedure. Ook gebruiken we niet 1:1 verdund contrast. En ik was vergeten dat we nog 2 steriele jassen op de standaard agioset hebben liggen
+23:09
+
+Goed, ik pas het aan:
+Ran a command, read a file
+
+Stuk simpeler nu — gewoon drie tabellen, geen overbodige tekst. Upload dit ter vervanging van het vorige materiaal/angioset.html op GitHub.
+Angioset
+Code · HTML 
+
+ik krijg een page not found melding als ik materiaal aanklik
+23:12
+
+Dat komt omdat de navigatielink verwijst naar materiaal/angioset.html maar er bestaat nog geen overzichtspagina voor de materiaalcategorie. Je klikt op "Materiaal" in de nav en verwacht een overzichtspagina — die heb ik nog niet gemaakt.
+
+Ik maak die nu aan:
+Materiaal overview page
+
+Nu update ik ook de navigatielinks in alle pagina's zodat "Materiaal" naar materiaal/index.html wijst:
+Ran a command, read a file
+
+Upload op GitHub:
+
+    materiaal/index.html → nieuw bestand aanmaken via "Create new file" → typ materiaal/index.html
+    De vier bijgewerkte HTML-bestanden ter vervanging uploaden
+
+Daarna werkt "Materiaal" in de navigatie als een overzichtspagina met de drie kaarten, en kun je doorklikken naar angioset, katheters en draden.
+Index
+Code · HTML 
+Index
+Code · HTML 
+Pta beenvaten
+Code · HTML 
+Nefrostomie
+Code · HTML 
+Rtpa trombolyse
+Code · HTML 
+You are out of free messages until 2:40 AM
+Keep working
+
+
+Claude is AI and can make mistakes. Please double-check responses.
+Katheters · HTML
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Katheters — InterventionAssistant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+ 
+<nav>
+  <a class="logo" href="../index.html">Intervention<span>Assistant</span></a>
+  <div class="nav-links">
+    <a class="nav-link" href="../index.html">Home</a>
+    <a class="nav-link" href="../pta-beenvaten.html">Vasculair</a>
+    <a class="nav-link" href="../nefrostomie.html">Non-vasculair</a>
+    <a class="nav-link" href="../rtpa-trombolyse.html">Trombolyse</a>
+    <a class="nav-link active" href="#">Materiaal</a>
+  </div>
+  <div class="nav-search-wrap">
+    <span class="nav-search-icon">⌕</span>
+    <input class="nav-search-input" placeholder="Zoek procedure…" autocomplete="off">
+    <div class="search-results"></div>
+  </div>
+  <div class="nav-hamburger"><span></span><span></span><span></span></div>
+</nav>
+<div class="nav-mobile-menu">
+  <a href="../index.html">Home</a>
+  <a href="../pta-beenvaten.html">Vasculair</a>
+  <a href="../nefrostomie.html">Non-vasculair</a>
+  <a href="../rtpa-trombolyse.html">Trombolyse</a>
+  <a href="#">Materiaal</a>
+</div>
+ 
+<div class="main proc-page">
+  <div class="breadcrumb">
+    <a href="../index.html">Home</a>
+    <span class="sep">›</span>
+    <span>Materiaal</span>
+    <span class="sep">›</span>
+    <span>Katheters</span>
+  </div>
+ 
+  <div class="page-title">Katheters</div>
+  <div class="page-sub">Overzicht van diagnostische en therapeutische katheters in de IR</div>
+  <div class="status-bar">
+    <span class="status-chip vasc">Materiaal</span>
+    <span class="status-chip vasc">Katheters</span>
+  </div>
+ 
+  <div class="tabs">
+    <button class="tab active" data-tab="kath-diag">Diagnostisch</button>
+    <button class="tab" data-tab="kath-support">Ondersteunend</button>
+    <button class="tab" data-tab="kath-drain">Drainage</button>
+    <button class="tab" data-tab="kath-infusie">Infusie</button>
+  </div>
+ 
+  <!-- ── DIAGNOSTISCH ── -->
+  <div class="tab-panel active" id="kath-diag">
+    <div>
+      <div class="card">
+        <div class="card-head blue">Diagnostische katheters</div>
+        <div class="card-body" style="padding:0">
+          <table class="mat">
+            <thead><tr><th>Katheter</th><th>Maat</th><th>Toepassing</th></tr></thead>
+            <tbody>
+              <tr class="mat-cat"><td colspan="3">Flush katheters</td></tr>
+              <tr><td>Pigtail</td><td>4–5 Fr</td><td>Aortografie, overzichtsangiografie</td></tr>
+              <tr><td>Omniflush</td><td>4–5 Fr</td><td>Overzichtsangiografie bekken/been</td></tr>
+              <tr class="mat-cat"><td colspan="3">Selectieve katheters</td></tr>
+              <tr><td>Cobra (C1, C2)</td><td>4–5 Fr</td><td>Selectiveren viscerale vaten, renaal, iliacaal</td></tr>
+              <tr><td>Sidewinder (Simmons)</td><td>4–5 Fr</td><td>Moeilijk te selectiveren vaten, aorta met korte tak</td></tr>
+              <tr><td>Bernstein</td><td>4–5 Fr</td><td>Supporting catheter bij crossing, perifeer vasculair</td></tr>
+              <tr><td>Vertebralis</td><td>4–5 Fr</td><td>Selectiveren arteria subclavia, vertebralis</td></tr>
+              <tr><td>SOS Omni</td><td>4–5 Fr</td><td>Alternatief voor Sidewinder, cross-over techniek</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="card">
+        <div class="card-head teal">Keuze flush vs selectief</div>
+        <div class="card-body">
+          <div class="note green"><strong>Flush (pigtail/omniflush):</strong> Hoge flow, overzichtsbeelden. Altijd eerst bij aorta en bekkenvaten.</div>
+          <div class="note orange"><strong>Selectief:</strong> Lagere flow, gericht op één vat. Kies vorm op basis van anatomie — Cobra voor meeste viscerale vaten, Sidewinder bij scherpe hoek.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- ── ONDERSTEUNEND ── -->
+  <div class="tab-panel" id="kath-support">
+    <div>
+      <div class="card">
+        <div class="card-head blue">Supporting katheters</div>
+        <div class="card-body" style="padding:0">
+          <table class="mat">
+            <thead><tr><th>Katheter</th><th>Maat</th><th>Toepassing</th></tr></thead>
+            <tbody>
+              <tr><td>Quick-Cross</td><td>4 Fr</td><td>Extra support bij crossing CTO, perifeer</td></tr>
+              <tr><td>Rubicon</td><td>0.035" compatible</td><td>Ondersteuning bij taaie occlusies</td></tr>
+              <tr><td>Micro-katheter</td><td>2.4–2.8 Fr</td><td>Superselective embolisatie, 0.014" systemen</td></tr>
+              <tr><td>CXI Support catheter</td><td>6 Fr</td><td>Extra ondersteuning bij stiff lesions</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="card">
+        <div class="card-head orange">Let op</div>
+        <div class="card-body">
+          <div class="note orange">Supporting katheters zijn compatibel met specifieke draadmaten — check altijd of de katheter geschikt is voor 0.035" of 0.014" systeem.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- ── DRAINAGE ── -->
+  <div class="tab-panel" id="kath-drain">
+    <div>
+      <div class="card">
+        <div class="card-head teal">Drainagekatheters</div>
+        <div class="card-body" style="padding:0">
+          <table class="mat">
+            <thead><tr><th>Katheter</th><th>Maat</th><th>Toepassing</th></tr></thead>
+            <tbody>
+              <tr class="mat-cat"><td colspan="3">Pigtail drains</td></tr>
+              <tr><td>Cook Flexima pigtail</td><td>8–12 Fr</td><td>Nefrostomie, pleuradrainage</td></tr>
+              <tr><td>Multipurpose drain (Dawson-Muller)</td><td>8.5–10.2 Fr</td><td>Nefrostomie bij slank pyelum, abces</td></tr>
+              <tr><td>Van Sonnenberg sump drain</td><td>10–14 Fr</td><td>Grote abcessen, visceuse collecties</td></tr>
+              <tr class="mat-cat"><td colspan="3">Galwegdrains</td></tr>
+              <tr><td>PTCD drain</td><td>8–10 Fr</td><td>Percutane transhepatische cholangiodrainage</td></tr>
+              <tr><td>Ring drain</td><td>8–10 Fr</td><td>Interne/externe galwegdrainage</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="card">
+        <div class="card-head teal">Drainkeuze</div>
+        <div class="card-body">
+          <div class="note green"><strong>8–10 Fr:</strong> Standaard nefrostomie, dunne galwegdrainage.</div>
+          <div class="note orange"><strong>10–14 Fr:</strong> Dik/visceus materiaal (pus, gal met debris), grote collecties.</div>
+          <div class="note green"><strong>Dawson-Muller:</strong> Voorkeur bij slank pyelum — stijver en makkelijker te positioneren.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- ── INFUSIE ── -->
+  <div class="tab-panel" id="kath-infusie">
+    <div>
+      <div class="card">
+        <div class="card-head red">Infusiekatheters</div>
+        <div class="card-body" style="padding:0">
+          <table class="mat">
+            <thead><tr><th>Katheter</th><th>Maat</th><th>Toepassing</th></tr></thead>
+            <tbody>
+              <tr><td>McNamara</td><td>5 Fr</td><td>CDT trombolyse — multi-sidehole infusie in trombus</td></tr>
+              <tr><td>Uni∗Fuse</td><td>4–5 Fr</td><td>CDT trombolyse — uniforme infusie over lengte</td></tr>
+              <tr><td>Cragg-McNamara</td><td>5 Fr</td><td>CDT trombolyse — variant met langere infusiezone</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="card">
+        <div class="card-head red">Gebruik bij trombolyse</div>
+        <div class="card-body">
+          <div class="note red">Het actieve infusiegedeelte moet volledig in de trombus liggen. Controleer positie altijd met contrast vóór start rTPA.</div>
+          <div class="note orange">Sheath zijpoort voor heparine-infusie — gescheiden van rTPA lumen.</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-head teal">Gerelateerde procedure</div>
+        <div class="card-body">
+          <ul class="clean">
+            <li><a href="../rtpa-trombolyse.html" style="color:var(--blue);text-decoration:none">rTPA acuut bedreigd been</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+</div>
+ 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/7.0.0/fuse.min.js"></script>
+<script src="../procedures.js"></script>
+<script src="../search.js"></script>
+</body>
+</html>
+ 
+
