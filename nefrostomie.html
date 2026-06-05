@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Percutane Nefrostomie — InterventionAssistant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="index.html">Intervention<span>Assistant</span></a>
+  <div class="nav-links">
+    <a class="nav-link" href="index.html">Home</a>
+    <a class="nav-link" href="pta-beenvaten.html">Vasculair</a>
+    <a class="nav-link active" href="nefrostomie.html">Non-vasculair</a>
+    <a class="nav-link" href="rtpa-trombolyse.html">Trombolyse</a>
+    <span class="nav-link" style="opacity:0.4;cursor:default">Oncologie</span>
+  </div>
+  <div class="nav-search-wrap">
+    <span class="nav-search-icon">⌕</span>
+    <input class="nav-search-input" placeholder="Zoek procedure…" autocomplete="off">
+    <div class="search-results"></div>
+  </div>
+  <div class="nav-hamburger"><span></span><span></span><span></span></div>
+</nav>
+<div class="nav-mobile-menu">
+  <a href="index.html">Home</a>
+  <a href="pta-beenvaten.html">Vasculair</a>
+  <a href="nefrostomie.html">Non-vasculair</a>
+  <a href="rtpa-trombolyse.html">Trombolyse</a>
+</div>
+
+<div class="main proc-page">
+  <div class="breadcrumb">
+    <a href="index.html">Home</a>
+    <span class="sep">›</span>
+    <span>Non-vasculair</span>
+    <span class="sep">›</span>
+    <span>Percutane nefrostomie</span>
+  </div>
+
+  <div class="page-title">Percutane Nefrostomie</div>
+  <div class="page-sub">Echo- en doorlichtingsgeleide drainage van het nierbekken</div>
+  <div class="status-bar">
+    <span class="status-chip nonvasc">Non-vasculair</span>
+    <span class="status-chip nonvasc">Urologie</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" data-tab="nefro-proc">Procedure</button>
+    <button class="tab" data-tab="nefro-mat">Materiaal</button>
+    <button class="tab" data-tab="nefro-vers">Standaardverslag</button>
+    <button class="tab" data-tab="nefro-nac">Nacontrole</button>
+  </div>
+
+  <!-- Procedure -->
+  <div class="tab-panel active" id="nefro-proc">
+    <div>
+      <div class="card">
+        <div class="card-head teal">Indicaties</div>
+        <div class="card-body">
+          <ul class="clean">
+            <li><strong>Obstructieve uropathie</strong> — urolithiasis, tumor, postoperatief</li>
+            <li><strong>Geïnfecteerde hydronefrose</strong> — sepsis door obstructie (spoedprocedure)</li>
+            <li><strong>Toegang</strong> voor PCNL of ureteroscopie</li>
+            <li><strong>Urinelek / fistel</strong> bij insufficiënte interne drainage</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-head teal">Techniek stap voor stap</div>
+        <div class="card-body">
+          <ol class="steps">
+            <li><div class="sn teal">1</div><div><strong>Positie:</strong> Prone of oblique decubitus aangedane zijde. Pillow onder buik voor lordoseafvlakking.</div></li>
+            <li><div class="sn teal">2</div><div><strong>Echogeleiding:</strong> Identificeer nierbekken + kelken. Kies posterieure onderste/middelste kelk. Vermijd anterieur (colonrisico).</div></li>
+            <li><div class="sn teal">3</div><div><strong>LA + incisie:</strong> Lidocaïne 2% tot niercapsule. Kleine incisie 11-scalpel.</div></li>
+            <li><div class="sn teal">4</div><div><strong>Punctie:</strong> 18G trocar of 21G micropunctie. Real-time echo. Bevestig: urine aspiratie + contrast onder scopie.</div></li>
+            <li><div class="sn teal">5</div><div><strong>Wire:</strong> Amplatz Super Stiff 0.035", coil in nierbekken. Naald verwijderen.</div></li>
+            <li><div class="sn teal">6</div><div><strong>Dilatatie tractus:</strong> 8–10Fr fascial dilatatoren over guidewire.</div></li>
+            <li><div class="sn teal">7</div><div><strong>Catheter:</strong> 8–10Fr pigtail (Cook Flexima). Curl correct in nierbekken. Controle met contrast.</div></li>
+            <li><div class="sn teal">8</div><div><strong>Fixatie:</strong> Nylon 2-0 + Stat-Lock. Verbind gesloten drainagesysteem.</div></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="card">
+        <div class="card-head red">⚠ Aandachtspunten</div>
+        <div class="card-body">
+          <div class="note red"><strong>Sepsis:</strong> Geïnfecteerde hydronefrose = spoedprocedure. AB voor aanvang. Minimale manipulatie.</div>
+          <div class="note orange"><strong>Stolling:</strong> INR &lt;1.5, trombo &gt;50 voor electief.</div>
+          <div class="note green"><strong>Niet-gedilateerd:</strong> Furosemide 20mg iv of retrograde contrast via uroloog.</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-head teal">Anatomische valkuilen</div>
+        <div class="card-body">
+          <ul class="clean">
+            <li>Posterieure ingang vermijdt colonletsel</li>
+            <li>Onderste pool: minste pleuraal risico</li>
+            <li>Let op retrorenaal colon (4% bevolking)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Materiaal -->
+  <div class="tab-panel full" id="nefro-mat">
+    <div class="card">
+      <div class="card-head teal">Materiaallijst — Percutane Nefrostomie</div>
+      <div class="card-body" style="padding:0">
+        <table class="mat">
+          <thead><tr><th>Materiaal</th><th>Specificatie</th><th>Opmerking</th></tr></thead>
+          <tbody>
+            <tr class="mat-cat"><td colspan="3">Punctie</td></tr>
+            <tr><td>Punctienaald</td><td>18G trocar of 21G micropunctie</td><td>Micropunctie bij hoog risico</td></tr>
+            <tr><td>Echosonde</td><td>Convex 3.5–5 MHz, steriele hoes</td><td></td></tr>
+            <tr class="mat-cat"><td colspan="3">Seldinger / Dilatatie</td></tr>
+            <tr><td>Guidewire</td><td>Amplatz Super Stiff 0.035" 150cm</td><td>Coil in nierbekken</td></tr>
+            <tr><td>Dilatatoren</td><td>6–8–10Fr fascial</td><td>Stapsgewijs over wire</td></tr>
+            <tr class="mat-cat"><td colspan="3">Catheter & Fixatie</td></tr>
+            <tr><td>Nefrostomie catheter</td><td>Cook Flexima 8Fr of 10Fr pigtail</td><td>10Fr bij infectie/visceus</td></tr>
+            <tr><td>Drainagesysteem</td><td>Gesloten systeem + opvangzak</td><td>Direct post-procedure verbinden</td></tr>
+            <tr><td>Fixatie</td><td>Nylon 2-0 + Stat-Lock</td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Standaardverslag -->
+  <div class="tab-panel full" id="nefro-vers">
+    <div class="card">
+      <div class="card-head purple">Standaardverslag — Percutane Nefrostomie</div>
+      <div class="card-body">
+        <div class="verslag">INTERVENTIERADIOLOGIE — PROCEDURE VERSLAG
+
+Datum:       [DATUM]
+Patiënt:     [NAAM], [GEB.DATUM]
+Uitvoerend:  [NAAM ARTS]
+
+INDICATIE:
+[Obstructieve uropathie / geïnfecteerde hydronefrose] [rechts/links] op basis van
+[urolithiasis / tumorcompressie / postoperatief]. Sepsis: [ja/nee].
+
+PROCEDURE:
+Patiënt in [prone / oblique] positie. Na LA lidocaïne 2% werd onder echogeleiding
+de [onderste / middelste] kelk van de [rechter/linker] nier gepuncteerd met
+[18G trocar / 21G micropunctienaald].
+
+Aspiratie [heldere / troebele / purulente] urine. Intrapositie bevestigd
+met contrastinjectie. Amplatz Super Stiff wire ingebracht, coil in nierbekken.
+
+Dilatatie tractus [6–8–10Fr]. [8Fr / 10Fr] Cook Flexima nefrostomie catheter
+correct geplaatst, pigtail in nierbekken bevestigd met contrast.
+
+Gefixeerd nylon 2-0 + Stat-Lock. Verbonden gesloten drainagesysteem.
+Initiaal [__] ml [helder/troebel] urine afgevloeid. Geen bloeding/extravasaat.
+
+CONCLUSIE:
+Technisch succesvolle [rechter/linker] percutane nefrostomie [8Fr/10Fr].
+
+NACONTROLE:
+Controle positie catheter dag 1. Wisseling 6–8 weken.
+Verdere planning via urologie.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Nacontrole -->
+  <div class="tab-panel" id="nefro-nac">
+    <div>
+      <div class="card">
+        <div class="card-head red">Complicaties</div>
+        <div class="card-body">
+          <ul class="clean">
+            <li><strong>Bloeding:</strong> Perirenal hematoom (conservatief); ernstig → embolisatie</li>
+            <li><strong>Sepsis:</strong> AB pre-procedure essentieel bij infectieuze oorzaak</li>
+            <li><strong>Accidentele verwijdering:</strong> Fixeer goed, re-punctie kan moeilijk zijn</li>
+            <li><strong>Colonpunctie:</strong> Zeldzaam — kies juiste ingangsroute</li>
+            <li><strong>Urinom:</strong> Extravasaat → observatie of drainage</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="card">
+        <div class="card-head teal">Catheter management</div>
+        <div class="card-body">
+          <ul class="clean">
+            <li>Spoelen: 5–10ml NaCl 0.9% 2–3x/dag</li>
+            <li>Wisselen: elke 6–8 weken</li>
+            <li>Hematurie of troebel: alarmteken</li>
+            <li>Zak: dagelijks legen</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/7.0.0/fuse.min.js"></script>
+<script src="procedures.js"></script>
+<script src="search.js"></script>
+</body>
+</html>

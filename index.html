@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InterventionAssistant — Proceduregids Interventieradiologie</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ── NAVIGATIE ── -->
+<nav>
+  <a class="logo" href="index.html">Intervention<span>Assistant</span></a>
+
+  <div class="nav-links">
+    <a class="nav-link active" href="index.html">Home</a>
+    <a class="nav-link" href="pta-beenvaten.html">Vasculair</a>
+    <a class="nav-link" href="nefrostomie.html">Non-vasculair</a>
+    <a class="nav-link" href="rtpa-trombolyse.html">Trombolyse</a>
+    <span class="nav-link" style="opacity:0.4;cursor:default">Oncologie</span>
+  </div>
+
+  <div class="nav-search-wrap">
+    <span class="nav-search-icon">⌕</span>
+    <input class="nav-search-input" placeholder="Zoek procedure…" autocomplete="off">
+    <div class="search-results"></div>
+  </div>
+
+  <div class="nav-hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- Mobiel menu -->
+<div class="nav-mobile-menu">
+  <a href="index.html">Home</a>
+  <a href="pta-beenvaten.html">Vasculair</a>
+  <a href="nefrostomie.html">Non-vasculair</a>
+  <a href="rtpa-trombolyse.html">Trombolyse</a>
+</div>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <h1>Interventie<span>Assistant</span></h1>
+  <p>Praktische proceduregids voor de interventieradioloog<br>Materiaallijsten · Techniek · Standaardverslagen</p>
+  <div style="position:relative; max-width:420px; margin:0 auto;">
+    <div class="hero-search-bar">
+      <input placeholder="Zoek procedure, bijv. 'nefrostomie' of 'PTA'…" autocomplete="off">
+      <button>Zoek →</button>
+    </div>
+    <div class="hero-results search-results"></div>
+  </div>
+</div>
+
+<!-- ── CONTENT ── -->
+<div class="main">
+
+  <div class="cat-pills">
+    <span class="cat-pill vasc">🩸 Vasculair</span>
+    <span class="cat-pill nonvasc">🫀 Non-vasculair</span>
+    <span class="cat-pill thrombo">⚡ Trombolyse</span>
+    <span class="cat-pill onco">🎯 Oncologie</span>
+  </div>
+
+  <div class="proc-grid">
+
+    <!-- Vasculair -->
+    <div class="proc-card">
+      <div class="proc-card-head">
+        <div class="proc-icon vasc">🩸</div>
+        <div>
+          <div class="proc-card-title">Vasculaire Procedures</div>
+          <div class="proc-card-sub">Perifeer · Iliacaal · Visceraal</div>
+        </div>
+      </div>
+      <div class="proc-list">
+        <a class="proc-list-item" href="pta-beenvaten.html">PTA ± stent beenvaten <span class="proc-arrow">›</span></a>
+        <a class="proc-list-item" href="pta-beenvaten.html">PTA ± stent iliacale vaten <span class="proc-arrow">›</span></a>
+        <a class="proc-list-item" href="pta-beenvaten.html">PTA viscerale vaten <span class="proc-arrow">›</span></a>
+        <a class="proc-list-item" href="#">TIPS plaatsing <span class="proc-arrow" style="color:var(--muted);font-size:0.7rem">binnenkort</span></a>
+      </div>
+    </div>
+
+    <!-- Non-vasculair -->
+    <div class="proc-card">
+      <div class="proc-card-head">
+        <div class="proc-icon nonvasc">🫀</div>
+        <div>
+          <div class="proc-card-title">Non-vasculaire Procedures</div>
+          <div class="proc-card-sub">Drainage · Biopsie · Galwegen</div>
+        </div>
+      </div>
+      <div class="proc-list">
+        <a class="proc-list-item" href="nefrostomie.html">Percutane nefrostomie <span class="proc-arrow">›</span></a>
+        <a class="proc-list-item" href="nefrostomie.html">Abcesdrainage <span class="proc-arrow">›</span></a>
+        <a class="proc-list-item" href="nefrostomie.html">PTCD galwegdrainage <span class="proc-arrow">›</span></a>
+        <a class="proc-list-item" href="nefrostomie.html">Biopsie (lever / long / nier) <span class="proc-arrow">›</span></a>
+      </div>
+    </div>
+
+    <!-- Trombolyse -->
+    <div class="proc-card urgent">
+      <div class="proc-card-head">
+        <div class="proc-icon thrombo">⚡</div>
+        <div>
+          <div class="proc-card-title">Trombolyse & Acute IR</div>
+          <div class="proc-card-sub">CDT · Trombectomie · PERT</div>
+        </div>
+      </div>
+      <div class="proc-list">
+        <a class="proc-list-item" href="rtpa-trombolyse.html">rTPA acuut bedreigd been <span class="badge">URGENT</span></a>
+        <a class="proc-list-item" href="rtpa-trombolyse.html">CDT diep veneuze trombose <span class="proc-arrow">›</span></a>
+        <a class="proc-list-item" href="rtpa-trombolyse.html">Mechanische trombectomie <span class="proc-arrow">›</span></a>
+        <a class="proc-list-item" href="#">Longembolie (PERT) <span class="proc-arrow" style="color:var(--muted);font-size:0.7rem">binnenkort</span></a>
+      </div>
+    </div>
+
+    <!-- Oncologie -->
+    <div class="proc-card">
+      <div class="proc-card-head">
+        <div class="proc-icon onco">🎯</div>
+        <div>
+          <div class="proc-card-title">Interventionele Oncologie</div>
+          <div class="proc-card-sub">Ablatie · Embolisatie · TACE</div>
+        </div>
+      </div>
+      <div class="proc-list">
+        <a class="proc-list-item" href="#">TACE / SIRT <span class="proc-arrow" style="color:var(--muted);font-size:0.7rem">binnenkort</span></a>
+        <a class="proc-list-item" href="#">Micro-ablatie (RFA / MWA) <span class="proc-arrow" style="color:var(--muted);font-size:0.7rem">binnenkort</span></a>
+        <a class="proc-list-item" href="#">UFE — uterusfibroom embolisatie <span class="proc-arrow" style="color:var(--muted);font-size:0.7rem">binnenkort</span></a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/7.0.0/fuse.min.js"></script>
+<script src="procedures.js"></script>
+<script src="search.js"></script>
+
+</body>
+</html>
