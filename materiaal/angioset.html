@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Angioset — InterventionAssistant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="../index.html">Intervention<span>Assistant</span></a>
+  <div class="nav-links">
+    <a class="nav-link" href="../index.html">Home</a>
+    <a class="nav-link" href="../pta-beenvaten.html">Vasculair</a>
+    <a class="nav-link" href="../nefrostomie.html">Non-vasculair</a>
+    <a class="nav-link" href="../rtpa-trombolyse.html">Trombolyse</a>
+    <a class="nav-link active" href="#">Materiaal</a>
+  </div>
+  <div class="nav-search-wrap">
+    <span class="nav-search-icon">⌕</span>
+    <input class="nav-search-input" placeholder="Zoek procedure…" autocomplete="off">
+    <div class="search-results"></div>
+  </div>
+  <div class="nav-hamburger"><span></span><span></span><span></span></div>
+</nav>
+<div class="nav-mobile-menu">
+  <a href="../index.html">Home</a>
+  <a href="../pta-beenvaten.html">Vasculair</a>
+  <a href="../nefrostomie.html">Non-vasculair</a>
+  <a href="../rtpa-trombolyse.html">Trombolyse</a>
+  <a href="#">Materiaal</a>
+</div>
+
+<div class="main proc-page">
+  <div class="breadcrumb">
+    <a href="../index.html">Home</a>
+    <span class="sep">›</span>
+    <span>Materiaal</span>
+    <span class="sep">›</span>
+    <span>Angioset</span>
+  </div>
+
+  <div class="page-title">Angioset</div>
+  <div class="page-sub">Standaard steriele basisset voor vasculaire en non-vasculaire interventies</div>
+  <div class="status-bar">
+    <span class="status-chip vasc">Materiaal</span>
+    <span class="status-chip vasc">Basisset</span>
+  </div>
+
+  <div class="card">
+    <div class="card-head blue">Steriel afdekmateriaal</div>
+    <div class="card-body" style="padding:0">
+      <table class="mat">
+        <thead><tr><th>Materiaal</th><th>Specificatie</th><th>Aantal</th></tr></thead>
+        <tbody>
+          <tr><td>Steriel laken</td><td>Groot, met 2 gaten (linker en rechter lies)</td><td>1</td></tr>
+          <tr><td>Steriel afdeklaken</td><td>Klein</td><td>1</td></tr>
+          <tr><td>Steriele jas</td><td>Standaard</td><td>2</td></tr>
+          <tr><td>Plastic hoes detector</td><td>Standaard</td><td>1</td></tr>
+          <tr><td>Plastic hoes loodscherm</td><td>Standaard</td><td>1</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head blue">Spuiten & naalden</div>
+    <div class="card-body" style="padding:0">
+      <table class="mat">
+        <thead><tr><th>Materiaal</th><th>Specificatie</th><th>Aantal</th></tr></thead>
+        <tbody>
+          <tr><td>Spuit</td><td>20 ml</td><td>2</td></tr>
+          <tr><td>Spuit</td><td>10 ml</td><td>1</td></tr>
+          <tr><td>Groene naald</td><td>21G</td><td>1</td></tr>
+          <tr><td>Angionaald</td><td>Standaard</td><td>1</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head blue">Overig</div>
+    <div class="card-body" style="padding:0">
+      <table class="mat">
+        <thead><tr><th>Materiaal</th><th>Specificatie</th><th>Aantal</th></tr></thead>
+        <tbody>
+          <tr><td>Kommetje</td><td>Standaard</td><td>2</td></tr>
+          <tr><td>Gazen</td><td>Standaard</td><td>Meerdere</td></tr>
+          <tr><td>Gazen bolletjes</td><td>Standaard</td><td>Meerdere</td></tr>
+          <tr><td>Echogel</td><td>Steriel</td><td>1</td></tr>
+          <tr><td>Echohoes</td><td>Steriel</td><td>1</td></tr>
+          <tr><td>Elastiekjes</td><td>Voor echohoes</td><td>2</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/7.0.0/fuse.min.js"></script>
+<script src="../procedures.js"></script>
+<script src="../search.js"></script>
+</body>
+</html>
