@@ -655,3 +655,17 @@ table.mat tr:hover td { background: var(--surface2); }
   .proc-card-head { padding: 0.85rem 1rem; }
   .proc-list-item { padding: 0.55rem 1rem; font-size: 0.8rem; }
 }
+
+/* ── MATERIAAL LINKS IN TABELLEN ── */
+a.mat-link {
+  color: var(--blue);
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(77,159,255,0.3);
+  transition: border-color 0.15s, color 0.15s;
+}
+
+a.mat-link:hover {
+  color: var(--teal);
+  border-color: var(--teal);
+}
