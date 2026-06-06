@@ -5,143 +5,165 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>InterventionAssistant — Proceduregids Interventieradiologie</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- ── NAVIGATIE ── -->
+<!-- ── NAV ── -->
 <nav>
   <a class="logo" href="index.html">Intervention<span>Assistant</span></a>
 
-  <div class="nav-links">
-    <a class="nav-link active" href="index.html">Home</a>
-    <a class="nav-link" href="vasculair/pta-beenvaten.html">Vasculair</a>
-    <a class="nav-link" href="non-vasculair/nefrostomie.html">Non-vasculair</a>
-    <a class="nav-link" href="trombolyse/rtpa-trombolyse.html">Trombolyse</a>
-    <a class="nav-link" href="materiaal/index.html">Materiaal</a>
-    <a class="nav-link" href="mdo/index.html">MDO</a>
-    <span class="nav-link" style="opacity:0.4;cursor:default">Oncologie</span>
+  <div class="nav-item">
+    <button class="nav-btn" onclick="toggleDropdown('dd-vasc')">Vasculair <span class="chevron">▾</span></button>
+    <div class="dropdown" id="dd-vasc">
+      <div class="dropdown-item" onclick="window.location='vasculair/pta-beenvaten.html'"><span class="dropdown-dot vasc"></span>PTA ± stent beenvaten</div>
+      <div class="dropdown-item" onclick="window.location='vasculair/rtpa-trombolyse.html'"><span class="dropdown-dot vasc"></span>rTPA acuut bedreigd been <span class="dropdown-badge">URGENT</span></div>
+    </div>
+  </div>
+
+  <div class="nav-item">
+    <button class="nav-btn" onclick="toggleDropdown('dd-nonvasc')">Non-vasculair <span class="chevron">▾</span></button>
+    <div class="dropdown" id="dd-nonvasc">
+      <div class="dropdown-item" onclick="window.location='non-vasculair/nefrostomie.html'"><span class="dropdown-dot nonvasc"></span>Percutane nefrostomie</div>
+      <div class="dropdown-item" style="color:var(--muted);cursor:default"><span class="dropdown-dot nonvasc" style="opacity:0.3"></span>Abcesdrainage <span style="font-size:0.68rem;margin-left:auto">binnenkort</span></div>
+      <div class="dropdown-item" style="color:var(--muted);cursor:default"><span class="dropdown-dot nonvasc" style="opacity:0.3"></span>PTCD <span style="font-size:0.68rem;margin-left:auto">binnenkort</span></div>
+    </div>
+  </div>
+
+  <div class="nav-item">
+    <button class="nav-btn" onclick="toggleDropdown('dd-mdo')">MDO <span class="chevron">▾</span></button>
+    <div class="dropdown" id="dd-mdo">
+      <div class="dropdown-item" onclick="window.location='mdo/shunt-mdo.html'"><span class="dropdown-dot" style="background:#6040a0"></span>Shunt MDO</div>
+      <div class="dropdown-item" style="color:var(--muted);cursor:default"><span class="dropdown-dot" style="background:#6040a0;opacity:0.3"></span>Vaatchirurgie MDO <span style="font-size:0.68rem;margin-left:auto">binnenkort</span></div>
+    </div>
+  </div>
+
+  <div class="nav-item">
+    <button class="nav-btn" onclick="toggleDropdown('dd-mat')">Materiaal <span class="chevron">▾</span></button>
+    <div class="dropdown" id="dd-mat">
+      <div class="dropdown-item" onclick="window.location='materiaal/index.html'"><span class="dropdown-dot mat"></span>Overzicht materiaal</div>
+      <div class="dropdown-item" onclick="window.location='materiaal/angioset.html'"><span class="dropdown-dot mat"></span>Angioset</div>
+      <div class="dropdown-item" onclick="window.location='materiaal/katheters.html'"><span class="dropdown-dot mat"></span>Katheters</div>
+      <div class="dropdown-item" onclick="window.location='materiaal/draden.html'"><span class="dropdown-dot mat"></span>Draden</div>
+    </div>
+  </div>
+
+  <div class="nav-item">
+    <button class="nav-btn" style="opacity:0.4;cursor:default">Oncologie</button>
   </div>
 
   <div class="nav-search-wrap">
-    <span class="nav-search-icon">⌕</span>
-    <input class="nav-search-input" placeholder="Zoek procedure…" autocomplete="off">
+    <input class="nav-search-input" placeholder="⌕ Zoek procedure…" autocomplete="off">
     <div class="search-results"></div>
   </div>
-
-  <div class="nav-hamburger">
-    <span></span><span></span><span></span>
-  </div>
 </nav>
-
-<!-- Mobiel menu -->
-<div class="nav-mobile-menu">
-  <a href="index.html">Home</a>
-  <a href="vasculair/pta-beenvaten.html">Vasculair</a>
-  <a href="non-vasculair/nefrostomie.html">Non-vasculair</a>
-  <a href="trombolyse/rtpa-trombolyse.html">Trombolyse</a>
-</div>
 
 <!-- ── HERO ── -->
 <div class="hero">
   <h1>Interventie<span>Assistant</span></h1>
   <p>Praktische proceduregids voor de interventieradioloog<br>Materiaallijsten · Techniek · Standaardverslagen</p>
-  <div style="position:relative; max-width:420px; margin:0 auto;">
-    <div class="hero-search-bar">
-      <input placeholder="Zoek procedure, bijv. 'nefrostomie' of 'PTA'…" autocomplete="off">
-      <button>Zoek →</button>
-    </div>
+  <div class="hero-search">
+    <input placeholder="Zoek procedure, bijv. 'nefrostomie' of 'PTA'…" autocomplete="off">
+    <button>Zoek →</button>
     <div class="hero-results search-results"></div>
   </div>
 </div>
 
 <!-- ── CONTENT ── -->
 <div class="main">
-
-  <div class="cat-pills">
-    <span class="cat-pill vasc">🩸 Vasculair</span>
-    <span class="cat-pill nonvasc">🫀 Non-vasculair</span>
-    <span class="cat-pill thrombo">⚡ Trombolyse</span>
-    <span class="cat-pill onco">🎯 Oncologie</span>
-  </div>
-
   <div class="proc-grid">
 
     <!-- Vasculair -->
-    <div class="proc-card">
+    <div class="proc-card" onclick="window.location='vasculair/pta-beenvaten.html'">
+      <div class="proc-card-stripe vasc"></div>
       <div class="proc-card-head">
-        <div class="proc-icon vasc">🩸</div>
+        <div class="proc-icon" style="background:#ddeaf7">🩸</div>
         <div>
           <div class="proc-card-title">Vasculaire Procedures</div>
           <div class="proc-card-sub">Perifeer · Iliacaal · Visceraal</div>
         </div>
       </div>
       <div class="proc-list">
-        <a class="proc-list-item" href="vasculair/pta-beenvaten.html">PTA ± stent beenvaten <span class="proc-arrow">›</span></a>
-        <a class="proc-list-item" href="vasculair/pta-beenvaten.html">PTA ± stent iliacale vaten <span class="proc-arrow">›</span></a>
-        <a class="proc-list-item" href="vasculair/pta-beenvaten.html">PTA viscerale vaten <span class="proc-arrow">›</span></a>
-        <a class="proc-list-item" href="#">TIPS plaatsing <span class="proc-arrow" style="color:var(--muted);font-size:0.7rem">binnenkort</span></a>
+        <div class="proc-list-item" onclick="event.stopPropagation();window.location='vasculair/pta-beenvaten.html'">PTA ± stent beenvaten <span class="proc-list-arr">›</span></div>
+        <div class="proc-list-item" onclick="event.stopPropagation();window.location='vasculair/pta-beenvaten.html'">PTA ± stent iliacale vaten <span class="proc-list-arr">›</span></div>
+        <div class="proc-list-item" onclick="event.stopPropagation();window.location='vasculair/rtpa-trombolyse.html'">rTPA acuut bedreigd been <span class="proc-list-urgent">URGENT</span></div>
+        <div class="proc-list-item" style="color:var(--muted)">TIPS plaatsing <span style="font-size:0.68rem">binnenkort</span></div>
       </div>
     </div>
 
     <!-- Non-vasculair -->
-    <div class="proc-card">
+    <div class="proc-card" onclick="window.location='non-vasculair/nefrostomie.html'">
+      <div class="proc-card-stripe nonvasc"></div>
       <div class="proc-card-head">
-        <div class="proc-icon nonvasc">🫀</div>
+        <div class="proc-icon" style="background:#d4eeee">🫀</div>
         <div>
           <div class="proc-card-title">Non-vasculaire Procedures</div>
           <div class="proc-card-sub">Drainage · Biopsie · Galwegen</div>
         </div>
       </div>
       <div class="proc-list">
-        <a class="proc-list-item" href="non-vasculair/nefrostomie.html">Percutane nefrostomie <span class="proc-arrow">›</span></a>
-        <a class="proc-list-item" href="non-vasculair/nefrostomie.html">Abcesdrainage <span class="proc-arrow">›</span></a>
-        <a class="proc-list-item" href="non-vasculair/nefrostomie.html">PTCD galwegdrainage <span class="proc-arrow">›</span></a>
-        <a class="proc-list-item" href="non-vasculair/nefrostomie.html">Biopsie (lever / long / nier) <span class="proc-arrow">›</span></a>
+        <div class="proc-list-item" onclick="event.stopPropagation();window.location='non-vasculair/nefrostomie.html'">Percutane nefrostomie <span class="proc-list-arr">›</span></div>
+        <div class="proc-list-item" style="color:var(--muted)">Abcesdrainage <span style="font-size:0.68rem">binnenkort</span></div>
+        <div class="proc-list-item" style="color:var(--muted)">PTCD galwegdrainage <span style="font-size:0.68rem">binnenkort</span></div>
+        <div class="proc-list-item" style="color:var(--muted)">Biopsie (lever / long / nier) <span style="font-size:0.68rem">binnenkort</span></div>
       </div>
     </div>
 
-    <!-- Trombolyse -->
-    <div class="proc-card urgent">
+    <!-- MDO -->
+    <div class="proc-card" onclick="window.location='mdo/index.html'">
+      <div class="proc-card-stripe" style="background:#6040a0"></div>
       <div class="proc-card-head">
-        <div class="proc-icon thrombo">⚡</div>
+        <div class="proc-icon" style="background:#ece8f7">🔗</div>
         <div>
-          <div class="proc-card-title">Trombolyse & Acute IR</div>
-          <div class="proc-card-sub">CDT · Trombectomie · PERT</div>
+          <div class="proc-card-title">MDO Besprekingen</div>
+          <div class="proc-card-sub">Shunt · Vaatchirurgie</div>
         </div>
       </div>
       <div class="proc-list">
-        <a class="proc-list-item" href="trombolyse/rtpa-trombolyse.html">rTPA acuut bedreigd been <span class="badge">URGENT</span></a>
-        <a class="proc-list-item" href="trombolyse/rtpa-trombolyse.html">CDT diep veneuze trombose <span class="proc-arrow">›</span></a>
-        <a class="proc-list-item" href="trombolyse/rtpa-trombolyse.html">Mechanische trombectomie <span class="proc-arrow">›</span></a>
-        <a class="proc-list-item" href="#">Longembolie (PERT) <span class="proc-arrow" style="color:var(--muted);font-size:0.7rem">binnenkort</span></a>
+        <div class="proc-list-item" onclick="event.stopPropagation();window.location='mdo/shunt-mdo.html'">Shunt MDO <span class="proc-list-arr">›</span></div>
+        <div class="proc-list-item" style="color:var(--muted)">Vaatchirurgie MDO <span style="font-size:0.68rem">binnenkort</span></div>
       </div>
     </div>
 
     <!-- Oncologie -->
-    <div class="proc-card">
+    <div class="proc-card" style="opacity:0.6;cursor:default">
+      <div class="proc-card-stripe onco"></div>
       <div class="proc-card-head">
-        <div class="proc-icon onco">🎯</div>
+        <div class="proc-icon" style="background:#ece8f7">🎯</div>
         <div>
           <div class="proc-card-title">Interventionele Oncologie</div>
           <div class="proc-card-sub">Ablatie · Embolisatie · TACE</div>
         </div>
       </div>
       <div class="proc-list">
-        <a class="proc-list-item" href="#">TACE / SIRT <span class="proc-arrow" style="color:var(--muted);font-size:0.7rem">binnenkort</span></a>
-        <a class="proc-list-item" href="#">Micro-ablatie (RFA / MWA) <span class="proc-arrow" style="color:var(--muted);font-size:0.7rem">binnenkort</span></a>
-        <a class="proc-list-item" href="#">UFE — uterusfibroom embolisatie <span class="proc-arrow" style="color:var(--muted);font-size:0.7rem">binnenkort</span></a>
+        <div class="proc-list-item" style="color:var(--muted)">TACE / SIRT <span style="font-size:0.68rem">binnenkort</span></div>
+        <div class="proc-list-item" style="color:var(--muted)">Micro-ablatie (RFA / MWA) <span style="font-size:0.68rem">binnenkort</span></div>
+        <div class="proc-list-item" style="color:var(--muted)">UFE <span style="font-size:0.68rem">binnenkort</span></div>
       </div>
     </div>
 
   </div>
 </div>
 
-<!-- Scripts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/7.0.0/fuse.min.js"></script>
 <script src="procedures.js"></script>
 <script src="search.js"></script>
-
+<script>
+function toggleDropdown(id) {
+  const dd = document.getElementById(id);
+  const btn = dd.previousElementSibling;
+  const isOpen = dd.classList.contains('open');
+  document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('open'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('open'));
+  if (!isOpen) { dd.classList.add('open'); btn.classList.add('open'); }
+}
+document.addEventListener('click', e => {
+  if (!e.target.closest('.nav-item')) {
+    document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('open'));
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('open'));
+  }
+});
+</script>
 </body>
 </html>
