@@ -633,3 +633,115 @@ a.mat-link:hover { color: var(--teal); border-color: var(--teal); }
   .proc-header h1 { font-size: 1.2rem; }
   .accordion.open .acc-inner-split { padding: 0.75rem; }
 }
+
+/* ── ZOEKBALK IN NAV ── */
+.nav-search-wrap {
+  margin-left: auto;
+  position: relative;
+}
+
+.nav-search-input {
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  padding: 0.32rem 0.9rem 0.32rem 0.9rem;
+  font-size: 0.78rem;
+  color: var(--text);
+  font-family: 'Nunito Sans', sans-serif;
+  width: 200px;
+  outline: none;
+  transition: border-color 0.15s, width 0.2s;
+  cursor: text;
+}
+
+.nav-search-input:focus {
+  border-color: var(--blue);
+  width: 260px;
+}
+
+.nav-search-input::placeholder { color: var(--muted); }
+
+/* ── ZOEKRESULTATEN DROPDOWN ── */
+.search-results {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  width: 320px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  display: none;
+  z-index: 400;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+
+.search-results.open { display: block; }
+
+.search-result-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid #eef0f4;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.12s;
+}
+
+.search-result-item:last-child { border-bottom: none; }
+.search-result-item:hover { background: var(--blue-light); }
+
+.search-result-name {
+  font-size: 0.855rem;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.search-result-cat {
+  font-size: 0.72rem;
+  color: var(--muted);
+  margin-top: 0.1rem;
+}
+
+.search-result-tag {
+  margin-left: auto;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 0.15rem 0.45rem;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.search-result-tag.vasc { background: var(--blue-light); color: var(--blue); }
+.search-result-tag.nonvasc { background: var(--teal-light); color: var(--teal); }
+.search-result-tag.urgent { background: var(--red-light); color: var(--red); }
+
+.search-no-result {
+  padding: 1rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* Hero zoekresultaten */
+.hero-search { position: relative; max-width: 380px; margin: 0 auto; }
+.hero-search-bar { display: flex; background: var(--white); border-radius: 25px; overflow: visible; box-shadow: 0 4px 16px rgba(0,0,0,0.2); }
+.hero-search-bar input { flex: 1; border: none; background: transparent; padding: 0.7rem 1.1rem; font-size: 0.85rem; color: var(--text); outline: none; font-family: 'Nunito Sans', sans-serif; border-radius: 25px 0 0 25px; }
+.hero-search-bar button { background: var(--teal); border: none; color: white; padding: 0 1.1rem; font-size: 0.82rem; font-weight: 700; cursor: pointer; font-family: 'Nunito', sans-serif; border-radius: 0 25px 25px 0; }
+
+.hero-results {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0; right: 0;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  display: none;
+  z-index: 400;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  text-align: left;
+}
+
+.hero-results.open { display: block; }
