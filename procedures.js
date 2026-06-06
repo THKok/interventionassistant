@@ -9,7 +9,7 @@ const PROCEDURES = [
     categorie: "Vasculair",
     subcategorie: "Perifeer arterieel",
     tag: "vasc",
-    url: "pta-beenvaten.html",
+    url: "vasculair/pta-beenvaten.html",
     trefwoorden: ["PTA", "angioplastiek", "stent", "beenvaten", "femoropopliteaal", "cruraal", "claudicatio", "ischemie", "Fontaine", "DEB", "nitinol", "Glidewire", "Angioseal"]
   },
   {
@@ -17,7 +17,7 @@ const PROCEDURES = [
     categorie: "Vasculair",
     subcategorie: "Iliacaal",
     tag: "vasc",
-    url: "pta-beenvaten.html",
+    url: "vasculair/pta-beenvaten.html",
     trefwoorden: ["PTA", "iliacaal", "aorta", "CIA", "EIA", "stent", "Kissing stent"]
   },
   {
@@ -25,7 +25,7 @@ const PROCEDURES = [
     categorie: "Vasculair",
     subcategorie: "Visceraal",
     tag: "vasc",
-    url: "pta-beenvaten.html",
+    url: "vasculair/pta-beenvaten.html",
     trefwoorden: ["visceraal", "truncus", "SMA", "renaal", "mesenterisch"]
   },
   {
@@ -33,7 +33,7 @@ const PROCEDURES = [
     categorie: "Non-vasculair",
     subcategorie: "Urologie",
     tag: "nonvasc",
-    url: "nefrostomie.html",
+    url: "non-vasculair/nefrostomie.html",
     trefwoorden: ["nefrostomie", "nier", "hydronefrose", "obstructie", "urolithiasis", "drain", "Amplatz", "Cook Flexima", "pigtail", "ureter"]
   },
   {
@@ -41,7 +41,7 @@ const PROCEDURES = [
     categorie: "Non-vasculair",
     subcategorie: "Drainage",
     tag: "nonvasc",
-    url: "nefrostomie.html",
+    url: "non-vasculair/nefrostomie.html",
     trefwoorden: ["abces", "drainage", "drain", "infectie", "collectie", "percutaan"]
   },
   {
@@ -49,7 +49,7 @@ const PROCEDURES = [
     categorie: "Non-vasculair",
     subcategorie: "Galwegen",
     tag: "nonvasc",
-    url: "nefrostomie.html",
+    url: "non-vasculair/nefrostomie.html",
     trefwoorden: ["PTCD", "galweg", "cholangio", "icterus", "biliaire", "drainage"]
   },
   {
@@ -57,7 +57,7 @@ const PROCEDURES = [
     categorie: "Trombolyse",
     subcategorie: "Acuut arterieel",
     tag: "urgent",
-    url: "rtpa-trombolyse.html",
+    url: "trombolyse/rtpa-trombolyse.html",
     trefwoorden: ["trombolyse", "rTPA", "alteplase", "acuut", "bedreigd been", "Rutherford", "CDT", "McNamara", "heparine", "fibrinogeen", "occlusie"]
   },
   {
@@ -65,7 +65,7 @@ const PROCEDURES = [
     categorie: "Trombolyse",
     subcategorie: "Veneus",
     tag: "urgent",
-    url: "rtpa-trombolyse.html",
+    url: "trombolyse/rtpa-trombolyse.html",
     trefwoorden: ["DVT", "trombolyse", "veneus", "CDT", "ilio-femorale trombose"]
   },
   {
@@ -73,7 +73,7 @@ const PROCEDURES = [
     categorie: "Trombolyse",
     subcategorie: "Arterieel",
     tag: "urgent",
-    url: "rtpa-trombolyse.html",
+    url: "trombolyse/rtpa-trombolyse.html",
     trefwoorden: ["trombectomie", "mechanisch", "Penumbra", "AngioJet", "trombus"]
   }
 ];
