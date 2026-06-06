@@ -12,20 +12,36 @@
 
 <nav>
   <a class="logo" href="../index.html">Intervention<span>Assistant</span></a>
-  <div class="nav-links">
-    <a class="nav-link" href="../index.html">Home</a>
-    <a class="nav-link" href="pta-beenvaten.html">Vasculair</a>
-    <a class="nav-link" href="../non-vasculair/nefrostomie.html">Non-vasculair</a>
-    <a class="nav-link active" href="rtpa-trombolyse.html">Trombolyse</a>
-    <a class="nav-link" href="../materiaal/index.html">Materiaal</a>
-    <span class="nav-link" style="opacity:0.4;cursor:default">Oncologie</span>
+  <div class="nav-item">
+    <button class="nav-btn" onclick="toggleDropdown('dd-vasc')">Vasculair <span class="chevron">▾</span></button>
+    <div class="dropdown" id="dd-vasc">
+      <div class="dropdown-item" onclick="window.location='../vasculair/pta-beenvaten.html'"><span class="dropdown-dot vasc"></span>PTA ± stent beenvaten</div>
+      <div class="dropdown-item" onclick="window.location='../vasculair/rtpa-trombolyse.html'"><span class="dropdown-dot vasc"></span>rTPA acuut bedreigd been <span class="dropdown-badge">URGENT</span></div>
+    </div>
   </div>
-  <div class="nav-search-wrap">
-    <span class="nav-search-icon">⌕</span>
-    <input class="nav-search-input" placeholder="Zoek procedure…" autocomplete="off">
-    <div class="search-results"></div>
+  <div class="nav-item">
+    <button class="nav-btn" onclick="toggleDropdown('dd-nonvasc')">Non-vasculair <span class="chevron">▾</span></button>
+    <div class="dropdown" id="dd-nonvasc">
+      <div class="dropdown-item" onclick="window.location='../non-vasculair/nefrostomie.html'"><span class="dropdown-dot nonvasc"></span>Percutane nefrostomie</div>
+    </div>
   </div>
-  <div class="nav-hamburger"><span></span><span></span><span></span></div>
+  <div class="nav-item">
+    <button class="nav-btn" onclick="toggleDropdown('dd-mdo')">MDO <span class="chevron">▾</span></button>
+    <div class="dropdown" id="dd-mdo">
+      <div class="dropdown-item" onclick="window.location='../mdo/shunt-mdo.html'"><span class="dropdown-dot" style="background:#6040a0"></span>Shunt MDO</div>
+      <div class="dropdown-item" style="color:var(--muted);cursor:default"><span class="dropdown-dot" style="background:#6040a0;opacity:0.3"></span>Vaatchirurgie MDO <span style="font-size:0.68rem;margin-left:auto">binnenkort</span></div>
+    </div>
+  </div>
+  <div class="nav-item">
+    <button class="nav-btn" onclick="toggleDropdown('dd-mat')">Materiaal <span class="chevron">▾</span></button>
+    <div class="dropdown" id="dd-mat">
+      <div class="dropdown-item" onclick="window.location='../materiaal/index.html'"><span class="dropdown-dot mat"></span>Overzicht materiaal</div>
+      <div class="dropdown-item" onclick="window.location='../materiaal/angioset.html'"><span class="dropdown-dot mat"></span>Angioset</div>
+      <div class="dropdown-item" onclick="window.location='../materiaal/katheters.html'"><span class="dropdown-dot mat"></span>Katheters</div>
+      <div class="dropdown-item" onclick="window.location='../materiaal/draden.html'"><span class="dropdown-dot mat"></span>Draden</div>
+    </div>
+  </div>
+  <div class="nav-search">⌕ Zoek procedure…</div>
 </nav>
 <div class="nav-mobile-menu">
   <a href="../index.html">Home</a>

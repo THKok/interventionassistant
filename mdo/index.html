@@ -26,9 +26,9 @@
     </div>
   </div>
   <div class="nav-item">
-    <button class="nav-btn active open" onclick="toggleDropdown('dd-mdo')">MDO <span class="chevron">▾</span></button>
+    <button class="nav-btn" onclick="toggleDropdown('dd-mdo')">MDO <span class="chevron">▾</span></button>
     <div class="dropdown" id="dd-mdo">
-      <div class="dropdown-item" onclick="window.location='shunt-mdo.html'"><span class="dropdown-dot" style="background:#6040a0"></span>Shunt MDO</div>
+      <div class="dropdown-item" onclick="window.location='../mdo/shunt-mdo.html'"><span class="dropdown-dot" style="background:#6040a0"></span>Shunt MDO</div>
       <div class="dropdown-item" style="color:var(--muted);cursor:default"><span class="dropdown-dot" style="background:#6040a0;opacity:0.3"></span>Vaatchirurgie MDO <span style="font-size:0.68rem;margin-left:auto">binnenkort</span></div>
     </div>
   </div>
@@ -98,6 +98,14 @@ document.addEventListener('click', e => {
     document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('open'));
   }
 });
+function toggleAcc(id) { document.getElementById(id).classList.toggle('open'); }
+function copyVerslag(verslagId, btnId) {
+  navigator.clipboard.writeText(document.getElementById(verslagId).innerText).then(() => {
+    const btn = document.getElementById(btnId);
+    btn.textContent = '✓ Gekopieerd'; btn.classList.add('copied');
+    setTimeout(() => { btn.innerHTML = '⎘ Kopieer'; btn.classList.remove('copied'); }, 2000);
+  });
+}
 </script>
 </body>
 </html>

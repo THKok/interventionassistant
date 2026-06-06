@@ -16,21 +16,20 @@
     <button class="nav-btn" onclick="toggleDropdown('dd-vasc')">Vasculair <span class="chevron">▾</span></button>
     <div class="dropdown" id="dd-vasc">
       <div class="dropdown-item" onclick="window.location='../vasculair/pta-beenvaten.html'"><span class="dropdown-dot vasc"></span>PTA ± stent beenvaten</div>
-      <div class="dropdown-item" style="color:var(--muted);cursor:default"><span class="dropdown-dot vasc" style="opacity:0.3"></span>PTA iliacale vaten <span style="font-size:0.68rem;margin-left:auto">binnenkort</span></div>
+      <div class="dropdown-item" onclick="window.location='../vasculair/rtpa-trombolyse.html'"><span class="dropdown-dot vasc"></span>rTPA acuut bedreigd been <span class="dropdown-badge">URGENT</span></div>
     </div>
   </div>
   <div class="nav-item">
-    <button class="nav-btn open" onclick="toggleDropdown('dd-nonvasc')">Non-vasculair <span class="chevron">▾</span></button>
+    <button class="nav-btn" onclick="toggleDropdown('dd-nonvasc')">Non-vasculair <span class="chevron">▾</span></button>
     <div class="dropdown" id="dd-nonvasc">
-      <div class="dropdown-item" onclick="window.location='nefrostomie.html'"><span class="dropdown-dot nonvasc"></span>Percutane nefrostomie</div>
-      <div class="dropdown-item" style="color:var(--muted);cursor:default"><span class="dropdown-dot nonvasc" style="opacity:0.3"></span>Abcesdrainage <span style="font-size:0.68rem;margin-left:auto">binnenkort</span></div>
-      <div class="dropdown-item" style="color:var(--muted);cursor:default"><span class="dropdown-dot nonvasc" style="opacity:0.3"></span>PTCD <span style="font-size:0.68rem;margin-left:auto">binnenkort</span></div>
+      <div class="dropdown-item" onclick="window.location='../non-vasculair/nefrostomie.html'"><span class="dropdown-dot nonvasc"></span>Percutane nefrostomie</div>
     </div>
   </div>
   <div class="nav-item">
-    <button class="nav-btn" onclick="toggleDropdown('dd-thrombo')">Trombolyse <span class="chevron">▾</span></button>
-    <div class="dropdown" id="dd-thrombo">
-      <div class="dropdown-item" onclick="window.location='../trombolyse/rtpa-trombolyse.html'"><span class="dropdown-dot thrombo"></span>rTPA acuut bedreigd been <span class="dropdown-badge">URGENT</span></div>
+    <button class="nav-btn" onclick="toggleDropdown('dd-mdo')">MDO <span class="chevron">▾</span></button>
+    <div class="dropdown" id="dd-mdo">
+      <div class="dropdown-item" onclick="window.location='../mdo/shunt-mdo.html'"><span class="dropdown-dot" style="background:#6040a0"></span>Shunt MDO</div>
+      <div class="dropdown-item" style="color:var(--muted);cursor:default"><span class="dropdown-dot" style="background:#6040a0;opacity:0.3"></span>Vaatchirurgie MDO <span style="font-size:0.68rem;margin-left:auto">binnenkort</span></div>
     </div>
   </div>
   <div class="nav-item">
@@ -288,14 +287,17 @@ NAZORG:
 <script src="../search.js"></script>
 <script>
 function toggleDropdown(id) {
-  const dd = document.getElementById(id);
-  const btn = dd.previousElementSibling;
-  const isOpen = dd.classList.contains('open');
+  const dd = document.getElementById(id), btn = dd.previousElementSibling, isOpen = dd.classList.contains('open');
   document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('open'));
   document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('open'));
   if (!isOpen) { dd.classList.add('open'); btn.classList.add('open'); }
 }
-document.addEventListener('click', e => { if (!e.target.closest('.nav-item')) { document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('open')); document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('open')); }});
+document.addEventListener('click', e => {
+  if (!e.target.closest('.nav-item')) {
+    document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('open'));
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('open'));
+  }
+});
 function toggleAcc(id) { document.getElementById(id).classList.toggle('open'); }
 function copyVerslag(verslagId, btnId) {
   navigator.clipboard.writeText(document.getElementById(verslagId).innerText).then(() => {
