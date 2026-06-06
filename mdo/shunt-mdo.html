@@ -8,39 +8,197 @@
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css">
   <style>
-    /* Tabel specifiek voor deze pagina */
-    .data-table { width: 100%; border-collapse: collapse; font-size: 0.84rem; }
-    .data-table th { text-align: left; padding: 0.55rem 0.9rem; background: var(--card); font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); border-bottom: 2px solid var(--border); }
-    .data-table td { padding: 0.6rem 0.9rem; border-bottom: 1px solid #edf0f5; vertical-align: top; line-height: 1.5; }
-    .data-table tr:last-child td { border-bottom: none; }
-    .data-table tr:hover td { background: var(--blue-light); }
-    .data-table .cat-row td { background: var(--card); font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); padding: 0.55rem 0.9rem 0.2rem; }
+    /* ── MDO Document stijl ── */
+    .mdo-wrap {
+      display: grid;
+      grid-template-columns: 1fr 220px;
+      gap: 2.5rem;
+      align-items: start;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    /* Inhoudsopgave */
+    .toc {
+      position: sticky;
+      top: 78px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .toc-title {
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 1rem;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--muted);
+    }
+
+    .toc-list { list-style: none; padding: 0.4rem 0; }
+    .toc-list li a {
+      display: block;
+      padding: 0.35rem 1rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.12s, background 0.12s;
+      border-left: 2px solid transparent;
+    }
+    .toc-list li a:hover { color: var(--blue); background: var(--blue-light); border-color: var(--blue); }
+    .toc-list li.sub a { padding-left: 1.6rem; font-size: 0.74rem; }
+
+    /* Document inhoud */
+    .mdo-content { min-width: 0; }
+
+    .mdo-section { margin-bottom: 2.5rem; }
+
+    .mdo-h2 {
+      font-family: 'Nunito', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 2px solid var(--blue);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .mdo-h3 {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      margin: 1.25rem 0 0.5rem;
+    }
+
+    .mdo-p {
+      font-size: 0.875rem;
+      line-height: 1.7;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+
+    .mdo-p strong { font-weight: 700; }
+    .mdo-p em { color: var(--muted); font-style: normal; }
 
     /* Voorkeursvolgorde */
-    .volgorde-list { list-style: none; padding: 0; counter-reset: volgorde; }
-    .volgorde-item { display: flex; align-items: flex-start; gap: 0.85rem; padding: 0.65rem 0; border-bottom: 1px solid #edf0f5; font-size: 0.875rem; line-height: 1.55; counter-increment: volgorde; }
-    .volgorde-item:last-child { border-bottom: none; }
-    .volgorde-nr { width: 26px; height: 26px; border-radius: 50%; font-size: 0.75rem; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; font-family: 'Nunito', sans-serif; background: var(--blue); color: white; }
-    .volgorde-nr.autoloog { background: var(--teal); }
-    .volgorde-nr.kunstst { background: #e0870a; }
-    .volgorde-nr.cvk { background: var(--red); }
-    .volgorde-item strong { color: var(--text); font-weight: 700; }
-    .volgorde-item em { color: var(--muted); font-size: 0.82rem; font-style: normal; }
+    .volgorde { list-style: none; padding: 0; margin-bottom: 0.75rem; }
+    .volgorde li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid #edf0f5;
+      font-size: 0.875rem;
+      color: var(--text);
+      line-height: 1.5;
+    }
+    .volgorde li:last-child { border-bottom: none; }
+    .vn {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      font-size: 0.75rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-family: 'Nunito', sans-serif;
+      color: white;
+    }
+    .vn.autoloog { background: var(--teal); }
+    .vn.kunstst  { background: var(--orange); }
+    .vn.cvk      { background: var(--red); }
 
-    /* Maten kaartjes */
-    .maten-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 0.75rem; }
-    .maten-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 0.85rem 1rem; }
-    .maten-card-label { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 0.3rem; }
-    .maten-card-value { font-family: 'Nunito', sans-serif; font-size: 1.4rem; font-weight: 800; color: var(--blue); line-height: 1; }
-    .maten-card-value.teal { color: var(--teal); }
-    .maten-card-value.red { color: var(--red); }
-    .maten-card-sub { font-size: 0.72rem; color: var(--muted); margin-top: 0.2rem; line-height: 1.4; }
+    /* Data tabel */
+    .mdo-table { width: 100%; border-collapse: collapse; font-size: 0.845rem; margin-bottom: 1rem; }
+    .mdo-table th {
+      text-align: left;
+      padding: 0.55rem 0.85rem;
+      background: var(--card);
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+    }
+    .mdo-table td {
+      padding: 0.6rem 0.85rem;
+      border-bottom: 1px solid #edf0f5;
+      vertical-align: top;
+      line-height: 1.5;
+      color: var(--text);
+    }
+    .mdo-table tr:last-child td { border-bottom: none; }
+    .mdo-table tr:hover td { background: var(--blue-light); }
+    .mdo-table .cat-row td {
+      background: var(--card);
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--muted);
+      padding: 0.5rem 0.85rem 0.15rem;
+    }
 
-    /* Twee kolommen in accordion */
-    .split-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    /* Maten-grid */
+    .maten-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.65rem;
+      margin: 0.75rem 0;
+    }
+    .maten-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.75rem 0.9rem;
+    }
+    .maten-label { font-size: 0.63rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); margin-bottom: 0.2rem; }
+    .maten-value { font-family: 'Nunito', sans-serif; font-size: 1.35rem; font-weight: 800; line-height: 1; }
+    .maten-value.blue  { color: var(--blue); }
+    .maten-value.teal  { color: var(--teal); }
+    .maten-value.red   { color: var(--red); }
+    .maten-value.orange{ color: var(--orange); }
+    .maten-sub { font-size: 0.7rem; color: var(--muted); margin-top: 0.2rem; line-height: 1.35; }
 
-    @media (max-width: 768px) {
-      .split-2 { grid-template-columns: 1fr; }
+    /* Infobox / note */
+    .infobox {
+      border-left: 3px solid;
+      padding: 0.65rem 0.9rem;
+      font-size: 0.835rem;
+      line-height: 1.55;
+      margin: 0.75rem 0;
+      border-radius: 0 5px 5px 0;
+      color: var(--text);
+    }
+    .infobox.blauw  { border-color: var(--blue);   background: var(--blue-light); }
+    .infobox.groen  { border-color: var(--green);  background: #f2fbf5; }
+    .infobox.oranje { border-color: var(--orange); background: #fff8ee; }
+    .infobox.rood   { border-color: var(--red);    background: #fff2f2; }
+    .infobox strong { font-weight: 700; }
+
+    /* Bronnen */
+    .bronnen-lijst { list-style: none; padding: 0; }
+    .bronnen-lijst li { padding: 0.35rem 0; border-bottom: 1px solid #edf0f5; font-size: 0.84rem; }
+    .bronnen-lijst li:last-child { border-bottom: none; }
+    .bronnen-lijst a { color: var(--blue); text-decoration: none; font-weight: 500; }
+    .bronnen-lijst a:hover { text-decoration: underline; }
+
+    @media (max-width: 800px) {
+      .mdo-wrap { grid-template-columns: 1fr; padding: 1rem; }
+      .toc { display: none; }
       .maten-grid { grid-template-columns: 1fr 1fr; }
     }
   </style>
@@ -63,9 +221,9 @@
     </div>
   </div>
   <div class="nav-item">
-    <button class="nav-btn" onclick="toggleDropdown('dd-mdo')">MDO <span class="chevron">▾</span></button>
+    <button class="nav-btn open" onclick="toggleDropdown('dd-mdo')">MDO <span class="chevron">▾</span></button>
     <div class="dropdown" id="dd-mdo">
-      <div class="dropdown-item" onclick="window.location='../mdo/shunt-mdo.html'"><span class="dropdown-dot" style="background:#6040a0"></span>Shunt MDO</div>
+      <div class="dropdown-item" onclick="window.location='shunt-mdo.html'"><span class="dropdown-dot" style="background:#6040a0"></span>Shunt MDO</div>
       <div class="dropdown-item" style="color:var(--muted);cursor:default"><span class="dropdown-dot" style="background:#6040a0;opacity:0.3"></span>Vaatchirurgie MDO <span style="font-size:0.68rem;margin-left:auto">binnenkort</span></div>
     </div>
   </div>
@@ -84,203 +242,173 @@
   </div>
 </nav>
 
-<div class="main proc-page">
-  <div class="breadcrumb">
-    <a href="../index.html">Home</a>
-    <span class="sep">›</span><span>MDO</span>
-    <span class="sep">›</span><span>Shunt MDO</span>
+<div class="mdo-wrap">
+
+  <!-- ── HOOFDINHOUD ── -->
+  <div class="mdo-content">
+
+    <div class="breadcrumb">
+      <a href="../index.html">Home</a>
+      <span class="sep">›</span><span>MDO</span>
+      <span class="sep">›</span><span>Shunt MDO</span>
+    </div>
+
+    <div style="margin-bottom:1.75rem">
+      <div class="mdo-h2" style="border-color:#6040a0;font-size:1.5rem;margin-bottom:0.35rem">Shunt MDO</div>
+      <p style="font-size:0.875rem;color:var(--muted)">Multidisciplinaire bespreking HD-toegang — vaatchirurgie & interventieradiologie</p>
+    </div>
+
+    <!-- 1. ACHTERGROND -->
+    <div class="mdo-section" id="s-achtergrond">
+      <div class="mdo-h2">1. Achtergrond & Definities</div>
+      <p class="mdo-p">Patiënten met terminale nierinsufficiëntie (klaring &lt;15 ml/min) hebben nierfunctievervangende therapie nodig in de vorm van hemodialyse (HD), peritoneaaldialyse (PD) of niertransplantatie. Bij HD is een betrouwbare vasculaire toegang essentieel.</p>
+      <p class="mdo-p">Dialyse via een CVK gaat gepaard met een <strong>25% hogere mortaliteit</strong> dan via een AVF en dient bij voorkeur alleen tijdelijk (&lt;3 maanden) of als overbrugging gebruikt te worden. Patiënten dienen uiterlijk <strong>3–6 maanden voor verwachte start HD</strong> verwezen te worden naar de vaatchirurg.</p>
+
+      <div class="infobox blauw">
+        <strong>Definities:</strong> AVF = arterioveneuze fistel (autoloog) · AVG = arterioveneuze graft (kunststof: PTFE/Dacron) · CVK = centraal veneuze katheter · HAIDI = Hemodialysis Access-Induced Distal Ischemia (steal)
+      </div>
+
+      <div class="mdo-h3">Risicofactoren voor falen shunt</div>
+      <p class="mdo-p">Diabetes mellitus, hoge leeftijd en arteriosclerose (PAOD) verhogen het risico op primair falen significant. Dit weegt mee in de keuze voor locatie en type shunt.</p>
+    </div>
+
+    <!-- 2. VOORKEURSVOLGORDE -->
+    <div class="mdo-section" id="s-volgorde">
+      <div class="mdo-h2">2. Voorkeursvolgorde Vasculaire Toegang</div>
+      <p class="mdo-p">Principe: zo <strong>distaal mogelijk beginnen</strong> in de <strong>niet-dominante arm</strong>. Autoloog (AVF) heeft altijd de voorkeur boven kunststof (AVG). Distale aanleg geeft minder kans op HAIDI en high-flow fistel, en bij falen kan proximaal nog gebruikt worden.</p>
+
+      <ol class="volgorde">
+        <li><div class="vn autoloog">1</div><div><strong>Snuifdoos fistel</strong> — Posterieure tak a. radialis – v. cephalica<br><em>Houdt in ~50% van de gevallen de optie open voor een latere RCAVF distaal.</em></div></li>
+        <li><div class="vn autoloog">2</div><div><strong>RCAVF / Brescia-Cimino</strong> — A. radialis – v. cephalica t.h.v. de pols<br><em>Vereist v. cephalica ≥2.0 mm met stuwing. Vaker vroege trombose dan proximale shunts.</em></div></li>
+        <li><div class="vn autoloog">3</div><div><strong>BCAVF</strong> — A. brachialis – v. cephalica t.h.v. de elleboog<br><em>Vereist v. cephalica ≥3.0 mm. Meer kans op high-output hartfalen en steal/HAIDI.</em></div></li>
+        <li><div class="vn autoloog">4</div><div><strong>Gracz fistel</strong> — A. brachialis – perforerende vene naar het diepe systeem t.h.v. elleboog</div></li>
+        <li><div class="vn autoloog">5</div><div><strong>Basilica transpositie</strong> — A. brachialis – v. basilica met superficialisatie<br><em>Vereist chirurgische superficialisatie vanwege de diepe ligging van de v. basilica.</em></div></li>
+        <li><div class="vn kunstst">6</div><div><strong>AVG (arm graft)</strong> — Kunststof loop of straight graft in boven- of onderarm<br><em>Vereist uitloopmogelijkheid vene ≥4.0 mm. Aanzienlijk meer re-interventies (PTA/trombectomie) dan autoloog.</em></div></li>
+        <li><div class="vn kunstst">7</div><div><strong>Lidmaat-wissel (beenshunts)</strong> — VSM-transpositie, v. femoralis transpositie of beengraft</div></li>
+        <li><div class="vn cvk">8</div><div><strong>Centraal Veneuze Katheter (CVK)</strong> — Alleen als alle shuntopties zijn uitgeput of als overbrugging<br><em>25% hogere mortaliteit dan AVF. Streef naar maximaal tijdelijk (&lt;3 maanden).</em></div></li>
+      </ol>
+
+      <div class="infobox oranje"><strong>Anastomose:</strong> Streef naar 5–7 mm, met name t.h.v. de elleboog. &lt;5 mm → hogere kans op falen. &gt;7 mm → hogere kans op HAIDI/high-flow fistel.</div>
+    </div>
+
+    <!-- 3. DIAGNOSTIEK -->
+    <div class="mdo-section" id="s-diagnostiek">
+      <div class="mdo-h2">3. Diagnostiek & Duplex Criteria</div>
+      <p class="mdo-p"><strong>Duplex dient altijd verricht te worden</strong> bij geplande aanleg shunt — gebruik van duplex geeft een significant lagere kans op primair falen (6% vs 24%). Duplex is onbetrouwbaar voor centrale venen achter de subclavia; overweeg aanvullende flebografie bij verdenking centrale obstructie.</p>
+
+      <div class="mdo-h3">Minimale diameters voor succesvolle aanleg</div>
+      <div class="maten-grid">
+        <div class="maten-card"><div class="maten-label">Arterie (algemeen)</div><div class="maten-value blue">≥ 2.0 mm</div><div class="maten-sub">A. radialis én a. brachialis</div></div>
+        <div class="maten-card"><div class="maten-label">Vene pols (AVF)</div><div class="maten-value teal">≥ 2.0 mm</div><div class="maten-sub">Met stuwing gemeten</div></div>
+        <div class="maten-card"><div class="maten-label">Vene elleboog (AVF)</div><div class="maten-value teal">≥ 3.0 mm</div><div class="maten-sub">Met stuwing gemeten</div></div>
+        <div class="maten-card"><div class="maten-label">Vene voor graft (AVG)</div><div class="maten-value orange">≥ 4.0 mm</div><div class="maten-sub">Uitloopmogelijkheid vene</div></div>
+        <div class="maten-card"><div class="maten-label">Max. diepte tot huid</div><div class="maten-value red">≤ 6.0 mm</div><div class="maten-sub">Dieper → superficialisatie nodig</div></div>
+        <div class="maten-card"><div class="maten-label">Min. flow na aanleg</div><div class="maten-value teal">≥ 500 ml/min</div><div class="maten-sub">Kans op maturatie &gt;95%</div></div>
+      </div>
+
+      <div class="mdo-h3">Maturatiecriteria</div>
+      <p class="mdo-p">Voordat een AVF gebruikt kan worden dient maturatie plaats te vinden. Dit duurt gemiddeld <strong>6 weken</strong>. De volgende criteria gelden voor adequate maturatie:</p>
+      <table class="mdo-table">
+        <thead><tr><th>Criterium</th><th>Grenswaarde</th><th>Toelichting</th></tr></thead>
+        <tbody>
+          <tr><td>Aanprikbare diameter</td><td>≥ 4 mm</td><td>Minimale diameter voor succesvolle aanprik</td></tr>
+          <tr><td>Flow</td><td>≥ 400–500 ml/min</td><td>Voldoende voor HD; bij &gt;500 ml/min + ≥4mm → &gt;95% kans op maturatie</td></tr>
+          <tr><td>Diepte tot huid</td><td>≤ 6 mm</td><td>Dieper → chirurgische superficialisatie of vetresectie</td></tr>
+          <tr><td>Aanprikbaar traject</td><td>≥ 10 cm</td><td>Voldoende lengte voor aanprikken zonder recirculatie</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 4. ANATOMISCHE RESTRICTIES -->
+    <div class="mdo-section" id="s-restricties">
+      <div class="mdo-h2">4. Anatomische Restricties & Planning</div>
+      <table class="mdo-table">
+        <thead><tr><th>Factor</th><th>Impact op planning</th><th>Risico / Beleid</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Dominante hand</strong></td><td>Voorkeur voor de niet-dominante arm</td><td>Behoud armfunctie bij ischemie; betere hanteerbaarheid voor de patiënt</td></tr>
+          <tr><td><strong>Pacemaker / ICD / Eerdere CVK</strong></td><td>Sluit ipsilaterale shuntcreatie nagenoeg uit</td><td>Hoog risico centrale veneuze stenose of trombose → contralaterale zijde sterk de voorkeur om massaal armoedeem te voorkomen</td></tr>
+          <tr><td><strong>Centrale lijn noodzaak</strong></td><td>Vermijd v. subclavia (~40% tromboserisico)</td><td>V. jugularis interna heeft voorkeur (~20% tromboserisico)</td></tr>
+          <tr><td><strong>DM / arteriosclerose</strong></td><td>Risicofactoren voor falen shunt</td><td>Duplex extra belangrijk; overweeg proximaler te plannen</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 5. KENGETALLEN -->
+    <div class="mdo-section" id="s-kengetallen">
+      <div class="mdo-h2">5. Kengetallen per Shunttype</div>
+      <table class="mdo-table">
+        <thead><tr><th>Type shunt</th><th>Early failure</th><th>Primaire patency</th><th>IR aandachtspunten</th></tr></thead>
+        <tbody>
+          <tr class="cat-row"><td colspan="4">Autologe fistels (AVF)</td></tr>
+          <tr><td><strong>Snuifdoos fistel</strong></td><td>—</td><td>—</td><td>~50% kans op latere RCAVF distaal</td></tr>
+          <tr><td><strong>RCAVF</strong> (pols)</td><td>~15%</td><td>65% (60–75%)</td><td>Vaker vroege trombose; vene ≥2.0 mm vereist</td></tr>
+          <tr><td><strong>BCAVF</strong> (elleboog)</td><td>~10%</td><td>75–80%</td><td>Vene ≥3.0 mm; meer kans HAIDI en high-output hartfalen</td></tr>
+          <tr><td><strong>Gracz fistel</strong></td><td>—</td><td>—</td><td>Alternatief bij ongeschikte v. cephalica</td></tr>
+          <tr><td><strong>Basilica transpositie</strong></td><td>10–20%</td><td>65–90%</td><td>Vereist superficialisatie; v. basilica ligt diep</td></tr>
+          <tr class="cat-row"><td colspan="4">Kunststof graft (AVG)</td></tr>
+          <tr><td><strong>AVG (arm graft)</strong></td><td>—</td><td>40–50% (1 jaar)<br>70–90% secundair</td><td>Vene uitloop ≥4.0 mm; veel re-interventies PTA/trombectomie</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 6. ROL IR -->
+    <div class="mdo-section" id="s-ir">
+      <div class="mdo-h2">6. Rol Interventieradiologie</div>
+
+      <div class="mdo-h3">Diagnostisch</div>
+      <table class="mdo-table">
+        <thead><tr><th>Verrichting</th><th>Indicatie</th></tr></thead>
+        <tbody>
+          <tr><td>Fistulografie</td><td>In kaart brengen van stenose, trombose of centrale obstructie bij disfunctionerende shunt</td></tr>
+          <tr><td>Flebografie</td><td>Aanvullend bij verdenking centrale obstructie — duplex onbetrouwbaar achter subclavia</td></tr>
+          <tr><td>Vingerdrukken</td><td>Bij verdenking arteriële stenose of HAIDI (steal)</td></tr>
+        </tbody>
+      </table>
+
+      <div class="mdo-h3">Interventie</div>
+      <table class="mdo-table">
+        <thead><tr><th>Interventie</th><th>Indicatie</th></tr></thead>
+        <tbody>
+          <tr><td>PTA veneuze stenose</td><td>Stenose in AVF of AVG traject met verminderde flow of verhoogde veneuze druk</td></tr>
+          <tr><td>PTA centrale veneuze stenose</td><td>Stenose v. subclavia of v. brachiocephalica; stent bij recidief na PTA</td></tr>
+          <tr><td>Trombectomie / trombolyse</td><td>Acute AVG-trombose; catheter-directed trombolyse of mechanische trombectomie</td></tr>
+          <tr><td>Embolisatie zijtakken</td><td>Non-maturatie door steal via zijtakken (flow-competitie)</td></tr>
+        </tbody>
+      </table>
+
+      <div class="infobox rood"><strong>HAIDI (steal):</strong> Vaker bij proximale shunts (BCAVF). Presentatie: koude, pijnlijke of ischemische vingers tijdens dialyse. IR-opties: banding, DRIL-procedure (Distal Revascularization Interval Ligation) of RUDI. Overleg altijd met vaatchirurgie.</div>
+
+      <div class="infobox oranje"><strong>Non-maturatie:</strong> Bij flow &lt;500 ml/min of diameter &lt;4 mm na 6 weken → fistulografie ter uitsluiting stenose of zijtakverlies. Behandeling: PTA stenose of embolisatie zijtakken.</div>
+    </div>
+
+    <!-- 7. BRONNEN -->
+    <div class="mdo-section" id="s-bronnen">
+      <div class="mdo-h2">7. Bronnen & Richtlijnen</div>
+      <ul class="bronnen-lijst">
+        <li><a href="https://www.ajkd.org/action/showPdf?pii=S0272-6386(20)30726-5" target="_blank" rel="noopener">KDOQI 2019 — Clinical Practice Guideline for Vascular Access (AJKD)</a></li>
+        <li><a href="https://hlk.nielsvos.com/ziektebeelden/hdtoegang" target="_blank" rel="noopener">Chirurgisch.nl (Niels Vos) — Vasculaire toegang voor hemodialyse</a></li>
+        <li><a href="https://pubmed.ncbi.nlm.nih.gov/?term=hemodialysis+vascular+access+interventional+radiology" target="_blank" rel="noopener">PubMed — hemodialysis vascular access IR</a></li>
+      </ul>
+    </div>
+
   </div>
 
-  <div class="proc-header">
-    <div class="proc-header-bar" style="background:#6040a0"></div>
-    <div>
-      <h1>Shunt MDO</h1>
-      <p>Multidisciplinaire bespreking HD-toegang — vaatchirurgie & interventieradiologie</p>
-      <div class="proc-meta">
-        <span class="meta-pill" style="background:#ece8f7;color:#6040a0">MDO</span>
-        <span class="meta-pill" style="background:#ece8f7;color:#6040a0">Hemodialyse toegang</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- Voorkeursvolgorde -->
-  <div class="accordion open" id="acc-volgorde">
-    <div class="acc-header" onclick="toggleAcc('acc-volgorde')">
-      <div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title">Voorkeursvolgorde Vasculaire Toegang</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner">
-        <p style="font-size:0.82rem;color:var(--muted);margin-bottom:1rem">Principe: zo distaal mogelijk beginnen in de <strong>niet-dominante arm</strong>. Autoloog (AVF) heeft altijd de voorkeur boven kunststof (AVG).</p>
-        <ol class="volgorde-list">
-          <li class="volgorde-item"><div class="volgorde-nr autoloog">1</div><div><strong>Snuifdoos fistel</strong> — Posterieure tak a. radialis – v. cephalica<br><em>Houdt de optie open voor een RCAVF distaal.</em></div></li>
-          <li class="volgorde-item"><div class="volgorde-nr autoloog">2</div><div><strong>RCAVF / Brescia-Cimino</strong> — A. radialis – v. cephalica t.h.v. de pols<br><em>Vereist v. cephalica ≥2.0 mm met stuwing.</em></div></li>
-          <li class="volgorde-item"><div class="volgorde-nr autoloog">3</div><div><strong>BCAVF</strong> — A. brachialis – v. cephalica t.h.v. de elleboog<br><em>Vereist v. cephalica ≥3.0 mm. Meer kans op high-output hartfalen en steal/ischemie.</em></div></li>
-          <li class="volgorde-item"><div class="volgorde-nr autoloog">4</div><div><strong>Gracz fistel</strong> — A. brachialis – perforerende vene naar het diepe systeem t.h.v. elleboog</div></li>
-          <li class="volgorde-item"><div class="volgorde-nr autoloog">5</div><div><strong>Basilica transpositie</strong> — A. brachialis – v. basilica met superficialisatie<br><em>Vereist chirurgische superficialisatie vanwege diepe ligging v. basilica.</em></div></li>
-          <li class="volgorde-item"><div class="volgorde-nr kunstst">6</div><div><strong>AVG (Arm Graft)</strong> — Kunststof loop of straight graft in boven- of onderarm<br><em>Vereist uitloopmogelijkheid vene ≥4.0 mm. Veel re-interventies (PTA/trombectomie).</em></div></li>
-          <li class="volgorde-item"><div class="volgorde-nr kunstst">7</div><div><strong>Lidmaat-wissel (Beenshunts)</strong> — VSM-transpositie, v. femoralis transpositie of beengraft</div></li>
-          <li class="volgorde-item"><div class="volgorde-nr cvk">8</div><div><strong>Centraal Veneuze Katheter (CVK)</strong> — Alleen als alle shuntopties zijn uitgeput of als overbrugging<br><em>CVK geeft 25% hogere mortaliteit dan AVF. Maximaal tijdelijk (&lt;3 maanden).</em></div></li>
-        </ol>
-      </div>
-    </div>
-  </div>
-
-  <!-- Duplex criteria -->
-  <div class="accordion" id="acc-duplex">
-    <div class="acc-header" onclick="toggleAcc('acc-duplex')">
-      <div class="acc-title-wrap"><span class="acc-dot blue"></span><span class="acc-title">Duplex Criteria & Minimale Diameters</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner">
-        <p style="font-size:0.82rem;color:var(--muted);margin-bottom:1rem">Duplex dient <strong>altijd</strong> verricht te worden bij geplande aanleg shunt — geeft significant lagere kans op primair falen (6% vs 24%).</p>
-        <div class="maten-grid" style="margin-bottom:1.25rem">
-          <div class="maten-card">
-            <div class="maten-card-label">Arterie (algemeen)</div>
-            <div class="maten-card-value">≥ 2.0 mm</div>
-            <div class="maten-card-sub">A. radialis én a. brachialis</div>
-          </div>
-          <div class="maten-card">
-            <div class="maten-card-label">Vene — pols (AVF)</div>
-            <div class="maten-card-value teal">≥ 2.0 mm</div>
-            <div class="maten-card-sub">Met stuwing gemeten</div>
-          </div>
-          <div class="maten-card">
-            <div class="maten-card-label">Vene — elleboog (AVF)</div>
-            <div class="maten-card-value teal">≥ 3.0 mm</div>
-            <div class="maten-card-sub">Met stuwing gemeten</div>
-          </div>
-          <div class="maten-card">
-            <div class="maten-card-label">Vene voor graft (AVG)</div>
-            <div class="maten-card-value" style="color:#e0870a">≥ 4.0 mm</div>
-            <div class="maten-card-sub">Uitloopmogelijkheid vene</div>
-          </div>
-          <div class="maten-card">
-            <div class="maten-card-label">Max. diepte tot huid</div>
-            <div class="maten-card-value red">≤ 6.0 mm</div>
-            <div class="maten-card-sub">Dieper → superficialisatie of vetresectie nodig</div>
-          </div>
-          <div class="maten-card">
-            <div class="maten-card-label">Min. flow na aanleg</div>
-            <div class="maten-card-value teal">≥ 500 ml/min</div>
-            <div class="maten-card-sub">Kans op maturatie &gt;95%</div>
-          </div>
-        </div>
-        <div class="note green"><strong>Maturatiecriterium:</strong> Aanprikbare diameter ≥4 mm, flow ≥400–500 ml/min, diepte ≤6 mm, aanprikbaar traject ≥10 cm. Maturatie duurt ca. 6 weken.</div>
-        <div class="note orange"><strong>Anastomose:</strong> Streef naar 5–7 mm, met name t.h.v. de elleboog. &lt;5 mm → hogere kans op falen. &gt;7 mm → hogere kans op HAIDI/high-flow fistel.</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Anatomische restricties -->
-  <div class="accordion" id="acc-restrict">
-    <div class="acc-header" onclick="toggleAcc('acc-restrict')">
-      <div class="acc-title-wrap"><span class="acc-dot red"></span><span class="acc-title">Anatomische Restricties & Planning</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner" style="padding:0">
-        <table class="data-table">
-          <thead><tr><th>Factor</th><th>Impact op planning</th><th>Risico / Beleid</th></tr></thead>
-          <tbody>
-            <tr><td><strong>Dominante hand</strong></td><td>Voorkeur voor de niet-dominante arm</td><td>Behoud armfunctie bij ischemie; betere hanteerbaarheid voor patiënt</td></tr>
-            <tr><td><strong>Pacemaker / ICD / Eerdere CVK</strong></td><td>Sluit ipsilaterale shuntcreatie nagenoeg uit</td><td>Hoog risico centrale veneuze stenose of trombose → contralaterale zijde sterk de voorkeur</td></tr>
-            <tr><td><strong>Centrale lijn noodzaak</strong></td><td>Vermijd v. subclavia (~40% tromboserisico)</td><td>V. jugularis interna heeft voorkeur (~20% tromboserisico)</td></tr>
-            <tr><td><strong>Diabetes mellitus / arteriosclerose</strong></td><td>Risicofactoren voor falen shunt</td><td>Duplex extra belangrijk; overweeg proximaler te plannen</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <!-- Kengetallen per shunttype -->
-  <div class="accordion" id="acc-kengetal">
-    <div class="acc-header" onclick="toggleAcc('acc-kengetal')">
-      <div class="acc-title-wrap"><span class="acc-dot blue"></span><span class="acc-title">Kengetallen per Shunttype</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner" style="padding:0">
-        <table class="data-table">
-          <thead><tr><th>Type shunt</th><th>Early failure</th><th>Primaire patency</th><th>IR aandachtspunten</th></tr></thead>
-          <tbody>
-            <tr class="cat-row"><td colspan="4">Autologe fistels (AVF)</td></tr>
-            <tr><td><strong>Snuifdoos fistel</strong></td><td>—</td><td>—</td><td>Houdt RCAVF optie open; ~50% kans op latere RCAVF</td></tr>
-            <tr><td><strong>RCAVF</strong> (pols)</td><td>~15%</td><td>65% (60–75%)</td><td>Vaker vroege trombose; vene ≥2.0 mm vereist</td></tr>
-            <tr><td><strong>BCAVF</strong> (elleboog)</td><td>~10%</td><td>75–80%</td><td>Vene ≥3.0 mm; meer kans HAIDI en high-output hartfalen</td></tr>
-            <tr><td><strong>Basilica transpositie</strong></td><td>10–20%</td><td>65–90%</td><td>Vereist superficialisatie vanwege diepe ligging v. basilica</td></tr>
-            <tr class="cat-row"><td colspan="4">Kunststof graft (AVG)</td></tr>
-            <tr><td><strong>AVG (arm graft)</strong></td><td>—</td><td>40–50% (1 jaar) / 70–90% secundair</td><td>Vene uitloop ≥4.0 mm; veel re-interventies (PTA/trombectomie) vergeleken met autoloog</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <!-- IR-rol bij shuntproblematiek -->
-  <div class="accordion" id="acc-ir">
-    <div class="acc-header" onclick="toggleAcc('acc-ir')">
-      <div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title">Rol Interventieradiologie bij Shuntproblematiek</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner">
-        <div class="split-2">
-          <div>
-            <p class="acc-sublabel">Diagnostisch</p>
-            <ul class="clean">
-              <li>Fistulografie — in kaart brengen stenose, trombose of centrale obstructie</li>
-              <li>Duplex onbetrouwbaar voor centrale venen (achter subclavia) → flebografie aanvullend</li>
-              <li>Vingerdrukken bij verdenking arteriële stenose of HAIDI</li>
-            </ul>
-          </div>
-          <div>
-            <p class="acc-sublabel">Interventie</p>
-            <ul class="clean">
-              <li>PTA van veneuze stenose in AVF of AVG</li>
-              <li>PTA centrale veneuze stenose (v. subclavia, v. brachiocephalica)</li>
-              <li>Trombectomie / trombolyse bij acute AVG-trombose</li>
-              <li>Stentplaatsing centrale stenose indien PTA onvoldoende</li>
-              <li>Embolisatie van zijaftakkingen bij non-maturatie</li>
-            </ul>
-          </div>
-        </div>
-        <div class="note orange" style="margin-top:1rem"><strong>HAIDI (steal):</strong> Hemodialysis Access-Induced Distal Ischemia. Vaker bij proximale shunts (BCAVF). Presentatie: koude, pijnlijke of ischemische vingers tijdens dialyse. IR-opties: banding, DRIL-procedure of RUDI.</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Bronnen -->
-  <div class="accordion" id="acc-bronnen">
-    <div class="acc-header" onclick="toggleAcc('acc-bronnen')">
-      <div class="acc-title-wrap"><span class="acc-dot blue"></span><span class="acc-title">Bronnen & Externe Links</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner">
-        <div class="bronnen-grid">
-          <div class="bronnen-sectie">
-            <p class="acc-sublabel">Richtlijnen</p>
-            <ul class="bronnen-lijst">
-              <li><a href="https://www.ajkd.org/action/showPdf?pii=S0272-6386(20)30726-5" target="_blank" rel="noopener">KDOQI 2019 — Clinical Practice Guideline for Vascular Access (AJKD)</a></li>
-            </ul>
-          </div>
-          <div class="bronnen-sectie">
-            <p class="acc-sublabel">Naslagwerk</p>
-            <ul class="bronnen-lijst">
-              <li><a href="https://hlk.nielsvos.com/ziektebeelden/hdtoegang" target="_blank" rel="noopener">Chirurgisch.nl (Niels Vos) — Vasculaire toegang voor hemodialyse</a></li>
-            </ul>
-          </div>
-          <div class="bronnen-sectie">
-            <p class="acc-sublabel">Literatuur</p>
-            <ul class="bronnen-lijst">
-              <li><a href="https://pubmed.ncbi.nlm.nih.gov/?term=hemodialysis+vascular+access+interventional+radiology" target="_blank" rel="noopener">PubMed — hemodialysis vascular access IR</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
+  <!-- ── INHOUDSOPGAVE (rechter kolom) ── -->
+  <div class="toc">
+    <div class="toc-title">Inhoudsopgave</div>
+    <ul class="toc-list">
+      <li><a href="#s-achtergrond">1. Achtergrond & Definities</a></li>
+      <li><a href="#s-volgorde">2. Voorkeursvolgorde</a></li>
+      <li><a href="#s-diagnostiek">3. Diagnostiek & Duplex</a></li>
+      <li class="sub"><a href="#s-diagnostiek">Minimale diameters</a></li>
+      <li class="sub"><a href="#s-diagnostiek">Maturatiecriteria</a></li>
+      <li><a href="#s-restricties">4. Anatomische restricties</a></li>
+      <li><a href="#s-kengetallen">5. Kengetallen</a></li>
+      <li><a href="#s-ir">6. Rol IR</a></li>
+      <li class="sub"><a href="#s-ir">Diagnostisch</a></li>
+      <li class="sub"><a href="#s-ir">Interventie</a></li>
+      <li><a href="#s-bronnen">7. Bronnen</a></li>
+    </ul>
   </div>
 
 </div>
@@ -301,14 +429,6 @@ document.addEventListener('click', e => {
     document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('open'));
   }
 });
-function toggleAcc(id) { document.getElementById(id).classList.toggle('open'); }
-function copyVerslag(verslagId, btnId) {
-  navigator.clipboard.writeText(document.getElementById(verslagId).innerText).then(() => {
-    const btn = document.getElementById(btnId);
-    btn.textContent = '✓ Gekopieerd'; btn.classList.add('copied');
-    setTimeout(() => { btn.innerHTML = '⎘ Kopieer'; btn.classList.remove('copied'); }, 2000);
-  });
-}
 </script>
 </body>
 </html>
