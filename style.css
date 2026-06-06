@@ -669,3 +669,77 @@ a.mat-link:hover {
   color: var(--teal);
   border-color: var(--teal);
 }
+
+/* ── ACCORDION (stijl 4) ── */
+.accordion { margin-bottom: 0.6rem; }
+.acc-header { display: flex; align-items: center; justify-content: space-between; padding: 0.85rem 1.1rem; background: var(--white); border: 1px solid var(--border); border-radius: 8px; cursor: pointer; user-select: none; transition: background 0.12s; gap: 0.75rem; }
+.accordion.open .acc-header { border-bottom-left-radius: 0; border-bottom-right-radius: 0; border-bottom: none; }
+.acc-header:hover { background: #edf0f6; }
+.acc-title-wrap { display: flex; align-items: center; gap: 0.65rem; }
+.acc-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.acc-dot.blue { background: var(--blue); }
+.acc-dot.teal { background: var(--teal); }
+.acc-dot.red { background: var(--red); }
+.acc-dot.purple { background: #6040a0; }
+.acc-dot.orange { background: #b36000; }
+.acc-dot.green { background: #1a7a3e; }
+.acc-title { font-family: 'Nunito', sans-serif; font-size: 0.88rem; font-weight: 700; color: var(--text); }
+.acc-chevron { font-size: 0.7rem; color: var(--muted); transition: transform 0.2s; flex-shrink: 0; }
+.accordion.open .acc-chevron { transform: rotate(180deg); }
+.acc-body { background: var(--white); border: 1px solid var(--border); border-top: none; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px; display: none; }
+.accordion.open .acc-body { display: block; }
+.acc-inner { padding: 1rem 1.1rem; }
+.acc-inner-split { padding: 1rem 1.1rem; display: grid; grid-template-columns: 1fr 240px; gap: 1.5rem; align-items: start; }
+.acc-sublabel { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 0.5rem; }
+
+/* ── BRONNEN ── */
+.bronnen-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.25rem; }
+.bronnen-sectie {}
+.bronnen-lijst { list-style: none; padding: 0; }
+.bronnen-lijst li { padding: 0.3rem 0; border-bottom: 1px solid #edf0f5; font-size: 0.84rem; }
+.bronnen-lijst li:last-child { border-bottom: none; }
+.bronnen-lijst a { color: var(--blue); text-decoration: none; font-weight: 500; }
+.bronnen-lijst a:hover { text-decoration: underline; }
+
+/* ── PROC HEADER ── */
+.proc-header { background: var(--white); border-radius: 10px; border: 1px solid var(--border); padding: 1.4rem 1.6rem; margin-bottom: 1.25rem; display: flex; gap: 1rem; align-items: flex-start; box-shadow: 0 1px 4px rgba(0,0,0,0.05); }
+.proc-header-bar { width: 5px; border-radius: 3px; align-self: stretch; min-height: 48px; flex-shrink: 0; }
+.proc-header-bar.vasc { background: var(--blue); }
+.proc-header-bar.nonvasc { background: var(--teal); }
+.proc-header-bar.thrombo { background: var(--red); }
+.proc-header h1 { font-family: 'Nunito', sans-serif; font-size: 1.45rem; font-weight: 800; color: var(--text); margin-bottom: 0.2rem; }
+.proc-header p { font-size: 0.84rem; color: var(--muted); }
+.proc-meta { display: flex; gap: 0.5rem; margin-top: 0.6rem; flex-wrap: wrap; }
+.meta-pill { font-size: 0.68rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 20px; }
+.meta-pill.vasc { background: var(--blue-light); color: var(--blue); }
+.meta-pill.nonvasc { background: var(--teal-light); color: var(--teal); }
+.meta-pill.thrombo { background: var(--red-light); color: var(--red); }
+
+/* ── VERSLAG KOPIEER ── */
+.verslag-wrap { position: relative; }
+.copy-btn { position: absolute; top: 0.6rem; right: 0.6rem; background: var(--blue); color: white; border: none; border-radius: 5px; padding: 0.3rem 0.75rem; font-size: 0.72rem; font-weight: 700; cursor: pointer; font-family: 'Nunito', sans-serif; display: flex; align-items: center; gap: 0.35rem; transition: background 0.15s; }
+.copy-btn:hover { background: #1558a0; }
+.copy-btn.copied { background: #1a7a3e; }
+
+/* ── DROPDOWN NAV ── */
+.nav-item { position: relative; }
+.nav-btn { background: none; border: none; font-family: 'Nunito Sans', sans-serif; font-size: 0.82rem; font-weight: 600; color: var(--muted); cursor: pointer; padding: 0.45rem 0.8rem; border-radius: 5px; display: flex; align-items: center; gap: 0.3rem; transition: all 0.12s; white-space: nowrap; }
+.nav-btn:hover, .nav-btn.open { background: var(--blue-light); color: var(--blue); }
+.nav-btn .chevron { font-size: 0.6rem; transition: transform 0.2s; }
+.nav-btn.open .chevron { transform: rotate(180deg); }
+.dropdown { position: absolute; top: calc(100% + 6px); left: 0; background: var(--white); border: 1px solid var(--border); border-radius: 8px; box-shadow: 0 6px 20px rgba(0,0,0,0.1); min-width: 240px; display: none; z-index: 300; overflow: hidden; }
+.dropdown.open { display: block; }
+.dropdown-item { display: flex; align-items: center; gap: 0.6rem; padding: 0.6rem 1rem; font-size: 0.84rem; color: var(--text); text-decoration: none; cursor: pointer; border-bottom: 1px solid #eef0f4; transition: background 0.1s; }
+.dropdown-item:last-child { border-bottom: none; }
+.dropdown-item:hover { background: var(--blue-light); color: var(--blue); }
+.dropdown-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+.dropdown-dot.vasc { background: var(--blue); }
+.dropdown-dot.nonvasc { background: var(--teal); }
+.dropdown-dot.thrombo { background: var(--red); }
+.dropdown-dot.mat { background: #6040a0; }
+.dropdown-badge { margin-left: auto; font-size: 0.6rem; font-weight: 800; padding: 0.1rem 0.35rem; border-radius: 3px; background: var(--red-light); color: var(--red); }
+
+@media (max-width: 768px) {
+  .acc-inner-split { grid-template-columns: 1fr; }
+  .bronnen-grid { grid-template-columns: 1fr; }
+}
