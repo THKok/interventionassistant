@@ -5,48 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PTA ± Stentplaatsing Beenvaten — InterventionAssistant</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-
 <nav></nav>
-<div class="nav-mobile-menu">
-  <a href="../index.html">Home</a>
-  <a href="pta-beenvaten.html">Vasculair</a>
-  <a href="../non-vasculair/nefrostomie.html">Non-vasculair</a>
-  <a href="../trombolyse/rtpa-trombolyse.html">Trombolyse</a>
-</div>
-
 <div class="main proc-page">
   <div class="breadcrumb">
-    <a href="../index.html">Home</a>
-    <span class="sep">›</span>
-    <span>Vasculair</span>
-    <span class="sep">›</span>
+    <a href="../index.html">Home</a><span class="sep">›</span>
+    <span>Vasculair</span><span class="sep">›</span>
     <span>PTA ± stent beenvaten</span>
   </div>
-
-  <div class="page-title">PTA ± Stentplaatsing Beenvaten</div>
-  <div class="page-sub">Percutane transluminale angioplastiek — femoropopliteaal / cruraal traject</div>
-  <div class="status-bar">
-    <span class="status-chip vasc">Vasculair</span>
-    <span class="status-chip vasc">Perifeer arterieel</span>
-  </div>
-
-  <div class="tabs">
-    <button class="tab active" data-tab="pta-proc">Procedure</button>
-    <button class="tab" data-tab="pta-mat">Materiaal</button>
-    <button class="tab" data-tab="pta-vers">Standaardverslag</button>
-    <button class="tab" data-tab="pta-nac">Nacontrole</button>
-  </div>
-
-  <!-- Procedure -->
-  <div class="tab-panel active" id="pta-proc">
+  <div class="proc-header">
+    <div class="proc-header-bar vasc"></div>
     <div>
-      <div class="card">
-        <div class="card-head blue">Indicaties</div>
-        <div class="card-body">
+      <h1>PTA ± Stentplaatsing Beenvaten</h1>
+      <p>Percutane transluminale angioplastiek — femoropopliteaal / cruraal traject</p>
+      <div class="proc-meta">
+        <span class="meta-pill vasc">Vasculair</span>
+        <span class="meta-pill vasc">Perifeer arterieel</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Indicaties -->
+  <div class="accordion open" id="acc-ind">
+    <div class="acc-header" onclick="toggleAcc('acc-ind')">
+      <div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title">Indicaties & Contra-indicaties</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner-split">
+        <div>
+          <p class="acc-sublabel">Indicaties</p>
           <ul class="clean">
             <li><strong>Claudicatio IIb/III</strong> na falen looptraining</li>
             <li><strong>Kritieke ischemie</strong> — rustpijn of weefselschade (Fontaine III/IV)</li>
@@ -54,39 +45,65 @@
             <li><strong>TASC A/B</strong> voorkeur endovasculair; C/D afhankelijk van operatierisico</li>
           </ul>
         </div>
+        <div>
+          <p class="acc-sublabel">Contra-indicaties</p>
+          <ul class="clean">
+            <li>Geen endovasculaire optie anatomisch mogelijk</li>
+            <li>TASC D laesie bij acceptabel operatierisico</li>
+          </ul>
+        </div>
       </div>
-      <div class="card">
-        <div class="card-head blue">Techniek stap voor stap</div>
-        <div class="card-body">
+    </div>
+  </div>
+
+  <!-- Pre-procedureel -->
+  <div class="accordion" id="acc-pre">
+    <div class="acc-header" onclick="toggleAcc('acc-pre')">
+      <div class="acc-title-wrap"><span class="acc-dot blue"></span><span class="acc-title">Pre-procedurele Checklist</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner">
+        <ul class="clean">
+          <li><strong>Antistolling:</strong> Aspirine 100 mg + clopidogrel 75 mg voor aanvang</li>
+          <li><strong>eGFR:</strong> Bekend — stop metformine 48u voor/na bij eGFR &lt;60</li>
+          <li><strong>Beeldvorming:</strong> Duplex / CTA beenvaten beschikbaar</li>
+          <li><strong>TASC classificatie:</strong> Vastgesteld op basis van eerdere beeldvorming</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stappenplan -->
+  <div class="accordion" id="acc-stap">
+    <div class="acc-header" onclick="toggleAcc('acc-stap')">
+      <div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title">Stappenplan</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner-split">
+        <div>
           <ol class="steps">
-            <li><div class="sn blue">1</div><div><strong>Toegang:</strong> Ipsilaterale antegrade punctie A. femoralis communis onder echo, of contralaterale cross-over bij proximale laesie.</div></li>
+            <li><div class="sn vasc" style="background:var(--blue);color:white">1</div><div><strong>Toegang:</strong> Ipsilaterale antegrade punctie A. femoralis communis onder echo, of contralaterale cross-over bij proximale laesie.</div></li>
             <li><div class="sn blue">2</div><div><strong>Sheath:</strong> 6Fr standaard; long sheath 45–55 cm bij cruraal traject.</div></li>
-            <li><div class="sn blue">3</div><div><strong>Diagnostische angio:</strong> Overzicht instroom, laesie, distale run-off in 2 vlakken.</div></li>
+            <li><div class="sn blue">3</div><div><strong>Diagnostische angio:</strong> Overzicht instroom, laesie en distale run-off in 2 vlakken.</div></li>
             <li><div class="sn blue">4</div><div><strong>Crossing:</strong> Glidewire 0.035" + supporting catheter. CTO: stijve wire of PIER subintimaal.</div></li>
             <li><div class="sn blue">5</div><div><strong>Heparine:</strong> 5000 IE iv na crossing. ACT streef &gt;250 s.</div></li>
             <li><div class="sn blue">6</div><div><strong>Ballon:</strong> 1:1 ratio referentievat. DEB voorkeur ≥15 cm femoropopliteaal. Cruraal: standaard 2.5–3.5 mm.</div></li>
             <li><div class="sn blue">7</div><div><strong>Dilatatie:</strong> 60–120 sec nominale druk. Overlappende inflaties bij lange laesie.</div></li>
             <li><div class="sn blue">8</div><div><strong>Controle:</strong> &gt;30% reststenose, dissectie of recoil → indicatie stent.</div></li>
-            <li><div class="sn blue">9</div><div><strong>Stent:</strong> Self-expanding nitinol femoropopliteaal; ballon-expandeerbaar voor ostiale laesies.</div></li>
+            <li><div class="sn blue">9</div><div><strong>Stent (indien geïndiceerd):</strong> Self-expanding nitinol femoropopliteaal; ballon-expandeerbaar voor ostiale laesies.</div></li>
             <li><div class="sn blue">10</div><div><strong>Hemostase:</strong> Angioseal 6Fr of manuele compressie 15 min.</div></li>
           </ol>
         </div>
-      </div>
-    </div>
-    <div>
-      <div class="card">
-        <div class="card-head red">⚠ Aandachtspunten</div>
-        <div class="card-body">
+        <div>
+          <p class="acc-sublabel">Aandachtspunten</p>
           <div class="note red"><strong>Metformine:</strong> Stop 48u voor/na bij eGFR &lt;60.</div>
-          <div class="note orange"><strong>DEB:</strong> Minder effectief bij ernstige kalk.</div>
-          <div class="note green"><strong>Tip:</strong> BMI &gt;35 → cross-over geeft betere controle dan antegrade.</div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-head teal">Medicatie</div>
-        <div class="card-body">
+          <div class="note orange"><strong>DEB:</strong> Minder effectief bij ernstige kalk — overweeg hoge-druk ballon eerst.</div>
+          <div class="note green"><strong>BMI &gt;35:</strong> Cross-over geeft betere controle dan antegrade punctie.</div>
+          <p class="acc-sublabel" style="margin-top:1rem">Medicatie</p>
           <ul class="clean">
-            <li><strong>Pre:</strong> Aspirine 100mg + clopidogrel 75mg</li>
+            <li><strong>Pre:</strong> Aspirine 100 mg + clopidogrel 75 mg</li>
             <li><strong>Intra:</strong> Heparine 5000 IE iv</li>
             <li><strong>Post PTA:</strong> DAPT 4 weken</li>
             <li><strong>Post stent:</strong> DAPT 3 maanden</li>
@@ -97,25 +114,28 @@
   </div>
 
   <!-- Materiaal -->
-  <div class="tab-panel full" id="pta-mat">
-    <div class="card">
-      <div class="card-head blue">Materiaallijst — PTA ± stent beenvaten</div>
-      <div class="card-body" style="padding:0">
+  <div class="accordion" id="acc-mat">
+    <div class="acc-header" onclick="toggleAcc('acc-mat')">
+      <div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title">Materiaal</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner" style="padding:0">
         <table class="mat">
           <thead><tr><th>Materiaal</th><th>Specificatie</th><th>Opmerking</th></tr></thead>
           <tbody>
             <tr class="mat-cat"><td colspan="3">Toegang</td></tr>
             <tr><td>Micropunctieset</td><td>Cook Micropuncture 4Fr</td><td>Aanbevolen onder echo</td></tr>
-            <tr><td>Introducersheath</td><td>6Fr 11cm / 45–55cm long</td><td>Long sheath bij cruraal</td></tr>
+            <tr><td>Introducersheath</td><td>6Fr 11 cm / 45–55 cm long</td><td>Long sheath bij cruraal</td></tr>
             <tr class="mat-cat"><td colspan="3">Crossing</td></tr>
-            <tr><td>Hydrofiele wire</td><td>Terumo Glidewire 0.035" 180cm</td><td>Standaard crossing</td></tr>
+            <tr><td>Hydrofiele wire</td><td>Terumo Glidewire 0.035" 180 cm</td><td>Standaard crossing</td></tr>
             <tr><td>Supporting catheter</td><td>Bernstein / Quick-Cross 4Fr</td><td>Extra support bij CTO</td></tr>
             <tr class="mat-cat"><td colspan="3">Dilatatie</td></tr>
-            <tr><td>PTA ballon</td><td>4–7mm × 40–120mm</td><td>1:1 ratio referentievat</td></tr>
-            <tr><td>Drug-eluting ballon</td><td>IN.PACT Admiral / Luminor</td><td>≥15cm femoropopliteaal</td></tr>
+            <tr><td>PTA ballon</td><td>4–7 mm × 40–120 mm</td><td>1:1 ratio referentievat</td></tr>
+            <tr><td>Drug-eluting ballon</td><td>IN.PACT Admiral / Luminor</td><td>≥15 cm femoropopliteaal</td></tr>
             <tr><td>Hoge-druk ballon</td><td>Dorado / Atlas Gold</td><td>Reserve bij sterk gecalcificeerd vat</td></tr>
             <tr class="mat-cat"><td colspan="3">Stenting</td></tr>
-            <tr><td>Self-expanding nitinol</td><td>Supera / Absolute Pro 6–8mm</td><td>Femoropopliteaal</td></tr>
+            <tr><td>Self-expanding nitinol</td><td>Supera / Absolute Pro 6–8 mm</td><td>Femoropopliteaal</td></tr>
             <tr><td>Ballon-expandeerbaar</td><td>Express LD</td><td>Ostiale laesies</td></tr>
             <tr class="mat-cat"><td colspan="3">Hemostase</td></tr>
             <tr><td>Closure device</td><td>Angioseal 6Fr</td><td>Antegrade toegang</td></tr>
@@ -126,31 +146,32 @@
   </div>
 
   <!-- Standaardverslag -->
-  <div class="tab-panel full" id="pta-vers">
-    <div class="card">
-      <div class="card-head purple">Standaardverslag — PTA ± stent beenvaten</div>
-      <div class="card-body">
-        <div class="verslag">INTERVENTIERADIOLOGIE — PROCEDURE VERSLAG
-
-Datum:       [DATUM]
-Patiënt:     [NAAM], [GEB.DATUM]
-Uitvoerend:  [NAAM ARTS]
+  <div class="accordion" id="acc-vers">
+    <div class="acc-header" onclick="toggleAcc('acc-vers')">
+      <div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title">Standaardverslag</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner">
+        <div class="verslag-wrap">
+          <div class="verslag" id="verslag-pta">Ter vergelijking: [Datum/Modaliteit]
+Antistolling: [Gestaakt / Niet van toepassing]
 
 INDICATIE:
-[Claudicatio intermittens / Kritieke ischemie] [rechts/links], TASC II [A/B/C/D],
-[stenose/occlusie] ter hoogte van [locatie].
+[Claudicatio intermittens / Kritieke ischemie] [rechts/links],
+TASC II [A/B/C/D], [stenose/occlusie] ter hoogte van [locatie].
 
 PROCEDURE:
-Na LA lidocaïne 2% werd [antegrade / contralaterale cross-over] punctie verricht
-van de A. femoralis communis [rechts/links] onder echogeleiding.
+Na LA lidocaïne 2% werd [antegrade / contralaterale cross-over] punctie
+verricht van de A. femoralis communis [rechts/links] onder echogeleiding.
 Inbrengen [6Fr] sheath.
 
 Diagnostische angiografie toonde [stenose/occlusie] ter hoogte van [locatie],
 lengte ca. [__] cm, met [goede/matige/slechte] distale uitstroom via [cruraal vat].
 
 Na heparine [5000 IE] iv crossing [transluminaal / subintimaal PIER].
-Dilatatie [PTA / DEB] [diameter]mm × [lengte]mm, max [__] atm, [__] sec.
-[Stentplaatsing: [type/merk] [diameter]mm × [lengte]mm ter hoogte van [locatie].]
+Dilatatie [PTA / DEB] [diameter] mm × [lengte] mm, max [__] atm, [__] sec.
+[Stentplaatsing: [type/merk] [diameter] mm × [lengte] mm.]
 
 Reststenose &lt;30%. Hemostase: Angioseal 6Fr. Geen directe complicaties.
 
@@ -163,46 +184,66 @@ Contrast: Iomeron [300/350], totaal [__] ml.
 
 NACONTROLE:
 ABI meting na 4–6 weken. Duplex beenvaten na 3 maanden.</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Nacontrole -->
-  <div class="tab-panel" id="pta-nac">
-    <div>
-      <div class="card">
-        <div class="card-head red">Complicaties</div>
-        <div class="card-body">
-          <ul class="clean">
-            <li><strong>Dissectie</strong> flow-limiterend → stentplaatsing</li>
-            <li><strong>Acute re-occlusie</strong> → heparine bolus, evt. trombolyse</li>
-            <li><strong>Distale embolisatie</strong> trashfoot → aspiratietrombectomie of lysis</li>
-            <li><strong>Punctiecomplicaties</strong> — pseudoaneurysma, AV-fistel</li>
-            <li><strong>Stentfractuur</strong> — femoropopliteaal bij kniebewegingen</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div>
-      <div class="card">
-        <div class="card-head teal">Follow-up schema</div>
-        <div class="card-body">
-          <ul class="clean">
-            <li><strong>Direct post:</strong> ABI + pulsaties controleren</li>
-            <li><strong>4–6 weken:</strong> Poli + ABI</li>
-            <li><strong>3 maanden:</strong> Duplex beenvaten</li>
-            <li><strong>1 jaar:</strong> Duplex + klinisch</li>
-          </ul>
+          <button class="copy-btn" id="copy-pta" onclick="copyVerslag('verslag-pta','copy-pta')">⎘ Kopieer</button>
         </div>
       </div>
     </div>
   </div>
 
+  <!-- Complicaties -->
+  <div class="accordion" id="acc-comp">
+    <div class="acc-header" onclick="toggleAcc('acc-comp')">
+      <div class="acc-title-wrap"><span class="acc-dot red"></span><span class="acc-title">Complicaties</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner" style="padding:0">
+        <table class="mat">
+          <thead><tr><th>Complicatie</th><th>Management</th></tr></thead>
+          <tbody>
+            <tr><td>Dissectie flow-limiterend</td><td>Stentplaatsing</td></tr>
+            <tr><td>Acute re-occlusie</td><td>Heparine bolus, evt. trombolyse</td></tr>
+            <tr><td>Distale embolisatie (trashfoot)</td><td>Aspiratietrombectomie of trombolyse</td></tr>
+            <tr><td>Pseudoaneurysma / AV-fistel</td><td>Compressie, thrombine injectie of chirurgie</td></tr>
+            <tr><td>Stentfractuur</td><td>Femoropopliteaal bij kniebewegingen — overweeg speciale stent</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Nazorg -->
+  <div class="accordion" id="acc-naz">
+    <div class="acc-header" onclick="toggleAcc('acc-naz')">
+      <div class="acc-title-wrap"><span class="acc-dot green"></span><span class="acc-title">Nazorg</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner">
+        <ul class="clean">
+          <li>Direct post: ABI + pulsaties controleren</li>
+          <li>4–6 weken: poliklinische controle + ABI</li>
+          <li>3 maanden: duplex beenvaten</li>
+          <li>1 jaar: duplex + klinische beoordeling</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/7.0.0/fuse.min.js"></script>
 <script src="../procedures.js"></script>
 <script src="../nav.js"></script>
 <script src="../search.js"></script>
+<script>
+function toggleAcc(id) { document.getElementById(id).classList.toggle('open'); }
+function copyVerslag(verslagId, btnId) {
+  navigator.clipboard.writeText(document.getElementById(verslagId).innerText).then(() => {
+    const btn = document.getElementById(btnId);
+    btn.textContent = '✓ Gekopieerd'; btn.classList.add('copied');
+    setTimeout(() => { btn.innerHTML = '⎘ Kopieer'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+</script>
 </body>
 </html>
