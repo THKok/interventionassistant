@@ -7,25 +7,37 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css">
+  <style>
+    ul.plain { list-style: none; padding: 0; }
+    ul.plain li {
+      font-size: 0.875rem;
+      padding: 0.35rem 0;
+      border-bottom: 1px solid #edf0f5;
+      line-height: 1.5;
+      color: var(--text);
+    }
+    ul.plain li:last-child { border-bottom: none; }
+    ul.plain li strong { font-weight: 600; }
+  </style>
 </head>
 <body>
 <nav></nav>
 <div class="main proc-page">
   <div class="breadcrumb">
     <a href="../index.html">Home</a><span class="sep">›</span>
-    <span>Non-vasculair</span><span class="sep">›</span>
+    <span>Vasculair</span><span class="sep">›</span>
     <span>Prostaat arterie embolisatie</span>
   </div>
   <div class="proc-header">
-    <div class="proc-header-bar nonvasc"></div>
+    <div class="proc-header-bar vasc"></div>
     <div>
       <h1>Prostaat Arterie Embolisatie (PAE)</h1>
       <p>Superselectieve embolisatie Aa. prostaticae bij LUTS door benigne prostaathyperplasie</p>
       <div class="proc-meta">
-        <span class="meta-pill nonvasc">Non-vasculair</span>
-        <span class="meta-pill nonvasc">1–2 uur</span>
-        <span class="meta-pill nonvasc">Lokale anesthesie</span>
-        <span class="meta-pill nonvasc">Dagbehandeling</span>
+        <span class="meta-pill vasc">Vasculair</span>
+        <span class="meta-pill vasc">1–2 uur</span>
+        <span class="meta-pill vasc">Lokale anesthesie</span>
+        <span class="meta-pill vasc">Dagbehandeling</span>
       </div>
     </div>
   </div>
@@ -40,17 +52,17 @@
       <div class="acc-inner-split">
         <div>
           <p class="acc-sublabel">Indicaties</p>
-          <ul class="clean">
-            <li>LUTS niet reagerend op medicamenteuze therapie</li>
-            <li>LUTS met niet-tolereerbare bijwerkingen medicatie</li>
+          <ul class="plain">
+            <li>LUTS bij benigne prostaathyperplasie, niet reagerend op of met niet-tolereerbare bijwerkingen van medicamenteuze therapie</li>
             <li>LUTS met voorkeur voor embolisatie boven urologische ingreep</li>
-            <li>Actieve prostaatbloeding (na TURP)</li>
+            <li>Actieve prostaatbloeding (bijv. na TURP)</li>
           </ul>
         </div>
         <div>
           <p class="acc-sublabel">Contra-indicaties</p>
-          <ul class="clean">
-            <li>Niet bewezen bij maligniteit</li>
+          <ul class="plain">
+            <li>Onherstelbare stollingsstoornis</li>
+            <li>PAE is niet geïndiceerd bij prostaatmaligniteit — embolisatie is geen behandeling voor prostaatcarcinoom</li>
           </ul>
         </div>
       </div>
@@ -65,7 +77,7 @@
     </div>
     <div class="acc-body">
       <div class="acc-inner">
-        <ul class="clean">
+        <ul class="plain">
           <li><strong>eGFR:</strong> Bekend — zie protocol contrastnefropathie</li>
           <li><strong>Antistolling:</strong> Gestaakt conform protocol</li>
           <li><strong>Blaaskatheter:</strong> Ingebracht op de afdeling (10 ml ballon)</li>
@@ -90,7 +102,7 @@
           <tbody>
             <tr><td>Laterale angio AII</td><td>6 ml/s</td><td>12 ml</td><td>1 sec</td></tr>
             <tr><td>Conebeam CT vanuit AII</td><td>2 ml/s</td><td>24 ml</td><td>6 sec</td></tr>
-            <tr><td>Conebeam CT vanuit prostaat arterie</td><td>0.3 ml/s <em style="color:var(--muted)">(0.5 ml/s bij volume &gt;100 cc)</em></td><td>4 ml <em style="color:var(--muted)">(of 5 ml bij volume &gt;100 cc)</em></td><td>6 sec</td></tr>
+            <tr><td>Conebeam CT vanuit prostaat arterie</td><td>0.3 ml/s <em style="color:var(--muted)">(0.4 ml/s bij volume <tr><td>Conebeam CT vanuit prostaat arterie</td><td>0.4 ml/s</td><td>4 ml</td><td>6 sec</td></tr>gt;100 ml)</em></td><td>4 ml <em style="color:var(--muted)">(5 ml bij volume <tr><td>Conebeam CT vanuit prostaat arterie</td><td>0.4 ml/s</td><td>4 ml</td><td>6 sec</td></tr>gt;100 ml)</em></td><td>6 sec</td></tr>
           </tbody>
         </table>
       </div>
@@ -116,21 +128,22 @@
           <ol class="steps">
             <li><div class="sn teal">3</div><div><strong>Toegang:</strong> Retrograde 6Fr sheath A. femoralis communis rechts.</div></li>
             <li><div class="sn teal">4</div><div><strong>Diagnostiek links:</strong> Via 5Fr RIM katheter selectiveren A. iliaca interna links. C-boog 90° RAO. DSA (6 ml/s, 12 ml, delay 1 sec) ter identificatie A. prostatica links.</div></li>
-            <li><div class="sn teal">5</div><div><strong>Conebeam CT (indien nodig):</strong> Indien A. prostatica niet zichtbaar op DSA — conebeam via macrokatheter (2 ml/s, 24 ml, delay 6 sec).</div></li>
-            <li><div class="sn teal">6</div><div><strong>Superselectie links:</strong> Microkatheter (Asahi Tellus) + voerdraad (Asahi Meister 16, angled 45°) opvoeren in A. prostatica links. Verificatie positie: DSA AP op de hand.</div></li>
-            <li><div class="sn teal">7</div><div><strong>Conebeam CT via microkatheter links:</strong> 0.3 ml/s, 4 ml, delay 6 sec — basis penis in beeld. Identificeer en coil zo nodig aftakkingen naar blaas, rectum of penis.</div></li>
-            <li><div class="sn teal">8</div><div><strong>Verapamil links:</strong> Max 10 ml via microkatheter toedienen vóór embolisatie.</div></li>
-            <li><div class="sn teal">9</div><div><strong>Embolisatie links:</strong> ½ potje PVA 150–250 µm via microkatheter, C-boog AP 3 vergrotingen. Let op: pudenda (onder symphyse) en backflow.</div></li>
-            <li><div class="sn teal">10</div><div><strong>Contralateraal rechts:</strong> Zelfde procedure — superselectie A. prostatica rechts, conebeam CT, verapamil, embolisatie.</div></li>
-            <li><div class="sn teal">11</div><div><strong>Afsluiting:</strong> Starclose of Angioseal 6Fr. Ballonkatheter leeg en hervullen met 10 ml NaCl.</div></li>
+            <li><div class="sn teal">5</div><div><strong>Conebeam CT via macrokatheter (indien nodig):</strong> Indien A. prostatica niet zichtbaar op DSA (2 ml/s, 24 ml, delay 6 sec).</div></li>
+            <li><div class="sn teal">6</div><div><strong>Superselectie links:</strong> Microkatheter (Asahi Tellus) + voerdraad (Asahi Meister 16, angled 45°) opvoeren in A. prostatica links. Verificatie positie met DSA AP.</div></li>
+            <li><div class="sn teal">7</div><div><strong>Verapamil (5 ml) vóór conebeam:</strong> Verbetert beeldkwaliteit conebeam en opent het vaatbed voor betere embolisatieverdeling.</div></li>
+            <li><div class="sn teal">8</div><div><strong>Conebeam CT via microkatheter links:</strong> 0.4 ml/s, 4 ml, delay 6 sec — basis penis in beeld. Identificeer en coil zo nodig aftakkingen naar blaas, rectum of penis.</div></li>
+            <li><div class="sn teal">9</div><div><strong>Verapamil (5 ml) vóór embolisatie:</strong> Opent vaatbed verder voor effectievere PVA-verdeling.</div></li>
+            <li><div class="sn teal">10</div><div><strong>Embolisatie links:</strong> ½ potje PVA 150–250 µm via microkatheter, C-boog AP 3 vergrotingen. Let op pudenda (onder symphyse) en backflow naar AII-stam.</div></li>
+            <li><div class="sn teal">11</div><div><strong>Contralateraal rechts:</strong> Zelfde procedure — superselectie, verapamil vóór conebeam, conebeam CT, verapamil vóór embolisatie, embolisatie.</div></li>
+            <li><div class="sn teal">12</div><div><strong>Afsluiting:</strong> Starclose of Angioseal 6Fr. Ballonkatheter leeg en hervullen met 10 ml NaCl.</div></li>
           </ol>
         </div>
         <div>
           <p class="acc-sublabel">Aandachtspunten</p>
           <div class="note red"><strong>Non-target embolisatie:</strong> Altijd conebeam CT vóór embolisatie. Let op pudenda interna (onder symphyse) en aftakkingen naar rectum, blaas en penis. Bij twijfel: coilen of afzien van embolisatie die zijde.</div>
-          <div class="note orange"><strong>Backflow:</strong> Injecteer langzaam. Stop direct bij vermoeden van backflow naar AII-stam.</div>
-          <div class="note green"><strong>Verapamil:</strong> Vermindert vasospasme en vergemakkelijkt superselectie. Toedienen vóór embolisatie.</div>
-          <div class="note green"><strong>Katheter A. prostatica:</strong> Anatomie variabel — kan ontspringen uit AII, A. pudenda, A. obturatoria of direct uit A. iliaca externa. Conebeam CT helpt bij lastige anatomie.</div>
+          <div class="note orange"><strong>Backflow:</strong> Injecteer langzaam. Stop direct bij vermoeden backflow naar AII-stam.</div>
+          <div class="note green"><strong>Verapamil:</strong> 5 ml vóór conebeam CT (betere beeldkwaliteit, vaatbed open) en 5 ml vóór embolisatie (effectievere PVA-verdeling). Max 10 ml per zijde totaal.</div>
+          <div class="note green"><strong>Anatomische variatie A. prostatica:</strong> Kan ontspringen uit AII, A. pudenda, A. obturatoria of direct uit A. iliaca externa. Conebeam CT helpt bij lastige anatomie.</div>
         </div>
       </div>
     </div>
@@ -180,15 +193,14 @@
 rechts. Plaatsen van een 6Fr introducersheath.
 
 Via een 5Fr RIM katheter en Terumo voerdraad selectieve katheterisatie
-van de arteria iliaca interna links en aansluitend superselectieve
-katheterisatie van de prostaat arterie links middels microkatheter
-(Asahi Tellus) en voerdraad (Asahi Meister).
+van de arteria iliaca interna links. Superselectieve katheterisatie van
+de prostaat arterie links middels microkatheter (Asahi Tellus) en
+voerdraad (Asahi Meister).
 
-Na toediening van Verapamil een conebeam CT vervaardigd ter
+Na toediening van Verapamil 5 ml een conebeam CT vervaardigd ter
 identificatie van de prostaat arterie en uitsluiting van non-target
-vascularisatie.
-
-Embolisatie middels Contour PVA partikels 150–250 µm tot stasis.
+vascularisatie. Na aanvullende toediening van Verapamil 5 ml embolisatie
+middels Contour PVA partikels 150–250 µm tot stasis.
 
 Herhaling bovenstaande procedure aan de rechter zijde.
 
@@ -234,7 +246,7 @@ Technisch succesvolle prostaat arterie embolisatie.</div>
     </div>
     <div class="acc-body">
       <div class="acc-inner">
-        <ul class="clean">
+        <ul class="plain">
           <li>2 uur bedrust na closure — 1u plat, 1u glooiend, daarna mobiliseren</li>
           <li>Niet fietsen gedurende 2 weken (druk op perineum en prostaat)</li>
           <li>Eten en drinken toegestaan na procedure</li>
