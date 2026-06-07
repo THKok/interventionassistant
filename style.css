@@ -694,3 +694,111 @@ a.mat-link:hover { color: var(--teal); border-color: var(--teal); }
   .proc-card-head { padding: 0.75rem 0.9rem 0.4rem; }
   .proc-list-item { padding: 0.45rem 0.9rem; font-size: 0.8rem; }
 }
+
+/* ══════════════════════════════════════
+   HAMBURGER & MOBIEL MENU
+   ══════════════════════════════════════ */
+
+/* Desktop: nav-links zichtbaar, hamburger verborgen */
+.nav-links { display: flex; gap: 0.15rem; }
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.4rem;
+  margin-left: 0.5rem;
+  flex-shrink: 0;
+}
+
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: all 0.2s;
+}
+
+/* Hamburger animatie naar X */
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Mobiel menu — uitklapbaar onder nav */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 58px;
+  left: 0;
+  right: 0;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  z-index: 199;
+  max-height: calc(100vh - 58px);
+  overflow-y: auto;
+}
+
+.mobile-menu.open { display: block; }
+
+.mob-search-wrap {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.mob-search-input {
+  width: 100%;
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  padding: 0.45rem 1rem;
+  font-size: 0.84rem;
+  color: var(--text);
+  font-family: 'Nunito Sans', sans-serif;
+  outline: none;
+}
+
+.mob-search-input:focus { border-color: var(--blue); }
+
+.mob-group-label {
+  padding: 0.6rem 1rem 0.2rem;
+  font-size: 0.62rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--muted);
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+}
+
+.mob-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.65rem 1rem;
+  font-size: 0.875rem;
+  color: var(--text);
+  border-bottom: 1px solid #eef0f4;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+
+.mob-item:hover { background: var(--blue-light); color: var(--blue); }
+.mob-item:last-child { border-bottom: none; }
+
+/* Mobiel: verberg desktop links, toon hamburger */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-search-wrap { display: none; }
+  .hamburger { display: flex; margin-left: auto; }
+
+  nav {
+    padding: 0 1rem;
+    justify-content: space-between;
+  }
+}
