@@ -10,6 +10,7 @@ const NAV_ITEMS = [
       { label: 'PTA ± stent beenvaten',        url: 'vasculair/pta-beenvaten.html' },
       { label: 'rTPA acuut bedreigd been',      url: 'vasculair/rtpa-trombolyse.html', badge: 'URGENT' },
       { label: 'Port-a-cath plaatsing',         url: 'vasculair/port-a-cath.html' },
+      { label: 'PICC-lijn plaatsing',           url: 'vasculair/picc-lijn.html' },
       { label: 'Uterusembolisatie bij fluxus',  url: 'vasculair/uterusembolisatie.html' },
       { label: 'Prostaat arterie embolisatie',  url: 'vasculair/pae.html' },
     ]

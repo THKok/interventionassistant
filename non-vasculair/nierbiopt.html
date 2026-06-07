@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nierbiopt — InterventionAssistant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<nav></nav>
+<div class="main proc-page">
+  <div class="breadcrumb">
+    <a href="../index.html">Home</a><span class="sep">›</span>
+    <span>Non-vasculair</span><span class="sep">›</span>
+    <span>Nierbiopt</span>
+  </div>
+  <div class="proc-header">
+    <div class="proc-header-bar nonvasc"></div>
+    <div>
+      <h1>Nierbiopt</h1>
+      <p>Echogeleide percutane biopsie van de nier bij verdenking nierparenchymziekte</p>
+      <div class="proc-meta">
+        <span class="meta-pill nonvasc">Non-vasculair</span>
+        <span class="meta-pill nonvasc">20–30 min</span>
+        <span class="meta-pill nonvasc">Lokale anesthesie</span>
+        <span class="meta-pill nonvasc">Klinisch 4–6u observatie</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion open" id="acc-ind">
+    <div class="acc-header" onclick="toggleAcc('acc-ind')">
+      <div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title">Indicaties & Contra-indicaties</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner-split">
+        <div>
+          <p class="acc-sublabel">Indicaties</p>
+          <ul class="clean">
+            <li>Nefrotisch of nefritisch syndroom met onduidelijke oorzaak</li>
+            <li>Verdenking IgA-nefropathie, FSGS, membraneuse nefropathie of vasculitis</li>
+            <li>Verdenking transplantaatafstoting</li>
+            <li>Onbegrepen nierinsufficiëntie</li>
+          </ul>
+        </div>
+        <div>
+          <p class="acc-sublabel">Contra-indicaties</p>
+          <ul class="clean">
+            <li>Stollingsstoornis (INR &gt;1.5, trombo &lt;80)</li>
+            <li>Niet-gecorrigeerde hypertensie (RR &gt;160/100)</li>
+            <li>Enkelfunctienier (relatief — multidisciplinair overleg)</li>
+            <li>Actieve urineweginfectie</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion" id="acc-pre">
+    <div class="acc-header" onclick="toggleAcc('acc-pre')">
+      <div class="acc-title-wrap"><span class="acc-dot blue"></span><span class="acc-title">Pre-procedurele Checklist</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner">
+        <ul class="clean">
+          <li><strong>Lab:</strong> INR, trombo's, Hb, eGFR, bloedgroep + kruisbloed</li>
+          <li><strong>RR:</strong> &lt;160/100 — zo nodig antihypertensiva aanpassen</li>
+          <li><strong>Antistolling:</strong> Gestaakt conform protocol</li>
+          <li><strong>Beeldvorming:</strong> Niergrootte, -positie en -echo-textuur bekend</li>
+          <li><strong>Informed consent:</strong> Inclusief bloeding, AV-fistel, verlies nierfunctie</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion" id="acc-stap">
+    <div class="acc-header" onclick="toggleAcc('acc-stap')">
+      <div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title">Stappenplan</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner-split">
+        <div>
+          <ol class="steps">
+            <li><div class="sn teal">1</div><div>Patiënt in buikligging, kussen onder de buik ter hoogte van de nieren.</div></li>
+            <li><div class="sn teal">2</div><div>Echo ter identificatie nier — voorkeur onderste pool linkernier (verder van grote vaten, makkelijker bereikbaar). Bepaal punctietraject: vermijd hilus, grote vaten en kelken.</div></li>
+            <li><div class="sn teal">3</div><div>Lokale anesthesie tot niercapsule.</div></li>
+            <li><div class="sn teal">4</div><div>Echogeleide inbrengen biopsienaald tot aan de capsule. Patiënt vasthouden adem.</div></li>
+            <li><div class="sn teal">5</div><div>Biopsie nemen met automatische naald — minimaal 2 cores.</div></li>
+            <li><div class="sn teal">6</div><div>Direct beoordelen adequaatheid: minimaal 10 glomeruli gewenst.</div></li>
+            <li><div class="sn teal">7</div><div>Materiaal verdelen over formaline (lichtmicroscopie), Michel's medium (immunofluorescentie) en fysiologisch zout (elektronenmicroscopie).</div></li>
+            <li><div class="sn teal">8</div><div>Echo na procedure ter uitsluiting directe bloeding.</div></li>
+          </ol>
+        </div>
+        <div>
+          <p class="acc-sublabel">Aandachtspunten</p>
+          <div class="note red"><strong>Hypertensie:</strong> RR &gt;160/100 is relatieve contra-indicatie — verhoogt bloedingsrisico significant. Uitstellen tot RR gecorrigeerd.</div>
+          <div class="note orange"><strong>Enkelfunctienier:</strong> Multidisciplinair overleg vereist. Verhoogd risico op ernstige complicaties.</div>
+          <div class="note green"><strong>Ademhaling:</strong> Patiënt vasthouden adem op moment van biopsie — voorkomt scheuring door nierbewegingen.</div>
+          <div class="note green"><strong>Materiaalverdeling:</strong> Drie potjes klaarzetten vóór aanvang — direct na biopsie verdelen voorkomt uitdroging.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion" id="acc-mat">
+    <div class="acc-header" onclick="toggleAcc('acc-mat')">
+      <div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title">Materiaal</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner" style="padding:0">
+        <table class="mat">
+          <thead><tr><th>Materiaal</th><th>Specificatie</th><th>Aantal</th></tr></thead>
+          <tbody>
+            <tr><td>Angioset</td><td>Standaard</td><td>1</td></tr>
+            <tr><td>Biopsienaald</td><td>16G automatisch, 20 mm slag</td><td>2</td></tr>
+            <tr><td>Echoprobe hoes</td><td>Steriel</td><td>1</td></tr>
+            <tr class="mat-cat"><td colspan="3">Pathologie</td></tr>
+            <tr><td>Formaline pot</td><td>Lichtmicroscopie</td><td>1</td></tr>
+            <tr><td>Michel's medium</td><td>Immunofluorescentie</td><td>1</td></tr>
+            <tr><td>Fysiologisch zout</td><td>Elektronenmicroscopie</td><td>1</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion" id="acc-vers">
+    <div class="acc-header" onclick="toggleAcc('acc-vers')">
+      <div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title">Standaardverslag</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner">
+        <div class="verslag-wrap">
+          <div class="verslag" id="verslag-nb">Patiënt in buikligging. Echogeleide identificatie [linker / rechter] nier.
+Na lokale verdoving echogeleide biopsie onderste pool met 16G
+automatische biopsienaald. In totaal [__] cores afgenomen. Materiaal
+verdeeld over formaline, Michel's medium en fysiologisch zout.
+Echo na procedure toont geen tekenen van actieve bloeding.
+Geen directe complicaties.
+
+CONCLUSIE:
+Echogeleide nierbiopsie [links/rechts], [__] cores.</div>
+          <button class="copy-btn" id="copy-nb" onclick="copyVerslag('verslag-nb','copy-nb')">⎘ Kopieer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion" id="acc-comp">
+    <div class="acc-header" onclick="toggleAcc('acc-comp')">
+      <div class="acc-title-wrap"><span class="acc-dot red"></span><span class="acc-title">Complicaties</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner" style="padding:0">
+        <table class="mat">
+          <thead><tr><th>Complicatie</th><th>Kans</th><th>Management</th></tr></thead>
+          <tbody>
+            <tr><td>Macroscopische hematurie</td><td>5–10%</td><td>Vocht, observatie; zeldzaam interventie nodig</td></tr>
+            <tr><td>Perirenal hematoom</td><td>5–15%</td><td>Conservatief; embolisatie bij actieve bloeding</td></tr>
+            <tr><td>AV-fistel</td><td>1–2%</td><td>Meeste sluiten spontaan; embolisatie indien symptomatisch</td></tr>
+            <tr><td>Bloeding met transfusiebehoefte</td><td>&lt;1%</td><td>Transfusie, embolisatie of chirurgie</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion" id="acc-naz">
+    <div class="acc-header" onclick="toggleAcc('acc-naz')">
+      <div class="acc-title-wrap"><span class="acc-dot green"></span><span class="acc-title">Nazorg</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner">
+        <ul class="clean">
+          <li>Bedrust 4–6 uur na procedure</li>
+          <li>Urinecontrole op hematurie</li>
+          <li>Hb controle na 4–6 uur</li>
+          <li>Bij stabiele bevindingen: ontslag met instructie</li>
+          <li>Geen inspanning 1 week</li>
+          <li>Contact opnemen bij pijnlijke hematurie of koorts</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/7.0.0/fuse.min.js"></script>
+<script src="../procedures.js"></script>
+<script src="../nav.js"></script>
+<script src="../search.js"></script>
+<script>
+function toggleAcc(id) { document.getElementById(id).classList.toggle('open'); }
+function copyVerslag(verslagId, btnId) {
+  navigator.clipboard.writeText(document.getElementById(verslagId).innerText).then(() => {
+    const btn = document.getElementById(btnId);
+    btn.textContent = '✓ Gekopieerd'; btn.classList.add('copied');
+    setTimeout(() => { btn.innerHTML = '⎘ Kopieer'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+</script>
+</body>
+</html>

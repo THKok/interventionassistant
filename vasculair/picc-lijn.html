@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PICC-lijn Plaatsing — InterventionAssistant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<nav></nav>
+<div class="main proc-page">
+  <div class="breadcrumb">
+    <a href="../index.html">Home</a><span class="sep">›</span>
+    <span>Vasculair</span><span class="sep">›</span>
+    <span>PICC-lijn plaatsing</span>
+  </div>
+  <div class="proc-header">
+    <div class="proc-header-bar vasc"></div>
+    <div>
+      <h1>PICC-lijn Plaatsing</h1>
+      <p>Percutane plaatsing centraal veneuze katheter via de bovenarm</p>
+      <div class="proc-meta">
+        <span class="meta-pill vasc">Vasculair</span>
+        <span class="meta-pill vasc">20–30 min</span>
+        <span class="meta-pill vasc">Lokale anesthesie</span>
+        <span class="meta-pill vasc">Poliklinisch</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion open" id="acc-ind">
+    <div class="acc-header" onclick="toggleAcc('acc-ind')">
+      <div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title">Indicaties & Contra-indicaties</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner-split">
+        <div>
+          <p class="acc-sublabel">Indicaties</p>
+          <ul class="clean">
+            <li>Langdurige intraveneuze therapie waarbij een perifeer infuus niet volstaat (antibiotica, chemotherapie, TPN)</li>
+            <li>Slechte perifere veneuze toegang</li>
+            <li>Frequente bloedafnames</li>
+          </ul>
+        </div>
+        <div>
+          <p class="acc-sublabel">Contra-indicaties</p>
+          <ul class="clean">
+            <li>Pacemaker of ICD ipsilateraal</li>
+            <li>Status na lymfeklierdissectie ipsilateraal</li>
+            <li>Bekende centrale veneuze obstructie ipsilateraal (DVT, mediastinale massa)</li>
+            <li>Actieve infectie ter plaatse van implantatie</li>
+            <li>Ernstige trombocytopenie (relatief)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion" id="acc-pre">
+    <div class="acc-header" onclick="toggleAcc('acc-pre')">
+      <div class="acc-title-wrap"><span class="acc-dot blue"></span><span class="acc-title">Pre-procedurele Checklist</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner">
+        <ul class="clean">
+          <li><strong>Beeldvorming:</strong> Eerdere X-thorax of CT beoordelen — pacemaker? Bekende centrale veneuze obstructie? Mediastinale massa of lymfeklieren?</li>
+          <li><strong>Lab:</strong> Trombo's controleren indien klinisch relevant</li>
+          <li><strong>Arm voorkeur:</strong> Niet-dominant, voorkeur links</li>
+          <li><strong>Informed consent:</strong> Inclusief infectie, trombose, palpitaties tijdens plaatsing</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion" id="acc-stap">
+    <div class="acc-header" onclick="toggleAcc('acc-stap')">
+      <div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title">Stappenplan</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner-split">
+        <div>
+          <ol class="steps">
+            <li><div class="sn teal">1</div><div>Patiënt in rugligging, arm geabduceerd en gestrekt. Voorkeur links.</div></li>
+            <li><div class="sn teal">2</div><div>Flushen van lijn en dilatator.</div></li>
+            <li><div class="sn teal">3</div><div>Echo ter identificatie v. basilica of v. brachialis. Voorkeur: diameter vene ongestuwd ≥3× de dikte van de lijn. Let op voorliggende zenuwbundels — vermijd directe nabijheid n. medianus/n. ulnaris.</div></li>
+            <li><div class="sn teal">4</div><div>Stuwband aantrekken.</div></li>
+            <li><div class="sn teal">5</div><div>Lokale anesthesie met lidocaïne 1%, ca. 10 cc rondom het vat.</div></li>
+            <li><div class="sn teal">6</div><div>Echogeleide punctie met micropunctieset.</div></li>
+            <li><div class="sn teal">7</div><div>Stuwband losmaken na succesvolle punctie.</div></li>
+            <li><div class="sn teal">8</div><div>Onder doorlichting voerdraad opvoeren tot overgang VCS/rechter atrium.</div></li>
+            <li><div class="sn teal">9</div><div>Peel-away sheath over de voerdraad inbrengen.</div></li>
+            <li><div class="sn teal">10</div><div>Opmeten lijnlengte met meetdraad. Lijn op maat knippen.</div></li>
+            <li><div class="sn teal">11</div><div>Dilatator verwijderen uit de peel-away sheath. PICC-lijn inbrengen.</div></li>
+            <li><div class="sn teal">12</div><div>Peel-away sheath verwijderen terwijl het laatste stuk lijn opgevoerd wordt.</div></li>
+            <li><div class="sn teal">13</div><div>Bloed aspireren uit alle lumina, gevolgd door krachtig flushen met NaCl.</div></li>
+            <li><div class="sn teal">14</div><div>Positie controleren onder doorlichting — tip op overgang VCS/rechter atrium.</div></li>
+            <li><div class="sn teal">15</div><div>Lijn fixeren met bijbehorende pleisters uit de set.</div></li>
+          </ol>
+        </div>
+        <div>
+          <p class="acc-sublabel">Aandachtspunten</p>
+          <div class="note orange"><strong>Vene keuze:</strong> Diameter ongestuwd ≥3× lijndikte. V. basilica heeft voorkeur boven v. brachialis vanwege ligging t.o.v. zenuwbundels.</div>
+          <div class="note red"><strong>Pacemaker/ICD:</strong> Altijd contralaterale arm bij ipsilaterale pacemaker — risico op lead-schade en centrale obstructie.</div>
+          <div class="note green"><strong>Tip positie:</strong> Overgang VCS/rechter atrium. Te hoog → tromboserisico. Te diep (in RA) → palpitaties/aritmie.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion" id="acc-mat">
+    <div class="acc-header" onclick="toggleAcc('acc-mat')">
+      <div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title">Materiaal</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner" style="padding:0">
+        <table class="mat">
+          <thead><tr><th>Materiaal</th><th>Specificatie</th><th>Aantal</th></tr></thead>
+          <tbody>
+            <tr><td>Angioset (of PICC-specifieke set)</td><td>Standaard</td><td>1</td></tr>
+            <tr><td>PICC-lijn</td><td>4–5Fr, enkelluming of dubbelluming</td><td>1</td></tr>
+            <tr><td>Lidocaïne 1%</td><td>10 cc</td><td>1</td></tr>
+            <tr class="mat-cat"><td colspan="3">Inbegrepen in PICC-set</td></tr>
+            <tr><td>Peel-away sheath</td><td>Conform set</td><td>—</td></tr>
+            <tr><td>Dilatator</td><td>Conform set</td><td>—</td></tr>
+            <tr><td>Voerdraad</td><td>Conform set</td><td>—</td></tr>
+            <tr><td>Meetdraad</td><td>Conform set</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion" id="acc-vers">
+    <div class="acc-header" onclick="toggleAcc('acc-vers')">
+      <div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title">Standaardverslag</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner">
+        <div class="verslag-wrap">
+          <div class="verslag" id="verslag-picc">Echogeleid aanprikken vena [basilica / brachialis] [links / rechts] in de
+bovenarm via micropunctieset. Stuwband losgemaakt na succesvolle punctie.
+Onder doorlichting voerdraad opgevoerd tot overgang VCS/rechter atrium.
+Peel-away sheath ingebracht. Lijn op maat geknipt na opmeting met
+meetdraad. PICC-lijn ingebracht. Peel-away verwijderd. Aspiratie van bloed
+uit alle lumina bevestigd, gevolgd door krachtig flushen met NaCl.
+Doorlichting toont tip op overgang VCS/rechter atrium.
+Fixatie met bijbehorende pleisters. Geen directe complicaties.
+
+CONCLUSIE:
+Plaatsing [enkel/dubbel]lumige PICC-lijn [links/rechts],
+tip op overgang VCS/rechter atrium.</div>
+          <button class="copy-btn" id="copy-picc" onclick="copyVerslag('verslag-picc','copy-picc')">⎘ Kopieer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion" id="acc-comp">
+    <div class="acc-header" onclick="toggleAcc('acc-comp')">
+      <div class="acc-title-wrap"><span class="acc-dot red"></span><span class="acc-title">Complicaties</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner" style="padding:0">
+        <table class="mat">
+          <thead><tr><th>Complicatie</th><th>Management</th></tr></thead>
+          <tbody>
+            <tr><td>Trombose</td><td>Anticoagulatie, overleg behandelend arts</td></tr>
+            <tr><td>Infectie / lijninfectie</td><td>Lijn verwijderen; herplaatsing indien nodig in contralaterale arm</td></tr>
+            <tr><td>Palpitaties tijdens plaatsing</td><td>Lijn terugtrekken uit rechter atrium</td></tr>
+            <tr><td>Bloeding insteekplaats</td><td>Compressie</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion" id="acc-naz">
+    <div class="acc-header" onclick="toggleAcc('acc-naz')">
+      <div class="acc-title-wrap"><span class="acc-dot green"></span><span class="acc-title">Nazorg</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner">
+        <ul class="clean">
+          <li>Lijn dagelijks doorspoelen met NaCl</li>
+          <li>Wisselen fixatiepleisters wekelijks of bij losraken</li>
+          <li>Patiënt informeren over alarmsymptomen: roodheid, zwelling, koorts, pijn in arm</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/7.0.0/fuse.min.js"></script>
+<script src="../procedures.js"></script>
+<script src="../nav.js"></script>
+<script src="../search.js"></script>
+<script>
+function toggleAcc(id) { document.getElementById(id).classList.toggle('open'); }
+function copyVerslag(verslagId, btnId) {
+  navigator.clipboard.writeText(document.getElementById(verslagId).innerText).then(() => {
+    const btn = document.getElementById(btnId);
+    btn.textContent = '✓ Gekopieerd'; btn.classList.add('copied');
+    setTimeout(() => { btn.innerHTML = '⎘ Kopieer'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+</script>
+</body>
+</html>

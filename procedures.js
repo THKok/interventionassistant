@@ -20,6 +20,16 @@ const PROCEDURES = [
   { naam: "PTCD galwegdrainage", categorie: "Non-vasculair", subcategorie: "Galwegen", tag: "nonvasc",
     url: "non-vasculair/ptcd.html",
     trefwoorden: ["PTCD","galweg","cholangio","icterus","drainage","obstructie","SEMS","cholangitis","Bismuth","Chiba","TESLA"] },
+
+  { naam: "PICC-lijn plaatsing", categorie: "Vasculair", subcategorie: "Vascular access", tag: "vasc",
+    url: "vasculair/picc-lijn.html",
+    trefwoorden: ["PICC","lijn","centraal veneus","basilica","brachialis","peel-away","micropunctie","chemotherapie","antibiotica","TPN"] },
+  { naam: "Ascitesdrainage", categorie: "Non-vasculair", subcategorie: "Drainage", tag: "nonvasc",
+    url: "non-vasculair/ascitesdrainage.html",
+    trefwoorden: ["ascites","drainage","buikvocht","lever","cirrose","peritoneaal","epigastrisch","one-step","therapeutisch","diagnostisch"] },
+  { naam: "Nierbiopt", categorie: "Non-vasculair", subcategorie: "Biopsie", tag: "nonvasc",
+    url: "non-vasculair/nierbiopt.html",
+    trefwoorden: ["nierbiopt","biopsie","nier","IgA","nefropathie","FSGS","vasculitis","glomerulonefritis","nefrotisch","nefritisch","16G"] },
   { naam: "Shunt MDO", categorie: "MDO", subcategorie: "Hemodialyse toegang", tag: "vasc",
     url: "mdo/shunt-mdo.html",
     trefwoorden: ["shunt","AVF","AVG","hemodialyse","MDO","fistel","RCAVF","BCAVF","basilica transpositie","duplex"] }
