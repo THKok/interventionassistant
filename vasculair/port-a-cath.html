@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Port-a-cath Plaatsing — InterventionAssistant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<nav></nav>
+
+<div class="main proc-page">
+  <div class="breadcrumb">
+    <a href="../index.html">Home</a>
+    <span class="sep">›</span><span>Vasculair</span>
+    <span class="sep">›</span><span>Port-a-cath plaatsing</span>
+  </div>
+
+  <div class="proc-header">
+    <div class="proc-header-bar vasc"></div>
+    <div>
+      <h1>Port-a-cath Plaatsing (Bovenarmport)</h1>
+      <p>Subcutane implantatie van een volledig geïmplanteerd veneus toegangssysteem via de bovenarm</p>
+      <div class="proc-meta">
+        <span class="meta-pill vasc">Vasculair</span>
+        <span class="meta-pill vasc">45–60 min</span>
+        <span class="meta-pill vasc">Lokale anesthesie</span>
+        <span class="meta-pill vasc">Dagbehandeling</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Indicaties & Contra-indicaties -->
+  <div class="accordion open" id="acc-ind">
+    <div class="acc-header" onclick="toggleAcc('acc-ind')">
+      <div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title">Indicaties & Contra-indicaties</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner-split">
+        <div>
+          <p class="acc-sublabel">Indicaties</p>
+          <ul class="clean">
+            <li>Langdurige intraveneuze therapie (chemotherapie, antibiotica, parenterale voeding)</li>
+            <li>Slechte perifere veneuze toegang</li>
+            <li>Frequente bloedafnames</li>
+          </ul>
+        </div>
+        <div>
+          <p class="acc-sublabel">Contra-indicaties</p>
+          <ul class="clean">
+            <li>Actieve infectie ter plaatse van implantatie</li>
+            <li>Sepsis</li>
+            <li>Stollingsstoornis <em style="color:var(--muted)">(relatief — zie antistollingsprotocol)</em></li>
+            <li>Bekende centrale veneuze obstructie ipsilateraal</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pre-procedurele checklist -->
+  <div class="accordion" id="acc-pre">
+    <div class="acc-header" onclick="toggleAcc('acc-pre')">
+      <div class="acc-title-wrap"><span class="acc-dot blue"></span><span class="acc-title">Pre-procedurele Checklist</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner">
+        <ul class="clean">
+          <li>eGFR bekend indien contrastgebruik verwacht</li>
+          <li>Antistolling gestaakt conform protocol</li>
+          <li>Stolling gecontroleerd — INR, trombocyten</li>
+          <li>Informed consent inclusief arteriële punctie, kathetermigratie en wondcomplicaties</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stappenplan -->
+  <div class="accordion" id="acc-stap">
+    <div class="acc-header" onclick="toggleAcc('acc-stap')">
+      <div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title">Stappenplan</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner-split">
+        <div>
+          <p class="acc-sublabel" style="margin-bottom:0.75rem">Voorbereiding</p>
+          <ol class="steps">
+            <li><div class="sn teal">1</div><div>Flushen materialen.</div></li>
+            <li><div class="sn teal">2</div><div>Patiënt in rugligging, arm geabduceerd en gestrekt — voorkeur links.</div></li>
+            <li><div class="sn teal">3</div><div>Echografische identificatie v. basilica of v. cephalica mediaal in de bovenarm.</div></li>
+            <li><div class="sn teal">4</div><div>Pocket plannen op mediale bovenarm, distaal van de punctieplaats. Voorkeur voor ~0.5 cm weefsel tussen kast en huid. Te diep → niet voelbaar. Te ondiep → onprettig en complicatierisico.</div></li>
+            <li><div class="sn teal">5</div><div>Aftekenen longitudinale incisie dwars op arm, ca. 2.5 cm, vóór poetsen.</div></li>
+            <li><div class="sn teal">6</div><div>Poetsen en steriel afdekken bovenarm.</div></li>
+          </ol>
+
+          <p class="acc-sublabel" style="margin: 1.1rem 0 0.75rem">Veneuze toegang</p>
+          <ol class="steps">
+            <li><div class="sn teal">7</div><div>Lokale verdoving ter plaatse van de incisie.</div></li>
+            <li><div class="sn teal">8</div><div>Incisie ca. 2.5 cm zoals gepland.</div></li>
+            <li><div class="sn teal">9</div><div>Door de incisie echogeleide punctie v. basilica of v. cephalica.</div></li>
+            <li><div class="sn teal">10</div><div>Positie voerdraad controleren onder doorlichting: tip op overgang VCS/rechter atrium.</div></li>
+            <li><div class="sn teal">11</div><div>Peel-away sheath inbrengen. Lijn inbrengen bij voorkeur diep in rechter atrium. Peel-away verwijderen, klemmetje op de lijn.</div></li>
+          </ol>
+
+          <p class="acc-sublabel" style="margin: 1.1rem 0 0.75rem">Pocket aanleggen</p>
+          <ol class="steps">
+            <li><div class="sn teal">12</div><div>Verdoven van de pocket vanuit de incisie.</div></li>
+            <li><div class="sn teal">13</div><div>Stompe preparatie subcutane pocket, voldoende ruim voor port — in de praktijk ter grootte van een vingerkootje wijsvinger.</div></li>
+            <li><div class="sn teal">14</div><div>Fixatiehechting 2-0 Mersilene plaatsen aan mediocaudale (ulnaire, proximale) zijde van de pocket voor later door het oogje van het kastje.</div></li>
+          </ol>
+
+          <p class="acc-sublabel" style="margin: 1.1rem 0 0.75rem">Katheter positioneren & port plaatsen</p>
+          <ol class="steps">
+            <li><div class="sn teal">15</div><div>Katheter op maat knippen: tip op overgang VCS/rechter atrium.</div></li>
+            <li><div class="sn teal">16</div><div>Katheter verbinden met port: eerst cuff op de lijn, daarna lijn aansluiten en cuff vastklikken.</div></li>
+            <li><div class="sn teal">17</div><div>Port plaatsen in pocket. Positie lijn controleren onder doorlichting — ook in de arm op knikken.</div></li>
+            <li><div class="sn teal">18</div><div>Fixatie mediocaudale hoek kastje aan fascie met 2-0 Mersilene.</div></li>
+            <li><div class="sn teal">19</div><div>Testpunctie met Huber-naald: verificatie retourneren bloed + doorspoelen met NaCl.</div></li>
+          </ol>
+
+          <p class="acc-sublabel" style="margin: 1.1rem 0 0.75rem">Wond sluiten</p>
+          <ol class="steps">
+            <li><div class="sn teal">20</div><div>Subcutis: 3-0 Vicryl, wond approximeren met 3 hechtingen.</div></li>
+            <li><div class="sn teal">21</div><div>Huid: 4-0 Monocryl intracutaan.</div></li>
+            <li><div class="sn teal">22</div><div>Steristrips aanbrengen.</div></li>
+            <li><div class="sn teal">23</div><div>Port doorspoelen met heparineoplossing conform lokaal protocol. Eindpositie kathetertip documenteren op doorlichting.</div></li>
+          </ol>
+        </div>
+
+        <div>
+          <p class="acc-sublabel">Aandachtspunten</p>
+          <div class="note orange"><strong>Pocketdiepte:</strong> Streef naar ~0.5 cm weefsel tussen port en huid. Te diep → port niet voelbaar voor aanprikken. Te ondiep → huidirritatie en risico op erosie.</div>
+          <div class="note orange"><strong>Positie katheter in arm:</strong> Controleer altijd op knikken in het armtraject onder doorlichting. Een knik geeft occlusie of fractuur op langere termijn.</div>
+          <div class="note green"><strong>Tip positie:</strong> Bij voorkeur op de overgang VCS/rechter atrium. Te hoog → risico op trombose. Te laag (in RA) → aritmie risico.</div>
+          <div class="note green"><strong>Voorkeur links:</strong> Kortere veneuze route naar VCS, minder kans op knikken.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Materiaal -->
+  <div class="accordion" id="acc-mat">
+    <div class="acc-header" onclick="toggleAcc('acc-mat')">
+      <div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title">Materiaal</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner" style="padding:0">
+        <table class="mat">
+          <thead><tr><th>Materiaal</th><th>Specificatie</th><th>Aantal</th></tr></thead>
+          <tbody>
+            <tr><td>Port-a-cath systeem (bovenarm)</td><td>Incl. katheter en naald — bijv. Celsite bovenarmport</td><td>1</td></tr>
+            <tr><td>Peel-away sheath</td><td>Conform poortkatheterset</td><td>1</td></tr>
+            <tr><td>Voerdraad</td><td>0.035" J-tip of Terumo floppy</td><td>1</td></tr>
+            <tr><td>Echoprobe hoes</td><td>Steriel</td><td>1</td></tr>
+            <tr><td>Dilatator</td><td>Conform set</td><td>1</td></tr>
+            <tr><td>Huber-naald</td><td>Testpunctie na plaatsing</td><td>1</td></tr>
+            <tr class="mat-cat"><td colspan="3">Hechtingen</td></tr>
+            <tr><td>Hechting pocket (fasciefixatie)</td><td>2-0 Mersilene</td><td>1</td></tr>
+            <tr><td>Hechting subcutis</td><td>3-0 Vicryl</td><td>1</td></tr>
+            <tr><td>Hechting huid</td><td>4-0 Monocryl</td><td>1</td></tr>
+            <tr class="mat-cat"><td colspan="3">Overig</td></tr>
+            <tr><td>Contrastmiddel</td><td>Visipaque</td><td>—</td></tr>
+            <tr><td>Lokaal anestheticum</td><td>Lidocaïne 1%</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Standaardverslag -->
+  <div class="accordion" id="acc-vers">
+    <div class="acc-header" onclick="toggleAcc('acc-vers')">
+      <div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title">Standaardverslag</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner">
+        <div class="verslag-wrap">
+          <div class="verslag" id="verslag-pac">Na lokale verdoving incisie mediale zijde bovenarm. Echogeleid aanprikken vena
+[basilica / cephalica] [links / rechts]. Opvoeren van een voerdraad onder doorlichting
+met positie van de tip op de overgang van de vena cava superior en het rechter atrium.
+Plaatsen van een 6F peel-away sheath. Opvoeren van een 5F katheter tot in het
+rechter atrium.
+
+Stompe preparatie van een subcutane pocket distaal van de incisie. Plaatsen van een
+fixatiehechting (2-0 Mersilene) aan de ulnaire zijde van de pocket.
+
+Verwijderen van de peel-away sheath. Positionering van de kathetertip onder
+doorlichting boven het rechter atrium. Katheter op maat geknipt. Katheter middels
+connector-cuff bevestigd op de port. Port geplaatst in de pocket en gefixeerd met
+de vooraf geplaatste Mersilene hechting.
+
+Verificatie doorgankelijkheid met heparine-NaCl oplossing zonder lekkage.
+Sluiten subcutis met 3-0 Vicryl en huid intracutaan met 4-0 Monocryl.
+Steristrips en pleister aangebracht.
+
+Geen per-procedurele complicaties.
+
+CONCLUSIE:
+Technisch succesvolle implantatie bovenarmport [links / rechts].
+Kathetertip op de overgang VCS / rechter atrium.</div>
+          <button class="copy-btn" id="copy-pac" onclick="copyVerslag('verslag-pac','copy-pac')">⎘ Kopieer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Complicaties -->
+  <div class="accordion" id="acc-comp">
+    <div class="acc-header" onclick="toggleAcc('acc-comp')">
+      <div class="acc-title-wrap"><span class="acc-dot red"></span><span class="acc-title">Complicaties</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner" style="padding:0">
+        <table class="mat">
+          <thead><tr><th>Complicatie</th><th>Management</th></tr></thead>
+          <tbody>
+            <tr><td>Arteriële punctie</td><td>Compressie; zo nodig chirurg</td></tr>
+            <tr><td>Kathetermalpositie</td><td>Repositioneren onder doorlichting</td></tr>
+            <tr><td>Wond- / pocketinfectie</td><td>Antibiotica; zo nodig port explantatie</td></tr>
+            <tr><td>Pocket hematoom</td><td>Compressie, conservatief</td></tr>
+            <tr><td>Katheterocclusie</td><td>Urokinase instillatie</td></tr>
+            <tr><td>Pinch-off syndroom</td><td>N.v.t. bij bovenarmtoegang</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Nazorg -->
+  <div class="accordion" id="acc-naz">
+    <div class="acc-header" onclick="toggleAcc('acc-naz')">
+      <div class="acc-title-wrap"><span class="acc-dot green"></span><span class="acc-title">Nazorg</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner">
+        <ul class="clean">
+          <li>30 min observatie na procedure</li>
+          <li>Arm niet zwaar belasten gedurende 1 week</li>
+          <li>Wond droog houden tot hechtingen opgelost (ca. 2 weken)</li>
+          <li>Port pas gebruiken nadat zwelling is afgenomen (ca. 5 dagen) — indien direct noodzakelijk wel mogelijk</li>
+          <li>Patiënt informeren over alarmsymptomen: roodheid, zwelling, koorts</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/7.0.0/fuse.min.js"></script>
+<script src="../procedures.js"></script>
+<script src="../nav.js"></script>
+<script src="../search.js"></script>
+
+</body>
+</html>
