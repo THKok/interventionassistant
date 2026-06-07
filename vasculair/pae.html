@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prostaat Arterie Embolisatie — InterventionAssistant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<nav></nav>
+<div class="main proc-page">
+  <div class="breadcrumb">
+    <a href="../index.html">Home</a><span class="sep">›</span>
+    <span>Non-vasculair</span><span class="sep">›</span>
+    <span>Prostaat arterie embolisatie</span>
+  </div>
+  <div class="proc-header">
+    <div class="proc-header-bar nonvasc"></div>
+    <div>
+      <h1>Prostaat Arterie Embolisatie (PAE)</h1>
+      <p>Superselectieve embolisatie Aa. prostaticae bij LUTS door benigne prostaathyperplasie</p>
+      <div class="proc-meta">
+        <span class="meta-pill nonvasc">Non-vasculair</span>
+        <span class="meta-pill nonvasc">1–2 uur</span>
+        <span class="meta-pill nonvasc">Lokale anesthesie</span>
+        <span class="meta-pill nonvasc">Dagbehandeling</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Indicaties -->
+  <div class="accordion open" id="acc-ind">
+    <div class="acc-header" onclick="toggleAcc('acc-ind')">
+      <div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title">Indicaties & Contra-indicaties</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner-split">
+        <div>
+          <p class="acc-sublabel">Indicaties</p>
+          <ul class="clean">
+            <li>LUTS niet reagerend op medicamenteuze therapie</li>
+            <li>LUTS met niet-tolereerbare bijwerkingen medicatie</li>
+            <li>LUTS met voorkeur voor embolisatie boven urologische ingreep</li>
+            <li>Actieve prostaatbloeding (na TURP)</li>
+          </ul>
+        </div>
+        <div>
+          <p class="acc-sublabel">Contra-indicaties</p>
+          <ul class="clean">
+            <li>Niet bewezen bij maligniteit</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pre-procedureel -->
+  <div class="accordion" id="acc-pre">
+    <div class="acc-header" onclick="toggleAcc('acc-pre')">
+      <div class="acc-title-wrap"><span class="acc-dot blue"></span><span class="acc-title">Pre-procedurele Checklist</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner">
+        <ul class="clean">
+          <li><strong>eGFR:</strong> Bekend — zie protocol contrastnefropathie</li>
+          <li><strong>Antistolling:</strong> Gestaakt conform protocol</li>
+          <li><strong>Blaaskatheter:</strong> Ingebracht op de afdeling (10 ml ballon)</li>
+          <li><strong>Antibiotica:</strong> Conform voorschrift uroloog — geen standaard profylaxe-indicatie</li>
+          <li><strong>Ballonvulling:</strong> Ballon leeg laten lopen en hervullen met 3 ml Visipaque + 7 ml NaCl</li>
+          <li><strong>Nuchter:</strong> Licht ontbijt en drinken toegestaan</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Instellingen -->
+  <div class="accordion" id="acc-inst">
+    <div class="acc-header" onclick="toggleAcc('acc-inst')">
+      <div class="acc-title-wrap"><span class="acc-dot blue"></span><span class="acc-title">Doorlichtingsinstellingen</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner" style="padding:0">
+        <table class="mat">
+          <thead><tr><th>Serie</th><th>Flow</th><th>Volume</th><th>Injectie delay</th></tr></thead>
+          <tbody>
+            <tr><td>Laterale angio AII</td><td>6 ml/s</td><td>12 ml</td><td>1 sec</td></tr>
+            <tr><td>Conebeam CT vanuit AII</td><td>2 ml/s</td><td>24 ml</td><td>6 sec</td></tr>
+            <tr><td>Conebeam CT vanuit prostaat arterie</td><td>0.3 ml/s <em style="color:var(--muted)">(0.5 ml/s bij volume &gt;100 cc)</em></td><td>4 ml <em style="color:var(--muted)">(of 5 ml bij volume &gt;100 cc)</em></td><td>6 sec</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stappenplan -->
+  <div class="accordion" id="acc-stap">
+    <div class="acc-header" onclick="toggleAcc('acc-stap')">
+      <div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title">Stappenplan</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner-split">
+        <div>
+          <p class="acc-sublabel" style="margin-bottom:0.75rem">Voorbereiding</p>
+          <ol class="steps">
+            <li><div class="sn teal">1</div><div><strong>Verapamil:</strong> 5 mg in 20 ml spuit (2 ml ampul aanvullen met 18 ml NaCl).</div></li>
+            <li><div class="sn teal">2</div><div><strong>PVA-partikels:</strong> Contour 150–250 µm — ½ potje in 28 ml contrast + 12 ml NaCl.</div></li>
+          </ol>
+
+          <p class="acc-sublabel" style="margin: 1.1rem 0 0.75rem">Procedure</p>
+          <ol class="steps">
+            <li><div class="sn teal">3</div><div><strong>Toegang:</strong> Retrograde 6Fr sheath A. femoralis communis rechts.</div></li>
+            <li><div class="sn teal">4</div><div><strong>Diagnostiek links:</strong> Via 5Fr RIM katheter selectiveren A. iliaca interna links. C-boog 90° RAO. DSA (6 ml/s, 12 ml, delay 1 sec) ter identificatie A. prostatica links.</div></li>
+            <li><div class="sn teal">5</div><div><strong>Conebeam CT (indien nodig):</strong> Indien A. prostatica niet zichtbaar op DSA — conebeam via macrokatheter (2 ml/s, 24 ml, delay 6 sec).</div></li>
+            <li><div class="sn teal">6</div><div><strong>Superselectie links:</strong> Microkatheter (Asahi Tellus) + voerdraad (Asahi Meister 16, angled 45°) opvoeren in A. prostatica links. Verificatie positie: DSA AP op de hand.</div></li>
+            <li><div class="sn teal">7</div><div><strong>Conebeam CT via microkatheter links:</strong> 0.3 ml/s, 4 ml, delay 6 sec — basis penis in beeld. Identificeer en coil zo nodig aftakkingen naar blaas, rectum of penis.</div></li>
+            <li><div class="sn teal">8</div><div><strong>Verapamil links:</strong> Max 10 ml via microkatheter toedienen vóór embolisatie.</div></li>
+            <li><div class="sn teal">9</div><div><strong>Embolisatie links:</strong> ½ potje PVA 150–250 µm via microkatheter, C-boog AP 3 vergrotingen. Let op: pudenda (onder symphyse) en backflow.</div></li>
+            <li><div class="sn teal">10</div><div><strong>Contralateraal rechts:</strong> Zelfde procedure — superselectie A. prostatica rechts, conebeam CT, verapamil, embolisatie.</div></li>
+            <li><div class="sn teal">11</div><div><strong>Afsluiting:</strong> Starclose of Angioseal 6Fr. Ballonkatheter leeg en hervullen met 10 ml NaCl.</div></li>
+          </ol>
+        </div>
+        <div>
+          <p class="acc-sublabel">Aandachtspunten</p>
+          <div class="note red"><strong>Non-target embolisatie:</strong> Altijd conebeam CT vóór embolisatie. Let op pudenda interna (onder symphyse) en aftakkingen naar rectum, blaas en penis. Bij twijfel: coilen of afzien van embolisatie die zijde.</div>
+          <div class="note orange"><strong>Backflow:</strong> Injecteer langzaam. Stop direct bij vermoeden van backflow naar AII-stam.</div>
+          <div class="note green"><strong>Verapamil:</strong> Vermindert vasospasme en vergemakkelijkt superselectie. Toedienen vóór embolisatie.</div>
+          <div class="note green"><strong>Katheter A. prostatica:</strong> Anatomie variabel — kan ontspringen uit AII, A. pudenda, A. obturatoria of direct uit A. iliaca externa. Conebeam CT helpt bij lastige anatomie.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Materiaal -->
+  <div class="accordion" id="acc-mat">
+    <div class="acc-header" onclick="toggleAcc('acc-mat')">
+      <div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title">Materiaal</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner" style="padding:0">
+        <table class="mat">
+          <thead><tr><th>Materiaal</th><th>Specificatie</th><th>Aantal</th></tr></thead>
+          <tbody>
+            <tr><td>Introducersheath</td><td>6Fr, standaard</td><td>1</td></tr>
+            <tr><td>Voerdraad</td><td>Floppy Terumo / Splashwire 0.035"</td><td>1</td></tr>
+            <tr><td>Macrokatheter</td><td>5Fr Merit Medical RIM</td><td>1</td></tr>
+            <tr><td>Voerdraad microkatheter</td><td>Asahi Meister 16, angled 45°, 180 cm</td><td>1</td></tr>
+            <tr><td>Microkatheter</td><td>Asahi Tellus 150, angled</td><td>1</td></tr>
+            <tr><td>Embolisatiemateriaal</td><td>Contour PVA 150–250 µm</td><td>½ potje per zijde</td></tr>
+            <tr><td>Verapamil</td><td>2.5 mg/ml ampul</td><td>1</td></tr>
+            <tr><td>Heparine</td><td>5000 IE/ml ampul</td><td>1</td></tr>
+            <tr><td>Contrastmiddel</td><td>Visipaque</td><td>—</td></tr>
+            <tr class="mat-cat"><td colspan="3">Reserve</td></tr>
+            <tr><td>Reserve katheter</td><td>5Fr Cobra Glidecath</td><td>1</td></tr>
+            <tr><td>Reserve sheath</td><td>6Fr, 45 cm</td><td>1</td></tr>
+            <tr class="mat-cat"><td colspan="3">Afsluiting</td></tr>
+            <tr><td>Closure device</td><td>Starclose of Angioseal 6Fr</td><td>1</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Standaardverslag -->
+  <div class="accordion" id="acc-vers">
+    <div class="acc-header" onclick="toggleAcc('acc-vers')">
+      <div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title">Standaardverslag</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner">
+        <div class="verslag-wrap">
+          <div class="verslag" id="verslag-pae">Na lokale anesthesie retrograde punctie van de arteria femoralis communis
+rechts. Plaatsen van een 6Fr introducersheath.
+
+Via een 5Fr RIM katheter en Terumo voerdraad selectieve katheterisatie
+van de arteria iliaca interna links en aansluitend superselectieve
+katheterisatie van de prostaat arterie links middels microkatheter
+(Asahi Tellus) en voerdraad (Asahi Meister).
+
+Na toediening van Verapamil een conebeam CT vervaardigd ter
+identificatie van de prostaat arterie en uitsluiting van non-target
+vascularisatie.
+
+Embolisatie middels Contour PVA partikels 150–250 µm tot stasis.
+
+Herhaling bovenstaande procedure aan de rechter zijde.
+
+Afsluiting punctieplaats middels [Starclose / Angioseal 6Fr].
+Ballonkatheter hervuld met 10 ml NaCl.
+Geen per-procedurele complicaties.
+
+CONCLUSIE:
+Technisch succesvolle prostaat arterie embolisatie.</div>
+          <button class="copy-btn" id="copy-pae" onclick="copyVerslag('verslag-pae','copy-pae')">⎘ Kopieer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Complicaties -->
+  <div class="accordion" id="acc-comp">
+    <div class="acc-header" onclick="toggleAcc('acc-comp')">
+      <div class="acc-title-wrap"><span class="acc-dot red"></span><span class="acc-title">Complicaties</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner" style="padding:0">
+        <table class="mat">
+          <thead><tr><th>Complicatie</th><th>Management</th></tr></thead>
+          <tbody>
+            <tr><td>Post-embolisatiesyndroom</td><td>Conservatief, analgesie</td></tr>
+            <tr><td>Koorts &gt;38°</td><td>Bloedkweken, antibiotica, overleg uroloog</td></tr>
+            <tr><td>Urineretentie</td><td>Katheter handhaven, overleg uroloog</td></tr>
+            <tr><td>Non-target embolisatie (blaas/rectum/penis)</td><td>Afhankelijk van ernst — overleg uroloog</td></tr>
+            <tr><td>Lieshematoom</td><td>Compressie, conservatief</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Nazorg -->
+  <div class="accordion" id="acc-naz">
+    <div class="acc-header" onclick="toggleAcc('acc-naz')">
+      <div class="acc-title-wrap"><span class="acc-dot green"></span><span class="acc-title">Nazorg</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner">
+        <ul class="clean">
+          <li>2 uur bedrust na closure — 1u plat, 1u glooiend, daarna mobiliseren</li>
+          <li>Niet fietsen gedurende 2 weken (druk op perineum en prostaat)</li>
+          <li>Eten en drinken toegestaan na procedure</li>
+          <li>Tijdelijke katheter mag verwijderd worden op afdeling; verblijfskatheter blijft zitten</li>
+          <li>Ontslag door zaalarts urologie met poliafspraak</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/7.0.0/fuse.min.js"></script>
+<script src="../procedures.js"></script>
+<script src="../nav.js"></script>
+<script src="../search.js"></script>
+<script>
+function toggleAcc(id) { document.getElementById(id).classList.toggle('open'); }
+function copyVerslag(verslagId, btnId) {
+  navigator.clipboard.writeText(document.getElementById(verslagId).innerText).then(() => {
+    const btn = document.getElementById(btnId);
+    btn.textContent = '✓ Gekopieerd'; btn.classList.add('copied');
+    setTimeout(() => { btn.innerHTML = '⎘ Kopieer'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+</script>
+</body>
+</html>

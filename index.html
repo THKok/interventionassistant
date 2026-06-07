@@ -10,10 +10,8 @@
 </head>
 <body>
 
-<!-- ── NAV ── -->
 <nav></nav>
 
-<!-- ── HERO ── -->
 <div class="hero">
   <h1>Interventie<span>Assistant</span></h1>
   <p>Praktische proceduregids voor de interventieradioloog<br>Materiaallijsten · Techniek · Standaardverslagen</p>
@@ -24,30 +22,30 @@
   </div>
 </div>
 
-<!-- ── CONTENT ── -->
 <div class="main">
   <div class="proc-grid">
 
     <!-- Vasculair -->
-    <div class="proc-card" onclick="window.location='vasculair/pta-beenvaten.html'">
+    <div class="proc-card">
       <div class="proc-card-stripe vasc"></div>
       <div class="proc-card-head">
         <div class="proc-icon" style="background:#ddeaf7">🩸</div>
         <div>
           <div class="proc-card-title">Vasculaire Procedures</div>
-          <div class="proc-card-sub">Perifeer · Iliacaal · Visceraal</div>
+          <div class="proc-card-sub">Perifeer · Embolisatie · Access</div>
         </div>
       </div>
       <div class="proc-list">
-        <div class="proc-list-item" onclick="event.stopPropagation();window.location='vasculair/pta-beenvaten.html'">PTA ± stent beenvaten <span class="proc-list-arr">›</span></div>
-        <div class="proc-list-item" onclick="event.stopPropagation();window.location='vasculair/pta-beenvaten.html'">PTA ± stent iliacale vaten <span class="proc-list-arr">›</span></div>
-        <div class="proc-list-item" onclick="event.stopPropagation();window.location='vasculair/rtpa-trombolyse.html'">rTPA acuut bedreigd been <span class="proc-list-urgent">URGENT</span></div>
-        <div class="proc-list-item" style="color:var(--muted)">TIPS plaatsing <span style="font-size:0.68rem">binnenkort</span></div>
+        <div class="proc-list-item" onclick="window.location='vasculair/pta-beenvaten.html'">PTA ± stent beenvaten <span class="proc-list-arr">›</span></div>
+        <div class="proc-list-item" onclick="window.location='vasculair/rtpa-trombolyse.html'">rTPA acuut bedreigd been <span class="proc-list-urgent">URGENT</span></div>
+        <div class="proc-list-item" onclick="window.location='vasculair/port-a-cath.html'">Port-a-cath plaatsing <span class="proc-list-arr">›</span></div>
+        <div class="proc-list-item" onclick="window.location='vasculair/uterusembolisatie.html'">Uterusembolisatie bij fluxus <span class="proc-list-arr">›</span></div>
+        <div class="proc-list-item" onclick="window.location='vasculair/pae.html'">Prostaat arterie embolisatie <span class="proc-list-arr">›</span></div>
       </div>
     </div>
 
     <!-- Non-vasculair -->
-    <div class="proc-card" onclick="window.location='non-vasculair/nefrostomie.html'">
+    <div class="proc-card">
       <div class="proc-card-stripe nonvasc"></div>
       <div class="proc-card-head">
         <div class="proc-icon" style="background:#d4eeee">🫀</div>
@@ -57,15 +55,31 @@
         </div>
       </div>
       <div class="proc-list">
-        <div class="proc-list-item" onclick="event.stopPropagation();window.location='non-vasculair/nefrostomie.html'">Percutane nefrostomie <span class="proc-list-arr">›</span></div>
+        <div class="proc-list-item" onclick="window.location='non-vasculair/nefrostomie.html'">Percutane nefrostomie <span class="proc-list-arr">›</span></div>
+        <div class="proc-list-item" onclick="window.location='non-vasculair/ptcd.html'">PTCD galwegdrainage <span class="proc-list-arr">›</span></div>
         <div class="proc-list-item" style="color:var(--muted)">Abcesdrainage <span style="font-size:0.68rem">binnenkort</span></div>
-        <div class="proc-list-item" style="color:var(--muted)">PTCD galwegdrainage <span style="font-size:0.68rem">binnenkort</span></div>
-        <div class="proc-list-item" style="color:var(--muted)">Biopsie (lever / long / nier) <span style="font-size:0.68rem">binnenkort</span></div>
+      </div>
+    </div>
+
+    <!-- Oncologie -->
+    <div class="proc-card">
+      <div class="proc-card-stripe" style="background:#7b4fa6"></div>
+      <div class="proc-card-head">
+        <div class="proc-icon" style="background:#ece8f7">🎯</div>
+        <div>
+          <div class="proc-card-title">Interventionele Oncologie</div>
+          <div class="proc-card-sub">Ablatie · TACE · Y-90</div>
+        </div>
+      </div>
+      <div class="proc-list">
+        <div class="proc-list-item" style="color:var(--muted)">TACE / chemoembolisatie <span style="font-size:0.68rem">binnenkort</span></div>
+        <div class="proc-list-item" style="color:var(--muted)">RFA / MWA ablatie <span style="font-size:0.68rem">binnenkort</span></div>
+        <div class="proc-list-item" style="color:var(--muted)">Y-90 / SIRT <span style="font-size:0.68rem">binnenkort</span></div>
       </div>
     </div>
 
     <!-- MDO -->
-    <div class="proc-card" onclick="window.location='mdo/index.html'">
+    <div class="proc-card">
       <div class="proc-card-stripe" style="background:#6040a0"></div>
       <div class="proc-card-head">
         <div class="proc-icon" style="background:#ece8f7">🔗</div>
@@ -75,25 +89,8 @@
         </div>
       </div>
       <div class="proc-list">
-        <div class="proc-list-item" onclick="event.stopPropagation();window.location='mdo/shunt-mdo.html'">Shunt MDO <span class="proc-list-arr">›</span></div>
+        <div class="proc-list-item" onclick="window.location='mdo/shunt-mdo.html'">Shunt MDO <span class="proc-list-arr">›</span></div>
         <div class="proc-list-item" style="color:var(--muted)">Vaatchirurgie MDO <span style="font-size:0.68rem">binnenkort</span></div>
-      </div>
-    </div>
-
-    <!-- Oncologie -->
-    <div class="proc-card" style="opacity:0.6;cursor:default">
-      <div class="proc-card-stripe onco"></div>
-      <div class="proc-card-head">
-        <div class="proc-icon" style="background:#ece8f7">🎯</div>
-        <div>
-          <div class="proc-card-title">Interventionele Oncologie</div>
-          <div class="proc-card-sub">Ablatie · Embolisatie · TACE</div>
-        </div>
-      </div>
-      <div class="proc-list">
-        <div class="proc-list-item" style="color:var(--muted)">TACE / SIRT <span style="font-size:0.68rem">binnenkort</span></div>
-        <div class="proc-list-item" style="color:var(--muted)">Micro-ablatie (RFA / MWA) <span style="font-size:0.68rem">binnenkort</span></div>
-        <div class="proc-list-item" style="color:var(--muted)">UFE <span style="font-size:0.68rem">binnenkort</span></div>
       </div>
     </div>
 
@@ -104,6 +101,5 @@
 <script src="procedures.js"></script>
 <script src="nav.js"></script>
 <script src="search.js"></script>
-
 </body>
 </html>
