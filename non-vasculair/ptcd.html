@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PTCD — InterventionAssistant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<nav></nav>
+<div class="main proc-page">
+  <div class="breadcrumb">
+    <a href="../index.html">Home</a><span class="sep">›</span>
+    <span>Non-vasculair</span><span class="sep">›</span>
+    <span>PTCD</span>
+  </div>
+  <div class="proc-header">
+    <div class="proc-header-bar nonvasc"></div>
+    <div>
+      <h1>PTCD — Percutane Transhepatische Cholangiodrainage</h1>
+      <p>Echo- en doorlichtingsgeleide galwegdrainage bij obstructieve icterus</p>
+      <div class="proc-meta">
+        <span class="meta-pill nonvasc">Non-vasculair</span>
+        <span class="meta-pill nonvasc">60 min</span>
+        <span class="meta-pill nonvasc">Sedatie + lokaal</span>
+        <span class="meta-pill nonvasc">Klinisch 24u</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Indicaties -->
+  <div class="accordion open" id="acc-ind">
+    <div class="acc-header" onclick="toggleAcc('acc-ind')">
+      <div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title">Indicaties & Contra-indicaties</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner-split">
+        <div>
+          <p class="acc-sublabel">Indicaties</p>
+          <ul class="clean">
+            <li>Obstructieve icterus — maligne of benigne</li>
+            <li>Cholangitis bij galwegobstructie</li>
+            <li>Pre-operatieve galwegdecompressie</li>
+            <li><strong>NB:</strong> Overweeg directe stenting bij maligne centrale obstructie — zie <a href="https://www.jhep-reports.eu/article/S2589-5559(25)00220-4/fulltext" target="_blank" rel="noopener" style="color:var(--blue)">TESLA trial</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="acc-sublabel">Contra-indicaties</p>
+          <ul class="clean">
+            <li>Onherstelbare stollingsstoornis</li>
+            <li>Geen veilig punctietraject</li>
+            <li>Forse ascites <em style="color:var(--muted)">(risico op lekkage en dislocatie)</em></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pre-procedureel -->
+  <div class="accordion" id="acc-pre">
+    <div class="acc-header" onclick="toggleAcc('acc-pre')">
+      <div class="acc-title-wrap"><span class="acc-dot blue"></span><span class="acc-title">Pre-procedurele Checklist</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner">
+        <ul class="clean">
+          <li><strong>Lab:</strong> INR, trombo's, eGFR, bili</li>
+          <li><strong>Nuchter:</strong> Ja — voor sedatie</li>
+          <li><strong>Punctieplaats:</strong> Links / rechts op basis van meest gedilateerde kwab</li>
+          <li><strong>Route:</strong> Pleuraholte en colon vrij?</li>
+          <li><strong>Ascites:</strong> Ja / Nee — indien ja: verhoogd risico lekkage/dislocatie</li>
+          <li><strong>Hilus:</strong> Confluens intact / Bismuth type [..]</li>
+          <li><strong>IV toegang:</strong> Aanwezig voor sedatie</li>
+          <li><strong>Antibiotica profylaxe:</strong> Ceftriaxon iv 2000 mg eenmalig indien geen volledige drainage verwacht. Bij sepsis: behandelen conform cholangitis protocol.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stappenplan -->
+  <div class="accordion" id="acc-stap">
+    <div class="acc-header" onclick="toggleAcc('acc-stap')">
+      <div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title">Stappenplan</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner-split">
+        <div>
+          <ol class="steps">
+            <li><div class="sn teal">1</div><div>Echo-geleide punctie galwegtak [links/rechts] met Chiba naald 22G. Voorkeur voor meest gedilateerde leverkwab. Perifeer voorkeur boven centraal. Bij slank systeem: <em>double wall puncture</em> op portatak, al terugtrekkend positie bevestigen.</div></li>
+            <li><div class="sn teal">2</div><div>Cholangiogram ter beoordeling anatomie en niveau obstructie.</div></li>
+            <li><div class="sn teal">3</div><div>Cope Mandril 0.018" opvoeren via naald.</div></li>
+            <li><div class="sn teal">4</div><div>Dilatatie punctietract met Neff-set. Over Amplatz inbrengen van <strong>7Fr sheath</strong>.</div></li>
+            <li><div class="sn teal">5</div><div><strong>Pauzemoment na cholangiogram:</strong> Diagnose al rond? Indicatie voor brush? Optie voor directe stentplaatsing?</div></li>
+            <li><div class="sn teal">6</div><div>Passeren centrale occlusie met Cobra katheter en Terumo voerdraad.</div></li>
+            <li><div class="sn teal">7</div><div>In- &amp; uitwendige drain positioneren — zijgaten proximaal én distaal van obstructie, tip in duodenum.</div></li>
+            <li><div class="sn teal">8</div><div>Controle cholangiogram: beoordeel ligging zijgaten en afvloed contrast naar duodenum.</div></li>
+            <li><div class="sn teal">9</div><div>Fixatie aan huid (Molnar disc of hechting). Aansluiten op opvangzak.</div></li>
+          </ol>
+        </div>
+        <div>
+          <p class="acc-sublabel">Aandachtspunten</p>
+          <div class="note red"><strong>Cholangitis / sepsis:</strong> Spoedindicatie. AB vóór aanvang. Minimale manipulatie — zo snel mogelijk draineren, geen uitgebreide diagnostiek tijdens acute procedure.</div>
+          <div class="note orange"><strong>Ascites:</strong> Verhoogt kans op lekkage langs drain en vroegtijdige dislocatie. Overweeg ascitesdrainage vooraf.</div>
+          <div class="note orange"><strong>Slank systeem:</strong> Double wall puncture op portatak — prik door de vene heen en bevestig positie in galgang al terugtrekkend.</div>
+          <div class="note green"><strong>TESLA trial:</strong> Bij maligne centrale obstructie: overweeg directe SEMS-stenting in plaats van drain — vergelijkbare technische succesrate, minder re-interventies.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Materiaal -->
+  <div class="accordion" id="acc-mat">
+    <div class="acc-header" onclick="toggleAcc('acc-mat')">
+      <div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title">Materiaal</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner" style="padding:0">
+        <table class="mat">
+          <thead><tr><th>Materiaal</th><th>Specificatie</th><th>Aantal</th></tr></thead>
+          <tbody>
+            <tr><td>Angioset</td><td>Standaard</td><td>1</td></tr>
+            <tr><td>Punctieset</td><td>Chiba naald 22G</td><td>1</td></tr>
+            <tr><td>Neffset</td><td>4Fr</td><td>1</td></tr>
+            <tr><td>Cope Mandril</td><td>0.018"</td><td>Optioneel</td></tr>
+            <tr><td>Sheath</td><td>7Fr, kort</td><td>1</td></tr>
+            <tr><td>Amplatz</td><td>0.035", kort</td><td>1</td></tr>
+            <tr><td>Hydrofiele voerdraad</td><td>0.035" Terumo</td><td>1</td></tr>
+            <tr><td>Cobra katheter</td><td>4 of 5Fr</td><td>1</td></tr>
+            <tr><td>In- &amp; uitwendige drain</td><td>8.5–10.2Fr</td><td>1</td></tr>
+            <tr class="mat-cat"><td colspan="3">Optioneel</td></tr>
+            <tr><td>SEMS (uncovered)</td><td>8–10 mm, 1 cm proximaal én distaal van stenose</td><td>Optioneel</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Standaardverslag -->
+  <div class="accordion" id="acc-vers">
+    <div class="acc-header" onclick="toggleAcc('acc-vers')">
+      <div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title">Standaardverslag</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner">
+        <div class="verslag-wrap">
+          <div class="verslag" id="verslag-ptcd">Ter vergelijking: [Datum/Modaliteit]
+Antistolling: [Gestaakt / Niet van toepassing]
+Anesthesie: Lokale verdoving lidocaïne 1%, ca. 10 cc. Procedure onder sedatie.
+
+PROCEDURE:
+Informed consent. Time-out procedure.
+
+Onder standaard steriele omstandigheden en onder echo-geleide wordt een
+galwegtak van de [linker / rechter] leverkwab aangeprikt.
+Inbrengen 7Fr sheath. Cholangiografie toont een obstructie ter hoogte van
+[locatie / Bismuth type].
+
+Met behulp van een Cobra katheter en Terumo voerdraad wordt de obstructie
+gepasseerd tot in het duodenum. Wissel voor Amplatz.
+
+Vervolgens [8.5 / 10.2] Fr in- en uitwendige drain gepositioneerd met de
+tip in het duodenum en zijgaten proximaal van de stenose.
+
+Controle cholangiogram toont goede positie en adequate afvloed van
+contrast naar het duodenum.
+
+Fixatie aan de huid middels hechting en drainpleister. Aansluiten op zak.
+Geen directe complicaties.
+
+CONCLUSIE:
+Plaatsing in- en uitwendige PTCD-drain via [links / rechts].
+
+NAZORG:
+- Drain 24u open op zak laten. Hierna afdoppen.
+- Bij koorts of toename van pijn drain open zetten op zak.</div>
+          <button class="copy-btn" id="copy-ptcd" onclick="copyVerslag('verslag-ptcd','copy-ptcd')">⎘ Kopieer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Complicaties -->
+  <div class="accordion" id="acc-comp">
+    <div class="acc-header" onclick="toggleAcc('acc-comp')">
+      <div class="acc-title-wrap"><span class="acc-dot red"></span><span class="acc-title">Complicaties</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner" style="padding:0">
+        <table class="mat">
+          <thead><tr><th>Complicatie</th><th>Kans</th><th>Management</th></tr></thead>
+          <tbody>
+            <tr><td>Sepsis / Cholangitis</td><td>5–10%</td><td>Bloedkweken, IV antibiotica, drain doorspuiten/vrijmaken</td></tr>
+            <tr><td>Bloeding (subcapsulair/hemobilie)</td><td>2–5%</td><td>Monitoring; bij persisteren CT-angiografie en evt. embolisatie</td></tr>
+            <tr><td>Drain dislocatie / occlusie</td><td>5–15%</td><td>Exchange van de drain over voerdraad</td></tr>
+            <tr><td>Pleuravocht / pneumothorax</td><td>1–3%</td><td>Meestal conservatief; drain bij symptomatische pneumothorax</td></tr>
+            <tr><td>Gallekkage / biliaire peritonitis</td><td>1–2%</td><td>Adequate drainage waarborgen; evt. extra drain plaatsen</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Nazorg -->
+  <div class="accordion" id="acc-naz">
+    <div class="acc-header" onclick="toggleAcc('acc-naz')">
+      <div class="acc-title-wrap"><span class="acc-dot green"></span><span class="acc-title">Nazorg</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner">
+        <ul class="clean">
+          <li>Drain 24u open op zak laten, daarna afdoppen</li>
+          <li>Bij koorts of toename van pijn: drain open zetten op zak</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bronnen -->
+  <div class="accordion" id="acc-bronnen">
+    <div class="acc-header" onclick="toggleAcc('acc-bronnen')">
+      <div class="acc-title-wrap"><span class="acc-dot blue"></span><span class="acc-title">Bronnen & Externe Links</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner">
+        <ul class="bronnen-lijst">
+          <li><a href="https://www.jhep-reports.eu/article/S2589-5559(25)00220-4/fulltext" target="_blank" rel="noopener">TESLA trial — Directe stenting vs. PTCD bij maligne centrale galwegobstructie (JHEP Reports 2025)</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/7.0.0/fuse.min.js"></script>
+<script src="../procedures.js"></script>
+<script src="../nav.js"></script>
+<script src="../search.js"></script>
+<script>
+function toggleAcc(id) { document.getElementById(id).classList.toggle('open'); }
+function copyVerslag(verslagId, btnId) {
+  navigator.clipboard.writeText(document.getElementById(verslagId).innerText).then(() => {
+    const btn = document.getElementById(btnId);
+    btn.textContent = '✓ Gekopieerd'; btn.classList.add('copied');
+    setTimeout(() => { btn.innerHTML = '⎘ Kopieer'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+</script>
+</body>
+</html>
