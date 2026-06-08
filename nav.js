@@ -12,7 +12,7 @@ const NAV_ITEMS = [
       { label: 'Port-a-cath plaatsing',         url: 'vasculair/port-a-cath.html' },
       { label: 'PICC-lijn plaatsing',           url: 'vasculair/picc-lijn.html' },
       { label: 'Uterusembolisatie bij fluxus',  url: 'vasculair/uterusembolisatie.html' },
-      { label: 'Prostaat arterie embolisatie',  url: 'vasculair/pae.html' },
+      { label: 'Prostaatembolisatie',           url: 'vasculair/pae.html' },
     ]
   },
   {
@@ -20,7 +20,9 @@ const NAV_ITEMS = [
     items: [
       { label: 'Percutane nefrostomie',  url: 'non-vasculair/nefrostomie.html' },
       { label: 'PTCD galwegdrainage',    url: 'non-vasculair/ptcd.html' },
-      { label: 'Abcesdrainage',          url: 'non-vasculair/abcesdrainage.html', soon: true },
+      { label: 'Ascitesdrainage',          url: 'non-vasculair/ascitesdrainage.html' },
+      { label: 'Nierbiopt',                url: 'non-vasculair/nierbiopt.html' },
+      { label: 'Abcesdrainage',            url: 'non-vasculair/abcesdrainage.html', soon: true },
     ]
   },
   {
