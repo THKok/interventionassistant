@@ -17,6 +17,10 @@ const PROCEDURES = [
   { naam: "Percutane nefrostomie", categorie: "Non-vasculair", subcategorie: "Urologie", tag: "nonvasc",
     url: "non-vasculair/nefrostomie.html",
     trefwoorden: ["nefrostomie","nier","hydronefrose","obstructie","urolithiasis","drain","Amplatz","pigtail","ureter","Neffset"] },
+
+  { naam: "Wissel nefrodrain", categorie: "Non-vasculair", subcategorie: "Urologie", tag: "nonvasc",
+    url: "non-vasculair/wissel-nefrodrain.html",
+    trefwoorden: ["wissel","nefrodrain","nefrostomie","drain","pyelum","Amplatz","katheter","tractus"] },
   { naam: "PTCD galwegdrainage", categorie: "Non-vasculair", subcategorie: "Galwegen", tag: "nonvasc",
     url: "non-vasculair/ptcd.html",
     trefwoorden: ["PTCD","galweg","cholangio","icterus","drainage","obstructie","SEMS","cholangitis","Bismuth","Chiba","TESLA"] },

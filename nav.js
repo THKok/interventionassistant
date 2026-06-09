@@ -19,6 +19,7 @@ const NAV_ITEMS = [
     label: 'Non-vasculair',
     items: [
       { label: 'Percutane nefrostomie',  url: 'non-vasculair/nefrostomie.html' },
+      { label: 'Wissel nefrodrain',        url: 'non-vasculair/wissel-nefrodrain.html' },
       { label: 'PTCD galwegdrainage',    url: 'non-vasculair/ptcd.html' },
       { label: 'Ascitesdrainage',          url: 'non-vasculair/ascitesdrainage.html' },
       { label: 'Nierbiopt',                url: 'non-vasculair/nierbiopt.html' },

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wissel Nefrodrain — InterventionAssistant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<nav></nav>
+<div class="main proc-page">
+  <div class="breadcrumb">
+    <a href="../index.html">Home</a>
+    <span class="sep">›</span><span>Non-vasculair</span>
+    <span class="sep">›</span><span>Wissel nefrodrain</span>
+  </div>
+
+  <div class="proc-header">
+    <div class="proc-header-bar nonvasc"></div>
+    <div>
+      <h1>Wissel Nefrodrain</h1>
+      <p>Vervanging van een bestaande percutane nefrodrain over voerdraad</p>
+      <div class="proc-meta">
+        <span class="meta-pill nonvasc">Non-vasculair</span>
+        <span class="meta-pill nonvasc">15–30 min</span>
+        <span class="meta-pill nonvasc">Lokale anesthesie</span>
+        <span class="meta-pill nonvasc">Poliklinisch / klinisch</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion open" id="acc-ind">
+    <div class="acc-header" onclick="toggleAcc('acc-ind')">
+      <div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title">Indicaties & Contra-indicaties</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner-split">
+        <div>
+          <p class="acc-sublabel">Indicaties</p>
+          <ul class="clean">
+            <li>Reguliere wisseling bestaande nefrodrain (conform schema)</li>
+            <li>Disfunctionerende of geobstrueerde drain</li>
+            <li>Drain dislocatie waarbij tractus nog intact is</li>
+            <li>Wissel naar grotere of andere drainmaat</li>
+          </ul>
+        </div>
+        <div>
+          <p class="acc-sublabel">Contra-indicaties</p>
+          <ul class="contra">
+            <li>INR &gt;1.5 / trombocyten &lt;50</li>
+            <li>Actieve infectie zonder adequate AB-dekking</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion" id="acc-pre">
+    <div class="acc-header" onclick="toggleAcc('acc-pre')">
+      <div class="acc-title-wrap"><span class="acc-dot blue"></span><span class="acc-title">Pre-procedurele Checklist</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner">
+        <ul class="clean">
+          <li><strong>Lab:</strong> INR, trombocyten indien klinisch relevant</li>
+          <li><strong>Oriëntatie:</strong> eerdere beeldvorming ter beoordeling positie huidige drain</li>
+          <li><strong>Drainmaat:</strong> Wissel voor dezelfde maat tenzij anders geïndiceerd</li>
+          <li><strong>Antibiotica:</strong> ceftriaxon iv 2000 mg bij verhoogd infectierisico of koorts</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion" id="acc-stap">
+    <div class="acc-header" onclick="toggleAcc('acc-stap')">
+      <div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title">Stappenplan</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner-split">
+        <div>
+          <ol class="steps">
+            <li><div class="sn teal">1</div><div>Patiënt in buikligging of zijligging. Steriele omstandigheden.</div></li>
+            <li><div class="sn teal">2</div><div>Ter oriëntatie: contrastinjectie via de bestaande drain — beoordeel positie en looprichting in het pyelum.</div></li>
+            <li><div class="sn teal">3</div><div>Drain ontlocken en Amplatz voerdraad opvoeren via de bestaande drain tot centraal in het pyelum.</div></li>
+            <li><div class="sn teal">4</div><div>Bestaande drain verwijderen over de voerdraad.</div></li>
+            <li><div class="sn teal">5</div><div>Nieuwe drain plaatsen over Amplatz voerdraad met plastic stilet. Krul positioneren centraal in het pyelum.</div></li>
+            <li><div class="sn teal">6</div><div>Contrastinjectie via nieuwe drain — bevestigt goede positie centraal in het pyelum.</div></li>
+            <li><div class="sn teal">7</div><div>Drain locken. Fixatie aan huid met transcutane hechting en drainfix pleister. Drainzak aansluiten.</div></li>
+          </ol>
+        </div>
+        <div>
+          <p class="acc-sublabel">Aandachtspunten</p>
+          <div class="note orange"><strong>Voerdraad positie:</strong> Amplatz voldoende diep opvoeren vóór verwijderen oude drain — verlies van tractus vereist nieuwe punctie.</div>
+          <div class="note orange"><strong>Plastic stilet:</strong> Bij wissel plastic stilet gebruiken (niet metalen) — minder kans op perforatie van het pyelum bij bestaand tractus.</div>
+          <div class="note green"><strong>Tractus niet intact:</strong> Als drain langdurig gedisloceerd was of tractus niet meer doorgankelijk is — behandelen als primaire plaatsing.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion" id="acc-mat">
+    <div class="acc-header" onclick="toggleAcc('acc-mat')">
+      <div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title">Materiaal</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner" style="padding:0">
+        <table class="mat">
+          <thead><tr><th>Materiaal</th><th>Specificatie</th><th>Aantal</th></tr></thead>
+          <tbody>
+            <tr><td>Steriele tafel</td><td>Steriele afdekking instrumenten</td><td>1</td></tr>
+            <tr><td>Gatdoek</td><td>Afdekking patiënt</td><td>1</td></tr>
+            <tr><td>Bakje contrast</td><td>Verdund contrast</td><td>1</td></tr>
+            <tr><td>Bakje NaCl</td><td>Spoelen</td><td>1</td></tr>
+            <tr><td>10 cc spuit</td><td>Standaard</td><td>2</td></tr>
+            <tr><td>Rode naald (optreknaald)</td><td>Standaard</td><td>1</td></tr>
+            <tr><td>21G naald</td><td>Verdovingsnaald</td><td>1</td></tr>
+            <tr><td>Lidocaïne 1%</td><td>10 cc</td><td>1</td></tr>
+            <tr><td>Echoprobe hoes</td><td>Steriel</td><td>1</td></tr>
+            <tr><td><a href="../materiaal/draden.html" class="mat-link">Amplatz voerdraad</a></td><td>0.035", kort</td><td>1</td></tr>
+            <tr><td><a href="../materiaal/katheters.html" class="mat-link">Nieuwe drain</a></td><td>Zelfde type/maat als huidige drain, plastic stilet</td><td>1</td></tr>
+            <tr><td>Drainfix pleister</td><td>Standaard</td><td>1</td></tr>
+            <tr><td>Hechtmateriaal</td><td>Transcutane fixatie</td><td>1</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion" id="acc-vers">
+    <div class="acc-header" onclick="toggleAcc('acc-vers')">
+      <div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title">Standaardverslag</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner">
+        <div class="verslag-wrap">
+          <div class="verslag" id="verslag-wissel">Ter oriëntatie: [datum/modaliteit]
+Procedure onder antibiotische dekking.
+
+Steriele omstandigheden. Contrasttoediening via huidige drain toont
+[goede positie / positie met krul in pyelum / geringe dislocatie].
+
+Over Amplatz voerdraad wissel voor een nieuwe [maat] Fr [type] drain.
+Contrasttoediening toont goede positie centraal in het pyelum.
+
+Drain gelockt. Gefixeerd aan huid met transcutane hechting en drainfix
+pleister. Drainzak aangesloten.
+
+CONCLUSIE:
+Wissel nefrodrain [links/rechts], [maat] Fr [type].</div>
+          <button class="copy-btn" id="copy-wissel" onclick="copyVerslag('verslag-wissel','copy-wissel')">⎘ Kopieer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion" id="acc-comp">
+    <div class="acc-header" onclick="toggleAcc('acc-comp')">
+      <div class="acc-title-wrap"><span class="acc-dot red"></span><span class="acc-title">Complicaties</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner" style="padding:0">
+        <table class="mat">
+          <thead><tr><th>Complicatie</th><th>Management</th></tr></thead>
+          <tbody>
+            <tr><td>Verlies voerdraad / tractus</td><td>Nieuwe punctie als primaire plaatsing</td></tr>
+            <tr><td>Bloeding (macro-hematurie)</td><td>Meestal zelflimiterend; zelden embolisatie nodig</td></tr>
+            <tr><td>Pyelumperforatie</td><td>Drain correct herpositioneren; klein risico bij plastic stilet</td></tr>
+            <tr><td>Infectie / koorts</td><td>Bloedkweken, IV antibiotica</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion" id="acc-naz">
+    <div class="acc-header" onclick="toggleAcc('acc-naz')">
+      <div class="acc-title-wrap"><span class="acc-dot green"></span><span class="acc-title">Nazorg</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner">
+        <ul class="bullet">
+          <li>Drain open op zak laten lopen</li>
+          <li>Bij koorts of forse toename hematurie: laagdrempelig contact opnemen</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion" id="acc-bronnen">
+    <div class="acc-header" onclick="toggleAcc('acc-bronnen')">
+      <div class="acc-title-wrap"><span class="acc-dot blue"></span><span class="acc-title">Bronnen & Externe Links</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner">
+        <ul class="bronnen-lijst">
+          <li><a href="https://www.ncbi.nlm.nih.gov/books/NBK493205/" target="_blank" rel="noopener">StatPearls — Percutaneous Nephrostomy (Young &amp; Leslie, 2025)</a></li>
+          <li><a href="https://www.jvir.org/article/S1051-0443(15)01140-9/fulltext" target="_blank" rel="noopener">SIR Quality Improvement Guidelines for Percutaneous Nephrostomy (JVIR 2016)</a></li>
+          <li><a href="https://radiopaedia.org/articles/percutaneous-nephrostomy" target="_blank" rel="noopener">Radiopaedia — Percutaneous nephrostomy</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/7.0.0/fuse.min.js"></script>
+<script src="../procedures.js"></script>
+<script src="../nav.js"></script>
+<script src="../search.js"></script>
+<script>
+function toggleAcc(id) { document.getElementById(id).classList.toggle('open'); }
+function copyVerslag(verslagId, btnId) {
+  navigator.clipboard.writeText(document.getElementById(verslagId).innerText).then(() => {
+    const btn = document.getElementById(btnId);
+    btn.textContent = '✓ Gekopieerd'; btn.classList.add('copied');
+    setTimeout(() => { btn.innerHTML = '⎘ Kopieer'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+</script>
+</body>
+</html>
