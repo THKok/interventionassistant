@@ -89,8 +89,8 @@
             <li><div class="sn teal">2</div><div>Echo ter identificatie nier — voorkeur onderste pool linkernier (verder van grote vaten, makkelijker bereikbaar). Biopteer uitsluitend de corticale zone — vermijd hilus, piramides en kelken.</div></li>
             <li><div class="sn teal">3</div><div>Lokale anesthesie van huid tot aan het nierkapsel.</div></li>
             <li><div class="sn teal">4</div><div>Echogeleide inbrengen 15G steunnaald tot aan het nierkapsel. De 16G biopteur wordt via de steunnaald ingebracht.</div></li>
-            <li><div class="sn teal">5</div><div>Biopsie nemen met 16G biopteur, 2 cm uitslag — minimaal 2 cores.</div></li>
-            <li><div class="sn teal">6</div><div>Materiaal plaatsen in steriele container met wat NaCl. De patholoog beoordeelt het materiaal op een nat gaas.</div></li>
+            <li><div class="sn teal">5</div><div>Biopsie nemen met 16G biopteur, 2 cm uitslag — minimaal 2 biopten.</div></li>
+            <li><div class="sn teal">6</div><div>Materiaal plaatsen in steriele container met wat NaCl.</div></li>
             <li><div class="sn teal">7</div><div>Echo na procedure ter uitsluiting directe bloeding.</div></li>
           </ol>
         </div>
@@ -115,7 +115,8 @@
         <table class="mat">
           <thead><tr><th>Materiaal</th><th>Specificatie</th><th>Aantal</th></tr></thead>
           <tbody>
-            <tr><td>Steriele tafel + gatdoek</td><td>Steriele afdekking</td><td>1</td></tr>
+            <tr><td>Steriele tafel</td><td>Steriele afdekking instrumenten</td><td>1</td></tr>
+            <tr><td>Gatdoek</td><td>Afdekking patiënt</td><td>1</td></tr>
             <tr><td>Echoprobe hoes</td><td>Steriel</td><td>1</td></tr>
             <tr><td>21G naald</td><td>Verdovingsnaald</td><td>1</td></tr>
             <tr><td>Rode naald (opgietnaald)</td><td>Standaard</td><td>1</td></tr>
@@ -150,7 +151,7 @@ Echo na procedure toont geen tekenen van actieve bloeding.
 Geen directe complicaties.
 
 CONCLUSIE:
-Echogeleide nierbiopsie [links/rechts], [__] cores.</div>
+Echogeleide nierbiopsie [links/rechts], [__] biopten.</div>
           <button class="copy-btn" id="copy-nb" onclick="copyVerslag('verslag-nb','copy-nb')">⎘ Kopieer</button>
         </div>
       </div>
@@ -195,8 +196,23 @@ Echogeleide nierbiopsie [links/rechts], [__] cores.</div>
       </div>
     </div>
   </div>
+  <div class="accordion" id="acc-bronnen">
+    <div class="acc-header" onclick="toggleAcc('acc-bronnen')">
+      <div class="acc-title-wrap"><span class="acc-dot blue"></span><span class="acc-title">Bronnen & Externe Links</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner">
+        <ul class="bronnen-lijst">
+          <li><a href="https://www.ncbi.nlm.nih.gov/books/NBK470275/" target="_blank" rel="noopener">StatPearls — Renal Biopsy (Young &amp; Leslie, 2025)</a></li>
+          <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8700183/" target="_blank" rel="noopener">Granata et al. — Performing an Ultrasound-Guided Percutaneous Needle Kidney Biopsy: An Up-To-Date Procedural Review. Diagnostics 2021</a></li>
+          <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12056320/" target="_blank" rel="noopener">Technical and Institutional Factors Affecting Specimen Adequacy and Complications in Ultrasound-guided Kidney Biopsy (2025)</a></li>
+          <li><a href="https://emedicine.medscape.com/article/2093338-technique" target="_blank" rel="noopener">Medscape — Renal Biopsy Technique (2024)</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/7.0.0/fuse.min.js"></script>
 <script src="../procedures.js"></script>
 <script src="../nav.js"></script>
 <script src="../search.js"></script>
