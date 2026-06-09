@@ -909,3 +909,49 @@ a.mat-link:hover { color: var(--teal); border-color: var(--teal); }
   color: var(--muted);
   font-size: 0.9rem;
 }
+
+/* ══════════════════════════════════════
+   CONTRA-INDICATIES — rode x-jes
+   ══════════════════════════════════════ */
+ul.contra { list-style: none; padding: 0; }
+ul.contra li {
+  font-size: 0.875rem;
+  padding: 0.35rem 0 0.35rem 1.1rem;
+  position: relative;
+  border-bottom: 1px solid #edf0f5;
+  line-height: 1.5;
+  color: var(--text);
+}
+ul.contra li:last-child { border-bottom: none; }
+ul.contra li::before {
+  content: '✕';
+  position: absolute;
+  left: 0;
+  color: var(--red);
+  font-size: 0.7rem;
+  top: 0.48rem;
+  font-weight: 700;
+}
+
+/* ══════════════════════════════════════
+   NAZORG / BULLET LIJSTEN — gewone bolletjes
+   ══════════════════════════════════════ */
+ul.bullet { list-style: none; padding: 0; }
+ul.bullet li {
+  font-size: 0.875rem;
+  padding: 0.35rem 0 0.35rem 1.1rem;
+  position: relative;
+  border-bottom: 1px solid #edf0f5;
+  line-height: 1.5;
+  color: var(--text);
+}
+ul.bullet li:last-child { border-bottom: none; }
+ul.bullet li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  top: 0.3rem;
+}
+ul.bullet li strong { font-weight: 600; }
