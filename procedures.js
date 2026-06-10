@@ -34,6 +34,13 @@ const PROCEDURES = [
   { naam: "Nierbiopt", categorie: "Non-vasculair", subcategorie: "Biopsie", tag: "nonvasc",
     url: "non-vasculair/nierbiopt.html",
     trefwoorden: ["nierbiopt","biopsie","nier","IgA","nefropathie","FSGS","vasculitis","glomerulonefritis","nefrotisch","nefritisch","16G"] },
+
+  { naam: "Bronchiaalarterie embolisatie", categorie: "Vasculair", subcategorie: "Embolisatie", tag: "vasc",
+    url: "vasculair/bae.html",
+    trefwoorden: ["BAE","bronchiaalarterie","hemoptoe","embolisatie","PVA","Adamkiewicz","spinaal","bronchiëctasie","tuberculose","aspergilloom"] },
+  { naam: "Vaatchirurgie MDO bekken/beenvaten", categorie: "MDO", subcategorie: "PAV", tag: "vasc",
+    url: "mdo/vaatchirurgie-mdo.html",
+    trefwoorden: ["PAV","claudicatio","kritieke ischemie","TASC","Fontaine","iliacaal","femoropopliteaal","PTA","stent","bypass","ABI","DEB","CERAB","antitrombose"] },
   { naam: "Shunt MDO", categorie: "MDO", subcategorie: "Hemodialyse toegang", tag: "vasc",
     url: "mdo/shunt-mdo.html",
     trefwoorden: ["shunt","AVF","AVG","hemodialyse","MDO","fistel","RCAVF","BCAVF","basilica transpositie","duplex"] }

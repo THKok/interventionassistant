@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vaatchirurgie MDO — InterventionAssistant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .mdo-wrap {
+      display: grid;
+      grid-template-columns: 1fr 220px;
+      gap: 2.5rem;
+      align-items: start;
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    .toc {
+      position: sticky;
+      top: 78px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .toc-title {
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 1rem;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--muted);
+    }
+    .toc-list { list-style: none; padding: 0.4rem 0; }
+    .toc-list li a {
+      display: block;
+      padding: 0.35rem 1rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.12s, background 0.12s;
+      border-left: 2px solid transparent;
+    }
+    .toc-list li a:hover { color: var(--blue); background: var(--blue-light); border-color: var(--blue); }
+    .toc-list li.sub a { padding-left: 1.6rem; font-size: 0.74rem; }
+    .mdo-content { min-width: 0; }
+    .mdo-section { margin-bottom: 2.5rem; }
+    .mdo-h2 {
+      font-family: 'Nunito', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 2px solid var(--blue);
+    }
+    .mdo-h3 {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      margin: 1.25rem 0 0.5rem;
+    }
+    .mdo-p {
+      font-size: 0.875rem;
+      line-height: 1.7;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+    .mdo-p strong { font-weight: 700; }
+
+    /* Fontaine tabel + classificatiekaartjes */
+    .class-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.6rem;
+      margin: 0.75rem 0;
+    }
+    .class-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.75rem;
+      text-align: center;
+    }
+    .class-card.rood { border-top: 3px solid var(--red); }
+    .class-card.oranje { border-top: 3px solid var(--orange); }
+    .class-card.geel { border-top: 3px solid #c8a400; }
+    .class-card.groen { border-top: 3px solid var(--teal); }
+    .class-nr { font-family: 'Nunito', sans-serif; font-size: 1.4rem; font-weight: 800; color: var(--text); }
+    .class-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: var(--muted); margin-top: 0.2rem; }
+    .class-desc { font-size: 0.75rem; color: var(--text); margin-top: 0.35rem; line-height: 1.4; }
+
+    /* Beslisboom stijl */
+    .beslisboom {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.1rem;
+      margin: 0.75rem 0;
+    }
+    .bb-stap {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #edf0f5;
+      font-size: 0.875rem;
+      line-height: 1.5;
+    }
+    .bb-stap:last-child { border-bottom: none; }
+    .bb-nr {
+      width: 22px; height: 22px; border-radius: 50%;
+      background: var(--blue); color: white;
+      font-size: 0.7rem; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; font-family: 'Nunito', sans-serif;
+    }
+    .bb-nr.red { background: var(--red); }
+    .bb-nr.teal { background: var(--teal); }
+
+    /* Behandelmatrix tabel */
+    .mdo-table { width: 100%; border-collapse: collapse; font-size: 0.845rem; margin-bottom: 1rem; }
+    .mdo-table th {
+      text-align: left; padding: 0.55rem 0.85rem;
+      background: var(--card); font-size: 0.68rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted);
+      border-bottom: 2px solid var(--border);
+    }
+    .mdo-table td {
+      padding: 0.6rem 0.85rem; border-bottom: 1px solid #edf0f5;
+      vertical-align: top; line-height: 1.5; color: var(--text);
+    }
+    .mdo-table tr:last-child td { border-bottom: none; }
+    .mdo-table tr:hover td { background: var(--blue-light); }
+    .mdo-table .cat-row td {
+      background: var(--card); font-size: 0.68rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted);
+      padding: 0.5rem 0.85rem 0.15rem;
+    }
+
+    /* Infoboxen */
+    .infobox {
+      border-left: 3px solid; padding: 0.65rem 0.9rem;
+      font-size: 0.835rem; line-height: 1.55; margin: 0.75rem 0;
+      border-radius: 0 5px 5px 0; color: var(--text);
+    }
+    .infobox.blauw  { border-color: var(--blue);   background: var(--blue-light); }
+    .infobox.groen  { border-color: var(--green);  background: #f2fbf5; }
+    .infobox.oranje { border-color: var(--orange); background: #fff8ee; }
+    .infobox.rood   { border-color: var(--red);    background: #fff2f2; }
+    .infobox strong { font-weight: 700; }
+
+    /* Bronnenlijst */
+    .bronnen-lijst { list-style: none; padding: 0; }
+    .bronnen-lijst li { padding: 0.35rem 0; border-bottom: 1px solid #edf0f5; font-size: 0.84rem; }
+    .bronnen-lijst li:last-child { border-bottom: none; }
+    .bronnen-lijst a { color: var(--blue); text-decoration: none; font-weight: 500; }
+    .bronnen-lijst a:hover { text-decoration: underline; }
+
+    @media (max-width: 800px) {
+      .mdo-wrap { grid-template-columns: 1fr; padding: 1rem; }
+      .toc { display: none; }
+      .class-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+<nav></nav>
+
+<div class="mdo-wrap">
+  <!-- ── HOOFDINHOUD ── -->
+  <div class="mdo-content">
+
+    <div class="breadcrumb">
+      <a href="../index.html">Home</a><span class="sep">›</span>
+      <span>MDO</span><span class="sep">›</span>
+      <span>Vaatchirurgie MDO</span>
+    </div>
+
+    <div style="margin-bottom:1.75rem">
+      <div class="mdo-h2" style="border-color:#1e6db5;font-size:1.5rem;margin-bottom:0.35rem">Vaatchirurgie MDO — Bekken & Beenvaten</div>
+      <p style="font-size:0.875rem;color:var(--muted)">Multidisciplinaire bespreking perifeer arterieel vaatlijden — vaatchirurgie & interventieradiologie</p>
+    </div>
+
+    <!-- 1. ACHTERGROND & DEFINITIES -->
+    <div class="mdo-section" id="s-achtergrond">
+      <div class="mdo-h2">1. Achtergrond & Definities</div>
+      <p class="mdo-p">Perifeer arterieel vaatlijden (PAV) van de onderste extremiteit betreft een vernauwing of afsluiting van een slagader in of naar het been. PAV is een uiting van systemische atherosclerose en gaat gepaard met een verhoogd cardiovasculair risico. De prevalentie stijgt van ~7% op 55-jarige leeftijd tot >50% boven de 85 jaar.</p>
+      <p class="mdo-p">In het MDO worden patiënten besproken waarbij de vraag is of endovasculaire behandeling (PTA ± stent) of chirurgische behandeling (bypass, endarterectomie) geïndiceerd is, of waarbij de technische uitvoerbaarheid of strategie voor endovasculaire behandeling wordt vastgesteld.</p>
+      <div class="infobox blauw"><strong>Terminologie:</strong> PAV = Perifeer Arterieel Vaatlijden · CI = Claudicatio Intermittens · KI = Kritieke Ischemie · CLTI = Chronic Limb-Threatening Ischemia (moderne term voor KI) · TASC = Trans-Atlantic Inter-Society Consensus · ABI = Enkel-Armindex · DEB = Drug-Eluting Balloon</div>
+    </div>
+
+    <!-- 2. CLASSIFICATIE -->
+    <div class="mdo-section" id="s-classificatie">
+      <div class="mdo-h2">2. Klinische Classificatie</div>
+
+      <div class="mdo-h3">Fontaine classificatie</div>
+      <p class="mdo-p">De Fontaine classificatie deelt PAV in op basis van klinische presentatie. Behandelindicatie start vanaf stadium IIb, tenzij claudicatio eerder invaliderend is.</p>
+
+      <div class="class-grid">
+        <div class="class-card groen">
+          <div class="class-nr">I</div>
+          <div class="class-label">Asymptomatisch</div>
+          <div class="class-desc">Hemodynamisch significante stenose zonder klachten</div>
+        </div>
+        <div class="class-card geel">
+          <div class="class-nr">IIa</div>
+          <div class="class-label">Claudicatio mild</div>
+          <div class="class-desc">Loopafstand &gt;200 m, niet invaliderend</div>
+        </div>
+        <div class="class-card oranje">
+          <div class="class-nr">IIb</div>
+          <div class="class-label">Claudicatio ernstig</div>
+          <div class="class-desc">Loopafstand &lt;200 m, invaliderend</div>
+        </div>
+        <div class="class-card rood">
+          <div class="class-nr">III</div>
+          <div class="class-label">Rustpijn</div>
+          <div class="class-desc">Ischemische rustpijn, veelal nachtelijk, voetregio</div>
+        </div>
+      </div>
+      <div class="class-grid" style="grid-template-columns: 1fr; max-width: 260px;">
+        <div class="class-card rood">
+          <div class="class-nr">IV</div>
+          <div class="class-label">Necrose / Gangreen</div>
+          <div class="class-desc">Ulcera, gangreen, niet-genezende wonden — Kritieke ischemie</div>
+        </div>
+      </div>
+
+      <div class="mdo-h3">Enkel-Armindex (ABI)</div>
+      <table class="mdo-table">
+        <thead><tr><th>ABI waarde</th><th>Interpretatie</th></tr></thead>
+        <tbody>
+          <tr><td>&gt;1.3</td><td>Niet-comprimeerbare vaten (calcificaties, DM) — ABI onbetrouwbaar; gebruik teendruk of TcPO₂</td></tr>
+          <tr><td>0.9–1.3</td><td>Normaal</td></tr>
+          <tr><td>0.7–0.9</td><td>Milde ischemie</td></tr>
+          <tr><td>0.4–0.7</td><td>Matige ischemie — claudicatio</td></tr>
+          <tr><td>&lt;0.4</td><td>Ernstige ischemie — kritieke ischemie likely</td></tr>
+          <tr><td>Teendruk &lt;30 mmHg</td><td>Kritieke ischemie bij niet-comprimeerbare vaten</td></tr>
+        </tbody>
+      </table>
+
+      <div class="mdo-h3">TASC II classificatie</div>
+      <p class="mdo-p">De TASC II classificatie (Trans-Atlantic Inter-Society Consensus) beschrijft de morfologische complexiteit van de laesie. Klasse A/B hebben voorkeur voor endovasculaire behandeling; klasse C/D voor chirurgie bij goede conditie, maar endovasculair is ook voor C/D steeds meer de eerste keus.</p>
+      <table class="mdo-table">
+        <thead><tr><th>TASC</th><th>Beschrijving</th><th>Voorkeur behandeling</th></tr></thead>
+        <tbody>
+          <tr class="cat-row"><td colspan="3">Iliacaal traject</td></tr>
+          <tr><td><strong>A</strong></td><td>Enkelvoudige stenose &lt;3 cm AIC of AIE</td><td>Endovasculair</td></tr>
+          <tr><td><strong>B</strong></td><td>Korte stenose (&lt;3 cm) infrarenale aorta; unilaterale AIE-occlusie; unilaterale AIC-stenose 3–10 cm</td><td>Endovasculair</td></tr>
+          <tr><td><strong>C</strong></td><td>Bilaterale AIC/AIE stenosen; unilaterale AIC-occlusie; uitgebreide unilaterale AIE-stenose met of zonder AIF</td><td>Chirurgie of endovasculair (MDO)</td></tr>
+          <tr><td><strong>D</strong></td><td>Aorto-iliacale diffuse occlusieve ziekte; diffuse multilevel ziekte; unilaterale AIC+AIE occlusie</td><td>Chirurgie (overweeg CERAB)</td></tr>
+          <tr class="cat-row"><td colspan="3">Femoropopliteaal traject</td></tr>
+          <tr><td><strong>A</strong></td><td>Enkelvoudige stenose &lt;10 cm of occlusie &lt;5 cm</td><td>Endovasculair</td></tr>
+          <tr><td><strong>B</strong></td><td>Meerdere laesies, elk &lt;5 cm; enkele stenose/occlusie &lt;15 cm; niet-calcified; enkele popliteale stenose</td><td>Endovasculair</td></tr>
+          <tr><td><strong>C</strong></td><td>Meerdere laesies 15+ cm; recidief na 2 endovasculaire behandelingen</td><td>Chirurgie of endovasculair (MDO)</td></tr>
+          <tr><td><strong>D</strong></td><td>Complete AFS-occlusie; complete popliteale + trifurcatie occlusie</td><td>Chirurgie (bypass)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 3. BEHANDELSTRATEGIE -->
+    <div class="mdo-section" id="s-strategie">
+      <div class="mdo-h2">3. Behandelstrategie — Basisprincipes</div>
+
+      <div class="mdo-h3">Algemene principes</div>
+      <div class="infobox blauw">
+        <strong>Principe 1 — Proximaal naar distaal:</strong> Behandel altijd van proximaal naar distaal. Herstel eerst instroom (aorto-iliacaal) voordat je uitstroom (femoropopliteaal, cruraal) aanpakt. Een uitstroombaan zonder voldoende instroomdruk geeft slechte resultaten.
+      </div>
+      <div class="infobox blauw">
+        <strong>Principe 2 — Conservatief eerst bij claudicatio:</strong> Claudicatio is geen spoedindicatie. Minimaal 3 maanden gesuperviseerde looptraining en optimalisatie van cardiovasculaire risicofactoren vóór overweging van interventie. 80% van de claudicanten verslechtert niet op langere termijn.
+      </div>
+      <div class="infobox rood">
+        <strong>Principe 3 — Kritieke ischemie = spoed:</strong> Fontaine III/IV (CLTI) vereist spoedige revascularisatie. Snel handelen is essentieel voor ledemaatontwikkeling en overleving. Primaire amputatie alleen bij niet-revasculariseerbare ischemie of ernstige comorbiditeit.
+      </div>
+      <div class="infobox oranje">
+        <strong>Principe 4 — Endovasculair first:</strong> Bij TASC A/B laesies is endovasculaire behandeling de voorkeur, ongeacht of het claudicatio of kritieke ischemie betreft. Bij TASC C/D: bespreek in MDO; chirurgie bij goede conditie en lange levensverwachting.
+      </div>
+
+      <div class="mdo-h3">Behandelalgoritme per stadium</div>
+      <div class="beslisboom">
+        <div class="bb-stap"><div class="bb-nr teal">I</div><div><strong>Fontaine I (asymptomatisch):</strong> Geen interventie-indicatie. Optimaliseer cardiovasculaire risicofactoren. Clopidogrel 75 mg/dag conform richtlijn.</div></div>
+        <div class="bb-stap"><div class="bb-nr teal">IIa</div><div><strong>Fontaine IIa (milde claudicatio):</strong> Gesuperviseerde looptraining ≥3 maanden. Medicamenteuze behandeling. Interventie alleen bij falen en hoge impact op kwaliteit van leven — shared decision making.</div></div>
+        <div class="bb-stap"><div class="bb-nr" style="background:var(--orange);color:white">IIb</div><div><strong>Fontaine IIb (invaliderende claudicatio):</strong> Gesuperviseerde looptraining ≥3 maanden. Bij falen én hemodynamisch significante laesie: overweeg interventie. MDO-indicatie voor complexere laesies.</div></div>
+        <div class="bb-stap"><div class="bb-nr red">III</div><div><strong>Fontaine III (rustpijn):</strong> Spoedindicatie revascularisatie. Beeldvorming (duplexof CTA) ter planning. Endovasculair of chirurgisch afhankelijk van anatomie en conditie patiënt.</div></div>
+        <div class="bb-stap"><div class="bb-nr red">IV</div><div><strong>Fontaine IV (necrose/gangreen):</strong> Spoed. Revascularisatie naast wondbehandeling, infectiebestrijding en drukontlasting. Multidisciplinair (vaatchirurgie, orthopedische chirurgie/podotherapie). Primaire amputatie bij uitgebreide necrose of slechte conditie.</div></div>
+      </div>
+    </div>
+
+    <!-- 4. ILIACAAL -->
+    <div class="mdo-section" id="s-iliacaal">
+      <div class="mdo-h2">4. Behandeling Iliacaal Traject</div>
+      <p class="mdo-p">Het iliacale traject omvat de aorta abdominalis (infra-renaal), a. iliaca communis (AIC), a. iliaca externa (AIE) en a. iliaca interna (AII). Endovasculaire behandeling heeft uitstekende langetermijnresultaten in dit traject.</p>
+
+      <div class="mdo-h3">Stenose vs. occlusie</div>
+      <table class="mdo-table">
+        <thead><tr><th>Situatie</th><th>Aanbeveling (PAV-richtlijn 2025)</th></tr></thead>
+        <tbody>
+          <tr><td>Iliacale <strong>stenose</strong></td><td>PTA met selectieve stentplaatsing — stent alleen bij onvoldoende PTA-resultaat (&gt;30% reststenose, flow-limiterende dissectie)</td></tr>
+          <tr><td>Iliacale <strong>occlusie</strong></td><td>Primaire stentplaatsing</td></tr>
+          <tr><td>AIC-stenose/occlusie met stent-indicatie</td><td>Bare metal stent voorkeur. Gecoverde stent bij sterk gecalcificeerde AIC-stenose, occlusie, of in-stent stenose</td></tr>
+          <tr><td>Uitgebreide aorto-iliacale occlusieve ziekte (TASC D)</td><td>Overweeg CERAB (Covered Endovascular Reconstruction of the Aortic Bifurcation). Chirurgische bypass bij goede conditie + hoge levensverwachting</td></tr>
+        </tbody>
+      </table>
+
+      <div class="mdo-h3">Kissing stents / CERAB</div>
+      <p class="mdo-p">Bij bilateraal iliacaal lijden of aortabifurcatie-pathologie worden kissing stents geplaatst (simultaan bilateraal). Bij uitgebreide aorto-iliacale ziekte biedt CERAB een alternatief voor aorto-bifemoraal bypass — vergelijkbare resultaten met lager perioperatief risico bij geselecteerde patiënten.</p>
+
+      <div class="infobox oranje"><strong>Hemodynamische controle:</strong> Meet voor en na behandeling de ABI. Technisch succes = &lt;30% reststenose én hemodynamische verbetering (ABI-stijging &gt;0.1). Controleer ook pulsaties en klachtenverbetering na procedure.</div>
+    </div>
+
+    <!-- 5. FEMOROPOPLITEAAL -->
+    <div class="mdo-section" id="s-femoro">
+      <div class="mdo-h2">5. Behandeling Femoropopliteaal Traject</div>
+      <p class="mdo-p">Het femoropopliteale traject (a. femoralis superficialis + a. poplitea) is het meest behandelde traject bij PAV. Endovasculaire behandeling heeft de afgelopen jaren grote verbeteringen doorgemaakt door drug-eluting technologie.</p>
+
+      <div class="mdo-h3">Drug-eluting ballonnen (DEB) en stents</div>
+      <table class="mdo-table">
+        <thead><tr><th>Materiaal</th><th>Indicatie (PAV-richtlijn 2025)</th></tr></thead>
+        <tbody>
+          <tr><td>Drug-eluting ballon (DEB)</td><td><strong>Voorkeur</strong> bij primaire endovasculaire behandeling femoropopliteaal traject — significant lagere re-stenosekansen t.o.v. standaard ballon</td></tr>
+          <tr><td>Drug-eluting stent (DES)</td><td>Overweeg indien stentindicatie bestaat in femoropopliteaal traject</td></tr>
+          <tr><td>Bare metal stent (BMS)</td><td>Alleen nog bij onvoldoende DEB-resultaat of als DEB niet beschikbaar</td></tr>
+          <tr><td>Vessel preparation</td><td>Niet routinematig. Overweeg bij locaties waar stenting onwenselijk is (knie-niveau, hoog calcificatiegehalte)</td></tr>
+        </tbody>
+      </table>
+
+      <div class="mdo-h3">Endovasculair vs. bypass</div>
+      <table class="mdo-table">
+        <thead><tr><th>Situatie</th><th>Voorkeur</th></tr></thead>
+        <tbody>
+          <tr><td>Kritieke ischemie, kwetsbare oudere patiënt</td><td>Endovasculaire behandeling</td></tr>
+          <tr><td>Kritieke ischemie, levensverwachting &gt;2 jaar, goed chirurgisch risico</td><td>Overweeg chirurgische bypass (betere langetermijnpatency)</td></tr>
+          <tr><td>Claudicatio intermittens</td><td>Shared decision making — beide opties vergelijkbaar bij TASC A/B</td></tr>
+          <tr><td>Bypass femoropopliteaal — materiaal</td><td>Autologe vene voorkeur (VSM); kunststof graft boven knie bij geen vene beschikbaar</td></tr>
+        </tbody>
+      </table>
+
+      <div class="infobox oranje"><strong>Stent bij femoropopliteaal:</strong> Vermijd stenting in het knieflex-traject (P1–P2 poplitea, AFS distaal) tenzij geen alternatief — stentfractuur en occlusie zijn frequente complicaties door flexiebelasting. Vessel preparation kan stenting overbodig maken.</div>
+    </div>
+
+    <!-- 6. INFRAGENUAAL -->
+    <div class="mdo-section" id="s-infra">
+      <div class="mdo-h2">6. Behandeling Infragenuaal Traject</div>
+      <p class="mdo-p">Het infragenuale traject (a. poplitea P3, trifurcatie, aa. tibiales, a. peronea) wordt vrijwel uitsluitend behandeld bij kritieke ischemie (Fontaine III/IV). Claudicatio in dit traject alleen is zelden een behandelindicatie.</p>
+
+      <table class="mdo-table">
+        <thead><tr><th>Situatie</th><th>Aanbeveling (PAV-richtlijn 2025)</th></tr></thead>
+        <tbody>
+          <tr><td>KI met crurale stenosen/occlusies — primaire behandeling</td><td>PTA met <strong>niet-gecoate ballon</strong> als eerste keus</td></tr>
+          <tr><td>Onvoldoende PTA-resultaat (reststenose of dissectie)</td><td>Gecoate stent plaatsen</td></tr>
+          <tr><td>Focale (&lt;3 cm) proximale crurale stenose/occlusie</td><td>Overweeg primair gecoate stent</td></tr>
+          <tr><td>Bypass cruraal — materiaal</td><td>Autologe vene (VSM of arm vene) altijd de voorkeur — kunststof graft cruraal geeft slechte resultaten</td></tr>
+        </tbody>
+      </table>
+
+      <div class="infobox rood"><strong>Angiosoom principe:</strong> Streef naar directe revascularisatie van het angiosoom van de wond (het vasculaire territorium dat de huid van de wond verzorgt). Indirecte revascularisatie geeft slechtere wondheling maar is beter dan geen revascularisatie.</div>
+    </div>
+
+    <!-- 7. ANTITROMBOTISCHE THERAPIE -->
+    <div class="mdo-section" id="s-antitrombo">
+      <div class="mdo-h2">7. Antitrombotische Therapie</div>
+
+      <div class="mdo-h3">Secundaire preventie (chronisch, ongeacht interventie)</div>
+      <div class="infobox groen"><strong>PAV-richtlijn 2025 aanbeveling:</strong> Behandel alle patiënten met PAV met <strong>clopidogrel 75 mg/dag</strong> ter reductie van MACE (major adverse cardiovascular events). Clopidogrel heeft voorkeur boven aspirine op basis van de CAPRIE-trial.</div>
+
+      <div class="mdo-h3">Na endovasculaire interventie</div>
+      <table class="mdo-table">
+        <thead><tr><th>Situatie</th><th>Aanbeveling</th></tr></thead>
+        <tbody>
+          <tr><td>Eenvoudige endovasculaire interventie</td><td>Monotherapie aspirine 80–100 mg/dag of clopidogrel 75 mg/dag</td></tr>
+          <tr><td>Complexe endovasculaire interventie*</td><td>DAPT (clopidogrel 75 mg + aspirine 80–100 mg) minimaal 6, maximaal 12 maanden</td></tr>
+        </tbody>
+      </table>
+      <p class="mdo-p" style="font-size:0.78rem;color:var(--muted)">*Complex = cumulatieve stentplaatsing ≥10 cm, multi-level procedures, uitgebreide infragenuale procedures.</p>
+
+      <div class="mdo-h3">Na chirurgische interventie</div>
+      <table class="mdo-table">
+        <thead><tr><th>Type bypass</th><th>Aanbeveling</th></tr></thead>
+        <tbody>
+          <tr><td>Veneuze bypass</td><td>VKA minimaal 2 jaar</td></tr>
+          <tr><td>Kunststof bypass, normaal bloedingsrisico</td><td>Rivaroxaban 2.5 mg 2x/dag + aspirine 80–100 mg, minimaal 3 jaar</td></tr>
+          <tr><td>Kunststof bypass, verhoogd bloedingsrisico</td><td>Monotherapie aspirine of clopidogrel</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 8. IR-ROL -->
+    <div class="mdo-section" id="s-ir">
+      <div class="mdo-h2">8. Rol Interventieradiologie</div>
+
+      <div class="mdo-h3">Diagnostisch</div>
+      <table class="mdo-table">
+        <thead><tr><th>Verrichting</th><th>Indicatie</th></tr></thead>
+        <tbody>
+          <tr><td>Duplexonderzoek</td><td>Eerste lijn; lokalisatie en ernst stenose/occlusie. ABI-meting.</td></tr>
+          <tr><td>CTA</td><td>Uitgebreide anatomische mapping vóór complex endovasculaire of chirurgische planning</td></tr>
+          <tr><td>DSA (diagnostische angiografie)</td><td>Alleen gecombineerd met behandeling; niet meer als puur diagnostische procedure</td></tr>
+        </tbody>
+      </table>
+
+      <div class="mdo-h3">Interventie</div>
+      <table class="mdo-table">
+        <thead><tr><th>Interventie</th><th>Indicatie</th></tr></thead>
+        <tbody>
+          <tr><td>PTA ± stent iliacaal</td><td>TASC A/B; selectief bij C/D in overleg MDO</td></tr>
+          <tr><td>PTA + DEB femoropopliteaal</td><td>TASC A/B; claudicatio IIb of KI; voorkeur DEB boven BMS</td></tr>
+          <tr><td>PTA infragenuaal</td><td>KI (Fontaine III/IV) met crurale laesies; niet-gecoate ballon primair</td></tr>
+          <tr><td>Kissing stents / CERAB</td><td>Bilateraal iliacaal lijden; aortabifurcatie ziekte</td></tr>
+          <tr><td>CDT / rTPA</td><td>Acute arteriële occlusie (Rutherford IIa/IIb) — zie rTPA-procedure pagina</td></tr>
+        </tbody>
+      </table>
+
+      <div class="infobox oranje"><strong>Follow-up na endovasculaire behandeling:</strong> Geen routinematige beeldvorming na endovasculaire behandeling conform PAV-richtlijn 2025. Klinische beoordeling + ABI volstaat. Beeldvorming alleen bij klinische verslechtering of vermoeden re-stenose.</div>
+    </div>
+
+    <!-- 9. SECUNDAIRE PREVENTIE & RISICOFACTOREN -->
+    <div class="mdo-section" id="s-preventie">
+      <div class="mdo-h2">9. Secundaire Preventie & Risicofactoren</div>
+      <p class="mdo-p">PAV is equivalent aan manifeste coronaire hartziekte voor cardiovasculair risicomanagement. Cardiovasculaire risicoreductie is bij alle PAV-patiënten even belangrijk als de behandeling van het vaatlijden zelf.</p>
+
+      <table class="mdo-table">
+        <thead><tr><th>Risicofactor</th><th>Streefdoel</th></tr></thead>
+        <tbody>
+          <tr><td>LDL-cholesterol</td><td>&lt;1.4 mmol/L — statine verplicht</td></tr>
+          <tr><td>Bloeddruk</td><td>&lt;130/80 mmHg</td></tr>
+          <tr><td>Roken</td><td>Stoppen — meest effectieve interventie, vermindert amputatierisico het sterkst</td></tr>
+          <tr><td>Diabetes mellitus</td><td>HbA1c &lt;53 mmol/mol (conform CVRM)</td></tr>
+          <tr><td>Antiplatelet</td><td>Clopidogrel 75 mg/dag (voorkeur boven aspirine)</td></tr>
+          <tr><td>Looptraining</td><td>Gesuperviseerde looptraining — vergroot loopafstand significant</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 10. BRONNEN -->
+    <div class="mdo-section" id="s-bronnen">
+      <div class="mdo-h2">10. Bronnen & Externe Links</div>
+      <ul class="bronnen-lijst">
+        <li><a href="https://radiologen.nl/sites/default/files/Kwaliteit/4.2.3a%20Autorisatie%20richtlijn%20Perifeer%20Arterieel%20Vaatlijden%20(PAV).pdf" target="_blank" rel="noopener">Nederlandse PAV-richtlijn 2025 — NVvH/NVvR (autorisatiefase februari 2025)</a></li>
+        <li><a href="https://richtlijnendatabase.nl/richtlijn/perifeer_arterieel_vaatlijden_pav/startpagina_-_perifeer_arterieel_vaatlijden_pav.html" target="_blank" rel="noopener">Richtlijnendatabase — Perifeer Arterieel Vaatlijden (PAV)</a></li>
+        <li><a href="https://www.ejves.com/article/S1078-5884(25)00516-7/fulltext" target="_blank" rel="noopener">ESVS 2025 Clinical Practice Guidelines on Mesenteric and Renal Arteries and Veins (Koelemay et al.)</a></li>
+        <li><a href="https://pubmed.ncbi.nlm.nih.gov/?term=TASC+II+peripheral+arterial+disease" target="_blank" rel="noopener">PubMed — TASC II classificatie PAV</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- ── TOC ── -->
+  <div class="toc">
+    <div class="toc-title">Inhoudsopgave</div>
+    <ul class="toc-list">
+      <li><a href="#s-achtergrond">1. Achtergrond</a></li>
+      <li><a href="#s-classificatie">2. Classificatie</a></li>
+      <li class="sub"><a href="#s-classificatie">Fontaine</a></li>
+      <li class="sub"><a href="#s-classificatie">ABI</a></li>
+      <li class="sub"><a href="#s-classificatie">TASC II</a></li>
+      <li><a href="#s-strategie">3. Behandelstrategie</a></li>
+      <li class="sub"><a href="#s-strategie">Basisprincipes</a></li>
+      <li class="sub"><a href="#s-strategie">Algoritme per stadium</a></li>
+      <li><a href="#s-iliacaal">4. Iliacaal</a></li>
+      <li><a href="#s-femoro">5. Femoropopliteaal</a></li>
+      <li><a href="#s-infra">6. Infragenuaal</a></li>
+      <li><a href="#s-antitrombo">7. Antitrombotische therapie</a></li>
+      <li><a href="#s-ir">8. Rol IR</a></li>
+      <li><a href="#s-preventie">9. Secundaire preventie</a></li>
+      <li><a href="#s-bronnen">10. Bronnen</a></li>
+    </ul>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/7.0.0/fuse.min.js"></script>
+<script src="../procedures.js"></script>
+<script src="../nav.js"></script>
+<script src="../search.js"></script>
+</body>
+</html>

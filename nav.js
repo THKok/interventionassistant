@@ -13,6 +13,7 @@ const NAV_ITEMS = [
       { label: 'PICC-lijn plaatsing',           url: 'vasculair/picc-lijn.html' },
       { label: 'Uterusembolisatie bij fluxus',  url: 'vasculair/uterusembolisatie.html' },
       { label: 'Prostaatembolisatie',           url: 'vasculair/pae.html' },
+      { label: 'Bronchiaalarterie embolisatie',  url: 'vasculair/bae.html' },
     ]
   },
   {
@@ -40,7 +41,7 @@ const NAV_ITEMS = [
     dot: '#6040a0',
     items: [
       { label: 'Shunt MDO',         url: 'mdo/shunt-mdo.html' },
-      { label: 'Vaatchirurgie MDO', url: 'mdo/vaatchirurgie-mdo.html', soon: true },
+      { label: 'Vaatchirurgie MDO — Bekken/Been', url: 'mdo/vaatchirurgie-mdo.html' },
     ]
   },
   {
