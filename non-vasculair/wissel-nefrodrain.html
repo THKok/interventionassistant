@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wissel Nefrodrain — InterventionAssistant</title>
+  <title data-nl="Wissel Nefrodrain — InterventionAssistant" data-en="Nephrostomy Drain Exchange — InterventionAssistant">Wissel Nefrodrain — InterventionAssistant</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css">
@@ -12,134 +12,209 @@
 <nav></nav>
 <div class="main proc-page">
   <div class="breadcrumb">
-    <a href="../index.html">Home</a>
-    <span class="sep">›</span><span>Non-vasculair</span>
-    <span class="sep">›</span><span>Wissel nefrodrain</span>
+    <a href="../index.html">Home</a><span class="sep">›</span>
+    <span data-nl="Non-vasculair" data-en="Non-vascular">Non-vasculair</span><span class="sep">›</span>
+    <span data-nl="Wissel nefrodrain" data-en="Nephrostomy drain exchange">Wissel nefrodrain</span>
   </div>
-
   <div class="proc-header">
     <div class="proc-header-bar nonvasc"></div>
     <div>
-      <h1>Wissel Nefrodrain</h1>
-      <p>Vervanging van een bestaande percutane nefrodrain over voerdraad</p>
+      <h1 data-nl="Wissel Nefrodrain" data-en="Nephrostomy Drain Exchange">Wissel Nefrodrain</h1>
+      <p data-nl="Vervanging van een bestaande percutane nefrodrain over voerdraad" data-en="Replacement of an existing percutaneous nephrostomy drain over guidewire">Vervanging van een bestaande percutane nefrodrain over voerdraad</p>
       <div class="proc-meta">
-        <span class="meta-pill nonvasc">Non-vasculair</span>
+        <span class="meta-pill nonvasc" data-nl="Non-vasculair" data-en="Non-vascular">Non-vasculair</span>
         <span class="meta-pill nonvasc">15–30 min</span>
-        <span class="meta-pill nonvasc">Lokale anesthesie</span>
-        <span class="meta-pill nonvasc">Poliklinisch / klinisch</span>
+        <span class="meta-pill nonvasc" data-nl="Lokale anesthesie" data-en="Local anaesthesia">Lokale anesthesie</span>
+        <span class="meta-pill nonvasc" data-nl="Poliklinisch / klinisch" data-en="Outpatient / inpatient">Poliklinisch / klinisch</span>
       </div>
     </div>
   </div>
 
+  <!-- Indicaties -->
   <div class="accordion open" id="acc-ind">
     <div class="acc-header" onclick="toggleAcc('acc-ind')">
-      <div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title">Indicaties & Contra-indicaties</span></div>
+      <div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title" data-nl="Indicaties &amp; Contra-indicaties" data-en="Indications &amp; Contraindications">Indicaties &amp; Contra-indicaties</span></div>
       <span class="acc-chevron">▾</span>
     </div>
     <div class="acc-body">
       <div class="acc-inner-split">
         <div>
-          <p class="acc-sublabel">Indicaties</p>
+          <p class="acc-sublabel" data-nl="Indicaties" data-en="Indications">Indicaties</p>
           <ul class="clean">
-            <li>Reguliere wisseling bestaande nefrodrain (conform schema)</li>
-            <li>Disfunctionerende of geobstrueerde drain</li>
-            <li>Drain dislocatie waarbij tractus nog intact is</li>
-            <li>Wissel naar grotere of andere drainmaat</li>
+            <li data-nl="Reguliere wisseling bestaande nefrodrain (conform schema)" data-en="Routine exchange of existing nephrostomy drain (per schedule)">Reguliere wisseling bestaande nefrodrain (conform schema)</li>
+            <li data-nl="Disfunctionerende of geobstrueerde drain" data-en="Dysfunctional or obstructed drain">Disfunctionerende of geobstrueerde drain</li>
+            <li data-nl="Drain dislocatie waarbij tractus nog intact is" data-en="Drain dislocation with intact tract">Drain dislocatie waarbij tractus nog intact is</li>
+            <li data-nl="Wissel naar grotere of andere drainmaat" data-en="Exchange for larger or different drain size">Wissel naar grotere of andere drainmaat</li>
           </ul>
         </div>
         <div>
-          <p class="acc-sublabel">Contra-indicaties</p>
+          <p class="acc-sublabel" data-nl="Contra-indicaties" data-en="Contraindications">Contra-indicaties</p>
           <ul class="contra">
-            <li>INR &gt;1.5 / trombocyten &lt;50</li>
-            <li>Actieve infectie zonder adequate AB-dekking</li>
+            <li data-nl="INR &gt;1.5 / trombocyten &lt;50" data-en="INR &gt;1.5 / platelets &lt;50">INR &gt;1.5 / trombocyten &lt;50</li>
+            <li data-nl="Actieve infectie zonder adequate AB-dekking" data-en="Active infection without adequate antibiotic cover">Actieve infectie zonder adequate AB-dekking</li>
           </ul>
         </div>
       </div>
     </div>
   </div>
 
+  <!-- Pre-procedureel -->
   <div class="accordion" id="acc-pre">
     <div class="acc-header" onclick="toggleAcc('acc-pre')">
-      <div class="acc-title-wrap"><span class="acc-dot blue"></span><span class="acc-title">Pre-procedurele Checklist</span></div>
+      <div class="acc-title-wrap"><span class="acc-dot blue"></span><span class="acc-title" data-nl="Pre-procedurele Checklist" data-en="Pre-procedural Checklist">Pre-procedurele Checklist</span></div>
       <span class="acc-chevron">▾</span>
     </div>
     <div class="acc-body">
       <div class="acc-inner">
         <ul class="clean">
-          <li><strong>Oriëntatie:</strong> eerdere beeldvorming ter beoordeling positie huidige drain</li>
-          <li><strong>Drainmaat:</strong> Wissel voor dezelfde maat tenzij anders geïndiceerd</li>
+          <li data-nl="&lt;strong&gt;Oriëntatie:&lt;/strong&gt; eerdere beeldvorming ter beoordeling positie huidige drain" data-en="&lt;strong&gt;Orientation:&lt;/strong&gt; review prior imaging for current drain position"><strong>Oriëntatie:</strong> eerdere beeldvorming ter beoordeling positie huidige drain</li>
+          <li data-nl="&lt;strong&gt;Drainmaat:&lt;/strong&gt; wissel voor dezelfde maat tenzij anders geïndiceerd" data-en="&lt;strong&gt;Drain size:&lt;/strong&gt; exchange for same size unless otherwise indicated"><strong>Drainmaat:</strong> wissel voor dezelfde maat tenzij anders geïndiceerd</li>
         </ul>
       </div>
     </div>
   </div>
 
-  <div class="accordion" id="acc-stap">
-    <div class="acc-header" onclick="toggleAcc('acc-stap')">
-      <div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title">Stappenplan</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner-split">
-        <div>
-          <ol class="steps">
-            <li><div class="sn teal">1</div><div>Patiënt in buikligging of zijligging. Steriele omstandigheden.</div></li>
-            <li><div class="sn teal">2</div><div>Ter oriëntatie: contrastinjectie via de bestaande drain — beoordeel positie in het pyelum.</div></li>
-            <li><div class="sn teal">3</div><div>Bestaande hechting verwijderen. Drain doorsnijden om te ontlocken. Amplatz voerdraad opvoeren via de drain tot centraal in het pyelum.</div></li>
-            <li><div class="sn teal">4</div><div>Bestaande drain verwijderen over de voerdraad.</div></li>
-            <li><div class="sn teal">5</div><div>Nieuwe drain plaatsen over Amplatz voerdraad met plastic stilet. Krul positioneren centraal in het pyelum.</div></li>
-            <li><div class="sn teal">6</div><div>Contrastinjectie via nieuwe drain ter bevestiging van de intraluminale positie centraal in het pyelum.</div></li>
-            <li><div class="sn teal">7</div><div>Drain locken. Fixatie aan huid met drainfix pleister. Bij eerste wissel: eventueel transcutane hechting. Drainzak aansluiten.</div></li>
-          </ol>
-        </div>
-        <div>
-          <p class="acc-sublabel">Aandachtspunten</p>
-          <div class="note orange"><strong>Voerdraad positie:</strong> Amplatz voldoende diep opvoeren vóór verwijderen oude drain — verlies van tractus vereist nieuwe punctie.</div>
-          <div class="note orange"><strong>Plastic stilet:</strong> Bij wissel plastic stilet gebruiken (niet metalen) — minder kans op perforatie van het pyelum bij bestaand tractus.</div>
-          <div class="note green"><strong>Tractus niet intact:</strong> Als drain langdurig gedisloceerd was of tractus niet meer doorgankelijk is — behandelen als primaire plaatsing.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
+  <!-- Materiaal -->
   <div class="accordion" id="acc-mat">
     <div class="acc-header" onclick="toggleAcc('acc-mat')">
-      <div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title">Materiaal</span></div>
+      <div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title" data-nl="Materiaal" data-en="Equipment">Materiaal</span></div>
       <span class="acc-chevron">▾</span>
     </div>
     <div class="acc-body">
       <div class="acc-inner" style="padding:0">
         <table class="mat">
-          <thead><tr><th>Materiaal</th><th>Specificatie</th><th>Aantal</th></tr></thead>
+          <thead><tr>
+            <th data-nl="Materiaal" data-en="Material">Materiaal</th>
+            <th data-nl="Specificatie" data-en="Specification">Specificatie</th>
+            <th data-nl="Aantal" data-en="Quantity">Aantal</th>
+          </tr></thead>
           <tbody>
-            <tr><td>Steriele tafel</td><td>Steriele afdekking instrumenten</td><td>1</td></tr>
-            <tr><td>Gatdoek</td><td>Afdekking patiënt</td><td>1</td></tr>
-            <tr><td>Bakje contrast</td><td>Verdund contrast</td><td>1</td></tr>
-            <tr><td>Bakje NaCl</td><td>Spoelen</td><td>1</td></tr>
-            <tr><td>10 cc spuit</td><td>Standaard</td><td>2</td></tr>
-            <tr><td>Echoprobe hoes</td><td>Steriel</td><td>1</td></tr>
-            <tr><td><a href="../materiaal/draden.html" class="mat-link">Amplatz voerdraad</a></td><td>0.035", kort</td><td>1</td></tr>
-            <tr><td><a href="../materiaal/katheters.html" class="mat-link">Nieuwe drain</a></td><td>Zelfde type/maat als huidige drain, plastic stilet</td><td>1</td></tr>
-            <tr><td>Drainfix pleister</td><td>Standaard</td><td>1</td></tr>
-            <tr class="mat-cat"><td colspan="3">Optioneel (bij eerste wissel of lokale pijn)</td></tr>
-            <tr><td>Rode naald (optreknaald)</td><td>Standaard</td><td>Optioneel</td></tr>
-            <tr><td>21G naald</td><td>Verdovingsnaald</td><td>Optioneel</td></tr>
-            <tr><td>Lidocaïne 1%</td><td>10 cc</td><td>Optioneel</td></tr>
-            <tr><td>Hechtmateriaal</td><td>Transcutane fixatie — alleen bij eerste wissel</td><td>Optioneel</td></tr>
+            <tr><td data-nl="Steriele tafel" data-en="Sterile table">Steriele tafel</td><td data-nl="Steriele afdekking instrumenten" data-en="Sterile instrument cover">Steriele afdekking instrumenten</td><td>1</td></tr>
+            <tr><td data-nl="Gatdoek" data-en="Fenestrated drape">Gatdoek</td><td data-nl="Afdekking patiënt" data-en="Patient drape">Afdekking patiënt</td><td>1</td></tr>
+            <tr><td data-nl="Bakje contrast" data-en="Contrast bowl">Bakje contrast</td><td data-nl="Verdund contrast" data-en="Diluted contrast">Verdund contrast</td><td>1</td></tr>
+            <tr><td data-nl="Bakje NaCl" data-en="NaCl bowl">Bakje NaCl</td><td data-nl="Spoelen" data-en="Flushing">Spoelen</td><td>1</td></tr>
+            <tr><td data-nl="10 cc spuit" data-en="10 cc syringe">10 cc spuit</td><td data-nl="Standaard" data-en="Standard">Standaard</td><td>2</td></tr>
+            <tr><td data-nl="Echoprobe hoes" data-en="Ultrasound probe cover">Echoprobe hoes</td><td data-nl="Steriel" data-en="Sterile">Steriel</td><td>1</td></tr>
+            <tr><td data-nl="Amplatz voerdraad" data-en="Amplatz guidewire"><a href="../materiaal/draden.html" class="mat-link" data-nl="Amplatz voerdraad" data-en="Amplatz guidewire">Amplatz voerdraad</a></td><td>0.035", <span data-nl="kort" data-en="short">kort</span></td><td>1</td></tr>
+            <tr><td data-nl="Nieuwe drain" data-en="New drain"><a href="../materiaal/katheters.html" class="mat-link" data-nl="Nieuwe drain" data-en="New drain">Nieuwe drain</a></td><td data-nl="Zelfde type/maat als huidige drain, plastic stilet" data-en="Same type/size as current drain, plastic stylet">Zelfde type/maat als huidige drain, plastic stilet</td><td>1</td></tr>
+            <tr><td data-nl="Drainfix pleister" data-en="Drain fixation dressing">Drainfix pleister</td><td data-nl="Standaard" data-en="Standard">Standaard</td><td>1</td></tr>
+            <tr class="mat-cat"><td colspan="3" data-nl="Optioneel (bij eerste wissel of lokale pijn)" data-en="Optional (first exchange or local pain)">Optioneel (bij eerste wissel of lokale pijn)</td></tr>
+            <tr><td data-nl="Rode naald (optreknaald)" data-en="Drawing-up needle">Rode naald (optreknaald)</td><td data-nl="Standaard" data-en="Standard">Standaard</td><td data-nl="Optioneel" data-en="Optional">Optioneel</td></tr>
+            <tr><td data-nl="21G naald" data-en="21G needle">21G naald</td><td data-nl="Verdovingsnaald" data-en="Injection needle">Verdovingsnaald</td><td data-nl="Optioneel" data-en="Optional">Optioneel</td></tr>
+            <tr><td data-nl="Lidocaïne 1%" data-en="Lidocaine 1%">Lidocaïne 1%</td><td>10 cc</td><td data-nl="Optioneel" data-en="Optional">Optioneel</td></tr>
+            <tr><td data-nl="Hechtmateriaal" data-en="Suture material">Hechtmateriaal</td><td data-nl="Transcutane fixatie — alleen bij eerste wissel" data-en="Transcutaneous fixation — first exchange only">Transcutane fixatie — alleen bij eerste wissel</td><td data-nl="Optioneel" data-en="Optional">Optioneel</td></tr>
           </tbody>
         </table>
       </div>
     </div>
   </div>
 
+  <!-- Stappenplan -->
+  <div class="accordion" id="acc-stap">
+    <div class="acc-header" onclick="toggleAcc('acc-stap')">
+      <div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title" data-nl="Stappenplan" data-en="Procedure Steps">Stappenplan</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner-split">
+        <div>
+          <ol class="steps">
+            <li><div class="sn teal">1</div><div data-nl="Patiënt in buikligging of zijligging. Steriele omstandigheden." data-en="Patient prone or lateral decubitus. Sterile conditions.">Patiënt in buikligging of zijligging. Steriele omstandigheden.</div></li>
+            <li><div class="sn teal">2</div><div data-nl="Ter oriëntatie: contrastinjectie via de bestaande drain — beoordeel positie in het pyelum." data-en="For orientation: contrast injection through existing drain — assess position in the renal pelvis.">Ter oriëntatie: contrastinjectie via de bestaande drain — beoordeel positie in het pyelum.</div></li>
+            <li><div class="sn teal">3</div><div data-nl="Bestaande hechting verwijderen. Drain doorsnijden om te ontlocken. Amplatz voerdraad opvoeren via de drain tot centraal in het pyelum." data-en="Remove existing suture. Cut drain to unlock. Advance Amplatz guidewire through the drain to the centre of the renal pelvis.">Bestaande hechting verwijderen. Drain doorsnijden om te ontlocken. Amplatz voerdraad opvoeren via de drain tot centraal in het pyelum.</div></li>
+            <li><div class="sn teal">4</div><div data-nl="Bestaande drain verwijderen over de voerdraad." data-en="Remove existing drain over the guidewire.">Bestaande drain verwijderen over de voerdraad.</div></li>
+            <li><div class="sn teal">5</div><div data-nl="Nieuwe drain plaatsen over Amplatz voerdraad met plastic stilet. Krul positioneren centraal in het pyelum." data-en="Place new drain over Amplatz guidewire with plastic stylet. Position curl centrally in the renal pelvis.">Nieuwe drain plaatsen over Amplatz voerdraad met plastic stilet. Krul positioneren centraal in het pyelum.</div></li>
+            <li><div class="sn teal">6</div><div data-nl="Contrastinjectie via nieuwe drain ter bevestiging van de intraluminale positie centraal in het pyelum." data-en="Contrast injection through new drain to confirm intraluminal position centrally in the renal pelvis.">Contrastinjectie via nieuwe drain ter bevestiging van de intraluminale positie centraal in het pyelum.</div></li>
+            <li><div class="sn teal">7</div><div data-nl="Drain locken. Fixatie aan huid met drainfix pleister. Bij eerste wissel: eventueel transcutane hechting. Drainzak aansluiten." data-en="Lock drain. Fix to skin with drain fixation dressing. At first exchange: transcutaneous suture optional. Connect drainage bag.">Drain locken. Fixatie aan huid met drainfix pleister. Bij eerste wissel: eventueel transcutane hechting. Drainzak aansluiten.</div></li>
+          </ol>
+        </div>
+        <div>
+          <p class="acc-sublabel" data-nl="Aandachtspunten" data-en="Key Points">Aandachtspunten</p>
+          <div class="note orange"><strong data-nl="Voerdraad positie:" data-en="Guidewire position:">Voerdraad positie:</strong> <span data-nl="Amplatz voldoende diep opvoeren vóór verwijderen oude drain — verlies van tractus vereist nieuwe punctie." data-en="Advance Amplatz sufficiently deep before removing old drain — loss of tract requires new puncture.">Amplatz voldoende diep opvoeren vóór verwijderen oude drain — verlies van tractus vereist nieuwe punctie.</span></div>
+          <div class="note orange"><strong data-nl="Plastic stilet:" data-en="Plastic stylet:">Plastic stilet:</strong> <span data-nl="Bij wissel plastic stilet gebruiken — minder kans op perforatie van het pyelum." data-en="Use plastic stylet for exchange — lower risk of renal pelvis perforation.">Bij wissel plastic stilet gebruiken — minder kans op perforatie van het pyelum bij bestaand tractus.</span></div>
+          <div class="note green"><strong data-nl="Tractus niet intact:" data-en="Tract not intact:">Tractus niet intact:</strong> <span data-nl="Als tractus niet meer doorgankelijk is — behandelen als primaire plaatsing." data-en="If tract is no longer patent — treat as primary placement.">Als drain langdurig gedisloceerd was of tractus niet meer doorgankelijk is — behandelen als primaire plaatsing.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Complicaties -->
+  <div class="accordion" id="acc-comp">
+    <div class="acc-header" onclick="toggleAcc('acc-comp')">
+      <div class="acc-title-wrap"><span class="acc-dot red"></span><span class="acc-title" data-nl="Complicaties" data-en="Complications">Complicaties</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner" style="padding:0">
+        <table class="mat">
+          <thead><tr>
+            <th data-nl="Complicatie" data-en="Complication">Complicatie</th>
+            <th data-nl="Management" data-en="Management">Management</th>
+          </tr></thead>
+          <tbody>
+            <tr><td data-nl="Verlies voerdraad / tractus" data-en="Loss of guidewire / tract">Verlies voerdraad / tractus</td><td data-nl="Nieuwe punctie als primaire plaatsing" data-en="New puncture as primary placement">Nieuwe punctie als primaire plaatsing</td></tr>
+            <tr><td data-nl="Bloeding (macro-hematurie)" data-en="Bleeding (macroscopic haematuria)">Bloeding (macro-hematurie)</td><td data-nl="Meestal zelflimiterend; zelden embolisatie nodig" data-en="Usually self-limiting; embolisation rarely required">Meestal zelflimiterend; zelden embolisatie nodig</td></tr>
+            <tr><td data-nl="Pyelumperforatie" data-en="Renal pelvis perforation">Pyelumperforatie</td><td data-nl="Drain correct herpositioneren; klein risico bij plastic stilet" data-en="Reposition drain correctly; low risk with plastic stylet">Drain correct herpositioneren; klein risico bij plastic stilet</td></tr>
+            <tr><td data-nl="Infectie / koorts" data-en="Infection / fever">Infectie / koorts</td><td data-nl="Bloedkweken, IV antibiotica" data-en="Blood cultures, IV antibiotics">Bloedkweken, IV antibiotica</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Nazorg -->
+  <div class="accordion" id="acc-naz">
+    <div class="acc-header" onclick="toggleAcc('acc-naz')">
+      <div class="acc-title-wrap"><span class="acc-dot green"></span><span class="acc-title" data-nl="Nazorg" data-en="Aftercare">Nazorg</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner">
+        <ul class="bullet">
+          <li data-nl="Drain open op zak laten lopen" data-en="Leave drain open to drainage bag">Drain open op zak laten lopen</li>
+          <li data-nl="Volgende wissel na 6–8 weken — eerder bij klachten of obstructie" data-en="Next exchange after 6–8 weeks — sooner if symptomatic or obstructed">Volgende wissel na 6–8 weken — conform AUA-richtlijnen (4–6 weken) en literatuur over optimaal wisselinterval (~60 dagen); eerder bij klachten of obstructie</li>
+          <li data-nl="Bij koorts of forse toename hematurie: laagdrempelig contact opnemen" data-en="If fever or significant increase in haematuria: contact immediately">Bij koorts of forse toename hematurie: laagdrempelig contact opnemen</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Standaardverslag -->
   <div class="accordion" id="acc-vers">
     <div class="acc-header" onclick="toggleAcc('acc-vers')">
-      <div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title">Standaardverslag</span></div>
+      <div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title" data-nl="Standaardverslag" data-en="Standard Report">Standaardverslag</span></div>
       <span class="acc-chevron">▾</span>
     </div>
     <div class="acc-body">
       <div class="acc-inner">
         <div class="verslag-wrap">
-          <div class="verslag" id="verslag-wissel">Ter oriëntatie: [datum/modaliteit]
+          <div class="verslag" id="verslag-wissel"
+            data-nl="Ter oriëntatie: [datum/modaliteit]
+
+Steriele omstandigheden. Contrasttoediening via huidige drain toont
+[goede positie / positie met krul in pyelum / geringe dislocatie].
+
+Hechting verwijderd. Drain doorgesneden en over Amplatz voerdraad
+gewisseld voor een nieuwe [maat] Fr [type] drain.
+Contrasttoediening toont goede positie centraal in het pyelum.
+
+Drain gelockt. Gefixeerd met drainfix pleister. Drainzak aangesloten.
+
+CONCLUSIE:
+Wissel nefrodrain [links/rechts], [maat] Fr [type]."
+            data-en="Reference: [date/modality]
+
+Under standard sterile conditions. Contrast injection through existing drain
+demonstrates [good position / curl in renal pelvis / minor dislocation].
+
+Suture removed. Drain cut to unlock and exchanged over Amplatz guidewire
+for a new [size] Fr [type] drain.
+Contrast injection demonstrates good position centrally in the renal pelvis.
+
+Drain locked. Fixed with drain fixation dressing. Drainage bag connected.
+
+CONCLUSION:
+Nephrostomy drain exchange [left/right], [size] Fr [type].">Ter oriëntatie: [datum/modaliteit]
 
 Steriele omstandigheden. Contrasttoediening via huidige drain toont
 [goede positie / positie met krul in pyelum / geringe dislocatie].
@@ -152,51 +227,16 @@ Drain gelockt. Gefixeerd met drainfix pleister. Drainzak aangesloten.
 
 CONCLUSIE:
 Wissel nefrodrain [links/rechts], [maat] Fr [type].</div>
-          <button class="copy-btn" id="copy-wissel" onclick="copyVerslag('verslag-wissel','copy-wissel')">⎘ Kopieer</button>
+          <button class="copy-btn" id="copy-wissel" onclick="copyVerslag('verslag-wissel','copy-wissel')">⎘ <span data-nl="Kopieer" data-en="Copy">Kopieer</span></button>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="accordion" id="acc-comp">
-    <div class="acc-header" onclick="toggleAcc('acc-comp')">
-      <div class="acc-title-wrap"><span class="acc-dot red"></span><span class="acc-title">Complicaties</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner" style="padding:0">
-        <table class="mat">
-          <thead><tr><th>Complicatie</th><th>Management</th></tr></thead>
-          <tbody>
-            <tr><td>Verlies voerdraad / tractus</td><td>Nieuwe punctie als primaire plaatsing</td></tr>
-            <tr><td>Bloeding (macro-hematurie)</td><td>Meestal zelflimiterend; zelden embolisatie nodig</td></tr>
-            <tr><td>Pyelumperforatie</td><td>Drain correct herpositioneren; klein risico bij plastic stilet</td></tr>
-            <tr><td>Infectie / koorts</td><td>Bloedkweken, IV antibiotica</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <div class="accordion" id="acc-naz">
-    <div class="acc-header" onclick="toggleAcc('acc-naz')">
-      <div class="acc-title-wrap"><span class="acc-dot green"></span><span class="acc-title">Nazorg</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner">
-        <ul class="bullet">
-          <li>Drain open op zak laten lopen</li>
-          <li>Volgende wissel na 6–8 weken — conform AUA-richtlijnen (4–6 weken) en literatuur over optimaal wisselinterval (~60 dagen); eerder bij klachten of obstructie</li>
-          <li>Bij koorts of forse toename hematurie: laagdrempelig contact opnemen</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
+  <!-- Bronnen -->
   <div class="accordion" id="acc-bronnen">
     <div class="acc-header" onclick="toggleAcc('acc-bronnen')">
-      <div class="acc-title-wrap"><span class="acc-dot blue"></span><span class="acc-title">Bronnen & Externe Links</span></div>
+      <div class="acc-title-wrap"><span class="acc-dot blue"></span><span class="acc-title" data-nl="Bronnen &amp; Externe Links" data-en="References &amp; External Links">Bronnen &amp; Externe Links</span></div>
       <span class="acc-chevron">▾</span>
     </div>
     <div class="acc-body">
@@ -209,19 +249,23 @@ Wissel nefrodrain [links/rechts], [maat] Fr [type].</div>
       </div>
     </div>
   </div>
-
 </div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/7.0.0/fuse.min.js"></script>
 <script src="../procedures.js"></script>
 <script src="../nav.js"></script>
 <script src="../search.js"></script>
+<script src="../lang.js"></script>
 <script>
 function toggleAcc(id) { document.getElementById(id).classList.toggle('open'); }
 function copyVerslag(verslagId, btnId) {
-  navigator.clipboard.writeText(document.getElementById(verslagId).innerText).then(() => {
+  const el = document.getElementById(verslagId);
+  const lang = localStorage.getItem('ia-lang') || 'nl';
+  const text = el.getAttribute('data-' + lang) || el.innerText;
+  navigator.clipboard.writeText(text).then(() => {
     const btn = document.getElementById(btnId);
-    btn.textContent = '✓ Gekopieerd'; btn.classList.add('copied');
-    setTimeout(() => { btn.innerHTML = '⎘ Kopieer'; btn.classList.remove('copied'); }, 2000);
+    btn.innerHTML = lang === 'en' ? '✓ Copied' : '✓ Gekopieerd'; btn.classList.add('copied');
+    setTimeout(() => { btn.innerHTML = '⎘ <span data-nl="Kopieer" data-en="Copy">Kopieer</span>'; btn.classList.remove('copied'); applyLang(lang); }, 2000);
   });
 }
 </script>

@@ -76,6 +76,30 @@
     </div>
   </div>
 
+  <div class="accordion" id="acc-mat">
+    <div class="acc-header" onclick="toggleAcc('acc-mat')">
+      <div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title">Materiaal</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner" style="padding:0">
+        <table class="mat">
+          <thead><tr><th data-nl="Materiaal" data-en="Material">Materiaal</th><th data-nl="Specificatie" data-en="Specification">Specificatie</th><th data-nl="Aantal" data-en="Quantity">Aantal</th></tr></thead>
+          <tbody>
+            <tr><td>Angioset (of PICC-specifieke set)</td><td>Standaard</td><td>1</td></tr>
+            <tr><td>PICC-lijn</td><td>4–5Fr, enkelluming of dubbelluming</td><td>1</td></tr>
+            <tr><td>Lidocaïne 1%</td><td>10 cc</td><td>1</td></tr>
+            <tr class="mat-cat"><td colspan="3">Inbegrepen in PICC-set</td></tr>
+            <tr><td>Peel-away sheath</td><td>Conform set</td><td>—</td></tr>
+            <tr><td>Dilatator</td><td>Conform set</td><td>—</td></tr>
+            <tr><td>Voerdraad</td><td>Conform set</td><td>—</td></tr>
+            <tr><td>Meetdraad</td><td>Conform set</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
   <div class="accordion" id="acc-stap">
     <div class="acc-header" onclick="toggleAcc('acc-stap')">
       <div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title">Stappenplan</span></div>
@@ -112,56 +136,6 @@
     </div>
   </div>
 
-  <div class="accordion" id="acc-mat">
-    <div class="acc-header" onclick="toggleAcc('acc-mat')">
-      <div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title">Materiaal</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner" style="padding:0">
-        <table class="mat">
-          <thead><tr><th>Materiaal</th><th>Specificatie</th><th>Aantal</th></tr></thead>
-          <tbody>
-            <tr><td>Angioset (of PICC-specifieke set)</td><td>Standaard</td><td>1</td></tr>
-            <tr><td>PICC-lijn</td><td>4–5Fr, enkelluming of dubbelluming</td><td>1</td></tr>
-            <tr><td>Lidocaïne 1%</td><td>10 cc</td><td>1</td></tr>
-            <tr class="mat-cat"><td colspan="3">Inbegrepen in PICC-set</td></tr>
-            <tr><td>Peel-away sheath</td><td>Conform set</td><td>—</td></tr>
-            <tr><td>Dilatator</td><td>Conform set</td><td>—</td></tr>
-            <tr><td>Voerdraad</td><td>Conform set</td><td>—</td></tr>
-            <tr><td>Meetdraad</td><td>Conform set</td><td>—</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <div class="accordion" id="acc-vers">
-    <div class="acc-header" onclick="toggleAcc('acc-vers')">
-      <div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title">Standaardverslag</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner">
-        <div class="verslag-wrap">
-          <div class="verslag" id="verslag-picc">Echogeleid aanprikken vena [basilica / brachialis] [links / rechts] in de
-bovenarm via micropunctieset. Stuwband losgemaakt na succesvolle punctie.
-Onder doorlichting voerdraad opgevoerd tot overgang VCS/rechter atrium.
-Peel-away sheath ingebracht. Lijn op maat geknipt na opmeting met
-meetdraad. PICC-lijn ingebracht. Peel-away verwijderd. Aspiratie van bloed
-uit alle lumina bevestigd, gevolgd door krachtig flushen met NaCl.
-Doorlichting toont tip op overgang VCS/rechter atrium.
-Fixatie met bijbehorende pleisters. Geen directe complicaties.
-
-CONCLUSIE:
-Plaatsing [enkel/dubbel]lumige PICC-lijn [links/rechts],
-tip op overgang VCS/rechter atrium.</div>
-          <button class="copy-btn" id="copy-picc" onclick="copyVerslag('verslag-picc','copy-picc')">⎘ Kopieer</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <div class="accordion" id="acc-comp">
     <div class="acc-header" onclick="toggleAcc('acc-comp')">
       <div class="acc-title-wrap"><span class="acc-dot red"></span><span class="acc-title">Complicaties</span></div>
@@ -170,7 +144,7 @@ tip op overgang VCS/rechter atrium.</div>
     <div class="acc-body">
       <div class="acc-inner" style="padding:0">
         <table class="mat">
-          <thead><tr><th>Complicatie</th><th>Management</th></tr></thead>
+          <thead><tr><th data-nl="Complicatie" data-en="Complication">Complicatie</th><th data-nl="Management" data-en="Management">Management</th></tr></thead>
           <tbody>
             <tr><td>Trombose</td><td>Anticoagulatie, overleg behandelend arts</td></tr>
             <tr><td>Infectie / lijninfectie</td><td>Lijn verwijderen; herplaatsing indien nodig in contralaterale arm</td></tr>
@@ -199,6 +173,33 @@ tip op overgang VCS/rechter atrium.</div>
   </div>
 </div>
 <!-- Afbeeldingen accordion -->
+
+  <div class="accordion" id="acc-vers">
+    <div class="acc-header" onclick="toggleAcc('acc-vers')">
+      <div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title">Standaardverslag</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner">
+        <div class="verslag-wrap">
+          <div class="verslag" id="verslag-picc">Echogeleid aanprikken vena [basilica / brachialis] [links / rechts] in de
+bovenarm via micropunctieset. Stuwband losgemaakt na succesvolle punctie.
+Onder doorlichting voerdraad opgevoerd tot overgang VCS/rechter atrium.
+Peel-away sheath ingebracht. Lijn op maat geknipt na opmeting met
+meetdraad. PICC-lijn ingebracht. Peel-away verwijderd. Aspiratie van bloed
+uit alle lumina bevestigd, gevolgd door krachtig flushen met NaCl.
+Doorlichting toont tip op overgang VCS/rechter atrium.
+Fixatie met bijbehorende pleisters. Geen directe complicaties.
+
+CONCLUSIE:
+Plaatsing [enkel/dubbel]lumige PICC-lijn [links/rechts],
+tip op overgang VCS/rechter atrium.</div>
+          <button class="copy-btn" id="copy-picc" onclick="copyVerslag('verslag-picc','copy-picc')">⎘ <span data-nl="Kopieer" data-en="Copy">Kopieer</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="accordion" id="acc-fotos">
     <div class="acc-header" onclick="toggleAcc('acc-fotos')">
       <div class="acc-title-wrap"><span class="acc-dot blue"></span><span class="acc-title">Afbeeldingen</span></div>
@@ -243,20 +244,26 @@ tip op overgang VCS/rechter atrium.</div>
     <div id="lightbox-content"></div>
     <div class="lightbox-cap" id="lightbox-cap"></div>
   </div>
-</div>
+</div
+
+>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/7.0.0/fuse.min.js"></script>
 <script src="../procedures.js"></script>
 <script src="../nav.js"></script>
 <script src="../search.js"></script>
+<script src="../lang.js"></script>
 <script>
 function toggleAcc(id) { document.getElementById(id).classList.toggle('open'); }
 
 function copyVerslag(verslagId, btnId) {
-  navigator.clipboard.writeText(document.getElementById(verslagId).innerText).then(() => {
+  const el = document.getElementById(verslagId);
+  const lang = localStorage.getItem('ia-lang') || 'nl';
+  const text = el.getAttribute('data-' + lang) || el.innerText;
+  navigator.clipboard.writeText(text).then(() => {
     const btn = document.getElementById(btnId);
-    btn.textContent = '✓ Gekopieerd'; btn.classList.add('copied');
-    setTimeout(() => { btn.innerHTML = '⎘ Kopieer'; btn.classList.remove('copied'); }, 2000);
+    btn.innerHTML = lang === 'en' ? '✓ Copied' : '✓ Gekopieerd'; btn.classList.add('copied');
+    setTimeout(() => { btn.innerHTML = '⎘ <span data-nl="Kopieer" data-en="Copy">Kopieer</span>'; btn.classList.remove('copied'); if(typeof applyLang !== 'undefined') applyLang(lang); }, 2000);
   });
 }
 

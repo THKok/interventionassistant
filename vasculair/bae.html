@@ -76,6 +76,33 @@
     </div>
   </div>
 
+  <div class="accordion" id="acc-mat">
+    <div class="acc-header" onclick="toggleAcc('acc-mat')">
+      <div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title">Materiaal</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner" style="padding:0">
+        <table class="mat">
+          <thead><tr><th data-nl="Materiaal" data-en="Material">Materiaal</th><th data-nl="Specificatie" data-en="Specification">Specificatie</th><th data-nl="Aantal" data-en="Quantity">Aantal</th></tr></thead>
+          <tbody>
+            <tr><td>Angioset</td><td>Standaard</td><td>1</td></tr>
+            <tr><td>Introducersheath</td><td>5Fr, 11 cm</td><td>1</td></tr>
+            <tr><td>Pigtail katheter</td><td>4–5Fr</td><td>1</td></tr>
+            <tr><td>Selectieve katheter</td><td>Cobra C2 of Simmons 1, 4–5Fr</td><td>1</td></tr>
+            <tr><td>Hydrofiele voerdraad</td><td>0.035" Terumo Glidewire angled</td><td>1</td></tr>
+            <tr class="mat-cat"><td colspan="3">Superselectie (indien nodig)</td></tr>
+            <tr><td>Microkatheter</td><td>2.4–2.8Fr</td><td>1</td></tr>
+            <tr><td>Microwire</td><td>0.014"</td><td>1</td></tr>
+            <tr class="mat-cat"><td colspan="3">Embolisatiemateriaal</td></tr>
+            <tr><td>PVA partikels</td><td>355–500 µm (voorkeur) of 500–700 µm</td><td>1–2 vials</td></tr>
+            <tr><td>Contrastmiddel</td><td>Iomeron 300, verdund 1:1</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
   <div class="accordion" id="acc-stap">
     <div class="acc-header" onclick="toggleAcc('acc-stap')">
       <div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title">Stappenplan</span></div>
@@ -107,29 +134,41 @@
     </div>
   </div>
 
-  <div class="accordion" id="acc-mat">
-    <div class="acc-header" onclick="toggleAcc('acc-mat')">
-      <div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title">Materiaal</span></div>
+  <div class="accordion" id="acc-comp">
+    <div class="acc-header" onclick="toggleAcc('acc-comp')">
+      <div class="acc-title-wrap"><span class="acc-dot red"></span><span class="acc-title">Complicaties</span></div>
       <span class="acc-chevron">▾</span>
     </div>
     <div class="acc-body">
       <div class="acc-inner" style="padding:0">
         <table class="mat">
-          <thead><tr><th>Materiaal</th><th>Specificatie</th><th>Aantal</th></tr></thead>
+          <thead><tr><th data-nl="Complicatie" data-en="Complication">Complicatie</th><th data-nl="Kans" data-en="Rate">Kans</th><th data-nl="Management" data-en="Management">Management</th></tr></thead>
           <tbody>
-            <tr><td>Angioset</td><td>Standaard</td><td>1</td></tr>
-            <tr><td>Introducersheath</td><td>5Fr, 11 cm</td><td>1</td></tr>
-            <tr><td>Pigtail katheter</td><td>4–5Fr</td><td>1</td></tr>
-            <tr><td>Selectieve katheter</td><td>Cobra C2 of Simmons 1, 4–5Fr</td><td>1</td></tr>
-            <tr><td>Hydrofiele voerdraad</td><td>0.035" Terumo Glidewire angled</td><td>1</td></tr>
-            <tr class="mat-cat"><td colspan="3">Superselectie (indien nodig)</td></tr>
-            <tr><td>Microkatheter</td><td>2.4–2.8Fr</td><td>1</td></tr>
-            <tr><td>Microwire</td><td>0.014"</td><td>1</td></tr>
-            <tr class="mat-cat"><td colspan="3">Embolisatiemateriaal</td></tr>
-            <tr><td>PVA partikels</td><td>355–500 µm (voorkeur) of 500–700 µm</td><td>1–2 vials</td></tr>
-            <tr><td>Contrastmiddel</td><td>Iomeron 300, verdund 1:1</td><td>—</td></tr>
+            <tr><td>Re-bloeding</td><td>10–30% (1 jaar)</td><td>Herhaling BAE of chirurgie afhankelijk van oorzaak</td></tr>
+            <tr><td>Spinaal infarct / dwarslaesie</td><td>&lt;1% bij juiste techniek</td><td>Preventie door zorgvuldige DSA vóór embolisatie; bij optreden: neuroloog</td></tr>
+            <tr><td>Post-embolisatiesyndroom</td><td>Frequent</td><td>Pijn, koorts — symptomatisch</td></tr>
+            <tr><td>Non-target embolisatie (oesofagus, myelum)</td><td>&lt;1%</td><td>Voorkomen door zorgvuldige selectie en juiste partikelgrootte</td></tr>
+            <tr><td>Punctiecomplicaties</td><td>&lt;1%</td><td>Standaard management hematoom/pseudoaneurysma</td></tr>
           </tbody>
         </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion" id="acc-naz">
+    <div class="acc-header" onclick="toggleAcc('acc-naz')">
+      <div class="acc-title-wrap"><span class="acc-dot green"></span><span class="acc-title">Nazorg</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner">
+        <ul class="bullet">
+          <li>IC/bewaking opname minimaal 24u na procedure</li>
+          <li>Neurologische controles eerste 24u — bewaking voor spinale complicaties</li>
+          <li>Hb controle na 4–6u</li>
+          <li>Behandeling onderliggende oorzaak hemoptoe essentieel voor langetermijn resultaat</li>
+          <li>Follow-up pulmonologie of longchirurgie voor definitieve behandeling</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -166,47 +205,8 @@ Hemostase manuele compressie [X] min. Geen directe complicaties.
 CONCLUSIE:
 Bronchiaalarterie embolisatie [links/rechts/bilateraal].
 Patiënt ter observatie naar [IC/bewaking].</div>
-          <button class="copy-btn" id="copy-bae" onclick="copyVerslag('verslag-bae','copy-bae')">⎘ Kopieer</button>
+          <button class="copy-btn" id="copy-bae" onclick="copyVerslag('verslag-bae','copy-bae')">⎘ <span data-nl="Kopieer" data-en="Copy">Kopieer</span></button>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="accordion" id="acc-comp">
-    <div class="acc-header" onclick="toggleAcc('acc-comp')">
-      <div class="acc-title-wrap"><span class="acc-dot red"></span><span class="acc-title">Complicaties</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner" style="padding:0">
-        <table class="mat">
-          <thead><tr><th>Complicatie</th><th>Kans</th><th>Management</th></tr></thead>
-          <tbody>
-            <tr><td>Re-bloeding</td><td>10–30% (1 jaar)</td><td>Herhaling BAE of chirurgie afhankelijk van oorzaak</td></tr>
-            <tr><td>Spinaal infarct / dwarslaesie</td><td>&lt;1% bij juiste techniek</td><td>Preventie door zorgvuldige DSA vóór embolisatie; bij optreden: neuroloog</td></tr>
-            <tr><td>Post-embolisatiesyndroom</td><td>Frequent</td><td>Pijn, koorts — symptomatisch</td></tr>
-            <tr><td>Non-target embolisatie (oesofagus, myelum)</td><td>&lt;1%</td><td>Voorkomen door zorgvuldige selectie en juiste partikelgrootte</td></tr>
-            <tr><td>Punctiecomplicaties</td><td>&lt;1%</td><td>Standaard management hematoom/pseudoaneurysma</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <div class="accordion" id="acc-naz">
-    <div class="acc-header" onclick="toggleAcc('acc-naz')">
-      <div class="acc-title-wrap"><span class="acc-dot green"></span><span class="acc-title">Nazorg</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner">
-        <ul class="bullet">
-          <li>IC/bewaking opname minimaal 24u na procedure</li>
-          <li>Neurologische controles eerste 24u — bewaking voor spinale complicaties</li>
-          <li>Hb controle na 4–6u</li>
-          <li>Behandeling onderliggende oorzaak hemoptoe essentieel voor langetermijn resultaat</li>
-          <li>Follow-up pulmonologie of longchirurgie voor definitieve behandeling</li>
-        </ul>
       </div>
     </div>
   </div>
@@ -226,19 +226,25 @@ Patiënt ter observatie naar [IC/bewaking].</div>
       </div>
     </div>
   </div>
-</div>
+</div
+
+>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/7.0.0/fuse.min.js"></script>
 <script src="../procedures.js"></script>
 <script src="../nav.js"></script>
 <script src="../search.js"></script>
+<script src="../lang.js"></script>
 <script>
 function toggleAcc(id) { document.getElementById(id).classList.toggle('open'); }
 function copyVerslag(verslagId, btnId) {
-  navigator.clipboard.writeText(document.getElementById(verslagId).innerText).then(() => {
+  const el = document.getElementById(verslagId);
+  const lang = localStorage.getItem('ia-lang') || 'nl';
+  const text = el.getAttribute('data-' + lang) || el.innerText;
+  navigator.clipboard.writeText(text).then(() => {
     const btn = document.getElementById(btnId);
-    btn.textContent = '✓ Gekopieerd'; btn.classList.add('copied');
-    setTimeout(() => { btn.innerHTML = '⎘ Kopieer'; btn.classList.remove('copied'); }, 2000);
+    btn.innerHTML = lang === 'en' ? '✓ Copied' : '✓ Gekopieerd'; btn.classList.add('copied');
+    setTimeout(() => { btn.innerHTML = '⎘ <span data-nl="Kopieer" data-en="Copy">Kopieer</span>'; btn.classList.remove('copied'); if(typeof applyLang !== 'undefined') applyLang(lang); }, 2000);
   });
 }
 </script>

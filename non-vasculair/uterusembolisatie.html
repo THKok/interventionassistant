@@ -118,7 +118,7 @@
     <div class="acc-body">
       <div class="acc-inner" style="padding:0">
         <table class="mat">
-          <thead><tr><th>Materiaal</th><th>Specificatie</th><th>Aantal</th></tr></thead>
+          <thead><tr><th data-nl="Materiaal" data-en="Material">Materiaal</th><th data-nl="Specificatie" data-en="Specification">Specificatie</th><th data-nl="Aantal" data-en="Quantity">Aantal</th></tr></thead>
           <tbody>
             <tr><td>Angioset</td><td>Standaard</td><td>1</td></tr>
             <tr><td>Introducersheath</td><td>5Fr, 11 cm</td><td>1</td></tr>
@@ -171,7 +171,7 @@ NAZORG:
 - Vitale parameters en Hb controle na 4–6 uur.
 - Pijnstilling conform protocol (post-embolisatiesyndroom verwacht).
 - Follow-up via gynaecologie.</div>
-          <button class="copy-btn" id="copy-uae" onclick="copyVerslag('verslag-uae','copy-uae')">⎘ Kopieer</button>
+          <button class="copy-btn" id="copy-uae" onclick="copyVerslag('verslag-uae','copy-uae')">⎘ <span data-nl="Kopieer" data-en="Copy">Kopieer</span></button>
         </div>
       </div>
     </div>
@@ -186,7 +186,7 @@ NAZORG:
     <div class="acc-body">
       <div class="acc-inner" style="padding:0">
         <table class="mat">
-          <thead><tr><th>Complicatie</th><th>Kans</th><th>Management</th></tr></thead>
+          <thead><tr><th data-nl="Complicatie" data-en="Complication">Complicatie</th><th data-nl="Kans" data-en="Rate">Kans</th><th data-nl="Management" data-en="Management">Management</th></tr></thead>
           <tbody>
             <tr><td>Non-target embolisatie</td><td>&lt;1%</td><td>Preventie door zorgvuldige selectie; behandeling afhankelijk van locatie</td></tr>
             <tr><td>Post-embolisatiesyndroom</td><td>Frequent</td><td>Pijn, koorts, misselijkheid — symptomatisch (NSAID, anti-emetica)</td></tr>
@@ -224,13 +224,17 @@ NAZORG:
 <script src="../procedures.js"></script>
 <script src="../nav.js"></script>
 <script src="../search.js"></script>
+<script src="../lang.js"></script>
 <script>
 function toggleAcc(id) { document.getElementById(id).classList.toggle('open'); }
 function copyVerslag(verslagId, btnId) {
-  navigator.clipboard.writeText(document.getElementById(verslagId).innerText).then(() => {
+  const el = document.getElementById(verslagId);
+  const lang = localStorage.getItem('ia-lang') || 'nl';
+  const text = el.getAttribute('data-' + lang) || el.innerText;
+  navigator.clipboard.writeText(text).then(() => {
     const btn = document.getElementById(btnId);
-    btn.textContent = '✓ Gekopieerd'; btn.classList.add('copied');
-    setTimeout(() => { btn.innerHTML = '⎘ Kopieer'; btn.classList.remove('copied'); }, 2000);
+    btn.innerHTML = lang === 'en' ? '✓ Copied' : '✓ Gekopieerd'; btn.classList.add('copied');
+    setTimeout(() => { btn.innerHTML = '⎘ <span data-nl="Kopieer" data-en="Copy">Kopieer</span>'; btn.classList.remove('copied'); if(typeof applyLang !== 'undefined') applyLang(lang); }, 2000);
   });
 }
 </script>

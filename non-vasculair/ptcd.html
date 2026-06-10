@@ -31,6 +31,7 @@
   </div>
 
   <!-- Indicaties -->
+
   <div class="accordion open" id="acc-ind">
     <div class="acc-header" onclick="toggleAcc('acc-ind')">
       <div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title">Indicaties & Contra-indicaties</span></div>
@@ -60,6 +61,7 @@
   </div>
 
   <!-- Pre-procedureel -->
+
   <div class="accordion" id="acc-pre">
     <div class="acc-header" onclick="toggleAcc('acc-pre')">
       <div class="acc-title-wrap"><span class="acc-dot blue"></span><span class="acc-title">Pre-procedurele Checklist</span></div>
@@ -82,6 +84,36 @@
   </div>
 
   <!-- Stappenplan -->
+
+  <div class="accordion" id="acc-mat">
+    <div class="acc-header" onclick="toggleAcc('acc-mat')">
+      <div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title">Materiaal</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner" style="padding:0">
+        <table class="mat">
+          <thead><tr><th data-nl="Materiaal" data-en="Material">Materiaal</th><th data-nl="Specificatie" data-en="Specification">Specificatie</th><th data-nl="Aantal" data-en="Quantity">Aantal</th></tr></thead>
+          <tbody>
+            <tr><td>Angioset</td><td>Standaard</td><td>1</td></tr>
+            <tr><td>Punctieset</td><td>Chiba naald 22G</td><td>1</td></tr>
+            <tr><td>Neffset</td><td>4Fr</td><td>1</td></tr>
+            <tr><td>Cope Mandril</td><td>0.018"</td><td>Optioneel</td></tr>
+            <tr><td>Sheath</td><td>7Fr, kort</td><td>1</td></tr>
+            <tr><td>Amplatz</td><td>0.035", kort</td><td>1</td></tr>
+            <tr><td>Hydrofiele voerdraad</td><td>0.035" Terumo</td><td>1</td></tr>
+            <tr><td>Cobra katheter</td><td>4 of 5Fr</td><td>1</td></tr>
+            <tr><td>In- &amp; uitwendige drain</td><td>8.5–10.2Fr</td><td>1</td></tr>
+            <tr class="mat-cat"><td colspan="3">Optioneel</td></tr>
+            <tr><td>SEMS (uncovered)</td><td>8–10 mm, 1 cm proximaal én distaal van stenose</td><td>Optioneel</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Standaardverslag -->
+
   <div class="accordion" id="acc-stap">
     <div class="acc-header" onclick="toggleAcc('acc-stap')">
       <div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title">Stappenplan</span></div>
@@ -114,34 +146,47 @@
   </div>
 
   <!-- Materiaal -->
-  <div class="accordion" id="acc-mat">
-    <div class="acc-header" onclick="toggleAcc('acc-mat')">
-      <div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title">Materiaal</span></div>
+
+  <div class="accordion" id="acc-comp">
+    <div class="acc-header" onclick="toggleAcc('acc-comp')">
+      <div class="acc-title-wrap"><span class="acc-dot red"></span><span class="acc-title">Complicaties</span></div>
       <span class="acc-chevron">▾</span>
     </div>
     <div class="acc-body">
       <div class="acc-inner" style="padding:0">
         <table class="mat">
-          <thead><tr><th>Materiaal</th><th>Specificatie</th><th>Aantal</th></tr></thead>
+          <thead><tr><th data-nl="Complicatie" data-en="Complication">Complicatie</th><th data-nl="Kans" data-en="Rate">Kans</th><th data-nl="Management" data-en="Management">Management</th></tr></thead>
           <tbody>
-            <tr><td>Angioset</td><td>Standaard</td><td>1</td></tr>
-            <tr><td>Punctieset</td><td>Chiba naald 22G</td><td>1</td></tr>
-            <tr><td>Neffset</td><td>4Fr</td><td>1</td></tr>
-            <tr><td>Cope Mandril</td><td>0.018"</td><td>Optioneel</td></tr>
-            <tr><td>Sheath</td><td>7Fr, kort</td><td>1</td></tr>
-            <tr><td>Amplatz</td><td>0.035", kort</td><td>1</td></tr>
-            <tr><td>Hydrofiele voerdraad</td><td>0.035" Terumo</td><td>1</td></tr>
-            <tr><td>Cobra katheter</td><td>4 of 5Fr</td><td>1</td></tr>
-            <tr><td>In- &amp; uitwendige drain</td><td>8.5–10.2Fr</td><td>1</td></tr>
-            <tr class="mat-cat"><td colspan="3">Optioneel</td></tr>
-            <tr><td>SEMS (uncovered)</td><td>8–10 mm, 1 cm proximaal én distaal van stenose</td><td>Optioneel</td></tr>
+            <tr><td>Sepsis / Cholangitis</td><td>5–10%</td><td>Bloedkweken, IV antibiotica, drain doorspuiten/vrijmaken</td></tr>
+            <tr><td>Bloeding (subcapsulair/hemobilie)</td><td>2–5%</td><td>Monitoring; bij persisteren CT-angiografie en evt. embolisatie</td></tr>
+            <tr><td>Drain dislocatie / occlusie</td><td>5–15%</td><td>Exchange van de drain over voerdraad</td></tr>
+            <tr><td>Pleuravocht / pneumothorax</td><td>1–3%</td><td>Meestal conservatief; drain bij symptomatische pneumothorax</td></tr>
+            <tr><td>Gallekkage / biliaire peritonitis</td><td>1–2%</td><td>Adequate drainage waarborgen; evt. extra drain plaatsen</td></tr>
           </tbody>
         </table>
       </div>
     </div>
   </div>
 
-  <!-- Standaardverslag -->
+  <!-- Nazorg -->
+
+  <div class="accordion" id="acc-naz">
+    <div class="acc-header" onclick="toggleAcc('acc-naz')">
+      <div class="acc-title-wrap"><span class="acc-dot green"></span><span class="acc-title">Nazorg</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner">
+        <ul class="bullet">
+          <li>Drain 24u open op zak laten, daarna afdoppen</li>
+          <li>Bij koorts of toename van pijn: drain open zetten op zak</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bronnen -->
+
   <div class="accordion" id="acc-vers">
     <div class="acc-header" onclick="toggleAcc('acc-vers')">
       <div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title">Standaardverslag</span></div>
@@ -180,51 +225,14 @@ Plaatsing in- en uitwendige PTCD-drain via [links / rechts].
 NAZORG:
 - Drain 24u open op zak laten. Hierna afdoppen.
 - Bij koorts of toename van pijn drain open zetten op zak.</div>
-          <button class="copy-btn" id="copy-ptcd" onclick="copyVerslag('verslag-ptcd','copy-ptcd')">⎘ Kopieer</button>
+          <button class="copy-btn" id="copy-ptcd" onclick="copyVerslag('verslag-ptcd','copy-ptcd')">⎘ <span data-nl="Kopieer" data-en="Copy">Kopieer</span></button>
         </div>
       </div>
     </div>
   </div>
 
   <!-- Complicaties -->
-  <div class="accordion" id="acc-comp">
-    <div class="acc-header" onclick="toggleAcc('acc-comp')">
-      <div class="acc-title-wrap"><span class="acc-dot red"></span><span class="acc-title">Complicaties</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner" style="padding:0">
-        <table class="mat">
-          <thead><tr><th>Complicatie</th><th>Kans</th><th>Management</th></tr></thead>
-          <tbody>
-            <tr><td>Sepsis / Cholangitis</td><td>5–10%</td><td>Bloedkweken, IV antibiotica, drain doorspuiten/vrijmaken</td></tr>
-            <tr><td>Bloeding (subcapsulair/hemobilie)</td><td>2–5%</td><td>Monitoring; bij persisteren CT-angiografie en evt. embolisatie</td></tr>
-            <tr><td>Drain dislocatie / occlusie</td><td>5–15%</td><td>Exchange van de drain over voerdraad</td></tr>
-            <tr><td>Pleuravocht / pneumothorax</td><td>1–3%</td><td>Meestal conservatief; drain bij symptomatische pneumothorax</td></tr>
-            <tr><td>Gallekkage / biliaire peritonitis</td><td>1–2%</td><td>Adequate drainage waarborgen; evt. extra drain plaatsen</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
 
-  <!-- Nazorg -->
-  <div class="accordion" id="acc-naz">
-    <div class="acc-header" onclick="toggleAcc('acc-naz')">
-      <div class="acc-title-wrap"><span class="acc-dot green"></span><span class="acc-title">Nazorg</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner">
-        <ul class="bullet">
-          <li>Drain 24u open op zak laten, daarna afdoppen</li>
-          <li>Bij koorts of toename van pijn: drain open zetten op zak</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- Bronnen -->
   <div class="accordion" id="acc-bronnen">
     <div class="acc-header" onclick="toggleAcc('acc-bronnen')">
       <div class="acc-title-wrap"><span class="acc-dot blue"></span><span class="acc-title">Bronnen & Externe Links</span></div>
@@ -238,19 +246,25 @@ NAZORG:
       </div>
     </div>
   </div>
-</div>
+</div
+
+>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/7.0.0/fuse.min.js"></script>
 <script src="../procedures.js"></script>
 <script src="../nav.js"></script>
 <script src="../search.js"></script>
+<script src="../lang.js"></script>
 <script>
 function toggleAcc(id) { document.getElementById(id).classList.toggle('open'); }
 function copyVerslag(verslagId, btnId) {
-  navigator.clipboard.writeText(document.getElementById(verslagId).innerText).then(() => {
+  const el = document.getElementById(verslagId);
+  const lang = localStorage.getItem('ia-lang') || 'nl';
+  const text = el.getAttribute('data-' + lang) || el.innerText;
+  navigator.clipboard.writeText(text).then(() => {
     const btn = document.getElementById(btnId);
-    btn.textContent = '✓ Gekopieerd'; btn.classList.add('copied');
-    setTimeout(() => { btn.innerHTML = '⎘ Kopieer'; btn.classList.remove('copied'); }, 2000);
+    btn.innerHTML = lang === 'en' ? '✓ Copied' : '✓ Gekopieerd'; btn.classList.add('copied');
+    setTimeout(() => { btn.innerHTML = '⎘ <span data-nl="Kopieer" data-en="Copy">Kopieer</span>'; btn.classList.remove('copied'); if(typeof applyLang !== 'undefined') applyLang(lang); }, 2000);
   });
 }
 </script>

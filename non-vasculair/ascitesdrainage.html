@@ -70,6 +70,35 @@
     </div>
   </div>
 
+  <div class="accordion" id="acc-mat">
+    <div class="acc-header" onclick="toggleAcc('acc-mat')">
+      <div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title">Materiaal</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner" style="padding:0">
+        <table class="mat">
+          <thead><tr><th data-nl="Materiaal" data-en="Material">Materiaal</th><th data-nl="Specificatie" data-en="Specification">Specificatie</th><th data-nl="Aantal" data-en="Quantity">Aantal</th></tr></thead>
+          <tbody>
+            <tr><td>Steriele plakdoeken</td><td>1 voor tafel, 1 voor patiënt</td><td>2</td></tr>
+            <tr><td>Spuit</td><td>10 cc</td><td>1</td></tr>
+            <tr><td>Rode naald (optreknaald)</td><td>Standaard</td><td>1</td></tr>
+            <tr><td>Verdovingsnaald</td><td>21G</td><td>1</td></tr>
+            <tr><td>Lidocaïne 1%</td><td>10 cc</td><td>1</td></tr>
+            <tr><td>Scalpel</td><td>Mesje voor kleine steekincisie</td><td>1</td></tr>
+            <tr><td>Drain</td><td>6Fr, one-step</td><td>1</td></tr>
+            <tr><td>Connector</td><td>Drain naar drainzak</td><td>1</td></tr>
+            <tr><td>Drainzak</td><td>1L</td><td>1</td></tr>
+            <tr><td>Echoprobe hoes</td><td>Steriel</td><td>1</td></tr>
+            <tr class="mat-cat"><td colspan="3">Optioneel (two-step)</td></tr>
+            <tr><td>Angionaald</td><td>Standaard</td><td>Optioneel</td></tr>
+            <tr><td>Amplatz draad</td><td>0.035"</td><td>Optioneel</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
   <div class="accordion" id="acc-stap">
     <div class="acc-header" onclick="toggleAcc('acc-stap')">
       <div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title">Stappenplan</span></div>
@@ -99,57 +128,6 @@
     </div>
   </div>
 
-  <div class="accordion" id="acc-mat">
-    <div class="acc-header" onclick="toggleAcc('acc-mat')">
-      <div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title">Materiaal</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner" style="padding:0">
-        <table class="mat">
-          <thead><tr><th>Materiaal</th><th>Specificatie</th><th>Aantal</th></tr></thead>
-          <tbody>
-            <tr><td>Steriele plakdoeken</td><td>1 voor tafel, 1 voor patiënt</td><td>2</td></tr>
-            <tr><td>Spuit</td><td>10 cc</td><td>1</td></tr>
-            <tr><td>Rode naald (optreknaald)</td><td>Standaard</td><td>1</td></tr>
-            <tr><td>Verdovingsnaald</td><td>21G</td><td>1</td></tr>
-            <tr><td>Lidocaïne 1%</td><td>10 cc</td><td>1</td></tr>
-            <tr><td>Scalpel</td><td>Mesje voor kleine steekincisie</td><td>1</td></tr>
-            <tr><td>Drain</td><td>6Fr, one-step</td><td>1</td></tr>
-            <tr><td>Connector</td><td>Drain naar drainzak</td><td>1</td></tr>
-            <tr><td>Drainzak</td><td>1L</td><td>1</td></tr>
-            <tr><td>Echoprobe hoes</td><td>Steriel</td><td>1</td></tr>
-            <tr class="mat-cat"><td colspan="3">Optioneel (two-step)</td></tr>
-            <tr><td>Angionaald</td><td>Standaard</td><td>Optioneel</td></tr>
-            <tr><td>Amplatz draad</td><td>0.035"</td><td>Optioneel</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <div class="accordion" id="acc-vers">
-    <div class="acc-header" onclick="toggleAcc('acc-vers')">
-      <div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title">Standaardverslag</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner">
-        <div class="verslag-wrap">
-          <div class="verslag" id="verslag-asc">Patiënt in [rugligging / zijligging]. Echogeleide trajectbepaling
-[linker onderbuik / laterale flank], vrij van darmlissen. Na lokale
-verdoving kleine incisie en one-step plaatsing 6Fr drain
-intraperitoneaal. Aspiratie van [helder / troebel / hemoragisch] vocht.
-Drain gefixeerd aan de huid. Aansluiten op drainzak.
-
-CONCLUSIE:
-Therapeutische / diagnostische ascitesdrainage [links/rechts].</div>
-          <button class="copy-btn" id="copy-asc" onclick="copyVerslag('verslag-asc','copy-asc')">⎘ Kopieer</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <div class="accordion" id="acc-comp">
     <div class="acc-header" onclick="toggleAcc('acc-comp')">
       <div class="acc-title-wrap"><span class="acc-dot red"></span><span class="acc-title">Complicaties</span></div>
@@ -158,7 +136,7 @@ Therapeutische / diagnostische ascitesdrainage [links/rechts].</div>
     <div class="acc-body">
       <div class="acc-inner" style="padding:0">
         <table class="mat">
-          <thead><tr><th>Complicatie</th><th>Kans</th><th>Management</th></tr></thead>
+          <thead><tr><th data-nl="Complicatie" data-en="Complication">Complicatie</th><th data-nl="Kans" data-en="Rate">Kans</th><th data-nl="Management" data-en="Management">Management</th></tr></thead>
           <tbody>
             <tr><td>Lekkage langs drain</td><td>5–10%</td><td>Drukverband, drain verwijderen</td></tr>
             <tr><td>Bloeding buikwand</td><td>1–2%</td><td>Compressie, conservatief</td></tr>
@@ -186,18 +164,46 @@ Therapeutische / diagnostische ascitesdrainage [links/rechts].</div>
       </div>
     </div>
   </div>
-</div>
+</div
+
+  <div class="accordion" id="acc-vers">
+    <div class="acc-header" onclick="toggleAcc('acc-vers')">
+      <div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title">Standaardverslag</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner">
+        <div class="verslag-wrap">
+          <div class="verslag" id="verslag-asc">Patiënt in [rugligging / zijligging]. Echogeleide trajectbepaling
+[linker onderbuik / laterale flank], vrij van darmlissen. Na lokale
+verdoving kleine incisie en one-step plaatsing 6Fr drain
+intraperitoneaal. Aspiratie van [helder / troebel / hemoragisch] vocht.
+Drain gefixeerd aan de huid. Aansluiten op drainzak.
+
+CONCLUSIE:
+Therapeutische / diagnostische ascitesdrainage [links/rechts].</div>
+          <button class="copy-btn" id="copy-asc" onclick="copyVerslag('verslag-asc','copy-asc')">⎘ <span data-nl="Kopieer" data-en="Copy">Kopieer</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/7.0.0/fuse.min.js"></script>
 <script src="../procedures.js"></script>
 <script src="../nav.js"></script>
 <script src="../search.js"></script>
+<script src="../lang.js"></script>
 <script>
 function toggleAcc(id) { document.getElementById(id).classList.toggle('open'); }
 function copyVerslag(verslagId, btnId) {
-  navigator.clipboard.writeText(document.getElementById(verslagId).innerText).then(() => {
+  const el = document.getElementById(verslagId);
+  const lang = localStorage.getItem('ia-lang') || 'nl';
+  const text = el.getAttribute('data-' + lang) || el.innerText;
+  navigator.clipboard.writeText(text).then(() => {
     const btn = document.getElementById(btnId);
-    btn.textContent = '✓ Gekopieerd'; btn.classList.add('copied');
-    setTimeout(() => { btn.innerHTML = '⎘ Kopieer'; btn.classList.remove('copied'); }, 2000);
+    btn.innerHTML = lang === 'en' ? '✓ Copied' : '✓ Gekopieerd'; btn.classList.add('copied');
+    setTimeout(() => { btn.innerHTML = '⎘ <span data-nl="Kopieer" data-en="Copy">Kopieer</span>'; btn.classList.remove('copied'); if(typeof applyLang !== 'undefined') applyLang(lang); }, 2000);
   });
 }
 </script>

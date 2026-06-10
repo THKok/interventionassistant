@@ -29,6 +29,7 @@
   </div>
 
   <!-- Indicaties -->
+
   <div class="accordion open" id="acc-ind">
     <div class="acc-header" onclick="toggleAcc('acc-ind')">
       <div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title">Indicaties & Contra-indicaties</span></div>
@@ -63,6 +64,7 @@
   </div>
 
   <!-- Pre-procedureel -->
+
   <div class="accordion" id="acc-pre">
     <div class="acc-header" onclick="toggleAcc('acc-pre')">
       <div class="acc-title-wrap"><span class="acc-dot blue"></span><span class="acc-title">Pre-procedurele Checklist</span></div>
@@ -82,6 +84,35 @@
   </div>
 
   <!-- Stappenplan -->
+
+  <div class="accordion" id="acc-mat">
+    <div class="acc-header" onclick="toggleAcc('acc-mat')">
+      <div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title">Materiaal</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner" style="padding:0">
+        <table class="mat">
+          <thead><tr><th data-nl="Materiaal" data-en="Material">Materiaal</th><th data-nl="Specificatie" data-en="Specification">Specificatie</th><th data-nl="Opmerking" data-en="Note">Opmerking</th></tr></thead>
+          <tbody>
+            <tr class="mat-cat"><td colspan="3">Toegang</td></tr>
+            <tr><td>Introducersheath</td><td>6Fr, 11 cm</td><td>Zijpoort voor sheathheparine</td></tr>
+            <tr class="mat-cat"><td colspan="3">Infusiecatheter</td></tr>
+            <tr><td>Multi-sidehole infusiecatheter</td><td>McNamara 5Fr of Uni*Fuse</td><td>Actief deel in trombus positioneren</td></tr>
+            <tr class="mat-cat"><td colspan="3">Medicatie</td></tr>
+            <tr><td>Alteplase (rTPA)</td><td>Actilyse 10 mg flacons</td><td>Bolus 2–5 mg + infusie 0.5–1 mg/uur</td></tr>
+            <tr><td>Heparine</td><td>5000 IE/ml flacons</td><td>500–1000 IE/uur via sheath zijpoort</td></tr>
+            <tr class="mat-cat"><td colspan="3">Infusie setup</td></tr>
+            <tr><td>Infusiepompen</td><td>2x (rTPA + heparine)</td><td>Mee naar IC</td></tr>
+            <tr><td>Fixatie sheath</td><td>Nylon 2-0 + transparant verband</td><td>Sheath 24–48u in situ</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Standaardverslag -->
+
   <div class="accordion" id="acc-stap">
     <div class="acc-header" onclick="toggleAcc('acc-stap')">
       <div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title">Stappenplan & Dosering</span></div>
@@ -120,33 +151,37 @@
   </div>
 
   <!-- Materiaal -->
-  <div class="accordion" id="acc-mat">
-    <div class="acc-header" onclick="toggleAcc('acc-mat')">
-      <div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title">Materiaal</span></div>
+
+  <div class="accordion" id="acc-comp">
+    <div class="acc-header" onclick="toggleAcc('acc-comp')">
+      <div class="acc-title-wrap"><span class="acc-dot red"></span><span class="acc-title">Complicaties & Monitoring IC/MC</span></div>
       <span class="acc-chevron">▾</span>
     </div>
     <div class="acc-body">
-      <div class="acc-inner" style="padding:0">
-        <table class="mat">
-          <thead><tr><th>Materiaal</th><th>Specificatie</th><th>Opmerking</th></tr></thead>
-          <tbody>
-            <tr class="mat-cat"><td colspan="3">Toegang</td></tr>
-            <tr><td>Introducersheath</td><td>6Fr, 11 cm</td><td>Zijpoort voor sheathheparine</td></tr>
-            <tr class="mat-cat"><td colspan="3">Infusiecatheter</td></tr>
-            <tr><td>Multi-sidehole infusiecatheter</td><td>McNamara 5Fr of Uni*Fuse</td><td>Actief deel in trombus positioneren</td></tr>
-            <tr class="mat-cat"><td colspan="3">Medicatie</td></tr>
-            <tr><td>Alteplase (rTPA)</td><td>Actilyse 10 mg flacons</td><td>Bolus 2–5 mg + infusie 0.5–1 mg/uur</td></tr>
-            <tr><td>Heparine</td><td>5000 IE/ml flacons</td><td>500–1000 IE/uur via sheath zijpoort</td></tr>
-            <tr class="mat-cat"><td colspan="3">Infusie setup</td></tr>
-            <tr><td>Infusiepompen</td><td>2x (rTPA + heparine)</td><td>Mee naar IC</td></tr>
-            <tr><td>Fixatie sheath</td><td>Nylon 2-0 + transparant verband</td><td>Sheath 24–48u in situ</td></tr>
-          </tbody>
-        </table>
+      <div class="acc-inner-split">
+        <div>
+          <p class="acc-sublabel">Monitoring schema</p>
+          <ul class="clean">
+            <li><strong>Klinisch elke 1–2u:</strong> Neurologie, pulsaties, warmte/kleur been</li>
+            <li><strong>Lab elke 4–6u:</strong> Fibrinogeen, APTT, Hb, trombo's, nierfunctie</li>
+            <li><strong>Insteekplaats:</strong> Hematoom, bloeding rond sheath</li>
+            <li><strong>RR:</strong> Streef ≤180/110 mmHg tijdens trombolyse</li>
+          </ul>
+        </div>
+        <div>
+          <p class="acc-sublabel">Bloedingscorrectie</p>
+          <ul class="clean">
+            <li>Stop rTPA + heparine direct</li>
+            <li>FFP 2–4E of Haemocomplettan 2–4g</li>
+            <li>Ernstig: TXA 1g iv + overleg hematologie</li>
+            <li>Insteekbloeding: manuele compressie</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
+</div
 
-  <!-- Standaardverslag -->
   <div class="accordion" id="acc-vers">
     <div class="acc-header" onclick="toggleAcc('acc-vers')">
       <div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title">Standaardverslag</span></div>
@@ -179,54 +214,31 @@ AFSPRAKEN:
 - Vasculaire controles elke 2u
 - Stop-criteria fibrinogeen &lt;1.0 g/L besproken
 - Bij verslechtering: directe melding IR + vaatchirurgie</div>
-          <button class="copy-btn" id="copy-rtpa" onclick="copyVerslag('verslag-rtpa','copy-rtpa')">⎘ Kopieer</button>
+          <button class="copy-btn" id="copy-rtpa" onclick="copyVerslag('verslag-rtpa','copy-rtpa')">⎘ <span data-nl="Kopieer" data-en="Copy">Kopieer</span></button>
         </div>
       </div>
     </div>
   </div>
 
   <!-- Complicaties & Monitoring -->
-  <div class="accordion" id="acc-comp">
-    <div class="acc-header" onclick="toggleAcc('acc-comp')">
-      <div class="acc-title-wrap"><span class="acc-dot red"></span><span class="acc-title">Complicaties & Monitoring IC/MC</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner-split">
-        <div>
-          <p class="acc-sublabel">Monitoring schema</p>
-          <ul class="clean">
-            <li><strong>Klinisch elke 1–2u:</strong> Neurologie, pulsaties, warmte/kleur been</li>
-            <li><strong>Lab elke 4–6u:</strong> Fibrinogeen, APTT, Hb, trombo's, nierfunctie</li>
-            <li><strong>Insteekplaats:</strong> Hematoom, bloeding rond sheath</li>
-            <li><strong>RR:</strong> Streef ≤180/110 mmHg tijdens trombolyse</li>
-          </ul>
-        </div>
-        <div>
-          <p class="acc-sublabel">Bloedingscorrectie</p>
-          <ul class="clean">
-            <li>Stop rTPA + heparine direct</li>
-            <li>FFP 2–4E of Haemocomplettan 2–4g</li>
-            <li>Ernstig: TXA 1g iv + overleg hematologie</li>
-            <li>Insteekbloeding: manuele compressie</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+
+>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/7.0.0/fuse.min.js"></script>
 <script src="../procedures.js"></script>
 <script src="../nav.js"></script>
 <script src="../search.js"></script>
+<script src="../lang.js"></script>
 <script>
 function toggleAcc(id) { document.getElementById(id).classList.toggle('open'); }
 function copyVerslag(verslagId, btnId) {
-  navigator.clipboard.writeText(document.getElementById(verslagId).innerText).then(() => {
+  const el = document.getElementById(verslagId);
+  const lang = localStorage.getItem('ia-lang') || 'nl';
+  const text = el.getAttribute('data-' + lang) || el.innerText;
+  navigator.clipboard.writeText(text).then(() => {
     const btn = document.getElementById(btnId);
-    btn.textContent = '✓ Gekopieerd'; btn.classList.add('copied');
-    setTimeout(() => { btn.innerHTML = '⎘ Kopieer'; btn.classList.remove('copied'); }, 2000);
+    btn.innerHTML = lang === 'en' ? '✓ Copied' : '✓ Gekopieerd'; btn.classList.add('copied');
+    setTimeout(() => { btn.innerHTML = '⎘ <span data-nl="Kopieer" data-en="Copy">Kopieer</span>'; btn.classList.remove('copied'); if(typeof applyLang !== 'undefined') applyLang(lang); }, 2000);
   });
 }
 </script>
