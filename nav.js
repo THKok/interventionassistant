@@ -102,9 +102,20 @@ function buildNav() {
   }).join('');
 
   const search = `<div class="nav-search-wrap">
-    <input class="nav-search-input" placeholder="⌕ Zoek procedure…" autocomplete="off">
+    <input class="nav-search-input"
+      placeholder="⌕ Zoek procedure…"
+      data-placeholder-nl="⌕ Zoek procedure…"
+      data-placeholder-en="⌕ Search procedure…"
+      autocomplete="off">
     <div class="search-results"></div>
-  </div>`;
+  </div>
+  <button id="lang-btn" onclick="toggleLang()" title="Switch to English"
+    style="background:none;border:1.5px solid var(--border);border-radius:5px;
+    padding:0.28rem 0.6rem;font-size:0.72rem;font-weight:700;color:var(--muted);
+    cursor:pointer;font-family:'Nunito',sans-serif;margin-left:0.35rem;
+    flex-shrink:0;transition:all 0.12s;"
+    onmouseover="this.style.borderColor='var(--blue)';this.style.color='var(--blue)'"
+    onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">EN</button>`;
 
   const hamburger = `<button class="hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -176,3 +187,4 @@ function closeMobileMenu() {
 }
 
 document.addEventListener('DOMContentLoaded', buildNav);
+// lang.js wordt apart geladen en initialiseert na buildNav
