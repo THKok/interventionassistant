@@ -21,6 +21,13 @@ const PROCEDURES = [
   { naam: "Wissel nefrodrain", categorie: "Non-vasculair", subcategorie: "Urologie", tag: "nonvasc",
     url: "non-vasculair/wissel-nefrodrain.html",
     trefwoorden: ["wissel","nefrodrain","nefrostomie","drain","pyelum","Amplatz","katheter","tractus"] },
+
+  { naam: "Sclerosering Morel-Lavallée laesie", categorie: "Non-vasculair", subcategorie: "Sclerosering", tag: "nonvasc",
+    url: "non-vasculair/morel-lavallee.html",
+    trefwoorden: ["Morel-Lavallée","sclerosering","alcohol","seroom","weke delen","fascie","post-traumatisch","aspiratie","cyste"] },
+  { naam: "Sclerosering schildkliercyste", categorie: "Non-vasculair", subcategorie: "Sclerosering", tag: "nonvasc",
+    url: "non-vasculair/schildkliercyste.html",
+    trefwoorden: ["schildklier","cyste","sclerosering","alcohol","aspiratie","thyroid"] },
   { naam: "PTCD galwegdrainage", categorie: "Non-vasculair", subcategorie: "Galwegen", tag: "nonvasc",
     url: "non-vasculair/ptcd.html",
     trefwoorden: ["PTCD","galweg","cholangio","icterus","drainage","obstructie","SEMS","cholangitis","Bismuth","Chiba","TESLA"] },
