@@ -60,6 +60,7 @@
   </div>
 
   <!-- Pre-procedureel -->
+
   <div class="accordion" id="acc-pre">
     <div class="acc-header" onclick="toggleAcc('acc-pre')">
       <div class="acc-title-wrap"><span class="acc-dot blue"></span><span class="acc-title" data-nl="Pre-procedurele Checklist" data-en="Pre-procedural Checklist">Pre-procedurele Checklist</span></div>
@@ -78,6 +79,39 @@
   </div>
 
   <!-- Stappenplan -->
+
+  <div class="accordion" id="acc-mat">
+    <div class="acc-header" onclick="toggleAcc('acc-mat')">
+      <div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title" data-nl="Materiaal" data-en="Equipment">Materiaal</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner" style="padding:0">
+        <table class="mat">
+          <thead><tr>
+            <th data-nl="Materiaal" data-en="Material">Materiaal</th>
+            <th data-nl="Specificatie" data-en="Specification">Specificatie</th>
+            <th data-nl="Aantal" data-en="Quantity">Aantal</th>
+          </tr></thead>
+          <tbody>
+            <tr><td><a href="../materiaal/angioset.html" class="mat-link" data-nl="Angioset" data-en="Angio set">Angioset</a></td><td data-nl="Standaard" data-en="Standard">Standaard</td><td>1</td></tr>
+            <tr><td data-nl="Naaldgeleider" data-en="Needle guide">Naaldgeleider</td><td data-nl="Opzetstuk echoprobe voor naaldgeleiding" data-en="Ultrasound probe attachment for needle guidance">Opzetstuk echoprobe voor naaldgeleiding</td><td>1</td></tr>
+            <tr><td data-nl="Neffset (incl. Chiba naald 22G + Cope Mandril 0.018&quot;)" data-en="Neff set (incl. Chiba needle 22G + Cope Mandrin 0.018&quot;)"><a href="../materiaal/katheters.html" class="mat-link">Neffset</a> <em style="color:var(--muted);font-size:0.8rem">(incl. Chiba naald 22G + Cope Mandril 0.018")</em></td><td>4 Fr</td><td>1</td></tr>
+            <tr><td><a href="../materiaal/draden.html" class="mat-link" data-nl="Amplatz voerdraad" data-en="Amplatz guidewire">Amplatz voerdraad</a></td><td>0.035", <span data-nl="kort" data-en="short">kort</span></td><td>1</td></tr>
+            <tr><td data-nl="Multipurpose drain" data-en="Multipurpose drain"><a href="../materiaal/katheters.html" class="mat-link">Multipurpose drain</a></td><td>8.5 Fr, <span data-nl="metalen stilet" data-en="metal stylet">metalen stilet</span></td><td>1</td></tr>
+            <tr><td data-nl="Dawson-Muller drain (bij slank pyelum)" data-en="Dawson-Muller drain (for small collecting system)"><a href="../materiaal/katheters.html" class="mat-link">Dawson-Muller drain</a> <em style="color:var(--muted);font-size:0.8rem" data-nl="(bij slank pyelum)" data-en="(for small collecting system)">(bij slank pyelum)</em></td><td>8.5 Fr</td><td data-nl="Optioneel" data-en="Optional">Optioneel</td></tr>
+            <tr class="mat-cat"><td colspan="3" data-nl="Optioneel" data-en="Optional">Optioneel</td></tr>
+            <tr><td data-nl="Sheath" data-en="Sheath">Sheath</td><td>7 Fr, 25 cm</td><td data-nl="Optioneel" data-en="Optional">Optioneel</td></tr>
+            <tr><td><a href="../materiaal/draden.html" class="mat-link" data-nl="Hydrofiele voerdraad" data-en="Hydrophilic guidewire">Hydrofiele voerdraad</a></td><td>0.035"</td><td data-nl="Optioneel" data-en="Optional">Optioneel</td></tr>
+            <tr><td><a href="../materiaal/katheters.html" class="mat-link" data-nl="Cobra katheter" data-en="Cobra catheter">Cobra katheter</a></td><td>4 <span data-nl="of" data-en="or">of</span> 5 Fr</td><td data-nl="Optioneel" data-en="Optional">Optioneel</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Standaardverslag -->
+
   <div class="accordion" id="acc-stap">
     <div class="acc-header" onclick="toggleAcc('acc-stap')">
       <div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title" data-nl="Stappenplan" data-en="Procedure Steps">Stappenplan</span></div>
@@ -118,37 +152,52 @@
   </div>
 
   <!-- Materiaal -->
-  <div class="accordion" id="acc-mat">
-    <div class="acc-header" onclick="toggleAcc('acc-mat')">
-      <div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title" data-nl="Materiaal" data-en="Equipment">Materiaal</span></div>
+
+  <div class="accordion" id="acc-comp">
+    <div class="acc-header" onclick="toggleAcc('acc-comp')">
+      <div class="acc-title-wrap"><span class="acc-dot red"></span><span class="acc-title" data-nl="Complicaties" data-en="Complications">Complicaties</span></div>
       <span class="acc-chevron">▾</span>
     </div>
     <div class="acc-body">
       <div class="acc-inner" style="padding:0">
         <table class="mat">
           <thead><tr>
-            <th data-nl="Materiaal" data-en="Material">Materiaal</th>
-            <th data-nl="Specificatie" data-en="Specification">Specificatie</th>
-            <th data-nl="Aantal" data-en="Quantity">Aantal</th>
+            <th data-nl="Complicatie" data-en="Complication">Complicatie</th>
+            <th data-nl="Kans" data-en="Rate">Kans</th>
+            <th data-nl="Management" data-en="Management">Management</th>
           </tr></thead>
           <tbody>
-            <tr><td><a href="../materiaal/angioset.html" class="mat-link" data-nl="Angioset" data-en="Angio set">Angioset</a></td><td data-nl="Standaard" data-en="Standard">Standaard</td><td>1</td></tr>
-            <tr><td data-nl="Naaldgeleider" data-en="Needle guide">Naaldgeleider</td><td data-nl="Opzetstuk echoprobe voor naaldgeleiding" data-en="Ultrasound probe attachment for needle guidance">Opzetstuk echoprobe voor naaldgeleiding</td><td>1</td></tr>
-            <tr><td data-nl="Neffset (incl. Chiba naald 22G + Cope Mandril 0.018&quot;)" data-en="Neff set (incl. Chiba needle 22G + Cope Mandrin 0.018&quot;)"><a href="../materiaal/katheters.html" class="mat-link">Neffset</a> <em style="color:var(--muted);font-size:0.8rem">(incl. Chiba naald 22G + Cope Mandril 0.018")</em></td><td>4 Fr</td><td>1</td></tr>
-            <tr><td><a href="../materiaal/draden.html" class="mat-link" data-nl="Amplatz voerdraad" data-en="Amplatz guidewire">Amplatz voerdraad</a></td><td>0.035", <span data-nl="kort" data-en="short">kort</span></td><td>1</td></tr>
-            <tr><td data-nl="Multipurpose drain" data-en="Multipurpose drain"><a href="../materiaal/katheters.html" class="mat-link">Multipurpose drain</a></td><td>8.5 Fr, <span data-nl="metalen stilet" data-en="metal stylet">metalen stilet</span></td><td>1</td></tr>
-            <tr><td data-nl="Dawson-Muller drain (bij slank pyelum)" data-en="Dawson-Muller drain (for small collecting system)"><a href="../materiaal/katheters.html" class="mat-link">Dawson-Muller drain</a> <em style="color:var(--muted);font-size:0.8rem" data-nl="(bij slank pyelum)" data-en="(for small collecting system)">(bij slank pyelum)</em></td><td>8.5 Fr</td><td data-nl="Optioneel" data-en="Optional">Optioneel</td></tr>
-            <tr class="mat-cat"><td colspan="3" data-nl="Optioneel" data-en="Optional">Optioneel</td></tr>
-            <tr><td data-nl="Sheath" data-en="Sheath">Sheath</td><td>7 Fr, 25 cm</td><td data-nl="Optioneel" data-en="Optional">Optioneel</td></tr>
-            <tr><td><a href="../materiaal/draden.html" class="mat-link" data-nl="Hydrofiele voerdraad" data-en="Hydrophilic guidewire">Hydrofiele voerdraad</a></td><td>0.035"</td><td data-nl="Optioneel" data-en="Optional">Optioneel</td></tr>
-            <tr><td><a href="../materiaal/katheters.html" class="mat-link" data-nl="Cobra katheter" data-en="Cobra catheter">Cobra katheter</a></td><td>4 <span data-nl="of" data-en="or">of</span> 5 Fr</td><td data-nl="Optioneel" data-en="Optional">Optioneel</td></tr>
+            <tr><td data-nl="Urosepsis" data-en="Urosepsis">Urosepsis</td><td>1–3%</td><td data-nl="IV antibiotica, vochttoediening, drain controleren" data-en="IV antibiotics, fluid resuscitation, check drain patency">IV antibiotica, vochttoediening, drain controleren</td></tr>
+            <tr><td data-nl="Bloeding (macro-hematurie)" data-en="Bleeding (macroscopic haematuria)">Bloeding (macro-hematurie)</td><td>2–5%</td><td data-nl="Meestal zelflimiterend; zelden embolisatie nodig" data-en="Usually self-limiting; embolisation rarely required">Meestal zelflimiterend; zelden embolisatie nodig</td></tr>
+            <tr><td data-nl="Drain dislocatie" data-en="Drain dislocation">Drain dislocatie</td><td>5–10%</td><td data-nl="Herplaatsing via bestaand tractus of nieuwe punctie" data-en="Replacement via existing tract or new puncture">Herplaatsing via bestaand tractus of nieuwe punctie</td></tr>
+            <tr><td data-nl="Pleuraal letsel" data-en="Pleural injury">Pleuraal letsel</td><td>&lt;1%</td><td data-nl="Vooral bij supracostale punctie; X-thorax/drainage" data-en="Mainly with supracostal puncture; chest X-ray/drainage">Vooral bij supracostale punctie; X-thorax/drainage</td></tr>
+            <tr><td data-nl="Colonperforatie" data-en="Colonic perforation">Colonperforatie</td><td>&lt;0.2%</td><td data-nl="Conservatief of chirurgisch (zeldzaam)" data-en="Conservative or surgical management (rare)">Conservatief of chirurgisch (zeldzaam)</td></tr>
           </tbody>
         </table>
       </div>
     </div>
   </div>
 
-  <!-- Standaardverslag -->
+  <!-- Nazorg -->
+
+  <div class="accordion" id="acc-naz">
+    <div class="acc-header" onclick="toggleAcc('acc-naz')">
+      <div class="acc-title-wrap"><span class="acc-dot green"></span><span class="acc-title" data-nl="Nazorg" data-en="Aftercare">Nazorg</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner">
+        <ul class="bullet">
+          <li data-nl="Drain open op zak laten lopen" data-en="Leave drain open to drainage bag">Drain open op zak laten lopen</li>
+          <li data-nl="Wissel drain na 6–8 weken indien nog in situ en benodigd" data-en="Replace drain after 6–8 weeks if still in situ and required">Wissel drain na 6–8 weken indien nog in situ en benodigd</li>
+          <li data-nl="Bij koorts of forse toename hematurie: laagdrempelig contact opnemen" data-en="If fever or significant increase in haematuria: contact immediately">Bij koorts of forse toename hematurie: laagdrempelig contact opnemen</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bronnen -->
+
   <div class="accordion" id="acc-vers">
     <div class="acc-header" onclick="toggleAcc('acc-vers')">
       <div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title" data-nl="Standaardverslag" data-en="Standard Report">Standaardverslag</span></div>
@@ -233,49 +282,7 @@ Bij koorts of forse toename hematurie laagdrempelig contact opnemen.</div>
   </div>
 
   <!-- Complicaties -->
-  <div class="accordion" id="acc-comp">
-    <div class="acc-header" onclick="toggleAcc('acc-comp')">
-      <div class="acc-title-wrap"><span class="acc-dot red"></span><span class="acc-title" data-nl="Complicaties" data-en="Complications">Complicaties</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner" style="padding:0">
-        <table class="mat">
-          <thead><tr>
-            <th data-nl="Complicatie" data-en="Complication">Complicatie</th>
-            <th data-nl="Kans" data-en="Rate">Kans</th>
-            <th data-nl="Management" data-en="Management">Management</th>
-          </tr></thead>
-          <tbody>
-            <tr><td data-nl="Urosepsis" data-en="Urosepsis">Urosepsis</td><td>1–3%</td><td data-nl="IV antibiotica, vochttoediening, drain controleren" data-en="IV antibiotics, fluid resuscitation, check drain patency">IV antibiotica, vochttoediening, drain controleren</td></tr>
-            <tr><td data-nl="Bloeding (macro-hematurie)" data-en="Bleeding (macroscopic haematuria)">Bloeding (macro-hematurie)</td><td>2–5%</td><td data-nl="Meestal zelflimiterend; zelden embolisatie nodig" data-en="Usually self-limiting; embolisation rarely required">Meestal zelflimiterend; zelden embolisatie nodig</td></tr>
-            <tr><td data-nl="Drain dislocatie" data-en="Drain dislocation">Drain dislocatie</td><td>5–10%</td><td data-nl="Herplaatsing via bestaand tractus of nieuwe punctie" data-en="Replacement via existing tract or new puncture">Herplaatsing via bestaand tractus of nieuwe punctie</td></tr>
-            <tr><td data-nl="Pleuraal letsel" data-en="Pleural injury">Pleuraal letsel</td><td>&lt;1%</td><td data-nl="Vooral bij supracostale punctie; X-thorax/drainage" data-en="Mainly with supracostal puncture; chest X-ray/drainage">Vooral bij supracostale punctie; X-thorax/drainage</td></tr>
-            <tr><td data-nl="Colonperforatie" data-en="Colonic perforation">Colonperforatie</td><td>&lt;0.2%</td><td data-nl="Conservatief of chirurgisch (zeldzaam)" data-en="Conservative or surgical management (rare)">Conservatief of chirurgisch (zeldzaam)</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
 
-  <!-- Nazorg -->
-  <div class="accordion" id="acc-naz">
-    <div class="acc-header" onclick="toggleAcc('acc-naz')">
-      <div class="acc-title-wrap"><span class="acc-dot green"></span><span class="acc-title" data-nl="Nazorg" data-en="Aftercare">Nazorg</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner">
-        <ul class="bullet">
-          <li data-nl="Drain open op zak laten lopen" data-en="Leave drain open to drainage bag">Drain open op zak laten lopen</li>
-          <li data-nl="Wissel drain na 6–8 weken indien nog in situ en benodigd" data-en="Replace drain after 6–8 weeks if still in situ and required">Wissel drain na 6–8 weken indien nog in situ en benodigd</li>
-          <li data-nl="Bij koorts of forse toename hematurie: laagdrempelig contact opnemen" data-en="If fever or significant increase in haematuria: contact immediately">Bij koorts of forse toename hematurie: laagdrempelig contact opnemen</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- Bronnen -->
   <div class="accordion" id="acc-bronnen">
     <div class="acc-header" onclick="toggleAcc('acc-bronnen')">
       <div class="acc-title-wrap"><span class="acc-dot blue"></span><span class="acc-title" data-nl="Bronnen &amp; Externe Links" data-en="References &amp; External Links">Bronnen &amp; Externe Links</span></div>
@@ -292,6 +299,7 @@ Bij koorts of forse toename hematurie laagdrempelig contact opnemen.</div>
     </div>
   </div>
 </div>
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/7.0.0/fuse.min.js"></script>
 <script src="../procedures.js"></script>
