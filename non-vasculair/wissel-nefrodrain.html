@@ -315,16 +315,17 @@ function openLightbox(id) {
   const lang = localStorage.getItem('ia-lang') || 'nl';
   document.getElementById('lightbox-img').src = d.src;
   document.getElementById('lightbox-caption').textContent = d[lang] || d.nl;
-  document.getElementById('lightbox').classList.add('active');
+  document.getElementById('lightbox').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
 function closeLightbox() {
-  document.getElementById('lightbox').classList.remove('active');
+  document.getElementById('lightbox').classList.remove('open');
   document.body.style.overflow = '';
 }
 function closeLightboxOutside(e) {
   if (e.target === document.getElementById('lightbox')) closeLightbox();
 }
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 </script>
 </body>
 </html>
