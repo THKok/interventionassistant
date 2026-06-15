@@ -3,109 +3,330 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>InterventionAssistant — Proceduregids Interventieradiologie</title>
+  <title data-nl="Antegrade JJ-katheter — InterventionAssistant" data-en="Antegrade JJ Stent — InterventionAssistant">Antegrade JJ-katheter — InterventionAssistant</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-
 <nav></nav>
-
-<div class="hero">
-  <h1>Intervention<span>Assistant</span></h1>
-  <p>Van indicatie tot standaardverslag — alles voor de interventiekamer op één plek<br>Materiaallijsten · Techniek · Standaardverslagen</p>
-  <div class="hero-search">
-    <input placeholder="Zoek procedure, bijv. 'nefrostomie' of 'PTA'…" autocomplete="off">
-    <button>Zoek →</button>
-    <div class="hero-results search-results"></div>
+<div class="main proc-page">
+  <div class="breadcrumb">
+    <a href="../index.html">Home</a>
+    <span class="sep">›</span><span data-nl="Non-vasculair" data-en="Non-vascular">Non-vasculair</span>
+    <span class="sep">›</span><span data-nl="Antegrade JJ-katheter" data-en="Antegrade JJ stent">Antegrade JJ-katheter</span>
   </div>
-</div>
 
-<div class="main">
-  <div class="proc-grid">
-
-    <!-- Vasculair -->
-    <div class="proc-card">
-      <div class="proc-card-stripe vasc"></div>
-      <div class="proc-card-head">
-        <div class="proc-icon" style="background:#ddeaf7">🩸</div>
-        <div>
-          <div class="proc-card-title">Vasculaire Procedures</div>
-          <div class="proc-card-sub">Perifeer · Embolisatie · Access</div>
-        </div>
-      </div>
-      <div class="proc-list">
-        <div class="proc-list-item" onclick="window.location='vasculair/pta-beenvaten.html'">PTA ± stent beenvaten <span class="proc-list-arr">›</span></div>
-        <div class="proc-list-item" onclick="window.location='vasculair/rtpa-trombolyse.html'">rTPA acuut bedreigd been <span class="proc-list-urgent">URGENT</span></div>
-        <div class="proc-list-item" onclick="window.location='vasculair/port-a-cath.html'">Port-a-cath plaatsing <span class="proc-list-arr">›</span></div>
-        <div class="proc-list-item" onclick="window.location='vasculair/picc-lijn.html'">PICC-lijn plaatsing <span class="proc-list-arr">›</span></div>
-        <div class="proc-list-item" onclick="window.location='vasculair/uterusembolisatie.html'">Uterusembolisatie bij fluxus <span class="proc-list-arr">›</span></div>
-        <div class="proc-list-item" onclick="window.location='vasculair/pae.html'">Prostaat arterie embolisatie <span class="proc-list-arr">›</span></div>
-        <div class="proc-list-item" onclick="window.location='vasculair/bae.html'">Bronchiaalarterie embolisatie <span class="proc-list-arr">›</span></div>
+  <div class="proc-header">
+    <div class="proc-header-bar nonvasc"></div>
+    <div>
+      <h1 data-nl="Antegrade Plaatsing JJ-katheter" data-en="Antegrade JJ Stent Placement">Antegrade Plaatsing JJ-katheter</h1>
+      <p data-nl="Antegrade plaatsing van een dubbel-J ureterstent via percutane nefrostomietoegang" data-en="Antegrade placement of a double-J ureteral stent via percutaneous nephrostomy access">Antegrade plaatsing van een dubbel-J ureterstent via percutane nefrostomietoegang</p>
+      <div class="proc-meta">
+        <span class="meta-pill nonvasc" data-nl="Non-vasculair" data-en="Non-vascular">Non-vasculair</span>
+        <span class="meta-pill nonvasc">30–60 min</span>
+        <span class="meta-pill nonvasc" data-nl="Lokale anesthesie" data-en="Local anaesthesia">Lokale anesthesie</span>
+        <span class="meta-pill nonvasc" data-nl="Klinische opname" data-en="Hospital admission">Klinische opname</span>
       </div>
     </div>
+  </div>
 
-    <!-- Non-vasculair -->
-    <div class="proc-card">
-      <div class="proc-card-stripe nonvasc"></div>
-      <div class="proc-card-head">
-        <div class="proc-icon" style="background:#d4eeee">💧</div>
+  <!-- Indicaties -->
+  <div class="accordion open" id="acc-ind">
+    <div class="acc-header" onclick="toggleAcc('acc-ind')">
+      <div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title" data-nl="Indicaties &amp; Contra-indicaties" data-en="Indications &amp; Contraindications">Indicaties &amp; Contra-indicaties</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner-split">
         <div>
-          <div class="proc-card-title">Non-vasculaire Procedures</div>
-          <div class="proc-card-sub">Drainage · Biopsie · Galwegen</div>
+          <p class="acc-sublabel" data-nl="Indicaties" data-en="Indications">Indicaties</p>
+          <ul class="clean">
+            <li data-nl="Ureterobstructie — maligne compressie, stricturen of stenen" data-en="Ureteral obstruction — malignant compression, strictures or stones">Ureterobstructie — maligne compressie, stricturen of stenen</li>
+            <li data-nl="Interne drainage als alternatief voor of na nefrostomie" data-en="Internal drainage as alternative to or after nephrostomy">Interne drainage als alternatief voor of na nefrostomie</li>
+            <li data-nl="Ureterlekkage of -fistel — overbrugging van het defect" data-en="Ureteral leak or fistula — bridging the defect">Ureterlekkage of -fistel — overbrugging van het defect</li>
+            <li data-nl="Mislukte retrograde plaatsing via cystoscopie" data-en="Failed retrograde placement via cystoscopy">Mislukte retrograde plaatsing via cystoscopie</li>
+            <li data-nl="Conversie van bestaande nefrostomiedrain naar interne drainage" data-en="Conversion of existing nephrostomy drain to internal drainage">Conversie van bestaande nefrostomiedrain naar interne drainage</li>
+          </ul>
+        </div>
+        <div>
+          <p class="acc-sublabel" data-nl="Contra-indicaties" data-en="Contraindications">Contra-indicaties</p>
+          <ul class="contra">
+            <li data-nl="INR &gt;1.5 / trombocyten &lt;50" data-en="INR &gt;1.5 / platelets &lt;50">INR &gt;1.5 / trombocyten &lt;50</li>
+            <li data-nl="Actieve onbehandelde urineweginfectie / urosepsis (eerst draineren)" data-en="Active untreated urinary tract infection / urosepsis (drain first)">Actieve onbehandelde urineweginfectie / urosepsis (eerst draineren)</li>
+            <li data-nl="Niet-passeerbare ureterobstructie (relatief — laat nefrostomie in situ)" data-en="Impassable ureteral obstruction (relative — leave nephrostomy in situ)">Niet-passeerbare ureterobstructie (relatief — laat nefrostomie in situ)</li>
+            <li data-nl="Korte levensverwachting waarbij externe drainage volstaat (relatief)" data-en="Short life expectancy where external drainage suffices (relative)">Korte levensverwachting waarbij externe drainage volstaat (relatief)</li>
+          </ul>
         </div>
       </div>
-      <div class="proc-list">
-        <div class="proc-list-item" onclick="window.location='non-vasculair/nefrostomie.html'">Percutane nefrostomie <span class="proc-list-arr">›</span></div>
-        <div class="proc-list-item" onclick="window.location='non-vasculair/ptcd.html'">PTCD galwegdrainage <span class="proc-list-arr">›</span></div>
-        <div class="proc-list-item" onclick="window.location='non-vasculair/ascitesdrainage.html'">Ascitesdrainage <span class="proc-list-arr">›</span></div>
-        <div class="proc-list-item" onclick="window.location='non-vasculair/nierbiopt.html'">Nierbiopt <span class="proc-list-arr">›</span></div>
-        <div class="proc-list-item" onclick="window.location='non-vasculair/morel-lavallee.html'">Sclerosering Morel-Lavallée <span class="proc-list-arr">›</span></div>
-        <div class="proc-list-item" onclick="window.location='non-vasculair/schildkliercyste.html'">Sclerosering schildkliercyste <span class="proc-list-arr">›</span></div>
-        <div class="proc-list-item" style="color:var(--muted)">Abcesdrainage <span style="font-size:0.68rem">binnenkort</span></div>
+    </div>
+  </div>
+
+  <!-- Pre-procedureel -->
+  <div class="accordion" id="acc-pre">
+    <div class="acc-header" onclick="toggleAcc('acc-pre')">
+      <div class="acc-title-wrap"><span class="acc-dot blue"></span><span class="acc-title" data-nl="Pre-procedurele Checklist" data-en="Pre-procedural Checklist">Pre-procedurele Checklist</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner">
+        <ul class="clean">
+          <li data-nl="&lt;strong&gt;Lab:&lt;/strong&gt; INR, trombocyten, eGFR, CRP" data-en="&lt;strong&gt;Labs:&lt;/strong&gt; INR, platelets, eGFR, CRP"><strong>Lab:</strong> INR, trombocyten, eGFR, CRP</li>
+          <li data-nl="&lt;strong&gt;Beeldvorming:&lt;/strong&gt; Beoordeel niveau en lengte van de obstructie — CT-urografie of antegrade pyelografie" data-en="&lt;strong&gt;Imaging:&lt;/strong&gt; Assess level and length of obstruction — CT urography or antegrade pyelography"><strong>Beeldvorming:</strong> Beoordeel niveau en lengte van de obstructie — CT-urografie of antegrade pyelografie</li>
+          <li data-nl="&lt;strong&gt;Toegang:&lt;/strong&gt; Bestaande nefrostomiedrain aanwezig? Zo niet: eerst nefrostomie plaatsen (zie procedure nefrostomie)" data-en="&lt;strong&gt;Access:&lt;/strong&gt; Existing nephrostomy drain present? If not: place nephrostomy first (see nephrostomy procedure)"><strong>Toegang:</strong> Bestaande nefrostomiedrain aanwezig? Zo niet: eerst nefrostomie plaatsen (zie procedure nefrostomie)</li>
+          <li data-nl="&lt;strong&gt;Stentmaat:&lt;/strong&gt; Bepaal lengte (meestal 22–28 cm) op basis van patiëntlengte of gemeten ureterlengte. Diameter standaard 6–7 Fr" data-en="&lt;strong&gt;Stent size:&lt;/strong&gt; Determine length (usually 22–28 cm) based on patient height or measured ureteral length. Diameter standard 6–7 Fr"><strong>Stentmaat:</strong> Bepaal lengte (meestal 22–28 cm) op basis van patiëntlengte of gemeten ureterlengte. Diameter standaard 6–7 Fr</li>
+          <li data-nl="&lt;strong&gt;Antibiotica:&lt;/strong&gt; Ceftriaxon iv 2000 mg eenmalig. Bij geïnfecteerde urine: behandelen conform protocol" data-en="&lt;strong&gt;Antibiotics:&lt;/strong&gt; Ceftriaxone iv 2000 mg single dose. In infected urine: treat per protocol"><strong>Antibiotica:</strong> Ceftriaxon iv 2000 mg eenmalig. Bij geïnfecteerde urine: behandelen conform protocol</li>
+          <li data-nl="&lt;strong&gt;Informed consent:&lt;/strong&gt; Inclusief mislukte passage met nefrostomie als terugvaloptie, bloeding, infectie, stentmigratie" data-en="&lt;strong&gt;Informed consent:&lt;/strong&gt; Including failed passage with nephrostomy as fallback, bleeding, infection, stent migration"><strong>Informed consent:</strong> Inclusief mislukte passage met nefrostomie als terugvaloptie, bloeding, infectie, stentmigratie</li>
+        </ul>
       </div>
     </div>
+  </div>
 
-    <!-- Oncologie -->
-    <div class="proc-card">
-      <div class="proc-card-stripe" style="background:#7b4fa6"></div>
-      <div class="proc-card-head">
-        <div class="proc-icon" style="background:#ece8f7">🎯</div>
+  <!-- Materiaal -->
+  <div class="accordion" id="acc-mat">
+    <div class="acc-header" onclick="toggleAcc('acc-mat')">
+      <div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title" data-nl="Materiaal" data-en="Equipment">Materiaal</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner" style="padding:0">
+        <table class="mat">
+          <thead><tr>
+            <th data-nl="Materiaal" data-en="Material">Materiaal</th>
+            <th data-nl="Specificatie" data-en="Specification">Specificatie</th>
+            <th data-nl="Aantal" data-en="Quantity">Aantal</th>
+          </tr></thead>
+          <tbody>
+            <tr><td><a href="../materiaal/angioset.html" class="mat-link" data-nl="Angioset" data-en="Angio set">Angioset</a></td><td data-nl="Standaard" data-en="Standard">Standaard</td><td>1</td></tr>
+            <tr><td data-nl="Bestaande nefrostomietoegang of Neffset" data-en="Existing nephrostomy access or Neff set"><a href="../materiaal/katheters.html" class="mat-link">Neffset</a> <em style="color:var(--muted);font-size:0.8rem" data-nl="(bij nieuwe toegang)" data-en="(for new access)">(bij nieuwe toegang)</em></td><td>4 Fr</td><td data-nl="Indien nodig" data-en="If needed">Indien nodig</td></tr>
+            <tr><td><a href="../materiaal/draden.html" class="mat-link" data-nl="Hydrofiele voerdraad" data-en="Hydrophilic guidewire">Hydrofiele voerdraad</a></td><td>0.035" Terumo Glidewire angled</td><td>1</td></tr>
+            <tr><td><a href="../materiaal/draden.html" class="mat-link" data-nl="Amplatz voerdraad" data-en="Amplatz guidewire">Amplatz voerdraad</a></td><td data-nl="0.035&quot;, stiff, extra lang (260 cm)" data-en="0.035&quot;, stiff, extra long (260 cm)">0.035", stiff, extra lang (260 cm)</td><td>1</td></tr>
+            <tr><td><a href="../materiaal/katheters.html" class="mat-link" data-nl="Cobra of Kumpe katheter" data-en="Cobra or Kumpe catheter">Cobra of Kumpe katheter</a></td><td data-nl="4–5 Fr — passage obstructie" data-en="4–5 Fr — crossing obstruction">4–5 Fr — passage obstructie</td><td>1</td></tr>
+            <tr><td data-nl="Sheath" data-en="Sheath">Sheath</td><td data-nl="7–8 Fr, kort" data-en="7–8 Fr, short">7–8 Fr, kort</td><td>1</td></tr>
+            <tr class="mat-cat"><td colspan="3" data-nl="JJ-stentset" data-en="JJ stent set">JJ-stentset</td></tr>
+            <tr><td data-nl="Dubbel-J ureterstent" data-en="Double-J ureteral stent">Dubbel-J ureterstent</td><td data-nl="6–7 Fr, lengte 22–28 cm (op maat patiënt)" data-en="6–7 Fr, length 22–28 cm (sized to patient)">6–7 Fr, lengte 22–28 cm (op maat patiënt)</td><td>1</td></tr>
+            <tr><td data-nl="Pusher katheter" data-en="Pusher catheter">Pusher katheter</td><td data-nl="Inbegrepen in stentset" data-en="Included in stent set">Inbegrepen in stentset</td><td>1</td></tr>
+            <tr><td data-nl="Positioneringsdraad / tether" data-en="Positioning suture / tether">Positioneringsdraad / tether</td><td data-nl="Inbegrepen in stentset" data-en="Included in stent set">Inbegrepen in stentset</td><td>1</td></tr>
+            <tr class="mat-cat"><td colspan="3" data-nl="Bij behoud externe drainage" data-en="If retaining external drainage">Bij behoud externe drainage</td></tr>
+            <tr><td data-nl="Veiligheidsnefrostomiedrain" data-en="Safety nephrostomy drain"><a href="../materiaal/katheters.html" class="mat-link">Veiligheidsnefrostomiedrain</a></td><td data-nl="8.5 Fr — tijdelijk naast JJ" data-en="8.5 Fr — temporary alongside JJ">8.5 Fr — tijdelijk naast JJ</td><td data-nl="Optioneel" data-en="Optional">Optioneel</td></tr>
+            <tr><td data-nl="Contrastmiddel" data-en="Contrast agent">Contrastmiddel</td><td data-nl="Verdund 1:2 met NaCl" data-en="Diluted 1:2 with NaCl">Verdund 1:2 met NaCl</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stappenplan -->
+  <div class="accordion" id="acc-stap">
+    <div class="acc-header" onclick="toggleAcc('acc-stap')">
+      <div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title" data-nl="Stappenplan" data-en="Procedure Steps">Stappenplan</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner-split">
         <div>
-          <div class="proc-card-title">Interventionele Oncologie</div>
-          <div class="proc-card-sub">Ablatie · TACE · Y-90</div>
+          <ol class="steps">
+            <li><div class="sn teal">1</div><div data-nl="Patiënt in buikligging of zijligging. Steriele omstandigheden. Bij bestaande nefrostomie: toegang via de drain; anders eerst nefrostomie plaatsen (zie aparte procedure)." data-en="Patient prone or lateral decubitus. Sterile conditions. With existing nephrostomy: access via the drain; otherwise place nephrostomy first (see separate procedure).">Patiënt in buikligging of zijligging. Steriele omstandigheden. Bij bestaande nefrostomie: toegang via de drain; anders eerst nefrostomie plaatsen (zie aparte procedure).</div></li>
+            <li><div class="sn teal">2</div><div data-nl="Antegrade pyelografie via de bestaande toegang ter beoordeling van het verzamelsysteem, het niveau en de lengte van de obstructie." data-en="Antegrade pyelography via the existing access to assess the collecting system, level and length of the obstruction.">Antegrade pyelografie via de bestaande toegang ter beoordeling van het verzamelsysteem, het niveau en de lengte van de obstructie.</div></li>
+            <li><div class="sn teal">3</div><div data-nl="Hydrofiele voerdraad opvoeren tot in het pyelum en richting de ureter onder doorlichting." data-en="Advance hydrophilic guidewire into the renal pelvis and towards the ureter under fluoroscopy.">Hydrofiele voerdraad opvoeren tot in het pyelum en richting de ureter onder doorlichting.</div></li>
+            <li><div class="sn teal">4</div><div data-nl="Passeren van de obstructie met de hydrofiele voerdraad, ondersteund door een Cobra- of Kumpe-katheter. Manipuleer voorzichtig tot voorbij de obstructie." data-en="Cross the obstruction with the hydrophilic guidewire, supported by a Cobra or Kumpe catheter. Manipulate carefully past the obstruction.">Passeren van de obstructie met de hydrofiele voerdraad, ondersteund door een Cobra- of Kumpe-katheter. Manipuleer voorzichtig tot voorbij de obstructie.</div></li>
+            <li><div class="sn teal">5</div><div data-nl="Katheter opvoeren over de draad tot in de blaas. Contrastinjectie ter bevestiging van de intravesicale positie." data-en="Advance catheter over the wire into the bladder. Contrast injection to confirm intravesical position.">Katheter opvoeren over de draad tot in de blaas. Contrastinjectie ter bevestiging van de intravesicale positie.</div></li>
+            <li><div class="sn teal">6</div><div data-nl="Wissel de hydrofiele draad voor een stijve Amplatz voerdraad (extra lang, 260 cm) met de tip opgekruld in de blaas. De stijve draad geeft steun voor stentplaatsing." data-en="Exchange the hydrophilic wire for a stiff Amplatz guidewire (extra long, 260 cm) with the tip coiled in the bladder. The stiff wire provides support for stent placement.">Wissel de hydrofiele draad voor een stijve Amplatz voerdraad (extra lang, 260 cm) met de tip opgekruld in de blaas. De stijve draad geeft steun voor stentplaatsing.</div></li>
+            <li><div class="sn teal">7</div><div data-nl="JJ-stent over de Amplatz draad opvoeren met behulp van de pusher katheter. De distale krul ontvouwt zich in de blaas." data-en="Advance JJ stent over the Amplatz wire using the pusher catheter. The distal curl unfolds in the bladder.">JJ-stent over de Amplatz draad opvoeren met behulp van de pusher katheter. De distale krul ontvouwt zich in de blaas.</div></li>
+            <li><div class="sn teal">8</div><div data-nl="Positie controleren onder doorlichting: distale krul in de blaas, proximale krul in het pyelum. Pusher op zijn plaats houden terwijl de Amplatz draad wordt teruggetrokken — de proximale krul ontvouwt zich in het pyelum." data-en="Check position under fluoroscopy: distal curl in the bladder, proximal curl in the renal pelvis. Hold the pusher in place while withdrawing the Amplatz wire — the proximal curl unfolds in the renal pelvis.">Positie controleren onder doorlichting: distale krul in de blaas, proximale krul in het pyelum. Pusher op zijn plaats houden terwijl de Amplatz draad wordt teruggetrokken — de proximale krul ontvouwt zich in het pyelum.</div></li>
+            <li><div class="sn teal">9</div><div data-nl="Beoordeel de definitieve positie van beide krullen. Eventueel napositioneren met de positioneringsdraad (tether) indien de stent te diep of te hoog ligt." data-en="Assess the final position of both curls. Reposition with the positioning suture (tether) if the stent sits too deep or too high.">Beoordeel de definitieve positie van beide krullen. Eventueel napositioneren met de positioneringsdraad (tether) indien de stent te diep of te hoog ligt.</div></li>
+            <li><div class="sn teal">10</div><div data-nl="Bij twijfel over passage of bij geïnfecteerde urine: een veiligheidsnefrostomiedrain achterlaten naast de JJ-stent, afgedopt of op zak. Anders: tract afsluiten." data-en="If uncertain about passage or in infected urine: leave a safety nephrostomy drain alongside the JJ stent, capped or to bag. Otherwise: close the tract.">Bij twijfel over passage of bij geïnfecteerde urine: een veiligheidsnefrostomiedrain achterlaten naast de JJ-stent, afgedopt of op zak. Anders: tract afsluiten.</div></li>
+          </ol>
+        </div>
+        <div>
+          <p class="acc-sublabel" data-nl="Aandachtspunten" data-en="Key Points">Aandachtspunten</p>
+          <div class="note orange"><strong data-nl="Stentlengte:" data-en="Stent length:">Stentlengte:</strong> <span data-nl="Te kort → migratie of onvoldoende overbrugging; te lang → blaasirritatie en reflux. Vuistregel: patiëntlengte bepaalt de maat (klein 22 cm, gemiddeld 24–26 cm, lang 28 cm)." data-en="Too short → migration or insufficient bridging; too long → bladder irritation and reflux. Rule of thumb: patient height determines size (short 22 cm, average 24–26 cm, tall 28 cm).">Te kort → migratie of onvoldoende overbrugging; te lang → blaasirritatie en reflux. Vuistregel: patiëntlengte bepaalt de maat (klein 22 cm, gemiddeld 24–26 cm, lang 28 cm).</span></div>
+          <div class="note red"><strong data-nl="Geïnfecteerde urine:" data-en="Infected urine:">Geïnfecteerde urine:</strong> <span data-nl="Bij pyonefrose of urosepsis géén primaire JJ-plaatsing — eerst draineren met nefrostomie en behandelen. Manipulatie van geïnfecteerde urine kan sepsis uitlokken." data-en="In pyonephrosis or urosepsis no primary JJ placement — drain first with nephrostomy and treat. Manipulation of infected urine can trigger sepsis.">Bij pyonefrose of urosepsis géén primaire JJ-plaatsing — eerst draineren met nefrostomie en behandelen. Manipulatie van geïnfecteerde urine kan sepsis uitlokken.</span></div>
+          <div class="note orange"><strong data-nl="Stijve draad essentieel:" data-en="Stiff wire essential:">Stijve draad essentieel:</strong> <span data-nl="Wissel altijd naar een stijve Amplatz draad vóór stentplaatsing — een hydrofiele draad geeft onvoldoende steun en de stent kan niet goed worden opgevoerd." data-en="Always exchange to a stiff Amplatz wire before stent placement — a hydrophilic wire gives insufficient support and the stent cannot be advanced properly.">Wissel altijd naar een stijve Amplatz draad vóór stentplaatsing — een hydrofiele draad geeft onvoldoende steun en de stent kan niet goed worden opgevoerd.</span></div>
+          <div class="note green"><strong data-nl="Veiligheidsdrain:" data-en="Safety drain:">Veiligheidsdrain:</strong> <span data-nl="Overweeg een nefrostomiedrain achter te laten bij twijfel over stentfunctie of bij infectie — geeft de mogelijkheid tot antegrade controle en externe drainage. Na 24–48u afdoppen en bij goede functie verwijderen." data-en="Consider leaving a nephrostomy drain if stent function is uncertain or in infection — allows antegrade check and external drainage. Cap after 24–48h and remove if functioning well.">Overweeg een nefrostomiedrain achter te laten bij twijfel over stentfunctie of bij infectie — geeft de mogelijkheid tot antegrade controle en externe drainage. Na 24–48u afdoppen en bij goede functie verwijderen.</span></div>
         </div>
       </div>
-      <div class="proc-list">
-        <div class="proc-list-item" style="color:var(--muted)">TACE / chemoembolisatie <span style="font-size:0.68rem">binnenkort</span></div>
-        <div class="proc-list-item" style="color:var(--muted)">RFA / MWA ablatie <span style="font-size:0.68rem">binnenkort</span></div>
-        <div class="proc-list-item" style="color:var(--muted)">Y-90 / SIRT <span style="font-size:0.68rem">binnenkort</span></div>
+    </div>
+  </div>
+
+  <!-- Complicaties -->
+  <div class="accordion" id="acc-comp">
+    <div class="acc-header" onclick="toggleAcc('acc-comp')">
+      <div class="acc-title-wrap"><span class="acc-dot red"></span><span class="acc-title" data-nl="Complicaties" data-en="Complications">Complicaties</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner" style="padding:0">
+        <table class="mat">
+          <thead><tr>
+            <th data-nl="Complicatie" data-en="Complication">Complicatie</th>
+            <th data-nl="Kans" data-en="Rate">Kans</th>
+            <th data-nl="Management" data-en="Management">Management</th>
+          </tr></thead>
+          <tbody>
+            <tr><td data-nl="Urosepsis" data-en="Urosepsis">Urosepsis</td><td>1–4%</td><td data-nl="IV antibiotica, vochttoediening; veiligheidsnefrostomie open zetten" data-en="IV antibiotics, fluid resuscitation; open safety nephrostomy">IV antibiotica, vochttoediening; veiligheidsnefrostomie open zetten</td></tr>
+            <tr><td data-nl="Hematurie" data-en="Haematuria">Hematurie</td><td>5–10%</td><td data-nl="Meestal zelflimiterend; ruim vocht" data-en="Usually self-limiting; ample fluids">Meestal zelflimiterend; ruim vocht</td></tr>
+            <tr><td data-nl="Mislukte passage obstructie" data-en="Failed crossing of obstruction">Mislukte passage obstructie</td><td>5–15%</td><td data-nl="Nefrostomiedrain laten als externe drainage; later opnieuw of retrograde poging" data-en="Leave nephrostomy drain as external drainage; retry later or retrograde attempt">Nefrostomiedrain laten als externe drainage; later opnieuw of retrograde poging</td></tr>
+            <tr><td data-nl="Stentmigratie" data-en="Stent migration">Stentmigratie</td><td>2–5%</td><td data-nl="Repositioneren of vervangen; juiste lengte kiezen" data-en="Reposition or replace; choose correct length">Repositioneren of vervangen; juiste lengte kiezen</td></tr>
+            <tr><td data-nl="Stentobstructie / encrustatie" data-en="Stent obstruction / encrustation">Stentobstructie / encrustatie</td><td data-nl="Bij langdurig verblijf" data-en="With prolonged dwell">Bij langdurig verblijf</td><td data-nl="Tijdige wissel (elke 3–6 maanden)" data-en="Timely exchange (every 3–6 months)">Tijdige wissel (elke 3–6 maanden)</td></tr>
+            <tr><td data-nl="Blaasirritatie / refluxklachten" data-en="Bladder irritation / reflux symptoms">Blaasirritatie / refluxklachten</td><td data-nl="Frequent" data-en="Frequent">Frequent</td><td data-nl="Anticholinergica; juiste stentlengte" data-en="Anticholinergics; correct stent length">Anticholinergica; juiste stentlengte</td></tr>
+          </tbody>
+        </table>
       </div>
     </div>
+  </div>
 
-    <!-- MDO -->
-    <div class="proc-card">
-      <div class="proc-card-stripe" style="background:#6040a0"></div>
-      <div class="proc-card-head">
-        <div class="proc-icon" style="background:#ece8f7">👥</div>
-        <div>
-          <div class="proc-card-title">MDO Besprekingen</div>
-          <div class="proc-card-sub">Shunt · Vaatchirurgie</div>
+  <!-- Nazorg -->
+  <div class="accordion" id="acc-naz">
+    <div class="acc-header" onclick="toggleAcc('acc-naz')">
+      <div class="acc-title-wrap"><span class="acc-dot green"></span><span class="acc-title" data-nl="Nazorg" data-en="Aftercare">Nazorg</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner">
+        <ul class="bullet">
+          <li data-nl="Bij achtergelaten veiligheidsnefrostomie: na 24–48u afdoppen; bij goede JJ-functie en heldere urine verwijderen" data-en="If safety nephrostomy left: cap after 24–48h; remove if good JJ function and clear urine">Bij achtergelaten veiligheidsnefrostomie: na 24–48u afdoppen; bij goede JJ-functie en heldere urine verwijderen</li>
+          <li data-nl="JJ-stent wisselen elke 3–6 maanden ter voorkoming van encrustatie en obstructie" data-en="Exchange JJ stent every 3–6 months to prevent encrustation and obstruction">JJ-stent wisselen elke 3–6 maanden ter voorkoming van encrustatie en obstructie</li>
+          <li data-nl="Patiënt informeren over blaasirritatie en mogelijke milde hematurie als verwachte bijwerkingen" data-en="Inform patient about bladder irritation and possible mild haematuria as expected side effects">Patiënt informeren over blaasirritatie en mogelijke milde hematurie als verwachte bijwerkingen</li>
+          <li data-nl="Bij koorts, flankpijn of forse hematurie: laagdrempelig contact opnemen" data-en="If fever, flank pain or significant haematuria: contact immediately">Bij koorts, flankpijn of forse hematurie: laagdrempelig contact opnemen</li>
+          <li data-nl="Verdere follow-up via urologie; ruim drinken ter preventie van encrustatie" data-en="Further follow-up via urology; ample fluid intake to prevent encrustation">Verdere follow-up via urologie; ruim drinken ter preventie van encrustatie</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Standaardverslag -->
+  <div class="accordion" id="acc-vers">
+    <div class="acc-header" onclick="toggleAcc('acc-vers')">
+      <div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title" data-nl="Standaardverslag" data-en="Standard Report">Standaardverslag</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner">
+        <div class="verslag-wrap">
+          <div class="verslag" id="verslag-jj" data-nl="Ter vergelijking: [datum/modaliteit]
+Antistolling: [gestaakt / niet van toepassing]
+Procedure onder antibiotische dekking.
+
+Indicatie: ureterobstructie [links/rechts] bij [oorzaak].
+Toegang: [bestaande nefrostomiedrain / nieuw geplaatste nefrostomie].
+
+Steriele omstandigheden. Antegrade pyelografie toont [niveau en lengte
+obstructie]. Hydrofiele voerdraad opgevoerd tot in het pyelum.
+
+Passage van de obstructie met hydrofiele voerdraad ondersteund door
+[Cobra/Kumpe] katheter. Katheter opgevoerd tot in de blaas, intravesicale
+positie bevestigd met contrast.
+
+Wissel voor stijve Amplatz voerdraad met tip in de blaas. Antegrade plaatsing
+van een [maat] Fr, [lengte] cm dubbel-J ureterstent over de Amplatz draad
+met de pusher katheter. Distale krul ontvouwd in de blaas, proximale krul
+in het pyelum.
+
+Controle onder doorlichting toont goede positie van beide krullen.
+[Veiligheidsnefrostomiedrain achtergelaten op zak / Tract afgesloten.]
+
+CONCLUSIE:
+Antegrade plaatsing dubbel-J ureterstent [links/rechts], [maat] Fr, [lengte] cm.
+
+NAZORG:
+[Veiligheidsdrain na 24–48u afdoppen en bij goede functie verwijderen.]
+Stentwissel geadviseerd na 3–6 maanden. Follow-up via urologie." data-en="Reference: [date/modality]
+Anticoagulation: [discontinued / not applicable]
+Procedure performed under antibiotic cover.
+
+Indication: ureteral obstruction [left/right] due to [cause].
+Access: [existing nephrostomy drain / newly placed nephrostomy].
+
+Under sterile conditions. Antegrade pyelography shows [level and length of
+obstruction]. Hydrophilic guidewire advanced into the renal pelvis.
+
+Crossing of the obstruction with hydrophilic guidewire supported by
+[Cobra/Kumpe] catheter. Catheter advanced into the bladder, intravesical
+position confirmed with contrast.
+
+Exchange for stiff Amplatz guidewire with tip in the bladder. Antegrade placement
+of a [size] Fr, [length] cm double-J ureteral stent over the Amplatz wire
+with the pusher catheter. Distal curl unfolded in the bladder, proximal curl
+in the renal pelvis.
+
+Check under fluoroscopy shows good position of both curls.
+[Safety nephrostomy drain left to bag / Tract closed.]
+
+CONCLUSION:
+Antegrade placement of double-J ureteral stent [left/right], [size] Fr, [length] cm.
+
+AFTERCARE:
+[Cap safety drain after 24–48h and remove if functioning well.]
+Stent exchange advised after 3–6 months. Follow-up via urology.">Ter vergelijking: [datum/modaliteit]
+Antistolling: [gestaakt / niet van toepassing]
+Procedure onder antibiotische dekking.
+
+Indicatie: ureterobstructie [links/rechts] bij [oorzaak].
+Toegang: [bestaande nefrostomiedrain / nieuw geplaatste nefrostomie].
+
+Steriele omstandigheden. Antegrade pyelografie toont [niveau en lengte
+obstructie]. Hydrofiele voerdraad opgevoerd tot in het pyelum.
+
+Passage van de obstructie met hydrofiele voerdraad ondersteund door
+[Cobra/Kumpe] katheter. Katheter opgevoerd tot in de blaas, intravesicale
+positie bevestigd met contrast.
+
+Wissel voor stijve Amplatz voerdraad met tip in de blaas. Antegrade plaatsing
+van een [maat] Fr, [lengte] cm dubbel-J ureterstent over de Amplatz draad
+met de pusher katheter. Distale krul ontvouwd in de blaas, proximale krul
+in het pyelum.
+
+Controle onder doorlichting toont goede positie van beide krullen.
+[Veiligheidsnefrostomiedrain achtergelaten op zak / Tract afgesloten.]
+
+CONCLUSIE:
+Antegrade plaatsing dubbel-J ureterstent [links/rechts], [maat] Fr, [lengte] cm.
+
+NAZORG:
+[Veiligheidsdrain na 24–48u afdoppen en bij goede functie verwijderen.]
+Stentwissel geadviseerd na 3–6 maanden. Follow-up via urologie.</div>
+          <button class="copy-btn" id="copy-jj" onclick="copyVerslag('verslag-jj','copy-jj')">⎘ <span data-nl="Kopieer" data-en="Copy">Kopieer</span></button>
         </div>
       </div>
-      <div class="proc-list">
-        <div class="proc-list-item" onclick="window.location='mdo/shunt-mdo.html'">Shunt MDO <span class="proc-list-arr">›</span></div>
-        <div class="proc-list-item" onclick="window.location='mdo/vaatchirurgie-mdo.html'">Vaatchirurgie MDO — Bekken/Been <span class="proc-list-arr">›</span></div>
+    </div>
+  </div>
+
+  <!-- Bronnen -->
+  <div class="accordion" id="acc-bronnen">
+    <div class="acc-header" onclick="toggleAcc('acc-bronnen')">
+      <div class="acc-title-wrap"><span class="acc-dot blue"></span><span class="acc-title" data-nl="Bronnen &amp; Externe Links" data-en="References &amp; External Links">Bronnen &amp; Externe Links</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner">
+        <ul class="bronnen-lijst">
+          <li><a href="https://www.ncbi.nlm.nih.gov/books/NBK493187/" target="_blank" rel="noopener">StatPearls — Ureteral Stents</a></li>
+          <li><a href="https://www.cirse.org/patients/ir-procedures/antegrade-ureteric-stenting/" target="_blank" rel="noopener">CIRSE — Antegrade Ureteric Stenting</a></li>
+          <li><a href="https://radiopaedia.org/articles/antegrade-ureteric-stent" target="_blank" rel="noopener">Radiopaedia — Antegrade ureteric stent</a></li>
+        </ul>
       </div>
     </div>
-
   </div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/7.0.0/fuse.min.js"></script>
-<script src="procedures.js"></script>
-<script src="nav.js"></script>
-<script src="search.js"></script>
+<script src="../procedures.js"></script>
+<script src="../nav.js"></script>
+<script src="../search.js"></script>
+<script src="../lang.js"></script>
+<script>
+function toggleAcc(id) { document.getElementById(id).classList.toggle('open'); }
+function copyVerslag(verslagId, btnId) {
+  const el = document.getElementById(verslagId);
+  const lang = localStorage.getItem('ia-lang') || 'nl';
+  const text = el.getAttribute('data-' + lang) || el.innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.getElementById(btnId);
+    btn.innerHTML = lang === 'en' ? '✓ Copied' : '✓ Gekopieerd'; btn.classList.add('copied');
+    setTimeout(() => { btn.innerHTML = '⎘ <span data-nl="Kopieer" data-en="Copy">Kopieer</span>'; btn.classList.remove('copied'); if(typeof applyLang !== 'undefined') applyLang(lang); }, 2000);
+  });
+}
+</script>
 </body>
 </html>
