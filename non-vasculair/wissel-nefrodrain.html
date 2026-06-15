@@ -234,6 +234,27 @@ Wissel nefrodrain [links/rechts], [maat] Fr [type].</div>
   </div>
 
   <!-- Bronnen -->
+  <div class="accordion" id="acc-fotos">
+    <div class="acc-header" onclick="toggleAcc('acc-fotos')">
+      <div class="acc-title-wrap"><span class="acc-dot blue"></span><span class="acc-title" data-nl="Afbeeldingen" data-en="Images">Afbeeldingen</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="foto-grid">
+        <div class="foto-item" onclick="openLightbox('wissel-stap3')">
+          <img src="../image/non-vasculair/wissel-nefrodrain/nefrodrainwissel1.jpg" alt="Wissel stap 3 — drain doorsnijden en voerdraad opvoeren" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="foto-placeholder" style="display:none">📷<br>nefrodrainwissel1.jpg</div>
+          <div class="foto-caption" data-nl="Stap 3 — Drain doorsnijden, Amplatz voerdraad opvoeren" data-en="Step 3 — Cut drain, advance Amplatz guidewire">Stap 3 — Drain doorsnijden, Amplatz voerdraad opvoeren</div>
+        </div>
+        <div class="foto-item" onclick="openLightbox('wissel-stap6')">
+          <img src="../image/non-vasculair/wissel-nefrodrain/nefrodrainwissel2.jpg" alt="Wissel stap 6 — controle nieuwe drain in pyelum" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="foto-placeholder" style="display:none">📷<br>nefrodrainwissel2.jpg</div>
+          <div class="foto-caption" data-nl="Stap 6 — Contrastcontrole nieuwe drain in pyelum" data-en="Step 6 — Contrast check new drain in renal pelvis">Stap 6 — Contrastcontrole nieuwe drain in pyelum</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="accordion" id="acc-bronnen">
     <div class="acc-header" onclick="toggleAcc('acc-bronnen')">
       <div class="acc-title-wrap"><span class="acc-dot blue"></span><span class="acc-title" data-nl="Bronnen &amp; Externe Links" data-en="References &amp; External Links">Bronnen &amp; Externe Links</span></div>
@@ -251,6 +272,15 @@ Wissel nefrodrain [links/rechts], [maat] Fr [type].</div>
   </div>
 </div>
 
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="closeLightboxOutside(event)">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+    <img class="lightbox-img" id="lightbox-img" src="" alt="">
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+  </div>
+</div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/7.0.0/fuse.min.js"></script>
 <script src="../procedures.js"></script>
 <script src="../nav.js"></script>
@@ -265,8 +295,35 @@ function copyVerslag(verslagId, btnId) {
   navigator.clipboard.writeText(text).then(() => {
     const btn = document.getElementById(btnId);
     btn.innerHTML = lang === 'en' ? '✓ Copied' : '✓ Gekopieerd'; btn.classList.add('copied');
-    setTimeout(() => { btn.innerHTML = '⎘ <span data-nl="Kopieer" data-en="Copy">Kopieer</span>'; btn.classList.remove('copied'); applyLang(lang); }, 2000);
+    setTimeout(() => { btn.innerHTML = '⎘ <span data-nl="Kopieer" data-en="Copy">Kopieer</span>'; btn.classList.remove('copied'); if(typeof applyLang !== 'undefined') applyLang(lang); }, 2000);
   });
+}
+const LIGHTBOX_DATA = {
+  'wissel-stap3': {
+    src: '../image/non-vasculair/wissel-nefrodrain/nefrodrainwissel1.jpg',
+    nl: 'Stap 3 — Drain doorsnijden, Amplatz voerdraad opvoeren',
+    en: 'Step 3 — Cut drain, advance Amplatz guidewire'
+  },
+  'wissel-stap6': {
+    src: '../image/non-vasculair/wissel-nefrodrain/nefrodrainwissel2.jpg',
+    nl: 'Stap 6 — Contrastcontrole nieuwe drain in pyelum',
+    en: 'Step 6 — Contrast check new drain in renal pelvis'
+  },
+};
+function openLightbox(id) {
+  const d = LIGHTBOX_DATA[id]; if (!d) return;
+  const lang = localStorage.getItem('ia-lang') || 'nl';
+  document.getElementById('lightbox-img').src = d.src;
+  document.getElementById('lightbox-caption').textContent = d[lang] || d.nl;
+  document.getElementById('lightbox').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('active');
+  document.body.style.overflow = '';
+}
+function closeLightboxOutside(e) {
+  if (e.target === document.getElementById('lightbox')) closeLightbox();
 }
 </script>
 </body>
