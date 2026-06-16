@@ -399,6 +399,7 @@ nav {
 }
 .proc-header-bar.vasc    { background: var(--blue); }
 .proc-header-bar.nonvasc { background: var(--teal); }
+.proc-header-bar.onco    { background: var(--purple); }
 .proc-header-bar.thrombo { background: var(--red);  }
 
 .proc-header h1 {
@@ -419,6 +420,7 @@ nav {
 }
 .meta-pill.vasc    { background: var(--blue-light);   color: var(--blue); }
 .meta-pill.nonvasc { background: var(--teal-light);   color: var(--teal); }
+.meta-pill.onco    { background: var(--purple-light); color: var(--purple); }
 .meta-pill.thrombo { background: var(--red-light);    color: var(--red);  }
 
 /* ══════════════════════════════════════

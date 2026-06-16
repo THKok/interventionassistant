@@ -25,17 +25,21 @@ const NAV_ITEMS = [
       { label: 'Ascitesdrainage',          url: 'non-vasculair/ascitesdrainage.html' },
       { label: 'Nierbiopt',                url: 'non-vasculair/nierbiopt.html' },
       { label: 'Antegrade JJ-katheter',    url: 'non-vasculair/jj-katheter.html' },
+      { label: 'Percutane gastrostomie (PRG)', url: 'non-vasculair/gastrostomie.html' },
+      { label: 'Abcesdrainage',            url: 'non-vasculair/abcesdrainage.html' },
+      { label: 'Thoraxdrainage / pleurapunctie', url: 'non-vasculair/thoraxdrainage.html' },
+      { label: 'Biliary stenting',         url: 'non-vasculair/biliary-stenting.html' },
       { label: 'Sclerosering Morel-Lavallée', url: 'non-vasculair/morel-lavallee.html' },
       { label: 'Sclerosering schildkliercyste', url: 'non-vasculair/schildkliercyste.html' },
-      { label: 'Abcesdrainage',            url: 'non-vasculair/abcesdrainage.html', soon: true },
+      { label: 'Schildklierablatie (RFA)', url: 'non-vasculair/ablatie-schildklier.html' },
     ]
   },
   {
     label: 'Oncologie',
     dot: '#7b4fa6',
     items: [
+      { label: 'Leverablatie (RFA/MWA)', url: 'oncologie/ablatie-lever.html' },
       { label: 'TACE',              url: 'oncologie/tace.html', soon: true },
-      { label: 'RFA / MWA ablatie', url: 'oncologie/ablatie.html', soon: true },
       { label: 'Y-90 / SIRT',       url: 'oncologie/y90.html', soon: true },
     ]
   },
