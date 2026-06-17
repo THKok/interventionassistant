@@ -16,7 +16,7 @@
   <h1>Intervention<span>Assistant</span></h1>
   <p>Van indicatie tot standaardverslag — alles voor de interventiekamer op één plek<br>Materiaallijsten · Techniek · Standaardverslagen</p>
   <div class="hero-search">
-    <input placeholder="Zoek procedure, bijv. 'nefrostomie' of 'PTA'…" autocomplete="off">
+    <input placeholder="Zoek procedure, bijv. 'nefrostomie' of 'PTA'…" data-placeholder-nl="Zoek procedure, bijv. 'nefrostomie' of 'PTA'…" data-placeholder-en="Search procedure, e.g. 'nephrostomy' or 'PTA'…" autocomplete="off">
     <button>Zoek →</button>
     <div class="hero-results search-results"></div>
   </div>
@@ -31,8 +31,8 @@
       <div class="proc-card-head">
         <div class="proc-icon" style="background:#ddeaf7">🩸</div>
         <div>
-          <div class="proc-card-title">Vasculaire Procedures</div>
-          <div class="proc-card-sub">Perifeer · Embolisatie · Access</div>
+          <div class="proc-card-title" data-nl="Vasculaire Procedures" data-en="Vascular Procedures">Vasculaire Procedures</div>
+          <div class="proc-card-sub" data-nl="Perifeer · Embolisatie · Access" data-en="Peripheral · Embolisation · Access">Perifeer · Embolisatie · Access</div>
         </div>
       </div>
       <div class="proc-list">
@@ -52,8 +52,8 @@
       <div class="proc-card-head">
         <div class="proc-icon" style="background:#d4eeee">💧</div>
         <div>
-          <div class="proc-card-title">Non-vasculaire Procedures</div>
-          <div class="proc-card-sub">Drainage · Biopsie · Galwegen</div>
+          <div class="proc-card-title" data-nl="Non-vasculaire Procedures" data-en="Non-vascular Procedures">Non-vasculaire Procedures</div>
+          <div class="proc-card-sub" data-nl="Drainage · Biopsie · Galwegen" data-en="Drainage · Biopsy · Biliary">Drainage · Biopsie · Galwegen</div>
         </div>
       </div>
       <div class="proc-list">
@@ -78,14 +78,14 @@
       <div class="proc-card-head">
         <div class="proc-icon" style="background:#ece8f7">🎯</div>
         <div>
-          <div class="proc-card-title">Interventionele Oncologie</div>
-          <div class="proc-card-sub">Ablatie · TACE · Y-90</div>
+          <div class="proc-card-title" data-nl="Interventionele Oncologie" data-en="Interventional Oncology">Interventionele Oncologie</div>
+          <div class="proc-card-sub" data-nl="Ablatie · TACE · Y-90" data-en="Ablation · TACE · Y-90">Ablatie · TACE · Y-90</div>
         </div>
       </div>
       <div class="proc-list">
         <div class="proc-list-item" onclick="window.location='oncologie/ablatie-lever.html'">Leverablatie (RFA/MWA) <span class="proc-list-arr">›</span></div>
-        <div class="proc-list-item" style="color:var(--muted)">TACE / chemoembolisatie <span style="font-size:0.68rem">binnenkort</span></div>
-        <div class="proc-list-item" style="color:var(--muted)">Y-90 / SIRT <span style="font-size:0.68rem">binnenkort</span></div>
+        <div class="proc-list-item" style="color:var(--muted)">TACE / chemoembolisatie <span style="font-size:0.68rem" data-nl="binnenkort" data-en="coming soon">binnenkort</span></div>
+        <div class="proc-list-item" style="color:var(--muted)">Y-90 / SIRT <span style="font-size:0.68rem" data-nl="binnenkort" data-en="coming soon">binnenkort</span></div>
       </div>
     </div>
 
@@ -95,8 +95,8 @@
       <div class="proc-card-head">
         <div class="proc-icon" style="background:#ece8f7">👥</div>
         <div>
-          <div class="proc-card-title">MDO Besprekingen</div>
-          <div class="proc-card-sub">Shunt · Vaatchirurgie</div>
+          <div class="proc-card-title" data-nl="MDO Besprekingen" data-en="MDT Meetings">MDO Besprekingen</div>
+          <div class="proc-card-sub" data-nl="Shunt · Vaatchirurgie" data-en="Shunt · Vascular surgery">Shunt · Vaatchirurgie</div>
         </div>
       </div>
       <div class="proc-list">
@@ -112,5 +112,6 @@
 <script src="procedures.js"></script>
 <script src="nav.js"></script>
 <script src="search.js"></script>
+<script src="lang.js"></script>
 </body>
 </html>
