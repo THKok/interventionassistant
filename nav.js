@@ -5,62 +5,62 @@
 
 const NAV_ITEMS = [
   {
-    label: 'Vasculair',
+    label: 'Vasculair', label_en: 'Vascular',
     items: [
-      { label: 'PTA ± stent beenvaten',        url: 'vasculair/pta-beenvaten.html' },
-      { label: 'rTPA acuut bedreigd been',      url: 'vasculair/rtpa-trombolyse.html', badge: 'URGENT' },
-      { label: 'Port-a-cath plaatsing',         url: 'vasculair/port-a-cath.html' },
-      { label: 'PICC-lijn plaatsing',           url: 'vasculair/picc-lijn.html' },
-      { label: 'Uterusembolisatie bij fluxus',  url: 'vasculair/uterusembolisatie.html' },
-      { label: 'Prostaatembolisatie',           url: 'vasculair/pae.html' },
-      { label: 'Bronchiaalarterie embolisatie',  url: 'vasculair/bae.html' },
+      { label: 'PTA ± stent beenvaten', label_en: 'PTA ± stent leg arteries',        url: 'vasculair/pta-beenvaten.html' },
+      { label: 'rTPA acuut bedreigd been', label_en: 'rTPA acute limb ischaemia',      url: 'vasculair/rtpa-trombolyse.html', badge: 'URGENT' },
+      { label: 'Port-a-cath plaatsing', label_en: 'Port-a-cath placement',         url: 'vasculair/port-a-cath.html' },
+      { label: 'PICC-lijn plaatsing', label_en: 'PICC line placement',           url: 'vasculair/picc-lijn.html' },
+      { label: 'Uterusembolisatie bij fluxus', label_en: 'Uterine embolisation (PPH)',  url: 'vasculair/uterusembolisatie.html' },
+      { label: 'Prostaatembolisatie', label_en: 'Prostate embolisation (PAE)',           url: 'vasculair/pae.html' },
+      { label: 'Bronchiaalarterie embolisatie', label_en: 'Bronchial artery embolisation',  url: 'vasculair/bae.html' },
     ]
   },
   {
-    label: 'Non-vasculair',
+    label: 'Non-vasculair', label_en: 'Non-vascular',
     items: [
-      { label: 'Percutane nefrostomie',  url: 'non-vasculair/nefrostomie.html' },
-      { label: 'Wissel nefrodrain',        url: 'non-vasculair/wissel-nefrodrain.html' },
-      { label: 'PTCD galwegdrainage',    url: 'non-vasculair/ptcd.html' },
-      { label: 'Ascitesdrainage',          url: 'non-vasculair/ascitesdrainage.html' },
-      { label: 'Nierbiopt',                url: 'non-vasculair/nierbiopt.html' },
-      { label: 'Antegrade JJ-katheter',    url: 'non-vasculair/jj-katheter.html' },
-      { label: 'Percutane gastrostomie (PRG)', url: 'non-vasculair/gastrostomie.html' },
-      { label: 'Abcesdrainage',            url: 'non-vasculair/abcesdrainage.html' },
-      { label: 'Thoraxdrainage / pleurapunctie', url: 'non-vasculair/thoraxdrainage.html' },
-      { label: 'Biliary stenting',         url: 'non-vasculair/biliary-stenting.html' },
-      { label: 'Sclerosering Morel-Lavallée', url: 'non-vasculair/morel-lavallee.html' },
-      { label: 'Sclerosering schildkliercyste', url: 'non-vasculair/schildkliercyste.html' },
-      { label: 'Schildklierablatie (RFA)', url: 'non-vasculair/ablatie-schildklier.html' },
+      { label: 'Percutane nefrostomie', label_en: 'Percutaneous nephrostomy',  url: 'non-vasculair/nefrostomie.html' },
+      { label: 'Wissel nefrodrain', label_en: 'Nephrostomy exchange',        url: 'non-vasculair/wissel-nefrodrain.html' },
+      { label: 'PTCD galwegdrainage', label_en: 'PTCD biliary drainage',    url: 'non-vasculair/ptcd.html' },
+      { label: 'Ascitesdrainage', label_en: 'Ascites drainage',          url: 'non-vasculair/ascitesdrainage.html' },
+      { label: 'Nierbiopt', label_en: 'Renal biopsy',                url: 'non-vasculair/nierbiopt.html' },
+      { label: 'Antegrade JJ-katheter', label_en: 'Antegrade JJ stent',    url: 'non-vasculair/jj-katheter.html' },
+      { label: 'Percutane gastrostomie (PRG)', label_en: 'Percutaneous gastrostomy (PRG)', url: 'non-vasculair/gastrostomie.html' },
+      { label: 'Abcesdrainage', label_en: 'Abscess drainage',            url: 'non-vasculair/abcesdrainage.html' },
+      { label: 'Thoraxdrainage / pleurapunctie', label_en: 'Thoracic drainage / thoracentesis', url: 'non-vasculair/thoraxdrainage.html' },
+      { label: 'Biliary stenting', label_en: 'Biliary stenting',         url: 'non-vasculair/biliary-stenting.html' },
+      { label: 'Sclerosering Morel-Lavallée', label_en: 'Morel-Lavallée sclerotherapy', url: 'non-vasculair/morel-lavallee.html' },
+      { label: 'Sclerosering schildkliercyste', label_en: 'Thyroid cyst sclerotherapy', url: 'non-vasculair/schildkliercyste.html' },
+      { label: 'Schildklierablatie (RFA)', label_en: 'Thyroid ablation (RFA)', url: 'non-vasculair/ablatie-schildklier.html' },
     ]
   },
   {
-    label: 'Oncologie',
+    label: 'Oncologie', label_en: 'Oncology',
     dot: '#7b4fa6',
     items: [
-      { label: 'Leverablatie (RFA/MWA)', url: 'oncologie/ablatie-lever.html' },
-      { label: 'TACE',              url: 'oncologie/tace.html', soon: true },
-      { label: 'Y-90 / SIRT',       url: 'oncologie/y90.html', soon: true },
+      { label: 'Leverablatie (RFA/MWA)', label_en: 'Liver ablation (RFA/MWA)', url: 'oncologie/ablatie-lever.html' },
+      { label: 'TACE', label_en: 'TACE',              url: 'oncologie/tace.html', soon: true },
+      { label: 'Y-90 / SIRT', label_en: 'Y-90 / SIRT',       url: 'oncologie/y90.html', soon: true },
     ]
   },
   {
-    label: 'MDO',
+    label: 'MDO', label_en: 'MDT',
     dot: '#6040a0',
     items: [
-      { label: 'Shunt MDO',         url: 'mdo/shunt-mdo.html' },
-      { label: 'Vaatchirurgie MDO — Bekken/Been', url: 'mdo/vaatchirurgie-mdo.html' },
-      { label: 'Aorta MDO', url: 'mdo/aorta-mdo.html' },
-      { label: 'Visceraal MDO — Mesenteriaal', url: 'mdo/visceraal-mdo.html' },
+      { label: 'Shunt MDO', label_en: 'Shunt MDT',         url: 'mdo/shunt-mdo.html' },
+      { label: 'Vaatchirurgie MDO — Bekken/Been', label_en: 'Vascular MDT — Pelvic/Leg', url: 'mdo/vaatchirurgie-mdo.html' },
+      { label: 'Aorta MDO', label_en: 'Aortic MDT', url: 'mdo/aorta-mdo.html' },
+      { label: 'Visceraal MDO — Mesenteriaal', label_en: 'Visceral MDT — Mesenteric', url: 'mdo/visceraal-mdo.html' },
     ]
   },
   {
-    label: 'Materiaal',
+    label: 'Materiaal', label_en: 'Equipment',
     dot: '#6040a0',
     items: [
-      { label: 'Overzicht materiaal', url: 'materiaal/index.html' },
-      { label: 'Angioset',            url: 'materiaal/angioset.html' },
-      { label: 'Katheters',           url: 'materiaal/katheters.html' },
-      { label: 'Draden',              url: 'materiaal/draden.html' },
+      { label: 'Overzicht materiaal', label_en: 'Equipment overview', url: 'materiaal/index.html' },
+      { label: 'Angioset', label_en: 'Angio set',            url: 'materiaal/angioset.html' },
+      { label: 'Katheters', label_en: 'Catheters',           url: 'materiaal/katheters.html' },
+      { label: 'Draden', label_en: 'Guidewires',              url: 'materiaal/draden.html' },
     ]
   }
 ];
@@ -75,6 +75,24 @@ function getDotClass(label) {
   if (label === 'Non-vasculair') return 'nonvasc';
   if (label === 'Oncologie') return 'onco';
   return 'mat';
+}
+
+// Veilige taalbepaling (lang.js kan later laden)
+function navLang() {
+  try { return (typeof getLang === 'function') ? getLang() : (localStorage.getItem('ia-lang') || 'nl'); }
+  catch (e) { return 'nl'; }
+}
+
+// Helper: render een tweetalig label als <span> met data-nl/data-en
+function biLabel(nl, en) {
+  const enText = (en || nl).replace(/"/g, '&quot;');
+  const nlText = nl.replace(/"/g, '&quot;');
+  return `<span data-nl="${nlText}" data-en="${enText}">${navLang() === 'en' ? (en || nl) : nl}</span>`;
+}
+
+// "binnenkort" / "coming soon" tweetalig
+function biSoon() {
+  return `<span data-nl="binnenkort" data-en="coming soon">${navLang() === 'en' ? 'coming soon' : 'binnenkort'}</span>`;
 }
 
 function buildNav() {
@@ -94,18 +112,18 @@ function buildNav() {
       if (item.soon) {
         return `<div class="dropdown-item" style="color:var(--muted);cursor:default">
           <span class="dropdown-dot ${dotClass}" ${dotStyle} style="opacity:0.3"></span>
-          ${item.label}<span style="font-size:0.68rem;margin-left:auto">binnenkort</span>
+          ${biLabel(item.label, item.label_en)}<span style="font-size:0.68rem;margin-left:auto">${biSoon()}</span>
         </div>`;
       }
       const badge = item.badge ? `<span class="dropdown-badge">${item.badge}</span>` : '';
       return `<div class="dropdown-item" onclick="window.location='${url}'">
         <span class="dropdown-dot ${dotClass}" ${dotStyle}></span>
-        ${item.label}${badge}
+        ${biLabel(item.label, item.label_en)}${badge}
       </div>`;
     }).join('');
 
     return `<div class="nav-item">
-      <button class="nav-btn" onclick="toggleDropdown('${ddId}')">${group.label} <span class="chevron">▾</span></button>
+      <button class="nav-btn" onclick="toggleDropdown('${ddId}')">${biLabel(group.label, group.label_en)} <span class="chevron">▾</span></button>
       <div class="dropdown" id="${ddId}">${itemsHTML}</div>
     </div>`;
   }).join('');
@@ -133,19 +151,19 @@ function buildNav() {
   const mobileItems = NAV_ITEMS.map(group => {
     const dotClass = group.dot ? '' : getDotClass(group.label);
     const dotStyle = group.dot ? `style="background:${group.dot}"` : '';
-    const header = `<div class="mob-group-label">${group.label}</div>`;
+    const header = `<div class="mob-group-label">${biLabel(group.label, group.label_en)}</div>`;
     const items = group.items.map(item => {
       const url = prefix + item.url;
       if (item.soon) {
         return `<div class="mob-item" style="color:var(--muted);cursor:default">
           <span class="dropdown-dot ${dotClass}" ${dotStyle} style="opacity:0.3"></span>
-          ${item.label}<span style="font-size:0.68rem;margin-left:auto">binnenkort</span>
+          ${biLabel(item.label, item.label_en)}<span style="font-size:0.68rem;margin-left:auto">${biSoon()}</span>
         </div>`;
       }
       const badge = item.badge ? `<span class="dropdown-badge">${item.badge}</span>` : '';
       return `<div class="mob-item" onclick="window.location='${url}';closeMobileMenu()">
         <span class="dropdown-dot ${dotClass}" ${dotStyle}></span>
-        ${item.label}${badge}
+        ${biLabel(item.label, item.label_en)}${badge}
       </div>`;
     }).join('');
     return header + items;
@@ -153,7 +171,7 @@ function buildNav() {
 
   const mobileMenu = `<div class="mobile-menu" id="mobile-menu">
     <div class="mob-search-wrap">
-      <input class="mob-search-input" placeholder="⌕ Zoek procedure…" autocomplete="off">
+      <input class="mob-search-input" placeholder="⌕ Zoek procedure…" data-placeholder-nl="⌕ Zoek procedure…" data-placeholder-en="⌕ Search procedure…" autocomplete="off">
     </div>
     ${mobileItems}
   </div>`;
@@ -163,6 +181,12 @@ function buildNav() {
   const existing = document.getElementById('mobile-menu');
   if (existing) existing.remove();
   nav.insertAdjacentHTML('afterend', mobileMenu);
+
+  // Pas direct de juiste taal toe op de zojuist gebouwde nav (timing-onafhankelijk)
+  if (typeof applyLang === 'function') {
+    applyLang(navLang());
+    if (typeof updateLangBtn === 'function') updateLangBtn(navLang());
+  }
 
   document.addEventListener('click', e => {
     if (!e.target.closest('.nav-item')) {
