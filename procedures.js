@@ -69,6 +69,12 @@ const PROCEDURES = [
   { naam: "Vaatchirurgie MDO bekken/beenvaten", categorie: "MDO", subcategorie: "PAV", tag: "vasc",
     url: "mdo/vaatchirurgie-mdo.html",
     trefwoorden: ["PAV","claudicatio","kritieke ischemie","TASC","Fontaine","iliacaal","femoropopliteaal","PTA","stent","bypass","ABI","DEB","CERAB","antitrombose"] },
+  { naam: "Aorta MDO — abdominaal aorta-aneurysma", categorie: "MDO", subcategorie: "AAA", tag: "vasc",
+    url: "mdo/aorta-mdo.html",
+    trefwoorden: ["aorta","aneurysma","AAA","EVAR","endoleak","ESVS","stentgraft","iliacaal","abdominaal","ruptuur"] },
+  { naam: "Visceraal MDO — mesenteriale ischemie", categorie: "MDO", subcategorie: "Mesenteriaal", tag: "vasc",
+    url: "mdo/visceraal-mdo.html",
+    trefwoorden: ["visceraal","mesenteriaal","ischemie","AMI","CMI","SMA","truncus coeliacus","Koelemay","CoBaGI","darmangina","stent"] },
   { naam: "Shunt MDO", categorie: "MDO", subcategorie: "Hemodialyse toegang", tag: "vasc",
     url: "mdo/shunt-mdo.html",
     trefwoorden: ["shunt","AVF","AVG","hemodialyse","MDO","fistel","RCAVF","BCAVF","basilica transpositie","duplex"] }

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visceraal MDO — InterventionAssistant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .mdo-wrap {
+      display: grid;
+      grid-template-columns: 1fr 220px;
+      gap: 2.5rem;
+      align-items: start;
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    .toc {
+      position: sticky;
+      top: 78px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .toc-title {
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 1rem;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--muted);
+    }
+    .toc-list { list-style: none; padding: 0.4rem 0; }
+    .toc-list li a {
+      display: block;
+      padding: 0.35rem 1rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.12s, background 0.12s;
+      border-left: 2px solid transparent;
+    }
+    .toc-list li a:hover { color: var(--blue); background: var(--blue-light); border-color: var(--blue); }
+    .toc-list li.sub a { padding-left: 1.6rem; font-size: 0.74rem; }
+    .mdo-content { min-width: 0; }
+    .mdo-section { margin-bottom: 2.5rem; }
+    .mdo-h2 {
+      font-family: 'Nunito', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 2px solid var(--blue);
+    }
+    .mdo-h3 {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      margin: 1.25rem 0 0.5rem;
+    }
+    .mdo-p {
+      font-size: 0.875rem;
+      line-height: 1.7;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+    .mdo-p strong { font-weight: 700; }
+
+    /* Fontaine tabel + classificatiekaartjes */
+    .class-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.6rem;
+      margin: 0.75rem 0;
+    }
+    .class-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.75rem;
+      text-align: center;
+    }
+    .class-card.rood { border-top: 3px solid var(--red); }
+    .class-card.oranje { border-top: 3px solid var(--orange); }
+    .class-card.geel { border-top: 3px solid #c8a400; }
+    .class-card.groen { border-top: 3px solid var(--teal); }
+    .class-nr { font-family: 'Nunito', sans-serif; font-size: 1.4rem; font-weight: 800; color: var(--text); }
+    .class-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: var(--muted); margin-top: 0.2rem; }
+    .class-desc { font-size: 0.75rem; color: var(--text); margin-top: 0.35rem; line-height: 1.4; }
+
+    /* Beslisboom stijl */
+    .beslisboom {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.1rem;
+      margin: 0.75rem 0;
+    }
+    .bb-stap {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #edf0f5;
+      font-size: 0.875rem;
+      line-height: 1.5;
+    }
+    .bb-stap:last-child { border-bottom: none; }
+    .bb-nr {
+      width: 22px; height: 22px; border-radius: 50%;
+      background: var(--blue); color: white;
+      font-size: 0.7rem; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; font-family: 'Nunito', sans-serif;
+    }
+    .bb-nr.red { background: var(--red); }
+    .bb-nr.teal { background: var(--teal); }
+
+    /* Behandelmatrix tabel */
+    .mdo-table { width: 100%; border-collapse: collapse; font-size: 0.845rem; margin-bottom: 1rem; }
+    .mdo-table th {
+      text-align: left; padding: 0.55rem 0.85rem;
+      background: var(--card); font-size: 0.68rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted);
+      border-bottom: 2px solid var(--border);
+    }
+    .mdo-table td {
+      padding: 0.6rem 0.85rem; border-bottom: 1px solid #edf0f5;
+      vertical-align: top; line-height: 1.5; color: var(--text);
+    }
+    .mdo-table tr:last-child td { border-bottom: none; }
+    .mdo-table tr:hover td { background: var(--blue-light); }
+    .mdo-table .cat-row td {
+      background: var(--card); font-size: 0.68rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted);
+      padding: 0.5rem 0.85rem 0.15rem;
+    }
+
+    /* Infoboxen */
+    .infobox {
+      border-left: 3px solid; padding: 0.65rem 0.9rem;
+      font-size: 0.835rem; line-height: 1.55; margin: 0.75rem 0;
+      border-radius: 0 5px 5px 0; color: var(--text);
+    }
+    .infobox.blauw  { border-color: var(--blue);   background: var(--blue-light); }
+    .infobox.groen  { border-color: var(--green);  background: #f2fbf5; }
+    .infobox.oranje { border-color: var(--orange); background: #fff8ee; }
+    .infobox.rood   { border-color: var(--red);    background: #fff2f2; }
+    .infobox strong { font-weight: 700; }
+
+    /* Bronnenlijst */
+    .bronnen-lijst { list-style: none; padding: 0; }
+    .bronnen-lijst li { padding: 0.35rem 0; border-bottom: 1px solid #edf0f5; font-size: 0.84rem; }
+    .bronnen-lijst li:last-child { border-bottom: none; }
+    .bronnen-lijst a { color: var(--blue); text-decoration: none; font-weight: 500; }
+    .bronnen-lijst a:hover { text-decoration: underline; }
+
+    @media (max-width: 800px) {
+      .mdo-wrap { grid-template-columns: 1fr; padding: 1rem; }
+      .toc { display: none; }
+      .class-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .mdo-ul { margin: 0 0 1rem 1.1rem; padding: 0; }
+    .mdo-ul li { font-size: 0.845rem; line-height: 1.55; margin-bottom: 0.4rem; color: var(--text); }
+  </style>
+
+<body>
+<nav></nav>
+
+<div class="mdo-wrap">
+  <div class="mdo-content">
+    <div class="breadcrumb">
+      <a href="../index.html">Home</a><span class="sep">›</span>
+      <span>MDO</span><span class="sep">›</span>
+      <span>Visceraal MDO</span>
+    </div>
+
+    <div style="margin-bottom:1.75rem">
+      <div class="mdo-h2" style="border-color:#1e6db5;font-size:1.5rem;margin-bottom:0.35rem">Visceraal MDO — Mesenteriale Ischemie</div>
+      <p style="font-size:0.875rem;color:var(--muted)">Multidisciplinaire bespreking mesenteriaal vaatlijden — vaatchirurgie, MDL &amp; interventieradiologie · gebaseerd op ESVS 2025 (Koelemay)</p>
+    </div>
+
+    <div class="mdo-section" id="s-achtergrond">
+      <div class="mdo-h2">1. Achtergrond &amp; Definities</div>
+      <p class="mdo-p">Mesenteriale ischemie ontstaat door een tekort aan bloedtoevoer naar de darm, meestal door atherosclerotische stenose of occlusie van de truncus coeliacus (CA) en/of de a. mesenterica superior (SMA). Door de uitgebreide collateralen tussen CA, SMA en a. mesenterica inferior (IMA) ontstaan klachten vaak pas bij betrokkenheid van meerdere vaten.</p>
+      <p class="mdo-p">In het MDO worden patiënten besproken met (verdenking op) acute of chronische mesenteriale ischemie, waarbij de keuze tussen endovasculaire en open revascularisatie en de timing daarvan worden afgewogen — vaak in samenspraak met MDL en (acute) chirurgie.</p>
+      <div class="infobox blauw"><strong>Terminologie:</strong> AMI = Acute Mesenteriale Ischemie · CMI = Chronische Mesenteriale Ischemie · CA = truncus coeliacus · SMA = a. mesenterica superior · IMA = a. mesenterica inferior · NOMI = Non-Occlusieve Mesenteriale Ischemie · MVT = mesenteriale veneuze trombose · PSV/EDV = piek-systolische / eind-diastolische snelheid</div>
+    </div>
+
+    <div class="mdo-section" id="s-acuut">
+      <div class="mdo-h2">2. Acute Mesenteriale Ischemie (AMI)</div>
+      <p class="mdo-p">AMI is een levensbedreigende spoedsituatie met hoge mortaliteit. Vroege herkenning en snelle revascularisatie zijn cruciaal. Klassiek is de discrepantie tussen hevige buikpijn en een aanvankelijk weinig afwijkend lichamelijk onderzoek. CTA is de eerste keus voor diagnose.</p>
+      <div class="mdo-h3">Subtypes</div>
+      <table class="mdo-table">
+        <thead><tr><th>Subtype</th><th>Kenmerk</th><th>Hoofdbehandeling</th></tr></thead>
+        <tbody>
+          <tr><td>Arteriële embolie</td><td>Vaak cardiale bron; abrupte occlusie SMA, meestal voorbij de eerste zijtakken</td><td>Endovasculair (aspiratie/trombolyse) of embolectomie; laparotomie bij peritonitis</td></tr>
+          <tr><td>Arteriële trombose</td><td>Op bestaande atherosclerotische stenose (vaak SMA-ostium)</td><td>Revascularisatie (stent of bypass); darmresectie zo nodig</td></tr>
+          <tr><td>Mesenteriale veneuze trombose (MVT)</td><td>Vaak bij hypercoagulabiliteit; subacuter beloop</td><td>Antistolling; interventie bij progressie</td></tr>
+          <tr><td>Non-occlusieve mesenteriale ischemie (NOMI)</td><td>Splanchnische vasoconstrictie bij lage flow (shock, IC)</td><td>Onderliggende oorzaak behandelen; intra-arteriële vasodilatatie</td></tr>
+        </tbody>
+      </table>
+      <div class="infobox rood"><strong>Spoed:</strong> Tekenen van darmnecrose of peritonitis vereisen directe laparotomie naast revascularisatie. Bij twijfel over darmvitaliteit: second-look laparotomie. Endovasculair first-line bij geschikte anatomie en afwezigheid van peritoneale prikkeling.</div>
+    </div>
+
+    <div class="mdo-section" id="s-chronisch">
+      <div class="mdo-h2">3. Chronische Mesenteriale Ischemie (CMI)</div>
+      <p class="mdo-p">CMI presenteert zich klassiek met postprandiale buikpijn (darmangina), gewichtsverlies en angst om te eten (sitofobie). De diagnose berust op de combinatie van een passend klinisch beeld én significante stenose van de mesenteriale vaten, na uitsluiting van andere oorzaken. Door collateralisatie is doorgaans betrokkenheid van &ge;2 vaten nodig voor klachten, hoewel een geïsoleerde significante SMA-stenose voldoende kan zijn.</p>
+      <div class="infobox oranje"><strong>Diagnose blijft klinisch:</strong> Een mesenteriale stenose is een frequente toevalsbevinding bij ouderen zonder klachten. De diagnose CMI vereist een passend klinisch beeld; behandel geen toevalsbevinding zonder symptomen.</div>
+    </div>
+
+    <div class="mdo-section" id="s-diagnostiek">
+      <div class="mdo-h2">4. Diagnostiek</div>
+      <div class="mdo-h3">Duplex (eerste lijn, screening)</div>
+      <p class="mdo-p">Mesenteriale duplex is de voorkeursscreening bij verdenking CMI. Onderzoek bij voorkeur nuchter (minimaal 4 uur) ter reductie van artefacten en darmgasinterferentie. De SMA is in ~90% en de CA in ~80% van de gevallen goed in beeld te brengen; de IMA is meestal niet betrouwbaar te beoordelen.</p>
+      <table class="mdo-table">
+        <thead><tr><th>Vat</th><th>PSV-drempel ≥70% stenose (nuchter, indicatief)</th></tr></thead>
+        <tbody>
+          <tr><td>SMA</td><td>PSV &ge; ~275 cm/s (of geen flow = occlusie)</td></tr>
+          <tr><td>Truncus coeliacus (CA)</td><td>PSV &ge; ~320 cm/s (≥50%: ~240 cm/s)</td></tr>
+        </tbody>
+      </table>
+      <div class="infobox blauw"><strong>Lokale validatie:</strong> Duplex-drempels variëren per vaatlaboratorium en apparatuur. In-stent stenose geeft systematisch hogere snelheden dan native stenose — gebruik aangepaste (hogere) drempels bij gestente vaten.</div>
+      <div class="mdo-h3">CTA (bevestiging &amp; planning)</div>
+      <p class="mdo-p">CTA van de mesenteriale vaten heeft een hoge sensitiviteit en specificiteit en is de standaard ter bevestiging en voor behandelplanning. Bij AMI is CTA de eerste keus. MR-angiografie is een alternatief bij contra-indicatie voor jodiumcontrast.</p>
+    </div>
+
+    <div class="mdo-section" id="s-behandeling">
+      <div class="mdo-h2">5. Behandeling &amp; Revascularisatie</div>
+      <p class="mdo-p">Voor zowel AMI (occlusief, arterieel) als CMI is endovasculaire revascularisatie in de ESVS 2025-richtlijn de eerste keus bij geschikte anatomie, vanwege lagere peri-procedurele morbiditeit dan open chirurgie. Open revascularisatie (bypass, endarteriëctomie) blijft voorbehouden aan geselecteerde patiënten en gevallen waarin endovasculaire behandeling faalt of niet haalbaar is.</p>
+      <table class="mdo-table">
+        <thead><tr><th>Situatie</th><th>Voorkeur</th></tr></thead>
+        <tbody>
+          <tr><td>CMI met geschikte anatomie</td><td>Endovasculaire revascularisatie (stent) van bij voorkeur de SMA</td></tr>
+          <tr><td>AMI, arterieel occlusief, geen peritonitis</td><td>Endovasculair first-line (aspiratie, trombolyse, stent)</td></tr>
+          <tr><td>AMI met darmnecrose / peritonitis</td><td>Laparotomie + revascularisatie (hybride); darmresectie</td></tr>
+          <tr><td>Endovasculair niet haalbaar / mislukt; jonge fitte patiënt</td><td>Open bypass of endarteriëctomie</td></tr>
+          <tr><td>MVT</td><td>Antistolling als basis; interventie bij progressie</td></tr>
+          <tr><td>NOMI</td><td>Oorzaak (lage flow) behandelen; intra-arteriële vasodilatantia</td></tr>
+        </tbody>
+      </table>
+      <div class="mdo-h3">Stentkeuze bij CMI — CoBaGI-trial</div>
+      <div class="infobox strong">De CoBaGI-trial (Terlouw &amp; van Dijk, Lancet Gastroenterol Hepatol 2024) — de enige gerandomiseerde vergelijking van gedekte (covered) versus bare-metal stents bij CMI — toonde betere doorgankelijkheid op termijn voor gedekte stents. De ESVS 2025 geeft daarom de voorkeur aan gedekte (covered) ballon-expandeerbare stents bij endovasculaire behandeling van CMI.</div>
+      <div class="infobox blauw"><strong>SMA als doelvat:</strong> Bij multivessel-lijden wordt doorgaans de SMA als primair doelvat gerevasculariseerd, omdat deze het grootste deel van de dunne darm voorziet. Revascularisatie van de CA alleen geeft minder betrouwbare klachtenreductie.</div>
+    </div>
+
+    <div class="mdo-section" id="s-ir">
+      <div class="mdo-h2">6. Rol Interventieradiologie</div>
+      <table class="mdo-table">
+        <thead><tr><th>Verrichting</th><th>Rol / Indicatie</th></tr></thead>
+        <tbody>
+          <tr class="cat-row"><td colspan="2">Diagnostiek</td></tr>
+          <tr><td>Mesenteriale duplex</td><td>Eerste lijn screening CMI (nuchter)</td></tr>
+          <tr><td>CTA mesenteriale vaten</td><td>Bevestiging en planning; eerste keus bij AMI</td></tr>
+          <tr class="cat-row"><td colspan="2">Interventie</td></tr>
+          <tr><td>PTA + stent SMA/CA</td><td>Endovasculaire revascularisatie CMI; covered stent voorkeur (CoBaGI)</td></tr>
+          <tr><td>Aspiratietrombectomie / trombolyse</td><td>Acute arteriële occlusie (AMI) zonder peritonitis</td></tr>
+          <tr><td>Intra-arteriële vasodilatantia</td><td>NOMI — splanchnische vasoconstrictie</td></tr>
+          <tr class="cat-row"><td colspan="2">Follow-up</td></tr>
+          <tr><td>Duplex-surveillance na stenting</td><td>Detectie in-stent restenose (aangepaste drempels)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="mdo-section" id="s-followup">
+      <div class="mdo-h2">7. Follow-up &amp; Medicamenteus</div>
+      <ul class="mdo-ul">
+        <li><strong>Duplex-surveillance</strong> na endovasculaire behandeling ter detectie van in-stent restenose; gebruik aangepaste (hogere) snelheidsdrempels voor gestente vaten.</li>
+        <li><strong>Antiplaatjestherapie</strong> na stenting conform protocol; <strong>antistolling</strong> als basisbehandeling bij mesenteriale veneuze trombose.</li>
+        <li><strong>Cardiovasculair risicomanagement:</strong> roken staken, statine, bloeddrukregulatie — mesenteriaal lijden is een uiting van systemische atherosclerose.</li>
+        <li>Bij recidiverende of persisterende klachten na revascularisatie: laagdrempelig herevaluatie (duplex/CTA) en MDO-bespreking.</li>
+      </ul>
+    </div>
+
+    <div class="mdo-section" id="s-bronnen">
+      <div class="mdo-h2">8. Bronnen</div>
+      <ul class="mdo-ul">
+        <li>Koelemay MJ, Geelkerken RH, Kärkkäinen J, et al. <a href="https://www.ejves.com/article/S1078-5884(25)00516-7/fulltext" target="_blank" rel="noopener">ESVS 2025 Clinical Practice Guidelines on the Management of Diseases of the Mesenteric and Renal Arteries and Veins</a>. Eur J Vasc Endovasc Surg. 2025;70(2):153-218.</li>
+        <li>Terlouw LG, van Dijk LJD, van Noord D, et al. Covered versus bare-metal stenting of the mesenteric arteries (CoBaGI). Lancet Gastroenterol Hepatol. 2024;9:299-309.</li>
+        <li><a href="https://radiopaedia.org/articles/chronic-mesenteric-ischaemia" target="_blank" rel="noopener">Radiopaedia — Chronic mesenteric ischaemia</a></li>
+      </ul>
+      <p style="font-size:0.78rem;color:var(--muted);margin-top:1rem">Deze pagina is een samenvatting ter ondersteuning van de MDO-bespreking en vervangt niet de volledige richtlijn of het klinisch oordeel. Duplex-drempels vereisen lokale validatie.</p>
+    </div>
+
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">Inhoudsopgave</div>
+    <ul class="toc-list">
+      <li><a href="#s-achtergrond">1. Achtergrond</a></li>
+      <li><a href="#s-acuut">2. Acute ischemie (AMI)</a></li>
+      <li><a href="#s-chronisch">3. Chronische ischemie (CMI)</a></li>
+      <li><a href="#s-diagnostiek">4. Diagnostiek</a></li>
+      <li><a href="#s-behandeling">5. Behandeling</a></li>
+      <li><a href="#s-ir">6. Rol IR</a></li>
+      <li><a href="#s-followup">7. Follow-up</a></li>
+      <li><a href="#s-bronnen">8. Bronnen</a></li>
+    </ul>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/7.0.0/fuse.min.js"></script>
+<script src="../procedures.js"></script>
+<script src="../nav.js"></script>
+<script src="../search.js"></script>
+<script src="../lang.js"></script>
+</body>
+</html>

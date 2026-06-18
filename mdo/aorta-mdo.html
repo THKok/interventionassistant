@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aorta MDO — InterventionAssistant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .mdo-wrap {
+      display: grid;
+      grid-template-columns: 1fr 220px;
+      gap: 2.5rem;
+      align-items: start;
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    .toc {
+      position: sticky;
+      top: 78px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .toc-title {
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 1rem;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--muted);
+    }
+    .toc-list { list-style: none; padding: 0.4rem 0; }
+    .toc-list li a {
+      display: block;
+      padding: 0.35rem 1rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.12s, background 0.12s;
+      border-left: 2px solid transparent;
+    }
+    .toc-list li a:hover { color: var(--blue); background: var(--blue-light); border-color: var(--blue); }
+    .toc-list li.sub a { padding-left: 1.6rem; font-size: 0.74rem; }
+    .mdo-content { min-width: 0; }
+    .mdo-section { margin-bottom: 2.5rem; }
+    .mdo-h2 {
+      font-family: 'Nunito', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 2px solid var(--blue);
+    }
+    .mdo-h3 {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      margin: 1.25rem 0 0.5rem;
+    }
+    .mdo-p {
+      font-size: 0.875rem;
+      line-height: 1.7;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+    .mdo-p strong { font-weight: 700; }
+
+    /* Fontaine tabel + classificatiekaartjes */
+    .class-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.6rem;
+      margin: 0.75rem 0;
+    }
+    .class-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.75rem;
+      text-align: center;
+    }
+    .class-card.rood { border-top: 3px solid var(--red); }
+    .class-card.oranje { border-top: 3px solid var(--orange); }
+    .class-card.geel { border-top: 3px solid #c8a400; }
+    .class-card.groen { border-top: 3px solid var(--teal); }
+    .class-nr { font-family: 'Nunito', sans-serif; font-size: 1.4rem; font-weight: 800; color: var(--text); }
+    .class-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: var(--muted); margin-top: 0.2rem; }
+    .class-desc { font-size: 0.75rem; color: var(--text); margin-top: 0.35rem; line-height: 1.4; }
+
+    /* Beslisboom stijl */
+    .beslisboom {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.1rem;
+      margin: 0.75rem 0;
+    }
+    .bb-stap {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #edf0f5;
+      font-size: 0.875rem;
+      line-height: 1.5;
+    }
+    .bb-stap:last-child { border-bottom: none; }
+    .bb-nr {
+      width: 22px; height: 22px; border-radius: 50%;
+      background: var(--blue); color: white;
+      font-size: 0.7rem; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; font-family: 'Nunito', sans-serif;
+    }
+    .bb-nr.red { background: var(--red); }
+    .bb-nr.teal { background: var(--teal); }
+
+    /* Behandelmatrix tabel */
+    .mdo-table { width: 100%; border-collapse: collapse; font-size: 0.845rem; margin-bottom: 1rem; }
+    .mdo-table th {
+      text-align: left; padding: 0.55rem 0.85rem;
+      background: var(--card); font-size: 0.68rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted);
+      border-bottom: 2px solid var(--border);
+    }
+    .mdo-table td {
+      padding: 0.6rem 0.85rem; border-bottom: 1px solid #edf0f5;
+      vertical-align: top; line-height: 1.5; color: var(--text);
+    }
+    .mdo-table tr:last-child td { border-bottom: none; }
+    .mdo-table tr:hover td { background: var(--blue-light); }
+    .mdo-table .cat-row td {
+      background: var(--card); font-size: 0.68rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted);
+      padding: 0.5rem 0.85rem 0.15rem;
+    }
+
+    /* Infoboxen */
+    .infobox {
+      border-left: 3px solid; padding: 0.65rem 0.9rem;
+      font-size: 0.835rem; line-height: 1.55; margin: 0.75rem 0;
+      border-radius: 0 5px 5px 0; color: var(--text);
+    }
+    .infobox.blauw  { border-color: var(--blue);   background: var(--blue-light); }
+    .infobox.groen  { border-color: var(--green);  background: #f2fbf5; }
+    .infobox.oranje { border-color: var(--orange); background: #fff8ee; }
+    .infobox.rood   { border-color: var(--red);    background: #fff2f2; }
+    .infobox strong { font-weight: 700; }
+
+    /* Bronnenlijst */
+    .bronnen-lijst { list-style: none; padding: 0; }
+    .bronnen-lijst li { padding: 0.35rem 0; border-bottom: 1px solid #edf0f5; font-size: 0.84rem; }
+    .bronnen-lijst li:last-child { border-bottom: none; }
+    .bronnen-lijst a { color: var(--blue); text-decoration: none; font-weight: 500; }
+    .bronnen-lijst a:hover { text-decoration: underline; }
+
+    @media (max-width: 800px) {
+      .mdo-wrap { grid-template-columns: 1fr; padding: 1rem; }
+      .toc { display: none; }
+      .class-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .mdo-ul { margin: 0 0 1rem 1.1rem; padding: 0; }
+    .mdo-ul li { font-size: 0.845rem; line-height: 1.55; margin-bottom: 0.4rem; color: var(--text); }
+  </style>
+
+<body>
+<nav></nav>
+
+<div class="mdo-wrap">
+  <div class="mdo-content">
+    <div class="breadcrumb">
+      <a href="../index.html">Home</a><span class="sep">›</span>
+      <span>MDO</span><span class="sep">›</span>
+      <span>Aorta MDO</span>
+    </div>
+
+    <div style="margin-bottom:1.75rem">
+      <div class="mdo-h2" style="border-color:#1e6db5;font-size:1.5rem;margin-bottom:0.35rem">Aorta MDO — Abdominale Aorta &amp; Iliacale Aneurysmata</div>
+      <p style="font-size:0.875rem;color:var(--muted)">Multidisciplinaire bespreking aneurysmatisch aortalijden — vaatchirurgie &amp; interventieradiologie · gebaseerd op ESVS 2024</p>
+    </div>
+
+    <div class="mdo-section" id="s-achtergrond">
+      <div class="mdo-h2">1. Achtergrond &amp; Definities</div>
+      <p class="mdo-p">Een abdominaal aorta-aneurysma (AAA) is een permanente, gelokaliseerde verwijding van de abdominale aorta tot een diameter &ge;3,0 cm, of meer dan 50% van de verwachte normale diameter. De meeste AAA's zijn infrarenaal gelegen en asymptomatisch en worden bij toeval ontdekt. Het belangrijkste risico is ruptuur, met een hoge mortaliteit.</p>
+      <p class="mdo-p">In het MDO worden patiënten besproken met een AAA dat de behandeldrempel nadert of overschrijdt, symptomatische of snelgroeiende aneurysmata, en complexe anatomie (juxtarenaal, pararenaal, type IV thoraco-abdominaal of iliacale uitbreiding) waarbij de keuze tussen endovasculair (EVAR / complexe EVAR) en open herstel wordt afgewogen.</p>
+      <div class="infobox blauw"><strong>Terminologie:</strong> AAA = Abdominaal Aorta-Aneurysma · EVAR = Endovascular Aneurysm Repair · F/B-EVAR = Fenestrated/Branched EVAR · OSR = Open Surgical Repair · CIA = a. iliaca communis · IFU = Instructions For Use · SDM = Shared Decision Making</div>
+    </div>
+
+    <div class="mdo-section" id="s-diagnostiek">
+      <div class="mdo-h2">2. Diagnostiek &amp; Surveillance</div>
+      <p class="mdo-p">Echografie is de eerste keus voor screening en surveillance: goedkoop, reproduceerbaar en zonder straling of contrast. CT-angiografie (CTA) van de gehele aorta is de standaard voor pre-operatieve planning en bij complexe anatomie.</p>
+      <div class="mdo-h3">Surveillance-intervallen (infrarenaal AAA, ESVS 2024)</div>
+      <table class="mdo-table">
+        <thead><tr><th>Diameter</th><th>Surveillance-interval (echo)</th></tr></thead>
+        <tbody>
+          <tr><td>2,5–2,9 cm (ectasie)</td><td>Overweeg eenmalige herhaling; geen routinematige surveillance</td></tr>
+          <tr><td>3,0–3,9 cm</td><td>Elke 3 jaar</td></tr>
+          <tr><td>4,0–4,9 cm</td><td>Jaarlijks</td></tr>
+          <tr><td>5,0–5,4 cm</td><td>Elke 3–6 maanden</td></tr>
+          <tr><td>&ge;5,5 cm (man) / &ge;5,0 cm (vrouw)</td><td>Verwijzen voor behandeloverweging</td></tr>
+        </tbody>
+      </table>
+      <div class="infobox oranje"><strong>Meetmethode:</strong> Meet consistent (binnenrand-tot-binnenrand of buitenrand-tot-buitenrand) en bij voorkeur loodrecht op de aorta-as. Verschillen tussen echo en CT en tussen meetmethoden zijn klinisch relevant — gebruik dezelfde methode in de tijd.</div>
+    </div>
+
+    <div class="mdo-section" id="s-indicatie">
+      <div class="mdo-h2">3. Behandelindicatie</div>
+      <p class="mdo-p">De afweging tussen behandelen en doorgaan met surveillance is een balans tussen rupturrisico en peri-operatief risico, afgewogen tegen levensverwachting en patiëntvoorkeur (shared decision making).</p>
+      <table class="mdo-table">
+        <thead><tr><th>Indicatie voor behandeloverweging (ESVS 2024)</th><th>Drempel</th></tr></thead>
+        <tbody>
+          <tr><td>Asymptomatisch AAA — man</td><td>&ge;5,5 cm</td></tr>
+          <tr><td>Asymptomatisch AAA — vrouw</td><td>&ge;5,0 cm</td></tr>
+          <tr><td>Snelle groei</td><td>&gt;1 cm per jaar</td></tr>
+          <tr><td>Symptomatisch AAA (buik-/rugpijn toe te schrijven aan AAA)</td><td>Ongeacht diameter — spoed</td></tr>
+          <tr><td>Geruptureerd AAA</td><td>Acute spoed</td></tr>
+          <tr><td>Genetische/bindweefselaandoening (bijv. Marfan)</td><td>Lagere, geïndividualiseerde drempel</td></tr>
+        </tbody>
+      </table>
+      <div class="infobox rood"><strong>Geruptureerd AAA:</strong> Acute, levensbedreigende spoed. Directe verwijzing naar een centrum met 24/7 open én endovasculaire capaciteit. EVAR (rEVAR) heeft de voorkeur indien anatomisch geschikt en logistiek haalbaar — permissieve hypotensie tot revascularisatie.</div>
+    </div>
+
+    <div class="mdo-section" id="s-keuze">
+      <div class="mdo-h2">4. Behandelkeuze — EVAR vs. Open Herstel</div>
+      <p class="mdo-p">In de ESVS 2024-richtlijn blijft EVAR de voorkeursbehandeling voor de meeste infrarenale AAA's, mits de anatomie binnen de IFU van het device valt. De afweging hangt af van anatomie, levensverwachting, comorbiditeit en patiëntvoorkeur.</p>
+      <table class="mdo-table">
+        <thead><tr><th>Situatie</th><th>Voorkeur</th></tr></thead>
+        <tbody>
+          <tr><td>Infrarenaal AAA, anatomie binnen IFU, gemiddeld/hoog operatierisico</td><td>EVAR</td></tr>
+          <tr><td>Jonge, fitte patiënt met lange levensverwachting</td><td>Overweeg open herstel (betere langetermijndurabiliteit, minder re-interventies)</td></tr>
+          <tr><td>Ongunstige hals/anatomie buiten IFU</td><td>Open herstel of complexe EVAR (F/B-EVAR) in expertisecentrum</td></tr>
+          <tr><td>Juxtarenaal / pararenaal / type IV TAAA</td><td>F/B-EVAR in hoogvolumecentrum, of open herstel</td></tr>
+          <tr><td>Bindweefselaandoening (Marfan e.a.)</td><td>Open herstel doorgaans voorkeur</td></tr>
+        </tbody>
+      </table>
+      <div class="infobox strong">EVAR alleen binnen de IFU bij electieve ingrepen — gebruik devices met bewezen durabiliteit. De ESVS 2024 ontraadt nadrukkelijk electieve EVAR buiten de IFU, en ontraadt parallel grafting/debranching als primaire strategie voor complexe aneurysmata.</div>
+      <div class="infobox oranje"><strong>Geen routinematige sac-embolisatie:</strong> Preventieve coiling van zijtakken of niet-selectieve aneurysmazak-embolisatie vóór EVAR wordt niet aanbevolen wegens gebrek aan bewijs.</div>
+    </div>
+
+    <div class="mdo-section" id="s-anatomie">
+      <div class="mdo-h2">5. Anatomische Overwegingen voor EVAR</div>
+      <p class="mdo-p">De geschiktheid voor standaard-EVAR wordt bepaald door de proximale aanhechtingszone (hals) en de toegangsvaten. Beoordeel op CTA met multiplanaire reconstructie.</p>
+      <table class="mdo-table">
+        <thead><tr><th>Parameter</th><th>Gunstig voor standaard-EVAR (indicatief, device-afhankelijk)</th></tr></thead>
+        <tbody>
+          <tr><td>Proximale halslengte</td><td>&ge;10–15 mm</td></tr>
+          <tr><td>Halsangulatie</td><td>&lt;60°</td></tr>
+          <tr><td>Halsdiameter</td><td>Binnen device-IFU (doorgaans &lt;28–32 mm)</td></tr>
+          <tr><td>Halstrombus/calcificatie</td><td>Beperkt circumferentieel</td></tr>
+          <tr><td>Iliacale toegang</td><td>Voldoende diameter, beperkte tortuositeit/calcificatie</td></tr>
+          <tr><td>Distale aanhechting (CIA)</td><td>Voldoende lengte; bij iliacaal aneurysma overweeg iliac branch device</td></tr>
+        </tbody>
+      </table>
+      <div class="infobox blauw"><strong>Iliacale aneurysmata:</strong> Een geïsoleerd a. iliaca communis-aneurysma wordt doorgaans behandeld bij &ge;3,5 cm. Behoud van de a. iliaca interna (met iliac branch device) verdient de voorkeur boven embolisatie, ter preventie van bekkenischemie (bilstreekclaudicatio, colon- of medulla-ischemie).</div>
+    </div>
+
+    <div class="mdo-section" id="s-ir">
+      <div class="mdo-h2">6. Rol Interventieradiologie</div>
+      <table class="mdo-table">
+        <thead><tr><th>Verrichting</th><th>Rol / Indicatie</th></tr></thead>
+        <tbody>
+          <tr class="cat-row"><td colspan="2">Diagnostiek &amp; planning</td></tr>
+          <tr><td>CTA gehele aorta</td><td>Standaard voor planning; sizing van hals, diameters, toegangsvaten</td></tr>
+          <tr><td>Echo-surveillance</td><td>Diametercontrole pre-behandeling en bij conservatief beleid</td></tr>
+          <tr class="cat-row"><td colspan="2">Interventie</td></tr>
+          <tr><td>EVAR</td><td>Endovasculaire plaatsing stentgraft; vaak gezamenlijk vaatchirurgie/IR</td></tr>
+          <tr><td>F/B-EVAR</td><td>Complexe aneurysmata met renoviscerale betrokkenheid (expertisecentrum)</td></tr>
+          <tr><td>Iliac branch device</td><td>Behoud a. iliaca interna bij iliacale uitbreiding</td></tr>
+          <tr><td>Embolisatie</td><td>Behandeling endoleak type II (zijtak) bij sacgroei</td></tr>
+          <tr class="cat-row"><td colspan="2">Follow-up</td></tr>
+          <tr><td>CTA / echo-surveillance na EVAR</td><td>Detectie endoleak, sacgroei, migratie, devicefalen</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="mdo-section" id="s-endoleak">
+      <div class="mdo-h2">7. Endoleaks — Classificatie &amp; Beleid</div>
+      <p class="mdo-p">Een endoleak is persisterende bloedstroom in de aneurysmazak buiten de stentgraft. Het is de meest voorkomende complicatie na EVAR en de belangrijkste reden voor langdurige beeldvormende follow-up.</p>
+      <table class="mdo-table">
+        <thead><tr><th>Type</th><th>Oorzaak</th><th>Beleid</th></tr></thead>
+        <tbody>
+          <tr><td>I</td><td>Lekkage bij proximale (Ia) of distale (Ib) aanhechting</td><td>Behandelen — risico op zaktdruk en ruptuur</td></tr>
+          <tr><td>II</td><td>Retrograde vulling via zijtak (a. mesenterica inferior, lumbaalarterie)</td><td>Observeren; behandelen (embolisatie) bij sacgroei</td></tr>
+          <tr><td>III</td><td>Defect/disconnectie van graftcomponenten</td><td>Behandelen — hoog rupturrisico</td></tr>
+          <tr><td>IV</td><td>Porositeit van de graft (vroeg, zelflimiterend)</td><td>Doorgaans conservatief</td></tr>
+          <tr><td>V</td><td>Endotensie — sacgroei zonder zichtbare lek</td><td>Evaluatie; behandelen bij groei</td></tr>
+        </tbody>
+      </table>
+      <div class="infobox oranje"><strong>Sacgroei is het kernsignaal:</strong> Het beleid bij endoleaks wordt vooral gestuurd door groei van de aneurysmazak. Type I en III worden vrijwel altijd behandeld; type II alleen bij aanhoudende sacgroei.</div>
+    </div>
+
+    <div class="mdo-section" id="s-followup">
+      <div class="mdo-h2">8. Follow-up na EVAR</div>
+      <p class="mdo-p">Levenslange follow-up na EVAR is noodzakelijk wegens het risico op laat-optredende complicaties (endoleak, migratie, sacgroei). De ESVS 2024 adviseert beeldvorming na 30 dagen, gevolgd door risicogestuurde follow-up.</p>
+      <table class="mdo-table">
+        <thead><tr><th>Moment</th><th>Beeldvorming</th></tr></thead>
+        <tbody>
+          <tr><td>30 dagen</td><td>CTA (of contrast-echo + X-buik) — baseline, detectie vroege endoleak</td></tr>
+          <tr><td>Laag risico, stabiel</td><td>Uitgestelde beeldvorming; echo-surveillance</td></tr>
+          <tr><td>5 jaar</td><td>CTA gehele aorta en iliacale systeem ter detectie late complicaties</td></tr>
+          <tr><td>Bij sacgroei / endoleak</td><td>Geïntensiveerde follow-up en behandeling</td></tr>
+        </tbody>
+      </table>
+      <div class="infobox blauw"><strong>Centrumvolume:</strong> De ESVS 2024 adviseert AAA-behandeling te concentreren in centra met &ge;30 AAA-herstellen per jaar, waarvan minimaal 15 open en 15 endovasculair.</div>
+    </div>
+
+    <div class="mdo-section" id="s-medicatie">
+      <div class="mdo-h2">9. Medicamenteus &amp; Risicofactoren</div>
+      <p class="mdo-p">AAA is een uiting van systemische atherosclerose. Optimaliseer cardiovasculaire risicofactoren ongeacht het behandelbesluit.</p>
+      <ul class="mdo-ul">
+        <li><strong>Roken staken:</strong> de belangrijkste beïnvloedbare factor voor groei en rupturrisico.</li>
+        <li><strong>Statine</strong> en <strong>antihypertensieve therapie</strong> conform cardiovasculair risicomanagement.</li>
+        <li><strong>Antiplaatjestherapie</strong> ter reductie van cardiovasculaire events (niet om aneurysmagroei te remmen).</li>
+        <li>Behandeling van comorbiditeit (COPD, nierfunctie, cardiale status) ter optimalisatie van het peri-operatieve risico.</li>
+      </ul>
+    </div>
+
+    <div class="mdo-section" id="s-bronnen">
+      <div class="mdo-h2">10. Bronnen</div>
+      <ul class="mdo-ul">
+        <li>Wanhainen A, et al. <a href="https://www.ejves.com/article/S1078-5884(23)00889-4/fulltext" target="_blank" rel="noopener">ESVS 2024 Clinical Practice Guidelines on the Management of Abdominal Aorto-Iliac Artery Aneurysms</a>. Eur J Vasc Endovasc Surg. 2024;67(2):192-331.</li>
+        <li><a href="https://radiopaedia.org/articles/abdominal-aortic-aneurysm" target="_blank" rel="noopener">Radiopaedia — Abdominal aortic aneurysm</a></li>
+        <li><a href="https://www.cirse.org/patients/ir-procedures/aortic-aneurysm-repair-evar/" target="_blank" rel="noopener">CIRSE — Aortic Aneurysm Repair (EVAR)</a></li>
+      </ul>
+      <p style="font-size:0.78rem;color:var(--muted);margin-top:1rem">Deze pagina is een samenvatting ter ondersteuning van de MDO-bespreking en vervangt niet de volledige richtlijn of het klinisch oordeel. Drempels en device-specifieke IFU's kunnen lokaal afwijken.</p>
+    </div>
+
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">Inhoudsopgave</div>
+    <ul class="toc-list">
+      <li><a href="#s-achtergrond">1. Achtergrond</a></li>
+      <li><a href="#s-diagnostiek">2. Diagnostiek &amp; surveillance</a></li>
+      <li><a href="#s-indicatie">3. Behandelindicatie</a></li>
+      <li><a href="#s-keuze">4. EVAR vs. open</a></li>
+      <li><a href="#s-anatomie">5. Anatomie voor EVAR</a></li>
+      <li><a href="#s-ir">6. Rol IR</a></li>
+      <li><a href="#s-endoleak">7. Endoleaks</a></li>
+      <li><a href="#s-followup">8. Follow-up</a></li>
+      <li><a href="#s-medicatie">9. Medicamenteus</a></li>
+      <li><a href="#s-bronnen">10. Bronnen</a></li>
+    </ul>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/7.0.0/fuse.min.js"></script>
+<script src="../procedures.js"></script>
+<script src="../nav.js"></script>
+<script src="../search.js"></script>
+<script src="../lang.js"></script>
+</body>
+</html>
