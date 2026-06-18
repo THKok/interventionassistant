@@ -49,7 +49,7 @@ const NAV_ITEMS = [
     items: [
       { label: 'Shunt MDO',         url: 'mdo/shunt-mdo.html' },
       { label: 'Vaatchirurgie MDO — Bekken/Been', url: 'mdo/vaatchirurgie-mdo.html' },
-      { label: 'Aorta MDO — AAA', url: 'mdo/aorta-mdo.html' },
+      { label: 'Aorta MDO', url: 'mdo/aorta-mdo.html' },
       { label: 'Visceraal MDO — Mesenteriaal', url: 'mdo/visceraal-mdo.html' },
     ]
   },
