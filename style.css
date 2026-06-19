@@ -13,7 +13,9 @@
   --purple:       #6040a0;
   --purple-light: #ece8f7;
   --orange:       #b36000;
+  --orange-light: #fdebd3;
   --green:        #1a7a3e;
+  --green-light:  #d9f0e1;
   --text:         #1a1a2a;
   --muted:        #5a6378;
   --border:       #cdd3de;
@@ -422,6 +424,22 @@ nav {
 .meta-pill.nonvasc { background: var(--teal-light);   color: var(--teal); }
 .meta-pill.onco    { background: var(--purple-light); color: var(--purple); }
 .meta-pill.thrombo { background: var(--red-light);    color: var(--red);  }
+
+/* Antistolling risicobadge */
+.risk-badge {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  padding: 0.4rem 0.85rem; border-radius: 8px; font-size: 0.8rem; font-weight: 700;
+  text-decoration: none; cursor: pointer; transition: opacity 0.15s; border: 1.5px solid transparent;
+}
+.risk-badge:hover { opacity: 0.85; }
+.risk-badge .risk-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.risk-badge.laag         { background: var(--green-light);  color: var(--green);  border-color: var(--green); }
+.risk-badge.laag .risk-dot         { background: var(--green); }
+.risk-badge.intermediair { background: var(--orange-light); color: var(--orange); border-color: var(--orange); }
+.risk-badge.intermediair .risk-dot { background: var(--orange); }
+.risk-badge.hoog         { background: var(--red-light);    color: var(--red);    border-color: var(--red); }
+.risk-badge.hoog .risk-dot         { background: var(--red); }
+.risk-badge-arr { font-size: 0.75rem; opacity: 0.7; }
 
 /* ══════════════════════════════════════
    ACCORDION

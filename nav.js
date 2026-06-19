@@ -58,6 +58,7 @@ const NAV_ITEMS = [
     dot: '#6040a0',
     items: [
       { label: 'Overzicht materiaal', label_en: 'Equipment overview', url: 'materiaal/index.html' },
+      { label: 'Antistolling bij interventies', label_en: 'Anticoagulation in interventions', url: 'materiaal/antistolling.html' },
       { label: 'Angioset', label_en: 'Angio set',            url: 'materiaal/angioset.html' },
       { label: 'Katheters', label_en: 'Catheters',           url: 'materiaal/katheters.html' },
       { label: 'Draden', label_en: 'Guidewires',              url: 'materiaal/draden.html' },
