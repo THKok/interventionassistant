@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sheaths & Katheters — InterventionAssistant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .sheath-intro {
+      background: var(--bg);
+      border-left: 4px solid var(--teal);
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      border-radius: 4px;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    .sheath-intro p { margin: 0.5rem 0; }
+    .sheath-intro strong { color: var(--teal); }
+    
+    .fr-explain {
+      background: #f5f5f5;
+      border-radius: 4px;
+      padding: 0.8rem;
+      margin: 0.5rem 0;
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 0.9rem;
+    }
+    .fr-explain code { background: #fff; padding: 2px 4px; border-radius: 2px; font-size: 0.85rem; }
+    
+    .sheath-color-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      background: #fff;
+    }
+    .sheath-color-table th { 
+      background: var(--bg);
+      padding: 0.8rem;
+      text-align: left;
+      font-weight: 600;
+      border-bottom: 2px solid var(--teal);
+      font-size: 0.9rem;
+    }
+    .sheath-color-table td {
+      padding: 0.8rem;
+      border-bottom: 1px solid #e0e0e0;
+      font-size: 0.9rem;
+    }
+    .sheath-color-dot {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 1px solid #999;
+      vertical-align: middle;
+      margin-right: 0.5rem;
+    }
+    
+    .katheter-svg-wrap {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 1.5rem 0;
+      padding: 1rem;
+      background: #fafafa;
+      border-radius: 4px;
+      flex-wrap: wrap;
+    }
+    .katheter-svg-wrap svg {
+      flex-shrink: 0;
+    }
+    .katheter-svg-info {
+      flex: 1;
+      min-width: 250px;
+      font-size: 0.95rem;
+    }
+    .katheter-svg-info strong { color: var(--blue); }
+    
+    .katheter-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      background: #fff;
+    }
+    .katheter-table th {
+      background: var(--bg);
+      padding: 0.8rem;
+      text-align: left;
+      font-weight: 600;
+      border-bottom: 2px solid var(--blue);
+      font-size: 0.9rem;
+    }
+    .katheter-table td {
+      padding: 0.8rem;
+      border-bottom: 1px solid #e0e0e0;
+      font-size: 0.9rem;
+    }
+    .katheter-table tr:hover { background: #f9f9f9; }
+  </style>
+</head>
+<body>
+<nav></nav>
+<div class="main proc-page">
+  <div class="breadcrumb">
+    <a href="../index.html">Home</a><span class="sep">›</span>
+    <a href="index.html">Materiaal</a><span class="sep">›</span>
+    <span data-nl="Sheaths & Katheters" data-en="Sheaths & Catheters">Sheaths & Katheters</span>
+  </div>
+  <div class="proc-header">
+    <div class="proc-header-bar" style="background:#6040a0"></div>
+    <div>
+      <h1 data-nl="Sheaths & Katheters" data-en="Sheaths & Catheters">Sheaths & Katheters</h1>
+      <p data-nl="Overzicht van sheaths en diagnostische/therapeutische katheters in de IR" data-en="Overview of sheaths and diagnostic/therapeutic catheters in IR">Overzicht van sheaths en diagnostische/therapeutische katheters in de IR</p>
+      <div class="proc-meta">
+        <span class="meta-pill" style="background:#ece8f7;color:#6040a0" data-nl="Materiaal" data-en="Materials">Materiaal</span>
+        <span class="meta-pill" style="background:#ece8f7;color:#6040a0" data-nl="Hardware" data-en="Hardware">Hardware</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Inleiding -->
+  <div class="sheath-intro">
+    <p><strong data-nl="French (Fr) maten:" data-en="French (Fr) sizes:">French (Fr) maten:</strong> <span data-nl="1 Fr = 1/3 mm buitendiameter. Een 6 Fr sheath heeft dus een buitendiameter van ~2 mm (6 × 0,333 = 2 mm)." data-en="1 Fr = 1/3 mm outer diameter. A 6 Fr sheath thus has an outer diameter of ~2 mm (6 × 0.333 = 2 mm).">1 Fr = 1/3 mm buitendiameter. Een 6 Fr sheath heeft dus een buitendiameter van ~2 mm (6 × 0,333 = 2 mm).</span></p>
+    <p><strong data-nl="Sheath vs katheter:" data-en="Sheath vs catheter:">Sheath vs katheter:</strong></p>
+    <ul style="margin: 0.5rem 0 0 1.5rem;">
+      <li data-nl="Sheath: maat uitgedrukt in BINNENDIAMETER (Fr). Een 6 Fr sheath kan een 6 Fr katheter/draad door zich heen laten." data-en="Sheath: size expressed in INNER DIAMETER (Fr). A 6 Fr sheath can accommodate a 6 Fr catheter/wire.">Sheath: maat uitgedrukt in <strong>BINNENDIAMETER (Fr)</strong>. Een 6 Fr sheath kan een 6 Fr katheter/draad door zich heen laten.</li>
+      <li data-nl="Katheter: maat uitgedrukt in BUITENDIAMETER (Fr). Een 5 Fr katheter past door een 6 Fr sheath." data-en="Catheter: size expressed in OUTER DIAMETER (Fr). A 5 Fr catheter fits through a 6 Fr sheath.">Katheter: maat uitgedrukt in <strong>BUITENDIAMETER (Fr)</strong>. Een 5 Fr katheter past door een 6 Fr sheath.</li>
+    </ul>
+    <div class="fr-explain" data-nl="Praktisch: gebruik altijd een sheath die minimaal 1 Fr groter is dan je katheter om gemakkelijk uit te wisselen." data-en="Practical: always use a sheath at least 1 Fr larger than your catheter for smooth exchanges.">Praktisch: gebruik altijd een sheath die minimaal 1 Fr groter is dan je katheter om gemakkelijk uit te wisselen.</div>
+  </div>
+
+  <!-- SHEATHS ACCORDION -->
+  <div class="accordion open" id="acc-sheaths">
+    <div class="acc-header" onclick="toggleAcc('acc-sheaths')">
+      <div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title" data-nl="Sheaths (toegang)" data-en="Sheaths (access)">Sheaths (toegang)</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner">
+        <p data-nl="Sheaths handhaven toegang en voorkomen verwonding van de toegangsplaats bij meerdere wissels. De kleur is gecodeerd naar binnendiameter. Standaard gebruikt men korte (10–15 cm) of lange sheaths (20–90 cm)." data-en="Sheaths maintain access and prevent injury at the access site from multiple exchanges. Color is coded by inner diameter. Standard short (10–15 cm) or long sheaths (20–90 cm) are used.">Sheaths handhaven toegang en voorkomen verwonding van de toegangsplaats bij meerdere wissels. De kleur is gecodeerd naar binnendiameter. Standaard gebruikt men korte (10–15 cm) of lange sheaths (20–90 cm).</p>
+      </div>
+
+      <!-- Kleurentabel -->
+      <div class="acc-inner" style="padding:0">
+        <table class="sheath-color-table">
+          <thead>
+            <tr>
+              <th data-nl="Bolletje" data-en="Color">Bolletje</th>
+              <th data-nl="French (F)" data-en="French (F)">French (F)</th>
+              <th data-nl="Kleur" data-en="Color">Kleur</th>
+              <th data-nl="Voorbeeld gebruik" data-en="Example use">Voorbeeld gebruik</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="sheath-color-dot" style="background: #ff1493;"></span></td>
+              <td>4</td>
+              <td>Roze/Rood</td>
+              <td data-nl="Microkatheters, diagnostische fine-needle biopsies" data-en="Microcatheters, diagnostic fine-needle biopsies">Microkatheters, diagnostische fine-needle biopsies</td>
+            </tr>
+            <tr>
+              <td><span class="sheath-color-dot" style="background: #808080;"></span></td>
+              <td>5</td>
+              <td>Grijs</td>
+              <td data-nl="Standaard diagnostische katheters, veel viscale selectiewerk" data-en="Standard diagnostic catheters, visceral selective work">Standaard diagnostische katheters, veel viscale selectiewerk</td>
+            </tr>
+            <tr>
+              <td><span class="sheath-color-dot" style="background: #228b22;"></span></td>
+              <td>6</td>
+              <td>Groen</td>
+              <td data-nl="Therapeutisch werk, nefrostomie, PTCD, embolisatie setup" data-en="Therapeutic work, nephrostomy, PTCD, embolization setup">Therapeutisch werk, nefrostomie, PTCD, embolisatie setup</td>
+            </tr>
+            <tr>
+              <td><span class="sheath-color-dot" style="background: #ff8c00;"></span></td>
+              <td>7</td>
+              <td>Oranje</td>
+              <td data-nl="Grote katheters, stent-carrying devices, perifeer vasculair" data-en="Large catheters, stent-carrying devices, peripheral vascular">Grote katheters, stent-carrying devices, perifeer vasculair</td>
+            </tr>
+            <tr>
+              <td><span class="sheath-color-dot" style="background: #0066cc;"></span></td>
+              <td>8</td>
+              <td>Blauw</td>
+              <td data-nl="Embolisatiematerialen (coils, plugs), grote devices" data-en="Embolization materials (coils, plugs), large devices">Embolisatiematerialen (coils, plugs), grote devices</td>
+            </tr>
+            <tr>
+              <td><span class="sheath-color-dot" style="background: #000000;"></span></td>
+              <td>9</td>
+              <td>Zwart</td>
+              <td data-nl="Zeer grote devices (aorta-werk, aneurysma-exclusion)" data-en="Very large devices (aortic work, aneurysm exclusion)">Zeer grote devices (aorta-werk, aneurysma-exclusion)</td>
+            </tr>
+            <tr>
+              <td><span class="sheath-color-dot" style="background: #ff1493;"></span></td>
+              <td>10</td>
+              <td>Magenta</td>
+              <td data-nl="Xtra-grote accessoire systemen" data-en="Extra-large accessory systems">Xtra-grote accessoire systemen</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="acc-inner">
+        <div class="note teal" data-nl="Hemostase-klep: alle sheaths hebben een hemostase-klep die voorkomen dat bloed of lucht uit de sheath ontsnapt tijdens katheter-uitwisseling." data-en="Hemostasis valve: all sheaths have a hemostasis valve that prevents blood or air from escaping during catheter exchanges."><strong data-nl="Hemostase-klep:" data-en="Hemostasis valve:">Hemostase-klep:</strong> <span data-nl="alle sheaths hebben een hemostase-klep die voorkomen dat bloed of lucht uit de sheath ontsnapt tijdens katheter-uitwisseling." data-en="all sheaths have a hemostasis valve that prevents blood or air from escaping during catheter exchanges.">alle sheaths hebben een hemostase-klep die voorkomen dat bloed of lucht uit de sheath ontsnapt tijdens katheter-uitwisseling.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KATHETERS ACCORDION -->
+  <div class="accordion open" id="acc-diag">
+    <div class="acc-header" onclick="toggleAcc('acc-diag')">
+      <div class="acc-title-wrap"><span class="acc-dot blue"></span><span class="acc-title" data-nl="Diagnostische katheters" data-en="Diagnostic catheters">Diagnostische katheters</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner" style="padding:0">
+        <table class="katheter-table">
+          <thead>
+            <tr>
+              <th data-nl="Katheter" data-en="Catheter">Katheter</th>
+              <th data-nl="Maat" data-en="Size">Maat</th>
+              <th data-nl="Toepassing" data-en="Application">Toepassing</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="mat-cat"><td colspan="3" data-nl="Flush katheters" data-en="Flush catheters">Flush katheters</td></tr>
+            <tr><td>Pigtail</td><td>4–5 Fr</td><td data-nl="Aortografie, overzichtsangiografie" data-en="Aortography, overview angiography">Aortografie, overzichtsangiografie</td></tr>
+            <tr><td>Omniflush</td><td>4–5 Fr</td><td data-nl="Overzichtsangiografie bekken/been" data-en="Overview angiography pelvis/leg">Overzichtsangiografie bekken/been</td></tr>
+            <tr class="mat-cat"><td colspan="3" data-nl="Selectieve katheters" data-en="Selective catheters">Selectieve katheters</td></tr>
+            <tr><td>Cobra (C1, C2)</td><td>4–5 Fr</td><td data-nl="Selectiveren viscerale vaten, renaal, iliacaal" data-en="Selective visceral vessels, renal, iliac">Selectiveren viscerale vaten, renaal, iliacaal</td></tr>
+            <tr><td>Sidewinder (Simmons)</td><td>4–5 Fr</td><td data-nl="Moeilijk te selectiveren vaten, aorta met korte tak" data-en="Difficult vessels, aorta with short takeoff">Moeilijk te selectiveren vaten, aorta met korte tak</td></tr>
+            <tr><td>Bernstein</td><td>4–5 Fr</td><td data-nl="Supporting katheter bij crossing, perifeer vasculair" data-en="Support catheter for crossing, peripheral vascular">Supporting katheter bij crossing, perifeer vasculair</td></tr>
+            <tr><td>SOS Omni</td><td>4–5 Fr</td><td data-nl="Alternatief voor Sidewinder, cross-over techniek" data-en="Alternative to Sidewinder, crossover technique">Alternatief voor Sidewinder, cross-over techniek</td></tr>
+            <tr><td>Vertebralis</td><td>4–5 Fr</td><td data-nl="A. subclavia, a. vertebralis" data-en="Subclavian, vertebral arteries">A. subclavia, a. vertebralis</td></tr>
+            <tr><td>RIM (Merit Medical)</td><td>5 Fr</td><td data-nl="A. iliaca interna selectivering — PAE" data-en="Internal iliac selective — PAE">A. iliaca interna selectivering — PAE</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- SVG Simmons katheter VOORBEELD -->
+      <div class="acc-inner">
+        <h3 style="margin: 0 0 0.5rem 0;" data-nl="Katheter-vormen: Simmons voorbeeld" data-en="Catheter shapes: Simmons example">Katheter-vormen: Simmons voorbeeld</h3>
+        <div class="katheter-svg-wrap">
+          <svg viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg" width="140" height="210" style="stroke: #000; stroke-width: 2.5; fill: none; stroke-linecap: round; stroke-linejoin: round;">
+            <!-- Rechte schacht (distal) -->
+            <path d="M 100 10 L 100 80"/>
+            <!-- Eerste curve (tertiary - naar links-boven) -->
+            <path d="M 100 80 Q 85 85 80 100"/>
+            <!-- Tweede curve (naar linksonder) -->
+            <path d="M 80 100 Q 75 130 85 160"/>
+            <!-- Derde curve (naar rechts - proximaal) -->
+            <path d="M 85 160 Q 100 175 120 180"/>
+            <!-- Proximale haak -->
+            <path d="M 120 180 Q 130 175 135 160 L 135 150"/>
+            <!-- Tip marker -->
+            <circle cx="100" cy="10" r="2.5" fill="#000"/>
+            <!-- Beschrijving -->
+            <text x="145" y="160" font-family="Nunito Sans, sans-serif" font-size="10" fill="#000" font-weight="400">
+              <tspan x="145" y="160">Simmons</tspan>
+              <tspan x="145" y="172">3D vorm</tspan>
+              <tspan x="145" y="184">voor selectie</tspan>
+            </text>
+          </svg>
+          <div class="katheter-svg-info">
+            <p><strong data-nl="Simmons (Sidewinder):" data-en="Simmons (Sidewinder):">Simmons (Sidewinder):</strong></p>
+            <p data-nl="De Simmons katheter heeft een karakteristieke 3D-vorm met meerdere curven waardoor hij ideaal is voor selectief kanalen naar vaten met een korte tak ten opzichte van de aorta, zoals de." data-en="The Simmons catheter has a characteristic 3D shape with multiple curves, making it ideal for selective cannulation of vessels with short takeoff from the aorta, such as">De Simmons katheter heeft een karakteristieke 3D-vorm met meerdere curven waardoor hij ideaal is voor selectief kanalen naar vaten met een korte tak ten opzichte van de aorta.</p>
+            <p style="margin-top:0.5rem;font-size:0.85rem;"><span data-nl="Tip:" data-en="Tip:">Tip:</span> <span data-nl="Goed manoeuvreren met torque, stapt makkelijk in de target-vaten dankzij de hoek van de haak." data-en="Good maneuverability with torque, easily enters target vessels thanks to the hook angle.">Goed manoeuvreren met torque, stapt makkelijk in de target-vaten dankzij de hoek van de haak.</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-inner">
+        <div class="note orange"><strong data-nl="Flush (pigtail/omniflush):" data-en="Flush (pigtail/omniflush):">Flush (pigtail/omniflush):</strong> <span data-nl="Hoge flow, overzichtsbeelden. Altijd eerst bij aorta en bekkenvaten voor planning." data-en="High flow, overview images. Always start at aorta and pelvic vessels for planning.">Hoge flow, overzichtsbeelden. Altijd eerst bij aorta en bekkenvaten voor planning.</span></div>
+        <div class="note orange"><strong data-nl="Selectief:" data-en="Selective:">Selectief:</strong> <span data-nl="Lagere flow, gericht op één vat. Cobra voor meeste viscerale vaten, Sidewinder/Simmons bij scherpe hoek." data-en="Lower flow, targeted at one vessel. Cobra for most visceral vessels, Sidewinder/Simmons for sharp angles.">Lagere flow, gericht op één vat. Cobra voor meeste viscerale vaten, Sidewinder/Simmons bij scherpe hoek.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Supporting katheters -->
+  <div class="accordion open" id="acc-support">
+    <div class="acc-header" onclick="toggleAcc('acc-support')">
+      <div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title" data-nl="Supporting katheters" data-en="Supporting catheters">Supporting katheters</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner" style="padding:0">
+        <table class="katheter-table">
+          <thead>
+            <tr>
+              <th data-nl="Katheter" data-en="Catheter">Katheter</th>
+              <th data-nl="Maat" data-en="Size">Maat</th>
+              <th data-nl="Toepassing" data-en="Application">Toepassing</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Quick-Cross</td><td>4 Fr</td><td data-nl="Extra support bij crossing CTO, perifeer" data-en="Extra support for CTO crossing, peripheral">Extra support bij crossing CTO, perifeer</td></tr>
+            <tr><td>Rubicon</td><td>0.035" compatibel</td><td data-nl="Ondersteuning bij taaie occlusies" data-en="Support for tough occlusions">Ondersteuning bij taaie occlusies</td></tr>
+            <tr><td>Microkatheter (bijv. Asahi Tellus)</td><td>2.4–2.8 Fr</td><td data-nl="Superselective embolisatie, 0.014" systemen — PAE" data-en="Superselective embolization, 0.014\" systems — PAE">Superselective embolisatie, 0.014" systemen — PAE</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="acc-inner">
+        <div class="note orange"><span data-nl="Supporting katheters zijn compatibel met specifieke draadmaten — controleer altijd of de katheter geschikt is voor 0.035" of 0.014" systeem." data-en="Supporting catheters are compatible with specific wire sizes — always check if the catheter is suitable for 0.035\" or 0.014\" systems.">Supporting katheters zijn compatibel met specifieke draadmaten — controleer altijd of de katheter geschikt is voor 0.035" of 0.014" systeem.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Drainagekatheters -->
+  <div class="accordion open" id="acc-drain">
+    <div class="acc-header" onclick="toggleAcc('acc-drain')">
+      <div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title" data-nl="Drainagekatheters" data-en="Drainage catheters">Drainagekatheters</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner" style="padding:0">
+        <table class="katheter-table">
+          <thead>
+            <tr>
+              <th data-nl="Katheter" data-en="Catheter">Katheter</th>
+              <th data-nl="Maat" data-en="Size">Maat</th>
+              <th data-nl="Toepassing" data-en="Application">Toepassing</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="mat-cat"><td colspan="3" data-nl="Nefrostomie" data-en="Nephrostomy">Nefrostomie</td></tr>
+            <tr><td>Multipurpose drain (Cook Flexima)</td><td>8.5–10.2 Fr</td><td data-nl="Standaard nefrostomie — metalen stilet bij primaire plaatsing, plastic bij wissel" data-en="Standard nephrostomy — metal stylet for primary placement, plastic for exchange">Standaard nefrostomie — metalen stilet bij primaire plaatsing, plastic bij wissel</td></tr>
+            <tr><td>Dawson-Muller drain</td><td>8.5 Fr</td><td data-nl="Nefrostomie bij slank pyelum — stijvere schacht" data-en="Nephrostomy with slim pelvis — stiffer shaft">Nefrostomie bij slank pyelum — stijvere schacht</td></tr>
+            <tr class="mat-cat"><td colspan="3" data-nl="Galwegen" data-en="Biliary">Galwegen</td></tr>
+            <tr><td>In- & uitwendige drain (PTCD)</td><td>8.5–10.2 Fr</td><td data-nl="Percutane transhepatische cholangiodrainage — zijgaten proximaal én distaal van obstructie" data-en="Percutaneous transhepatic cholangiodrainage — side holes proximal and distal to obstruction">Percutane transhepatische cholangiodrainage — zijgaten proximaal én distaal van obstructie</td></tr>
+            <tr class="mat-cat"><td colspan="3" data-nl="Overig" data-en="Other">Overig</td></tr>
+            <tr><td>Van Sonnenberg sump drain</td><td>10–14 Fr</td><td data-nl="Grote abcessen, visceuse collecties" data-en="Large abscesses, viscous collections">Grote abcessen, visceuse collecties</td></tr>
+            <tr><td>6Fr one-step drain</td><td>6 Fr</td><td data-nl="Ascitesdrainage" data-en="Ascites drainage">Ascitesdrainage</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="acc-inner">
+        <div class="note green"><strong data-nl="8–10 Fr:" data-en="8–10 Fr:">8–10 Fr:</strong> <span data-nl="Standaard nefrostomie, dunne galwegdrainage." data-en="Standard nephrostomy, thin biliary drainage.">Standaard nefrostomie, dunne galwegdrainage.</span></div>
+        <div class="note orange"><strong data-nl="10–14 Fr:" data-en="10–14 Fr:">10–14 Fr:</strong> <span data-nl="Dik/visceus materiaal (pus, gal met debris), grote collecties." data-en="Thick/viscous material (pus, bile with debris), large collections.">Dik/visceus materiaal (pus, gal met debris), grote collecties.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Infusiekatheters -->
+  <div class="accordion open" id="acc-infusie">
+    <div class="acc-header" onclick="toggleAcc('acc-infusie')">
+      <div class="acc-title-wrap"><span class="acc-dot red"></span><span class="acc-title" data-nl="Infusiekatheters (trombolyse)" data-en="Infusion catheters (thrombolysis)">Infusiekatheters (trombolyse)</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner" style="padding:0">
+        <table class="katheter-table">
+          <thead>
+            <tr>
+              <th data-nl="Katheter" data-en="Catheter">Katheter</th>
+              <th data-nl="Maat" data-en="Size">Maat</th>
+              <th data-nl="Toepassing" data-en="Application">Toepassing</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>McNamara</td><td>5 Fr</td><td data-nl="CDT trombolyse — multi-sidehole infusie in trombus" data-en="CDT thrombolysis — multi-sidehole infusion into thrombus">CDT trombolyse — multi-sidehole infusie in trombus</td></tr>
+            <tr><td>Uni∗Fuse</td><td>4–5 Fr</td><td data-nl="CDT trombolyse — uniforme infusie over lengte" data-en="CDT thrombolysis — uniform infusion over length">CDT trombolyse — uniforme infusie over lengte</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="acc-inner">
+        <div class="note red"><span data-nl="Het actieve infusiegedeelte moet volledig in de trombus liggen. Controleer positie altijd met contrast vóór start rTPA. Sheath zijpoort apart voor heparine-infusie." data-en="The active infusion segment must be completely within the thrombus. Always verify position with contrast before starting rTPA. Sheath side port separate for heparin infusion.">Het actieve infusiegedeelte moet volledig in de trombus liggen. Controleer positie altijd met contrast vóór start rTPA. Sheath zijpoort apart voor heparine-infusie.</span></div>
+        <p style="font-size:0.82rem;margin-top:0.5rem;">→ <a href="../vasculair/rtpa-trombolyse.html" style="color:var(--blue);" data-nl="Zie ook: rTPA acuut bedreigd been" data-en="See also: rTPA acute threatened limb">Zie ook: rTPA acuut bedreigd been</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Neffset -->
+  <div class="accordion open" id="acc-neff">
+    <div class="acc-header" onclick="toggleAcc('acc-neff')">
+      <div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title" data-nl="Neffset (toegangsset)" data-en="Neffset (access set)">Neffset (toegangsset)</span></div>
+      <span class="acc-chevron">▾</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner" style="padding:0">
+        <table class="katheter-table">
+          <thead>
+            <tr>
+              <th data-nl="Component" data-en="Component">Component</th>
+              <th data-nl="Specificatie" data-en="Specification">Specificatie</th>
+              <th data-nl="Gebruik" data-en="Use">Gebruik</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Chiba naald</td><td>22G</td><td data-nl="Initiële punctie (galwegen, pyelum)" data-en="Initial puncture (biliary, pyelum)">Initiële punctie (galwegen, pyelum)</td></tr>
+            <tr><td>Cope Mandril voerdraad</td><td>0.018"</td><td data-nl="Opvoeren via Chiba naald — bij voorkeur tot in ureter/duodenum" data-en="Advance through Chiba needle — preferably into ureter/duodenum">Opvoeren via Chiba naald — bij voorkeur tot in ureter/duodenum</td></tr>
+            <tr><td>Dilatator + sheath</td><td>4 Fr</td><td data-nl="Dilatatie punctietract" data-en="Dilation of puncture tract">Dilatatie punctietract</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="acc-inner">
+        <div class="note green"><span data-nl="Neffset is de standaard toegangsset voor nefrostomie en PTCD — maakt overgang van 0.018" naar 0.035" systeem (Amplatz) mogelijk." data-en="Neffset is the standard access set for nephrostomy and PTCD — enables transition from 0.018\" to 0.035\" system (Amplatz).">Neffset is de standaard toegangsset voor nefrostomie en PTCD — maakt overgang van 0.018" naar 0.035" systeem (Amplatz) mogelijk.</span></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/7.0.0/fuse.min.js"></script>
+<script src="../procedures.js"></script>
+<script src="../nav.js"></script>
+<script src="../search.js"></script>
+<script src="../lang.js"></script>
+<script>
+function toggleAcc(id) { document.getElementById(id).classList.toggle('open'); }
+</script>
+</body>
+</html>
