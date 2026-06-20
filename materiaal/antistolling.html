@@ -24,6 +24,23 @@
     .risk-result-text { font-size: 0.9rem; line-height: 1.5; }
     .flowchart-wrap { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1rem; margin: 1rem 0; overflow-x: auto; }
     .risk-cat-table th:nth-child(1) { width: 30%; }
+    /* Risico-kolommen stap 2 */
+    .risk-cols { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.85rem; margin: 0.5rem 0; }
+    @media (max-width: 720px) { .risk-cols { grid-template-columns: 1fr; } }
+    .risk-col { border: 1.5px solid var(--border); border-radius: 10px; overflow: hidden; background: var(--white); }
+    .risk-col-head { padding: 0.6rem 0.85rem; font-weight: 800; font-size: 0.9rem; color: #fff; display: flex; align-items: center; gap: 0.45rem; }
+    .risk-col-head .rc-dot { width: 9px; height: 9px; border-radius: 50%; background: rgba(255,255,255,0.9); }
+    .risk-col.laag .risk-col-head { background: var(--green); }
+    .risk-col.intermediair .risk-col-head { background: var(--orange); }
+    .risk-col.hoog .risk-col-head { background: var(--red); }
+    .risk-col-sub { padding: 0.45rem 0.85rem 0.1rem; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; color: var(--muted); }
+    .risk-col ul { list-style: none; margin: 0; padding: 0.35rem 0.85rem 0.7rem; }
+    .risk-col li { font-size: 0.83rem; line-height: 1.4; padding: 0.32rem 0; border-bottom: 1px solid #eef0f4; color: var(--text); }
+    .risk-col li:last-child { border-bottom: none; }
+    .risk-col li.hidden { display: none; }
+    .risk-more-btn { margin: 0.2rem 0.85rem 0.8rem; padding: 0.4rem 0.7rem; font-size: 0.78rem; font-weight: 700; cursor: pointer;
+      background: var(--card); border: 1px solid var(--border); border-radius: 7px; color: var(--blue); width: calc(100% - 1.7rem); }
+    .risk-more-btn:hover { background: var(--blue-light); }
   </style>
 </head>
 <body>
@@ -55,6 +72,7 @@
     </div>
     <div class="acc-body">
       <div class="acc-inner">
+        <div class="note green" style="margin-top:0;margin-bottom:0.8rem"><strong data-nl="Timing:" data-en="Timing:">Timing:</strong> <span data-nl="De stollingsanamnese hoort al op de polikliniek te worden afgenomen bij het stellen van de indicatie — niet pas op de dag van de interventie. Zo is er tijd om zo nodig laboratoriumonderzoek te doen of antistolling tijdig te staken." data-en="The coagulation history should be taken at the outpatient clinic when the indication is set — not on the day of the intervention. This allows time for laboratory testing or timely discontinuation of anticoagulants if needed.">De stollingsanamnese hoort al op de polikliniek te worden afgenomen bij het stellen van de indicatie — niet pas op de dag van de interventie. Zo is er tijd om zo nodig laboratoriumonderzoek te doen of antistolling tijdig te staken.</span></div>
         <p data-nl="Bij patiënten die GEEN antistolling en/of plaatjesremmers gebruiken: navraag naar risicofactoren die een indicatie zijn voor laboratoriumonderzoek (PT, APTT, trombocyten) voorafgaand aan de interventie." data-en="In patients NOT using anticoagulants and/or antiplatelet agents: ask about risk factors that indicate the need for laboratory testing (PT, APTT, platelets) before the intervention.">Bij patiënten die GEEN antistolling en/of plaatjesremmers gebruiken: navraag naar risicofactoren die een indicatie zijn voor laboratoriumonderzoek (PT, APTT, trombocyten) voorafgaand aan de interventie.</p>
         <ul class="bullet">
           <li data-nl="Heeft u last van nabloedingen (bijv. na tandheelkundige ingrepen)?" data-en="Do you experience post-procedural bleeding (e.g. after dental procedures)?">Heeft u last van nabloedingen (bijv. na tandheelkundige ingrepen)?</li>
@@ -76,27 +94,77 @@
     <div class="acc-body">
       <div class="acc-inner" style="padding:0">
         <p style="padding:0 0.2rem 0.8rem" data-nl="Elke procedurepagina toont een risicobadge (laag / intermediair / hoog) die direct naar deze pagina doorlinkt. Onderstaand de volledige indeling." data-en="Every procedure page shows a risk badge (low / intermediate / high) that links directly to this page. The full classification is below.">Elke procedurepagina toont een risicobadge (laag / intermediair / hoog) die direct naar deze pagina doorlinkt. Onderstaand de volledige indeling.</p>
-        <table class="mat risk-cat-table">
-          <thead><tr>
-            <th data-nl="Laag risico" data-en="Low risk">Laag risico</th>
-            <th data-nl="Intermediair risico" data-en="Intermediate risk">Intermediair risico</th>
-            <th data-nl="Hoog risico" data-en="High risk">Hoog risico</th>
-          </tr></thead>
-          <tbody>
-            <tr class="cat-row"><td colspan="3" data-nl="Vasculair" data-en="Vascular">Vasculair</td></tr>
-            <tr>
-              <td data-nl="Intraveneuze procedures, incl. PICC · Ongetunnelde centrale lijn · Flebografie en veneuze PTA/stentplaatsing · Vena spermatica embolisatie · VCF plaatsing/verwijdering" data-en="Intravenous procedures, incl. PICC · Non-tunnelled central line · Venography and venous PTA/stenting · Spermatic vein embolisation · IVC filter placement/removal">Intraveneuze procedures, incl. PICC · Ongetunnelde centrale lijn · Flebografie en veneuze PTA/stentplaatsing · Vena spermatica embolisatie · VCF plaatsing/verwijdering</td>
-              <td data-nl="Intra-arteriële procedures tot 8Fr (PTA/stentplaatsing) · Uterusembolisatie · Prostaatembolisatie · Bronchiaalarterie-embolisatie" data-en="Intra-arterial procedures up to 8Fr (PTA/stenting) · Uterine embolisation · Prostate embolisation · Bronchial artery embolisation">Intra-arteriële procedures tot 8Fr (PTA/stentplaatsing) · Uterusembolisatie · Prostaatembolisatie · Bronchiaalarterie-embolisatie</td>
-              <td data-nl="Arteriële sheath &gt;7Fr (bv. CERAB) · Trombolyse" data-en="Arterial sheath &gt;7Fr (e.g. CERAB) · Thrombolysis">Arteriële sheath &gt;7Fr (bv. CERAB) · Trombolyse</td>
-            </tr>
-            <tr class="cat-row"><td colspan="3" data-nl="Non-vasculair" data-en="Non-vascular">Non-vasculair</td></tr>
-            <tr>
-              <td data-nl="Drainwissels, incl. PEG-wissel (niet PTCD-wissel) · Cytologische puncties (incl. diagnostische ascites/pleurapunctie) · Histologische punctie met goede afdrukmogelijkheid (incl. mammabiopsie excl. vacuümbiopsie, lymfklierbiopsie hals/lies) · Getunnelde veneuze lijnen (PAC, Hickman, Permacath) · Vacuümbiopt mamma · Thermische ablatie schildklier/lever/nier (niet-complex) · Lumbaalpunctie · Echo-/röntgengeleide gewrichtspunctie · Maag-/duodenumsonde · Scleroseren schildkliercyste, oppervlakkige lymfocele/seroom · Barbotage" data-en="Drain exchanges, incl. PEG exchange (not PTCD exchange) · Cytological punctures (incl. diagnostic ascites/pleural tap) · Histological biopsy with good compressibility (incl. breast biopsy excl. vacuum biopsy, lymph node biopsy neck/groin) · Tunnelled venous lines (PAC, Hickman, Permacath) · Vacuum breast biopsy · Thermal ablation thyroid/liver/kidney (non-complex) · Lumbar puncture · US-/X-ray-guided joint puncture · NG/duodenal tube · Sclerotherapy thyroid cyst, superficial lymphocele/seroma · Barbotage">Drainwissels, incl. PEG-wissel (niet PTCD-wissel) · Cytologische puncties (incl. diagnostische ascites/pleurapunctie) · Histologische punctie met goede afdrukmogelijkheid (incl. mammabiopsie excl. vacuümbiopsie, lymfklierbiopsie hals/lies) · Getunnelde veneuze lijnen (PAC, Hickman, Permacath) · Vacuümbiopt mamma · Thermische ablatie schildklier/lever/nier (niet-complex) · Lumbaalpunctie · Echo-/röntgengeleide gewrichtspunctie · Maag-/duodenumsonde · Scleroseren schildkliercyste, oppervlakkige lymfocele/seroom · Barbotage</td>
-              <td data-nl="Ascitesdrainage · Drainage vochtcollecties en opheffen afvloedbelemmering (nefrostomie, abcesdrainage, incl. JJ-katheter bij reeds percutane toegang) · PD-drain/IPC-plaatsing · Galblaasdrainage · Thoraxdrainage / pleurapunctie · Plaatsing PEG(PRG)/jejunostomie · Scleroseren lever-/niercyste · PTCD-wissel" data-en="Ascites drainage · Drainage of fluid collections and relief of outflow obstruction (nephrostomy, abscess drainage, incl. JJ stent via existing percutaneous access) · PD drain/IPC placement · Gallbladder drainage · Thoracic drainage / thoracentesis · PEG(PRG)/jejunostomy placement · Sclerotherapy liver/renal cyst · PTCD exchange">Ascitesdrainage · Drainage vochtcollecties en opheffen afvloedbelemmering (nefrostomie, abcesdrainage, incl. JJ-katheter bij reeds percutane toegang) · PD-drain/IPC-plaatsing · Galblaasdrainage · Thoraxdrainage / pleurapunctie · Plaatsing PEG(PRG)/jejunostomie · Scleroseren lever-/niercyste · PTCD-wissel</td>
-              <td data-nl="Histologische biopsie nier/milt · Galwegintervenies (1e procedure) en biliary stenting · Wervelkolompunctie · Nier-/miltbiopsie · Galwegdrainage (PTCD) · Vena porta-embolisatie · Thermische ablatie met complexe toegang · Diepe biopsie (long, lever, omentum, bot)" data-en="Renal/splenic histological biopsy · Biliary interventions (1st procedure) and biliary stenting · Spinal puncture · Renal/splenic biopsy · Biliary drainage (PTCD) · Portal vein embolisation · Thermal ablation with complex access · Deep biopsy (lung, liver, omentum, bone)">Histologische biopsie nier/milt · Galwegintervenies (1e procedure) en biliary stenting · Wervelkolompunctie · Nier-/miltbiopsie · Galwegdrainage (PTCD) · Vena porta-embolisatie · Thermische ablatie met complexe toegang · Diepe biopsie (long, lever, omentum, bot)</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="risk-cols">
+          <div class="risk-col laag">
+            <div class="risk-col-head"><span class="rc-dot"></span><span data-nl="Laag risico" data-en="Low risk">Laag risico</span></div>
+            <div class="risk-col-sub" data-nl="Vasculair" data-en="Vascular">Vasculair</div>
+            <ul>
+            <li class="rc-item" data-nl="Intraveneuze procedures, incl. PICC" data-en="Intravenous procedures, incl. PICC">Intraveneuze procedures, incl. PICC</li>
+            <li class="rc-item" data-nl="Ongetunnelde centrale lijn" data-en="Non-tunnelled central line">Ongetunnelde centrale lijn</li>
+            <li class="rc-item" data-nl="Flebografie en veneuze PTA/stentplaatsing" data-en="Venography and venous PTA/stenting">Flebografie en veneuze PTA/stentplaatsing</li>
+            <li class="rc-item" data-nl="Vena spermatica embolisatie" data-en="Spermatic vein embolisation">Vena spermatica embolisatie</li>
+            <li class="rc-item" data-nl="VCF plaatsing/verwijdering" data-en="IVC filter placement/removal">VCF plaatsing/verwijdering</li>
+            </ul>
+            <div class="risk-col-sub" data-nl="Non-vasculair" data-en="Non-vascular">Non-vasculair</div>
+            <ul>
+            <li class="rc-item hidden" data-nl="Getunnelde veneuze lijnen (PAC, Hickman, Permacath)" data-en="Tunnelled venous lines (PAC, Hickman, Permacath)">Getunnelde veneuze lijnen (PAC, Hickman, Permacath)</li>
+            <li class="rc-item hidden" data-nl="Drainwissels, incl. PEG-wissel (niet PTCD-wissel)" data-en="Drain exchanges, incl. PEG exchange (not PTCD exchange)">Drainwissels, incl. PEG-wissel (niet PTCD-wissel)</li>
+            <li class="rc-item hidden" data-nl="Cytologische puncties (incl. diagnostische ascites/pleurapunctie)" data-en="Cytological punctures (incl. diagnostic ascites/pleural tap)">Cytologische puncties (incl. diagnostische ascites/pleurapunctie)</li>
+            <li class="rc-item hidden" data-nl="Scleroseren schildkliercyste, oppervlakkige lymfocele/seroom" data-en="Sclerotherapy thyroid cyst, superficial lymphocele/seroma">Scleroseren schildkliercyste, oppervlakkige lymfocele/seroom</li>
+            <li class="rc-item hidden" data-nl="Thermische ablatie schildklier/lever/nier (niet-complex)" data-en="Thermal ablation thyroid/liver/kidney (non-complex)">Thermische ablatie schildklier/lever/nier (niet-complex)</li>
+            <li class="rc-item hidden" data-nl="Histologische punctie met goede afdrukmogelijkheid (incl. mammabiopsie, lymfklierbiopsie hals/lies)" data-en="Histological biopsy with good compressibility (incl. breast biopsy, lymph node biopsy neck/groin)">Histologische punctie met goede afdrukmogelijkheid (incl. mammabiopsie, lymfklierbiopsie hals/lies)</li>
+            <li class="rc-item hidden" data-nl="Vacuümbiopt mamma" data-en="Vacuum breast biopsy">Vacuümbiopt mamma</li>
+            <li class="rc-item hidden" data-nl="Lumbaalpunctie" data-en="Lumbar puncture">Lumbaalpunctie</li>
+            <li class="rc-item hidden" data-nl="Echo-/röntgengeleide gewrichtspunctie" data-en="US-/X-ray-guided joint puncture">Echo-/röntgengeleide gewrichtspunctie</li>
+            <li class="rc-item hidden" data-nl="Maag-/duodenumsonde" data-en="NG/duodenal tube">Maag-/duodenumsonde</li>
+            <li class="rc-item hidden" data-nl="Barbotage" data-en="Barbotage">Barbotage</li>
+            </ul>
+            <button class="risk-more-btn" onclick="toggleRiskMore(this)" data-nl="Meer tonen (11)…" data-en="Show more (11)…">Meer tonen (11)…</button>
+          </div>
+          <div class="risk-col intermediair">
+            <div class="risk-col-head"><span class="rc-dot"></span><span data-nl="Intermediair risico" data-en="Intermediate risk">Intermediair risico</span></div>
+            <div class="risk-col-sub" data-nl="Vasculair" data-en="Vascular">Vasculair</div>
+            <ul>
+            <li class="rc-item" data-nl="Intra-arteriële procedures tot 8Fr (PTA/stentplaatsing)" data-en="Intra-arterial procedures up to 8Fr (PTA/stenting)">Intra-arteriële procedures tot 8Fr (PTA/stentplaatsing)</li>
+            <li class="rc-item" data-nl="Uterusembolisatie" data-en="Uterine embolisation">Uterusembolisatie</li>
+            <li class="rc-item" data-nl="Prostaatembolisatie" data-en="Prostate embolisation">Prostaatembolisatie</li>
+            <li class="rc-item" data-nl="Bronchiaalarterie-embolisatie" data-en="Bronchial artery embolisation">Bronchiaalarterie-embolisatie</li>
+            </ul>
+            <div class="risk-col-sub" data-nl="Non-vasculair" data-en="Non-vascular">Non-vasculair</div>
+            <ul>
+            <li class="rc-item" data-nl="Nefrostomie" data-en="Nephrostomy">Nefrostomie</li>
+            <li class="rc-item hidden" data-nl="Abcesdrainage" data-en="Abscess drainage">Abcesdrainage</li>
+            <li class="rc-item hidden" data-nl="Ascitesdrainage" data-en="Ascites drainage">Ascitesdrainage</li>
+            <li class="rc-item hidden" data-nl="JJ-katheter (bij reeds percutane toegang)" data-en="JJ stent (via existing percutaneous access)">JJ-katheter (bij reeds percutane toegang)</li>
+            <li class="rc-item hidden" data-nl="Thoraxdrainage / pleurapunctie" data-en="Thoracic drainage / thoracentesis">Thoraxdrainage / pleurapunctie</li>
+            <li class="rc-item hidden" data-nl="Plaatsing PEG(PRG)/jejunostomie" data-en="PEG(PRG)/jejunostomy placement">Plaatsing PEG(PRG)/jejunostomie</li>
+            <li class="rc-item hidden" data-nl="Galblaasdrainage" data-en="Gallbladder drainage">Galblaasdrainage</li>
+            <li class="rc-item hidden" data-nl="PD-drain/IPC-plaatsing" data-en="PD drain/IPC placement">PD-drain/IPC-plaatsing</li>
+            <li class="rc-item hidden" data-nl="Scleroseren lever-/niercyste" data-en="Sclerotherapy liver/renal cyst">Scleroseren lever-/niercyste</li>
+            <li class="rc-item hidden" data-nl="PTCD-wissel" data-en="PTCD exchange">PTCD-wissel</li>
+            </ul>
+            <button class="risk-more-btn" onclick="toggleRiskMore(this)" data-nl="Meer tonen (9)…" data-en="Show more (9)…">Meer tonen (9)…</button>
+          </div>
+          <div class="risk-col hoog">
+            <div class="risk-col-head"><span class="rc-dot"></span><span data-nl="Hoog risico" data-en="High risk">Hoog risico</span></div>
+            <div class="risk-col-sub" data-nl="Vasculair" data-en="Vascular">Vasculair</div>
+            <ul>
+            <li class="rc-item" data-nl="Trombolyse" data-en="Thrombolysis">Trombolyse</li>
+            <li class="rc-item" data-nl="Arteriële sheath &gt;7Fr (bv. CERAB)" data-en="Arterial sheath &gt;7Fr (e.g. CERAB)">Arteriële sheath &gt;7Fr (bv. CERAB)</li>
+            </ul>
+            <div class="risk-col-sub" data-nl="Non-vasculair" data-en="Non-vascular">Non-vasculair</div>
+            <ul>
+            <li class="rc-item" data-nl="Galwegdrainage (PTCD)" data-en="Biliary drainage (PTCD)">Galwegdrainage (PTCD)</li>
+            <li class="rc-item" data-nl="Galwegintervenies (1e procedure) en biliary stenting" data-en="Biliary interventions (1st procedure) and biliary stenting">Galwegintervenies (1e procedure) en biliary stenting</li>
+            <li class="rc-item" data-nl="Nier-/miltbiopsie" data-en="Renal/splenic biopsy">Nier-/miltbiopsie</li>
+            <li class="rc-item hidden" data-nl="Diepe biopsie (long, lever, omentum, bot)" data-en="Deep biopsy (lung, liver, omentum, bone)">Diepe biopsie (long, lever, omentum, bot)</li>
+            <li class="rc-item hidden" data-nl="Vena porta-embolisatie" data-en="Portal vein embolisation">Vena porta-embolisatie</li>
+            <li class="rc-item hidden" data-nl="Wervelkolompunctie" data-en="Spinal puncture">Wervelkolompunctie</li>
+            <li class="rc-item hidden" data-nl="Thermische ablatie met complexe toegang" data-en="Thermal ablation with complex access">Thermische ablatie met complexe toegang</li>
+            </ul>
+            <button class="risk-more-btn" onclick="toggleRiskMore(this)" data-nl="Meer tonen (4)…" data-en="Show more (4)…">Meer tonen (4)…</button>
+          </div>
+        </div>
         <div class="note green" style="margin-top:0.8rem"><strong data-nl="Uitzonderingen zonder aanvullende maatregelen:" data-en="Exceptions without additional measures:">Uitzonderingen zonder aanvullende maatregelen:</strong> <span data-nl="PICC-lijn plaatsing, oppervlakkige cytologische puncties (lymfeklieren, schildklier) en ascitespuncties kunnen worden aangevraagd zonder stollingslab of het staken van antistolling/plaatjesremming." data-en="PICC line placement, superficial cytological punctures (lymph nodes, thyroid) and ascites punctures can be requested without coagulation labs or discontinuing anticoagulants/antiplatelets.">PICC-lijn plaatsing, oppervlakkige cytologische puncties (lymfeklieren, schildklier) en ascitespuncties kunnen worden aangevraagd zonder stollingslab of het staken van antistolling/plaatjesremming.</span></div>
       </div>
     </div>
@@ -149,85 +217,80 @@
 
         <p style="margin-top:1.5rem" data-nl="Visuele samenvatting van het beslispad:" data-en="Visual summary of the decision pathway:">Visuele samenvatting van het beslispad:</p>
         <div class="flowchart-wrap">
-<svg viewBox="0 0 900 720" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;font-family:'Nunito',sans-serif">
+<svg viewBox="0 0 960 760" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;font-family:'Nunito',sans-serif">
   <defs>
     <marker id="aarrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
       <path d="M0,0 L8,3 L0,6 Z" fill="#5a6378"/>
     </marker>
   </defs>
 
-  <rect x="300" y="10" width="300" height="50" rx="10" fill="#6040a0"/>
-  <text x="450" y="30" text-anchor="middle" fill="white" font-size="13" font-weight="800">Geplande interventie</text>
-  <text x="450" y="47" text-anchor="middle" fill="white" font-size="10.5">stollingsanamnese afnemen</text>
-  <line x1="450" y1="60" x2="450" y2="90" stroke="#5a6378" stroke-width="2" marker-end="url(#aarrow)"/>
+  <rect x="320" y="14" width="320" height="56" rx="12" fill="#6040a0"/>
+  <text x="480" y="38" text-anchor="middle" fill="white" font-size="15" font-weight="800">Geplande interventie</text>
+  <text x="480" y="58" text-anchor="middle" fill="white" font-size="12">stollingsanamnese reeds op de poli afgenomen</text>
+  <line x1="480" y1="70" x2="480" y2="104" stroke="#5a6378" stroke-width="2.5" marker-end="url(#aarrow)"/>
 
-  <rect x="280" y="90" width="340" height="50" rx="10" fill="#1e6db5"/>
-  <text x="450" y="110" text-anchor="middle" fill="white" font-size="13" font-weight="800">Risiconiveau procedure?</text>
-  <text x="450" y="127" text-anchor="middle" fill="white" font-size="10.5">zie risicobadge op de procedurepagina</text>
+  <rect x="300" y="104" width="360" height="56" rx="12" fill="#1e6db5"/>
+  <text x="480" y="128" text-anchor="middle" fill="white" font-size="15" font-weight="800">Bepaal risiconiveau procedure</text>
+  <text x="480" y="148" text-anchor="middle" fill="white" font-size="12">zie de risicobadge bovenaan elke procedurepagina</text>
 
-  <line x1="350" y1="140" x2="160" y2="190" stroke="#5a6378" stroke-width="2" marker-end="url(#aarrow)"/>
-  <line x1="450" y1="140" x2="450" y2="190" stroke="#5a6378" stroke-width="2" marker-end="url(#aarrow)"/>
-  <line x1="550" y1="140" x2="740" y2="190" stroke="#5a6378" stroke-width="2" marker-end="url(#aarrow)"/>
+  <line x1="370" y1="160" x2="170" y2="212" stroke="#5a6378" stroke-width="2.5" marker-end="url(#aarrow)"/>
+  <line x1="480" y1="160" x2="480" y2="212" stroke="#5a6378" stroke-width="2.5" marker-end="url(#aarrow)"/>
+  <line x1="590" y1="160" x2="790" y2="212" stroke="#5a6378" stroke-width="2.5" marker-end="url(#aarrow)"/>
 
-  <rect x="30" y="190" width="260" height="40" rx="8" fill="#1a7a3e"/>
-  <text x="160" y="214" text-anchor="middle" fill="white" font-size="12.5" font-weight="800">Laag risico</text>
-  <rect x="320" y="190" width="260" height="40" rx="8" fill="#b36000"/>
-  <text x="450" y="214" text-anchor="middle" fill="white" font-size="12.5" font-weight="800">Intermediair risico</text>
-  <rect x="610" y="190" width="260" height="40" rx="8" fill="#b53a2f"/>
-  <text x="740" y="214" text-anchor="middle" fill="white" font-size="12.5" font-weight="800">Hoog risico</text>
+  <rect x="40" y="212" width="260" height="46" rx="10" fill="#1a7a3e"/>
+  <text x="170" y="240" text-anchor="middle" fill="white" font-size="15" font-weight="800">LAAG risico</text>
+  <rect x="350" y="212" width="260" height="46" rx="10" fill="#b36000"/>
+  <text x="480" y="240" text-anchor="middle" fill="white" font-size="15" font-weight="800">INTERMEDIAIR risico</text>
+  <rect x="660" y="212" width="260" height="46" rx="10" fill="#b53a2f"/>
+  <text x="790" y="240" text-anchor="middle" fill="white" font-size="15" font-weight="800">HOOG risico</text>
 
-  <line x1="160" y1="230" x2="160" y2="260" stroke="#5a6378" stroke-width="2" marker-end="url(#aarrow)"/>
-  <line x1="450" y1="230" x2="450" y2="260" stroke="#5a6378" stroke-width="2" marker-end="url(#aarrow)"/>
-  <line x1="740" y1="230" x2="740" y2="260" stroke="#5a6378" stroke-width="2" marker-end="url(#aarrow)"/>
+  <line x1="170" y1="258" x2="170" y2="292" stroke="#5a6378" stroke-width="2.5" marker-end="url(#aarrow)"/>
+  <line x1="480" y1="258" x2="480" y2="292" stroke="#5a6378" stroke-width="2.5" marker-end="url(#aarrow)"/>
+  <line x1="790" y1="258" x2="790" y2="292" stroke="#5a6378" stroke-width="2.5" marker-end="url(#aarrow)"/>
 
-  <rect x="30" y="260" width="260" height="125" rx="10" fill="#f2f4f8" stroke="#1a7a3e" stroke-width="2"/>
-  <text x="160" y="284" text-anchor="middle" font-size="11.5" font-weight="800" fill="#1a7a3e">Alle middelen</text>
-  <text x="160" y="302" text-anchor="middle" font-size="11" fill="#1a1a2a">Geen actie nodig</text>
-  <text x="160" y="320" text-anchor="middle" font-size="10" fill="#5a6378">Tenzij: stollingslab bij</text>
-  <text x="160" y="335" text-anchor="middle" font-size="10" fill="#5a6378">levercirrose/diffuse</text>
-  <text x="160" y="350" text-anchor="middle" font-size="10" fill="#5a6378">levermetastasen (indien</text>
-  <text x="160" y="365" text-anchor="middle" font-size="10" fill="#5a6378">géén antistolling gebruikt)</text>
+  <rect x="40" y="292" width="260" height="150" rx="12" fill="#f2fbf5" stroke="#1a7a3e" stroke-width="2.5"/>
+  <text x="170" y="320" text-anchor="middle" font-size="13.5" font-weight="800" fill="#1a7a3e">Alle middelen</text>
+  <line x1="65" y1="332" x2="275" y2="332" stroke="#c5e3d0" stroke-width="1"/>
+  <text x="170" y="356" text-anchor="middle" font-size="13" fill="#1a1a2a" font-weight="700">Geen actie nodig</text>
+  <text x="170" y="386" text-anchor="middle" font-size="11.5" fill="#5a6378">Uitzondering: stollingslab</text>
+  <text x="170" y="404" text-anchor="middle" font-size="11.5" fill="#5a6378">bij levercirrose of diffuse</text>
+  <text x="170" y="422" text-anchor="middle" font-size="11.5" fill="#5a6378">levermetastasen</text>
 
-  <rect x="320" y="260" width="260" height="190" rx="10" fill="#f2f4f8" stroke="#b36000" stroke-width="2"/>
-  <text x="450" y="284" text-anchor="middle" font-size="11" font-weight="700" fill="#1a1a2a">VKA</text>
-  <text x="450" y="299" text-anchor="middle" font-size="10" fill="#5a6378">INR &lt; 2.0</text>
-  <text x="450" y="318" text-anchor="middle" font-size="11" font-weight="700" fill="#1a1a2a">DOAC (Xa-remmer)</text>
-  <text x="450" y="333" text-anchor="middle" font-size="10" fill="#5a6378">stop 24–36u (eGFR-afhankelijk)</text>
-  <text x="450" y="352" text-anchor="middle" font-size="11" font-weight="700" fill="#1a1a2a">Dabigatran</text>
-  <text x="450" y="367" text-anchor="middle" font-size="10" fill="#5a6378">stop 24–48u (eGFR-afhankelijk)</text>
-  <text x="450" y="386" text-anchor="middle" font-size="11" font-weight="700" fill="#1a1a2a">Dubbele plaatjesremming</text>
-  <text x="450" y="401" text-anchor="middle" font-size="10" fill="#5a6378">stop plavix 5 dagen</text>
-  <text x="450" y="420" text-anchor="middle" font-size="11" font-weight="700" fill="#1a1a2a">LMWH / heparinepomp</text>
-  <text x="450" y="435" text-anchor="middle" font-size="10" fill="#5a6378">laatste gift -12u / stop -2u</text>
+  <rect x="350" y="292" width="260" height="220" rx="12" fill="#fff8ee" stroke="#b36000" stroke-width="2.5"/>
+  <text x="480" y="318" text-anchor="middle" font-size="12.5" font-weight="800" fill="#b36000">VKA</text>
+  <text x="480" y="335" text-anchor="middle" font-size="11.5" fill="#1a1a2a">INR &lt; 2.0</text>
+  <text x="480" y="360" text-anchor="middle" font-size="12.5" font-weight="800" fill="#b36000">Factor Xa-remmer</text>
+  <text x="480" y="377" text-anchor="middle" font-size="11.5" fill="#1a1a2a">stop 24-36u (o.b.v. eGFR)</text>
+  <text x="480" y="402" text-anchor="middle" font-size="12.5" font-weight="800" fill="#b36000">Dabigatran</text>
+  <text x="480" y="419" text-anchor="middle" font-size="11.5" fill="#1a1a2a">stop 24-48u (o.b.v. eGFR)</text>
+  <text x="480" y="444" text-anchor="middle" font-size="12.5" font-weight="800" fill="#b36000">Dubbele plaatjesremming</text>
+  <text x="480" y="461" text-anchor="middle" font-size="11.5" fill="#1a1a2a">stop plavix 5 dagen</text>
+  <text x="480" y="486" text-anchor="middle" font-size="12.5" font-weight="800" fill="#b36000">LMWH / heparinepomp</text>
+  <text x="480" y="503" text-anchor="middle" font-size="11.5" fill="#1a1a2a">laatste gift -12u / stop -2u</text>
 
-  <rect x="610" y="260" width="260" height="190" rx="10" fill="#f2f4f8" stroke="#b53a2f" stroke-width="2"/>
-  <text x="740" y="284" text-anchor="middle" font-size="11" font-weight="700" fill="#1a1a2a">VKA</text>
-  <text x="740" y="299" text-anchor="middle" font-size="10" fill="#5a6378">INR &lt; 1.5</text>
-  <text x="740" y="318" text-anchor="middle" font-size="11" font-weight="700" fill="#1a1a2a">DOAC (Xa-remmer)</text>
-  <text x="740" y="333" text-anchor="middle" font-size="10" fill="#5a6378">stop 48u</text>
-  <text x="740" y="352" text-anchor="middle" font-size="11" font-weight="700" fill="#1a1a2a">Dabigatran</text>
-  <text x="740" y="367" text-anchor="middle" font-size="10" fill="#5a6378">stop 48–72u (eGFR-afhankelijk)</text>
-  <text x="740" y="386" text-anchor="middle" font-size="11" font-weight="700" fill="#1a1a2a">Dubbele plaatjesremming</text>
-  <text x="740" y="401" text-anchor="middle" font-size="10" fill="#5a6378">stop plavix 5 dagen</text>
-  <text x="740" y="420" text-anchor="middle" font-size="11" font-weight="700" fill="#1a1a2a">LMWH / heparinepomp</text>
-  <text x="740" y="435" text-anchor="middle" font-size="10" fill="#5a6378">laatste gift -24u / stop -4u</text>
+  <rect x="660" y="292" width="260" height="220" rx="12" fill="#fdecea" stroke="#b53a2f" stroke-width="2.5"/>
+  <text x="790" y="318" text-anchor="middle" font-size="12.5" font-weight="800" fill="#b53a2f">VKA</text>
+  <text x="790" y="335" text-anchor="middle" font-size="11.5" fill="#1a1a2a">INR &lt; 1.5</text>
+  <text x="790" y="360" text-anchor="middle" font-size="12.5" font-weight="800" fill="#b53a2f">Factor Xa-remmer</text>
+  <text x="790" y="377" text-anchor="middle" font-size="11.5" fill="#1a1a2a">stop 48u</text>
+  <text x="790" y="402" text-anchor="middle" font-size="12.5" font-weight="800" fill="#b53a2f">Dabigatran</text>
+  <text x="790" y="419" text-anchor="middle" font-size="11.5" fill="#1a1a2a">stop 48-72u (o.b.v. eGFR)</text>
+  <text x="790" y="444" text-anchor="middle" font-size="12.5" font-weight="800" fill="#b53a2f">Dubbele plaatjesremming</text>
+  <text x="790" y="461" text-anchor="middle" font-size="11.5" fill="#1a1a2a">stop plavix 5 dagen</text>
+  <text x="790" y="486" text-anchor="middle" font-size="12.5" font-weight="800" fill="#b53a2f">LMWH / heparinepomp</text>
+  <text x="790" y="503" text-anchor="middle" font-size="11.5" fill="#1a1a2a">laatste gift -24u / stop -4u</text>
 
-  <line x1="740" y1="450" x2="740" y2="480" stroke="#5a6378" stroke-width="2" marker-end="url(#aarrow)"/>
-  <rect x="595" y="480" width="290" height="55" rx="8" fill="#fff2f2" stroke="#b53a2f" stroke-width="1.5"/>
-  <text x="740" y="503" text-anchor="middle" font-size="11" font-weight="700" fill="#b53a2f">Dabigatran gecontra-indiceerd</text>
-  <text x="740" y="519" text-anchor="middle" font-size="10" fill="#1a1a2a">bij eGFR &lt; 30 ml/min</text>
+  <line x1="170" y1="442" x2="170" y2="620" stroke="#5a6378" stroke-width="2.5" marker-end="url(#aarrow)"/>
+  <line x1="480" y1="512" x2="480" y2="620" stroke="#5a6378" stroke-width="2.5" marker-end="url(#aarrow)"/>
+  <line x1="790" y1="512" x2="790" y2="620" stroke="#5a6378" stroke-width="2.5" marker-end="url(#aarrow)"/>
 
-  <line x1="160" y1="385" x2="160" y2="580" stroke="#5a6378" stroke-width="2" marker-end="url(#aarrow)"/>
-  <line x1="450" y1="450" x2="450" y2="580" stroke="#5a6378" stroke-width="2" marker-end="url(#aarrow)"/>
-  <line x1="740" y1="535" x2="740" y2="580" stroke="#5a6378" stroke-width="2" marker-end="url(#aarrow)"/>
+  <rect x="270" y="620" width="420" height="56" rx="12" fill="#1e6db5"/>
+  <text x="480" y="644" text-anchor="middle" fill="white" font-size="15" font-weight="800">Procedure uitvoeren</text>
+  <text x="480" y="664" text-anchor="middle" fill="white" font-size="12">herstart antistolling na adequate hemostase</text>
 
-  <rect x="220" y="580" width="460" height="55" rx="10" fill="#1e6db5"/>
-  <text x="450" y="603" text-anchor="middle" fill="white" font-size="12.5" font-weight="800">Procedure uitvoeren</text>
-  <text x="450" y="621" text-anchor="middle" fill="white" font-size="10.5">herstart antistolling na adequate hemostase</text>
-
-  <line x1="450" y1="635" x2="450" y2="665" stroke="#5a6378" stroke-width="2" marker-end="url(#aarrow)"/>
-  <rect x="180" y="665" width="540" height="45" rx="8" fill="#fff8ee" stroke="#b36000" stroke-width="1.5"/>
-  <text x="450" y="692" text-anchor="middle" font-size="10.5" fill="#1a1a2a">Bij twijfel of complexe casus (eGFR &lt;30, levercirrose, hoog trombo-embolisch risico): overleg stollingsarts</text>
+  <line x1="480" y1="676" x2="480" y2="704" stroke="#5a6378" stroke-width="2.5" marker-end="url(#aarrow)"/>
+  <rect x="190" y="704" width="580" height="44" rx="10" fill="#fff8ee" stroke="#b36000" stroke-width="1.5"/>
+  <text x="480" y="731" text-anchor="middle" font-size="11.5" fill="#1a1a2a">Bij twijfel of complexe casus (eGFR &lt;30, levercirrose, hoog trombo-embolisch risico): overleg stollingsarts</text>
 
 </svg>
 
@@ -309,37 +372,6 @@
   </div>
 
   <!-- Bronnen -->
-  <div class="accordion" id="acc-richtlijn">
-    <div class="acc-header" onclick="toggleAcc('acc-richtlijn')">
-      <div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title" data-nl="Vergelijking met Richtlijnen (CIRSE / SIR)" data-en="Comparison with Guidelines (CIRSE / SIR)">Vergelijking met Richtlijnen (CIRSE / SIR)</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner">
-        <p data-nl="Het lokale protocol sluit nauw aan bij de internationale CIRSE Standards of Practice (Hadi et al., CVIR 2021) — mede opgesteld door Otto van Delden (Amsterdam UMC) — en de SIR Consensus Guidelines (Patel et al., JVIR 2019). Beide hanteren dezelfde driedeling laag/intermediair(matig)/hoog bloedingsrisico." data-en="The local protocol aligns closely with the international CIRSE Standards of Practice (Hadi et al., CVIR 2021) — co-authored by Otto van Delden (Amsterdam UMC) — and the SIR Consensus Guidelines (Patel et al., JVIR 2019). Both use the same low/intermediate(moderate)/high bleeding risk classification.">Het lokale protocol sluit nauw aan bij de internationale CIRSE Standards of Practice (Hadi et al., CVIR 2021) — mede opgesteld door Otto van Delden (Amsterdam UMC) — en de SIR Consensus Guidelines (Patel et al., JVIR 2019). Beide hanteren dezelfde driedeling laag/intermediair(matig)/hoog bloedingsrisico.</p>
-        <table class="mat">
-          <thead><tr>
-            <th data-nl="Middel" data-en="Agent">Middel</th>
-            <th data-nl="Lokaal protocol" data-en="Local protocol">Lokaal protocol</th>
-            <th data-nl="CIRSE 2021" data-en="CIRSE 2021">CIRSE 2021</th>
-            <th data-nl="Overeenkomst" data-en="Agreement">Overeenkomst</th>
-          </tr></thead>
-          <tbody>
-            <tr><td>VKA — hoog</td><td>INR &lt; 1.5</td><td>INR &le; 1.5</td><td data-nl="Identiek" data-en="Identical">Identiek</td></tr>
-            <tr><td>VKA — intermediair</td><td>INR &lt; 2.0</td><td>INR &le; 1.5 (matig/hoog)</td><td data-nl="Lokaal iets soepeler" data-en="Local slightly more lenient">Lokaal iets soepeler</td></tr>
-            <tr><td data-nl="Clopidogrel (DAPT)" data-en="Clopidogrel (DAPT)">Clopidogrel (DAPT)</td><td data-nl="Stop 5 dagen" data-en="Stop 5 days">Stop 5 dagen</td><td data-nl="Stop 5 dagen" data-en="Stop 5 days">Stop 5 dagen</td><td data-nl="Identiek" data-en="Identical">Identiek</td></tr>
-            <tr><td>Dabigatran — hoog</td><td data-nl="48u (eGFR&gt;60) / 72u (30–60)" data-en="48h (eGFR&gt;60) / 72h (30–60)">48u (eGFR&gt;60) / 72u (30–60)</td><td>72u</td><td data-nl="Lokaal fijner op eGFR" data-en="Local finer by eGFR">Lokaal fijner op eGFR</td></tr>
-            <tr><td data-nl="Factor Xa remmer — hoog" data-en="Factor Xa inhibitor — high">Factor Xa remmer — hoog</td><td>Stop 48u</td><td>48–72u</td><td data-nl="Overeenkomstig" data-en="Consistent">Overeenkomstig</td></tr>
-            <tr><td>LMWH — interm. / hoog</td><td data-nl="12u / 24u" data-en="12h / 24h">12u / 24u</td><td data-nl="12u / 24u" data-en="12h / 24h">12u / 24u</td><td data-nl="Identiek" data-en="Identical">Identiek</td></tr>
-            <tr><td data-nl="Heparinepomp (UFH iv)" data-en="Heparin infusion (UFH iv)">Heparinepomp (UFH iv)</td><td data-nl="2u / 4u" data-en="2h / 4h">2u / 4u</td><td data-nl="4u (matig/hoog)" data-en="4h (mod/high)">4u (matig/hoog)</td><td data-nl="Lokaal soepeler bij interm." data-en="Local more lenient at interm.">Lokaal soepeler bij interm.</td></tr>
-            <tr><td data-nl="Trombocyten (hoog risico)" data-en="Platelets (high risk)">Trombocyten (hoog risico)</td><td>&gt; 50</td><td>&gt; 50</td><td data-nl="Identiek" data-en="Identical">Identiek</td></tr>
-          </tbody>
-        </table>
-        <div class="note green"><strong data-nl="Conclusie:" data-en="Conclusion:">Conclusie:</strong> <span data-nl="Het lokale protocol komt goed overeen met CIRSE en SIR. Het belangrijkste verschil is dat het lokale protocol de stoptijden van DOAC's en dabigatran fijner stratificeert op nierfunctie (eGFR), wat klinisch verdedigbaar en doorgaans preciezer is dan de vaste CIRSE-tijden. Bij plaatjesremmers, LMWH, VKA (hoog) en trombocytendrempels zijn de protocollen vrijwel identiek." data-en="The local protocol agrees well with CIRSE and SIR. The main difference is that the local protocol stratifies DOAC and dabigatran stop times more finely by renal function (eGFR), which is clinically defensible and generally more precise than the fixed CIRSE times. For antiplatelets, LMWH, VKA (high) and platelet thresholds the protocols are virtually identical.">Het lokale protocol komt goed overeen met CIRSE en SIR. Het belangrijkste verschil is dat het lokale protocol de stoptijden van DOAC's en dabigatran fijner stratificeert op nierfunctie (eGFR), wat klinisch verdedigbaar en doorgaans preciezer is dan de vaste CIRSE-tijden. Bij plaatjesremmers, LMWH, VKA (hoog) en trombocytendrempels zijn de protocollen vrijwel identiek.</span></div>
-      </div>
-    </div>
-  </div>
-
   <div class="accordion" id="acc-bronnen">
     <div class="acc-header" onclick="toggleAcc('acc-bronnen')">
       <div class="acc-title-wrap"><span class="acc-dot blue"></span><span class="acc-title" data-nl="Bronnen &amp; Externe Links" data-en="References &amp; External Links">Bronnen &amp; Externe Links</span></div>
@@ -365,6 +397,25 @@
 <script src="../lang.js"></script>
 <script>
 function toggleAcc(id) { document.getElementById(id).classList.toggle('open'); }
+
+function toggleRiskMore(btn) {
+  const col = btn.closest('.risk-col');
+  const lang = localStorage.getItem('ia-lang') || 'nl';
+  const expanded = btn.dataset.expanded === 'true';
+  col.querySelectorAll('.rc-item').forEach((li, i) => {
+    if (i >= 5) li.classList.toggle('hidden', expanded);
+  });
+  btn.dataset.expanded = expanded ? 'false' : 'true';
+  if (expanded) {
+    const count = col.querySelectorAll('.rc-item').length - 5;
+    btn.setAttribute('data-nl', `Meer tonen (${count})…`);
+    btn.setAttribute('data-en', `Show more (${count})…`);
+  } else {
+    btn.setAttribute('data-nl', 'Minder tonen');
+    btn.setAttribute('data-en', 'Show less');
+  }
+  btn.textContent = btn.getAttribute('data-' + lang);
+}
 
 const AT_DATA = {
   geen:     { laag: ['Geen actie', 'neutral'], intermediair: ['Geen actie', 'neutral'], hoog: ['Geen actie. Tenzij: stollingslab (PT&lt;16s, APTT&lt;35s, trombo&gt;50) bij levercirrose/diffuse levermetastasen', 'warning'], egfr: false },
