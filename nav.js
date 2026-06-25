@@ -28,7 +28,7 @@ const NAV_ITEMS = [
       { label: 'Percutane gastrostomie (PRG)', label_en: 'Percutaneous gastrostomy (PRG)', url: 'non-vasculair/gastrostomie.html' },
       { label: 'Abcesdrainage', label_en: 'Abscess drainage',            url: 'non-vasculair/abcesdrainage.html' },
       { label: 'Thoraxdrainage / pleurapunctie', label_en: 'Thoracic drainage / thoracentesis', url: 'non-vasculair/thoraxdrainage.html' },
-      { label: 'Biliary stenting', label_en: 'Biliary stenting',         url: 'non-vasculair/biliary-stenting.html' },
+      { label: 'Stentplaatsing galwegen', label_en: 'Biliary stenting',         url: 'non-vasculair/biliary-stenting.html' },
       { label: 'Sclerosering Morel-Lavallée', label_en: 'Morel-Lavallée sclerotherapy', url: 'non-vasculair/morel-lavallee.html' },
       { label: 'Sclerosering schildkliercyste', label_en: 'Thyroid cyst sclerotherapy', url: 'non-vasculair/schildkliercyste.html' },
       { label: 'Schildklierablatie (RFA)', label_en: 'Thyroid ablation (RFA)', url: 'non-vasculair/ablatie-schildklier.html' },
@@ -62,6 +62,7 @@ const NAV_ITEMS = [
       { label: 'Angioset', label_en: 'Angio set',            url: 'materiaal/angioset.html' },
       { label: 'Sheaths & Katheters', label_en: 'Sheaths & Catheters', url: 'materiaal/sheaths-en-katheters.html' },
       { label: 'Draden', label_en: 'Guidewires',              url: 'materiaal/draden.html' },
+      { label: 'Embolisatiematerialen', label_en: 'Embolization materials', url: 'materiaal/embolisatiematerialen.html' },
     ]
   }
 ];
