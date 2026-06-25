@@ -12,6 +12,7 @@ const NAV_ITEMS = [
       { label: 'Port-a-cath plaatsing', label_en: 'Port-a-cath placement',         url: 'vasculair/port-a-cath.html' },
       { label: 'PICC-lijn plaatsing', label_en: 'PICC line placement',           url: 'vasculair/picc-lijn.html' },
       { label: 'Uterusembolisatie bij fluxus', label_en: 'Uterine embolisation (PPH)',  url: 'vasculair/uterusembolisatie.html' },
+      { label: 'Uterusembolisatie bij myomen/adenomyose', label_en: 'Uterine embolisation (fibroids/adenomyosis)',  url: 'vasculair/uterusembolisatie-electief.html' },
       { label: 'Prostaatembolisatie', label_en: 'Prostate embolisation (PAE)',           url: 'vasculair/pae.html' },
       { label: 'Bronchiaalarterie embolisatie', label_en: 'Bronchial artery embolisation',  url: 'vasculair/bae.html' },
     ]
