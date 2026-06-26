@@ -64,6 +64,7 @@ const NAV_ITEMS = [
       { label: 'Sheaths & Katheters', label_en: 'Sheaths & Catheters', url: 'materiaal/sheaths-en-katheters.html' },
       { label: 'Draden', label_en: 'Guidewires',              url: 'materiaal/draden.html' },
       { label: 'Embolisatiematerialen', label_en: 'Embolization materials', url: 'materiaal/embolisatiematerialen.html' },
+      { label: 'Closure devices', label_en: 'Closure devices', url: 'materiaal/closure-devices.html' },
     ]
   }
 ];
