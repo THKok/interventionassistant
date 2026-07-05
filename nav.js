@@ -24,6 +24,7 @@ const NAV_ITEMS = [
       { label: 'Wissel nefrodrain', label_en: 'Nephrostomy exchange',        url: 'non-vasculair/wissel-nefrodrain.html' },
       { label: 'PTCD galwegdrainage', label_en: 'PTCD biliary drainage',    url: 'non-vasculair/ptcd.html' },
       { label: 'Ascitesdrainage', label_en: 'Ascites drainage',          url: 'non-vasculair/ascitesdrainage.html' },
+      { label: 'Permanente ascitesdrain (IPC)', label_en: 'Indwelling peritoneal catheter (IPC)', url: 'non-vasculair/permanente-ascitesdrain.html' },
       { label: 'Nierbiopt', label_en: 'Renal biopsy',                url: 'non-vasculair/nierbiopt.html' },
       { label: 'Antegrade JJ-katheter', label_en: 'Antegrade JJ stent',    url: 'non-vasculair/jj-katheter.html' },
       { label: 'Percutane gastrostomie (PRG)', label_en: 'Percutaneous gastrostomy (PRG)', url: 'non-vasculair/gastrostomie.html' },
