@@ -15,6 +15,7 @@ const NAV_ITEMS = [
       { label: 'Uterusembolisatie bij myomen/adenomyose', label_en: 'Uterine embolisation (fibroids/adenomyosis)',  url: 'vasculair/uterusembolisatie-electief.html' },
       { label: 'Prostaatembolisatie', label_en: 'Prostate embolisation (PAE)',           url: 'vasculair/pae.html' },
       { label: 'Bronchiaalarterie embolisatie', label_en: 'Bronchial artery embolisation',  url: 'vasculair/bae.html' },
+      { label: 'EVAR', label_en: 'EVAR',  url: 'vasculair/evar.html' },
     ]
   },
   {
