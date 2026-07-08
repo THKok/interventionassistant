@@ -1,227 +1,195 @@
 <!DOCTYPE html>
+
 <html lang="nl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title data-nl="Abcesdrainage — InterventionAssistant" data-en="Abscess Drainage — InterventionAssistant">Abcesdrainage — InterventionAssistant</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../style.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title data-en="Abscess Drainage — InterventionAssistant" data-nl="Abcesdrainage — InterventionAssistant">Abcesdrainage — InterventionAssistant</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&amp;family=Nunito+Sans:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
+<link href="../style.css" rel="stylesheet"/>
 </head>
 <body>
 <nav></nav>
 <div class="main proc-page">
-  <div class="breadcrumb">
-    <a href="../index.html">Home</a>
-    <span class="sep">›</span><span data-nl="Non-vasculair" data-en="Non-vascular">Non-vasculair</span>
-    <span class="sep">›</span><span data-nl="Abcesdrainage" data-en="Abscess drainage">Abcesdrainage</span>
-  </div>
-
-  <div class="proc-header">
-    <div class="proc-header-bar nonvasc"></div>
-    <div>
-      <h1 data-nl="Percutane Abcesdrainage" data-en="Percutaneous Abscess Drainage">Percutane Abcesdrainage</h1>
-      <p data-nl="Beeldgeleide drainage van een abces of vochtcollectie onder echo- of CT-geleide" data-en="Image-guided drainage of an abscess or fluid collection under ultrasound or CT guidance">Beeldgeleide drainage van een abces of vochtcollectie onder echo- of CT-geleide</p>
-      <div class="proc-meta">
-        <span class="meta-pill nonvasc" data-nl="Non-vasculair" data-en="Non-vascular">Non-vasculair</span>
-        <span class="meta-pill nonvasc">20–45 min</span>
-        <span class="meta-pill nonvasc" data-nl="Lokale anesthesie" data-en="Local anaesthesia">Lokale anesthesie</span>
-        <span class="meta-pill nonvasc" data-nl="Echo / CT geleide" data-en="US / CT guided">Echo / CT geleide</span>
-        <a href="../materiaal/antistolling.html" class="risk-badge intermediair"><span class="risk-dot"></span><span data-nl="Intermediair risico antistolling" data-en="Intermediate anticoagulation risk">Intermediair risico antistolling</span><span class="risk-badge-arr">›</span></a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Indicaties -->
-  <div class="accordion" id="acc-ind">
-    <div class="acc-header" onclick="toggleAcc('acc-ind')">
-      <div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title" data-nl="Indicaties &amp; Contra-indicaties" data-en="Indications &amp; Contraindications">Indicaties &amp; Contra-indicaties</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner-split">
-        <div>
-          <p class="acc-sublabel" data-nl="Indicaties" data-en="Indications">Indicaties</p>
-          <ul class="clean">
-            <li data-nl="Therapeutisch: geïnfecteerde collectie / abces — koorts, leukocytose, lucht in de collectie" data-en="Therapeutic: infected collection / abscess — fever, leukocytosis, air within the collection">Therapeutisch: geïnfecteerde collectie / abces — koorts, leukocytose, lucht in de collectie</li>
-            <li data-nl="Abces &gt;6 cm — hoge kans op falen met alleen antibiotica" data-en="Abscess &gt;6 cm — high failure rate with antibiotics alone">Abces &gt;6 cm — hoge kans op falen met alleen antibiotica</li>
-            <li data-nl="Diagnostisch: aspiratie bij onduidelijke aard van de collectie of voor kweek/resistentiebepaling" data-en="Diagnostic: aspiration when the nature of the collection is unclear or for culture/sensitivity">Diagnostisch: aspiratie bij onduidelijke aard van de collectie of voor kweek/resistentiebepaling</li>
-            <li data-nl="Postoperatieve collectie, seroom, lymfocele of geïnfecteerd hematoom" data-en="Postoperative collection, seroma, lymphocele or infected haematoma">Postoperatieve collectie, seroom, lymfocele of geïnfecteerd hematoom</li>
-            <li data-nl="Collectie bij pancreatitis of appendicitis" data-en="Collection in pancreatitis or appendicitis">Collectie bij pancreatitis of appendicitis</li>
-          </ul>
-        </div>
-        <div>
-          <p class="acc-sublabel" data-nl="Contra-indicaties" data-en="Contraindications">Contra-indicaties</p>
-          <ul class="contra">
-            <li data-nl="Ongecorrigeerde stollingsstoornis (INR &gt;1.5 / trombocyten &lt;50)" data-en="Uncorrected coagulopathy (INR &gt;1.5 / platelets &lt;50)">Ongecorrigeerde stollingsstoornis (INR &gt;1.5 / trombocyten &lt;50)</li>
-            <li data-nl="Geen veilig toegangstraject (interponerende darm, vaten of vitale structuren)" data-en="No safe access trajectory (interposed bowel, vessels or vital structures)">Geen veilig toegangstraject (interponerende darm, vaten of vitale structuren)</li>
-            <li data-nl="Zeer kleine collectie die te klein is voor percutane drainage (relatief)" data-en="Very small collection too small for percutaneous drainage (relative)">Zeer kleine collectie die te klein is voor percutane drainage (relatief)</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Pre-procedureel -->
-  <div class="accordion" id="acc-pre">
-    <div class="acc-header" onclick="toggleAcc('acc-pre')">
-      <div class="acc-title-wrap"><span class="acc-dot blue"></span><span class="acc-title" data-nl="Pre-procedurele Checklist" data-en="Pre-procedural Checklist">Pre-procedurele Checklist</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner">
-        <ul class="clean">
-          <li data-nl="&lt;strong&gt;Lab:&lt;/strong&gt; INR, trombocyten, CRP, leukocyten" data-en="&lt;strong&gt;Labs:&lt;/strong&gt; INR, platelets, CRP, white cell count"><strong>Lab:</strong> INR, trombocyten, CRP, leukocyten</li>
-          <li data-nl="&lt;strong&gt;Beeldvorming:&lt;/strong&gt; recente CT of echo ter beoordeling grootte, locatie en veilig traject" data-en="&lt;strong&gt;Imaging:&lt;/strong&gt; recent CT or ultrasound to assess size, location and safe trajectory"><strong>Beeldvorming:</strong> recente CT of echo ter beoordeling grootte, locatie en veilig traject</li>
-          <li data-nl="&lt;strong&gt;Geleide kiezen:&lt;/strong&gt; echo voor oppervlakkige/goed zichtbare collecties; CT voor diep gelegen of moeilijk bereikbare collecties" data-en="&lt;strong&gt;Choose guidance:&lt;/strong&gt; ultrasound for superficial/well-visible collections; CT for deep or hard-to-reach collections"><strong>Geleide kiezen:</strong> echo voor oppervlakkige/goed zichtbare collecties; CT voor diep gelegen of moeilijk bereikbare collecties</li>
-          <li data-nl="&lt;strong&gt;Draintype:&lt;/strong&gt; kies maat op viscositeit — dunne drain (8–10 Fr) voor sereus vocht, dikkere drain (12–16 Fr) voor purulent/visceus materiaal" data-en="&lt;strong&gt;Drain type:&lt;/strong&gt; choose size by viscosity — small drain (8–10 Fr) for serous fluid, larger drain (12–16 Fr) for purulent/viscous material"><strong>Draintype:</strong> kies maat op viscositeit — dunne drain (8–10 Fr) voor sereus vocht, dikkere drain (12–16 Fr) voor purulent/visceus materiaal</li>
-          <li data-nl="&lt;strong&gt;Antibiotica:&lt;/strong&gt; conform protocol; bij sepsis vóór procedure starten" data-en="&lt;strong&gt;Antibiotics:&lt;/strong&gt; per protocol; start before procedure if septic"><strong>Antibiotica:</strong> conform protocol; bij sepsis vóór procedure starten</li>
-          <li data-nl="&lt;strong&gt;Informed consent:&lt;/strong&gt; inclusief bloeding, infectie, letsel omliggende structuren, recidief" data-en="&lt;strong&gt;Informed consent:&lt;/strong&gt; including bleeding, infection, injury to surrounding structures, recurrence"><strong>Informed consent:</strong> inclusief bloeding, infectie, letsel omliggende structuren, recidief</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- Materiaal -->
-  <div class="accordion" id="acc-mat">
-    <div class="acc-header" onclick="toggleAcc('acc-mat')">
-      <div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title" data-nl="Materiaal" data-en="Equipment">Materiaal</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner" style="padding:0">
-        <table class="mat">
-          <thead><tr>
-            <th data-nl="Materiaal" data-en="Material">Materiaal</th>
-            <th data-nl="Specificatie" data-en="Specification">Specificatie</th>
-            <th data-nl="Aantal" data-en="Quantity">Aantal</th>
-          </tr></thead>
-          <tbody>
-            <tr><td><a href="../materiaal/angioset.html" class="mat-link" data-nl="Angioset" data-en="Angio set">Angioset</a></td><td data-nl="Standaard" data-en="Standard">Standaard</td><td>1</td></tr>
-            <tr><td data-nl="Echoprobe hoes" data-en="Ultrasound probe cover">Echoprobe hoes</td><td data-nl="Steriel (bij echo-geleide)" data-en="Sterile (for US guidance)">Steriel</td><td>1</td></tr>
-            <tr><td data-nl="Punctienaald" data-en="Puncture needle">Punctienaald</td><td data-nl="18–19G (Seldinger)" data-en="18–19G (Seldinger)">18–19G</td><td>1</td></tr>
-            <tr><td><a href="../materiaal/draden.html" class="mat-link" data-nl="Voerdraad" data-en="Guidewire">Voerdraad</a></td><td>0.035" stiff</td><td>1</td></tr>
-            <tr><td data-nl="Dilatatoren" data-en="Dilators">Dilatatoren</td><td data-nl="Oplopend conform drainmaat" data-en="Sequential per drain size">Oplopend conform drainmaat</td><td data-nl="Set" data-en="Set">Set</td></tr>
-            <tr><td data-nl="Pigtail drainagekatheter" data-en="Pigtail drainage catheter">Pigtail drainagekatheter</td><td data-nl="8–16 Fr afhankelijk van viscositeit" data-en="8–16 Fr depending on viscosity">8–16 Fr</td><td>1</td></tr>
-            <tr><td data-nl="Drainzak" data-en="Drainage bag">Drainzak</td><td data-nl="Met connector" data-en="With connector">Met connector</td><td>1</td></tr>
-            <tr><td data-nl="Kweekbuizen" data-en="Culture tubes">Kweekbuizen</td><td data-nl="Aëroob + anaëroob" data-en="Aerobic + anaerobic">Aëroob + anaëroob</td><td>2</td></tr>
-            <tr><td data-nl="Lokaal anestheticum" data-en="Local anaesthetic">Lokaal anestheticum</td><td>Lidocaïne 1%</td><td>1</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <!-- Stappenplan -->
-  <div class="accordion" id="acc-stap">
-    <div class="acc-header" onclick="toggleAcc('acc-stap')">
-      <div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title" data-nl="Stappenplan" data-en="Procedure Steps">Stappenplan</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner-split">
-        <div>
-          <ol class="steps">
-            <li><div class="sn teal">1</div><div data-nl="Positioneer de patiënt afhankelijk van de locatie van de collectie. Steriele omstandigheden." data-en="Position the patient depending on the location of the collection. Sterile conditions.">Positioneer de patiënt afhankelijk van de locatie van de collectie. Steriele omstandigheden.</div></li>
-            <li><div class="sn teal">2</div><div data-nl="Bepaal het veiligste, kortste traject onder echo- of CT-geleide — vermijd darm, vaten en pleura." data-en="Determine the safest, shortest trajectory under ultrasound or CT guidance — avoid bowel, vessels and pleura.">Bepaal het veiligste, kortste traject onder echo- of CT-geleide — vermijd darm, vaten en pleura.</div></li>
-            <li><div class="sn teal">3</div><div data-nl="Lokale anesthesie van huid tot aan de collectie." data-en="Local anaesthesia from skin to the collection.">Lokale anesthesie van huid tot aan de collectie.</div></li>
-            <li><div class="sn teal">4</div><div data-nl="Diagnostische aspiratie: aspireer wat materiaal voor kweek en beoordeel de viscositeit — bepaalt de drainmaat." data-en="Diagnostic aspiration: aspirate some material for culture and assess viscosity — determines drain size.">Diagnostische aspiratie: aspireer wat materiaal voor kweek en beoordeel de viscositeit — bepaalt de drainmaat.</div></li>
-            <li><div class="sn teal">5</div><div data-nl="&lt;strong&gt;Seldinger-techniek (standaard):&lt;/strong&gt; punctie met naald, voerdraad opvoeren in de collectie, traject dilateren, drain over de draad inbrengen." data-en="&lt;strong&gt;Seldinger technique (standard):&lt;/strong&gt; puncture with needle, advance guidewire into the collection, dilate tract, introduce drain over the wire."><strong>Seldinger-techniek (standaard):</strong> punctie met naald, voerdraad opvoeren in de collectie, traject dilateren, drain over de draad inbrengen.</div></li>
-            <li><div class="sn teal">6</div><div data-nl="&lt;strong&gt;Trocar-techniek (alternatief):&lt;/strong&gt; bij grote, oppervlakkige collecties — drain met stilet in één beweging direct in de collectie plaatsen." data-en="&lt;strong&gt;Trocar technique (alternative):&lt;/strong&gt; for large, superficial collections — place drain with stylet directly into the collection in one motion."><strong>Trocar-techniek (alternatief):</strong> bij grote, oppervlakkige collecties — drain met stilet in één beweging direct in de collectie plaatsen.</div></li>
-            <li><div class="sn teal">7</div><div data-nl="Vorm de pigtail-krul in de collectie. Aspireer zoveel mogelijk materiaal voor kweek." data-en="Form the pigtail curl within the collection. Aspirate as much material as possible for culture.">Vorm de pigtail-krul in de collectie. Aspireer zoveel mogelijk materiaal voor kweek.</div></li>
-            <li><div class="sn teal">8</div><div data-nl="Fixeer de drain aan de huid. Aansluiten op drainzak. Spoel zo nodig met NaCl ter controle van doorgankelijkheid." data-en="Fix the drain to the skin. Connect to drainage bag. Flush with NaCl if needed to check patency.">Fixeer de drain aan de huid. Aansluiten op drainzak. Spoel zo nodig met NaCl ter controle van doorgankelijkheid.</div></li>
-          </ol>
-        </div>
-        <div>
-          <p class="acc-sublabel" data-nl="Aandachtspunten" data-en="Key Points">Aandachtspunten</p>
-          <div class="note orange"><strong data-nl="Drainmaat op viscositeit:" data-en="Drain size by viscosity:">Drainmaat op viscositeit:</strong> <span data-nl="Dun, sereus vocht draineert via 8–10 Fr; dik, purulent of necrotisch materiaal vereist een 12–16 Fr drain om verstopping te voorkomen." data-en="Thin, serous fluid drains via 8–10 Fr; thick, purulent or necrotic material requires a 12–16 Fr drain to prevent occlusion.">Dun, sereus vocht draineert via 8–10 Fr; dik, purulent of necrotisch materiaal vereist een 12–16 Fr drain om verstopping te voorkomen.</span></div>
-          <div class="note orange"><strong data-nl="Seldinger vs trocar:" data-en="Seldinger vs trocar:">Seldinger vs trocar:</strong> <span data-nl="Seldinger is veiliger voor diepe of risicovolle trajecten. Trocar is sneller bij grote oppervlakkige collecties maar minder gecontroleerd." data-en="Seldinger is safer for deep or high-risk trajectories. Trocar is faster for large superficial collections but less controlled.">Seldinger is veiliger voor diepe of risicovolle trajecten. Trocar is sneller bij grote oppervlakkige collecties maar minder gecontroleerd.</span></div>
-          <div class="note red"><strong data-nl="Veilig traject:" data-en="Safe trajectory:">Veilig traject:</strong> <span data-nl="Vermijd interponerende darm, grote vaten en de pleuraholte. Bij diepe bekkenabcessen overweeg transgluteale, transrectale of transvaginale toegang." data-en="Avoid interposed bowel, large vessels and the pleural cavity. For deep pelvic abscesses consider transgluteal, transrectal or transvaginal access.">Vermijd interponerende darm, grote vaten en de pleuraholte. Bij diepe bekkenabcessen overweeg transgluteale, transrectale of transvaginale toegang.</span></div>
-          <div class="note green"><strong data-nl="Spoelen:" data-en="Flushing:">Spoelen:</strong> <span data-nl="Regelmatig spoelen met NaCl houdt de drain doorgankelijk, vooral bij visceus materiaal." data-en="Regular flushing with NaCl keeps the drain patent, especially with viscous material.">Regelmatig spoelen met NaCl houdt de drain doorgankelijk, vooral bij visceus materiaal.</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Complicaties -->
-  <div class="accordion" id="acc-comp">
-    <div class="acc-header" onclick="toggleAcc('acc-comp')">
-      <div class="acc-title-wrap"><span class="acc-dot red"></span><span class="acc-title" data-nl="Complicaties" data-en="Complications">Complicaties</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner" style="padding:0">
-        <table class="mat">
-          <thead><tr>
-            <th data-nl="Complicatie" data-en="Complication">Complicatie</th>
-            <th data-nl="Management" data-en="Management">Management</th>
-          </tr></thead>
-          <tbody>
-            <tr><td data-nl="Bloeding" data-en="Bleeding">Bloeding</td><td data-nl="Meestal zelflimiterend; bij persisteren CT-angiografie en evt. embolisatie" data-en="Usually self-limiting; if persistent CT angiography and possible embolisation">Meestal zelflimiterend; bij persisteren CT-angiografie en evt. embolisatie</td></tr>
-            <tr><td data-nl="Sepsis / bacteriëmie" data-en="Sepsis / bacteraemia">Sepsis / bacteriëmie</td><td data-nl="Minimale manipulatie, IV antibiotica, vochttoediening" data-en="Minimal manipulation, IV antibiotics, fluid resuscitation">Minimale manipulatie, IV antibiotica, vochttoediening</td></tr>
-            <tr><td data-nl="Letsel omliggende structuren (darm, vaten)" data-en="Injury to surrounding structures (bowel, vessels)">Letsel omliggende structuren (darm, vaten)</td><td data-nl="Afhankelijk van ernst; chirurgisch consult" data-en="Depending on severity; surgical consultation">Afhankelijk van ernst; chirurgisch consult</td></tr>
-            <tr><td data-nl="Draindislocatie / occlusie" data-en="Drain dislocation / occlusion">Draindislocatie / occlusie</td><td data-nl="Drain spoelen of vervangen over voerdraad" data-en="Flush or replace drain over guidewire">Drain spoelen of vervangen over voerdraad</td></tr>
-            <tr><td data-nl="Recidief collectie" data-en="Recurrent collection">Recidief collectie</td><td data-nl="Adequate drainage waarborgen; oorzaak behandelen; evt. nieuwe drain" data-en="Ensure adequate drainage; treat cause; new drain if needed">Adequate drainage waarborgen; oorzaak behandelen; evt. nieuwe drain</td></tr>
-            <tr><td data-nl="Fistelvorming" data-en="Fistula formation">Fistelvorming</td><td data-nl="Langduriger draineren; overleg behandelend specialist" data-en="Prolonged drainage; consult treating specialist">Langduriger draineren; overleg behandelend specialist</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <!-- Nazorg -->
-  <div class="accordion" id="acc-naz">
-    <div class="acc-header" onclick="toggleAcc('acc-naz')">
-      <div class="acc-title-wrap"><span class="acc-dot green"></span><span class="acc-title" data-nl="Nazorg" data-en="Aftercare">Nazorg</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner">
-        <ul class="bullet">
-          <li data-nl="Drain op afloop op zak; dagelijks productie en aspect registreren" data-en="Drain to drainage bag; record output and appearance daily">Drain op afloop op zak; dagelijks productie en aspect registreren</li>
-          <li data-nl="Bij visceus materiaal: 2–3× daags spoelen met NaCl om doorgankelijkheid te behouden" data-en="For viscous material: flush with NaCl 2–3 times daily to maintain patency">Bij visceus materiaal: 2–3× daags spoelen met NaCl om doorgankelijkheid te behouden</li>
-          <li data-nl="Drain verwijderen bij &lt;10–20 ml/24u productie, klinische verbetering en (zo nodig) controle-beeldvorming" data-en="Remove drain when output &lt;10–20 ml/24h, clinical improvement and (if needed) follow-up imaging">Drain verwijderen bij &lt;10–20 ml/24u productie, klinische verbetering en (zo nodig) controle-beeldvorming</li>
-          <li data-nl="Bij koorts of toename pijn: controleer drainpositie en doorgankelijkheid" data-en="If fever or increasing pain: check drain position and patency">Bij koorts of toename pijn: controleer drainpositie en doorgankelijkheid</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- Standaardverslag -->
-  <div class="accordion" id="acc-vers">
-    <div class="acc-header" onclick="toggleAcc('acc-vers')">
-      <div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title" data-nl="Standaardverslag" data-en="Standard Report">Standaardverslag</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner">
-        <div class="verslag-wrap">
-          <div class="verslag" id="verslag-abc"
-            data-nl="Ter vergelijking: [datum/modaliteit]
-Antistolling: [gestaakt / niet van toepassing]
-
-Indicatie: [geïnfecteerde collectie / abces] ter hoogte van [locatie],
-grootte ca. [__] cm.
-
-Steriele omstandigheden. Onder [echo / CT] geleide veilig traject bepaald,
-vrij van darm en vaten. Lokale verdoving.
-
-Diagnostische aspiratie toont [helder / troebel / purulent] materiaal —
-kweek ingezet. Op basis van viscositeit gekozen voor [maat] Fr drain.
-
-[Seldinger / trocar] techniek: [maat] Fr pigtail drain geplaatst met de
-krul in de collectie. Aspiratie van ca. [__] ml. Drain gefixeerd aan de
-huid en aangesloten op drainzak.
-
-Geen directe complicaties.
-
-CONCLUSIE:
-[Therapeutische / diagnostische] percutane drainage [locatie], [maat] Fr.
-
-NAZORG:
-Drain op zak. Spoelen conform protocol. Verwijderen bij lage productie
-en klinische verbetering."
-            data-en="Reference: [date/modality]
+<div class="breadcrumb">
+<a href="../index.html">Home</a>
+<span class="sep">›</span><span data-en="Non-vascular" data-nl="Non-vasculair">Non-vasculair</span>
+<span class="sep">›</span><span data-en="Abscess drainage" data-nl="Abcesdrainage">Abcesdrainage</span>
+</div>
+<div class="proc-header">
+<div class="proc-header-bar nonvasc"></div>
+<div>
+<h1 data-en="Percutaneous Abscess Drainage" data-nl="Percutane Abcesdrainage">Percutane Abcesdrainage</h1>
+<p data-en="Image-guided drainage of an abscess or fluid collection under ultrasound or CT guidance" data-nl="Beeldgeleide drainage van een abces of vochtcollectie onder echo- of CT-geleide">Beeldgeleide drainage van een abces of vochtcollectie onder echo- of CT-geleide</p>
+<div class="proc-meta">
+<span class="meta-pill nonvasc" data-en="Non-vascular" data-nl="Non-vasculair">Non-vasculair</span>
+<span class="meta-pill nonvasc">20–45 min</span>
+<span class="meta-pill nonvasc" data-en="Local anaesthesia" data-nl="Lokale anesthesie">Lokale anesthesie</span>
+<span class="meta-pill nonvasc" data-en="US / CT guided" data-nl="Echo / CT geleide">Echo / CT geleide</span>
+<a class="risk-badge intermediair" href="../materiaal/antistolling.html"><span class="risk-dot"></span><span data-en="Intermediate anticoagulation risk" data-nl="Intermediair risico antistolling">Intermediair risico antistolling</span><span class="risk-badge-arr">›</span></a>
+</div>
+</div>
+</div>
+<!-- Indicaties -->
+<div class="accordion" id="acc-ind">
+<div class="acc-header" onclick="toggleAcc('acc-ind')">
+<div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title" data-en="Indications &amp; Contraindications" data-nl="Indicaties &amp; Contra-indicaties">Indicaties &amp; Contra-indicaties</span></div>
+<span class="acc-chevron">▾</span>
+</div>
+<div class="acc-body">
+<div class="acc-inner-split">
+<div>
+<p class="acc-sublabel" data-en="Indications" data-nl="Indicaties">Indicaties</p>
+<ul class="clean">
+<li data-en="Therapeutic: infected collection / abscess — fever, leukocytosis, air within the collection" data-nl="Therapeutisch: geïnfecteerde collectie / abces — koorts, leukocytose, lucht in de collectie">Therapeutisch: geïnfecteerde collectie / abces — koorts, leukocytose, lucht in de collectie</li>
+<li data-en="Abscess &gt;6 cm — high failure rate with antibiotics alone" data-nl="Abces &gt;6 cm — hoge kans op falen met alleen antibiotica">Abces &gt;6 cm — hoge kans op falen met alleen antibiotica</li>
+<li data-en="Diagnostic: aspiration when the nature of the collection is unclear or for culture/sensitivity" data-nl="Diagnostisch: aspiratie bij onduidelijke aard van de collectie of voor kweek/resistentiebepaling">Diagnostisch: aspiratie bij onduidelijke aard van de collectie of voor kweek/resistentiebepaling</li>
+<li data-en="Postoperative collection, seroma, lymphocele or infected haematoma" data-nl="Postoperatieve collectie, seroom, lymfocele of geïnfecteerd hematoom">Postoperatieve collectie, seroom, lymfocele of geïnfecteerd hematoom</li>
+<li data-en="Collection in pancreatitis or appendicitis" data-nl="Collectie bij pancreatitis of appendicitis">Collectie bij pancreatitis of appendicitis</li>
+</ul>
+</div>
+<div>
+<p class="acc-sublabel" data-en="Contraindications" data-nl="Contra-indicaties">Contra-indicaties</p>
+<ul class="contra">
+<li data-en="Uncorrected coagulopathy (INR &gt;1.5 / platelets &lt;50)" data-nl="Ongecorrigeerde stollingsstoornis (INR &gt;1.5 / trombocyten &lt;50)">Ongecorrigeerde stollingsstoornis (INR &gt;1.5 / trombocyten &lt;50)</li>
+<li data-en="No safe access trajectory (interposed bowel, vessels or vital structures)" data-nl="Geen veilig toegangstraject (interponerende darm, vaten of vitale structuren)">Geen veilig toegangstraject (interponerende darm, vaten of vitale structuren)</li>
+<li data-en="Very small collection too small for percutaneous drainage (relative)" data-nl="Zeer kleine collectie die te klein is voor percutane drainage (relatief)">Zeer kleine collectie die te klein is voor percutane drainage (relatief)</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<!-- Pre-procedureel -->
+<div class="accordion" id="acc-pre">
+<div class="acc-header" onclick="toggleAcc('acc-pre')">
+<div class="acc-title-wrap"><span class="acc-dot blue"></span><span class="acc-title" data-en="Pre-procedural Checklist" data-nl="Pre-procedurele Checklist">Pre-procedurele Checklist</span></div>
+<span class="acc-chevron">▾</span>
+</div>
+<div class="acc-body">
+<div class="acc-inner">
+<ul class="clean">
+<li data-en="&lt;strong&gt;Labs:&lt;/strong&gt; INR, platelets, CRP, white cell count" data-nl="&lt;strong&gt;Lab:&lt;/strong&gt; INR, trombocyten, CRP, leukocyten"><strong>Lab:</strong> INR, trombocyten, CRP, leukocyten</li>
+<li data-en="&lt;strong&gt;Imaging:&lt;/strong&gt; recent CT or ultrasound to assess size, location and safe trajectory" data-nl="&lt;strong&gt;Beeldvorming:&lt;/strong&gt; recente CT of echo ter beoordeling grootte, locatie en veilig traject"><strong>Beeldvorming:</strong> recente CT of echo ter beoordeling grootte, locatie en veilig traject</li>
+<li data-en="&lt;strong&gt;Choose guidance:&lt;/strong&gt; ultrasound for superficial/well-visible collections; CT for deep or hard-to-reach collections" data-nl="&lt;strong&gt;Geleide kiezen:&lt;/strong&gt; echo voor oppervlakkige/goed zichtbare collecties; CT voor diep gelegen of moeilijk bereikbare collecties"><strong>Geleide kiezen:</strong> echo voor oppervlakkige/goed zichtbare collecties; CT voor diep gelegen of moeilijk bereikbare collecties</li>
+<li data-en="&lt;strong&gt;Drain type:&lt;/strong&gt; choose size by viscosity — small drain (8–10 Fr) for serous fluid, larger drain (12–16 Fr) for purulent/viscous material" data-nl="&lt;strong&gt;Draintype:&lt;/strong&gt; kies maat op viscositeit — dunne drain (8–10 Fr) voor sereus vocht, dikkere drain (12–16 Fr) voor purulent/visceus materiaal"><strong>Draintype:</strong> kies maat op viscositeit — dunne drain (8–10 Fr) voor sereus vocht, dikkere drain (12–16 Fr) voor purulent/visceus materiaal</li>
+<li data-en="&lt;strong&gt;Antibiotics:&lt;/strong&gt; per protocol; start before procedure if septic" data-nl="&lt;strong&gt;Antibiotica:&lt;/strong&gt; conform protocol; bij sepsis vóór procedure starten"><strong>Antibiotica:</strong> conform protocol; bij sepsis vóór procedure starten</li>
+<li data-en="&lt;strong&gt;Informed consent:&lt;/strong&gt; including bleeding, infection, injury to surrounding structures, recurrence" data-nl="&lt;strong&gt;Informed consent:&lt;/strong&gt; inclusief bloeding, infectie, letsel omliggende structuren, recidief"><strong>Informed consent:</strong> inclusief bloeding, infectie, letsel omliggende structuren, recidief</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Materiaal -->
+<div class="accordion" id="acc-mat">
+<div class="acc-header" onclick="toggleAcc('acc-mat')">
+<div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title" data-en="Equipment" data-nl="Materiaal">Materiaal</span></div>
+<span class="acc-chevron">▾</span>
+</div>
+<div class="acc-body">
+<div class="acc-inner" style="padding:0">
+<table class="mat">
+<thead><tr>
+<th data-en="Material" data-nl="Materiaal">Materiaal</th>
+<th data-en="Specification" data-nl="Specificatie">Specificatie</th>
+<th data-en="Quantity" data-nl="Aantal">Aantal</th>
+</tr></thead>
+<tbody>
+<tr><td><a class="mat-link" data-en="Angio set" data-nl="Angioset" href="../materiaal/angioset.html">Angioset</a></td><td data-en="Standard" data-nl="Standaard">Standaard</td><td>1</td></tr>
+<tr><td data-en="Ultrasound probe cover" data-nl="Echoprobe hoes">Echoprobe hoes</td><td data-en="Sterile (for US guidance)" data-nl="Steriel">Steriel</td><td>1</td></tr>
+<tr><td data-en="Puncture needle" data-nl="Punctienaald">Punctienaald</td><td data-en="18–19G" data-nl="18–19G">18–19G</td><td>1</td></tr>
+<tr><td><a class="mat-link" data-en="Guidewire" data-nl="Voerdraad" href="../materiaal/draden.html">Voerdraad</a></td><td>0.035" stiff</td><td>1</td></tr>
+<tr><td data-en="Dilators" data-nl="Dilatatoren">Dilatatoren</td><td data-en="Sequential per drain size" data-nl="Oplopend conform drainmaat">Oplopend conform drainmaat</td><td data-en="Set" data-nl="Set">Set</td></tr>
+<tr><td data-en="Pigtail drainage catheter" data-nl="Pigtail drainagekatheter">Pigtail drainagekatheter</td><td data-en="8–14 Fr" data-nl="8–14 Fr">8–14 Fr</td><td>1</td></tr>
+<tr><td data-en="Drainage bag" data-nl="Drainzak">Drainzak</td><td data-en="With connector" data-nl="Met connector">Met connector</td><td>1</td></tr>
+<tr><td data-en="Culture tubes" data-nl="Kweekbuizen">Kweekbuizen</td><td data-en="Aerobic + anaerobic" data-nl="Aëroob + anaëroob">Aëroob + anaëroob</td><td>2</td></tr>
+<tr><td data-en="Local anaesthetic" data-nl="Lokaal anestheticum">Lokaal anestheticum</td><td>Lidocaïne 1%</td><td>1</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Stappenplan -->
+<div class="accordion" id="acc-stap">
+<div class="acc-header" onclick="toggleAcc('acc-stap')">
+<div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title" data-en="Procedure Steps" data-nl="Stappenplan">Stappenplan</span></div>
+<span class="acc-chevron">▾</span>
+</div>
+<div class="acc-body">
+<div class="acc-inner-split">
+<div>
+<ol class="steps">
+<li><div class="sn teal">1</div><div data-en="Position the patient depending on the location of the collection. Sterile conditions." data-nl="Positioneer de patiënt afhankelijk van de locatie van de collectie. Steriele omstandigheden.">Positioneer de patiënt afhankelijk van de locatie van de collectie. Steriele omstandigheden.</div></li>
+<li><div class="sn teal">2</div><div data-en="Determine the safest, shortest trajectory under ultrasound or CT guidance — avoid bowel, vessels and pleura." data-nl="Bepaal het veiligste, kortste traject onder echo- of CT-geleide — vermijd darm, vaten en pleura.">Bepaal het veiligste, kortste traject onder echo- of CT-geleide — vermijd darm, vaten en pleura.</div></li>
+<li><div class="sn teal">3</div><div data-en="Local anaesthesia from skin to the collection." data-nl="Lokale anesthesie van huid tot aan de collectie.">Lokale anesthesie van huid tot aan de collectie.</div></li>
+<li><div class="sn teal">4</div><div data-en="Diagnostic aspiration: aspirate some material for culture and assess viscosity — determines drain size." data-nl="Diagnostische aspiratie: aspireer wat materiaal voor kweek en beoordeel de viscositeit — bepaalt de drainmaat.">Diagnostische aspiratie: aspireer wat materiaal voor kweek en beoordeel de viscositeit — bepaalt de drainmaat.</div></li>
+<li><div class="sn teal">5</div><div data-en="&lt;strong&gt;Seldinger technique (standard):&lt;/strong&gt; puncture with needle, advance guidewire into the collection, dilate tract, introduce drain over the wire." data-nl="&lt;strong&gt;Seldinger-techniek (standaard):&lt;/strong&gt; punctie met naald, voerdraad opvoeren in de collectie, traject dilateren, drain over de draad inbrengen."><strong>Seldinger-techniek (standaard):</strong> punctie met naald, voerdraad opvoeren in de collectie, traject dilateren, drain over de draad inbrengen.</div></li>
+<li><div class="sn teal">6</div><div data-en="&lt;strong&gt;Trocar technique (alternative):&lt;/strong&gt; for large, superficial collections — place drain with stylet directly into the collection in one motion." data-nl="&lt;strong&gt;Trocar-techniek (alternatief):&lt;/strong&gt; bij grote, oppervlakkige collecties — drain met stilet in één beweging direct in de collectie plaatsen."><strong>Trocar-techniek (alternatief):</strong> bij grote, oppervlakkige collecties — drain met stilet in één beweging direct in de collectie plaatsen.</div></li>
+<li><div class="sn teal">7</div><div data-en="Form the pigtail curl within the collection. Aspirate as much material as possible for culture." data-nl="Vorm de pigtail-krul in de collectie. Aspireer zoveel mogelijk materiaal voor kweek.">Vorm de pigtail-krul in de collectie. Aspireer zoveel mogelijk materiaal voor kweek.</div></li>
+<li><div class="sn teal">8</div><div data-en="Fix the drain to the skin. Connect to drainage bag. Flush with NaCl if needed to check patency." data-nl="Fixeer de drain aan de huid. Aansluiten op drainzak. Spoel zo nodig met NaCl ter controle van doorgankelijkheid.">Fixeer de drain aan de huid. Aansluiten op drainzak. Spoel zo nodig met NaCl ter controle van doorgankelijkheid.</div></li>
+</ol>
+</div>
+<div>
+<p class="acc-sublabel" data-en="Key Points" data-nl="Aandachtspunten">Aandachtspunten</p>
+<div class="note orange"><strong data-en="Drain size by viscosity:" data-nl="Drainmaat op viscositeit:">Drainmaat op viscositeit:</strong> <span data-en="Thin, serous fluid drains via 8–10 Fr; thick, purulent or necrotic material requires a 12–16 Fr drain to prevent occlusion." data-nl="Dun, sereus vocht draineert via 8–10 Fr; dik, purulent of necrotisch materiaal vereist een 12–16 Fr drain om verstopping te voorkomen.">Dun, sereus vocht draineert via 8–10 Fr; dik, purulent of necrotisch materiaal vereist een 12–16 Fr drain om verstopping te voorkomen.</span></div>
+<div class="note orange"><strong data-en="Seldinger vs trocar:" data-nl="Seldinger vs trocar:">Seldinger vs trocar:</strong> <span data-en="Seldinger is safer for deep or high-risk trajectories. Trocar is faster for large superficial collections but less controlled." data-nl="Seldinger is veiliger voor diepe of risicovolle trajecten. Trocar is sneller bij grote oppervlakkige collecties maar minder gecontroleerd.">Seldinger is veiliger voor diepe of risicovolle trajecten. Trocar is sneller bij grote oppervlakkige collecties maar minder gecontroleerd.</span></div>
+<div class="note red"><strong data-en="Safe trajectory:" data-nl="Veilig traject:">Veilig traject:</strong> <span data-en="Avoid interposed bowel, large vessels and the pleural cavity. For deep pelvic abscesses consider transgluteal, transrectal or transvaginal access." data-nl="Vermijd interponerende darm, grote vaten en de pleuraholte. Bij diepe bekkenabcessen overweeg transgluteale, transrectale of transvaginale toegang.">Vermijd interponerende darm, grote vaten en de pleuraholte. Bij diepe bekkenabcessen overweeg transgluteale, transrectale of transvaginale toegang.</span></div>
+<div class="note green"><strong data-en="Flushing:" data-nl="Spoelen:">Spoelen:</strong> <span data-en="Regular flushing with NaCl keeps the drain patent, especially with viscous material." data-nl="Regelmatig spoelen met NaCl houdt de drain doorgankelijk, vooral bij visceus materiaal.">Regelmatig spoelen met NaCl houdt de drain doorgankelijk, vooral bij visceus materiaal.</span></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Complicaties -->
+<div class="accordion" id="acc-comp">
+<div class="acc-header" onclick="toggleAcc('acc-comp')">
+<div class="acc-title-wrap"><span class="acc-dot red"></span><span class="acc-title" data-en="Complications" data-nl="Complicaties">Complicaties</span></div>
+<span class="acc-chevron">▾</span>
+</div>
+<div class="acc-body">
+<div class="acc-inner" style="padding:0">
+<table class="mat">
+<thead><tr>
+<th data-en="Complication" data-nl="Complicatie">Complicatie</th>
+<th data-en="Management" data-nl="Management">Management</th>
+</tr></thead>
+<tbody>
+<tr><td data-en="Bleeding" data-nl="Bloeding">Bloeding</td><td data-en="Usually self-limiting; if persistent CT angiography and possible embolisation" data-nl="Meestal zelflimiterend; bij persisteren CT-angiografie en evt. embolisatie">Meestal zelflimiterend; bij persisteren CT-angiografie en evt. embolisatie</td></tr>
+<tr><td data-en="Sepsis / bacteraemia" data-nl="Sepsis / bacteriëmie">Sepsis / bacteriëmie</td><td data-en="Minimal manipulation, IV antibiotics, fluid resuscitation" data-nl="Minimale manipulatie, IV antibiotica, vochttoediening">Minimale manipulatie, IV antibiotica, vochttoediening</td></tr>
+<tr><td data-en="Injury to surrounding structures (bowel, vessels)" data-nl="Letsel omliggende structuren (darm, vaten)">Letsel omliggende structuren (darm, vaten)</td><td data-en="Depending on severity; surgical consultation" data-nl="Afhankelijk van ernst; chirurgisch consult">Afhankelijk van ernst; chirurgisch consult</td></tr>
+<tr><td data-en="Drain dislocation / occlusion" data-nl="Draindislocatie / occlusie">Draindislocatie / occlusie</td><td data-en="Flush or replace drain over guidewire" data-nl="Drain spoelen of vervangen over voerdraad">Drain spoelen of vervangen over voerdraad</td></tr>
+<tr><td data-en="Recurrent collection" data-nl="Recidief collectie">Recidief collectie</td><td data-en="Ensure adequate drainage; treat cause; new drain if needed" data-nl="Adequate drainage waarborgen; oorzaak behandelen; evt. nieuwe drain">Adequate drainage waarborgen; oorzaak behandelen; evt. nieuwe drain</td></tr>
+<tr><td data-en="Fistula formation" data-nl="Fistelvorming">Fistelvorming</td><td data-en="Prolonged drainage; consult treating specialist" data-nl="Langduriger draineren; overleg behandelend specialist">Langduriger draineren; overleg behandelend specialist</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Nazorg -->
+<div class="accordion" id="acc-naz">
+<div class="acc-header" onclick="toggleAcc('acc-naz')">
+<div class="acc-title-wrap"><span class="acc-dot green"></span><span class="acc-title" data-en="Aftercare" data-nl="Nazorg">Nazorg</span></div>
+<span class="acc-chevron">▾</span>
+</div>
+<div class="acc-body">
+<div class="acc-inner">
+<ul class="bullet">
+<li data-en="Drain to drainage bag; record output and appearance daily" data-nl="Drain op afloop op zak; dagelijks productie en aspect registreren">Drain op afloop op zak; dagelijks productie en aspect registreren</li>
+<li data-en="For viscous material: flush with NaCl 2–3 times daily to maintain patency" data-nl="Bij visceus materiaal: 2–3× daags spoelen met NaCl om doorgankelijkheid te behouden">Bij visceus materiaal: 2–3× daags spoelen met NaCl om doorgankelijkheid te behouden</li>
+<li data-en="Remove drain when output &lt;10–20 ml/24h, clinical improvement and (if needed) follow-up imaging" data-nl="Drain verwijderen bij &lt;10–20 ml/24u productie, klinische verbetering en (zo nodig) controle-beeldvorming">Drain verwijderen bij &lt;10–20 ml/24u productie, klinische verbetering en (zo nodig) controle-beeldvorming</li>
+<li data-en="If fever or increasing pain: check drain position and patency" data-nl="Bij koorts of toename pijn: controleer drainpositie en doorgankelijkheid">Bij koorts of toename pijn: controleer drainpositie en doorgankelijkheid</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Standaardverslag -->
+<div class="accordion" id="acc-vers">
+<div class="acc-header" onclick="toggleAcc('acc-vers')">
+<div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title" data-en="Standard Report" data-nl="Standaardverslag">Standaardverslag</span></div>
+<span class="acc-chevron">▾</span>
+</div>
+<div class="acc-body">
+<div class="acc-inner">
+<div class="verslag-wrap">
+<div class="verslag" data-en="Reference: [date/modality]
 Anticoagulation: [discontinued / not applicable]
 
 Indication: [infected collection / abscess] at the level of [location],
@@ -244,7 +212,30 @@ CONCLUSION:
 
 AFTERCARE:
 Drain to bag. Flush per protocol. Remove when low output
-and clinical improvement.">Ter vergelijking: [datum/modaliteit]
+and clinical improvement." data-nl="Ter vergelijking: [datum/modaliteit]
+Antistolling: [gestaakt / niet van toepassing]
+
+Indicatie: [geïnfecteerde collectie / abces] ter hoogte van [locatie],
+grootte ca. [__] cm.
+
+Steriele omstandigheden. Onder [echo / CT] geleide veilig traject bepaald,
+vrij van darm en vaten. Lokale verdoving.
+
+Diagnostische aspiratie toont [helder / troebel / purulent] materiaal —
+kweek ingezet. Op basis van viscositeit gekozen voor [maat] Fr drain.
+
+[Seldinger / trocar] techniek: [maat] Fr pigtail drain geplaatst met de
+krul in de collectie. Aspiratie van ca. [__] ml. Drain gefixeerd aan de
+huid en aangesloten op drainzak.
+
+Geen directe complicaties.
+
+CONCLUSIE:
+[Therapeutische / diagnostische] percutane drainage [locatie], [maat] Fr.
+
+NAZORG:
+Drain op zak. Spoelen conform protocol. Verwijderen bij lage productie
+en klinische verbetering." id="verslag-abc">Ter vergelijking: [datum/modaliteit]
 Antistolling: [gestaakt / niet van toepassing]
 
 Indicatie: [geïnfecteerde collectie / abces] ter hoogte van [locatie],
@@ -268,31 +259,29 @@ CONCLUSIE:
 NAZORG:
 Drain op zak. Spoelen conform protocol. Verwijderen bij lage productie
 en klinische verbetering.</div>
-          <button class="copy-btn" id="copy-abc" onclick="copyVerslag('verslag-abc','copy-abc')">⎘ <span data-nl="Kopieer" data-en="Copy">Kopieer</span></button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Bronnen -->
-  <div class="accordion" id="acc-bronnen">
-    <div class="acc-header" onclick="toggleAcc('acc-bronnen')">
-      <div class="acc-title-wrap"><span class="acc-dot blue"></span><span class="acc-title" data-nl="Bronnen &amp; Externe Links" data-en="References &amp; External Links">Bronnen &amp; Externe Links</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner">
-        <ul class="bronnen-lijst">
-          <li><a href="https://www.cirse.org/patients/ir-procedures/abscess-drainage/" target="_blank" rel="noopener">CIRSE — Abscess Drainage</a></li>
-          <li><a href="https://www.ncbi.nlm.nih.gov/books/NBK556074/" target="_blank" rel="noopener">StatPearls — Image-Guided Abscess Drainage</a></li>
-          <li><a href="https://radiopaedia.org/articles/percutaneous-abscess-drainage" target="_blank" rel="noopener">Radiopaedia — Percutaneous abscess drainage</a></li>
-          <li><a href="https://doi.org/10.1007/978-981-97-9601-4_34" target="_blank" rel="noopener">Chandrashekhara — Textbook of Interventional Radiology (2024), hfst. 34</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
+<button class="copy-btn" id="copy-abc" onclick="copyVerslag('verslag-abc','copy-abc')">⎘ <span data-en="Copy" data-nl="Kopieer">Kopieer</span></button>
 </div>
-
+</div>
+</div>
+</div>
+<!-- Bronnen -->
+<div class="accordion" id="acc-bronnen">
+<div class="acc-header" onclick="toggleAcc('acc-bronnen')">
+<div class="acc-title-wrap"><span class="acc-dot blue"></span><span class="acc-title" data-en="References &amp; External Links" data-nl="Bronnen &amp; Externe Links">Bronnen &amp; Externe Links</span></div>
+<span class="acc-chevron">▾</span>
+</div>
+<div class="acc-body">
+<div class="acc-inner">
+<ul class="bronnen-lijst">
+<li><a href="https://www.cirse.org/patients/ir-procedures/abscess-drainage/" rel="noopener" target="_blank">CIRSE — Abscess Drainage</a></li>
+<li><a href="https://www.ncbi.nlm.nih.gov/books/NBK556074/" rel="noopener" target="_blank">StatPearls — Image-Guided Abscess Drainage</a></li>
+<li><a href="https://radiopaedia.org/articles/percutaneous-abscess-drainage" rel="noopener" target="_blank">Radiopaedia — Percutaneous abscess drainage</a></li>
+<li><a href="https://doi.org/10.1007/978-981-97-9601-4_34" rel="noopener" target="_blank">Chandrashekhara — Textbook of Interventional Radiology (2024), hfst. 34</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/7.0.0/fuse.min.js"></script>
 <script src="../procedures.js"></script>
 <script src="../nav.js"></script>

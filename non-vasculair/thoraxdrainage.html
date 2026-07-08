@@ -1,228 +1,194 @@
 <!DOCTYPE html>
+
 <html lang="nl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title data-nl="Thoraxdrainage / Pleurapunctie — InterventionAssistant" data-en="Thoracic Drainage / Thoracentesis — InterventionAssistant">Thoraxdrainage / Pleurapunctie — InterventionAssistant</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../style.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title data-en="Thoracic Drainage / Thoracentesis — InterventionAssistant" data-nl="Thoraxdrainage / Pleurapunctie — InterventionAssistant">Thoraxdrainage / Pleurapunctie — InterventionAssistant</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&amp;family=Nunito+Sans:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
+<link href="../style.css" rel="stylesheet"/>
 </head>
 <body>
 <nav></nav>
 <div class="main proc-page">
-  <div class="breadcrumb">
-    <a href="../index.html">Home</a>
-    <span class="sep">›</span><span data-nl="Non-vasculair" data-en="Non-vascular">Non-vasculair</span>
-    <span class="sep">›</span><span data-nl="Thoraxdrainage / pleurapunctie" data-en="Thoracic drainage / thoracentesis">Thoraxdrainage / pleurapunctie</span>
-  </div>
-
-  <div class="proc-header">
-    <div class="proc-header-bar nonvasc"></div>
-    <div>
-      <h1 data-nl="Thoraxdrainage / Pleurapunctie" data-en="Thoracic Drainage / Thoracentesis">Thoraxdrainage / Pleurapunctie</h1>
-      <p data-nl="Echogeleide aspiratie of drainage van pleuravocht of empyeem" data-en="Ultrasound-guided aspiration or drainage of pleural fluid or empyema">Echogeleide aspiratie of drainage van pleuravocht of empyeem</p>
-      <div class="proc-meta">
-        <span class="meta-pill nonvasc" data-nl="Non-vasculair" data-en="Non-vascular">Non-vasculair</span>
-        <span class="meta-pill nonvasc">15–30 min</span>
-        <span class="meta-pill nonvasc" data-nl="Lokale anesthesie" data-en="Local anaesthesia">Lokale anesthesie</span>
-        <span class="meta-pill nonvasc" data-nl="Echo geleide" data-en="US guided">Echo geleide</span>
-        <a href="../materiaal/antistolling.html" class="risk-badge intermediair"><span class="risk-dot"></span><span data-nl="Intermediair risico antistolling" data-en="Intermediate anticoagulation risk">Intermediair risico antistolling</span><span class="risk-badge-arr">›</span></a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Indicaties -->
-  <div class="accordion" id="acc-ind">
-    <div class="acc-header" onclick="toggleAcc('acc-ind')">
-      <div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title" data-nl="Indicaties &amp; Contra-indicaties" data-en="Indications &amp; Contraindications">Indicaties &amp; Contra-indicaties</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner-split">
-        <div>
-          <p class="acc-sublabel" data-nl="Indicaties" data-en="Indications">Indicaties</p>
-          <ul class="clean">
-            <li data-nl="Diagnostisch: pleurapunctie ter analyse van onverklaard pleuravocht (transsudaat vs. exsudaat)" data-en="Diagnostic: thoracentesis to analyse unexplained pleural fluid (transudate vs. exudate)">Diagnostisch: pleurapunctie ter analyse van onverklaard pleuravocht (transsudaat vs. exsudaat)</li>
-            <li data-nl="Therapeutisch: symptomatisch pleuravocht met dyspnoe" data-en="Therapeutic: symptomatic pleural effusion with dyspnoea">Therapeutisch: symptomatisch pleuravocht met dyspnoe</li>
-            <li data-nl="Maligne pleuravocht — ontlasting en evt. pleurodese" data-en="Malignant pleural effusion — relief and possible pleurodesis">Maligne pleuravocht — ontlasting en evt. pleurodese</li>
-            <li data-nl="Empyeem of gecompliceerd parapneumonisch vocht — drainage" data-en="Empyema or complicated parapneumonic effusion — drainage">Empyeem of gecompliceerd parapneumonisch vocht — drainage</li>
-            <li data-nl="Hemothorax of pneumothorax (drainage)" data-en="Haemothorax or pneumothorax (drainage)">Hemothorax of pneumothorax (drainage)</li>
-          </ul>
-        </div>
-        <div>
-          <p class="acc-sublabel" data-nl="Contra-indicaties" data-en="Contraindications">Contra-indicaties</p>
-          <ul class="contra">
-            <li data-nl="Ongecorrigeerde stollingsstoornis" data-en="Uncorrected coagulopathy">Ongecorrigeerde stollingsstoornis</li>
-            <li data-nl="Geen veilig traject / onvoldoende vocht om veilig te puncteren (relatief)" data-en="No safe trajectory / insufficient fluid to puncture safely (relative)">Geen veilig traject / onvoldoende vocht om veilig te puncteren (relatief)</li>
-            <li data-nl="Beademing met hoge druk (relatief — verhoogd pneumothoraxrisico)" data-en="Mechanical ventilation with high pressure (relative — increased pneumothorax risk)">Beademing met hoge druk (relatief — verhoogd pneumothoraxrisico)</li>
-            <li data-nl="Huidinfectie ter plaatse van de punctie" data-en="Skin infection at the puncture site">Huidinfectie ter plaatse van de punctie</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Pre-procedureel -->
-  <div class="accordion" id="acc-pre">
-    <div class="acc-header" onclick="toggleAcc('acc-pre')">
-      <div class="acc-title-wrap"><span class="acc-dot blue"></span><span class="acc-title" data-nl="Pre-procedurele Checklist" data-en="Pre-procedural Checklist">Pre-procedurele Checklist</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner">
-        <ul class="clean">
-          <li data-nl="&lt;strong&gt;Beeldvorming:&lt;/strong&gt; recente X-thorax of echo ter bevestiging zijde en hoeveelheid vocht. Echogeleide aanbevolen voor alle pleura-ingrepen behalve in spoedsituaties" data-en="&lt;strong&gt;Imaging:&lt;/strong&gt; recent chest X-ray or ultrasound to confirm side and amount of fluid. Ultrasound guidance recommended for all pleural procedures except emergencies"><strong>Beeldvorming:</strong> recente X-thorax of echo ter bevestiging zijde en hoeveelheid vocht. Echogeleide aanbevolen voor alle pleura-ingrepen behalve in spoedsituaties</li>
-          <li data-nl="&lt;strong&gt;Antistolling (electief):&lt;/strong&gt; warfarine 5 dagen staken (INR ≤1.5); DOAC 24–48u staken; clopidogrel/prasugrel 5 dagen, ticagrelor 7 dagen staken; aspirine mag gecontinueerd worden" data-en="&lt;strong&gt;Anticoagulation (elective):&lt;/strong&gt; stop warfarin 5 days (INR ≤1.5); stop DOAC 24–48h; stop clopidogrel/prasugrel 5 days, ticagrelor 7 days; aspirin may be continued"><strong>Antistolling (electief):</strong> warfarine 5 dagen staken (INR ≤1.5); DOAC 24–48u staken; clopidogrel/prasugrel 5 dagen, ticagrelor 7 dagen staken; aspirine mag gecontinueerd worden</li>
-          <li data-nl="&lt;strong&gt;Spoed:&lt;/strong&gt; bloedingsrisico corrigeren waar praktisch mogelijk; bij complexe situatie overleg hematologie" data-en="&lt;strong&gt;Emergency:&lt;/strong&gt; correct bleeding risk where practical; consult haematology in complex situations"><strong>Spoed:</strong> bloedingsrisico corrigeren waar praktisch mogelijk; bij complexe situatie overleg hematologie</li>
-          <li data-nl="&lt;strong&gt;Positie:&lt;/strong&gt; screen met echo in de houding waarin de procedure wordt uitgevoerd (meestal zittend, voorovergebogen)" data-en="&lt;strong&gt;Positioning:&lt;/strong&gt; screen with ultrasound in the position the procedure will be performed (usually seated, leaning forward)"><strong>Positie:</strong> screen met echo in de houding waarin de procedure wordt uitgevoerd (meestal zittend, voorovergebogen)</li>
-          <li data-nl="&lt;strong&gt;Informed consent:&lt;/strong&gt; inclusief pneumothorax, bloeding, infectie, re-expansie-oedeem" data-en="&lt;strong&gt;Informed consent:&lt;/strong&gt; including pneumothorax, bleeding, infection, re-expansion oedema"><strong>Informed consent:</strong> inclusief pneumothorax, bloeding, infectie, re-expansie-oedeem</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- Materiaal -->
-  <div class="accordion" id="acc-mat">
-    <div class="acc-header" onclick="toggleAcc('acc-mat')">
-      <div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title" data-nl="Materiaal" data-en="Equipment">Materiaal</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner" style="padding:0">
-        <table class="mat">
-          <thead><tr>
-            <th data-nl="Materiaal" data-en="Material">Materiaal</th>
-            <th data-nl="Specificatie" data-en="Specification">Specificatie</th>
-            <th data-nl="Aantal" data-en="Quantity">Aantal</th>
-          </tr></thead>
-          <tbody>
-            <tr><td><a href="../materiaal/angioset.html" class="mat-link" data-nl="Angioset" data-en="Angio set">Angioset</a></td><td data-nl="Standaard" data-en="Standard">Standaard</td><td>1</td></tr>
-            <tr><td data-nl="Echoprobe hoes" data-en="Ultrasound probe cover">Echoprobe hoes</td><td data-nl="Steriel" data-en="Sterile">Steriel</td><td>1</td></tr>
-            <tr><td data-nl="Punctienaald / aspiratienaald" data-en="Puncture / aspiration needle">Punctienaald / aspiratienaald</td><td data-nl="Bij diagnostische punctie" data-en="For diagnostic tap">Bij diagnostische punctie</td><td>1</td></tr>
-            <tr><td data-nl="Pleuradrain (pigtail)" data-en="Pleural drain (pigtail)">Pleuradrain (pigtail)</td><td data-nl="8–14 Fr (transsudaat); groter bij empyeem" data-en="8–14 Fr (transudate); larger for empyema">8–14 Fr</td><td>1</td></tr>
-            <tr><td><a href="../materiaal/draden.html" class="mat-link" data-nl="Voerdraad" data-en="Guidewire">Voerdraad</a></td><td>0.035" (Seldinger)</td><td>1</td></tr>
-            <tr><td data-nl="Dilatatoren" data-en="Dilators">Dilatatoren</td><td data-nl="Conform drainmaat" data-en="Per drain size">Conform drainmaat</td><td data-nl="Set" data-en="Set">Set</td></tr>
-            <tr><td data-nl="Afsluitbaar opvangsysteem" data-en="Closed collection system">Afsluitbaar opvangsysteem</td><td data-nl="Met waterslot of zak" data-en="With water seal or bag">Met waterslot of zak</td><td>1</td></tr>
-            <tr><td data-nl="Buizen voor analyse" data-en="Tubes for analysis">Buizen voor analyse</td><td data-nl="LDH, eiwit, pH, kweek, cytologie" data-en="LDH, protein, pH, culture, cytology">LDH, eiwit, pH, kweek, cytologie</td><td data-nl="Set" data-en="Set">Set</td></tr>
-            <tr><td data-nl="Lokaal anestheticum" data-en="Local anaesthetic">Lokaal anestheticum</td><td>Lidocaïne 1%</td><td>1</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <!-- Stappenplan -->
-  <div class="accordion" id="acc-stap">
-    <div class="acc-header" onclick="toggleAcc('acc-stap')">
-      <div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title" data-nl="Stappenplan" data-en="Procedure Steps">Stappenplan</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner-split">
-        <div>
-          <ol class="steps">
-            <li><div class="sn teal">1</div><div data-nl="Patiënt zittend, voorovergebogen met armen ondersteund (of in zijligging bij verminderde mobiliteit). Steriele omstandigheden." data-en="Patient seated, leaning forward with arms supported (or lateral decubitus if limited mobility). Sterile conditions.">Patiënt zittend, voorovergebogen met armen ondersteund (of in zijligging bij verminderde mobiliteit). Steriele omstandigheden.</div></li>
-            <li><div class="sn teal">2</div><div data-nl="Echo ter bepaling van de optimale punctieplaats — kies een ruim vochtcompartiment, boven de rib om het vaat-zenuwbundel te sparen." data-en="Ultrasound to determine the optimal puncture site — choose an ample fluid pocket, above the rib to spare the neurovascular bundle.">Echo ter bepaling van de optimale punctieplaats — kies een ruim vochtcompartiment, boven de rib om het vaat-zenuwbundel te sparen.</div></li>
-            <li><div class="sn teal">3</div><div data-nl="Lokale anesthesie van huid tot aan de pleura pariëtalis." data-en="Local anaesthesia from skin to the parietal pleura.">Lokale anesthesie van huid tot aan de pleura pariëtalis.</div></li>
-            <li><div class="sn teal">4</div><div data-nl="&lt;strong&gt;Diagnostische punctie:&lt;/strong&gt; aspireer vocht voor analyse (LDH, eiwit, pH, kweek, cytologie). Beoordeel Light-criteria voor transsudaat vs. exsudaat." data-en="&lt;strong&gt;Diagnostic tap:&lt;/strong&gt; aspirate fluid for analysis (LDH, protein, pH, culture, cytology). Assess Light's criteria for transudate vs. exudate."><strong>Diagnostische punctie:</strong> aspireer vocht voor analyse (LDH, eiwit, pH, kweek, cytologie). Beoordeel Light-criteria voor transsudaat vs. exsudaat.</div></li>
-            <li><div class="sn teal">5</div><div data-nl="&lt;strong&gt;Therapeutische drainage:&lt;/strong&gt; punctie met naald, voerdraad opvoeren in de pleuraholte (Seldinger), traject dilateren, pigtail drain over de draad inbrengen." data-en="&lt;strong&gt;Therapeutic drainage:&lt;/strong&gt; puncture with needle, advance guidewire into the pleural cavity (Seldinger), dilate tract, introduce pigtail drain over the wire."><strong>Therapeutische drainage:</strong> punctie met naald, voerdraad opvoeren in de pleuraholte (Seldinger), traject dilateren, pigtail drain over de draad inbrengen.</div></li>
-            <li><div class="sn teal">6</div><div data-nl="Vorm de pigtail-krul in de pleuraholte. Aansluiten op een afsluitbaar opvangsysteem (waterslot of zak)." data-en="Form the pigtail curl in the pleural cavity. Connect to a closed collection system (water seal or bag).">Vorm de pigtail-krul in de pleuraholte. Aansluiten op een afsluitbaar opvangsysteem (waterslot of zak).</div></li>
-            <li><div class="sn teal">7</div><div data-nl="Tap maximaal ~1–1.5 liter in één sessie om re-expansie-oedeem te voorkomen. Stop bij hoest, pijn op de borst of dyspnoe." data-en="Drain a maximum of ~1–1.5 litres in one session to prevent re-expansion oedema. Stop if cough, chest pain or dyspnoea.">Tap maximaal ~1–1.5 liter in één sessie om re-expansie-oedeem te voorkomen. Stop bij hoest, pijn op de borst of dyspnoe.</div></li>
-            <li><div class="sn teal">8</div><div data-nl="Fixeer de drain aan de huid. Controle X-thorax ter beoordeling drainpositie en uitsluiting pneumothorax." data-en="Fix the drain to the skin. Check chest X-ray to assess drain position and exclude pneumothorax.">Fixeer de drain aan de huid. Controle X-thorax ter beoordeling drainpositie en uitsluiting pneumothorax.</div></li>
-          </ol>
-        </div>
-        <div>
-          <p class="acc-sublabel" data-nl="Aandachtspunten" data-en="Key Points">Aandachtspunten</p>
-          <div class="note red"><strong data-nl="Boven de rib:" data-en="Above the rib:">Boven de rib:</strong> <span data-nl="Prik altijd net boven de bovenrand van de onderliggende rib — het vaat-zenuwbundel loopt langs de onderrand van elke rib." data-en="Always puncture just above the upper edge of the lower rib — the neurovascular bundle runs along the lower edge of each rib.">Prik altijd net boven de bovenrand van de onderliggende rib — het vaat-zenuwbundel loopt langs de onderrand van elke rib.</span></div>
-          <div class="note orange"><strong data-nl="Maximaal volume:" data-en="Maximum volume:">Maximaal volume:</strong> <span data-nl="Beperk de ontlasting tot ~1–1.5 liter per sessie. Snelle of grote ontlasting verhoogt het risico op re-expansie longoedeem." data-en="Limit drainage to ~1–1.5 litres per session. Rapid or large-volume drainage increases the risk of re-expansion pulmonary oedema.">Beperk de ontlasting tot ~1–1.5 liter per sessie. Snelle of grote ontlasting verhoogt het risico op re-expansie longoedeem.</span></div>
-          <div class="note orange"><strong data-nl="Empyeem:" data-en="Empyema:">Empyeem:</strong> <span data-nl="Bij purulent of gelokuleerd vocht een grotere drain kiezen; overweeg intrapleurale fibrinolytica conform protocol." data-en="For purulent or loculated fluid choose a larger drain; consider intrapleural fibrinolytics per protocol.">Bij purulent of gelokuleerd vocht een grotere drain kiezen; overweeg intrapleurale fibrinolytica conform protocol.</span></div>
-          <div class="note green"><strong data-nl="Light-criteria:" data-en="Light's criteria:">Light-criteria:</strong> <span data-nl="Exsudaat indien pleura/serum-eiwitratio &gt;0.5, pleura/serum-LDH &gt;0.6, of pleura-LDH &gt;⅔ van de bovengrens van serum-LDH." data-en="Exudate if pleural/serum protein ratio &gt;0.5, pleural/serum LDH &gt;0.6, or pleural LDH &gt;⅔ of the upper limit of serum LDH.">Exsudaat indien pleura/serum-eiwitratio &gt;0.5, pleura/serum-LDH &gt;0.6, of pleura-LDH &gt;⅔ van de bovengrens van serum-LDH.</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Complicaties -->
-  <div class="accordion" id="acc-comp">
-    <div class="acc-header" onclick="toggleAcc('acc-comp')">
-      <div class="acc-title-wrap"><span class="acc-dot red"></span><span class="acc-title" data-nl="Complicaties" data-en="Complications">Complicaties</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner" style="padding:0">
-        <table class="mat">
-          <thead><tr>
-            <th data-nl="Complicatie" data-en="Complication">Complicatie</th>
-            <th data-nl="Management" data-en="Management">Management</th>
-          </tr></thead>
-          <tbody>
-            <tr><td data-nl="Pneumothorax" data-en="Pneumothorax">Pneumothorax</td><td data-nl="Klein/asymptomatisch: observatie; symptomatisch: thoraxdrain" data-en="Small/asymptomatic: observation; symptomatic: chest drain">Klein/asymptomatisch: observatie; symptomatisch: thoraxdrain</td></tr>
-            <tr><td data-nl="Bloeding / hemothorax" data-en="Bleeding / haemothorax">Bloeding / hemothorax</td><td data-nl="Meestal door intercostaalvat; monitoring, zelden interventie" data-en="Usually from intercostal vessel; monitoring, rarely intervention">Meestal door intercostaalvat; monitoring, zelden interventie</td></tr>
-            <tr><td data-nl="Re-expansie longoedeem" data-en="Re-expansion pulmonary oedema">Re-expansie longoedeem</td><td data-nl="Preventie door volume te beperken; ondersteunend behandelen" data-en="Prevent by limiting volume; supportive treatment">Preventie door volume te beperken; ondersteunend behandelen</td></tr>
-            <tr><td data-nl="Infectie / empyeem" data-en="Infection / empyema">Infectie / empyeem</td><td data-nl="Antibiotica; adequate drainage waarborgen" data-en="Antibiotics; ensure adequate drainage">Antibiotica; adequate drainage waarborgen</td></tr>
-            <tr><td data-nl="Letsel lever / milt / diafragma" data-en="Injury to liver / spleen / diaphragm">Letsel lever / milt / diafragma</td><td data-nl="Zeldzaam; preventie door echogeleide en juiste punctiehoogte" data-en="Rare; prevent with ultrasound guidance and correct puncture level">Zeldzaam; preventie door echogeleide en juiste punctiehoogte</td></tr>
-            <tr><td data-nl="Vasovagale reactie" data-en="Vasovagal reaction">Vasovagale reactie</td><td data-nl="Plat leggen, vochttoediening" data-en="Lie flat, fluid administration">Plat leggen, vochttoediening</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <!-- Nazorg -->
-  <div class="accordion" id="acc-naz">
-    <div class="acc-header" onclick="toggleAcc('acc-naz')">
-      <div class="acc-title-wrap"><span class="acc-dot green"></span><span class="acc-title" data-nl="Nazorg" data-en="Aftercare">Nazorg</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner">
-        <ul class="bullet">
-          <li data-nl="Controle X-thorax na de procedure ter uitsluiting pneumothorax en beoordeling drainpositie" data-en="Check chest X-ray after the procedure to exclude pneumothorax and assess drain position">Controle X-thorax na de procedure ter uitsluiting pneumothorax en beoordeling drainpositie</li>
-          <li data-nl="Bij verblijfsdrain: dagelijkse productie registreren; drain verwijderen bij &lt;100–150 ml/24u en opgeloste indicatie" data-en="With indwelling drain: record daily output; remove drain when &lt;100–150 ml/24h and resolved indication">Bij verblijfsdrain: dagelijkse productie registreren; drain verwijderen bij &lt;100–150 ml/24u en opgeloste indicatie</li>
-          <li data-nl="Patiënt informeren over alarmsymptomen: toenemende dyspnoe, pijn op de borst, koorts" data-en="Inform patient about warning signs: increasing dyspnoea, chest pain, fever">Patiënt informeren over alarmsymptomen: toenemende dyspnoe, pijn op de borst, koorts</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- Standaardverslag -->
-  <div class="accordion" id="acc-vers">
-    <div class="acc-header" onclick="toggleAcc('acc-vers')">
-      <div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title" data-nl="Standaardverslag" data-en="Standard Report">Standaardverslag</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner">
-        <div class="verslag-wrap">
-          <div class="verslag" id="verslag-thx"
-            data-nl="Ter vergelijking: [datum/modaliteit]
-Antistolling: [gestaakt / niet van toepassing]
-
-Indicatie: [diagnostisch / therapeutisch] pleuravocht [rechts/links].
-
-Steriele omstandigheden. Patiënt [zittend / zijligging]. Echo toont
-[hoeveelheid] pleuravocht [rechts/links]. Optimale punctieplaats bepaald,
-boven de rib. Lokale verdoving.
-
-[Diagnostische punctie: [__] ml vocht geaspireerd voor analyse
-(LDH, eiwit, pH, kweek, cytologie). Aspect [helder / troebel / purulent /
-hemorragisch].]
-
-[Therapeutische drainage: Seldinger-techniek, [maat] Fr pigtail drain
-geplaatst in de pleuraholte. Ca. [__] ml afgelaten tot [klachtenreductie /
-geplande limiet]. Aansluiten op afsluitbaar systeem.]
-
-Geen directe complicaties.
-
-CONCLUSIE:
-[Pleurapunctie / thoraxdrainage] [rechts/links], [__] ml ontlast.
-Controle X-thorax: [geen pneumothorax / drain in situ].
-
-NAZORG:
-Controle X-thorax verricht. [Drain op waterslot / zak.]
-Bij toename dyspnoe of pijn laagdrempelig contact opnemen."
-            data-en="Reference: [date/modality]
+<div class="breadcrumb">
+<a href="../index.html">Home</a>
+<span class="sep">›</span><span data-en="Non-vascular" data-nl="Non-vasculair">Non-vasculair</span>
+<span class="sep">›</span><span data-en="Thoracic drainage / thoracentesis" data-nl="Thoraxdrainage / pleurapunctie">Thoraxdrainage / pleurapunctie</span>
+</div>
+<div class="proc-header">
+<div class="proc-header-bar nonvasc"></div>
+<div>
+<h1 data-en="Thoracic Drainage / Thoracentesis" data-nl="Thoraxdrainage / Pleurapunctie">Thoraxdrainage / Pleurapunctie</h1>
+<p data-en="Ultrasound-guided aspiration or drainage of pleural fluid or empyema" data-nl="Echogeleide aspiratie of drainage van pleuravocht of empyeem">Echogeleide aspiratie of drainage van pleuravocht of empyeem</p>
+<div class="proc-meta">
+<span class="meta-pill nonvasc" data-en="Non-vascular" data-nl="Non-vasculair">Non-vasculair</span>
+<span class="meta-pill nonvasc">15–30 min</span>
+<span class="meta-pill nonvasc" data-en="Local anaesthesia" data-nl="Lokale anesthesie">Lokale anesthesie</span>
+<span class="meta-pill nonvasc" data-en="US guided" data-nl="Echo geleide">Echo geleide</span>
+<a class="risk-badge intermediair" href="../materiaal/antistolling.html"><span class="risk-dot"></span><span data-en="Intermediate anticoagulation risk" data-nl="Intermediair risico antistolling">Intermediair risico antistolling</span><span class="risk-badge-arr">›</span></a>
+</div>
+</div>
+</div>
+<!-- Indicaties -->
+<div class="accordion" id="acc-ind">
+<div class="acc-header" onclick="toggleAcc('acc-ind')">
+<div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title" data-en="Indications &amp; Contraindications" data-nl="Indicaties &amp; Contra-indicaties">Indicaties &amp; Contra-indicaties</span></div>
+<span class="acc-chevron">▾</span>
+</div>
+<div class="acc-body">
+<div class="acc-inner-split">
+<div>
+<p class="acc-sublabel" data-en="Indications" data-nl="Indicaties">Indicaties</p>
+<ul class="clean">
+<li data-en="Diagnostic: thoracentesis to analyse unexplained pleural fluid (transudate vs. exudate)" data-nl="Diagnostisch: pleurapunctie ter analyse van onverklaard pleuravocht (transsudaat vs. exsudaat)">Diagnostisch: pleurapunctie ter analyse van onverklaard pleuravocht (transsudaat vs. exsudaat)</li>
+<li data-en="Therapeutic: symptomatic pleural effusion with dyspnoea" data-nl="Therapeutisch: symptomatisch pleuravocht met dyspnoe">Therapeutisch: symptomatisch pleuravocht met dyspnoe</li>
+<li data-en="Malignant pleural effusion — relief and possible pleurodesis" data-nl="Maligne pleuravocht — ontlasting en evt. pleurodese">Maligne pleuravocht — ontlasting en evt. pleurodese</li>
+<li data-en="Empyema or complicated parapneumonic effusion — drainage" data-nl="Empyeem of gecompliceerd parapneumonisch vocht — drainage">Empyeem of gecompliceerd parapneumonisch vocht — drainage</li>
+<li data-en="Haemothorax or pneumothorax (drainage)" data-nl="Hemothorax of pneumothorax (drainage)">Hemothorax of pneumothorax (drainage)</li>
+</ul>
+</div>
+<div>
+<p class="acc-sublabel" data-en="Contraindications" data-nl="Contra-indicaties">Contra-indicaties</p>
+<ul class="contra">
+<li data-en="Uncorrected coagulopathy" data-nl="Ongecorrigeerde stollingsstoornis">Ongecorrigeerde stollingsstoornis</li>
+<li data-en="No safe trajectory / insufficient fluid to puncture safely (relative)" data-nl="Geen veilig traject / onvoldoende vocht om veilig te puncteren (relatief)">Geen veilig traject / onvoldoende vocht om veilig te puncteren (relatief)</li>
+<li data-en="Mechanical ventilation with high pressure (relative — increased pneumothorax risk)" data-nl="Beademing met hoge druk (relatief — verhoogd pneumothoraxrisico)">Beademing met hoge druk (relatief — verhoogd pneumothoraxrisico)</li>
+<li data-en="Skin infection at the puncture site" data-nl="Huidinfectie ter plaatse van de punctie">Huidinfectie ter plaatse van de punctie</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<!-- Pre-procedureel -->
+<div class="accordion" id="acc-pre">
+<div class="acc-header" onclick="toggleAcc('acc-pre')">
+<div class="acc-title-wrap"><span class="acc-dot blue"></span><span class="acc-title" data-en="Pre-procedural Checklist" data-nl="Pre-procedurele Checklist">Pre-procedurele Checklist</span></div>
+<span class="acc-chevron">▾</span>
+</div>
+<div class="acc-body">
+<div class="acc-inner">
+<ul class="clean">
+<li data-en="&lt;strong&gt;Imaging:&lt;/strong&gt; recent chest X-ray or ultrasound to confirm side and amount of fluid. Ultrasound guidance recommended for all pleural procedures except emergencies" data-nl="&lt;strong&gt;Beeldvorming:&lt;/strong&gt; recente X-thorax of echo ter bevestiging zijde en hoeveelheid vocht. Echogeleide aanbevolen voor alle pleura-ingrepen behalve in spoedsituaties"><strong>Beeldvorming:</strong> recente X-thorax of echo ter bevestiging zijde en hoeveelheid vocht. Echogeleide aanbevolen voor alle pleura-ingrepen behalve in spoedsituaties</li>
+<li data-en="&lt;strong&gt;Anticoagulation (elective):&lt;/strong&gt; stop warfarin 5 days (INR ≤1.5); stop DOAC 24–48h; stop clopidogrel/prasugrel 5 days, ticagrelor 7 days; aspirin may be continued" data-nl="&lt;strong&gt;Antistolling (electief):&lt;/strong&gt; warfarine 5 dagen staken (INR ≤1.5); DOAC 24–48u staken; clopidogrel/prasugrel 5 dagen, ticagrelor 7 dagen staken; aspirine mag gecontinueerd worden"><strong>Antistolling (electief):</strong> warfarine 5 dagen staken (INR ≤1.5); DOAC 24–48u staken; clopidogrel/prasugrel 5 dagen, ticagrelor 7 dagen staken; aspirine mag gecontinueerd worden</li>
+<li data-en="&lt;strong&gt;Emergency:&lt;/strong&gt; correct bleeding risk where practical; consult haematology in complex situations" data-nl="&lt;strong&gt;Spoed:&lt;/strong&gt; bloedingsrisico corrigeren waar praktisch mogelijk; bij complexe situatie overleg hematologie"><strong>Spoed:</strong> bloedingsrisico corrigeren waar praktisch mogelijk; bij complexe situatie overleg hematologie</li>
+<li data-en="&lt;strong&gt;Positioning:&lt;/strong&gt; screen with ultrasound in the position the procedure will be performed (usually seated, leaning forward)" data-nl="&lt;strong&gt;Positie:&lt;/strong&gt; screen met echo in de houding waarin de procedure wordt uitgevoerd (meestal zittend, voorovergebogen)"><strong>Positie:</strong> screen met echo in de houding waarin de procedure wordt uitgevoerd (meestal zittend, voorovergebogen)</li>
+<li data-en="&lt;strong&gt;Informed consent:&lt;/strong&gt; including pneumothorax, bleeding, infection, re-expansion oedema" data-nl="&lt;strong&gt;Informed consent:&lt;/strong&gt; inclusief pneumothorax, bloeding, infectie, re-expansie-oedeem"><strong>Informed consent:</strong> inclusief pneumothorax, bloeding, infectie, re-expansie-oedeem</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Materiaal -->
+<div class="accordion" id="acc-mat">
+<div class="acc-header" onclick="toggleAcc('acc-mat')">
+<div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title" data-en="Equipment" data-nl="Materiaal">Materiaal</span></div>
+<span class="acc-chevron">▾</span>
+</div>
+<div class="acc-body">
+<div class="acc-inner" style="padding:0">
+<table class="mat">
+<thead><tr>
+<th data-en="Material" data-nl="Materiaal">Materiaal</th>
+<th data-en="Specification" data-nl="Specificatie">Specificatie</th>
+<th data-en="Quantity" data-nl="Aantal">Aantal</th>
+</tr></thead>
+<tbody>
+<tr><td><a class="mat-link" data-en="Angio set" data-nl="Angioset" href="../materiaal/angioset.html">Angioset</a></td><td data-en="Standard" data-nl="Standaard">Standaard</td><td>1</td></tr>
+<tr><td data-en="Ultrasound probe cover" data-nl="Echoprobe hoes">Echoprobe hoes</td><td data-en="Sterile" data-nl="Steriel">Steriel</td><td>1</td></tr>
+<tr><td data-en="Puncture / aspiration needle" data-nl="Punctienaald / aspiratienaald">Punctienaald / aspiratienaald</td><td data-en="For diagnostic tap" data-nl="Bij diagnostische punctie">Bij diagnostische punctie</td><td>1</td></tr>
+<tr><td data-en="Pleural drain (pigtail)" data-nl="Pleuradrain (pigtail)">Pleuradrain (pigtail)</td><td data-en="8–14 Fr (transudate); larger for empyema" data-nl="8–14 Fr (transsudaat); groter bij empyeem">8–14 Fr (transsudaat); groter bij empyeem</td><td>1</td></tr>
+<tr><td><a class="mat-link" data-en="Guidewire" data-nl="Voerdraad" href="../materiaal/draden.html">Voerdraad</a></td><td>0.035" (Seldinger)</td><td>1</td></tr>
+<tr><td data-en="Dilators" data-nl="Dilatatoren">Dilatatoren</td><td data-en="Per drain size" data-nl="Conform drainmaat">Conform drainmaat</td><td data-en="Set" data-nl="Set">Set</td></tr>
+<tr><td data-en="Closed collection system" data-nl="Afsluitbaar opvangsysteem">Afsluitbaar opvangsysteem</td><td data-en="With water seal or bag" data-nl="Met waterslot of zak">Met waterslot of zak</td><td>1</td></tr>
+<tr><td data-en="Tubes for analysis" data-nl="Buizen voor analyse">Buizen voor analyse</td><td data-en="LDH, protein, pH, culture, cytology" data-nl="LDH, eiwit, pH, kweek, cytologie">LDH, eiwit, pH, kweek, cytologie</td><td data-en="Set" data-nl="Set">Set</td></tr>
+<tr><td data-en="Local anaesthetic" data-nl="Lokaal anestheticum">Lokaal anestheticum</td><td>Lidocaïne 1%</td><td>1</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Stappenplan -->
+<div class="accordion" id="acc-stap">
+<div class="acc-header" onclick="toggleAcc('acc-stap')">
+<div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title" data-en="Procedure Steps" data-nl="Stappenplan">Stappenplan</span></div>
+<span class="acc-chevron">▾</span>
+</div>
+<div class="acc-body">
+<div class="acc-inner-split">
+<div>
+<ol class="steps">
+<li><div class="sn teal">1</div><div data-en="Patient seated, leaning forward with arms supported (or lateral decubitus if limited mobility). Sterile conditions." data-nl="Patiënt zittend, voorovergebogen met armen ondersteund (of in zijligging bij verminderde mobiliteit). Steriele omstandigheden.">Patiënt zittend, voorovergebogen met armen ondersteund (of in zijligging bij verminderde mobiliteit). Steriele omstandigheden.</div></li>
+<li><div class="sn teal">2</div><div data-en="Ultrasound to determine the optimal puncture site — choose an ample fluid pocket, above the rib to spare the neurovascular bundle." data-nl="Echo ter bepaling van de optimale punctieplaats — kies een ruim vochtcompartiment, boven de rib om het vaat-zenuwbundel te sparen.">Echo ter bepaling van de optimale punctieplaats — kies een ruim vochtcompartiment, boven de rib om het vaat-zenuwbundel te sparen.</div></li>
+<li><div class="sn teal">3</div><div data-en="Local anaesthesia from skin to the parietal pleura." data-nl="Lokale anesthesie van huid tot aan de pleura pariëtalis.">Lokale anesthesie van huid tot aan de pleura pariëtalis.</div></li>
+<li><div class="sn teal">4</div><div data-en="&lt;strong&gt;Diagnostic tap:&lt;/strong&gt; aspirate fluid for analysis (LDH, protein, pH, culture, cytology). Assess Light's criteria for transudate vs. exudate." data-nl="&lt;strong&gt;Diagnostische punctie:&lt;/strong&gt; aspireer vocht voor analyse (LDH, eiwit, pH, kweek, cytologie). Beoordeel Light-criteria voor transsudaat vs. exsudaat."><strong>Diagnostische punctie:</strong> aspireer vocht voor analyse (LDH, eiwit, pH, kweek, cytologie). Beoordeel Light-criteria voor transsudaat vs. exsudaat.</div></li>
+<li><div class="sn teal">5</div><div data-en="&lt;strong&gt;Therapeutic drainage:&lt;/strong&gt; puncture with needle, advance guidewire into the pleural cavity (Seldinger), dilate tract, introduce pigtail drain over the wire." data-nl="&lt;strong&gt;Therapeutische drainage:&lt;/strong&gt; punctie met naald, voerdraad opvoeren in de pleuraholte (Seldinger), traject dilateren, pigtail drain over de draad inbrengen."><strong>Therapeutische drainage:</strong> punctie met naald, voerdraad opvoeren in de pleuraholte (Seldinger), traject dilateren, pigtail drain over de draad inbrengen.</div></li>
+<li><div class="sn teal">6</div><div data-en="Form the pigtail curl in the pleural cavity. Connect to a closed collection system (water seal or bag)." data-nl="Vorm de pigtail-krul in de pleuraholte. Aansluiten op een afsluitbaar opvangsysteem (waterslot of zak).">Vorm de pigtail-krul in de pleuraholte. Aansluiten op een afsluitbaar opvangsysteem (waterslot of zak).</div></li>
+<li><div class="sn teal">7</div><div data-en="Drain a maximum of ~1–1.5 litres in one session to prevent re-expansion oedema. Stop if cough, chest pain or dyspnoea." data-nl="Tap maximaal ~1–1.5 liter in één sessie om re-expansie-oedeem te voorkomen. Stop bij hoest, pijn op de borst of dyspnoe.">Tap maximaal ~1–1.5 liter in één sessie om re-expansie-oedeem te voorkomen. Stop bij hoest, pijn op de borst of dyspnoe.</div></li>
+<li><div class="sn teal">8</div><div data-en="Fix the drain to the skin. Check chest X-ray to assess drain position and exclude pneumothorax." data-nl="Fixeer de drain aan de huid. Controle X-thorax ter beoordeling drainpositie en uitsluiting pneumothorax.">Fixeer de drain aan de huid. Controle X-thorax ter beoordeling drainpositie en uitsluiting pneumothorax.</div></li>
+</ol>
+</div>
+<div>
+<p class="acc-sublabel" data-en="Key Points" data-nl="Aandachtspunten">Aandachtspunten</p>
+<div class="note red"><strong data-en="Above the rib:" data-nl="Boven de rib:">Boven de rib:</strong> <span data-en="Always puncture just above the upper edge of the lower rib — the neurovascular bundle runs along the lower edge of each rib." data-nl="Prik altijd net boven de bovenrand van de onderliggende rib — het vaat-zenuwbundel loopt langs de onderrand van elke rib.">Prik altijd net boven de bovenrand van de onderliggende rib — het vaat-zenuwbundel loopt langs de onderrand van elke rib.</span></div>
+<div class="note orange"><strong data-en="Maximum volume:" data-nl="Maximaal volume:">Maximaal volume:</strong> <span data-en="Limit drainage to ~1–1.5 litres per session. Rapid or large-volume drainage increases the risk of re-expansion pulmonary oedema." data-nl="Beperk de ontlasting tot ~1–1.5 liter per sessie. Snelle of grote ontlasting verhoogt het risico op re-expansie longoedeem.">Beperk de ontlasting tot ~1–1.5 liter per sessie. Snelle of grote ontlasting verhoogt het risico op re-expansie longoedeem.</span></div>
+<div class="note orange"><strong data-en="Empyema:" data-nl="Empyeem:">Empyeem:</strong> <span data-en="For purulent or loculated fluid choose a larger drain; consider intrapleural fibrinolytics per protocol." data-nl="Bij purulent of gelokuleerd vocht een grotere drain kiezen; overweeg intrapleurale fibrinolytica conform protocol.">Bij purulent of gelokuleerd vocht een grotere drain kiezen; overweeg intrapleurale fibrinolytica conform protocol.</span></div>
+<div class="note green"><strong data-en="Light's criteria:" data-nl="Light-criteria:">Light-criteria:</strong> <span data-en="Exudate if pleural/serum protein ratio &gt;0.5, pleural/serum LDH &gt;0.6, or pleural LDH &gt;⅔ of the upper limit of serum LDH." data-nl="Exsudaat indien pleura/serum-eiwitratio &gt;0.5, pleura/serum-LDH &gt;0.6, of pleura-LDH &gt;⅔ van de bovengrens van serum-LDH.">Exsudaat indien pleura/serum-eiwitratio &gt;0.5, pleura/serum-LDH &gt;0.6, of pleura-LDH &gt;⅔ van de bovengrens van serum-LDH.</span></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Complicaties -->
+<div class="accordion" id="acc-comp">
+<div class="acc-header" onclick="toggleAcc('acc-comp')">
+<div class="acc-title-wrap"><span class="acc-dot red"></span><span class="acc-title" data-en="Complications" data-nl="Complicaties">Complicaties</span></div>
+<span class="acc-chevron">▾</span>
+</div>
+<div class="acc-body">
+<div class="acc-inner" style="padding:0">
+<table class="mat">
+<thead><tr>
+<th data-en="Complication" data-nl="Complicatie">Complicatie</th>
+<th data-en="Management" data-nl="Management">Management</th>
+</tr></thead>
+<tbody>
+<tr><td data-en="Pneumothorax" data-nl="Pneumothorax">Pneumothorax</td><td data-en="Small/asymptomatic: observation; symptomatic: chest drain" data-nl="Klein/asymptomatisch: observatie; symptomatisch: thoraxdrain">Klein/asymptomatisch: observatie; symptomatisch: thoraxdrain</td></tr>
+<tr><td data-en="Bleeding / haemothorax" data-nl="Bloeding / hemothorax">Bloeding / hemothorax</td><td data-en="Usually from intercostal vessel; monitoring, rarely intervention" data-nl="Meestal door intercostaalvat; monitoring, zelden interventie">Meestal door intercostaalvat; monitoring, zelden interventie</td></tr>
+<tr><td data-en="Re-expansion pulmonary oedema" data-nl="Re-expansie longoedeem">Re-expansie longoedeem</td><td data-en="Prevent by limiting volume; supportive treatment" data-nl="Preventie door volume te beperken; ondersteunend behandelen">Preventie door volume te beperken; ondersteunend behandelen</td></tr>
+<tr><td data-en="Infection / empyema" data-nl="Infectie / empyeem">Infectie / empyeem</td><td data-en="Antibiotics; ensure adequate drainage" data-nl="Antibiotica; adequate drainage waarborgen">Antibiotica; adequate drainage waarborgen</td></tr>
+<tr><td data-en="Injury to liver / spleen / diaphragm" data-nl="Letsel lever / milt / diafragma">Letsel lever / milt / diafragma</td><td data-en="Rare; prevent with ultrasound guidance and correct puncture level" data-nl="Zeldzaam; preventie door echogeleide en juiste punctiehoogte">Zeldzaam; preventie door echogeleide en juiste punctiehoogte</td></tr>
+<tr><td data-en="Vasovagal reaction" data-nl="Vasovagale reactie">Vasovagale reactie</td><td data-en="Lie flat, fluid administration" data-nl="Plat leggen, vochttoediening">Plat leggen, vochttoediening</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Nazorg -->
+<div class="accordion" id="acc-naz">
+<div class="acc-header" onclick="toggleAcc('acc-naz')">
+<div class="acc-title-wrap"><span class="acc-dot green"></span><span class="acc-title" data-en="Aftercare" data-nl="Nazorg">Nazorg</span></div>
+<span class="acc-chevron">▾</span>
+</div>
+<div class="acc-body">
+<div class="acc-inner">
+<ul class="bullet">
+<li data-en="Check chest X-ray after the procedure to exclude pneumothorax and assess drain position" data-nl="Controle X-thorax na de procedure ter uitsluiting pneumothorax en beoordeling drainpositie">Controle X-thorax na de procedure ter uitsluiting pneumothorax en beoordeling drainpositie</li>
+<li data-en="With indwelling drain: record daily output; remove drain when &lt;100–150 ml/24h and resolved indication" data-nl="Bij verblijfsdrain: dagelijkse productie registreren; drain verwijderen bij &lt;100–150 ml/24u en opgeloste indicatie">Bij verblijfsdrain: dagelijkse productie registreren; drain verwijderen bij &lt;100–150 ml/24u en opgeloste indicatie</li>
+<li data-en="Inform patient about warning signs: increasing dyspnoea, chest pain, fever" data-nl="Patiënt informeren over alarmsymptomen: toenemende dyspnoe, pijn op de borst, koorts">Patiënt informeren over alarmsymptomen: toenemende dyspnoe, pijn op de borst, koorts</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Standaardverslag -->
+<div class="accordion" id="acc-vers">
+<div class="acc-header" onclick="toggleAcc('acc-vers')">
+<div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title" data-en="Standard Report" data-nl="Standaardverslag">Standaardverslag</span></div>
+<span class="acc-chevron">▾</span>
+</div>
+<div class="acc-body">
+<div class="acc-inner">
+<div class="verslag-wrap">
+<div class="verslag" data-en="Reference: [date/modality]
 Anticoagulation: [discontinued / not applicable]
 
 Indication: [diagnostic / therapeutic] pleural effusion [right/left].
@@ -247,7 +213,32 @@ Check chest X-ray: [no pneumothorax / drain in situ].
 
 AFTERCARE:
 Check chest X-ray performed. [Drain on water seal / bag.]
-Contact immediately if increasing dyspnoea or pain.">Ter vergelijking: [datum/modaliteit]
+Contact immediately if increasing dyspnoea or pain." data-nl="Ter vergelijking: [datum/modaliteit]
+Antistolling: [gestaakt / niet van toepassing]
+
+Indicatie: [diagnostisch / therapeutisch] pleuravocht [rechts/links].
+
+Steriele omstandigheden. Patiënt [zittend / zijligging]. Echo toont
+[hoeveelheid] pleuravocht [rechts/links]. Optimale punctieplaats bepaald,
+boven de rib. Lokale verdoving.
+
+[Diagnostische punctie: [__] ml vocht geaspireerd voor analyse
+(LDH, eiwit, pH, kweek, cytologie). Aspect [helder / troebel / purulent /
+hemorragisch].]
+
+[Therapeutische drainage: Seldinger-techniek, [maat] Fr pigtail drain
+geplaatst in de pleuraholte. Ca. [__] ml afgelaten tot [klachtenreductie /
+geplande limiet]. Aansluiten op afsluitbaar systeem.]
+
+Geen directe complicaties.
+
+CONCLUSIE:
+[Pleurapunctie / thoraxdrainage] [rechts/links], [__] ml ontlast.
+Controle X-thorax: [geen pneumothorax / drain in situ].
+
+NAZORG:
+Controle X-thorax verricht. [Drain op waterslot / zak.]
+Bij toename dyspnoe of pijn laagdrempelig contact opnemen." id="verslag-thx">Ter vergelijking: [datum/modaliteit]
 Antistolling: [gestaakt / niet van toepassing]
 
 Indicatie: [diagnostisch / therapeutisch] pleuravocht [rechts/links].
@@ -273,31 +264,29 @@ Controle X-thorax: [geen pneumothorax / drain in situ].
 NAZORG:
 Controle X-thorax verricht. [Drain op waterslot / zak.]
 Bij toename dyspnoe of pijn laagdrempelig contact opnemen.</div>
-          <button class="copy-btn" id="copy-thx" onclick="copyVerslag('verslag-thx','copy-thx')">⎘ <span data-nl="Kopieer" data-en="Copy">Kopieer</span></button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Bronnen -->
-  <div class="accordion" id="acc-bronnen">
-    <div class="acc-header" onclick="toggleAcc('acc-bronnen')">
-      <div class="acc-title-wrap"><span class="acc-dot blue"></span><span class="acc-title" data-nl="Bronnen &amp; Externe Links" data-en="References &amp; External Links">Bronnen &amp; Externe Links</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner">
-        <ul class="bronnen-lijst">
-          <li><a href="https://www.ncbi.nlm.nih.gov/books/NBK441866/" target="_blank" rel="noopener">StatPearls — Thoracentesis</a></li>
-          <li><a href="https://radiopaedia.org/articles/thoracocentesis" target="_blank" rel="noopener">Radiopaedia — Thoracocentesis</a></li>
-          <li><a href="https://www.brit-thoracic.org.uk/quality-improvement/guidelines/pleural-disease/" target="_blank" rel="noopener">BTS — Pleural Disease Guidelines</a></li>
-          <li><a href="https://doi.org/10.1007/978-981-97-9601-4_37" target="_blank" rel="noopener">Chandrashekhara — Textbook of Interventional Radiology (2024), hfst. 37</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
+<button class="copy-btn" id="copy-thx" onclick="copyVerslag('verslag-thx','copy-thx')">⎘ <span data-en="Copy" data-nl="Kopieer">Kopieer</span></button>
 </div>
-
+</div>
+</div>
+</div>
+<!-- Bronnen -->
+<div class="accordion" id="acc-bronnen">
+<div class="acc-header" onclick="toggleAcc('acc-bronnen')">
+<div class="acc-title-wrap"><span class="acc-dot blue"></span><span class="acc-title" data-en="References &amp; External Links" data-nl="Bronnen &amp; Externe Links">Bronnen &amp; Externe Links</span></div>
+<span class="acc-chevron">▾</span>
+</div>
+<div class="acc-body">
+<div class="acc-inner">
+<ul class="bronnen-lijst">
+<li><a href="https://www.ncbi.nlm.nih.gov/books/NBK441866/" rel="noopener" target="_blank">StatPearls — Thoracentesis</a></li>
+<li><a href="https://radiopaedia.org/articles/thoracocentesis" rel="noopener" target="_blank">Radiopaedia — Thoracocentesis</a></li>
+<li><a href="https://www.brit-thoracic.org.uk/quality-improvement/guidelines/pleural-disease/" rel="noopener" target="_blank">BTS — Pleural Disease Guidelines</a></li>
+<li><a href="https://doi.org/10.1007/978-981-97-9601-4_37" rel="noopener" target="_blank">Chandrashekhara — Textbook of Interventional Radiology (2024), hfst. 37</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/7.0.0/fuse.min.js"></script>
 <script src="../procedures.js"></script>
 <script src="../nav.js"></script>

@@ -1,238 +1,199 @@
 <!DOCTYPE html>
+
 <html lang="nl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title data-nl="Stentplaatsing galwegen — InterventionAssistant" data-en="Biliary Stenting — InterventionAssistant">Stentplaatsing galwegen — InterventionAssistant</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../style.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title data-en="Biliary Stenting — InterventionAssistant" data-nl="Stentplaatsing galwegen — InterventionAssistant">Stentplaatsing galwegen — InterventionAssistant</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&amp;family=Nunito+Sans:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
+<link href="../style.css" rel="stylesheet"/>
 </head>
 <body>
 <nav></nav>
 <div class="main proc-page">
-  <div class="breadcrumb">
-    <a href="../index.html">Home</a>
-    <span class="sep">›</span><span data-nl="Non-vasculair" data-en="Non-vascular">Non-vasculair</span>
-    <span class="sep">›</span><span data-nl="Stentplaatsing galwegen" data-en="Biliary stenting">Stentplaatsing galwegen</span>
-  </div>
-
-  <div class="proc-header">
-    <div class="proc-header-bar nonvasc"></div>
-    <div>
-      <h1 data-nl="Stentplaatsing galwegen" data-en="Percutaneous Biliary Stenting">Stentplaatsing galwegen</h1>
-      <p data-nl="Plaatsing van een galwegstent (SEMS) ter palliatie van maligne galwegobstructie, na of aansluitend op PTCD" data-en="Placement of a biliary stent (SEMS) for palliation of malignant biliary obstruction, after or following PTCD">Plaatsing van een galwegstent (SEMS) ter palliatie van maligne galwegobstructie, na of aansluitend op PTCD</p>
-      <div class="proc-meta">
-        <span class="meta-pill nonvasc" data-nl="Non-vasculair" data-en="Non-vascular">Non-vasculair</span>
-        <span class="meta-pill nonvasc">45–75 min</span>
-        <span class="meta-pill nonvasc" data-nl="Sedatie" data-en="Sedation">Sedatie</span>
-        <span class="meta-pill nonvasc" data-nl="Klinische opname" data-en="Hospital admission">Klinische opname</span>
-        <a href="../materiaal/antistolling.html" class="risk-badge hoog"><span class="risk-dot"></span><span data-nl="Hoog risico antistolling" data-en="High anticoagulation risk">Hoog risico antistolling</span><span class="risk-badge-arr">›</span></a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Indicaties -->
-  <div class="accordion" id="acc-ind">
-    <div class="acc-header" onclick="toggleAcc('acc-ind')">
-      <div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title" data-nl="Indicaties &amp; Contra-indicaties" data-en="Indications &amp; Contraindications">Indicaties &amp; Contra-indicaties</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner-split">
-        <div>
-          <p class="acc-sublabel" data-nl="Indicaties" data-en="Indications">Indicaties</p>
-          <ul class="clean">
-            <li data-nl="Maligne galwegobstructie — palliatieve interne drainage (galblaascarcinoom, cholangiocarcinoom, pancreaskop, lymfeklieren)" data-en="Malignant biliary obstruction — palliative internal drainage (gallbladder carcinoma, cholangiocarcinoma, pancreatic head, lymph nodes)">Maligne galwegobstructie — palliatieve interne drainage (galblaascarcinoom, cholangiocarcinoom, pancreaskop, lymfeklieren)</li>
-            <li data-nl="Niet-resectabele tumor met obstructieve icterus" data-en="Unresectable tumour with obstructive jaundice">Niet-resectabele tumor met obstructieve icterus</li>
-            <li data-nl="Conversie van uitwendige PTCD-drain naar interne drainage" data-en="Conversion of external PTCD drain to internal drainage">Conversie van uitwendige PTCD-drain naar interne drainage</li>
-            <li data-nl="Verlaging bilirubine ter facilitatie van chemotherapie" data-en="Lowering bilirubin to facilitate chemotherapy">Verlaging bilirubine ter facilitatie van chemotherapie</li>
-          </ul>
-        </div>
-        <div>
-          <p class="acc-sublabel" data-nl="Contra-indicaties" data-en="Contraindications">Contra-indicaties</p>
-          <ul class="contra">
-            <li data-nl="Ongecorrigeerde stollingsstoornis" data-en="Uncorrected coagulopathy">Ongecorrigeerde stollingsstoornis</li>
-            <li data-nl="Ongecontroleerde cholangitis / sepsis (eerst draineren en behandelen)" data-en="Uncontrolled cholangitis / sepsis (drain and treat first)">Ongecontroleerde cholangitis / sepsis (eerst draineren en behandelen)</li>
-            <li data-nl="Benigne of operabele maligne strictuur — voorkeur voor plastic stent via endoscopie (relatief)" data-en="Benign or operable malignant stricture — preference for plastic stent via endoscopy (relative)">Benigne of operabele maligne strictuur — voorkeur voor plastic stent via endoscopie (relatief)</li>
-            <li data-nl="Forse ascites (relatief)" data-en="Significant ascites (relative)">Forse ascites (relatief)</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Pre-procedureel -->
-  <div class="accordion" id="acc-pre">
-    <div class="acc-header" onclick="toggleAcc('acc-pre')">
-      <div class="acc-title-wrap"><span class="acc-dot blue"></span><span class="acc-title" data-nl="Pre-procedurele Checklist" data-en="Pre-procedural Checklist">Pre-procedurele Checklist</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner">
-        <ul class="clean">
-          <li data-nl="&lt;strong&gt;Lab:&lt;/strong&gt; INR, trombocyten, bilirubine, ALP, GGT, nierfunctie" data-en="&lt;strong&gt;Labs:&lt;/strong&gt; INR, platelets, bilirubin, ALP, GGT, renal function"><strong>Lab:</strong> INR, trombocyten, bilirubine, ALP, GGT, nierfunctie</li>
-          <li data-nl="&lt;strong&gt;Beeldvorming:&lt;/strong&gt; CT/MRCP ter beoordeling niveau en lengte van de strictuur (Bismuth-classificatie bij hilaire obstructie)" data-en="&lt;strong&gt;Imaging:&lt;/strong&gt; CT/MRCP to assess level and length of the stricture (Bismuth classification for hilar obstruction)"><strong>Beeldvorming:</strong> CT/MRCP ter beoordeling niveau en lengte van de strictuur (Bismuth-classificatie bij hilaire obstructie)</li>
-          <li data-nl="&lt;strong&gt;Toegang:&lt;/strong&gt; bestaande PTCD-drain aanwezig? Zo niet: eerst PTCD plaatsen (zie procedure PTCD)" data-en="&lt;strong&gt;Access:&lt;/strong&gt; existing PTCD drain present? If not: place PTCD first (see PTCD procedure)"><strong>Toegang:</strong> bestaande PTCD-drain aanwezig? Zo niet: eerst PTCD plaatsen (zie procedure PTCD)</li>
-          <li data-nl="&lt;strong&gt;Stentmaat:&lt;/strong&gt; SEMS dekt ~2–3 cm proximaal en ~1 cm distaal van de obstructie; diameter doorgaans 8–10 mm" data-en="&lt;strong&gt;Stent size:&lt;/strong&gt; SEMS covers ~2–3 cm proximal and ~1 cm distal to the obstruction; diameter usually 8–10 mm"><strong>Stentmaat:</strong> SEMS dekt ~2–3 cm proximaal en ~1 cm distaal van de obstructie; diameter doorgaans 8–10 mm</li>
-          <li data-nl="&lt;strong&gt;Antibiotica:&lt;/strong&gt; adequate dekking (piperacilline/tazobactam) ter voorkoming van biliaire sepsis" data-en="&lt;strong&gt;Antibiotics:&lt;/strong&gt; adequate cover (piperacillin/tazobactam) to prevent biliary sepsis"><strong>Antibiotica:</strong> adequate dekking (piperacilline/tazobactam) ter voorkoming van biliaire sepsis</li>
-          <li data-nl="&lt;strong&gt;Informed consent:&lt;/strong&gt; inclusief sepsis, bloeding, stentmigratie/occlusie, re-interventie" data-en="&lt;strong&gt;Informed consent:&lt;/strong&gt; including sepsis, bleeding, stent migration/occlusion, re-intervention"><strong>Informed consent:</strong> inclusief sepsis, bloeding, stentmigratie/occlusie, re-interventie</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- Materiaal -->
-  <div class="accordion" id="acc-mat">
-    <div class="acc-header" onclick="toggleAcc('acc-mat')">
-      <div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title" data-nl="Materiaal" data-en="Equipment">Materiaal</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner" style="padding:0">
-        <table class="mat">
-          <thead><tr>
-            <th data-nl="Materiaal" data-en="Material">Materiaal</th>
-            <th data-nl="Specificatie" data-en="Specification">Specificatie</th>
-            <th data-nl="Aantal" data-en="Quantity">Aantal</th>
-          </tr></thead>
-          <tbody>
-            <tr><td><a href="../materiaal/angioset.html" class="mat-link" data-nl="Angioset" data-en="Angio set">Angioset</a></td><td data-nl="Standaard" data-en="Standard">Standaard</td><td>1</td></tr>
-            <tr><td data-nl="Bestaande PTCD-toegang of nieuwe punctieset" data-en="Existing PTCD access or new puncture set">Bestaande PTCD-toegang of Neffset</td><td data-nl="Via bestaand tractus" data-en="Via existing tract">Via bestaand tractus</td><td>1</td></tr>
-            <tr><td><a href="../materiaal/draden.html" class="mat-link" data-nl="Hydrofiele voerdraad" data-en="Hydrophilic guidewire">Hydrofiele voerdraad</a></td><td>0.035" Terumo</td><td>1</td></tr>
-            <tr><td><a href="../materiaal/draden.html" class="mat-link" data-nl="Amplatz voerdraad (stiff)" data-en="Amplatz guidewire (stiff)">Amplatz voerdraad</a></td><td data-nl="0.035&quot;, stiff" data-en="0.035&quot;, stiff">0.035", stiff</td><td>1</td></tr>
-            <tr><td><a href="../materiaal/sheaths-en-katheters.html" class="mat-link" data-nl="Cobra katheter" data-en="Cobra catheter">Cobra katheter</a></td><td data-nl="4–5 Fr — passage strictuur" data-en="4–5 Fr — crossing stricture">4–5 Fr</td><td>1</td></tr>
-            <tr><td data-nl="Sheath" data-en="Sheath">Sheath</td><td data-nl="7–8 Fr, kort" data-en="7–8 Fr, short">7–8 Fr, kort</td><td>1</td></tr>
-            <tr class="mat-cat"><td colspan="3" data-nl="Stent" data-en="Stent">Stent</td></tr>
-            <tr><td data-nl="Self-expanding metallic stent (SEMS)" data-en="Self-expanding metallic stent (SEMS)">Self-expanding metallic stent (SEMS)</td><td data-nl="8–10 mm; uncovered (hilair/zijtakken) of covered (distaal)" data-en="8–10 mm; uncovered (hilar/side branches) or covered (distal)">8–10 mm; uncovered of covered</td><td>1</td></tr>
-            <tr><td data-nl="Ballonkatheter (optioneel)" data-en="Balloon catheter (optional)">Ballonkatheter (optioneel)</td><td data-nl="Voor pre-/postdilatatie strictuur" data-en="For pre-/post-dilatation of stricture">Voor pre-/postdilatatie strictuur</td><td data-nl="Optioneel" data-en="Optional">Optioneel</td></tr>
-            <tr class="mat-cat"><td colspan="3" data-nl="Veiligheidsdrain" data-en="Safety drain">Veiligheidsdrain</td></tr>
-            <tr><td data-nl="In- &amp; uitwendige drain" data-en="Internal-external drain"><a href="../materiaal/sheaths-en-katheters.html" class="mat-link" data-nl="In- &amp; uitwendige drain" data-en="Internal-external drain">In- &amp; uitwendige drain</a></td><td data-nl="8.5 Fr — tijdelijk naast stent" data-en="8.5 Fr — temporary alongside stent">8.5 Fr — tijdelijk naast stent</td><td data-nl="Optioneel" data-en="Optional">Optioneel</td></tr>
-            <tr><td data-nl="Contrastmiddel" data-en="Contrast agent">Contrastmiddel</td><td data-nl="Laag osmolair (Iohexol), 5–10 ml per cholangiogram" data-en="Low osmolar (Iohexol), 5–10 ml per cholangiogram">Laag osmolair (Iohexol)</td><td>—</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <!-- Stappenplan -->
-  <div class="accordion" id="acc-stap">
-    <div class="acc-header" onclick="toggleAcc('acc-stap')">
-      <div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title" data-nl="Stappenplan" data-en="Procedure Steps">Stappenplan</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner-split">
-        <div>
-          <ol class="steps">
-            <li><div class="sn teal">1</div><div data-nl="Toegang via bestaande PTCD-drain (of nieuw geplaatste PTCD). Cholangiogram ter beoordeling van het niveau, de lengte en de aard van de obstructie." data-en="Access via existing PTCD drain (or newly placed PTCD). Cholangiogram to assess the level, length and nature of the obstruction.">Toegang via bestaande PTCD-drain (of nieuw geplaatste PTCD). Cholangiogram ter beoordeling van het niveau, de lengte en de aard van de obstructie.</div></li>
-            <li><div class="sn teal">2</div><div data-nl="Hydrofiele voerdraad opvoeren tot in het galwegsysteem. Passage van de strictuur met de Terumo, ondersteund door een Cobra katheter, tot in het duodenum." data-en="Advance hydrophilic guidewire into the biliary system. Cross the stricture with the Terumo, supported by a Cobra catheter, into the duodenum.">Hydrofiele voerdraad opvoeren tot in het galwegsysteem. Passage van de strictuur met de Terumo, ondersteund door een Cobra katheter, tot in het duodenum.</div></li>
-            <li><div class="sn teal">3</div><div data-nl="Wissel naar een stijve Amplatz voerdraad met de tip in het duodenum. Breng zo nodig een korte sheath in." data-en="Exchange to a stiff Amplatz guidewire with the tip in the duodenum. Introduce a short sheath if needed.">Wissel naar een stijve Amplatz voerdraad met de tip in het duodenum. Breng zo nodig een korte sheath in.</div></li>
-            <li><div class="sn teal">4</div><div data-nl="Optioneel: predilatatie van een nauwe strictuur met een ballonkatheter ter facilitatie van stentpassage." data-en="Optional: pre-dilatation of a tight stricture with a balloon catheter to facilitate stent passage.">Optioneel: predilatatie van een nauwe strictuur met een ballonkatheter ter facilitatie van stentpassage.</div></li>
-            <li><div class="sn teal">5</div><div data-nl="Positioneer de SEMS over de Amplatz zodat deze ~2–3 cm proximaal en ~1 cm distaal van de obstructie reikt. Markeer de uiteinden onder doorlichting." data-en="Position the SEMS over the Amplatz so that it extends ~2–3 cm proximal and ~1 cm distal to the obstruction. Mark the ends under fluoroscopy.">Positioneer de SEMS over de Amplatz zodat deze ~2–3 cm proximaal en ~1 cm distaal van de obstructie reikt. Markeer de uiteinden onder doorlichting.</div></li>
-            <li><div class="sn teal">6</div><div data-nl="Ontplooi de stent gecontroleerd. Houd rekening met verkorting (foreshortening) tijdens ontplooiing." data-en="Deploy the stent in a controlled manner. Account for foreshortening during deployment.">Ontplooi de stent gecontroleerd. Houd rekening met verkorting (foreshortening) tijdens ontplooiing.</div></li>
-            <li><div class="sn teal">7</div><div data-nl="Optioneel: postdilatatie met een ballon ter verbetering van de ontplooiing en flow." data-en="Optional: post-dilatation with a balloon to improve expansion and flow.">Optioneel: postdilatatie met een ballon ter verbetering van de ontplooiing en flow.</div></li>
-            <li><div class="sn teal">8</div><div data-nl="Controle cholangiogram: beoordeel positie, ontplooiing en afvloed van contrast naar het duodenum." data-en="Check cholangiogram: assess position, expansion and flow of contrast to the duodenum.">Controle cholangiogram: beoordeel positie, ontplooiing en afvloed van contrast naar het duodenum.</div></li>
-            <li><div class="sn teal">9</div><div data-nl="Laat een tijdelijke in- &amp; uitwendige veiligheidsdrain naast de stent achter (op zak), zodat bij onvoldoende directe flow alsnog externe drainage mogelijk is. Na enkele dagen afdoppen en bij goede stentfunctie verwijderen." data-en="Leave a temporary internal-external safety drain alongside the stent (to bag), so external drainage remains possible if immediate flow is insufficient. Cap after a few days and remove if stent functions well.">Laat een tijdelijke in- &amp; uitwendige veiligheidsdrain naast de stent achter (op zak), zodat bij onvoldoende directe flow alsnog externe drainage mogelijk is. Na enkele dagen afdoppen en bij goede stentfunctie verwijderen.</div></li>
-          </ol>
-        </div>
-        <div>
-          <p class="acc-sublabel" data-nl="Aandachtspunten" data-en="Key Points">Aandachtspunten</p>
-          <div class="note red"><strong data-nl="Cholangitis / sepsis:" data-en="Cholangitis / sepsis:">Cholangitis / sepsis:</strong> <span data-nl="Zorg voor adequate antibiotische dekking. Vermijd overvulling met contrast — gebruik 5–10 ml laag osmolair contrast per cholangiogram om biliaire reflux en sepsis te voorkomen." data-en="Ensure adequate antibiotic cover. Avoid over-filling with contrast — use 5–10 ml low osmolar contrast per cholangiogram to prevent biliary reflux and sepsis.">Zorg voor adequate antibiotische dekking. Vermijd overvulling met contrast — gebruik 5–10 ml laag osmolair contrast per cholangiogram om biliaire reflux en sepsis te voorkomen.</span></div>
-          <div class="note orange"><strong data-nl="Stentkeuze:" data-en="Stent choice:">Stentkeuze:</strong> <span data-nl="Uncovered SEMS bij hilaire obstructie en waar zijtakken open moeten blijven; covered SEMS bij distale obstructie (minder ingroei, maar risico op zijtakafsluiting en migratie)." data-en="Uncovered SEMS for hilar obstruction and where side branches must stay open; covered SEMS for distal obstruction (less ingrowth, but risk of side branch occlusion and migration).">Uncovered SEMS bij hilaire obstructie en waar zijtakken open moeten blijven; covered SEMS bij distale obstructie (minder ingroei, maar risico op zijtakafsluiting en migratie).</span></div>
-          <div class="note orange"><strong data-nl="Dekking obstructie:" data-en="Covering the obstruction:">Dekking obstructie:</strong> <span data-nl="De stent moet ~2–3 cm proximaal en ~1 cm distaal van de obstructie reiken. Houd rekening met foreshortening bij ontplooiing." data-en="The stent should extend ~2–3 cm proximal and ~1 cm distal to the obstruction. Account for foreshortening during deployment.">De stent moet ~2–3 cm proximaal en ~1 cm distaal van de obstructie reiken. Houd rekening met foreshortening bij ontplooiing.</span></div>
-          <div class="note green"><strong data-nl="Endoscopisch vs percutaan:" data-en="Endoscopic vs percutaneous:">Endoscopisch vs percutaan:</strong> <span data-nl="Bij benigne of operabele maligne stricturen heeft een retrieveerbare plastic stent via ERCP de voorkeur. Percutane SEMS is vooral palliatief bij niet-resectabele maligne obstructie." data-en="For benign or operable malignant strictures, a retrievable plastic stent via ERCP is preferred. Percutaneous SEMS is mainly palliative for unresectable malignant obstruction.">Bij benigne of operabele maligne stricturen heeft een retrieveerbare plastic stent via ERCP de voorkeur. Percutane SEMS is vooral palliatief bij niet-resectabele maligne obstructie.</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Complicaties -->
-  <div class="accordion" id="acc-comp">
-    <div class="acc-header" onclick="toggleAcc('acc-comp')">
-      <div class="acc-title-wrap"><span class="acc-dot red"></span><span class="acc-title" data-nl="Complicaties" data-en="Complications">Complicaties</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner" style="padding:0">
-        <table class="mat">
-          <thead><tr>
-            <th data-nl="Complicatie" data-en="Complication">Complicatie</th>
-            <th data-nl="Management" data-en="Management">Management</th>
-          </tr></thead>
-          <tbody>
-            <tr><td data-nl="Cholangitis / sepsis" data-en="Cholangitis / sepsis">Cholangitis / sepsis</td><td data-nl="Bloedkweken, IV antibiotica, drainage waarborgen" data-en="Blood cultures, IV antibiotics, ensure drainage">Bloedkweken, IV antibiotica, drainage waarborgen</td></tr>
-            <tr><td data-nl="Bloeding / hemobilie" data-en="Bleeding / haemobilia">Bloeding / hemobilie</td><td data-nl="Monitoring; bij persisteren CT-angiografie en evt. embolisatie" data-en="Monitoring; if persistent CT angiography and possible embolisation">Monitoring; bij persisteren CT-angiografie en evt. embolisatie</td></tr>
-            <tr><td data-nl="Stentocclusie (tumoringroei / debris)" data-en="Stent occlusion (tumour ingrowth / debris)">Stentocclusie (tumoringroei / debris)</td><td data-nl="Re-interventie: stent-in-stent of nieuwe drain" data-en="Re-intervention: stent-in-stent or new drain">Re-interventie: stent-in-stent of nieuwe drain</td></tr>
-            <tr><td data-nl="Stentmigratie" data-en="Stent migration">Stentmigratie</td><td data-nl="Vaker bij covered stents; repositioneren of nieuwe stent" data-en="More common with covered stents; reposition or new stent">Vaker bij covered stents; repositioneren of nieuwe stent</td></tr>
-            <tr><td data-nl="Galwegperforatie / gallekkage" data-en="Bile duct perforation / bile leak">Galwegperforatie / gallekkage</td><td data-nl="Adequate drainage; tijdelijke in-/uitwendige drain" data-en="Adequate drainage; temporary internal-external drain">Adequate drainage; tijdelijke in-/uitwendige drain</td></tr>
-            <tr><td data-nl="Pancreatitis" data-en="Pancreatitis">Pancreatitis</td><td data-nl="Zeldzaam bij percutane route (geen papilmanipulatie); ondersteunend" data-en="Rare with percutaneous route (no papillary manipulation); supportive">Zeldzaam bij percutane route (geen papilmanipulatie); ondersteunend</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <!-- Nazorg -->
-  <div class="accordion" id="acc-naz">
-    <div class="acc-header" onclick="toggleAcc('acc-naz')">
-      <div class="acc-title-wrap"><span class="acc-dot green"></span><span class="acc-title" data-nl="Nazorg" data-en="Aftercare">Nazorg</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner">
-        <ul class="bullet">
-          <li data-nl="Tijdelijke veiligheidsdrain 24–48u op zak; bij goede afvloed afdoppen en daarna verwijderen" data-en="Temporary safety drain to bag for 24–48h; cap if good flow and then remove">Tijdelijke veiligheidsdrain 24–48u op zak; bij goede afvloed afdoppen en daarna verwijderen</li>
-          <li data-nl="Bilirubine vervolgen ter beoordeling drainage-effect" data-en="Follow bilirubin to assess drainage effect">Bilirubine vervolgen ter beoordeling drainage-effect</li>
-          <li data-nl="Bij koorts of toename icterus: verdenking stentocclusie of cholangitis — laagdrempelig beeldvorming" data-en="If fever or increasing jaundice: suspect stent occlusion or cholangitis — low threshold for imaging">Bij koorts of toename icterus: verdenking stentocclusie of cholangitis — laagdrempelig beeldvorming</li>
-          <li data-nl="Follow-up via behandelend specialist; SEMS is doorgaans definitief (niet-retrieveerbaar)" data-en="Follow-up via treating specialist; SEMS is usually permanent (non-retrievable)">Follow-up via behandelend specialist; SEMS is doorgaans definitief (niet-retrieveerbaar)</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- Standaardverslag -->
-  <div class="accordion" id="acc-vers">
-    <div class="acc-header" onclick="toggleAcc('acc-vers')">
-      <div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title" data-nl="Standaardverslag" data-en="Standard Report">Standaardverslag</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner">
-        <div class="verslag-wrap">
-          <div class="verslag" id="verslag-bilstent"
-            data-nl="Ter vergelijking: [datum/modaliteit]
-Antistolling: [gestaakt / niet van toepassing]
-Procedure onder antibiotische dekking.
-
-Indicatie: maligne galwegobstructie bij [oorzaak], niveau [locatie /
-Bismuth-type]. Toegang: bestaande PTCD-drain [links/rechts].
-
-Steriele omstandigheden. Cholangiogram via bestaande toegang toont
-obstructie ter hoogte van [locatie], lengte ca. [__] cm.
-
-Met hydrofiele voerdraad en Cobra katheter de strictuur gepasseerd tot
-in het duodenum. Wissel voor stijve Amplatz voerdraad.
-
-[Predilatatie strictuur met [__] mm ballon.]
-
-[Type] SEMS [diameter] mm geplaatst, reikend van [__] cm proximaal tot
-[__] cm distaal van de obstructie. [Postdilatatie met ballon.]
-
-Controle cholangiogram toont goede positie, ontplooiing en afvloed van
-contrast naar het duodenum.
-
-[In- en uitwendige veiligheidsdrain achtergelaten op zak.]
-Geen directe complicaties.
-
-CONCLUSIE:
-Plaatsing [covered/uncovered] biliary SEMS [diameter] mm ter hoogte
-van [locatie]. [Veiligheidsdrain in situ.]
-
-NAZORG:
-Veiligheidsdrain 24–48u op zak, daarna afdoppen en verwijderen bij goede
-functie. Bilirubine vervolgen. Bij koorts of toename icterus contact opnemen."
-            data-en="Reference: [date/modality]
+<div class="breadcrumb">
+<a href="../index.html">Home</a>
+<span class="sep">›</span><span data-en="Non-vascular" data-nl="Non-vasculair">Non-vasculair</span>
+<span class="sep">›</span><span data-en="Biliary stenting" data-nl="Stentplaatsing galwegen">Stentplaatsing galwegen</span>
+</div>
+<div class="proc-header">
+<div class="proc-header-bar nonvasc"></div>
+<div>
+<h1 data-en="Percutaneous Biliary Stenting" data-nl="Stentplaatsing galwegen">Stentplaatsing galwegen</h1>
+<p data-en="Placement of a biliary stent (SEMS) for palliation of malignant biliary obstruction, after or following PTCD" data-nl="Plaatsing van een galwegstent (SEMS) ter palliatie van maligne galwegobstructie, na of aansluitend op PTCD">Plaatsing van een galwegstent (SEMS) ter palliatie van maligne galwegobstructie, na of aansluitend op PTCD</p>
+<div class="proc-meta">
+<span class="meta-pill nonvasc" data-en="Non-vascular" data-nl="Non-vasculair">Non-vasculair</span>
+<span class="meta-pill nonvasc">45–75 min</span>
+<span class="meta-pill nonvasc" data-en="Sedation" data-nl="Sedatie">Sedatie</span>
+<span class="meta-pill nonvasc" data-en="Hospital admission" data-nl="Klinische opname">Klinische opname</span>
+<a class="risk-badge hoog" href="../materiaal/antistolling.html"><span class="risk-dot"></span><span data-en="High anticoagulation risk" data-nl="Hoog risico antistolling">Hoog risico antistolling</span><span class="risk-badge-arr">›</span></a>
+</div>
+</div>
+</div>
+<!-- Indicaties -->
+<div class="accordion" id="acc-ind">
+<div class="acc-header" onclick="toggleAcc('acc-ind')">
+<div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title" data-en="Indications &amp; Contraindications" data-nl="Indicaties &amp; Contra-indicaties">Indicaties &amp; Contra-indicaties</span></div>
+<span class="acc-chevron">▾</span>
+</div>
+<div class="acc-body">
+<div class="acc-inner-split">
+<div>
+<p class="acc-sublabel" data-en="Indications" data-nl="Indicaties">Indicaties</p>
+<ul class="clean">
+<li data-en="Malignant biliary obstruction — palliative internal drainage (gallbladder carcinoma, cholangiocarcinoma, pancreatic head, lymph nodes)" data-nl="Maligne galwegobstructie — palliatieve interne drainage (galblaascarcinoom, cholangiocarcinoom, pancreaskop, lymfeklieren)">Maligne galwegobstructie — palliatieve interne drainage (galblaascarcinoom, cholangiocarcinoom, pancreaskop, lymfeklieren)</li>
+<li data-en="Unresectable tumour with obstructive jaundice" data-nl="Niet-resectabele tumor met obstructieve icterus">Niet-resectabele tumor met obstructieve icterus</li>
+<li data-en="Conversion of external PTCD drain to internal drainage" data-nl="Conversie van uitwendige PTCD-drain naar interne drainage">Conversie van uitwendige PTCD-drain naar interne drainage</li>
+<li data-en="Lowering bilirubin to facilitate chemotherapy" data-nl="Verlaging bilirubine ter facilitatie van chemotherapie">Verlaging bilirubine ter facilitatie van chemotherapie</li>
+</ul>
+</div>
+<div>
+<p class="acc-sublabel" data-en="Contraindications" data-nl="Contra-indicaties">Contra-indicaties</p>
+<ul class="contra">
+<li data-en="Uncorrected coagulopathy" data-nl="Ongecorrigeerde stollingsstoornis">Ongecorrigeerde stollingsstoornis</li>
+<li data-en="Uncontrolled cholangitis / sepsis (drain and treat first)" data-nl="Ongecontroleerde cholangitis / sepsis (eerst draineren en behandelen)">Ongecontroleerde cholangitis / sepsis (eerst draineren en behandelen)</li>
+<li data-en="Benign or operable malignant stricture — preference for plastic stent via endoscopy (relative)" data-nl="Benigne of operabele maligne strictuur — voorkeur voor plastic stent via endoscopie (relatief)">Benigne of operabele maligne strictuur — voorkeur voor plastic stent via endoscopie (relatief)</li>
+<li data-en="Significant ascites (relative)" data-nl="Forse ascites (relatief)">Forse ascites (relatief)</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<!-- Pre-procedureel -->
+<div class="accordion" id="acc-pre">
+<div class="acc-header" onclick="toggleAcc('acc-pre')">
+<div class="acc-title-wrap"><span class="acc-dot blue"></span><span class="acc-title" data-en="Pre-procedural Checklist" data-nl="Pre-procedurele Checklist">Pre-procedurele Checklist</span></div>
+<span class="acc-chevron">▾</span>
+</div>
+<div class="acc-body">
+<div class="acc-inner">
+<ul class="clean">
+<li data-en="&lt;strong&gt;Labs:&lt;/strong&gt; INR, platelets, bilirubin, ALP, GGT, renal function" data-nl="&lt;strong&gt;Lab:&lt;/strong&gt; INR, trombocyten, bilirubine, ALP, GGT, nierfunctie"><strong>Lab:</strong> INR, trombocyten, bilirubine, ALP, GGT, nierfunctie</li>
+<li data-en="&lt;strong&gt;Imaging:&lt;/strong&gt; CT/MRCP to assess level and length of the stricture (Bismuth classification for hilar obstruction)" data-nl="&lt;strong&gt;Beeldvorming:&lt;/strong&gt; CT/MRCP ter beoordeling niveau en lengte van de strictuur (Bismuth-classificatie bij hilaire obstructie)"><strong>Beeldvorming:</strong> CT/MRCP ter beoordeling niveau en lengte van de strictuur (Bismuth-classificatie bij hilaire obstructie)</li>
+<li data-en="&lt;strong&gt;Access:&lt;/strong&gt; existing PTCD drain present? If not: place PTCD first (see PTCD procedure)" data-nl="&lt;strong&gt;Toegang:&lt;/strong&gt; bestaande PTCD-drain aanwezig? Zo niet: eerst PTCD plaatsen (zie procedure PTCD)"><strong>Toegang:</strong> bestaande PTCD-drain aanwezig? Zo niet: eerst PTCD plaatsen (zie procedure PTCD)</li>
+<li data-en="&lt;strong&gt;Stent size:&lt;/strong&gt; SEMS covers ~2–3 cm proximal and ~1 cm distal to the obstruction; diameter usually 8–10 mm" data-nl="&lt;strong&gt;Stentmaat:&lt;/strong&gt; SEMS dekt ~2–3 cm proximaal en ~1 cm distaal van de obstructie; diameter doorgaans 8–10 mm"><strong>Stentmaat:</strong> SEMS dekt ~2–3 cm proximaal en ~1 cm distaal van de obstructie; diameter doorgaans 8–10 mm</li>
+<li data-en="&lt;strong&gt;Antibiotics:&lt;/strong&gt; adequate cover (piperacillin/tazobactam) to prevent biliary sepsis" data-nl="&lt;strong&gt;Antibiotica:&lt;/strong&gt; adequate dekking (piperacilline/tazobactam) ter voorkoming van biliaire sepsis"><strong>Antibiotica:</strong> adequate dekking (piperacilline/tazobactam) ter voorkoming van biliaire sepsis</li>
+<li data-en="&lt;strong&gt;Informed consent:&lt;/strong&gt; including sepsis, bleeding, stent migration/occlusion, re-intervention" data-nl="&lt;strong&gt;Informed consent:&lt;/strong&gt; inclusief sepsis, bloeding, stentmigratie/occlusie, re-interventie"><strong>Informed consent:</strong> inclusief sepsis, bloeding, stentmigratie/occlusie, re-interventie</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Materiaal -->
+<div class="accordion" id="acc-mat">
+<div class="acc-header" onclick="toggleAcc('acc-mat')">
+<div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title" data-en="Equipment" data-nl="Materiaal">Materiaal</span></div>
+<span class="acc-chevron">▾</span>
+</div>
+<div class="acc-body">
+<div class="acc-inner" style="padding:0">
+<table class="mat">
+<thead><tr>
+<th data-en="Material" data-nl="Materiaal">Materiaal</th>
+<th data-en="Specification" data-nl="Specificatie">Specificatie</th>
+<th data-en="Quantity" data-nl="Aantal">Aantal</th>
+</tr></thead>
+<tbody>
+<tr><td><a class="mat-link" data-en="Angio set" data-nl="Angioset" href="../materiaal/angioset.html">Angioset</a></td><td data-en="Standard" data-nl="Standaard">Standaard</td><td>1</td></tr>
+<tr><td data-en="Existing PTCD access or new puncture set" data-nl="Bestaande PTCD-toegang of Neffset">Bestaande PTCD-toegang of Neffset</td><td data-en="Via existing tract" data-nl="Via bestaand tractus">Via bestaand tractus</td><td>1</td></tr>
+<tr><td><a class="mat-link" data-en="Hydrophilic guidewire" data-nl="Hydrofiele voerdraad" href="../materiaal/draden.html">Hydrofiele voerdraad</a></td><td>0.035" Terumo</td><td>1</td></tr>
+<tr><td><a class="mat-link" data-en="Amplatz guidewire (stiff)" data-nl="Amplatz voerdraad" href="../materiaal/draden.html">Amplatz voerdraad</a></td><td data-en='0.035", stiff' data-nl='0.035", stiff'>0.035", stiff</td><td>1</td></tr>
+<tr><td><a class="mat-link" data-en="Cobra catheter" data-nl="Cobra katheter" href="../materiaal/sheaths-en-katheters.html">Cobra katheter</a></td><td data-en="4–5 Fr — crossing stricture" data-nl="4–5 Fr — passage strictuur">4–5 Fr — passage strictuur</td><td>1</td></tr>
+<tr><td data-en="Sheath" data-nl="Sheath">Sheath</td><td data-en="7–8 Fr, short" data-nl="7–8 Fr, kort">7–8 Fr, kort</td><td>1</td></tr>
+<tr class="mat-cat"><td colspan="3" data-en="Stent" data-nl="Stent">Stent</td></tr>
+<tr><td data-en="Self-expanding metallic stent (SEMS)" data-nl="Self-expanding metallic stent (SEMS)">Self-expanding metallic stent (SEMS)</td><td data-en="8–10 mm; uncovered (hilar/side branches) or covered (distal)" data-nl="8–10 mm; uncovered (hilair/zijtakken) of covered (distaal)">8–10 mm; uncovered (hilair/zijtakken) of covered (distaal)</td><td>1</td></tr>
+<tr><td data-en="Balloon catheter (optional)" data-nl="Ballonkatheter (optioneel)">Ballonkatheter (optioneel)</td><td data-en="For pre-/post-dilatation of stricture" data-nl="Voor pre-/postdilatatie strictuur">Voor pre-/postdilatatie strictuur</td><td data-en="Optional" data-nl="Optioneel">Optioneel</td></tr>
+<tr class="mat-cat"><td colspan="3" data-en="Safety drain" data-nl="Veiligheidsdrain">Veiligheidsdrain</td></tr>
+<tr><td data-en="Internal-external drain" data-nl="In- &amp; uitwendige drain"><a class="mat-link" data-en="Internal-external drain" data-nl="In- &amp; uitwendige drain" href="../materiaal/sheaths-en-katheters.html">In- &amp; uitwendige drain</a></td><td data-en="8.5 Fr — temporary alongside stent" data-nl="8.5 Fr — tijdelijk naast stent">8.5 Fr — tijdelijk naast stent</td><td data-en="Optional" data-nl="Optioneel">Optioneel</td></tr>
+<tr><td data-en="Contrast agent" data-nl="Contrastmiddel">Contrastmiddel</td><td data-en="Low osmolar (Iohexol), 5–10 ml per cholangiogram" data-nl="Laag osmolair (Iohexol)">Laag osmolair (Iohexol)</td><td>—</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Stappenplan -->
+<div class="accordion" id="acc-stap">
+<div class="acc-header" onclick="toggleAcc('acc-stap')">
+<div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title" data-en="Procedure Steps" data-nl="Stappenplan">Stappenplan</span></div>
+<span class="acc-chevron">▾</span>
+</div>
+<div class="acc-body">
+<div class="acc-inner-split">
+<div>
+<ol class="steps">
+<li><div class="sn teal">1</div><div data-en="Access via existing PTCD drain (or newly placed PTCD). Cholangiogram to assess the level, length and nature of the obstruction." data-nl="Toegang via bestaande PTCD-drain (of nieuw geplaatste PTCD). Cholangiogram ter beoordeling van het niveau, de lengte en de aard van de obstructie.">Toegang via bestaande PTCD-drain (of nieuw geplaatste PTCD). Cholangiogram ter beoordeling van het niveau, de lengte en de aard van de obstructie.</div></li>
+<li><div class="sn teal">2</div><div data-en="Advance hydrophilic guidewire into the biliary system. Cross the stricture with the Terumo, supported by a Cobra catheter, into the duodenum." data-nl="Hydrofiele voerdraad opvoeren tot in het galwegsysteem. Passage van de strictuur met de Terumo, ondersteund door een Cobra katheter, tot in het duodenum.">Hydrofiele voerdraad opvoeren tot in het galwegsysteem. Passage van de strictuur met de Terumo, ondersteund door een Cobra katheter, tot in het duodenum.</div></li>
+<li><div class="sn teal">3</div><div data-en="Exchange to a stiff Amplatz guidewire with the tip in the duodenum. Introduce a short sheath if needed." data-nl="Wissel naar een stijve Amplatz voerdraad met de tip in het duodenum. Breng zo nodig een korte sheath in.">Wissel naar een stijve Amplatz voerdraad met de tip in het duodenum. Breng zo nodig een korte sheath in.</div></li>
+<li><div class="sn teal">4</div><div data-en="Optional: pre-dilatation of a tight stricture with a balloon catheter to facilitate stent passage." data-nl="Optioneel: predilatatie van een nauwe strictuur met een ballonkatheter ter facilitatie van stentpassage.">Optioneel: predilatatie van een nauwe strictuur met een ballonkatheter ter facilitatie van stentpassage.</div></li>
+<li><div class="sn teal">5</div><div data-en="Position the SEMS over the Amplatz so that it extends ~2–3 cm proximal and ~1 cm distal to the obstruction. Mark the ends under fluoroscopy." data-nl="Positioneer de SEMS over de Amplatz zodat deze ~2–3 cm proximaal en ~1 cm distaal van de obstructie reikt. Markeer de uiteinden onder doorlichting.">Positioneer de SEMS over de Amplatz zodat deze ~2–3 cm proximaal en ~1 cm distaal van de obstructie reikt. Markeer de uiteinden onder doorlichting.</div></li>
+<li><div class="sn teal">6</div><div data-en="Deploy the stent in a controlled manner. Account for foreshortening during deployment." data-nl="Ontplooi de stent gecontroleerd. Houd rekening met verkorting (foreshortening) tijdens ontplooiing.">Ontplooi de stent gecontroleerd. Houd rekening met verkorting (foreshortening) tijdens ontplooiing.</div></li>
+<li><div class="sn teal">7</div><div data-en="Optional: post-dilatation with a balloon to improve expansion and flow." data-nl="Optioneel: postdilatatie met een ballon ter verbetering van de ontplooiing en flow.">Optioneel: postdilatatie met een ballon ter verbetering van de ontplooiing en flow.</div></li>
+<li><div class="sn teal">8</div><div data-en="Check cholangiogram: assess position, expansion and flow of contrast to the duodenum." data-nl="Controle cholangiogram: beoordeel positie, ontplooiing en afvloed van contrast naar het duodenum.">Controle cholangiogram: beoordeel positie, ontplooiing en afvloed van contrast naar het duodenum.</div></li>
+<li><div class="sn teal">9</div><div data-en="Leave a temporary internal-external safety drain alongside the stent (to bag), so external drainage remains possible if immediate flow is insufficient. Cap after a few days and remove if stent functions well." data-nl="Laat een tijdelijke in- &amp; uitwendige veiligheidsdrain naast de stent achter (op zak), zodat bij onvoldoende directe flow alsnog externe drainage mogelijk is. Na enkele dagen afdoppen en bij goede stentfunctie verwijderen.">Laat een tijdelijke in- &amp; uitwendige veiligheidsdrain naast de stent achter (op zak), zodat bij onvoldoende directe flow alsnog externe drainage mogelijk is. Na enkele dagen afdoppen en bij goede stentfunctie verwijderen.</div></li>
+</ol>
+</div>
+<div>
+<p class="acc-sublabel" data-en="Key Points" data-nl="Aandachtspunten">Aandachtspunten</p>
+<div class="note red"><strong data-en="Cholangitis / sepsis:" data-nl="Cholangitis / sepsis:">Cholangitis / sepsis:</strong> <span data-en="Ensure adequate antibiotic cover. Avoid over-filling with contrast — use 5–10 ml low osmolar contrast per cholangiogram to prevent biliary reflux and sepsis." data-nl="Zorg voor adequate antibiotische dekking. Vermijd overvulling met contrast — gebruik 5–10 ml laag osmolair contrast per cholangiogram om biliaire reflux en sepsis te voorkomen.">Zorg voor adequate antibiotische dekking. Vermijd overvulling met contrast — gebruik 5–10 ml laag osmolair contrast per cholangiogram om biliaire reflux en sepsis te voorkomen.</span></div>
+<div class="note orange"><strong data-en="Stent choice:" data-nl="Stentkeuze:">Stentkeuze:</strong> <span data-en="Uncovered SEMS for hilar obstruction and where side branches must stay open; covered SEMS for distal obstruction (less ingrowth, but risk of side branch occlusion and migration)." data-nl="Uncovered SEMS bij hilaire obstructie en waar zijtakken open moeten blijven; covered SEMS bij distale obstructie (minder ingroei, maar risico op zijtakafsluiting en migratie).">Uncovered SEMS bij hilaire obstructie en waar zijtakken open moeten blijven; covered SEMS bij distale obstructie (minder ingroei, maar risico op zijtakafsluiting en migratie).</span></div>
+<div class="note orange"><strong data-en="Covering the obstruction:" data-nl="Dekking obstructie:">Dekking obstructie:</strong> <span data-en="The stent should extend ~2–3 cm proximal and ~1 cm distal to the obstruction. Account for foreshortening during deployment." data-nl="De stent moet ~2–3 cm proximaal en ~1 cm distaal van de obstructie reiken. Houd rekening met foreshortening bij ontplooiing.">De stent moet ~2–3 cm proximaal en ~1 cm distaal van de obstructie reiken. Houd rekening met foreshortening bij ontplooiing.</span></div>
+<div class="note green"><strong data-en="Endoscopic vs percutaneous:" data-nl="Endoscopisch vs percutaan:">Endoscopisch vs percutaan:</strong> <span data-en="For benign or operable malignant strictures, a retrievable plastic stent via ERCP is preferred. Percutaneous SEMS is mainly palliative for unresectable malignant obstruction." data-nl="Bij benigne of operabele maligne stricturen heeft een retrieveerbare plastic stent via ERCP de voorkeur. Percutane SEMS is vooral palliatief bij niet-resectabele maligne obstructie.">Bij benigne of operabele maligne stricturen heeft een retrieveerbare plastic stent via ERCP de voorkeur. Percutane SEMS is vooral palliatief bij niet-resectabele maligne obstructie.</span></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Complicaties -->
+<div class="accordion" id="acc-comp">
+<div class="acc-header" onclick="toggleAcc('acc-comp')">
+<div class="acc-title-wrap"><span class="acc-dot red"></span><span class="acc-title" data-en="Complications" data-nl="Complicaties">Complicaties</span></div>
+<span class="acc-chevron">▾</span>
+</div>
+<div class="acc-body">
+<div class="acc-inner" style="padding:0">
+<table class="mat">
+<thead><tr>
+<th data-en="Complication" data-nl="Complicatie">Complicatie</th>
+<th data-en="Management" data-nl="Management">Management</th>
+</tr></thead>
+<tbody>
+<tr><td data-en="Cholangitis / sepsis" data-nl="Cholangitis / sepsis">Cholangitis / sepsis</td><td data-en="Blood cultures, IV antibiotics, ensure drainage" data-nl="Bloedkweken, IV antibiotica, drainage waarborgen">Bloedkweken, IV antibiotica, drainage waarborgen</td></tr>
+<tr><td data-en="Bleeding / haemobilia" data-nl="Bloeding / hemobilie">Bloeding / hemobilie</td><td data-en="Monitoring; if persistent CT angiography and possible embolisation" data-nl="Monitoring; bij persisteren CT-angiografie en evt. embolisatie">Monitoring; bij persisteren CT-angiografie en evt. embolisatie</td></tr>
+<tr><td data-en="Stent occlusion (tumour ingrowth / debris)" data-nl="Stentocclusie (tumoringroei / debris)">Stentocclusie (tumoringroei / debris)</td><td data-en="Re-intervention: stent-in-stent or new drain" data-nl="Re-interventie: stent-in-stent of nieuwe drain">Re-interventie: stent-in-stent of nieuwe drain</td></tr>
+<tr><td data-en="Stent migration" data-nl="Stentmigratie">Stentmigratie</td><td data-en="More common with covered stents; reposition or new stent" data-nl="Vaker bij covered stents; repositioneren of nieuwe stent">Vaker bij covered stents; repositioneren of nieuwe stent</td></tr>
+<tr><td data-en="Bile duct perforation / bile leak" data-nl="Galwegperforatie / gallekkage">Galwegperforatie / gallekkage</td><td data-en="Adequate drainage; temporary internal-external drain" data-nl="Adequate drainage; tijdelijke in-/uitwendige drain">Adequate drainage; tijdelijke in-/uitwendige drain</td></tr>
+<tr><td data-en="Pancreatitis" data-nl="Pancreatitis">Pancreatitis</td><td data-en="Rare with percutaneous route (no papillary manipulation); supportive" data-nl="Zeldzaam bij percutane route (geen papilmanipulatie); ondersteunend">Zeldzaam bij percutane route (geen papilmanipulatie); ondersteunend</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Nazorg -->
+<div class="accordion" id="acc-naz">
+<div class="acc-header" onclick="toggleAcc('acc-naz')">
+<div class="acc-title-wrap"><span class="acc-dot green"></span><span class="acc-title" data-en="Aftercare" data-nl="Nazorg">Nazorg</span></div>
+<span class="acc-chevron">▾</span>
+</div>
+<div class="acc-body">
+<div class="acc-inner">
+<ul class="bullet">
+<li data-en="Temporary safety drain to bag for 24–48h; cap if good flow and then remove" data-nl="Tijdelijke veiligheidsdrain 24–48u op zak; bij goede afvloed afdoppen en daarna verwijderen">Tijdelijke veiligheidsdrain 24–48u op zak; bij goede afvloed afdoppen en daarna verwijderen</li>
+<li data-en="Follow bilirubin to assess drainage effect" data-nl="Bilirubine vervolgen ter beoordeling drainage-effect">Bilirubine vervolgen ter beoordeling drainage-effect</li>
+<li data-en="If fever or increasing jaundice: suspect stent occlusion or cholangitis — low threshold for imaging" data-nl="Bij koorts of toename icterus: verdenking stentocclusie of cholangitis — laagdrempelig beeldvorming">Bij koorts of toename icterus: verdenking stentocclusie of cholangitis — laagdrempelig beeldvorming</li>
+<li data-en="Follow-up via treating specialist; SEMS is usually permanent (non-retrievable)" data-nl="Follow-up via behandelend specialist; SEMS is doorgaans definitief (niet-retrieveerbaar)">Follow-up via behandelend specialist; SEMS is doorgaans definitief (niet-retrieveerbaar)</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Standaardverslag -->
+<div class="accordion" id="acc-vers">
+<div class="acc-header" onclick="toggleAcc('acc-vers')">
+<div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title" data-en="Standard Report" data-nl="Standaardverslag">Standaardverslag</span></div>
+<span class="acc-chevron">▾</span>
+</div>
+<div class="acc-body">
+<div class="acc-inner">
+<div class="verslag-wrap">
+<div class="verslag" data-en="Reference: [date/modality]
 Anticoagulation: [discontinued / not applicable]
 Procedure performed under antibiotic cover.
 
@@ -262,7 +223,37 @@ level of [location]. [Safety drain in situ.]
 
 AFTERCARE:
 Safety drain to bag for 24–48h, then cap and remove if functioning well.
-Follow bilirubin. Contact if fever or increasing jaundice.">Ter vergelijking: [datum/modaliteit]
+Follow bilirubin. Contact if fever or increasing jaundice." data-nl="Ter vergelijking: [datum/modaliteit]
+Antistolling: [gestaakt / niet van toepassing]
+Procedure onder antibiotische dekking.
+
+Indicatie: maligne galwegobstructie bij [oorzaak], niveau [locatie /
+Bismuth-type]. Toegang: bestaande PTCD-drain [links/rechts].
+
+Steriele omstandigheden. Cholangiogram via bestaande toegang toont
+obstructie ter hoogte van [locatie], lengte ca. [__] cm.
+
+Met hydrofiele voerdraad en Cobra katheter de strictuur gepasseerd tot
+in het duodenum. Wissel voor stijve Amplatz voerdraad.
+
+[Predilatatie strictuur met [__] mm ballon.]
+
+[Type] SEMS [diameter] mm geplaatst, reikend van [__] cm proximaal tot
+[__] cm distaal van de obstructie. [Postdilatatie met ballon.]
+
+Controle cholangiogram toont goede positie, ontplooiing en afvloed van
+contrast naar het duodenum.
+
+[In- en uitwendige veiligheidsdrain achtergelaten op zak.]
+Geen directe complicaties.
+
+CONCLUSIE:
+Plaatsing [covered/uncovered] biliary SEMS [diameter] mm ter hoogte
+van [locatie]. [Veiligheidsdrain in situ.]
+
+NAZORG:
+Veiligheidsdrain 24–48u op zak, daarna afdoppen en verwijderen bij goede
+functie. Bilirubine vervolgen. Bij koorts of toename icterus contact opnemen." id="verslag-bilstent">Ter vergelijking: [datum/modaliteit]
 Antistolling: [gestaakt / niet van toepassing]
 Procedure onder antibiotische dekking.
 
@@ -293,31 +284,29 @@ van [locatie]. [Veiligheidsdrain in situ.]
 NAZORG:
 Veiligheidsdrain 24–48u op zak, daarna afdoppen en verwijderen bij goede
 functie. Bilirubine vervolgen. Bij koorts of toename icterus contact opnemen.</div>
-          <button class="copy-btn" id="copy-bilstent" onclick="copyVerslag('verslag-bilstent','copy-bilstent')">⎘ <span data-nl="Kopieer" data-en="Copy">Kopieer</span></button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Bronnen -->
-  <div class="accordion" id="acc-bronnen">
-    <div class="acc-header" onclick="toggleAcc('acc-bronnen')">
-      <div class="acc-title-wrap"><span class="acc-dot blue"></span><span class="acc-title" data-nl="Bronnen &amp; Externe Links" data-en="References &amp; External Links">Bronnen &amp; Externe Links</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner">
-        <ul class="bronnen-lijst">
-          <li><a href="https://www.cirse.org/patients/ir-procedures/biliary-stenting/" target="_blank" rel="noopener">CIRSE — Biliary Stenting</a></li>
-          <li><a href="https://radiopaedia.org/articles/biliary-stent" target="_blank" rel="noopener">Radiopaedia — Biliary stent</a></li>
-          <li><a href="https://www.ncbi.nlm.nih.gov/books/NBK459302/" target="_blank" rel="noopener">StatPearls — Percutaneous Transhepatic Cholangiography &amp; Biliary Drainage</a></li>
-          <li><a href="https://doi.org/10.1007/978-981-97-9601-4_38" target="_blank" rel="noopener">Chandrashekhara — Textbook of Interventional Radiology (2024), hfst. 38</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
+<button class="copy-btn" id="copy-bilstent" onclick="copyVerslag('verslag-bilstent','copy-bilstent')">⎘ <span data-en="Copy" data-nl="Kopieer">Kopieer</span></button>
 </div>
-
+</div>
+</div>
+</div>
+<!-- Bronnen -->
+<div class="accordion" id="acc-bronnen">
+<div class="acc-header" onclick="toggleAcc('acc-bronnen')">
+<div class="acc-title-wrap"><span class="acc-dot blue"></span><span class="acc-title" data-en="References &amp; External Links" data-nl="Bronnen &amp; Externe Links">Bronnen &amp; Externe Links</span></div>
+<span class="acc-chevron">▾</span>
+</div>
+<div class="acc-body">
+<div class="acc-inner">
+<ul class="bronnen-lijst">
+<li><a href="https://www.cirse.org/patients/ir-procedures/biliary-stenting/" rel="noopener" target="_blank">CIRSE — Biliary Stenting</a></li>
+<li><a href="https://radiopaedia.org/articles/biliary-stent" rel="noopener" target="_blank">Radiopaedia — Biliary stent</a></li>
+<li><a href="https://www.ncbi.nlm.nih.gov/books/NBK459302/" rel="noopener" target="_blank">StatPearls — Percutaneous Transhepatic Cholangiography &amp; Biliary Drainage</a></li>
+<li><a href="https://doi.org/10.1007/978-981-97-9601-4_38" rel="noopener" target="_blank">Chandrashekhara — Textbook of Interventional Radiology (2024), hfst. 38</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/7.0.0/fuse.min.js"></script>
 <script src="../procedures.js"></script>
 <script src="../nav.js"></script>

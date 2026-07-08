@@ -1,266 +1,232 @@
 <!DOCTYPE html>
+
 <html lang="nl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>rTPA Trombolyse — InterventionAssistant</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../style.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>rTPA Trombolyse — InterventionAssistant</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&amp;family=Nunito+Sans:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
+<link href="../style.css" rel="stylesheet"/>
 </head>
 <body>
 <nav></nav>
 <div class="main proc-page">
-  <div class="breadcrumb">
-    <a href="../index.html">Home</a><span class="sep">›</span>
-    <span>Vasculair</span><span class="sep">›</span>
-    <span>rTPA acuut bedreigd been</span>
-  </div>
-  <div class="proc-header">
-    <div class="proc-header-bar vasc"></div>
-    <div>
-      <h1>rTPA — Acuut Bedreigd Been</h1>
-      <p>Catheter-directed trombolyse bij acute arteriële occlusie extremiteit</p>
-      <div class="proc-meta">
-        <span class="meta-pill thrombo">⚡ Urgent</span>
-        <span class="meta-pill thrombo" data-nl="Trombolyse" data-en="Thrombolysis">Trombolyse</span>
-        <a href="../materiaal/antistolling.html" class="risk-badge hoog"><span class="risk-dot"></span><span data-nl="Hoog risico antistolling" data-en="High anticoagulation risk">Hoog risico antistolling</span><span class="risk-badge-arr">›</span></a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Indicaties -->
-
-  <div class="accordion" id="acc-ind">
-    <div class="acc-header" onclick="toggleAcc('acc-ind')">
-      <div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title" data-nl="Indicaties &amp; Contra-indicaties" data-en="Indications &amp; Contraindications">Indicaties &amp; Contra-indicaties</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner-split">
-        <div>
-          <p class="acc-sublabel" data-nl="Indicaties" data-en="Indications">Indicaties</p>
-          <ul class="clean">
-            <li data-nl="Rutherford IIa/IIb — acuut bedreigd been, symptoomduur &lt;14 dagen (voorkeur &lt;7d)" data-en="Rutherford IIa/IIb — acutely threatened limb, symptom duration &lt;14 days (preferably &lt;7d)">Rutherford IIa/IIb — acuut bedreigd been, symptoomduur &lt;14 dagen (voorkeur &lt;7d)</li>
-            <li data-nl="Acute arteriële occlusie extremiteit na overleg vaatchirurgie" data-en="Acute arterial occlusion of extremity after vascular surgery consultation">Acute arteriële occlusie extremiteit na overleg vaatchirurgie</li>
-          </ul>
-          <p class="acc-sublabel" style="margin-top:1rem">Rutherford classificatie</p>
-          <table class="mat" style="margin-top:0.4rem">
-            <thead><tr><th>Klasse</th><th>Beschrijving</th><th>Beleid</th></tr></thead>
-            <tbody>
-              <tr><td>I</td><td data-nl="Levensvatbaar" data-en="Viable">Levensvatbaar</td><td data-nl="Electief" data-en="Elective">Electief</td></tr>
-              <tr><td><strong>IIa</strong></td><td data-nl="Bedreigd, geen motorverlies" data-en="Threatened, no motor loss">Bedreigd, geen motorverlies</td><td data-nl="Spoed trombolyse" data-en="Urgent thrombolysis">Spoed trombolyse</td></tr>
-              <tr><td><strong>IIb</strong></td><td data-nl="Direct bedreigd, motorverlies" data-en="Immediately threatened, motor loss">Direct bedreigd, motorverlies</td><td data-nl="Directe interventie" data-en="Immediate intervention">Directe interventie</td></tr>
-              <tr><td>III</td><td data-nl="Irreversibel" data-en="Irreversible">Irreversibel</td><td data-nl="Primaire amputatie" data-en="Primary amputation">Primaire amputatie</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div>
-          <p class="acc-sublabel" data-nl="Contra-indicaties" data-en="Contraindications">Contra-indicaties</p>
-          <div class="note red"><strong data-nl="Absoluut:" data-en="Absolute:">Absoluut:</strong> <span data-nl="Actieve bloeding, recent CVA (&lt;3 mnd), recente grote chirurgie/trauma, intracraniële pathologie." data-en="Active bleeding, recent stroke (&lt;3 months), recent major surgery/trauma, intracranial pathology.">Actieve bloeding, CVA &lt;3 mnd, intracraniële chirurgie &lt;3 mnd, intracraniële tumor</span></div>
-          <div class="note orange"><strong data-nl="Relatief:" data-en="Relative:">Relatief:</strong> <span data-nl="Recente kleine ingreep, ongecontroleerde hypertensie, zwangerschap, leeftijd &gt;75." data-en="Recent minor procedure, uncontrolled hypertension, pregnancy, age &gt;75.">Grote chirurgie &lt;10d, GI bloeding &lt;3 mnd, ongecontroleerde hypertensie, zwangerschap, Rutherford III</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Pre-procedureel -->
-
-  <div class="accordion" id="acc-pre">
-    <div class="acc-header" onclick="toggleAcc('acc-pre')">
-      <div class="acc-title-wrap"><span class="acc-dot blue"></span><span class="acc-title" data-nl="Pre-procedurele Checklist" data-en="Pre-procedural Checklist">Pre-procedurele Checklist</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner">
-        <div class="note red"><strong data-nl="Contra-indicaties actief uitvragen — essentieel vóór start:" data-en="Actively check contraindications — essential before starting:">Contra-indicaties actief uitvragen — essentieel vóór start:</strong> <span data-nl="bij alteplase zijn de bloedingsrisico's aanzienlijk hoger dan bij de meeste andere interventies. Doorloop onderstaande lijst expliciet met de patiënt/familie en documenteer dit (incl. WGBO-bespreking complicaties) vóórdat met de procedure wordt gestart." data-en="with alteplase, bleeding risks are considerably higher than with most other interventions. Explicitly go through the list below with the patient/family and document this (incl. discussion of complications per WGBO) before starting the procedure.">bij alteplase zijn de bloedingsrisico's aanzienlijk hoger dan bij de meeste andere interventies. Doorloop onderstaande lijst expliciet met de patiënt/familie en documenteer dit (incl. WGBO-bespreking complicaties) vóórdat met de procedure wordt gestart.</span></div>
-
-        <table class="mat" style="margin-bottom:0.9rem">
-          <thead><tr>
-            <th data-nl="Categorie" data-en="Category">Categorie</th>
-            <th data-nl="Contra-indicatie" data-en="Contraindication">Contra-indicatie</th>
-          </tr></thead>
-          <tbody>
-            <tr class="cat-row"><td colspan="2" data-nl="Absoluut" data-en="Absolute">Absoluut</td></tr>
-            <tr><td></td><td data-nl="Gastro-intestinale bloeding &lt;10 dagen" data-en="Gastrointestinal bleeding &lt;10 days">Gastro-intestinale bloeding &lt;10 dagen</td></tr>
-            <tr><td></td><td data-nl="CVA &lt;2 maanden" data-en="Stroke &lt;2 months">CVA &lt;2 maanden</td></tr>
-            <tr><td></td><td data-nl="Neurochirurgie (intracranieel/spinaal) &lt;3 maanden" data-en="Neurosurgery (intracranial/spinal) &lt;3 months">Neurochirurgie (intracranieel/spinaal) &lt;3 maanden</td></tr>
-            <tr><td></td><td data-nl="Intracranieel trauma &lt;3 maanden" data-en="Intracranial trauma &lt;3 months">Intracranieel trauma &lt;3 maanden</td></tr>
-            <tr><td></td><td data-nl="Actieve bloedingsdiathese" data-en="Active bleeding diathesis">Actieve bloedingsdiathese</td></tr>
-            <tr class="cat-row"><td colspan="2" data-nl="Relatief — majeur" data-en="Relative — major">Relatief — majeur</td></tr>
-            <tr><td></td><td data-nl="Hypertensie &gt;180/110 mmHg" data-en="Hypertension &gt;180/110 mmHg">Hypertensie &gt;180/110 mmHg</td></tr>
-            <tr><td></td><td data-nl="Cardiopulmonale resuscitatie &lt;10 dagen" data-en="Cardiopulmonary resuscitation &lt;10 days">Cardiopulmonale resuscitatie &lt;10 dagen</td></tr>
-            <tr><td></td><td data-nl="Grote non-vasculaire chirurgie of trauma &lt;10 dagen" data-en="Major non-vascular surgery or trauma &lt;10 days">Grote non-vasculaire chirurgie of trauma &lt;10 dagen</td></tr>
-            <tr><td></td><td data-nl="Punctie niet-comprimeerbaar vat" data-en="Puncture of non-compressible vessel">Punctie niet-comprimeerbaar vat</td></tr>
-            <tr><td></td><td data-nl="Intracraniële tumor" data-en="Intracranial tumour">Intracraniële tumor</td></tr>
-            <tr><td></td><td data-nl="Recente oogchirurgie &lt;1 maand" data-en="Recent eye surgery &lt;1 month">Recente oogchirurgie &lt;1 maand</td></tr>
-            <tr class="cat-row"><td colspan="2" data-nl="Relatief — mineur" data-en="Relative — minor">Relatief — mineur</td></tr>
-            <tr><td></td><td data-nl="Leverfalen, met name met coagulopathie" data-en="Liver failure, especially with coagulopathy">Leverfalen, met name met coagulopathie</td></tr>
-            <tr><td></td><td data-nl="Bacteriële endocarditis" data-en="Bacterial endocarditis">Bacteriële endocarditis</td></tr>
-            <tr><td></td><td data-nl="Zwangerschap" data-en="Pregnancy">Zwangerschap</td></tr>
-            <tr><td></td><td data-nl="Diabetische hemorragische retinopathie" data-en="Diabetic haemorrhagic retinopathy">Diabetische hemorragische retinopathie</td></tr>
-            <tr><td></td><td data-nl="(Gemetastaseerde) maligniteit" data-en="(Metastatic) malignancy">(Gemetastaseerde) maligniteit</td></tr>
-          </tbody>
-        </table>
-
-        <ul class="clean">
-          <li data-nl="&lt;strong&gt;MDO:&lt;/strong&gt; Overleg vaatchirurgie vóór aanvang" data-en="&lt;strong&gt;MDT:&lt;/strong&gt; Consult vascular surgery before start"><strong>MDO:</strong> Overleg vaatchirurgie vóór aanvang</li>
-          <li data-nl="&lt;strong&gt;Lab:&lt;/strong&gt; HB, HT, trombocyten, APTT, INR, kruisbloed, eGFR/kreatinine" data-en="&lt;strong&gt;Labs:&lt;/strong&gt; HB, HT, platelets, APTT, INR, crossmatch, eGFR/creatinine"><strong>Lab:</strong> HB, HT, trombocyten, APTT, INR, kruisbloed, eGFR/kreatinine</li>
-          <li data-nl="&lt;strong&gt;Antistolling:&lt;/strong&gt; alle bloedverdunners staken vóór start. Bij INR &gt;2 en/of actief NOAC-gebruik: bloedingsrisico afwegen tegen behandelrisico (overleg vaatchirurg + interventieradioloog)" data-en="&lt;strong&gt;Anticoagulation:&lt;/strong&gt; discontinue all anticoagulants before start. With INR &gt;2 and/or active NOAC use: weigh bleeding risk against treatment risk (consult vascular surgeon + interventional radiologist)"><strong>Antistolling:</strong> alle bloedverdunners staken vóór start. Bij INR &gt;2 en/of actief NOAC-gebruik: bloedingsrisico afwegen tegen behandelrisico (overleg vaatchirurg + interventieradioloog)</li>
-          <li data-nl="&lt;strong&gt;IC/MC:&lt;/strong&gt; Bed beschikbaar voor post-procedurele monitoring (speciale zorg A5)" data-en="&lt;strong&gt;ICU/MCU:&lt;/strong&gt; Bed available for post-procedural monitoring (special care A5)"><strong>IC/MC:</strong> Bed beschikbaar voor post-procedurele monitoring (speciale zorg A5)</li>
-          <li data-nl="&lt;strong&gt;Toegang:&lt;/strong&gt; 2 perifere infusen + blaaskatheter vooraf ingebracht (niet bij behandeling via de arm)" data-en="&lt;strong&gt;Access:&lt;/strong&gt; 2 peripheral IV lines + urinary catheter placed in advance (not for arm treatment)"><strong>Toegang:</strong> 2 perifere infusen + blaaskatheter vooraf ingebracht (niet bij behandeling via de arm)</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- Stappenplan -->
-
-  <div class="accordion" id="acc-mat">
-    <div class="acc-header" onclick="toggleAcc('acc-mat')">
-      <div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title" data-nl="Materiaal" data-en="Equipment">Materiaal</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner" style="padding:0">
-        <table class="mat">
-          <thead><tr><th data-nl="Materiaal" data-en="Material">Materiaal</th><th data-nl="Specificatie" data-en="Specification">Specificatie</th><th data-nl="Opmerking" data-en="Note">Opmerking</th></tr></thead>
-          <tbody>
-            <tr class="mat-cat"><td colspan="3" data-nl="Basis" data-en="Basics">Basis</td></tr>
-            <tr><td><a href="../materiaal/angioset.html" class="mat-link" data-nl="Angioset" data-en="Angio set">Angioset</a></td><td data-nl="Standaard" data-en="Standard">Standaard</td><td>1</td></tr>
-            <tr><td data-nl="Contrastmiddel" data-en="Contrast medium">Contrastmiddel</td><td data-nl="Visipaque 270, flacon 100/200 ml" data-en="Visipaque 270, vial 100/200 ml">Visipaque 270, flacon 100/200 ml</td><td></td></tr>
-            <tr class="mat-cat"><td colspan="3" data-nl="Toegang" data-en="Access">Toegang</td></tr>
-            <tr><td data-nl="Introducersheath (eerste toegang)" data-en="Introducer sheath (initial access)">Introducersheath (eerste toegang)</td><td>6Fr, 10 cm</td><td></td></tr>
-            <tr><td data-nl="Lange introducersheath" data-en="Long introducer sheath">Lange introducersheath</td><td data-nl="6Fr Destination, 45 cm" data-en="6Fr Destination, 45 cm">6Fr Destination, 45 cm</td><td data-nl="Na sheath-wissel — voorkomt luxatie" data-en="After sheath exchange — prevents dislodgement">Na sheath-wissel — voorkomt luxatie</td></tr>
-            <tr class="mat-cat"><td colspan="3" data-nl="Voerdraden" data-en="Guidewires">Voerdraden</td></tr>
-            <tr><td data-nl="Hydrofiele draad" data-en="Hydrophilic wire">Hydrofiele draad</td><td>Terumo Glidewire 0.035", 180 cm</td><td data-nl="Over de bocht + occlusie passeren" data-en="Crossing the bifurcation + occlusion">Over de bocht + occlusie passeren</td></tr>
-            <tr><td data-nl="Stijve wissel-/werkdraad" data-en="Stiff exchange/working wire">Stijve wissel-/werkdraad</td><td data-nl="Rosen-draad 0.035\", 180 cm" data-en="Rosen wire 0.035\", 180 cm">Rosen-draad 0.035", 180 cm</td><td data-nl="Na passage occlusie, vóór sheath- en katheterwissel" data-en="After crossing the occlusion, before sheath and catheter exchange">Na passage occlusie, vóór sheath- en katheterwissel</td></tr>
-            <tr class="mat-cat"><td colspan="3" data-nl="Katheters" data-en="Catheters">Katheters</td></tr>
-            <tr><td data-nl="UF-katheter" data-en="UF catheter">UF-katheter</td><td>UF 4F, 90 cm</td><td data-nl="Over de bocht + diagnostische angio" data-en="Crossing the bifurcation + diagnostic angio">Over de bocht + diagnostische angio</td></tr>
-            <tr><td data-nl="Steunkatheter (reserve)" data-en="Support catheter (back-up)">Steunkatheter (reserve)</td><td data-nl="PIER-katheter" data-en="PIER catheter">PIER-katheter</td><td data-nl="Bij moeilijke passage van de occlusie" data-en="For difficult occlusion crossing">Bij moeilijke passage van de occlusie</td></tr>
-            <tr><td data-nl="Multi-sidehole infusiecatheter" data-en="Multi-sidehole infusion catheter">Multi-sidehole infusiecatheter</td><td data-nl="McNamara 5Fr of Uni*Fuse — lengte 1 maat korter dan occlusielengte" data-en="McNamara 5Fr or Uni*Fuse — length one size shorter than occlusion length">McNamara 5Fr of Uni*Fuse — lengte 1 maat korter dan occlusielengte</td><td data-nl="Actief deel in trombus positioneren" data-en="Position active segment in thrombus">Actief deel in trombus positioneren</td></tr>
-            <tr class="mat-cat"><td colspan="3" data-nl="Medicatie" data-en="Medication">Medicatie</td></tr>
-            <tr><td data-nl="Alteplase (rTPA)" data-en="Alteplase (rTPA)">Alteplase (rTPA)</td><td data-nl="Actilyse 20 mg flacon, opgelost in 20 ml (1 mg/ml)" data-en="Actilyse 20 mg vial, dissolved in 20 ml (1 mg/ml)">Actilyse 20 mg flacon, opgelost in 20 ml (1 mg/ml)</td><td data-nl="Bolus 4 ml + start infusie 1 mg/uur" data-en="Bolus 4 ml + start infusion 1 mg/hour">Bolus 4 ml + start infusie 1 mg/uur</td></tr>
-            <tr><td data-nl="Heparine (sheath)" data-en="Heparin (sheath)">Heparine (sheath)</td><td data-nl="1000 IE in 50 ml NaCl 0,9%" data-en="1000 IU in 50 ml 0.9% NaCl">1000 IE in 50 ml NaCl 0,9%</td><td data-nl="Pompstand 10 ml/uur, max. 5000 IE/24u" data-en="Pump rate 10 ml/hour, max. 5000 IU/24h">Pompstand 10 ml/uur, max. 5000 IE/24u</td></tr>
-            <tr><td data-nl="Heparine (initiële bolus)" data-en="Heparin (initial bolus)">Heparine (initiële bolus)</td><td data-nl="5000 IE flacon" data-en="5000 IU vial">5000 IE flacon</td><td data-nl="Intra-arterieel na eerste toegang" data-en="Intra-arterial after initial access">Intra-arterieel na eerste toegang</td></tr>
-            <tr class="mat-cat"><td colspan="3" data-nl="Infusie setup" data-en="Infusion setup">Infusie setup</td></tr>
-            <tr><td data-nl="Infusiepompen" data-en="Infusion pumps">Infusiepompen</td><td>2x (rTPA + heparine)</td><td data-nl="Mee naar IC/MC" data-en="Accompany to ICU/MCU">Mee naar IC/MC</td></tr>
-            <tr><td data-nl="Fixatie sheath" data-en="Sheath fixation">Fixatie sheath</td><td data-nl="Gaas + Tegaderm" data-en="Gauze + Tegaderm">Gaas + Tegaderm</td><td data-nl="Geen hechting — bloedt vaak door doordat de rtPA de stolling beïnvloedt. Sheath 24–48u in situ" data-en="No suture — often bleeds through due to rtPA. Sheath in situ 24–48h">Geen hechting — bloedt vaak door doordat de rtPA de stolling beïnvloedt. Sheath 24–48u in situ</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <!-- Standaardverslag -->
-
-  <div class="accordion" id="acc-stap">
-    <div class="acc-header" onclick="toggleAcc('acc-stap')">
-      <div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title" data-nl="Stappenplan &amp; Dosering" data-en="Procedure Steps &amp; Dosing">Stappenplan &amp; Dosering</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner-split">
-        <div>
-          <ol class="steps">
-            <li><div class="sn red">1</div><div data-nl="&lt;strong&gt;Toegang:&lt;/strong&gt; Retrograde punctie A. femoralis communis contralaterale zijde. 6Fr sheath inbrengen." data-en="&lt;strong&gt;Access:&lt;/strong&gt; Retrograde puncture of the common femoral artery, contralateral side. Insert 6Fr sheath."><strong>Toegang:</strong> Retrograde punctie A. femoralis communis contralaterale zijde. 6Fr sheath inbrengen.</div></li>
-            <li><div class="sn red">2</div><div data-nl="&lt;strong&gt;Heparine:&lt;/strong&gt; 5000 IE intra-arterieel toedienen." data-en="&lt;strong&gt;Heparin:&lt;/strong&gt; Administer 5000 IU intra-arterially."><strong>Heparine:</strong> 5000 IE intra-arterieel toedienen.</div></li>
-            <li><div class="sn red">3</div><div data-nl="&lt;strong&gt;Over de bocht:&lt;/strong&gt; Met UF-katheter en Terumo-draad over de aortabifurcatie naar de contralaterale zijde." data-en="&lt;strong&gt;Crossing the bifurcation:&lt;/strong&gt; Using a UF catheter and Terumo wire, cross the aortic bifurcation to the contralateral side."><strong>Over de bocht:</strong> Met UF-katheter en Terumo-draad over de aortabifurcatie naar de contralaterale zijde.</div></li>
-            <li><div class="sn red">4</div><div data-nl="&lt;strong&gt;Diagnostische angio:&lt;/strong&gt; Vanaf de UF-katheter niveau én lengte van de occlusie beoordelen, plus de distale run-off." data-en="&lt;strong&gt;Diagnostic angio:&lt;/strong&gt; From the UF catheter, assess the level and length of the occlusion, plus distal run-off."><strong>Diagnostische angio:</strong> Vanaf de UF-katheter niveau én lengte van de occlusie beoordelen, plus de distale run-off.</div></li>
-            <li><div class="sn red">5</div><div data-nl="&lt;strong&gt;Occlusie passeren:&lt;/strong&gt; Met de Terumo-draad door de trombus — bij zacht/vers trombus gaat dit meestal eenvoudig. Bij moeilijke passage wisselen voor een PIER-katheter." data-en="&lt;strong&gt;Cross the occlusion:&lt;/strong&gt; With the Terumo wire through the thrombus — usually straightforward with soft/fresh thrombus. If passage is difficult, exchange for a PIER catheter."><strong>Occlusie passeren:</strong> Met de Terumo-draad door de trombus — bij zacht/vers trombus gaat dit meestal eenvoudig. Bij moeilijke passage wisselen voor een PIER-katheter.</div></li>
-            <li><div class="sn red">6</div><div data-nl="&lt;strong&gt;Draadwissel:&lt;/strong&gt; Terumo wisselen voor een Rosen-draad." data-en="&lt;strong&gt;Wire exchange:&lt;/strong&gt; Exchange the Terumo wire for a Rosen wire."><strong>Draadwissel:</strong> Terumo wisselen voor een Rosen-draad.</div></li>
-            <li><div class="sn red">7</div><div data-nl="&lt;strong&gt;Sheath-wissel en infusiekatheter:&lt;/strong&gt; Wisselen voor een lange (Destination) 6Fr sheath — een korte sheath heeft een te groot risico op luxatie. Vervolgens McNamara 5Fr of Uni*Fuse inbrengen, idealiter 1 maat korter dan de occlusielengte, met actief deel in de trombus. Positie angiografisch bevestigen." data-en="&lt;strong&gt;Sheath exchange and infusion catheter:&lt;/strong&gt; Exchange for a long (Destination) 6Fr sheath — a short sheath carries too high a risk of dislodgement. Then insert a McNamara 5Fr or Uni*Fuse, ideally one size shorter than the occlusion length, with the active segment in the thrombus. Confirm position angiographically."><strong>Sheath-wissel en infusiekatheter:</strong> Wisselen voor een lange (Destination) 6Fr sheath — een korte sheath heeft een te groot risico op luxatie. Vervolgens McNamara 5Fr of Uni*Fuse inbrengen, idealiter 1 maat korter dan de occlusielengte, met actief deel in de trombus. Positie angiografisch bevestigen.</div></li>
-            <li><div class="sn red">8</div><div data-nl="&lt;strong&gt;Alteplase dosering:&lt;/strong&gt;&lt;br&gt;
-              — Bolus: 4 ml Actilyse via de infusiepomp (vult de catheter, start direct behandeling)&lt;br&gt;
-              — Continue infusie: start op 1 mg/uur (20 mg Actilyse in 20 ml, 1 mg/ml), in overleg met behandelend arts&lt;br&gt;
-              — Sheathheparine: max. 5000 IE/24u (1000 IE in 50 ml NaCl 0,9%, pompstand 10 ml/uur)" data-en="&lt;strong&gt;Alteplase dosing:&lt;/strong&gt;&lt;br&gt;
+<div class="breadcrumb">
+<a href="../index.html">Home</a><span class="sep">›</span>
+<span>Vasculair</span><span class="sep">›</span>
+<span>rTPA acuut bedreigd been</span>
+</div>
+<div class="proc-header">
+<div class="proc-header-bar vasc"></div>
+<div>
+<h1>rTPA — Acuut Bedreigd Been</h1>
+<p>Catheter-directed trombolyse bij acute arteriële occlusie extremiteit</p>
+<div class="proc-meta">
+<span class="meta-pill thrombo">⚡ Urgent</span>
+<span class="meta-pill thrombo" data-en="Thrombolysis" data-nl="Trombolyse">Trombolyse</span>
+<a class="risk-badge hoog" href="../materiaal/antistolling.html"><span class="risk-dot"></span><span data-en="High anticoagulation risk" data-nl="Hoog risico antistolling">Hoog risico antistolling</span><span class="risk-badge-arr">›</span></a>
+</div>
+</div>
+</div>
+<!-- Indicaties -->
+<div class="accordion" id="acc-ind">
+<div class="acc-header" onclick="toggleAcc('acc-ind')">
+<div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title" data-en="Indications &amp; Contraindications" data-nl="Indicaties &amp; Contra-indicaties">Indicaties &amp; Contra-indicaties</span></div>
+<span class="acc-chevron">▾</span>
+</div>
+<div class="acc-body">
+<div class="acc-inner-split">
+<div>
+<p class="acc-sublabel" data-en="Indications" data-nl="Indicaties">Indicaties</p>
+<ul class="clean">
+<li data-en="Rutherford IIa/IIb — acutely threatened limb, symptom duration &lt;14 days (preferably &lt;7d)" data-nl="Rutherford IIa/IIb — acuut bedreigd been, symptoomduur &lt;14 dagen (voorkeur &lt;7d)">Rutherford IIa/IIb — acuut bedreigd been, symptoomduur &lt;14 dagen (voorkeur &lt;7d)</li>
+<li data-en="Acute arterial occlusion of extremity after vascular surgery consultation" data-nl="Acute arteriële occlusie extremiteit na overleg vaatchirurgie">Acute arteriële occlusie extremiteit na overleg vaatchirurgie</li>
+</ul>
+<p class="acc-sublabel" style="margin-top:1rem">Rutherford classificatie</p>
+<table class="mat" style="margin-top:0.4rem">
+<thead><tr><th>Klasse</th><th>Beschrijving</th><th>Beleid</th></tr></thead>
+<tbody>
+<tr><td>I</td><td data-en="Viable" data-nl="Levensvatbaar">Levensvatbaar</td><td data-en="Elective" data-nl="Electief">Electief</td></tr>
+<tr><td><strong>IIa</strong></td><td data-en="Threatened, no motor loss" data-nl="Bedreigd, geen motorverlies">Bedreigd, geen motorverlies</td><td data-en="Urgent thrombolysis" data-nl="Spoed trombolyse">Spoed trombolyse</td></tr>
+<tr><td><strong>IIb</strong></td><td data-en="Immediately threatened, motor loss" data-nl="Direct bedreigd, motorverlies">Direct bedreigd, motorverlies</td><td data-en="Immediate intervention" data-nl="Directe interventie">Directe interventie</td></tr>
+<tr><td>III</td><td data-en="Irreversible" data-nl="Irreversibel">Irreversibel</td><td data-en="Primary amputation" data-nl="Primaire amputatie">Primaire amputatie</td></tr>
+</tbody>
+</table>
+</div>
+<div>
+<p class="acc-sublabel" data-en="Contraindications" data-nl="Contra-indicaties">Contra-indicaties</p>
+<div class="note red"><strong data-en="Absolute:" data-nl="Absoluut:">Absoluut:</strong> <span data-en="Active bleeding, recent stroke (&lt;3 months), recent major surgery/trauma, intracranial pathology." data-nl="Actieve bloeding, recent CVA (&lt;3 mnd), recente grote chirurgie/trauma, intracraniële pathologie.">Actieve bloeding, recent CVA (&lt;3 mnd), recente grote chirurgie/trauma, intracraniële pathologie.</span></div>
+<div class="note orange"><strong data-en="Relative:" data-nl="Relatief:">Relatief:</strong> <span data-en="Recent minor procedure, uncontrolled hypertension, pregnancy, age &gt;75, Rutherford III." data-nl="Recente kleine ingreep, ongecontroleerde hypertensie, zwangerschap, leeftijd &gt;75, Rutherford III.">Recente kleine ingreep, ongecontroleerde hypertensie, zwangerschap, leeftijd &gt;75, Rutherford III.</span></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Pre-procedureel -->
+<div class="accordion" id="acc-pre">
+<div class="acc-header" onclick="toggleAcc('acc-pre')">
+<div class="acc-title-wrap"><span class="acc-dot blue"></span><span class="acc-title" data-en="Pre-procedural Checklist" data-nl="Pre-procedurele Checklist">Pre-procedurele Checklist</span></div>
+<span class="acc-chevron">▾</span>
+</div>
+<div class="acc-body">
+<div class="acc-inner">
+<div class="note red"><strong data-en="Actively check contraindications — essential before starting:" data-nl="Contra-indicaties actief uitvragen — essentieel vóór start:">Contra-indicaties actief uitvragen — essentieel vóór start:</strong> <span data-en="with alteplase, bleeding risks are considerably higher than with most other interventions. Explicitly go through the list below with the patient/family and document this (incl. discussion of complications per WGBO) before starting the procedure." data-nl="bij alteplase zijn de bloedingsrisico's aanzienlijk hoger dan bij de meeste andere interventies. Doorloop onderstaande lijst expliciet met de patiënt/familie en documenteer dit (incl. WGBO-bespreking complicaties) vóórdat met de procedure wordt gestart.">bij alteplase zijn de bloedingsrisico's aanzienlijk hoger dan bij de meeste andere interventies. Doorloop onderstaande lijst expliciet met de patiënt/familie en documenteer dit (incl. WGBO-bespreking complicaties) vóórdat met de procedure wordt gestart.</span></div>
+<table class="mat" style="margin-bottom:0.9rem">
+<thead><tr>
+<th data-en="Category" data-nl="Categorie">Categorie</th>
+<th data-en="Contraindication" data-nl="Contra-indicatie">Contra-indicatie</th>
+</tr></thead>
+<tbody>
+<tr class="cat-row"><td colspan="2" data-en="Absolute" data-nl="Absoluut">Absoluut</td></tr>
+<tr><td></td><td data-en="Gastrointestinal bleeding &lt;10 days" data-nl="Gastro-intestinale bloeding &lt;10 dagen">Gastro-intestinale bloeding &lt;10 dagen</td></tr>
+<tr><td></td><td data-en="Stroke &lt;2 months" data-nl="CVA &lt;2 maanden">CVA &lt;2 maanden</td></tr>
+<tr><td></td><td data-en="Neurosurgery (intracranial/spinal) &lt;3 months" data-nl="Neurochirurgie (intracranieel/spinaal) &lt;3 maanden">Neurochirurgie (intracranieel/spinaal) &lt;3 maanden</td></tr>
+<tr><td></td><td data-en="Intracranial trauma &lt;3 months" data-nl="Intracranieel trauma &lt;3 maanden">Intracranieel trauma &lt;3 maanden</td></tr>
+<tr><td></td><td data-en="Active bleeding diathesis" data-nl="Actieve bloedingsdiathese">Actieve bloedingsdiathese</td></tr>
+<tr class="cat-row"><td colspan="2" data-en="Relative — major" data-nl="Relatief — majeur">Relatief — majeur</td></tr>
+<tr><td></td><td data-en="Hypertension &gt;180/110 mmHg" data-nl="Hypertensie &gt;180/110 mmHg">Hypertensie &gt;180/110 mmHg</td></tr>
+<tr><td></td><td data-en="Cardiopulmonary resuscitation &lt;10 days" data-nl="Cardiopulmonale resuscitatie &lt;10 dagen">Cardiopulmonale resuscitatie &lt;10 dagen</td></tr>
+<tr><td></td><td data-en="Major non-vascular surgery or trauma &lt;10 days" data-nl="Grote non-vasculaire chirurgie of trauma &lt;10 dagen">Grote non-vasculaire chirurgie of trauma &lt;10 dagen</td></tr>
+<tr><td></td><td data-en="Puncture of non-compressible vessel" data-nl="Punctie niet-comprimeerbaar vat">Punctie niet-comprimeerbaar vat</td></tr>
+<tr><td></td><td data-en="Intracranial tumour" data-nl="Intracraniële tumor">Intracraniële tumor</td></tr>
+<tr><td></td><td data-en="Recent eye surgery &lt;1 month" data-nl="Recente oogchirurgie &lt;1 maand">Recente oogchirurgie &lt;1 maand</td></tr>
+<tr class="cat-row"><td colspan="2" data-en="Relative — minor" data-nl="Relatief — mineur">Relatief — mineur</td></tr>
+<tr><td></td><td data-en="Liver failure, especially with coagulopathy" data-nl="Leverfalen, met name met coagulopathie">Leverfalen, met name met coagulopathie</td></tr>
+<tr><td></td><td data-en="Bacterial endocarditis" data-nl="Bacteriële endocarditis">Bacteriële endocarditis</td></tr>
+<tr><td></td><td data-en="Pregnancy" data-nl="Zwangerschap">Zwangerschap</td></tr>
+<tr><td></td><td data-en="Diabetic haemorrhagic retinopathy" data-nl="Diabetische hemorragische retinopathie">Diabetische hemorragische retinopathie</td></tr>
+<tr><td></td><td data-en="(Metastatic) malignancy" data-nl="(Gemetastaseerde) maligniteit">(Gemetastaseerde) maligniteit</td></tr>
+</tbody>
+</table>
+<ul class="clean">
+<li data-en="&lt;strong&gt;MDT:&lt;/strong&gt; Consult vascular surgery before start" data-nl="&lt;strong&gt;MDO:&lt;/strong&gt; Overleg vaatchirurgie vóór aanvang"><strong>MDO:</strong> Overleg vaatchirurgie vóór aanvang</li>
+<li data-en="&lt;strong&gt;Labs:&lt;/strong&gt; HB, HT, platelets, APTT, INR, crossmatch, eGFR/creatinine" data-nl="&lt;strong&gt;Lab:&lt;/strong&gt; HB, HT, trombocyten, APTT, INR, kruisbloed, eGFR/kreatinine"><strong>Lab:</strong> HB, HT, trombocyten, APTT, INR, kruisbloed, eGFR/kreatinine</li>
+<li data-en="&lt;strong&gt;Anticoagulation:&lt;/strong&gt; discontinue all anticoagulants before start. With INR &gt;2 and/or active NOAC use: weigh bleeding risk against treatment risk (consult vascular surgeon + interventional radiologist)" data-nl="&lt;strong&gt;Antistolling:&lt;/strong&gt; alle bloedverdunners staken vóór start. Bij INR &gt;2 en/of actief NOAC-gebruik: bloedingsrisico afwegen tegen behandelrisico (overleg vaatchirurg + interventieradioloog)"><strong>Antistolling:</strong> alle bloedverdunners staken vóór start. Bij INR &gt;2 en/of actief NOAC-gebruik: bloedingsrisico afwegen tegen behandelrisico (overleg vaatchirurg + interventieradioloog)</li>
+<li data-en="&lt;strong&gt;ICU/MCU:&lt;/strong&gt; Bed available for post-procedural monitoring (special care A5)" data-nl="&lt;strong&gt;IC/MC:&lt;/strong&gt; Bed beschikbaar voor post-procedurele monitoring (speciale zorg A5)"><strong>IC/MC:</strong> Bed beschikbaar voor post-procedurele monitoring (speciale zorg A5)</li>
+<li data-en="&lt;strong&gt;Access:&lt;/strong&gt; 2 peripheral IV lines + urinary catheter placed in advance (not for arm treatment)" data-nl="&lt;strong&gt;Toegang:&lt;/strong&gt; 2 perifere infusen + blaaskatheter vooraf ingebracht (niet bij behandeling via de arm)"><strong>Toegang:</strong> 2 perifere infusen + blaaskatheter vooraf ingebracht (niet bij behandeling via de arm)</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Stappenplan -->
+<div class="accordion" id="acc-mat">
+<div class="acc-header" onclick="toggleAcc('acc-mat')">
+<div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title" data-en="Equipment" data-nl="Materiaal">Materiaal</span></div>
+<span class="acc-chevron">▾</span>
+</div>
+<div class="acc-body">
+<div class="acc-inner" style="padding:0">
+<table class="mat">
+<thead><tr><th data-en="Material" data-nl="Materiaal">Materiaal</th><th data-en="Specification" data-nl="Specificatie">Specificatie</th><th data-en="Note" data-nl="Opmerking">Opmerking</th></tr></thead>
+<tbody>
+<tr class="mat-cat"><td colspan="3" data-en="Basics" data-nl="Basis">Basis</td></tr>
+<tr><td><a class="mat-link" data-en="Angio set" data-nl="Angioset" href="../materiaal/angioset.html">Angioset</a></td><td data-en="Standard" data-nl="Standaard">Standaard</td><td>1</td></tr>
+<tr><td data-en="Contrast medium" data-nl="Contrastmiddel">Contrastmiddel</td><td data-en="Visipaque 270, vial 100/200 ml" data-nl="Visipaque 270, flacon 100/200 ml">Visipaque 270, flacon 100/200 ml</td><td></td></tr>
+<tr class="mat-cat"><td colspan="3" data-en="Access" data-nl="Toegang">Toegang</td></tr>
+<tr><td data-en="Introducer sheath (initial access)" data-nl="Introducersheath (eerste toegang)">Introducersheath (eerste toegang)</td><td>6Fr, 10 cm</td><td></td></tr>
+<tr><td data-en="Long introducer sheath" data-nl="Lange introducersheath">Lange introducersheath</td><td data-en="6Fr Destination, 45 cm" data-nl="6Fr Destination, 45 cm">6Fr Destination, 45 cm</td><td data-en="After sheath exchange — prevents dislodgement" data-nl="Na sheath-wissel — voorkomt luxatie">Na sheath-wissel — voorkomt luxatie</td></tr>
+<tr class="mat-cat"><td colspan="3" data-en="Guidewires" data-nl="Voerdraden">Voerdraden</td></tr>
+<tr><td data-en="Hydrophilic wire" data-nl="Hydrofiele draad">Hydrofiele draad</td><td>Terumo Glidewire 0.035", 180 cm</td><td data-en="Crossing the bifurcation + occlusion" data-nl="Over de bocht + occlusie passeren">Over de bocht + occlusie passeren</td></tr>
+<tr><td data-en="Stiff exchange/working wire" data-nl="Stijve wissel-/werkdraad">Stijve wissel-/werkdraad</td><td ,="" 180="" cm"="" data-en="Rosen wire 0.035 inch, 180 cm" data-nl="Rosen-draad 0.035 inch, 180 cm">Rosen-draad 0.035 inch, 180 cm</td><td data-en="After crossing the occlusion, before sheath and catheter exchange" data-nl="Na passage occlusie, vóór sheath- en katheterwissel">Na passage occlusie, vóór sheath- en katheterwissel</td></tr>
+<tr class="mat-cat"><td colspan="3" data-en="Catheters" data-nl="Katheters">Katheters</td></tr>
+<tr><td data-en="UF catheter" data-nl="UF-katheter">UF-katheter</td><td>UF 4F, 90 cm</td><td data-en="Crossing the bifurcation + diagnostic angio" data-nl="Over de bocht + diagnostische angio">Over de bocht + diagnostische angio</td></tr>
+<tr><td data-en="Support catheter (back-up)" data-nl="Steunkatheter (reserve)">Steunkatheter (reserve)</td><td data-en="PIER catheter" data-nl="PIER-katheter">PIER-katheter</td><td data-en="For difficult occlusion crossing" data-nl="Bij moeilijke passage van de occlusie">Bij moeilijke passage van de occlusie</td></tr>
+<tr><td data-en="Multi-sidehole infusion catheter" data-nl="Multi-sidehole infusiecatheter">Multi-sidehole infusiecatheter</td><td data-en="McNamara 5Fr or Uni*Fuse — length one size shorter than occlusion length" data-nl="McNamara 5Fr of Uni*Fuse — lengte 1 maat korter dan occlusielengte">McNamara 5Fr of Uni*Fuse — lengte 1 maat korter dan occlusielengte</td><td data-en="Position active segment in thrombus" data-nl="Actief deel in trombus positioneren">Actief deel in trombus positioneren</td></tr>
+<tr class="mat-cat"><td colspan="3" data-en="Medication" data-nl="Medicatie">Medicatie</td></tr>
+<tr><td data-en="Alteplase (rTPA)" data-nl="Alteplase (rTPA)">Alteplase (rTPA)</td><td data-en="Actilyse 20 mg vial, dissolved in 20 ml (1 mg/ml)" data-nl="Actilyse 20 mg flacon, opgelost in 20 ml (1 mg/ml)">Actilyse 20 mg flacon, opgelost in 20 ml (1 mg/ml)</td><td data-en="Bolus 4 ml + start infusion 1 mg/hour" data-nl="Bolus 4 ml + start infusie 1 mg/uur">Bolus 4 ml + start infusie 1 mg/uur</td></tr>
+<tr><td data-en="Heparin (sheath)" data-nl="Heparine (sheath)">Heparine (sheath)</td><td data-en="1000 IU in 50 ml 0.9% NaCl" data-nl="1000 IE in 50 ml NaCl 0,9%">1000 IE in 50 ml NaCl 0,9%</td><td data-en="Pump rate 10 ml/hour, max. 5000 IU/24h" data-nl="Pompstand 10 ml/uur, max. 5000 IE/24u">Pompstand 10 ml/uur, max. 5000 IE/24u</td></tr>
+<tr><td data-en="Heparin (initial bolus)" data-nl="Heparine (initiële bolus)">Heparine (initiële bolus)</td><td data-en="5000 IU vial" data-nl="5000 IE flacon">5000 IE flacon</td><td data-en="Intra-arterial after initial access" data-nl="Intra-arterieel na eerste toegang">Intra-arterieel na eerste toegang</td></tr>
+<tr class="mat-cat"><td colspan="3" data-en="Infusion setup" data-nl="Infusie setup">Infusie setup</td></tr>
+<tr><td data-en="Infusion pumps" data-nl="Infusiepompen">Infusiepompen</td><td>2x (rTPA + heparine)</td><td data-en="Accompany to ICU/MCU" data-nl="Mee naar IC/MC">Mee naar IC/MC</td></tr>
+<tr><td data-en="Sheath fixation" data-nl="Fixatie sheath">Fixatie sheath</td><td data-en="Gauze + Tegaderm" data-nl="Gaas + Tegaderm">Gaas + Tegaderm</td><td data-en="No suture — often bleeds through due to rtPA. Sheath in situ 24–48h" data-nl="Geen hechting — bloedt vaak door doordat de rtPA de stolling beïnvloedt. Sheath 24–48u in situ">Geen hechting — bloedt vaak door doordat de rtPA de stolling beïnvloedt. Sheath 24–48u in situ</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Standaardverslag -->
+<div class="accordion" id="acc-stap">
+<div class="acc-header" onclick="toggleAcc('acc-stap')">
+<div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title" data-en="Procedure Steps &amp; Dosing" data-nl="Stappenplan &amp; Dosering">Stappenplan &amp; Dosering</span></div>
+<span class="acc-chevron">▾</span>
+</div>
+<div class="acc-body">
+<div class="acc-inner-split">
+<div>
+<ol class="steps">
+<li><div class="sn red">1</div><div data-en="&lt;strong&gt;Access:&lt;/strong&gt; Retrograde puncture of the common femoral artery, contralateral side. Insert 6Fr sheath." data-nl="&lt;strong&gt;Toegang:&lt;/strong&gt; Retrograde punctie A. femoralis communis contralaterale zijde. 6Fr sheath inbrengen."><strong>Toegang:</strong> Retrograde punctie A. femoralis communis contralaterale zijde. 6Fr sheath inbrengen.</div></li>
+<li><div class="sn red">2</div><div data-en="&lt;strong&gt;Heparin:&lt;/strong&gt; Administer 5000 IU intra-arterially." data-nl="&lt;strong&gt;Heparine:&lt;/strong&gt; 5000 IE intra-arterieel toedienen."><strong>Heparine:</strong> 5000 IE intra-arterieel toedienen.</div></li>
+<li><div class="sn red">3</div><div data-en="&lt;strong&gt;Crossing the bifurcation:&lt;/strong&gt; Using a UF catheter and Terumo wire, cross the aortic bifurcation to the contralateral side." data-nl="&lt;strong&gt;Over de bocht:&lt;/strong&gt; Met UF-katheter en Terumo-draad over de aortabifurcatie naar de contralaterale zijde."><strong>Over de bocht:</strong> Met UF-katheter en Terumo-draad over de aortabifurcatie naar de contralaterale zijde.</div></li>
+<li><div class="sn red">4</div><div data-en="&lt;strong&gt;Diagnostic angio:&lt;/strong&gt; From the UF catheter, assess the level and length of the occlusion, plus distal run-off." data-nl="&lt;strong&gt;Diagnostische angio:&lt;/strong&gt; Vanaf de UF-katheter niveau én lengte van de occlusie beoordelen, plus de distale run-off."><strong>Diagnostische angio:</strong> Vanaf de UF-katheter niveau én lengte van de occlusie beoordelen, plus de distale run-off.</div></li>
+<li><div class="sn red">5</div><div data-en="&lt;strong&gt;Cross the occlusion:&lt;/strong&gt; With the Terumo wire through the thrombus — usually straightforward with soft/fresh thrombus. If passage is difficult, exchange for a PIER catheter." data-nl="&lt;strong&gt;Occlusie passeren:&lt;/strong&gt; Met de Terumo-draad door de trombus — bij zacht/vers trombus gaat dit meestal eenvoudig. Bij moeilijke passage wisselen voor een PIER-katheter."><strong>Occlusie passeren:</strong> Met de Terumo-draad door de trombus — bij zacht/vers trombus gaat dit meestal eenvoudig. Bij moeilijke passage wisselen voor een PIER-katheter.</div></li>
+<li><div class="sn red">6</div><div data-en="&lt;strong&gt;Wire exchange:&lt;/strong&gt; Exchange the Terumo wire for a Rosen wire." data-nl="&lt;strong&gt;Draadwissel:&lt;/strong&gt; Terumo wisselen voor een Rosen-draad."><strong>Draadwissel:</strong> Terumo wisselen voor een Rosen-draad.</div></li>
+<li><div class="sn red">7</div><div data-en="&lt;strong&gt;Sheath exchange and infusion catheter:&lt;/strong&gt; Exchange for a long (Destination) 6Fr sheath — a short sheath carries too high a risk of dislodgement. Then insert a McNamara 5Fr or Uni*Fuse, ideally one size shorter than the occlusion length, with the active segment in the thrombus. Confirm position angiographically." data-nl="&lt;strong&gt;Sheath-wissel en infusiekatheter:&lt;/strong&gt; Wisselen voor een lange (Destination) 6Fr sheath — een korte sheath heeft een te groot risico op luxatie. Vervolgens McNamara 5Fr of Uni*Fuse inbrengen, idealiter 1 maat korter dan de occlusielengte, met actief deel in de trombus. Positie angiografisch bevestigen."><strong>Sheath-wissel en infusiekatheter:</strong> Wisselen voor een lange (Destination) 6Fr sheath — een korte sheath heeft een te groot risico op luxatie. Vervolgens McNamara 5Fr of Uni*Fuse inbrengen, idealiter 1 maat korter dan de occlusielengte, met actief deel in de trombus. Positie angiografisch bevestigen.</div></li>
+<li><div class="sn red">8</div><div data-en="&lt;strong&gt;Alteplase dosing:&lt;/strong&gt;&lt;br&gt;
               — Bolus: 4 ml Actilyse via the infusion pump (fills the catheter, starts treatment immediately)&lt;br&gt;
               — Continuous infusion: start at 1 mg/hour (20 mg Actilyse in 20 ml, 1 mg/ml), in consultation with the treating physician&lt;br&gt;
-              — Sheath heparin: max. 5000 IU/24h (1000 IU in 50 ml 0.9% NaCl, pump rate 10 ml/hour)"><strong>Alteplase dosering:</strong><br>
-              — Bolus: 4 ml Actilyse via de infusiepomp (vult de catheter, start direct behandeling)<br>
-              — Continue infusie: start op 1 mg/uur (20 mg Actilyse in 20 ml, 1 mg/ml), in overleg met behandelend arts<br>
+              — Sheath heparin: max. 5000 IU/24h (1000 IU in 50 ml 0.9% NaCl, pump rate 10 ml/hour)" data-nl="&lt;strong&gt;Alteplase dosering:&lt;/strong&gt;&lt;br&gt;
+              — Bolus: 4 ml Actilyse via de infusiepomp (vult de catheter, start direct behandeling)&lt;br&gt;
+              — Continue infusie: start op 1 mg/uur (20 mg Actilyse in 20 ml, 1 mg/ml), in overleg met behandelend arts&lt;br&gt;
+              — Sheathheparine: max. 5000 IE/24u (1000 IE in 50 ml NaCl 0,9%, pompstand 10 ml/uur)"><strong>Alteplase dosering:</strong><br/>
+              — Bolus: 4 ml Actilyse via de infusiepomp (vult de catheter, start direct behandeling)<br/>
+              — Continue infusie: start op 1 mg/uur (20 mg Actilyse in 20 ml, 1 mg/ml), in overleg met behandelend arts<br/>
               — Sheathheparine: max. 5000 IE/24u (1000 IE in 50 ml NaCl 0,9%, pompstand 10 ml/uur)</div></li>
-            <li><div class="sn red">9</div><div data-nl="&lt;strong&gt;IC/MC opname:&lt;/strong&gt; Vasculaire controle minimaal 2x per dienst (warmte, kleur, sensibiliteit, motoriek, pulsaties). Lab (HB, HT, trombocyten, APTT, INR) dagelijks om 06:00." data-en="&lt;strong&gt;ICU/MCU admission:&lt;/strong&gt; Vascular checks at least twice per shift (warmth, colour, sensation, motor function, pulses). Labs (HB, HT, platelets, APTT, INR) daily at 06:00."><strong>IC/MC opname:</strong> Vasculaire controle minimaal 2x per dienst (warmte, kleur, sensibiliteit, motoriek, pulsaties). Lab (HB, HT, trombocyten, APTT, INR) dagelijks om 06:00.</div></li>
-            <li><div class="sn red">10</div><div data-nl="&lt;strong&gt;Controle angio na 24u:&lt;/strong&gt; Beoordeel lysis. Pas dosis aan of ga naar PTA/stent bij restlaesie." data-en="&lt;strong&gt;Check angio after 24h:&lt;/strong&gt; Assess lysis. Adjust dose or proceed to PTA/stent for residual lesion."><strong>Controle angio na 24u:</strong> Beoordeel lysis. Pas dosis aan of ga naar PTA/stent bij restlaesie.</div></li>
-            <li><div class="sn red">11</div><div data-nl="&lt;strong&gt;Eindprocedure:&lt;/strong&gt; Heparine + alteplase stoppen. PTA onderliggende restlaesie. Sheath verwijderen en sluiten met 6Fr Angio-Seal (of afdrukken en drukverband)." data-en="&lt;strong&gt;Final procedure:&lt;/strong&gt; Stop heparin + alteplase. PTA underlying residual lesion. Remove sheath and close with a 6Fr Angio-Seal (or compress and apply pressure dressing)."><strong>Eindprocedure:</strong> Heparine + alteplase stoppen. PTA onderliggende restlaesie. Sheath verwijderen en sluiten met 6Fr Angio-Seal (of afdrukken en drukverband).</div></li>
-          </ol>
-        </div>
-        <div>
-          <p class="acc-sublabel">Stop rTPA indien</p>
-          <ul class="clean">
-            <li data-nl="Klinische bloeding" data-en="Clinical bleeding">Klinische bloeding</li>
-            <li data-nl="Neurologische deterioratie" data-en="Neurological deterioration">Neurologische deterioratie</li>
-            <li data-nl="Geen effect na 48u" data-en="No effect after 48h">Geen effect na 48u</li>
-            <li data-nl="Klinische verslechtering been → chirurgie" data-en="Clinical deterioration of leg → surgery">Klinische verslechtering been → chirurgie</li>
-          </ul>
-          <div class="note orange" style="margin-top:0.75rem"><strong>Max duur:</strong> 48 uur trombolyse. Totale alteplase dosis liefst &lt;40 mg.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Materiaal -->
-
-  <div class="accordion" id="acc-comp">
-    <div class="acc-header" onclick="toggleAcc('acc-comp')">
-      <div class="acc-title-wrap"><span class="acc-dot red"></span><span class="acc-title" data-nl="Complicaties &amp; Monitoring IC/MC" data-en="Complications &amp; ICU/MCU Monitoring">Complicaties &amp; Monitoring IC/MC</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner-split">
-        <div>
-          <p class="acc-sublabel">Monitoring schema</p>
-          <ul class="clean">
-            <li data-nl="&lt;strong&gt;Klinisch elke 1–2u:&lt;/strong&gt; Neurologie, pulsaties, warmte/kleur been" data-en="&lt;strong&gt;Clinical every 1–2h:&lt;/strong&gt; Neurology, pulses, warmth/colour of leg"><strong>Klinisch elke 1–2u:</strong> Neurologie, pulsaties, warmte/kleur been</li>
-            <li data-nl="&lt;strong&gt;Lab dagelijks (06:00):&lt;/strong&gt; HB, HT, trombocyten, APTT, INR, eGFR/kreatinine" data-en="&lt;strong&gt;Labs daily (06:00):&lt;/strong&gt; HB, HT, platelets, APTT, INR, eGFR/creatinine"><strong>Lab dagelijks (06:00):</strong> HB, HT, trombocyten, APTT, INR, eGFR/kreatinine</li>
-            <li data-nl="&lt;strong&gt;Insteekplaats:&lt;/strong&gt; Hematoom, bloeding rond sheath" data-en="&lt;strong&gt;Puncture site:&lt;/strong&gt; Haematoma, bleeding around sheath"><strong>Insteekplaats:</strong> Hematoom, bloeding rond sheath</li>
-            <li data-nl="&lt;strong&gt;RR:&lt;/strong&gt; Streef ≤180/110 mmHg tijdens trombolyse" data-en="&lt;strong&gt;BP:&lt;/strong&gt; Target ≤180/110 mmHg during thrombolysis"><strong>RR:</strong> Streef ≤180/110 mmHg tijdens trombolyse</li>
-          </ul>
-        </div>
-        <div>
-          <p class="acc-sublabel">Bloedingscorrectie</p>
-          <ul class="clean">
-            <li data-nl="Stop rTPA + heparine direct" data-en="Stop rTPA + heparin immediately">Stop rTPA + heparine direct</li>
-            <li data-nl="FFP 2–4E of Haemocomplettan 2–4g" data-en="FFP 2–4 units or Haemocomplettan 2–4g">FFP 2–4E of Haemocomplettan 2–4g</li>
-            <li data-nl="Ernstig: TXA 1g iv + overleg hematologie" data-en="Severe: TXA 1g iv + consult haematology">Ernstig: TXA 1g iv + overleg hematologie</li>
-            <li data-nl="Insteekbloeding: manuele compressie" data-en="Puncture site bleeding: manual compression">Insteekbloeding: manuele compressie</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="accordion" id="acc-vers">
-    <div class="acc-header" onclick="toggleAcc('acc-vers')">
-      <div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title" data-nl="Standaardverslag" data-en="Standard Report">Standaardverslag</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner">
-        <div class="verslag-wrap">
-          <div class="verslag" id="verslag-rtpa" data-nl="Acute ischemie [rechter/linker] been, symptoomduur ca. [__] uur.
-Overleg vaatchirurgie [naam]: primair gekozen voor trombolyse.
-Contra-indicaties expliciet uitgevraagd en besproken met patiënt/familie, geen absolute contra-indicaties aanwezig.
-
-PROCEDURE:
-Retrograde punctie A. femoralis communis [contra], 6Fr sheath. Heparine 5000 IE intra-arterieel.
-Over de bocht met UF-katheter en Terumo-draad naar de contralaterale zijde.
-Diagnostische angio: [totale/subtotale] occlusie ter hoogte van [locatie], lengte ca. [__] cm.
-Distale run-off via [cruraal vat / geen].
-Occlusie gepasseerd met Terumo-draad.
-Draadwissel voor Rosen-draad. Sheath-wissel voor lange 6Fr Destination sheath ([__] cm).
-[McNamara 5Fr / Uni*Fuse] infusiecatheter ([__] cm) ingebracht met actief deel in trombus, positie angiografisch bevestigd.
-
-Bolus alteplase 4 ml (4 mg) intratrombisch.
-Continue alteplase infusie gestart op 1 mg/uur.
-Heparine sheath max. 5000 IE/24u via zijpoort.
-
-Overgebracht naar [IC / MC]. Controle angio gepland na 24u.
-
-AFSPRAKEN:
-- Lab (HB, HT, trombocyten, APTT, INR) dagelijks
-- Vasculaire controles elke 2u
-- Stop-criteria (bloeding, neurologische deterioratie) besproken
-- Bij verslechtering: directe melding IR + vaatchirurgie" data-en="Acute ischaemia [right/left] leg, symptom duration approx. [__] hours.
+<li><div class="sn red">9</div><div data-en="&lt;strong&gt;ICU/MCU admission:&lt;/strong&gt; Vascular checks at least twice per shift (warmth, colour, sensation, motor function, pulses). Labs (HB, HT, platelets, APTT, INR) daily at 06:00." data-nl="&lt;strong&gt;IC/MC opname:&lt;/strong&gt; Vasculaire controle minimaal 2x per dienst (warmte, kleur, sensibiliteit, motoriek, pulsaties). Lab (HB, HT, trombocyten, APTT, INR) dagelijks om 06:00."><strong>IC/MC opname:</strong> Vasculaire controle minimaal 2x per dienst (warmte, kleur, sensibiliteit, motoriek, pulsaties). Lab (HB, HT, trombocyten, APTT, INR) dagelijks om 06:00.</div></li>
+<li><div class="sn red">10</div><div data-en="&lt;strong&gt;Check angio after 24h:&lt;/strong&gt; Assess lysis. Adjust dose or proceed to PTA/stent for residual lesion." data-nl="&lt;strong&gt;Controle angio na 24u:&lt;/strong&gt; Beoordeel lysis. Pas dosis aan of ga naar PTA/stent bij restlaesie."><strong>Controle angio na 24u:</strong> Beoordeel lysis. Pas dosis aan of ga naar PTA/stent bij restlaesie.</div></li>
+<li><div class="sn red">11</div><div data-en="&lt;strong&gt;Final procedure:&lt;/strong&gt; Stop heparin + alteplase. PTA underlying residual lesion. Remove sheath and close with a 6Fr Angio-Seal (or compress and apply pressure dressing)." data-nl="&lt;strong&gt;Eindprocedure:&lt;/strong&gt; Heparine + alteplase stoppen. PTA onderliggende restlaesie. Sheath verwijderen en sluiten met 6Fr Angio-Seal (of afdrukken en drukverband)."><strong>Eindprocedure:</strong> Heparine + alteplase stoppen. PTA onderliggende restlaesie. Sheath verwijderen en sluiten met 6Fr Angio-Seal (of afdrukken en drukverband).</div></li>
+</ol>
+</div>
+<div>
+<p class="acc-sublabel">Stop rTPA indien</p>
+<ul class="clean">
+<li data-en="Clinical bleeding" data-nl="Klinische bloeding">Klinische bloeding</li>
+<li data-en="Neurological deterioration" data-nl="Neurologische deterioratie">Neurologische deterioratie</li>
+<li data-en="No effect after 48h" data-nl="Geen effect na 48u">Geen effect na 48u</li>
+<li data-en="Clinical deterioration of leg → surgery" data-nl="Klinische verslechtering been → chirurgie">Klinische verslechtering been → chirurgie</li>
+</ul>
+<div class="note orange" style="margin-top:0.75rem"><strong>Max duur:</strong> 48 uur trombolyse. Totale alteplase dosis liefst &lt;40 mg.</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Materiaal -->
+<div class="accordion" id="acc-comp">
+<div class="acc-header" onclick="toggleAcc('acc-comp')">
+<div class="acc-title-wrap"><span class="acc-dot red"></span><span class="acc-title" data-en="Complications &amp; ICU/MCU Monitoring" data-nl="Complicaties &amp; Monitoring IC/MC">Complicaties &amp; Monitoring IC/MC</span></div>
+<span class="acc-chevron">▾</span>
+</div>
+<div class="acc-body">
+<div class="acc-inner-split">
+<div>
+<p class="acc-sublabel">Monitoring schema</p>
+<ul class="clean">
+<li data-en="&lt;strong&gt;Clinical every 1–2h:&lt;/strong&gt; Neurology, pulses, warmth/colour of leg" data-nl="&lt;strong&gt;Klinisch elke 1–2u:&lt;/strong&gt; Neurologie, pulsaties, warmte/kleur been"><strong>Klinisch elke 1–2u:</strong> Neurologie, pulsaties, warmte/kleur been</li>
+<li data-en="&lt;strong&gt;Labs daily (06:00):&lt;/strong&gt; HB, HT, platelets, APTT, INR, eGFR/creatinine" data-nl="&lt;strong&gt;Lab dagelijks (06:00):&lt;/strong&gt; HB, HT, trombocyten, APTT, INR, eGFR/kreatinine"><strong>Lab dagelijks (06:00):</strong> HB, HT, trombocyten, APTT, INR, eGFR/kreatinine</li>
+<li data-en="&lt;strong&gt;Puncture site:&lt;/strong&gt; Haematoma, bleeding around sheath" data-nl="&lt;strong&gt;Insteekplaats:&lt;/strong&gt; Hematoom, bloeding rond sheath"><strong>Insteekplaats:</strong> Hematoom, bloeding rond sheath</li>
+<li data-en="&lt;strong&gt;BP:&lt;/strong&gt; Target ≤180/110 mmHg during thrombolysis" data-nl="&lt;strong&gt;RR:&lt;/strong&gt; Streef ≤180/110 mmHg tijdens trombolyse"><strong>RR:</strong> Streef ≤180/110 mmHg tijdens trombolyse</li>
+</ul>
+</div>
+<div>
+<p class="acc-sublabel">Bloedingscorrectie</p>
+<ul class="clean">
+<li data-en="Stop rTPA + heparin immediately" data-nl="Stop rTPA + heparine direct">Stop rTPA + heparine direct</li>
+<li data-en="FFP 2–4 units or Haemocomplettan 2–4g" data-nl="FFP 2–4E of Haemocomplettan 2–4g">FFP 2–4E of Haemocomplettan 2–4g</li>
+<li data-en="Severe: TXA 1g iv + consult haematology" data-nl="Ernstig: TXA 1g iv + overleg hematologie">Ernstig: TXA 1g iv + overleg hematologie</li>
+<li data-en="Puncture site bleeding: manual compression" data-nl="Insteekbloeding: manuele compressie">Insteekbloeding: manuele compressie</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="acc-vers">
+<div class="acc-header" onclick="toggleAcc('acc-vers')">
+<div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title" data-en="Standard Report" data-nl="Standaardverslag">Standaardverslag</span></div>
+<span class="acc-chevron">▾</span>
+</div>
+<div class="acc-body">
+<div class="acc-inner">
+<div class="verslag-wrap">
+<div class="verslag" data-en="Acute ischaemia [right/left] leg, symptom duration approx. [__] hours.
 Vascular surgery consultation [name]: thrombolysis chosen as primary approach.
 Contraindications explicitly checked and discussed with patient/family, no absolute contraindications present.
 
@@ -283,7 +249,30 @@ ARRANGEMENTS:
 - Labs (HB, HT, platelets, APTT, INR) daily
 - Vascular checks every 2h
 - Stop criteria (bleeding, neurological deterioration) discussed
-- If deterioration: immediate notification of IR + vascular surgery">Acute ischemie [rechter/linker] been, symptoomduur ca. [__] uur.
+- If deterioration: immediate notification of IR + vascular surgery" data-nl="Acute ischemie [rechter/linker] been, symptoomduur ca. [__] uur.
+Overleg vaatchirurgie [naam]: primair gekozen voor trombolyse.
+Contra-indicaties expliciet uitgevraagd en besproken met patiënt/familie, geen absolute contra-indicaties aanwezig.
+
+PROCEDURE:
+Retrograde punctie A. femoralis communis [contra], 6Fr sheath. Heparine 5000 IE intra-arterieel.
+Over de bocht met UF-katheter en Terumo-draad naar de contralaterale zijde.
+Diagnostische angio: [totale/subtotale] occlusie ter hoogte van [locatie], lengte ca. [__] cm.
+Distale run-off via [cruraal vat / geen].
+Occlusie gepasseerd met Terumo-draad.
+Draadwissel voor Rosen-draad. Sheath-wissel voor lange 6Fr Destination sheath ([__] cm).
+[McNamara 5Fr / Uni*Fuse] infusiecatheter ([__] cm) ingebracht met actief deel in trombus, positie angiografisch bevestigd.
+
+Bolus alteplase 4 ml (4 mg) intratrombisch.
+Continue alteplase infusie gestart op 1 mg/uur.
+Heparine sheath max. 5000 IE/24u via zijpoort.
+
+Overgebracht naar [IC / MC]. Controle angio gepland na 24u.
+
+AFSPRAKEN:
+- Lab (HB, HT, trombocyten, APTT, INR) dagelijks
+- Vasculaire controles elke 2u
+- Stop-criteria (bloeding, neurologische deterioratie) besproken
+- Bij verslechtering: directe melding IR + vaatchirurgie" id="verslag-rtpa">Acute ischemie [rechter/linker] been, symptoomduur ca. [__] uur.
 Overleg vaatchirurgie [naam]: primair gekozen voor trombolyse.
 Contra-indicaties expliciet uitgevraagd en besproken met patiënt/familie, geen absolute contra-indicaties aanwezig.
 
@@ -307,31 +296,29 @@ AFSPRAKEN:
 - Vasculaire controles elke 2u
 - Stop-criteria (bloeding, neurologische deterioratie) besproken
 - Bij verslechtering: directe melding IR + vaatchirurgie</div>
-          <button class="copy-btn" id="copy-rtpa" onclick="copyVerslag('verslag-rtpa','copy-rtpa')">⎘ <span data-nl="Kopieer" data-en="Copy">Kopieer</span></button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="accordion" id="acc-bronnen">
-    <div class="acc-header" onclick="toggleAcc('acc-bronnen')">
-      <div class="acc-title-wrap"><span class="acc-dot blue"></span><span class="acc-title" data-nl="Bronnen &amp; Externe Links" data-en="References &amp; External Links">Bronnen &amp; Externe Links</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner">
-        <ul class="bronnen-lijst">
-          <li><a href="https://pubmed.ncbi.nlm.nih.gov/?term=catheter+directed+thrombolysis+acute+limb+ischemia" target="_blank" rel="noopener">PubMed — Catheter-directed thrombolysis acute limb ischemia</a></li>
-          <li><a href="https://radiopaedia.org/articles/catheter-directed-thrombolysis" target="_blank" rel="noopener">Radiopaedia — Catheter-directed thrombolysis</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
+<button class="copy-btn" id="copy-rtpa" onclick="copyVerslag('verslag-rtpa','copy-rtpa')">⎘ <span data-en="Copy" data-nl="Kopieer">Kopieer</span></button>
 </div>
+</div>
+</div>
+</div>
+<div class="accordion" id="acc-bronnen">
+<div class="acc-header" onclick="toggleAcc('acc-bronnen')">
+<div class="acc-title-wrap"><span class="acc-dot blue"></span><span class="acc-title" data-en="References &amp; External Links" data-nl="Bronnen &amp; Externe Links">Bronnen &amp; Externe Links</span></div>
+<span class="acc-chevron">▾</span>
+</div>
+<div class="acc-body">
+<div class="acc-inner">
+<ul class="bronnen-lijst">
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/?term=catheter+directed+thrombolysis+acute+limb+ischemia" rel="noopener" target="_blank">PubMed — Catheter-directed thrombolysis acute limb ischemia</a></li>
+<li><a href="https://radiopaedia.org/articles/catheter-directed-thrombolysis" rel="noopener" target="_blank">Radiopaedia — Catheter-directed thrombolysis</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<!-- Complicaties & Monitoring -->
 
-  <!-- Complicaties & Monitoring -->
-
->
+&gt;
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/7.0.0/fuse.min.js"></script>
 <script src="../procedures.js"></script>

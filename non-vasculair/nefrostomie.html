@@ -1,236 +1,200 @@
 <!DOCTYPE html>
+
 <html lang="nl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title data-nl="Percutane Nefrostomie — InterventionAssistant" data-en="Percutaneous Nephrostomy — InterventionAssistant">Percutane Nefrostomie — InterventionAssistant</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../style.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title data-en="Percutaneous Nephrostomy — InterventionAssistant" data-nl="Percutane Nefrostomie — InterventionAssistant">Percutane Nefrostomie — InterventionAssistant</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&amp;family=Nunito+Sans:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
+<link href="../style.css" rel="stylesheet"/>
 </head>
 <body>
 <nav></nav>
 <div class="main proc-page">
-  <div class="breadcrumb">
-    <a href="../index.html">Home</a>
-    <span class="sep">›</span><span data-nl="Non-vasculair" data-en="Non-vascular">Non-vasculair</span>
-    <span class="sep">›</span><span data-nl="Percutane nefrostomie" data-en="Percutaneous nephrostomy">Percutane nefrostomie</span>
-  </div>
-
-  <div class="proc-header">
-    <div class="proc-header-bar nonvasc"></div>
-    <div>
-      <h1 data-nl="Percutane Nefrostomie" data-en="Percutaneous Nephrostomy">Percutane Nefrostomie</h1>
-      <p data-nl="Echo- en doorlichtingsgeleide drainage van het nierbekken" data-en="Ultrasound- and fluoroscopy-guided drainage of the renal pelvis">Echo- en doorlichtingsgeleide drainage van het nierbekken</p>
-      <div class="proc-meta">
-        <span class="meta-pill nonvasc" data-nl="Non-vasculair" data-en="Non-vascular">Non-vasculair</span>
-        <span class="meta-pill nonvasc">30–60 min</span>
-        <span class="meta-pill nonvasc" data-nl="Lokale anesthesie" data-en="Local anaesthesia">Lokale anesthesie</span>
-        <span class="meta-pill nonvasc" data-nl="Klinische opname" data-en="Hospital admission">Klinische opname</span>
-        <a href="../materiaal/antistolling.html" class="risk-badge intermediair"><span class="risk-dot"></span><span data-nl="Intermediair risico antistolling" data-en="Intermediate anticoagulation risk">Intermediair risico antistolling</span><span class="risk-badge-arr">›</span></a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Indicaties -->
-  <div class="accordion" id="acc-ind">
-    <div class="acc-header" onclick="toggleAcc('acc-ind')">
-      <div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title" data-nl="Indicaties &amp; Contra-indicaties" data-en="Indications &amp; Contraindications">Indicaties &amp; Contra-indicaties</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner-split">
-        <div>
-          <p class="acc-sublabel" data-nl="Indicaties" data-en="Indications">Indicaties</p>
-          <ul class="clean">
-            <li data-nl="Gedaald eGFR door post-renale obstructie <em style='color:var(--muted);font-size:0.8rem'>(relatief spoed)</em>" data-en="Declining eGFR due to post-renal obstruction <em style='color:var(--muted);font-size:0.8rem'>(relative urgency)</em>">Gedaald eGFR door post-renale obstructie <em style="color:var(--muted);font-size:0.8rem">(relatief spoed)</em></li>
-            <li data-nl="Pyonefrose / urosepsis <em style='color:var(--red);font-size:0.8rem'>(spoedindicatie)</em>" data-en="Pyonephrosis / urosepsis <em style='color:var(--red);font-size:0.8rem'>(emergency indication)</em>">Pyonefrose / urosepsis <em style="color:var(--red);font-size:0.8rem">(spoedindicatie)</em></li>
-            <li data-nl="Urinedeviatie — bijv. bij fistels of hemorragische cystitis" data-en="Urinary diversion — e.g. fistulas or haemorrhagic cystitis">Urinedeviatie — bijv. bij fistels of hemorragische cystitis</li>
-            <li data-nl="Toegang voor vervolginterventies — dubbel-J stent of PNL" data-en="Access for subsequent interventions — double-J stent or PNL">Toegang voor vervolginterventies — dubbel-J stent of PNL</li>
-          </ul>
-        </div>
-        <div>
-          <p class="acc-sublabel" data-nl="Contra-indicaties" data-en="Contraindications">Contra-indicaties</p>
-          <ul class="contra">
-            <li data-nl="INR &gt;1.5 / trombocyten &lt;50" data-en="INR &gt;1.5 / platelets &lt;50">INR &gt;1.5 / trombocyten &lt;50</li>
-            <li data-nl="Geen veilig punctietraject" data-en="No safe puncture trajectory">Geen veilig punctietraject</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Pre-procedureel -->
-
-  <div class="accordion" id="acc-pre">
-    <div class="acc-header" onclick="toggleAcc('acc-pre')">
-      <div class="acc-title-wrap"><span class="acc-dot blue"></span><span class="acc-title" data-nl="Pre-procedurele Checklist" data-en="Pre-procedural Checklist">Pre-procedurele Checklist</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner">
-        <ul class="clean">
-          <li data-nl="&lt;strong&gt;Lab:&lt;/strong&gt; INR, trombocyten, eGFR" data-en="&lt;strong&gt;Labs:&lt;/strong&gt; INR, platelets, eGFR"><strong>Lab:</strong> INR, trombocyten, eGFR</li>
-          <li data-nl="&lt;strong&gt;Nuchter:&lt;/strong&gt; niet nodig tenzij sedatie gepland" data-en="&lt;strong&gt;Fasting:&lt;/strong&gt; not required unless sedation planned"><strong>Nuchter:</strong> niet nodig tenzij sedatie gepland</li>
-          <li data-nl="&lt;strong&gt;Beeldvorming:&lt;/strong&gt; nierpositie beoordelen — hooggelegen nier verhoogt pleurapunctierisico bij punctie boven rib 12; colon buiten het traject?" data-en="&lt;strong&gt;Imaging:&lt;/strong&gt; assess kidney position — high-lying kidney increases pleural puncture risk above rib 12; colon outside trajectory?"><strong>Beeldvorming:</strong> nierpositie beoordelen — hooggelegen nier verhoogt pleurapunctierisico bij punctie boven rib 12; colon descendens/ascendens buiten het traject?</li>
-          <li data-nl="&lt;strong&gt;Antibiotica:&lt;/strong&gt; ceftriaxon iv 2000 mg eenmalig. Bij urosepsis: conform protocol." data-en="&lt;strong&gt;Antibiotics:&lt;/strong&gt; ceftriaxone iv 2000 mg single dose. In urosepsis: treat per protocol."><strong>Antibiotica:</strong> ceftriaxon iv 2000 mg eenmalig. Bij urosepsis: behandelen conform protocol.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- Stappenplan -->
-
-  <div class="accordion" id="acc-mat">
-    <div class="acc-header" onclick="toggleAcc('acc-mat')">
-      <div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title" data-nl="Materiaal" data-en="Equipment">Materiaal</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner" style="padding:0">
-        <table class="mat">
-          <thead><tr>
-            <th data-nl="Materiaal" data-en="Material">Materiaal</th>
-            <th data-nl="Specificatie" data-en="Specification">Specificatie</th>
-            <th data-nl="Aantal" data-en="Quantity">Aantal</th>
-          </tr></thead>
-          <tbody>
-            <tr><td><a href="../materiaal/angioset.html" class="mat-link" data-nl="Angioset" data-en="Angio set">Angioset</a></td><td data-nl="Standaard" data-en="Standard">Standaard</td><td>1</td></tr>
-            <tr><td data-nl="Naaldgeleider" data-en="Needle guide">Naaldgeleider</td><td data-nl="Opzetstuk echoprobe voor naaldgeleiding" data-en="Ultrasound probe attachment for needle guidance">Opzetstuk echoprobe voor naaldgeleiding</td><td>1</td></tr>
-            <tr><td data-nl="Neffset (incl. Chiba naald 22G + Cope Mandril 0.018&quot;)" data-en="Neff set (incl. Chiba needle 22G + Cope Mandrin 0.018&quot;)"><a href="../materiaal/sheaths-en-katheters.html" class="mat-link">Neffset</a> <em style="color:var(--muted);font-size:0.8rem">(incl. Chiba naald 22G + Cope Mandril 0.018")</em></td><td>4 Fr</td><td>1</td></tr>
-            <tr><td><a href="../materiaal/draden.html" class="mat-link" data-nl="Amplatz voerdraad" data-en="Amplatz guidewire">Amplatz voerdraad</a></td><td>0.035", <span data-nl="kort" data-en="short">kort</span></td><td>1</td></tr>
-            <tr><td data-nl="Multipurpose drain" data-en="Multipurpose drain"><a href="../materiaal/sheaths-en-katheters.html" class="mat-link">Multipurpose drain</a></td><td>8.5 Fr, <span data-nl="metalen stilet" data-en="metal stylet">metalen stilet</span></td><td>1</td></tr>
-            <tr><td data-nl="Dawson-Muller drain (bij slank pyelum)" data-en="Dawson-Muller drain (for small collecting system)"><a href="../materiaal/sheaths-en-katheters.html" class="mat-link">Dawson-Muller drain</a> <em style="color:var(--muted);font-size:0.8rem" data-nl="(bij slank pyelum)" data-en="(for small collecting system)">(bij slank pyelum)</em></td><td>8.5 Fr</td><td data-nl="Optioneel" data-en="Optional">Optioneel</td></tr>
-            <tr class="mat-cat"><td colspan="3" data-nl="Optioneel" data-en="Optional">Optioneel</td></tr>
-            <tr><td data-nl="Sheath" data-en="Sheath">Sheath</td><td>7 Fr, 25 cm</td><td data-nl="Optioneel" data-en="Optional">Optioneel</td></tr>
-            <tr><td><a href="../materiaal/draden.html" class="mat-link" data-nl="Hydrofiele voerdraad" data-en="Hydrophilic guidewire">Hydrofiele voerdraad</a></td><td>0.035"</td><td data-nl="Optioneel" data-en="Optional">Optioneel</td></tr>
-            <tr><td><a href="../materiaal/sheaths-en-katheters.html" class="mat-link" data-nl="Cobra katheter" data-en="Cobra catheter">Cobra katheter</a></td><td>4 <span data-nl="of" data-en="or">of</span> 5 Fr</td><td data-nl="Optioneel" data-en="Optional">Optioneel</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <!-- Standaardverslag -->
-
-  <div class="accordion" id="acc-stap">
-    <div class="acc-header" onclick="toggleAcc('acc-stap')">
-      <div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title" data-nl="Stappenplan" data-en="Procedure Steps">Stappenplan</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner-split">
-        <div>
-          <p class="acc-sublabel" data-nl="Voorbereiding" data-en="Preparation">Voorbereiding</p>
-          <ol class="steps">
-            <li><div class="sn teal">1</div><div data-nl="Patiënt in buikligging of zijligging met kussen onder de buik." data-en="Patient prone or lateral decubitus with pillow under the abdomen.">Patiënt in buikligging of zijligging met kussen onder de buik.</div></li>
-            <li><div class="sn teal">2</div><div data-nl="Naaldgeleider monteren op de echoprobe. Drain voorbereiden: mandrin/stilet door de drain voeren en bevestigen dat het systeem goed doorschuift." data-en="Mount needle guide on the ultrasound probe. Prepare drain: advance the mandrin/stylet through the drain and confirm the system slides smoothly.">Naaldgeleider monteren op de echoprobe. Drain voorbereiden: mandrin/stilet door de drain voeren en bevestigen dat het systeem goed doorschuift.</div></li>
-          </ol>
-          <p class="acc-sublabel" style="margin:1.1rem 0 0.75rem" data-nl="Procedure" data-en="Procedure">Procedure</p>
-          <ol class="steps">
-            <li><div class="sn teal">3</div><div data-nl="Echo ter identificatie onderpoolscalix. Doelstelling: onderpoolscalix benaderen via Brodel's lijn — de avasculaire zone tussen de ventrale en dorsale arteriële takken." data-en="Ultrasound to identify the lower pole calyx. Target: approach the lower pole calyx via Brödel's line — the avascular zone between the ventral and dorsal arterial branches.">Echo ter identificatie onderpoolscalix. Doelstelling: onderpoolscalix benaderen via Brodel's lijn — de avasculaire zone tussen de ventrale en dorsale arteriële takken van de nierslagader.</div></li>
-            <li><div class="sn teal">4</div><div data-nl="Lokale anesthesie met lidocaïne 1%, ca. 10 cc — voornamelijk huid en nierkapsel verdoven." data-en="Local anaesthesia with lidocaine 1%, approx. 10 cc — primarily skin and renal capsule.">Lokale anesthesie met lidocaïne 1%, ca. 10 cc — voornamelijk huid en nierkapsel verdoven.</div></li>
-            <li><div class="sn teal">5</div><div data-nl="Naaldgeleider op de probe plaatsen. Echogeleide punctie langs het uitgetekende traject: eerst angionaald tot aan de nier. Vervolgens Chiba naald 22G door de angionaald de onderpoolscalix in. Aspiratie van urine — bij verdenking infectie kweek afnemen." data-en="Mount needle guide on probe. Ultrasound-guided puncture along the planned trajectory: advance angio-needle to the kidney surface. Then advance Chiba needle 22G through the angio-needle into the lower pole calyx. Aspirate urine — send culture if infection suspected.">Naaldgeleider op de probe plaatsen. Echogeleide punctie langs het door de geleider uitgetekende traject: eerst angionaald tot aan de nier. Vervolgens Chiba naald 22G door de angionaald de onderpoolscalix in. Aspiratie van urine — bij verdenking infectie kweek afnemen.</div></li>
-            <li><div class="sn teal">6</div><div data-nl="Antegrade pyelografie onder doorlichting met contrast verdund 1 op 2 met NaCl — bevestiging positie en beoordeling anatomie verzamelsysteem. Verdund contrast voorkomt dat het materiaal wordt overschaduwd." data-en="Antegrade pyelography under fluoroscopy with contrast diluted 1:2 with NaCl — confirm position and assess collecting system anatomy. Diluted contrast prevents obscuring the guidewire and instruments.">Antegrade pyelografie onder doorlichting met contrast verdund 1 op 2 met NaCl — bevestiging positie en beoordeling anatomie verzamelsysteem. Verdund contrast voorkomt dat het materiaal wordt overschaduwd.</div></li>
-            <li><div class="sn teal">7</div><div data-nl="Cope Mandril 0.018&quot; voerdraad opvoeren via de Chiba naald, bij voorkeur tot in de ureter." data-en="Advance Cope Mandrin 0.018&quot; guidewire through the Chiba needle, preferably into the ureter.">Cope Mandril 0.018" voerdraad opvoeren via de Chiba naald, bij voorkeur tot in de ureter.</div></li>
-            <li><div class="sn teal">8</div><div data-nl="Neff-set inbrengen over de voerdraad. Zodra de Neff in de calix ligt: sheath van de Neff-set afschuiven van de stilet — voorkomt perforatie van het pyelum." data-en="Advance the Neff set over the guidewire. Once the Neff is in the calyx: slide the sheath off the stylet — prevents perforation of the renal pelvis.">Neff-set inbrengen over de voerdraad. Zodra de Neff in de calix ligt: sheath van de Neff-set afschuiven van de stilet — voorkomt perforatie van het pyelum.</div></li>
-            <li><div class="sn teal">9</div><div data-nl="Amplatz voerdraad 0.035&quot; opvoeren via de Neff-set, bij voorkeur tot in de ureter." data-en="Advance Amplatz guidewire 0.035&quot; through the Neff set, preferably into the ureter.">Amplatz voerdraad 0.035" opvoeren via de Neff-set, bij voorkeur tot in de ureter.</div></li>
-            <li><div class="sn teal">10</div><div data-nl="Drain plaatsen over Amplatz met metalen stilet: standaard 8.5 Fr multipurpose drain. Bij slank/smal verzamelsysteem: 8.5 Fr Dawson-Muller. Krul positioneren in het pyelum." data-en="Place drain over Amplatz with metal stylet: standard 8.5 Fr multipurpose drain. In a small/narrow collecting system: 8.5 Fr Dawson-Muller. Position curl in the renal pelvis.">Drain plaatsen over Amplatz met metalen stilet: standaard 8.5 Fr multipurpose drain. Bij slank/smal verzamelsysteem: 8.5 Fr Dawson-Muller. Krul positioneren in het pyelum.</div></li>
-            <li><div class="sn teal">11</div><div data-nl="Contrastinjectie via drain ter bevestiging van de intraluminale positie in het pyelum." data-en="Contrast injection through drain to confirm intraluminal position in the renal pelvis.">Contrastinjectie via drain ter bevestiging van de intraluminale positie in het pyelum.</div></li>
-            <li><div class="sn teal">12</div><div data-nl="Drain locken. Fixatie aan huid met transcutane hechting en drainfix pleister. Drainzak aansluiten." data-en="Lock the drain. Fix to skin with transcutaneous suture and drain fixation dressing. Connect drainage bag.">Drain locken. Fixatie aan huid met transcutane hechting en drainfix pleister. Drainzak aansluiten.</div></li>
-          </ol>
-        </div>
-        <div>
-          <p class="acc-sublabel" data-nl="Aandachtspunten" data-en="Key Points">Aandachtspunten</p>
-          <div class="note red"><strong data-nl="Urosepsis:" data-en="Urosepsis:">Urosepsis:</strong> <span data-nl="Spoedindicatie — AB vóór aanvang. Minimale manipulatie: alleen drainage, geen uitgebreide diagnostiek." data-en="Emergency indication — antibiotics before procedure. Minimal manipulation: drainage only, no extensive diagnostics.">Spoedindicatie — AB vóór aanvang. Minimale manipulatie: alleen drainage, geen uitgebreide diagnostiek tijdens acute procedure.</span></div>
-          <div class="note orange"><strong data-nl="Hooggelegen nier:" data-en="High-lying kidney:">Hooggelegen nier:</strong> <span data-nl="Punctie boven rib 12 verhoogt pleurapunctierisico — X-thorax na procedure bij twijfel." data-en="Puncture above rib 12 increases pleural puncture risk — chest X-ray post-procedure if in doubt.">Punctie boven rib 12 verhoogt pleurapunctierisico — X-thorax na procedure bij twijfel.</span></div>
-          <div class="note orange"><strong data-nl="Retrorenaal colon:" data-en="Retrorenal colon:">Retrorenaal colon:</strong> <span data-nl="Aanwezig bij ~4% — controleer op CT bij twijfel." data-en="Present in ~4% — verify on CT if uncertain.">Aanwezig bij ~4% — controleer op CT bij twijfel.</span></div>
-          <div class="note orange"><strong data-nl="Draintype:" data-en="Drain type:">Draintype:</strong> <span data-nl="Standaard 8.5 Fr multipurpose drain. Dawson-Muller alleen bij slank/smal pyelum." data-en="Standard 8.5 Fr multipurpose drain. Dawson-Muller only for small/narrow renal pelvis.">Standaard 8.5 Fr multipurpose drain. Dawson-Muller alleen bij slank/smal pyelum — heeft stijvere schacht die beter ingaat bij nauwe toegang.</span></div>
-          <div class="note green"><strong data-nl="Contrast verdunning:" data-en="Contrast dilution:">Contrast verdunning:</strong> <span data-nl="Gebruik 1 deel contrast op 2 delen NaCl — voorkomt dat het verzamelsysteem volledig wordt overschaduwd." data-en="Use 1 part contrast to 2 parts NaCl — prevents the collecting system from being completely obscured.">Gebruik 1 deel contrast op 2 delen NaCl bij antegrade pyelografie — voorkomt dat het verzamelsysteem volledig wordt overschaduwd en materiaal onzichtbaar wordt.</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Materiaal -->
-
-  <div class="accordion" id="acc-comp">
-    <div class="acc-header" onclick="toggleAcc('acc-comp')">
-      <div class="acc-title-wrap"><span class="acc-dot red"></span><span class="acc-title" data-nl="Complicaties" data-en="Complications">Complicaties</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner" style="padding:0">
-        <table class="mat">
-          <thead><tr>
-            <th data-nl="Complicatie" data-en="Complication">Complicatie</th>
-            <th data-nl="Kans" data-en="Rate">Kans</th>
-            <th data-nl="Management" data-en="Management">Management</th>
-          </tr></thead>
-          <tbody>
-            <tr><td data-nl="Urosepsis" data-en="Urosepsis">Urosepsis</td><td>1–3%</td><td data-nl="IV antibiotica, vochttoediening, drain controleren" data-en="IV antibiotics, fluid resuscitation, check drain patency">IV antibiotica, vochttoediening, drain controleren</td></tr>
-            <tr><td data-nl="Bloeding (macro-hematurie)" data-en="Bleeding (macroscopic haematuria)">Bloeding (macro-hematurie)</td><td>2–5%</td><td data-nl="Meestal zelflimiterend; zelden embolisatie nodig" data-en="Usually self-limiting; embolisation rarely required">Meestal zelflimiterend; zelden embolisatie nodig</td></tr>
-            <tr><td data-nl="Drain dislocatie" data-en="Drain dislocation">Drain dislocatie</td><td>5–10%</td><td data-nl="Herplaatsing via bestaand tractus of nieuwe punctie" data-en="Replacement via existing tract or new puncture">Herplaatsing via bestaand tractus of nieuwe punctie</td></tr>
-            <tr><td data-nl="Pleuraal letsel" data-en="Pleural injury">Pleuraal letsel</td><td>&lt;1%</td><td data-nl="Vooral bij supracostale punctie; X-thorax/drainage" data-en="Mainly with supracostal puncture; chest X-ray/drainage">Vooral bij supracostale punctie; X-thorax/drainage</td></tr>
-            <tr><td data-nl="Colonperforatie" data-en="Colonic perforation">Colonperforatie</td><td>&lt;0.2%</td><td data-nl="Conservatief of chirurgisch (zeldzaam)" data-en="Conservative or surgical management (rare)">Conservatief of chirurgisch (zeldzaam)</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <!-- Nazorg -->
-
-  <div class="accordion" id="acc-naz">
-    <div class="acc-header" onclick="toggleAcc('acc-naz')">
-      <div class="acc-title-wrap"><span class="acc-dot green"></span><span class="acc-title" data-nl="Nazorg" data-en="Aftercare">Nazorg</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner">
-        <ul class="bullet">
-          <li data-nl="Drain open op zak laten lopen" data-en="Leave drain open to drainage bag">Drain open op zak laten lopen</li>
-          <li data-nl="Wissel drain na 6–8 weken indien nog in situ en benodigd" data-en="Replace drain after 6–8 weeks if still in situ and required">Wissel drain na 6–8 weken indien nog in situ en benodigd</li>
-          <li data-nl="Bij koorts of forse toename hematurie: laagdrempelig contact opnemen" data-en="If fever or significant increase in haematuria: contact immediately">Bij koorts of forse toename hematurie: laagdrempelig contact opnemen</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- Bronnen -->
-
-  <div class="accordion" id="acc-vers">
-    <div class="acc-header" onclick="toggleAcc('acc-vers')">
-      <div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title" data-nl="Standaardverslag" data-en="Standard Report">Standaardverslag</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner">
-        <div class="verslag-wrap">
-          <div class="verslag" id="verslag-nefro" data-nl="Ter vergelijking: [datum/modaliteit]
-Antistolling: [gestaakt / niet van toepassing]
-Procedure onder antibiotische dekking.
-
-Echo toont [bevinding verzamelsysteem].
-
-Steriele omstandigheden. Echogeleid lokale anesthesie met lidocaïne 1%
-10 ml. Echogeleid aanprikken onderpoolscalix [links/rechts] met Chiba
-naald. Aspiratie van [heldere/troebele/purulente] urine. [Kweek afgenomen.]
-
-Onder doorlichting over Cope Mandril voerdraad plaatsen Neff-set. Over
-Amplatz voerdraad plaatsen 8.5 Fr multipurpose drain met krul in het
-pyelum. Contrastinjectie ter bevestiging intraluminale positie in het pyelum.
-
-Drain gelockt. Gefixeerd met transcutane hechting en drainfix pleister.
-Drainzak aangesloten.
-
-CONCLUSIE:
-Plaatsing percutane nefrodrain [links/rechts].
-
-NAZORG:
-Drain open op zak laten lopen.
-Bij koorts of forse toename hematurie laagdrempelig contact opnemen."
-data-en="Reference: [date/modality]
+<div class="breadcrumb">
+<a href="../index.html">Home</a>
+<span class="sep">›</span><span data-en="Non-vascular" data-nl="Non-vasculair">Non-vasculair</span>
+<span class="sep">›</span><span data-en="Percutaneous nephrostomy" data-nl="Percutane nefrostomie">Percutane nefrostomie</span>
+</div>
+<div class="proc-header">
+<div class="proc-header-bar nonvasc"></div>
+<div>
+<h1 data-en="Percutaneous Nephrostomy" data-nl="Percutane Nefrostomie">Percutane Nefrostomie</h1>
+<p data-en="Ultrasound- and fluoroscopy-guided drainage of the renal pelvis" data-nl="Echo- en doorlichtingsgeleide drainage van het nierbekken">Echo- en doorlichtingsgeleide drainage van het nierbekken</p>
+<div class="proc-meta">
+<span class="meta-pill nonvasc" data-en="Non-vascular" data-nl="Non-vasculair">Non-vasculair</span>
+<span class="meta-pill nonvasc">30–60 min</span>
+<span class="meta-pill nonvasc" data-en="Local anaesthesia" data-nl="Lokale anesthesie">Lokale anesthesie</span>
+<span class="meta-pill nonvasc" data-en="Hospital admission" data-nl="Klinische opname">Klinische opname</span>
+<a class="risk-badge intermediair" href="../materiaal/antistolling.html"><span class="risk-dot"></span><span data-en="Intermediate anticoagulation risk" data-nl="Intermediair risico antistolling">Intermediair risico antistolling</span><span class="risk-badge-arr">›</span></a>
+</div>
+</div>
+</div>
+<!-- Indicaties -->
+<div class="accordion" id="acc-ind">
+<div class="acc-header" onclick="toggleAcc('acc-ind')">
+<div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title" data-en="Indications &amp; Contraindications" data-nl="Indicaties &amp; Contra-indicaties">Indicaties &amp; Contra-indicaties</span></div>
+<span class="acc-chevron">▾</span>
+</div>
+<div class="acc-body">
+<div class="acc-inner-split">
+<div>
+<p class="acc-sublabel" data-en="Indications" data-nl="Indicaties">Indicaties</p>
+<ul class="clean">
+<li data-en="Declining eGFR due to post-renal obstruction &lt;em style='color:var(--muted);font-size:0.8rem'&gt;(relative urgency)&lt;/em&gt;" data-nl="Gedaald eGFR door post-renale obstructie &lt;em style='color:var(--muted);font-size:0.8rem'&gt;(relatief spoed)&lt;/em&gt;">Gedaald eGFR door post-renale obstructie <em style="color:var(--muted);font-size:0.8rem">(relatief spoed)</em></li>
+<li data-en="Pyonephrosis / urosepsis &lt;em style='color:var(--red);font-size:0.8rem'&gt;(emergency indication)&lt;/em&gt;" data-nl="Pyonefrose / urosepsis &lt;em style='color:var(--red);font-size:0.8rem'&gt;(spoedindicatie)&lt;/em&gt;">Pyonefrose / urosepsis <em style="color:var(--red);font-size:0.8rem">(spoedindicatie)</em></li>
+<li data-en="Urinary diversion — e.g. fistulas or haemorrhagic cystitis" data-nl="Urinedeviatie — bijv. bij fistels of hemorragische cystitis">Urinedeviatie — bijv. bij fistels of hemorragische cystitis</li>
+<li data-en="Access for subsequent interventions — double-J stent or PNL" data-nl="Toegang voor vervolginterventies — dubbel-J stent of PNL">Toegang voor vervolginterventies — dubbel-J stent of PNL</li>
+</ul>
+</div>
+<div>
+<p class="acc-sublabel" data-en="Contraindications" data-nl="Contra-indicaties">Contra-indicaties</p>
+<ul class="contra">
+<li data-en="INR &gt;1.5 / platelets &lt;50" data-nl="INR &gt;1.5 / trombocyten &lt;50">INR &gt;1.5 / trombocyten &lt;50</li>
+<li data-en="No safe puncture trajectory" data-nl="Geen veilig punctietraject">Geen veilig punctietraject</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<!-- Pre-procedureel -->
+<div class="accordion" id="acc-pre">
+<div class="acc-header" onclick="toggleAcc('acc-pre')">
+<div class="acc-title-wrap"><span class="acc-dot blue"></span><span class="acc-title" data-en="Pre-procedural Checklist" data-nl="Pre-procedurele Checklist">Pre-procedurele Checklist</span></div>
+<span class="acc-chevron">▾</span>
+</div>
+<div class="acc-body">
+<div class="acc-inner">
+<ul class="clean">
+<li data-en="&lt;strong&gt;Labs:&lt;/strong&gt; INR, platelets, eGFR" data-nl="&lt;strong&gt;Lab:&lt;/strong&gt; INR, trombocyten, eGFR"><strong>Lab:</strong> INR, trombocyten, eGFR</li>
+<li data-en="&lt;strong&gt;Fasting:&lt;/strong&gt; not required unless sedation planned" data-nl="&lt;strong&gt;Nuchter:&lt;/strong&gt; niet nodig tenzij sedatie gepland"><strong>Nuchter:</strong> niet nodig tenzij sedatie gepland</li>
+<li data-en="&lt;strong&gt;Imaging:&lt;/strong&gt; assess kidney position — high-lying kidney increases pleural puncture risk above rib 12; colon outside trajectory?" data-nl="&lt;strong&gt;Beeldvorming:&lt;/strong&gt; nierpositie beoordelen — hooggelegen nier verhoogt pleurapunctierisico bij punctie boven rib 12; colon descendens/ascendens buiten het traject?"><strong>Beeldvorming:</strong> nierpositie beoordelen — hooggelegen nier verhoogt pleurapunctierisico bij punctie boven rib 12; colon descendens/ascendens buiten het traject?</li>
+<li data-en="&lt;strong&gt;Antibiotics:&lt;/strong&gt; ceftriaxone iv 2000 mg single dose. In urosepsis: treat per protocol." data-nl="&lt;strong&gt;Antibiotica:&lt;/strong&gt; ceftriaxon iv 2000 mg eenmalig. Bij urosepsis: behandelen conform protocol."><strong>Antibiotica:</strong> ceftriaxon iv 2000 mg eenmalig. Bij urosepsis: behandelen conform protocol.</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Stappenplan -->
+<div class="accordion" id="acc-mat">
+<div class="acc-header" onclick="toggleAcc('acc-mat')">
+<div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title" data-en="Equipment" data-nl="Materiaal">Materiaal</span></div>
+<span class="acc-chevron">▾</span>
+</div>
+<div class="acc-body">
+<div class="acc-inner" style="padding:0">
+<table class="mat">
+<thead><tr>
+<th data-en="Material" data-nl="Materiaal">Materiaal</th>
+<th data-en="Specification" data-nl="Specificatie">Specificatie</th>
+<th data-en="Quantity" data-nl="Aantal">Aantal</th>
+</tr></thead>
+<tbody>
+<tr><td><a class="mat-link" data-en="Angio set" data-nl="Angioset" href="../materiaal/angioset.html">Angioset</a></td><td data-en="Standard" data-nl="Standaard">Standaard</td><td>1</td></tr>
+<tr><td data-en="Needle guide" data-nl="Naaldgeleider">Naaldgeleider</td><td data-en="Ultrasound probe attachment for needle guidance" data-nl="Opzetstuk echoprobe voor naaldgeleiding">Opzetstuk echoprobe voor naaldgeleiding</td><td>1</td></tr>
+<tr><td data-en='Neff set (incl. Chiba needle 22G + Cope Mandrin 0.018")' data-nl='Neffset (incl. Chiba naald 22G + Cope Mandril 0.018")'><a class="mat-link" href="../materiaal/sheaths-en-katheters.html">Neffset</a> <em style="color:var(--muted);font-size:0.8rem">(incl. Chiba naald 22G + Cope Mandril 0.018")</em></td><td>4 Fr</td><td>1</td></tr>
+<tr><td><a class="mat-link" data-en="Amplatz guidewire" data-nl="Amplatz voerdraad" href="../materiaal/draden.html">Amplatz voerdraad</a></td><td>0.035", <span data-en="short" data-nl="kort">kort</span></td><td>1</td></tr>
+<tr><td data-en="Multipurpose drain" data-nl="Multipurpose drain"><a class="mat-link" href="../materiaal/sheaths-en-katheters.html">Multipurpose drain</a></td><td>8.5 Fr, <span data-en="metal stylet" data-nl="metalen stilet">metalen stilet</span></td><td>1</td></tr>
+<tr><td data-en="Dawson-Muller drain (for small collecting system)" data-nl="Dawson-Muller drain (bij slank pyelum)"><a class="mat-link" href="../materiaal/sheaths-en-katheters.html">Dawson-Muller drain</a> <em data-en="(for small collecting system)" data-nl="(bij slank pyelum)" style="color:var(--muted);font-size:0.8rem">(bij slank pyelum)</em></td><td>8.5 Fr</td><td data-en="Optional" data-nl="Optioneel">Optioneel</td></tr>
+<tr class="mat-cat"><td colspan="3" data-en="Optional" data-nl="Optioneel">Optioneel</td></tr>
+<tr><td data-en="Sheath" data-nl="Sheath">Sheath</td><td>7 Fr, 25 cm</td><td data-en="Optional" data-nl="Optioneel">Optioneel</td></tr>
+<tr><td><a class="mat-link" data-en="Hydrophilic guidewire" data-nl="Hydrofiele voerdraad" href="../materiaal/draden.html">Hydrofiele voerdraad</a></td><td>0.035"</td><td data-en="Optional" data-nl="Optioneel">Optioneel</td></tr>
+<tr><td><a class="mat-link" data-en="Cobra catheter" data-nl="Cobra katheter" href="../materiaal/sheaths-en-katheters.html">Cobra katheter</a></td><td>4 <span data-en="or" data-nl="of">of</span> 5 Fr</td><td data-en="Optional" data-nl="Optioneel">Optioneel</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Standaardverslag -->
+<div class="accordion" id="acc-stap">
+<div class="acc-header" onclick="toggleAcc('acc-stap')">
+<div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title" data-en="Procedure Steps" data-nl="Stappenplan">Stappenplan</span></div>
+<span class="acc-chevron">▾</span>
+</div>
+<div class="acc-body">
+<div class="acc-inner-split">
+<div>
+<p class="acc-sublabel" data-en="Preparation" data-nl="Voorbereiding">Voorbereiding</p>
+<ol class="steps">
+<li><div class="sn teal">1</div><div data-en="Patient prone or lateral decubitus with pillow under the abdomen." data-nl="Patiënt in buikligging of zijligging met kussen onder de buik.">Patiënt in buikligging of zijligging met kussen onder de buik.</div></li>
+<li><div class="sn teal">2</div><div data-en="Mount needle guide on the ultrasound probe. Prepare drain: advance the mandrin/stylet through the drain and confirm the system slides smoothly." data-nl="Naaldgeleider monteren op de echoprobe. Drain voorbereiden: mandrin/stilet door de drain voeren en bevestigen dat het systeem goed doorschuift.">Naaldgeleider monteren op de echoprobe. Drain voorbereiden: mandrin/stilet door de drain voeren en bevestigen dat het systeem goed doorschuift.</div></li>
+</ol>
+<p class="acc-sublabel" data-en="Procedure" data-nl="Procedure" style="margin:1.1rem 0 0.75rem">Procedure</p>
+<ol class="steps">
+<li><div class="sn teal">3</div><div data-en="Ultrasound to identify the lower pole calyx. Target: approach the lower pole calyx via Brödel's line — the avascular zone between the ventral and dorsal arterial branches." data-nl="Echo ter identificatie onderpoolscalix. Doelstelling: onderpoolscalix benaderen via Brodel's lijn — de avasculaire zone tussen de ventrale en dorsale arteriële takken.">Echo ter identificatie onderpoolscalix. Doelstelling: onderpoolscalix benaderen via Brodel's lijn — de avasculaire zone tussen de ventrale en dorsale arteriële takken.</div></li>
+<li><div class="sn teal">4</div><div data-en="Local anaesthesia with lidocaine 1%, approx. 10 cc — primarily skin and renal capsule." data-nl="Lokale anesthesie met lidocaïne 1%, ca. 10 cc — voornamelijk huid en nierkapsel verdoven.">Lokale anesthesie met lidocaïne 1%, ca. 10 cc — voornamelijk huid en nierkapsel verdoven.</div></li>
+<li><div class="sn teal">5</div><div data-en="Mount needle guide on probe. Ultrasound-guided puncture along the planned trajectory: advance angio-needle to the kidney surface. Then advance Chiba needle 22G through the angio-needle into the lower pole calyx. Aspirate urine — send culture if infection suspected." data-nl="Naaldgeleider op de probe plaatsen. Echogeleide punctie langs het door de geleider uitgetekende traject: eerst angionaald tot aan de nier. Vervolgens Chiba naald 22G door de angionaald de onderpoolscalix in. Aspiratie van urine — bij verdenking infectie kweek afnemen.">Naaldgeleider op de probe plaatsen. Echogeleide punctie langs het door de geleider uitgetekende traject: eerst angionaald tot aan de nier. Vervolgens Chiba naald 22G door de angionaald de onderpoolscalix in. Aspiratie van urine — bij verdenking infectie kweek afnemen.</div></li>
+<li><div class="sn teal">6</div><div data-en="Antegrade pyelography under fluoroscopy with contrast diluted 1:2 with NaCl — confirm position and assess collecting system anatomy. Diluted contrast prevents obscuring the guidewire and instruments." data-nl="Antegrade pyelografie onder doorlichting met contrast verdund 1 op 2 met NaCl — bevestiging positie en beoordeling anatomie verzamelsysteem. Verdund contrast voorkomt dat het materiaal wordt overschaduwd.">Antegrade pyelografie onder doorlichting met contrast verdund 1 op 2 met NaCl — bevestiging positie en beoordeling anatomie verzamelsysteem. Verdund contrast voorkomt dat het materiaal wordt overschaduwd.</div></li>
+<li><div class="sn teal">7</div><div data-en='Advance Cope Mandrin 0.018" guidewire through the Chiba needle, preferably into the ureter.' data-nl='Cope Mandril 0.018" voerdraad opvoeren via de Chiba naald, bij voorkeur tot in de ureter.'>Cope Mandril 0.018" voerdraad opvoeren via de Chiba naald, bij voorkeur tot in de ureter.</div></li>
+<li><div class="sn teal">8</div><div data-en="Advance the Neff set over the guidewire. Once the Neff is in the calyx: slide the sheath off the stylet — prevents perforation of the renal pelvis." data-nl="Neff-set inbrengen over de voerdraad. Zodra de Neff in de calix ligt: sheath van de Neff-set afschuiven van de stilet — voorkomt perforatie van het pyelum.">Neff-set inbrengen over de voerdraad. Zodra de Neff in de calix ligt: sheath van de Neff-set afschuiven van de stilet — voorkomt perforatie van het pyelum.</div></li>
+<li><div class="sn teal">9</div><div data-en='Advance Amplatz guidewire 0.035" through the Neff set, preferably into the ureter.' data-nl='Amplatz voerdraad 0.035" opvoeren via de Neff-set, bij voorkeur tot in de ureter.'>Amplatz voerdraad 0.035" opvoeren via de Neff-set, bij voorkeur tot in de ureter.</div></li>
+<li><div class="sn teal">10</div><div data-en="Place drain over Amplatz with metal stylet: standard 8.5 Fr multipurpose drain. In a small/narrow collecting system: 8.5 Fr Dawson-Muller. Position curl in the renal pelvis." data-nl="Drain plaatsen over Amplatz met metalen stilet: standaard 8.5 Fr multipurpose drain. Bij slank/smal verzamelsysteem: 8.5 Fr Dawson-Muller. Krul positioneren in het pyelum.">Drain plaatsen over Amplatz met metalen stilet: standaard 8.5 Fr multipurpose drain. Bij slank/smal verzamelsysteem: 8.5 Fr Dawson-Muller. Krul positioneren in het pyelum.</div></li>
+<li><div class="sn teal">11</div><div data-en="Contrast injection through drain to confirm intraluminal position in the renal pelvis." data-nl="Contrastinjectie via drain ter bevestiging van de intraluminale positie in het pyelum.">Contrastinjectie via drain ter bevestiging van de intraluminale positie in het pyelum.</div></li>
+<li><div class="sn teal">12</div><div data-en="Lock the drain. Fix to skin with transcutaneous suture and drain fixation dressing. Connect drainage bag." data-nl="Drain locken. Fixatie aan huid met transcutane hechting en drainfix pleister. Drainzak aansluiten.">Drain locken. Fixatie aan huid met transcutane hechting en drainfix pleister. Drainzak aansluiten.</div></li>
+</ol>
+</div>
+<div>
+<p class="acc-sublabel" data-en="Key Points" data-nl="Aandachtspunten">Aandachtspunten</p>
+<div class="note red"><strong data-en="Urosepsis:" data-nl="Urosepsis:">Urosepsis:</strong> <span data-en="Emergency indication — antibiotics before procedure. Minimal manipulation: drainage only, no extensive diagnostics." data-nl="Spoedindicatie — AB vóór aanvang. Minimale manipulatie: alleen drainage, geen uitgebreide diagnostiek tijdens acute procedure.">Spoedindicatie — AB vóór aanvang. Minimale manipulatie: alleen drainage, geen uitgebreide diagnostiek tijdens acute procedure.</span></div>
+<div class="note orange"><strong data-en="High-lying kidney:" data-nl="Hooggelegen nier:">Hooggelegen nier:</strong> <span data-en="Puncture above rib 12 increases pleural puncture risk — chest X-ray post-procedure if in doubt." data-nl="Punctie boven rib 12 verhoogt pleurapunctierisico — X-thorax na procedure bij twijfel.">Punctie boven rib 12 verhoogt pleurapunctierisico — X-thorax na procedure bij twijfel.</span></div>
+<div class="note orange"><strong data-en="Retrorenal colon:" data-nl="Retrorenaal colon:">Retrorenaal colon:</strong> <span data-en="Present in ~4% — verify on CT if uncertain." data-nl="Aanwezig bij ~4% — controleer op CT bij twijfel.">Aanwezig bij ~4% — controleer op CT bij twijfel.</span></div>
+<div class="note orange"><strong data-en="Drain type:" data-nl="Draintype:">Draintype:</strong> <span data-en="Standard 8.5 Fr multipurpose drain. Dawson-Muller only for small/narrow renal pelvis." data-nl="Standaard 8.5 Fr multipurpose drain. Dawson-Muller alleen bij slank/smal pyelum.">Standaard 8.5 Fr multipurpose drain. Dawson-Muller alleen bij slank/smal pyelum.</span></div>
+<div class="note green"><strong data-en="Contrast dilution:" data-nl="Contrast verdunning:">Contrast verdunning:</strong> <span data-en="Use 1 part contrast to 2 parts NaCl — prevents the collecting system from being completely obscured." data-nl="Gebruik 1 deel contrast op 2 delen NaCl bij antegrade pyelografie — voorkomt dat het verzamelsysteem volledig wordt overschaduwd en materiaal onzichtbaar wordt.">Gebruik 1 deel contrast op 2 delen NaCl bij antegrade pyelografie — voorkomt dat het verzamelsysteem volledig wordt overschaduwd en materiaal onzichtbaar wordt.</span></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Materiaal -->
+<div class="accordion" id="acc-comp">
+<div class="acc-header" onclick="toggleAcc('acc-comp')">
+<div class="acc-title-wrap"><span class="acc-dot red"></span><span class="acc-title" data-en="Complications" data-nl="Complicaties">Complicaties</span></div>
+<span class="acc-chevron">▾</span>
+</div>
+<div class="acc-body">
+<div class="acc-inner" style="padding:0">
+<table class="mat">
+<thead><tr>
+<th data-en="Complication" data-nl="Complicatie">Complicatie</th>
+<th data-en="Rate" data-nl="Kans">Kans</th>
+<th data-en="Management" data-nl="Management">Management</th>
+</tr></thead>
+<tbody>
+<tr><td data-en="Urosepsis" data-nl="Urosepsis">Urosepsis</td><td>1–3%</td><td data-en="IV antibiotics, fluid resuscitation, check drain patency" data-nl="IV antibiotica, vochttoediening, drain controleren">IV antibiotica, vochttoediening, drain controleren</td></tr>
+<tr><td data-en="Bleeding (macroscopic haematuria)" data-nl="Bloeding (macro-hematurie)">Bloeding (macro-hematurie)</td><td>2–5%</td><td data-en="Usually self-limiting; embolisation rarely required" data-nl="Meestal zelflimiterend; zelden embolisatie nodig">Meestal zelflimiterend; zelden embolisatie nodig</td></tr>
+<tr><td data-en="Drain dislocation" data-nl="Drain dislocatie">Drain dislocatie</td><td>5–10%</td><td data-en="Replacement via existing tract or new puncture" data-nl="Herplaatsing via bestaand tractus of nieuwe punctie">Herplaatsing via bestaand tractus of nieuwe punctie</td></tr>
+<tr><td data-en="Pleural injury" data-nl="Pleuraal letsel">Pleuraal letsel</td><td>&lt;1%</td><td data-en="Mainly with supracostal puncture; chest X-ray/drainage" data-nl="Vooral bij supracostale punctie; X-thorax/drainage">Vooral bij supracostale punctie; X-thorax/drainage</td></tr>
+<tr><td data-en="Colonic perforation" data-nl="Colonperforatie">Colonperforatie</td><td>&lt;0.2%</td><td data-en="Conservative or surgical management (rare)" data-nl="Conservatief of chirurgisch (zeldzaam)">Conservatief of chirurgisch (zeldzaam)</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Nazorg -->
+<div class="accordion" id="acc-naz">
+<div class="acc-header" onclick="toggleAcc('acc-naz')">
+<div class="acc-title-wrap"><span class="acc-dot green"></span><span class="acc-title" data-en="Aftercare" data-nl="Nazorg">Nazorg</span></div>
+<span class="acc-chevron">▾</span>
+</div>
+<div class="acc-body">
+<div class="acc-inner">
+<ul class="bullet">
+<li data-en="Leave drain open to drainage bag" data-nl="Drain open op zak laten lopen">Drain open op zak laten lopen</li>
+<li data-en="Replace drain after 6–8 weeks if still in situ and required" data-nl="Wissel drain na 6–8 weken indien nog in situ en benodigd">Wissel drain na 6–8 weken indien nog in situ en benodigd</li>
+<li data-en="If fever or significant increase in haematuria: contact immediately" data-nl="Bij koorts of forse toename hematurie: laagdrempelig contact opnemen">Bij koorts of forse toename hematurie: laagdrempelig contact opnemen</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Bronnen -->
+<div class="accordion" id="acc-vers">
+<div class="acc-header" onclick="toggleAcc('acc-vers')">
+<div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title" data-en="Standard Report" data-nl="Standaardverslag">Standaardverslag</span></div>
+<span class="acc-chevron">▾</span>
+</div>
+<div class="acc-body">
+<div class="acc-inner">
+<div class="verslag-wrap">
+<div class="verslag" data-en="Reference: [date/modality]
 Anticoagulation: [discontinued / not applicable]
 Procedure performed under antibiotic cover.
 
@@ -253,7 +217,29 @@ Placement percutaneous nephrostomy drain [left/right].
 
 AFTERCARE:
 Drain left open to drainage bag.
-Contact immediately if fever or significant increase in haematuria.">Ter vergelijking: [datum/modaliteit]
+Contact immediately if fever or significant increase in haematuria." data-nl="Ter vergelijking: [datum/modaliteit]
+Antistolling: [gestaakt / niet van toepassing]
+Procedure onder antibiotische dekking.
+
+Echo toont [bevinding verzamelsysteem].
+
+Steriele omstandigheden. Echogeleid lokale anesthesie met lidocaïne 1%
+10 ml. Echogeleid aanprikken onderpoolscalix [links/rechts] met Chiba
+naald. Aspiratie van [heldere/troebele/purulente] urine. [Kweek afgenomen.]
+
+Onder doorlichting over Cope Mandril voerdraad plaatsen Neff-set. Over
+Amplatz voerdraad plaatsen 8.5 Fr multipurpose drain met krul in het
+pyelum. Contrastinjectie ter bevestiging intraluminale positie in het pyelum.
+
+Drain gelockt. Gefixeerd met transcutane hechting en drainfix pleister.
+Drainzak aangesloten.
+
+CONCLUSIE:
+Plaatsing percutane nefrodrain [links/rechts].
+
+NAZORG:
+Drain open op zak laten lopen.
+Bij koorts of forse toename hematurie laagdrempelig contact opnemen." id="verslag-nefro">Ter vergelijking: [datum/modaliteit]
 Antistolling: [gestaakt / niet van toepassing]
 Procedure onder antibiotische dekking.
 
@@ -276,32 +262,28 @@ Plaatsing percutane nefrodrain [links/rechts].
 NAZORG:
 Drain open op zak laten lopen.
 Bij koorts of forse toename hematurie laagdrempelig contact opnemen.</div>
-          <button class="copy-btn" id="copy-nefro" onclick="copyVerslag('verslag-nefro','copy-nefro')">⎘ <span data-nl="Kopieer" data-en="Copy">Kopieer</span></button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Complicaties -->
-
-  <div class="accordion" id="acc-bronnen">
-    <div class="acc-header" onclick="toggleAcc('acc-bronnen')">
-      <div class="acc-title-wrap"><span class="acc-dot blue"></span><span class="acc-title" data-nl="Bronnen &amp; Externe Links" data-en="References &amp; External Links">Bronnen &amp; Externe Links</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner">
-        <ul class="bronnen-lijst">
-          <li><a href="https://www.ncbi.nlm.nih.gov/books/NBK493205/" target="_blank" rel="noopener">StatPearls — Percutaneous Nephrostomy (Young &amp; Leslie, 2025)</a></li>
-          <li><a href="https://www.jvir.org/article/S1051-0443(15)01140-9/fulltext" target="_blank" rel="noopener">SIR Quality Improvement Guidelines for Percutaneous Nephrostomy (JVIR 2016)</a></li>
-          <li><a href="https://radiopaedia.org/articles/percutaneous-nephrostomy" target="_blank" rel="noopener">Radiopaedia — Percutaneous nephrostomy</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
+<button class="copy-btn" id="copy-nefro" onclick="copyVerslag('verslag-nefro','copy-nefro')">⎘ <span data-en="Copy" data-nl="Kopieer">Kopieer</span></button>
 </div>
-
-
+</div>
+</div>
+</div>
+<!-- Complicaties -->
+<div class="accordion" id="acc-bronnen">
+<div class="acc-header" onclick="toggleAcc('acc-bronnen')">
+<div class="acc-title-wrap"><span class="acc-dot blue"></span><span class="acc-title" data-en="References &amp; External Links" data-nl="Bronnen &amp; Externe Links">Bronnen &amp; Externe Links</span></div>
+<span class="acc-chevron">▾</span>
+</div>
+<div class="acc-body">
+<div class="acc-inner">
+<ul class="bronnen-lijst">
+<li><a href="https://www.ncbi.nlm.nih.gov/books/NBK493205/" rel="noopener" target="_blank">StatPearls — Percutaneous Nephrostomy (Young &amp; Leslie, 2025)</a></li>
+<li><a href="https://www.jvir.org/article/S1051-0443(15)01140-9/fulltext" rel="noopener" target="_blank">SIR Quality Improvement Guidelines for Percutaneous Nephrostomy (JVIR 2016)</a></li>
+<li><a href="https://radiopaedia.org/articles/percutaneous-nephrostomy" rel="noopener" target="_blank">Radiopaedia — Percutaneous nephrostomy</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/7.0.0/fuse.min.js"></script>
 <script src="../procedures.js"></script>
 <script src="../nav.js"></script>

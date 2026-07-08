@@ -1,197 +1,182 @@
 <!DOCTYPE html>
+
 <html lang="nl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nierbiopt — InterventionAssistant</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../style.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nierbiopt — InterventionAssistant</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&amp;family=Nunito+Sans:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
+<link href="../style.css" rel="stylesheet"/>
 </head>
 <body>
 <nav></nav>
 <div class="main proc-page">
-  <div class="breadcrumb">
-    <a href="../index.html">Home</a><span class="sep">›</span>
-    <span>Non-vasculair</span><span class="sep">›</span>
-    <span>Nierbiopt</span>
-  </div>
-  <div class="proc-header">
-    <div class="proc-header-bar nonvasc"></div>
-    <div>
-      <h1>Nierbiopt</h1>
-      <p>Echogeleide percutane biopsie van de nier bij verdenking nierparenchymziekte</p>
-      <div class="proc-meta">
-        <span class="meta-pill nonvasc">Non-vasculair</span>
-        <span class="meta-pill nonvasc">20–30 min</span>
-        <span class="meta-pill nonvasc">Lokale anesthesie</span>
-        <span class="meta-pill nonvasc">Klinisch 4–6u observatie</span>
-        <a href="../materiaal/antistolling.html" class="risk-badge hoog"><span class="risk-dot"></span><span data-nl="Hoog risico antistolling" data-en="High anticoagulation risk">Hoog risico antistolling</span><span class="risk-badge-arr">›</span></a>
-      </div>
-    </div>
-  </div>
-
-  <div class="accordion" id="acc-ind">
-    <div class="acc-header" onclick="toggleAcc('acc-ind')">
-      <div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title" data-nl="Indicaties &amp; Contra-indicaties" data-en="Indications &amp; Contraindications">Indicaties &amp; Contra-indicaties</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner-split">
-        <div>
-          <p class="acc-sublabel" data-nl="Indicaties" data-en="Indications">Indicaties</p>
-          <ul class="clean">
-            <li data-nl="Nefrotisch of nefritisch syndroom met onduidelijke oorzaak" data-en="Nephrotic or nephritic syndrome of unclear cause">Nefrotisch of nefritisch syndroom met onduidelijke oorzaak</li>
-            <li data-nl="Verdenking IgA-nefropathie, FSGS, membraneuse nefropathie of vasculitis" data-en="Suspected IgA nephropathy, FSGS, membranous nephropathy or vasculitis">Verdenking IgA-nefropathie, FSGS, membraneuse nefropathie of vasculitis</li>
-            <li data-nl="Verdenking transplantaatafstoting" data-en="Suspected transplant rejection">Verdenking transplantaatafstoting</li>
-            <li data-nl="Onbegrepen nierinsufficiëntie" data-en="Unexplained renal insufficiency">Onbegrepen nierinsufficiëntie</li>
-          </ul>
-        </div>
-        <div>
-          <p class="acc-sublabel" data-nl="Contra-indicaties" data-en="Contraindications">Contra-indicaties</p>
-          <ul class="contra">
-            <li data-nl="Stollingsstoornis (INR &gt;1.5, trombo &lt;80)" data-en="Coagulopathy (INR &gt;1.5, platelets &lt;80)">Stollingsstoornis (INR &gt;1.5, trombo &lt;80)</li>
-            <li data-nl="Niet-gecorrigeerde hypertensie (RR &gt;160/100)" data-en="Uncorrected hypertension (BP &gt;160/100)">Niet-gecorrigeerde hypertensie (RR &gt;160/100)</li>
-            <li data-nl="Functionele mononier (relatief — multidisciplinair overleg)" data-en="Functional solitary kidney (relative — multidisciplinary consultation)">Functionele mononier (relatief — multidisciplinair overleg)</li>
-            <li data-nl="Actieve urineweginfectie" data-en="Active urinary tract infection">Actieve urineweginfectie</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="accordion" id="acc-pre">
-    <div class="acc-header" onclick="toggleAcc('acc-pre')">
-      <div class="acc-title-wrap"><span class="acc-dot blue"></span><span class="acc-title" data-nl="Pre-procedurele Checklist" data-en="Pre-procedural Checklist">Pre-procedurele Checklist</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner">
-        <ul class="clean">
-          <li data-nl="&lt;strong&gt;Lab:&lt;/strong&gt; INR, trombo's, Hb, eGFR, bloedgroep + kruisbloed" data-en="&lt;strong&gt;Labs:&lt;/strong&gt; INR, platelets, Hb, eGFR, blood group + cross-match"><strong>Lab:</strong> INR, trombo's, Hb, eGFR, bloedgroep + kruisbloed</li>
-          <li data-nl="&lt;strong&gt;RR:&lt;/strong&gt; &lt;160/100 — zo nodig antihypertensiva aanpassen" data-en="&lt;strong&gt;BP:&lt;/strong&gt; &lt;160/100 — adjust antihypertensives if needed"><strong>RR:</strong> &lt;160/100 — zo nodig antihypertensiva aanpassen</li>
-          <li data-nl="&lt;strong&gt;Antistolling:&lt;/strong&gt; Gestaakt conform protocol" data-en="&lt;strong&gt;Anticoagulation:&lt;/strong&gt; Discontinued per protocol"><strong>Antistolling:</strong> Gestaakt conform protocol</li>
-          <li data-nl="&lt;strong&gt;Informed consent:&lt;/strong&gt; Inclusief bloeding, AV-fistel, verlies nierfunctie" data-en="&lt;strong&gt;Informed consent:&lt;/strong&gt; Including bleeding, AV fistula, loss of renal function"><strong>Informed consent:</strong> Inclusief bloeding, AV-fistel, verlies nierfunctie</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <div class="accordion" id="acc-mat">
-    <div class="acc-header" onclick="toggleAcc('acc-mat')">
-      <div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title" data-nl="Materiaal" data-en="Equipment">Materiaal</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner" style="padding:0">
-        <table class="mat">
-          <thead><tr><th data-nl="Materiaal" data-en="Material">Materiaal</th><th data-nl="Specificatie" data-en="Specification">Specificatie</th><th data-nl="Aantal" data-en="Quantity">Aantal</th></tr></thead>
-          <tbody>
-            <tr><td data-nl="Steriele tafel" data-en="Sterile table">Steriele tafel</td><td data-nl="Steriele afdekking instrumenten" data-en="Sterile instrument cover">Steriele afdekking instrumenten</td><td>1</td></tr>
-            <tr><td data-nl="Gatdoek" data-en="Fenestrated drape">Gatdoek</td><td data-nl="Afdekking patiënt" data-en="Patient drape">Afdekking patiënt</td><td>1</td></tr>
-            <tr><td data-nl="Echoprobe hoes" data-en="Ultrasound probe cover">Echoprobe hoes</td><td data-nl="Steriel" data-en="Sterile">Steriel</td><td>1</td></tr>
-            <tr><td data-nl="21G naald" data-en="21G needle">21G naald</td><td data-nl="Verdovingsnaald" data-en="Injection needle">Verdovingsnaald</td><td>1</td></tr>
-            <tr><td data-nl="Rode naald (optreknaald)" data-en="Drawing-up needle">Rode naald (optreknaald)</td><td data-nl="Standaard" data-en="Standard">Standaard</td><td>1</td></tr>
-            <tr><td data-nl="10 cc spuit" data-en="10 cc syringe">10 cc spuit</td><td>Standaard</td><td>1</td></tr>
-            <tr><td>Lidocaïne 1%</td><td>10 cc</td><td>1</td></tr>
-            <tr><td data-nl="NaCl 0.9%" data-en="NaCl 0.9%">NaCl 0.9%</td><td>10 cc</td><td>1</td></tr>
-            <tr><td data-nl="Mesje" data-en="Blade">Mesje</td><td data-nl="Kleine steekincisie" data-en="Small stab incision">Kleine steekincisie</td><td>1</td></tr>
-            <tr><td data-nl="15G steunnaald" data-en="15G coaxial needle">15G steunnaald</td><td data-nl="Geleiding voor biopteur" data-en="Guidance for biopsy device">Geleiding voor biopteur</td><td>1</td></tr>
-            <tr><td data-nl="16G biopteur" data-en="16G biopsy device">16G biopteur</td><td data-nl="Automatisch, 2 cm uitslag" data-en="Automatic, 2 cm throw">Automatisch, 2 cm uitslag</td><td>1</td></tr>
-            <tr><td data-nl="Steriele gazen" data-en="Sterile gauze">Steriele gazen</td><td>Standaard</td><td>1</td></tr>
-            <tr><td data-nl="Steriele container met NaCl" data-en="Sterile container with NaCl">Steriele container met NaCl</td><td data-nl="Voor bioptmateriaal" data-en="For biopsy material">Voor bioptmateriaal</td><td>1</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <div class="accordion" id="acc-stap">
-    <div class="acc-header" onclick="toggleAcc('acc-stap')">
-      <div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title" data-nl="Stappenplan" data-en="Procedure Steps">Stappenplan</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner-split">
-        <div>
-          <ol class="steps">
-            <li><div class="sn teal">1</div><div data-nl="Patiënt in buikligging, kussen onder de buik ter hoogte van de nieren." data-en="Patient prone, pillow under the abdomen at the level of the kidneys.">Patiënt in buikligging, kussen onder de buik ter hoogte van de nieren.</div></li>
-            <li><div class="sn teal">2</div><div data-nl="Echo ter identificatie nier — voorkeur onderste pool linkernier (verder van grote vaten, makkelijker bereikbaar). Biopteer uitsluitend de corticale zone — vermijd hilus, piramides en kelken." data-en="Ultrasound to identify kidney — preference for lower pole of left kidney (further from large vessels, easier to reach). Biopsy only the cortical zone — avoid hilum, pyramids and calyces.">Echo ter identificatie nier — voorkeur onderste pool linkernier (verder van grote vaten, makkelijker bereikbaar). Biopteer uitsluitend de corticale zone — vermijd hilus, piramides en kelken.</div></li>
-            <li><div class="sn teal">3</div><div data-nl="Lokale anesthesie van huid tot aan het nierkapsel." data-en="Local anaesthesia from skin to the renal capsule.">Lokale anesthesie van huid tot aan het nierkapsel.</div></li>
-            <li><div class="sn teal">4</div><div data-nl="Echogeleide inbrengen 15G steunnaald tot aan het nierkapsel. De 16G biopteur wordt via de steunnaald ingebracht." data-en="Ultrasound-guided insertion of 15G coaxial needle to the renal capsule. The 16G biopsy device is introduced through the coaxial needle.">Echogeleide inbrengen 15G steunnaald tot aan het nierkapsel. De 16G biopteur wordt via de steunnaald ingebracht.</div></li>
-            <li><div class="sn teal">5</div><div data-nl="Biopsie nemen met 16G biopteur, 2 cm uitslag — minimaal 2 biopten." data-en="Take biopsy with 16G device, 2 cm throw — minimum 2 cores.">Biopsie nemen met 16G biopteur, 2 cm uitslag — minimaal 2 biopten.</div></li>
-            <li><div class="sn teal">6</div><div data-nl="Materiaal plaatsen in steriele container met wat NaCl." data-en="Place material in sterile container with some NaCl.">Materiaal plaatsen in steriele container met wat NaCl.</div></li>
-            <li><div class="sn teal">7</div><div data-nl="Echo na procedure ter uitsluiting directe bloeding." data-en="Ultrasound after procedure to exclude immediate bleeding.">Echo na procedure ter uitsluiting directe bloeding.</div></li>
-          </ol>
-        </div>
-        <div>
-          <p class="acc-sublabel" data-nl="Aandachtspunten" data-en="Key Points">Aandachtspunten</p>
-          <div class="note red"><strong data-nl="Hypertensie:" data-en="Hypertension:">Hypertensie:</strong> <span data-nl="RR &lt;160/100 vóór procedure — verhoogd bloedingsrisico bij ongecontroleerde hypertensie." data-en="BP &lt;160/100 before procedure — increased bleeding risk with uncontrolled hypertension.">RR &gt;160/100 verhoogt bloedingsrisico significant — uitstellen tot RR gecorrigeerd.</span></div>
-          <div class="note red"><strong data-nl="Functionele mononier:" data-en="Functional solitary kidney:">Functionele mononier:</strong> <span data-nl="Relatieve contra-indicatie — bespreek in multidisciplinair overleg vanwege risico op functieverlies." data-en="Relative contraindication — discuss in multidisciplinary meeting due to risk of function loss.">Multidisciplinair overleg vereist. Verhoogd risico op ernstige complicaties.</span></div>
-          <div class="note orange"><strong data-nl="Cortex biopteren:" data-en="Cortex biopsy:">Cortex biopteren:</strong> <span data-nl="Biopteer uitsluitend de corticale zone — hier liggen de glomeruli. Vermijd hilus en medulla (vaten)." data-en="Biopsy only the cortical zone — the glomeruli are here. Avoid hilum and medulla (vessels).">Alleen de corticale zone bevat glomeruli. Dieper biopteren geeft medullair weefsel zonder diagnostische waarde en verhoogt bloedingsrisico.</span></div>
-          <div class="note green"><strong data-nl="Steunnaald:" data-en="Coaxial needle:">Steunnaald:</strong> <span data-nl="15G steunnaald maakt meerdere biopten mogelijk via één punctie — minder traumatisch." data-en="15G coaxial needle allows multiple cores via one puncture — less traumatic.">15G steunnaald positioneren tot aan het kapsel; de 16G biopteur vuurt vanuit de steunnaald. Geeft betere controle over richting en diepte.</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="accordion" id="acc-comp">
-    <div class="acc-header" onclick="toggleAcc('acc-comp')">
-      <div class="acc-title-wrap"><span class="acc-dot red"></span><span class="acc-title" data-nl="Complicaties" data-en="Complications">Complicaties</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner" style="padding:0">
-        <table class="mat">
-          <thead><tr><th data-nl="Complicatie" data-en="Complication">Complicatie</th><th data-nl="Kans" data-en="Rate">Kans</th><th data-nl="Management" data-en="Management">Management</th></tr></thead>
-          <tbody>
-            <tr><td data-nl="Macroscopische hematurie" data-en="Macroscopic haematuria">Macroscopische hematurie</td><td>5–10%</td><td data-nl="Vocht, observatie; zeldzaam interventie nodig" data-en="Fluids, observation; intervention rarely needed">Vocht, observatie; zeldzaam interventie nodig</td></tr>
-            <tr><td data-nl="Perirenal hematoom" data-en="Perirenal haematoma">Perirenal hematoom</td><td>5–15%</td><td data-nl="Conservatief; embolisatie bij actieve bloeding" data-en="Conservative; embolisation if active bleeding">Conservatief; embolisatie bij actieve bloeding</td></tr>
-            <tr><td data-nl="AV-fistel" data-en="AV fistula">AV-fistel</td><td>1–2%</td><td data-nl="Meeste sluiten spontaan; embolisatie indien symptomatisch" data-en="Most close spontaneously; embolisation if symptomatic">Meeste sluiten spontaan; embolisatie indien symptomatisch</td></tr>
-            <tr><td data-nl="Bloeding met transfusiebehoefte" data-en="Bleeding requiring transfusion">Bloeding met transfusiebehoefte</td><td>&lt;1%</td><td data-nl="Transfusie, embolisatie of chirurgie" data-en="Transfusion, embolisation or surgery">Transfusie, embolisatie of chirurgie</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <div class="accordion" id="acc-naz">
-    <div class="acc-header" onclick="toggleAcc('acc-naz')">
-      <div class="acc-title-wrap"><span class="acc-dot green"></span><span class="acc-title" data-nl="Nazorg" data-en="Aftercare">Nazorg</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner">
-        <ul class="bullet">
-          <li data-nl="Bedrust 4–6 uur na procedure" data-en="Bed rest 4–6 hours after procedure">Bedrust 4–6 uur na procedure</li>
-          <li data-nl="Urinecontrole op hematurie" data-en="Urine check for haematuria">Urinecontrole op hematurie</li>
-          <li data-nl="Hb controle na 4–6 uur" data-en="Hb check after 4–6 hours">Hb controle na 4–6 uur</li>
-          <li data-nl="Bij stabiele bevindingen: ontslag met instructie" data-en="If stable findings: discharge with instructions">Bij stabiele bevindingen: ontslag met instructie</li>
-          <li data-nl="Geen inspanning 1 week" data-en="No exertion for 1 week">Geen inspanning 1 week</li>
-          <li data-nl="Contact opnemen bij pijnlijke hematurie of koorts" data-en="Contact if painful haematuria or fever">Contact opnemen bij pijnlijke hematurie of koorts</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <div class="accordion" id="acc-vers">
-    <div class="acc-header" onclick="toggleAcc('acc-vers')">
-      <div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title" data-nl="Standaardverslag" data-en="Standard Report">Standaardverslag</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner">
-        <div class="verslag-wrap">
-          <div class="verslag" id="verslag-nb" data-nl="Patiënt in buikligging. Echogeleide identificatie [linker / rechter] nier.
-Na lokale verdoving van huid en nierkapsel echogeleide plaatsing van een
-15G steunnaald tot aan het nierkapsel. Via de steunnaald [__] biopten
-afgenomen van de corticale zone met een 16G biopteur (2 cm uitslag).
-Materiaal geplaatst in steriele container met NaCl.
-Echo na procedure toont geen tekenen van actieve bloeding.
-Geen directe complicaties.
-
-CONCLUSIE:
-Echogeleide nierbiopsie [links/rechts], [__] biopten." data-en="Patient prone. Ultrasound-guided identification of [left / right] kidney.
+<div class="breadcrumb">
+<a href="../index.html">Home</a><span class="sep">›</span>
+<span>Non-vasculair</span><span class="sep">›</span>
+<span>Nierbiopt</span>
+</div>
+<div class="proc-header">
+<div class="proc-header-bar nonvasc"></div>
+<div>
+<h1>Nierbiopt</h1>
+<p>Echogeleide percutane biopsie van de nier bij verdenking nierparenchymziekte</p>
+<div class="proc-meta">
+<span class="meta-pill nonvasc">Non-vasculair</span>
+<span class="meta-pill nonvasc">20–30 min</span>
+<span class="meta-pill nonvasc">Lokale anesthesie</span>
+<span class="meta-pill nonvasc">Klinisch 4–6u observatie</span>
+<a class="risk-badge hoog" href="../materiaal/antistolling.html"><span class="risk-dot"></span><span data-en="High anticoagulation risk" data-nl="Hoog risico antistolling">Hoog risico antistolling</span><span class="risk-badge-arr">›</span></a>
+</div>
+</div>
+</div>
+<div class="accordion" id="acc-ind">
+<div class="acc-header" onclick="toggleAcc('acc-ind')">
+<div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title" data-en="Indications &amp; Contraindications" data-nl="Indicaties &amp; Contra-indicaties">Indicaties &amp; Contra-indicaties</span></div>
+<span class="acc-chevron">▾</span>
+</div>
+<div class="acc-body">
+<div class="acc-inner-split">
+<div>
+<p class="acc-sublabel" data-en="Indications" data-nl="Indicaties">Indicaties</p>
+<ul class="clean">
+<li data-en="Nephrotic or nephritic syndrome of unclear cause" data-nl="Nefrotisch of nefritisch syndroom met onduidelijke oorzaak">Nefrotisch of nefritisch syndroom met onduidelijke oorzaak</li>
+<li data-en="Suspected IgA nephropathy, FSGS, membranous nephropathy or vasculitis" data-nl="Verdenking IgA-nefropathie, FSGS, membraneuse nefropathie of vasculitis">Verdenking IgA-nefropathie, FSGS, membraneuse nefropathie of vasculitis</li>
+<li data-en="Suspected transplant rejection" data-nl="Verdenking transplantaatafstoting">Verdenking transplantaatafstoting</li>
+<li data-en="Unexplained renal insufficiency" data-nl="Onbegrepen nierinsufficiëntie">Onbegrepen nierinsufficiëntie</li>
+</ul>
+</div>
+<div>
+<p class="acc-sublabel" data-en="Contraindications" data-nl="Contra-indicaties">Contra-indicaties</p>
+<ul class="contra">
+<li data-en="Coagulopathy (INR &gt;1.5, platelets &lt;80)" data-nl="Stollingsstoornis (INR &gt;1.5, trombo &lt;80)">Stollingsstoornis (INR &gt;1.5, trombo &lt;80)</li>
+<li data-en="Uncorrected hypertension (BP &gt;160/100)" data-nl="Niet-gecorrigeerde hypertensie (RR &gt;160/100)">Niet-gecorrigeerde hypertensie (RR &gt;160/100)</li>
+<li data-en="Functional solitary kidney (relative — multidisciplinary consultation)" data-nl="Functionele mononier (relatief — multidisciplinair overleg)">Functionele mononier (relatief — multidisciplinair overleg)</li>
+<li data-en="Active urinary tract infection" data-nl="Actieve urineweginfectie">Actieve urineweginfectie</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="acc-pre">
+<div class="acc-header" onclick="toggleAcc('acc-pre')">
+<div class="acc-title-wrap"><span class="acc-dot blue"></span><span class="acc-title" data-en="Pre-procedural Checklist" data-nl="Pre-procedurele Checklist">Pre-procedurele Checklist</span></div>
+<span class="acc-chevron">▾</span>
+</div>
+<div class="acc-body">
+<div class="acc-inner">
+<ul class="clean">
+<li data-en="&lt;strong&gt;Labs:&lt;/strong&gt; INR, platelets, Hb, eGFR, blood group + cross-match" data-nl="&lt;strong&gt;Lab:&lt;/strong&gt; INR, trombo's, Hb, eGFR, bloedgroep + kruisbloed"><strong>Lab:</strong> INR, trombo's, Hb, eGFR, bloedgroep + kruisbloed</li>
+<li data-en="&lt;strong&gt;BP:&lt;/strong&gt; &lt;160/100 — adjust antihypertensives if needed" data-nl="&lt;strong&gt;RR:&lt;/strong&gt; &lt;160/100 — zo nodig antihypertensiva aanpassen"><strong>RR:</strong> &lt;160/100 — zo nodig antihypertensiva aanpassen</li>
+<li data-en="&lt;strong&gt;Anticoagulation:&lt;/strong&gt; Discontinued per protocol" data-nl="&lt;strong&gt;Antistolling:&lt;/strong&gt; Gestaakt conform protocol"><strong>Antistolling:</strong> Gestaakt conform protocol</li>
+<li data-en="&lt;strong&gt;Informed consent:&lt;/strong&gt; Including bleeding, AV fistula, loss of renal function" data-nl="&lt;strong&gt;Informed consent:&lt;/strong&gt; Inclusief bloeding, AV-fistel, verlies nierfunctie"><strong>Informed consent:</strong> Inclusief bloeding, AV-fistel, verlies nierfunctie</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="accordion" id="acc-mat">
+<div class="acc-header" onclick="toggleAcc('acc-mat')">
+<div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title" data-en="Equipment" data-nl="Materiaal">Materiaal</span></div>
+<span class="acc-chevron">▾</span>
+</div>
+<div class="acc-body">
+<div class="acc-inner" style="padding:0">
+<table class="mat">
+<thead><tr><th data-en="Material" data-nl="Materiaal">Materiaal</th><th data-en="Specification" data-nl="Specificatie">Specificatie</th><th data-en="Quantity" data-nl="Aantal">Aantal</th></tr></thead>
+<tbody>
+<tr><td data-en="Sterile table" data-nl="Steriele tafel">Steriele tafel</td><td data-en="Sterile instrument cover" data-nl="Steriele afdekking instrumenten">Steriele afdekking instrumenten</td><td>1</td></tr>
+<tr><td data-en="Fenestrated drape" data-nl="Gatdoek">Gatdoek</td><td data-en="Patient drape" data-nl="Afdekking patiënt">Afdekking patiënt</td><td>1</td></tr>
+<tr><td data-en="Ultrasound probe cover" data-nl="Echoprobe hoes">Echoprobe hoes</td><td data-en="Sterile" data-nl="Steriel">Steriel</td><td>1</td></tr>
+<tr><td data-en="21G needle" data-nl="21G naald">21G naald</td><td data-en="Injection needle" data-nl="Verdovingsnaald">Verdovingsnaald</td><td>1</td></tr>
+<tr><td data-en="Drawing-up needle" data-nl="Rode naald (optreknaald)">Rode naald (optreknaald)</td><td data-en="Standard" data-nl="Standaard">Standaard</td><td>1</td></tr>
+<tr><td data-en="10 cc syringe" data-nl="10 cc spuit">10 cc spuit</td><td>Standaard</td><td>1</td></tr>
+<tr><td>Lidocaïne 1%</td><td>10 cc</td><td>1</td></tr>
+<tr><td data-en="NaCl 0.9%" data-nl="NaCl 0.9%">NaCl 0.9%</td><td>10 cc</td><td>1</td></tr>
+<tr><td data-en="Blade" data-nl="Mesje">Mesje</td><td data-en="Small stab incision" data-nl="Kleine steekincisie">Kleine steekincisie</td><td>1</td></tr>
+<tr><td data-en="15G coaxial needle" data-nl="15G steunnaald">15G steunnaald</td><td data-en="Guidance for biopsy device" data-nl="Geleiding voor biopteur">Geleiding voor biopteur</td><td>1</td></tr>
+<tr><td data-en="16G biopsy device" data-nl="16G biopteur">16G biopteur</td><td data-en="Automatic, 2 cm throw" data-nl="Automatisch, 2 cm uitslag">Automatisch, 2 cm uitslag</td><td>1</td></tr>
+<tr><td data-en="Sterile gauze" data-nl="Steriele gazen">Steriele gazen</td><td>Standaard</td><td>1</td></tr>
+<tr><td data-en="Sterile container with NaCl" data-nl="Steriele container met NaCl">Steriele container met NaCl</td><td data-en="For biopsy material" data-nl="Voor bioptmateriaal">Voor bioptmateriaal</td><td>1</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="accordion" id="acc-stap">
+<div class="acc-header" onclick="toggleAcc('acc-stap')">
+<div class="acc-title-wrap"><span class="acc-dot teal"></span><span class="acc-title" data-en="Procedure Steps" data-nl="Stappenplan">Stappenplan</span></div>
+<span class="acc-chevron">▾</span>
+</div>
+<div class="acc-body">
+<div class="acc-inner-split">
+<div>
+<ol class="steps">
+<li><div class="sn teal">1</div><div data-en="Patient prone, pillow under the abdomen at the level of the kidneys." data-nl="Patiënt in buikligging, kussen onder de buik ter hoogte van de nieren.">Patiënt in buikligging, kussen onder de buik ter hoogte van de nieren.</div></li>
+<li><div class="sn teal">2</div><div data-en="Ultrasound to identify kidney — preference for lower pole of left kidney (further from large vessels, easier to reach). Biopsy only the cortical zone — avoid hilum, pyramids and calyces." data-nl="Echo ter identificatie nier — voorkeur onderste pool linkernier (verder van grote vaten, makkelijker bereikbaar). Biopteer uitsluitend de corticale zone — vermijd hilus, piramides en kelken.">Echo ter identificatie nier — voorkeur onderste pool linkernier (verder van grote vaten, makkelijker bereikbaar). Biopteer uitsluitend de corticale zone — vermijd hilus, piramides en kelken.</div></li>
+<li><div class="sn teal">3</div><div data-en="Local anaesthesia from skin to the renal capsule." data-nl="Lokale anesthesie van huid tot aan het nierkapsel.">Lokale anesthesie van huid tot aan het nierkapsel.</div></li>
+<li><div class="sn teal">4</div><div data-en="Ultrasound-guided insertion of 15G coaxial needle to the renal capsule. The 16G biopsy device is introduced through the coaxial needle." data-nl="Echogeleide inbrengen 15G steunnaald tot aan het nierkapsel. De 16G biopteur wordt via de steunnaald ingebracht.">Echogeleide inbrengen 15G steunnaald tot aan het nierkapsel. De 16G biopteur wordt via de steunnaald ingebracht.</div></li>
+<li><div class="sn teal">5</div><div data-en="Take biopsy with 16G device, 2 cm throw — minimum 2 cores." data-nl="Biopsie nemen met 16G biopteur, 2 cm uitslag — minimaal 2 biopten.">Biopsie nemen met 16G biopteur, 2 cm uitslag — minimaal 2 biopten.</div></li>
+<li><div class="sn teal">6</div><div data-en="Place material in sterile container with some NaCl." data-nl="Materiaal plaatsen in steriele container met wat NaCl.">Materiaal plaatsen in steriele container met wat NaCl.</div></li>
+<li><div class="sn teal">7</div><div data-en="Ultrasound after procedure to exclude immediate bleeding." data-nl="Echo na procedure ter uitsluiting directe bloeding.">Echo na procedure ter uitsluiting directe bloeding.</div></li>
+</ol>
+</div>
+<div>
+<p class="acc-sublabel" data-en="Key Points" data-nl="Aandachtspunten">Aandachtspunten</p>
+<div class="note red"><strong data-en="Hypertension:" data-nl="Hypertensie:">Hypertensie:</strong> <span data-en="BP &gt;160/100 significantly increases bleeding risk — postpone until BP corrected." data-nl="RR &gt;160/100 verhoogt bloedingsrisico significant — uitstellen tot RR gecorrigeerd.">RR &gt;160/100 verhoogt bloedingsrisico significant — uitstellen tot RR gecorrigeerd.</span></div>
+<div class="note red"><strong data-en="Functional solitary kidney:" data-nl="Functionele mononier:">Functionele mononier:</strong> <span data-en="Relative contraindication — discuss in multidisciplinary meeting due to risk of function loss." data-nl="Relatieve contra-indicatie — bespreek in multidisciplinair overleg vanwege risico op functieverlies.">Relatieve contra-indicatie — bespreek in multidisciplinair overleg vanwege risico op functieverlies.</span></div>
+<div class="note orange"><strong data-en="Cortex biopsy:" data-nl="Cortex biopteren:">Cortex biopteren:</strong> <span data-en="Only the cortical zone contains glomeruli. Deeper biopsy yields medullary tissue without diagnostic value and increases bleeding risk." data-nl="Alleen de corticale zone bevat glomeruli. Dieper biopteren geeft medullair weefsel zonder diagnostische waarde en verhoogt bloedingsrisico.">Alleen de corticale zone bevat glomeruli. Dieper biopteren geeft medullair weefsel zonder diagnostische waarde en verhoogt bloedingsrisico.</span></div>
+<div class="note green"><strong data-en="Coaxial needle:" data-nl="Steunnaald:">Steunnaald:</strong> <span data-en="Position the 15G coaxial needle to the capsule; the 16G biopsy gun fires from the coaxial needle. Gives better control over direction and depth." data-nl="15G steunnaald positioneren tot aan het kapsel; de 16G biopteur vuurt vanuit de steunnaald. Geeft betere controle over richting en diepte.">15G steunnaald positioneren tot aan het kapsel; de 16G biopteur vuurt vanuit de steunnaald. Geeft betere controle over richting en diepte.</span></div>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="acc-comp">
+<div class="acc-header" onclick="toggleAcc('acc-comp')">
+<div class="acc-title-wrap"><span class="acc-dot red"></span><span class="acc-title" data-en="Complications" data-nl="Complicaties">Complicaties</span></div>
+<span class="acc-chevron">▾</span>
+</div>
+<div class="acc-body">
+<div class="acc-inner" style="padding:0">
+<table class="mat">
+<thead><tr><th data-en="Complication" data-nl="Complicatie">Complicatie</th><th data-en="Rate" data-nl="Kans">Kans</th><th data-en="Management" data-nl="Management">Management</th></tr></thead>
+<tbody>
+<tr><td data-en="Macroscopic haematuria" data-nl="Macroscopische hematurie">Macroscopische hematurie</td><td>5–10%</td><td data-en="Fluids, observation; intervention rarely needed" data-nl="Vocht, observatie; zeldzaam interventie nodig">Vocht, observatie; zeldzaam interventie nodig</td></tr>
+<tr><td data-en="Perirenal haematoma" data-nl="Perirenal hematoom">Perirenal hematoom</td><td>5–15%</td><td data-en="Conservative; embolisation if active bleeding" data-nl="Conservatief; embolisatie bij actieve bloeding">Conservatief; embolisatie bij actieve bloeding</td></tr>
+<tr><td data-en="AV fistula" data-nl="AV-fistel">AV-fistel</td><td>1–2%</td><td data-en="Most close spontaneously; embolisation if symptomatic" data-nl="Meeste sluiten spontaan; embolisatie indien symptomatisch">Meeste sluiten spontaan; embolisatie indien symptomatisch</td></tr>
+<tr><td data-en="Bleeding requiring transfusion" data-nl="Bloeding met transfusiebehoefte">Bloeding met transfusiebehoefte</td><td>&lt;1%</td><td data-en="Transfusion, embolisation or surgery" data-nl="Transfusie, embolisatie of chirurgie">Transfusie, embolisatie of chirurgie</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="accordion" id="acc-naz">
+<div class="acc-header" onclick="toggleAcc('acc-naz')">
+<div class="acc-title-wrap"><span class="acc-dot green"></span><span class="acc-title" data-en="Aftercare" data-nl="Nazorg">Nazorg</span></div>
+<span class="acc-chevron">▾</span>
+</div>
+<div class="acc-body">
+<div class="acc-inner">
+<ul class="bullet">
+<li data-en="Bed rest 4–6 hours after procedure" data-nl="Bedrust 4–6 uur na procedure">Bedrust 4–6 uur na procedure</li>
+<li data-en="Urine check for haematuria" data-nl="Urinecontrole op hematurie">Urinecontrole op hematurie</li>
+<li data-en="Hb check after 4–6 hours" data-nl="Hb controle na 4–6 uur">Hb controle na 4–6 uur</li>
+<li data-en="If stable findings: discharge with instructions" data-nl="Bij stabiele bevindingen: ontslag met instructie">Bij stabiele bevindingen: ontslag met instructie</li>
+<li data-en="No exertion for 1 week" data-nl="Geen inspanning 1 week">Geen inspanning 1 week</li>
+<li data-en="Contact if painful haematuria or fever" data-nl="Contact opnemen bij pijnlijke hematurie of koorts">Contact opnemen bij pijnlijke hematurie of koorts</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="accordion" id="acc-vers">
+<div class="acc-header" onclick="toggleAcc('acc-vers')">
+<div class="acc-title-wrap"><span class="acc-dot purple"></span><span class="acc-title" data-en="Standard Report" data-nl="Standaardverslag">Standaardverslag</span></div>
+<span class="acc-chevron">▾</span>
+</div>
+<div class="acc-body">
+<div class="acc-inner">
+<div class="verslag-wrap">
+<div class="verslag" data-en="Patient prone. Ultrasound-guided identification of [left / right] kidney.
 After local anaesthesia of skin and renal capsule, ultrasound-guided placement of a
 15G coaxial needle to the renal capsule. Through the coaxial needle [__] cores
 taken from the cortical zone with a 16G biopsy device (2 cm throw).
@@ -200,7 +185,16 @@ Ultrasound after procedure shows no signs of active bleeding.
 No immediate complications.
 
 CONCLUSION:
-Ultrasound-guided renal biopsy [left/right], [__] cores.">Patiënt in buikligging. Echogeleide identificatie [linker / rechter] nier.
+Ultrasound-guided renal biopsy [left/right], [__] cores." data-nl="Patiënt in buikligging. Echogeleide identificatie [linker / rechter] nier.
+Na lokale verdoving van huid en nierkapsel echogeleide plaatsing van een
+15G steunnaald tot aan het nierkapsel. Via de steunnaald [__] biopten
+afgenomen van de corticale zone met een 16G biopteur (2 cm uitslag).
+Materiaal geplaatst in steriele container met NaCl.
+Echo na procedure toont geen tekenen van actieve bloeding.
+Geen directe complicaties.
+
+CONCLUSIE:
+Echogeleide nierbiopsie [links/rechts], [__] biopten." id="verslag-nb">Patiënt in buikligging. Echogeleide identificatie [linker / rechter] nier.
 Na lokale verdoving van huid en nierkapsel echogeleide plaatsing van een
 15G steunnaald tot aan het nierkapsel. Via de steunnaald [__] biopten
 afgenomen van de corticale zone met een 16G biopteur (2 cm uitslag).
@@ -210,30 +204,29 @@ Geen directe complicaties.
 
 CONCLUSIE:
 Echogeleide nierbiopsie [links/rechts], [__] biopten.</div>
-          <button class="copy-btn" id="copy-nb" onclick="copyVerslag('verslag-nb','copy-nb')">⎘ <span data-nl="Kopieer" data-en="Copy">Kopieer</span></button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="accordion" id="acc-bronnen">
-    <div class="acc-header" onclick="toggleAcc('acc-bronnen')">
-      <div class="acc-title-wrap"><span class="acc-dot blue"></span><span class="acc-title" data-nl="Bronnen &amp; Externe Links" data-en="References &amp; External Links">Bronnen &amp; Externe Links</span></div>
-      <span class="acc-chevron">▾</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner">
-        <ul class="bronnen-lijst">
-          <li><a href="https://www.ncbi.nlm.nih.gov/books/NBK470275/" target="_blank" rel="noopener">StatPearls — Renal Biopsy (Young &amp; Leslie, 2025)</a></li>
-          <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8700183/" target="_blank" rel="noopener">Granata et al. — Performing an Ultrasound-Guided Percutaneous Needle Kidney Biopsy: An Up-To-Date Procedural Review. Diagnostics 2021</a></li>
-          <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12056320/" target="_blank" rel="noopener">Technical and Institutional Factors Affecting Specimen Adequacy and Complications in Ultrasound-guided Kidney Biopsy (2025)</a></li>
-          <li><a href="https://emedicine.medscape.com/article/2093338-technique" target="_blank" rel="noopener">Medscape — Renal Biopsy Technique (2024)</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
+<button class="copy-btn" id="copy-nb" onclick="copyVerslag('verslag-nb','copy-nb')">⎘ <span data-en="Copy" data-nl="Kopieer">Kopieer</span></button>
 </div>
->
+</div>
+</div>
+</div>
+<div class="accordion" id="acc-bronnen">
+<div class="acc-header" onclick="toggleAcc('acc-bronnen')">
+<div class="acc-title-wrap"><span class="acc-dot blue"></span><span class="acc-title" data-en="References &amp; External Links" data-nl="Bronnen &amp; Externe Links">Bronnen &amp; Externe Links</span></div>
+<span class="acc-chevron">▾</span>
+</div>
+<div class="acc-body">
+<div class="acc-inner">
+<ul class="bronnen-lijst">
+<li><a href="https://www.ncbi.nlm.nih.gov/books/NBK470275/" rel="noopener" target="_blank">StatPearls — Renal Biopsy (Young &amp; Leslie, 2025)</a></li>
+<li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8700183/" rel="noopener" target="_blank">Granata et al. — Performing an Ultrasound-Guided Percutaneous Needle Kidney Biopsy: An Up-To-Date Procedural Review. Diagnostics 2021</a></li>
+<li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12056320/" rel="noopener" target="_blank">Technical and Institutional Factors Affecting Specimen Adequacy and Complications in Ultrasound-guided Kidney Biopsy (2025)</a></li>
+<li><a href="https://emedicine.medscape.com/article/2093338-technique" rel="noopener" target="_blank">Medscape — Renal Biopsy Technique (2024)</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+&gt;
 <script src="../procedures.js"></script>
 <script src="../nav.js"></script>
 <script src="../search.js"></script>
