@@ -27,6 +27,7 @@ const NAV_ITEMS = [
       { label: 'Ascitesdrainage', label_en: 'Ascites drainage',          url: 'non-vasculair/ascitesdrainage.html' },
       { label: 'Permanente ascitesdrain (IPC)', label_en: 'Indwelling peritoneal catheter (IPC)', url: 'non-vasculair/permanente-ascitesdrain.html' },
       { label: 'Nierbiopt', label_en: 'Renal biopsy',                url: 'non-vasculair/nierbiopt.html' },
+      { label: 'Leverbiopt', label_en: 'Liver biopsy',                url: 'non-vasculair/leverbiopt.html' },
       { label: 'Antegrade JJ-katheter', label_en: 'Antegrade JJ stent',    url: 'non-vasculair/jj-katheter.html' },
       { label: 'Percutane gastrostomie (PRG)', label_en: 'Percutaneous gastrostomy (PRG)', url: 'non-vasculair/gastrostomie.html' },
       { label: 'Abcesdrainage', label_en: 'Abscess drainage',            url: 'non-vasculair/abcesdrainage.html' },

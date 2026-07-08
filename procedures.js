@@ -71,6 +71,9 @@ const PROCEDURES = [
   { naam: "Nierbiopt", categorie: "Non-vasculair", subcategorie: "Biopsie", tag: "nonvasc",
     url: "non-vasculair/nierbiopt.html",
     trefwoorden: ["nierbiopt","biopsie","nier","IgA","nefropathie","FSGS","vasculitis","glomerulonefritis","nefrotisch","nefritisch","16G"] },
+  { naam: "Leverbiopt", categorie: "Non-vasculair", subcategorie: "Biopsie", tag: "nonvasc",
+    url: "non-vasculair/leverbiopt.html",
+    trefwoorden: ["leverbiopt","biopsie","lever","HCC","hepatocellulair","metastase","cholangiocarcinoom","focale laesie","echogeleid","17G","18G","coaxiaal","steatohepatitis"] },
 
   { naam: "Bronchiaalarterie embolisatie", categorie: "Vasculair", subcategorie: "Embolisatie", tag: "vasc",
     url: "vasculair/bae.html",
