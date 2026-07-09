@@ -98,22 +98,7 @@
 <th data-en="Specification" data-nl="Specificatie">Specificatie</th>
 <th data-en="Quantity" data-nl="Aantal">Aantal</th>
 </tr></thead>
-<tbody>
-<tr><td data-en="Sterile table" data-nl="Steriele tafel">Steriele tafel</td><td data-en="Standard" data-nl="Standaard">Standaard</td><td>1</td></tr>
-<tr><td data-en="Ultrasound probe cover" data-nl="Echoprobe hoes">Echoprobe hoes</td><td data-en="Sterile" data-nl="Steriel">Steriel</td><td>1</td></tr>
-<tr><td data-en="Puncture needle" data-nl="Punctienaald">Punctienaald</td><td data-en="Angio needle, 18G" data-nl="Angionaald, 18G">Angionaald, 18G</td><td>1</td></tr>
-<tr><td data-en="Green needle" data-nl="Groene naald">Groene naald</td><td data-en="For local anaesthesia" data-nl="Voor lokale anesthesie">Voor lokale anesthesie</td><td>1</td></tr>
-<tr><td data-en="Red drawing-up needle" data-nl="Rode optreknaald">Rode optreknaald</td><td data-en="For drawing up lidocaine" data-nl="Voor optrekken lidocaïne">Voor optrekken lidocaïne</td><td>1</td></tr>
-<tr><td data-en="Syringe" data-nl="Spuit">Spuit</td><td>10 cc</td><td>1</td></tr>
-<tr><td data-en="Local anaesthetic" data-nl="Lokaal anestheticum">Lokaal anestheticum</td><td data-en="Lidocaine 1%, 10 cc" data-nl="Lidocaïne 1%, 10 cc">Lidocaïne 1%, 10 cc</td><td>1</td></tr>
-<tr><td data-en="Scalpel" data-nl="Mesje">Mesje</td><td data-en="No. 11, for stab incision" data-nl="Nr. 11, voor steekincisie">Nr. 11, voor steekincisie</td><td>1</td></tr>
-<tr><td><a class="mat-link" data-en="Stiff guidewire" data-nl="Stijve draad" href="../materiaal/draden.html">Stijve draad</a></td><td>Amplatz</td><td>1</td></tr>
-<tr><td data-en="Pigtail drainage catheter" data-nl="Pigtail drainagekatheter">Pigtail drainagekatheter</td><td data-en="≥8 Fr; 10 Fr if the material is very thick" data-nl="≥8 Fr; 10 Fr als het materiaal heel dik is">≥8 Fr; 10 Fr als het materiaal heel dik is</td><td>1</td></tr>
-<tr><td data-en="Drainage bag" data-nl="Drainzak">Drainzak</td><td data-en="With connector" data-nl="Met connector">Met connector</td><td>1</td></tr>
-<tr><td data-en="Non-absorbable suture" data-nl="Niet-resorbeerbare hechting">Niet-resorbeerbare hechting</td><td data-en="Mersilene or Prolene 2-0 on straight needle (retention suture)" data-nl="Mersilene of Prolene 2-0 op rechte naald (teugelhechting)">Mersilene of Prolene 2-0 op rechte naald (teugelhechting)</td><td>1</td></tr>
-<tr><td data-en="Culture tube" data-nl="Kweekbuis">Kweekbuis</td><td data-en="For bile culture" data-nl="Voor galkweek">Voor galkweek</td><td>1</td></tr>
-<tr><td data-en="Contrast (optional)" data-nl="Contrast (optioneel)">Contrast (optioneel)</td><td data-en="Diluted, if performed in the angio suite" data-nl="Verdund, indien op de angiokamer">Verdund, indien op de angiokamer</td><td data-en="Sufficient" data-nl="Voldoende">Voldoende</td></tr>
-</tbody>
+<tbody id="mat-galblaas"></tbody>
 </table>
 </div>
 </div>
@@ -307,6 +292,7 @@ zitten tot de geplande cholecystectomie.</div>
 <script src="../procedures.js"></script>
 <script src="../nav.js"></script>
 <script src="../search.js"></script>
+<script src="../materiaal.js"></script>
 <script src="../lang.js"></script>
 <script>
 function toggleAcc(id) { document.getElementById(id).classList.toggle('open'); }
@@ -320,6 +306,22 @@ function copyVerslag(verslagId, btnId) {
     setTimeout(() => { btn.innerHTML = '⎘ <span data-nl="Kopieer" data-en="Copy">Kopieer</span>'; btn.classList.remove('copied'); if(typeof applyLang !== 'undefined') applyLang(lang); }, 2000);
   });
 }
+buildMateriaal('mat-galblaas', [
+  'steriele_tafel',
+  'echoprobe_hoes',
+  { ref:'angionaald', nl:'Punctienaald', en:'Puncture needle', spec_nl:'Angionaald, 18G', spec_en:'Angio needle, 18G' },
+  'groene_naald',
+  'optreknaald',
+  'spuit_10',
+  { ref:'lidocaine', nl:'Lokaal anestheticum', en:'Local anaesthetic', spec_nl:'Lidocaïne 1%, 10 cc', spec_en:'Lidocaine 1%, 10 cc' },
+  'mesje_11',
+  { ref:'stijve_draad' },
+  { ref:'drain_pigtail', nl:'Pigtail drainagekatheter', spec_nl:'≥8 Fr; 10 Fr als het materiaal heel dik is', spec_en:'≥8 Fr; 10 Fr if the material is very thick' },
+  'drainzak',
+  'hechting_teugel',
+  { ref:'kweekbuis', spec_nl:'Voor galkweek', spec_en:'For bile culture', aantal:'1' },
+  { ref:'contrast', nl:'Contrast (optioneel)', en:'Contrast (optional)', spec_nl:'Verdund, indien op de angiokamer', spec_en:'Diluted, if performed in the angio suite', aantal:'Voldoende' },
+]);
 </script>
 </body>
 </html>

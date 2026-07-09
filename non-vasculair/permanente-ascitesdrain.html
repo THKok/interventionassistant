@@ -97,15 +97,7 @@
 <th data-en="Specification" data-nl="Specificatie">Specificatie</th>
 <th data-en="Quantity" data-nl="Aantal">Aantal</th>
 </tr></thead>
-<tbody>
-<tr><td data-en="Angio set or PICC line set (if available)" data-nl="Angioset of PICC-lijn set (indien beschikbaar)">Angioset of PICC-lijn set (indien beschikbaar)</td><td data-en="See &lt;a href='../materiaal/angioset.html'&gt;Angio set&lt;/a&gt; or &lt;a href='../vasculair/picc-lijn.html'&gt;PICC line placement&lt;/a&gt; for contents" data-nl="Zie &lt;a href='../materiaal/angioset.html'&gt;Angioset&lt;/a&gt; of &lt;a href='../vasculair/picc-lijn.html'&gt;PICC-lijn plaatsing&lt;/a&gt; voor samenstelling">Zie <a href="../materiaal/angioset.html">Angioset</a> of <a href="../vasculair/picc-lijn.html">PICC-lijn plaatsing</a> voor samenstelling</td><td>1</td></tr>
-<tr><td data-en="Vicryl 3-0" data-nl="Vicryl 3-0">Vicryl 3-0</td><td data-en="Subcutaneous wound closure puncture site" data-nl="Subcutane wondluiting punctieplaats">Subcutane wondluiting punctieplaats</td><td>1</td></tr>
-<tr><td data-en="Mersilene or Prolene 2-0" data-nl="Mersilene of Prolene 2-0">Mersilene of Prolene 2-0</td><td data-en="Non-absorbable, on straight needle — retention suture drain" data-nl="Niet-resorbeerbaar, op rechte naald — teugelhechting drain">Niet-resorbeerbaar, op rechte naald — teugelhechting drain</td><td>1</td></tr>
-<tr><td data-en="Steri-Strips" data-nl="Steristrips">Steristrips</td><td data-en="Wound edge closure puncture site" data-nl="Wondranden sluiten punctieplaats">Wondranden sluiten punctieplaats</td><td>1</td></tr>
-<tr><td data-en="Lidocaine 1%" data-nl="Lidocaïne 1%">Lidocaïne 1%</td><td>10 cc</td><td>1</td></tr>
-<tr><td data-en="Red drawing-up needle" data-nl="Rode optreknaald">Rode optreknaald</td><td data-en="For drawing up lidocaine" data-nl="Voor optrekken lidocaïne">Voor optrekken lidocaïne</td><td>1</td></tr>
-<tr><td data-en="IPC set" data-nl="IPC-set">IPC-set</td><td data-en="Contents per set used" data-nl="Inhoud conform gebruikte set">Inhoud conform gebruikte set</td><td>1</td></tr>
-</tbody>
+<tbody id="mat-ipc"></tbody>
 </table>
 </div>
 </div>
@@ -310,9 +302,21 @@ Plaatsing getunnelde permanente ascitesdrain.</div>
 <script src="../procedures.js"></script>
 <script src="../nav.js"></script>
 <script src="../search.js"></script>
+<script src="../materiaal.js"></script>
 <script src="../lang.js"></script>
 <script>
 function toggleAcc(id) { document.getElementById(id).classList.toggle('open'); }
+</script>
+<script>
+buildMateriaal('mat-ipc', [
+  { nl:'Angioset of PICC-lijn set (indien beschikbaar)', en:'Angio set or PICC line set (if available)', spec_nl:'Zie <a href=\'../materiaal/angioset.html\'>Angioset</a> of <a href=\'../vasculair/picc-lijn.html\'>PICC-lijn plaatsing</a> voor samenstelling', spec_en:'See <a href=\'../materiaal/angioset.html\'>Angio set</a> or <a href=\'../vasculair/picc-lijn.html\'>PICC line placement</a> for contents' },
+  { ref:'vicryl_30', spec_nl:'Subcutane wondluiting punctieplaats', spec_en:'Subcutaneous wound closure puncture site' },
+  { ref:'hechting_teugel', nl:'Mersilene of Prolene 2-0', en:'Mersilene or Prolene 2-0', spec_nl:'Niet-resorbeerbaar, op rechte naald — teugelhechting drain', spec_en:'Non-absorbable, on straight needle — retention suture drain' },
+  { ref:'steristrips', spec_nl:'Wondranden sluiten punctieplaats', spec_en:'Wound edge closure puncture site' },
+  { ref:'lidocaine', nl:'Lidocaïne 1%', en:'Lidocaine 1%' },
+  'optreknaald',
+  { nl:'IPC-set', en:'IPC set', spec_nl:'Inhoud conform gebruikte set', spec_en:'Contents per set used' }
+]);
 </script>
 </body>
 </html>

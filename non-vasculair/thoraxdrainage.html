@@ -99,19 +99,7 @@
 <th data-en="Specification" data-nl="Specificatie">Specificatie</th>
 <th data-en="Quantity" data-nl="Aantal">Aantal</th>
 </tr></thead>
-<tbody>
-<tr><td><a class="mat-link" data-en="Angio set" data-nl="Angioset" href="../materiaal/angioset.html">Angioset</a></td><td data-en="Standard" data-nl="Standaard">Standaard</td><td>1</td></tr>
-<tr><td data-en="Ultrasound probe cover" data-nl="Echoprobe hoes">Echoprobe hoes</td><td data-en="Sterile" data-nl="Steriel">Steriel</td><td>1</td></tr>
-<tr><td data-en="Puncture / aspiration needle" data-nl="Punctienaald / aspiratienaald">Punctienaald / aspiratienaald</td><td data-en="For diagnostic tap" data-nl="Bij diagnostische punctie">Bij diagnostische punctie</td><td>1</td></tr>
-<tr><td data-en="Pleural drain (pigtail)" data-nl="Pleuradrain (pigtail)">Pleuradrain (pigtail)</td><td data-en="8–14 Fr (transudate); larger for empyema" data-nl="8–14 Fr (transsudaat); groter bij empyeem">8–14 Fr (transsudaat); groter bij empyeem</td><td>1</td></tr>
-<tr><td><a class="mat-link" data-en="Guidewire" data-nl="Voerdraad" href="../materiaal/draden.html">Voerdraad</a></td><td>0.035" (Seldinger)</td><td>1</td></tr>
-<tr><td data-en="Dilators" data-nl="Dilatatoren">Dilatatoren</td><td data-en="Per drain size" data-nl="Conform drainmaat">Conform drainmaat</td><td data-en="Set" data-nl="Set">Set</td></tr>
-<tr><td data-en="Closed collection system" data-nl="Afsluitbaar opvangsysteem">Afsluitbaar opvangsysteem</td><td data-en="With water seal or bag" data-nl="Met waterslot of zak">Met waterslot of zak</td><td>1</td></tr>
-<tr><td data-en="Tubes for analysis" data-nl="Buizen voor analyse">Buizen voor analyse</td><td data-en="LDH, protein, pH, culture, cytology" data-nl="LDH, eiwit, pH, kweek, cytologie">LDH, eiwit, pH, kweek, cytologie</td><td data-en="Set" data-nl="Set">Set</td></tr>
-<tr><td data-en="Local anaesthetic" data-nl="Lokaal anestheticum">Lokaal anestheticum</td><td>Lidocaïne 1%</td><td>1</td></tr>
-<tr><td data-en="Red drawing-up needle" data-nl="Rode optreknaald">Rode optreknaald</td><td data-en="For drawing up lidocaine" data-nl="Voor optrekken lidocaïne">Voor optrekken lidocaïne</td><td>1</td></tr>
-<tr><td data-en="Non-absorbable suture" data-nl="Niet-resorbeerbare hechting">Niet-resorbeerbare hechting</td><td data-en="Mersilene or Prolene 2-0 on straight needle" data-nl="Mersilene of Prolene 2-0 op rechte naald">Mersilene of Prolene 2-0 op rechte naald</td><td>1</td></tr>
-</tbody>
+<tbody id="mat-thorax"></tbody>
 </table>
 </div>
 </div>
@@ -299,6 +287,7 @@ Bij toename dyspnoe of pijn laagdrempelig contact opnemen.</div>
 <script src="../procedures.js"></script>
 <script src="../nav.js"></script>
 <script src="../search.js"></script>
+<script src="../materiaal.js"></script>
 <script src="../lang.js"></script>
 <script>
 function toggleAcc(id) { document.getElementById(id).classList.toggle('open'); }
@@ -312,6 +301,21 @@ function copyVerslag(verslagId, btnId) {
     setTimeout(() => { btn.innerHTML = '⎘ <span data-nl="Kopieer" data-en="Copy">Kopieer</span>'; btn.classList.remove('copied'); if(typeof applyLang !== 'undefined') applyLang(lang); }, 2000);
   });
 }
+</script>
+<script>
+buildMateriaal('mat-thorax', [
+  'angioset',
+  'echoprobe_hoes',
+  { nl:'Punctienaald / aspiratienaald', en:'Puncture / aspiration needle', spec_nl:'Bij diagnostische punctie', spec_en:'For diagnostic tap' },
+  { nl:'Pleuradrain (pigtail)', en:'Pleural drain (pigtail)', spec_nl:'8–14 Fr (transsudaat); groter bij empyeem', spec_en:'8–14 Fr (transudate); larger for empyema' },
+  { nl:'Voerdraad', en:'Guidewire', spec_nl:'0.035 inch (Seldinger)', spec_en:'0.035 inch (Seldinger)', link:'../materiaal/draden.html' },
+  { nl:'Dilatatoren', en:'Dilators', spec_nl:'Conform drainmaat', spec_en:'Per drain size', aantal:'Set' },
+  { nl:'Afsluitbaar opvangsysteem', en:'Closed collection system', spec_nl:'Met waterslot of zak', spec_en:'With water seal or bag' },
+  { nl:'Buizen voor analyse', en:'Tubes for analysis', spec_nl:'LDH, eiwit, pH, kweek, cytologie', spec_en:'LDH, protein, pH, culture, cytology', aantal:'Set' },
+  { ref:'lidocaine', nl:'Lokaal anestheticum', en:'Local anaesthetic', spec_nl:'Lidocaïne 1%', spec_en:'Lidocaine 1%' },
+  'optreknaald',
+  { ref:'hechting_teugel', spec_nl:'Mersilene of Prolene 2-0 op rechte naald', spec_en:'Mersilene or Prolene 2-0 on straight needle' }
+]);
 </script>
 </body>
 </html>

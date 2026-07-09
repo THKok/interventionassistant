@@ -101,21 +101,7 @@
       <div class="acc-inner" style="padding:0">
         <table class="mat">
           <thead><tr><th data-nl="Materiaal" data-en="Material">Materiaal</th><th data-nl="Specificatie" data-en="Specification">Specificatie</th><th data-nl="Aantal" data-en="Quantity">Aantal</th></tr></thead>
-          <tbody>
-            <tr><td data-nl="Angioset" data-en="Angio set">Angioset</td><td data-nl="Standaard" data-en="Standard">Standaard</td><td>1</td></tr>
-            <tr><td data-nl="Punctieset" data-en="Puncture set">Punctieset</td><td data-nl="Chiba naald 22G" data-en="Chiba needle 22G">Chiba naald 22G</td><td>1</td></tr>
-            <tr><td data-nl="Neffset" data-en="Neff set">Neffset</td><td>4Fr</td><td>1</td></tr>
-            <tr><td data-nl="Cope Mandril" data-en="Cope Mandrin">Cope Mandril</td><td>0.018"</td><td data-nl="Optioneel" data-en="Optional">Optioneel</td></tr>
-            <tr><td data-nl="Sheath" data-en="Sheath">Sheath</td><td data-nl="7Fr, kort" data-en="7Fr, short">7Fr, kort</td><td>1</td></tr>
-            <tr><td>Amplatz</td><td data-nl="0.035&quot;, kort" data-en="0.035&quot;, short">0.035", kort</td><td>1</td></tr>
-            <tr><td data-nl="Hydrofiele voerdraad" data-en="Hydrophilic guidewire">Hydrofiele voerdraad</td><td>0.035" Terumo</td><td>1</td></tr>
-            <tr><td data-nl="Cobra katheter" data-en="Cobra catheter">Cobra katheter</td><td data-nl="4 of 5Fr" data-en="4 or 5Fr">4 of 5Fr</td><td>1</td></tr>
-            <tr><td data-nl="In- &amp; uitwendige drain" data-en="Internal-external drain">In- &amp; uitwendige drain</td><td>8.5–10.2Fr</td><td>1</td></tr>
-            <tr><td data-nl="Rode optreknaald" data-en="Red drawing-up needle">Rode optreknaald</td><td data-nl="Voor optrekken lidocaïne" data-en="For drawing up lidocaine">Voor optrekken lidocaïne</td><td>1</td></tr>
-            <tr><td data-nl="Niet-resorbeerbare hechting" data-en="Non-absorbable suture">Niet-resorbeerbare hechting</td><td data-nl="Mersilene of Prolene 2-0 op rechte naald" data-en="Mersilene or Prolene 2-0 on straight needle">Mersilene of Prolene 2-0 op rechte naald</td><td>1</td></tr>
-            <tr class="mat-cat"><td colspan="3" data-nl="Optioneel" data-en="Optional">Optioneel</td></tr>
-            <tr><td data-nl="SEMS (uncovered)" data-en="SEMS (uncovered)">SEMS (uncovered)</td><td data-nl="8–10 mm, 1 cm proximaal én distaal van stenose" data-en="8–10 mm, 1 cm proximal and distal to stenosis">8–10 mm, 1 cm proximaal én distaal van stenose</td><td data-nl="Optioneel" data-en="Optional">Optioneel</td></tr>
-          </tbody>
+          <tbody id="mat-ptcd"></tbody>
         </table>
       </div>
     </div>
@@ -320,6 +306,7 @@ NAZORG:
 <script src="../procedures.js"></script>
 <script src="../nav.js"></script>
 <script src="../search.js"></script>
+<script src="../materiaal.js"></script>
 <script src="../lang.js"></script>
 <script>
 function toggleAcc(id) { document.getElementById(id).classList.toggle('open'); }
@@ -333,6 +320,23 @@ function copyVerslag(verslagId, btnId) {
     setTimeout(() => { btn.innerHTML = '⎘ <span data-nl="Kopieer" data-en="Copy">Kopieer</span>'; btn.classList.remove('copied'); if(typeof applyLang !== 'undefined') applyLang(lang); }, 2000);
   });
 }
+</script>
+<script>
+buildMateriaal('mat-ptcd', [
+  { ref:'angioset', link:'' },
+  { nl:'Punctieset', en:'Puncture set', spec_nl:'Chiba naald 22G', spec_en:'Chiba needle 22G' },
+  { ref:'neffset', nl:'Neffset', spec_nl:'4Fr', spec_en:'4Fr', link:'' },
+  { nl:'Cope Mandril', en:'Cope Mandrin', spec_nl:'0.018 inch', spec_en:'0.018 inch', aantal:'Optioneel' },
+  { ref:'sheath_7', nl:'Sheath', spec_nl:'7Fr, kort', spec_en:'7Fr, short', link:'' },
+  { ref:'amplatz', nl:'Amplatz', en:'Amplatz', spec_nl:'0.035 inch, kort', spec_en:'0.035 inch, short', link:'' },
+  { ref:'hydrofiele_draad', nl:'Hydrofiele voerdraad', spec_nl:'0.035 inch Terumo', spec_en:'0.035 inch Terumo', link:'' },
+  { ref:'cobra', spec_nl:'4 of 5Fr', spec_en:'4 or 5Fr', link:'' },
+  { nl:'In- & uitwendige drain', en:'Internal-external drain', spec_nl:'8.5–10.2Fr', spec_en:'8.5–10.2Fr' },
+  'optreknaald',
+  { ref:'hechting_teugel', spec_nl:'Mersilene of Prolene 2-0 op rechte naald', spec_en:'Mersilene or Prolene 2-0 on straight needle' },
+  { section_nl:'Optioneel', section_en:'Optional' },
+  { nl:'SEMS (uncovered)', en:'SEMS (uncovered)', spec_nl:'8–10 mm, 1 cm proximaal én distaal van stenose', spec_en:'8–10 mm, 1 cm proximal and distal to stenosis', aantal:'Optioneel' }
+]);
 </script>
 </body>
 </html>

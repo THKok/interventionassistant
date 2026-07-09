@@ -86,22 +86,7 @@
       <div class="acc-inner" style="padding:0">
         <table class="mat">
           <thead><tr><th data-nl="Materiaal" data-en="Material">Materiaal</th><th data-nl="Specificatie" data-en="Specification">Specificatie</th><th data-nl="Aantal" data-en="Quantity">Aantal</th></tr></thead>
-          <tbody>
-            <tr><td data-nl="Steriele plakdoeken" data-en="Sterile drapes">Steriele plakdoeken</td><td data-nl="1 voor tafel, 1 voor patiënt" data-en="1 for table, 1 for patient">1 voor tafel, 1 voor patiënt</td><td>2</td></tr>
-            <tr><td data-nl="Spuit" data-en="Syringe">Spuit</td><td>10 cc</td><td>1</td></tr>
-            <tr><td data-nl="Rode naald (optreknaald)" data-en="Drawing-up needle">Rode naald (optreknaald)</td><td data-nl="Standaard" data-en="Standard">Standaard</td><td>1</td></tr>
-            <tr><td data-nl="Verdovingsnaald" data-en="Injection needle">Verdovingsnaald</td><td>21G</td><td>1</td></tr>
-            <tr><td>Lidocaïne 1%</td><td>10 cc</td><td>1</td></tr>
-            <tr><td data-nl="Scalpel" data-en="Scalpel">Scalpel</td><td data-nl="Mesje voor kleine steekincisie" data-en="Blade for small stab incision">Mesje voor kleine steekincisie</td><td>1</td></tr>
-            <tr><td data-nl="Drain" data-en="Drain">Drain</td><td data-nl="6Fr, one-step" data-en="6Fr, one-step">6Fr, one-step</td><td>1</td></tr>
-            <tr><td data-nl="Connector" data-en="Connector">Connector</td><td data-nl="Drain naar drainzak" data-en="Drain to drainage bag">Drain naar drainzak</td><td>1</td></tr>
-            <tr><td data-nl="Drainzak" data-en="Drainage bag">Drainzak</td><td>1L</td><td>1</td></tr>
-            <tr><td data-nl="Echoprobe hoes" data-en="Ultrasound probe cover">Echoprobe hoes</td><td data-nl="Steriel" data-en="Sterile">Steriel</td><td>1</td></tr>
-            <tr class="mat-cat"><td colspan="3">Optioneel (two-step)</td></tr>
-            <tr><td data-nl="Angionaald" data-en="Angio needle">Angionaald</td><td>Standaard</td><td data-nl="Optioneel" data-en="Optional">Optioneel</td></tr>
-            <tr><td data-nl="Amplatz draad" data-en="Amplatz wire">Amplatz draad</td><td>0.035"</td><td>Optioneel</td></tr>
-            <tr><td data-nl="Niet-resorbeerbare hechting" data-en="Non-absorbable suture">Niet-resorbeerbare hechting</td><td data-nl="Mersilene of Prolene 2-0 op rechte naald — alleen bij langduriger verblijf" data-en="Mersilene or Prolene 2-0 on straight needle — only for prolonged indwelling">Mersilene of Prolene 2-0 op rechte naald — alleen bij langduriger verblijf</td><td data-nl="Optioneel" data-en="Optional">Optioneel</td></tr>
-          </tbody>
+          <tbody id="mat-ascites"></tbody>
         </table>
       </div>
     </div>
@@ -229,6 +214,7 @@ Therapeutische / diagnostische ascitesdrainage [links/rechts].</div>
 <script src="../procedures.js"></script>
 <script src="../nav.js"></script>
 <script src="../search.js"></script>
+<script src="../materiaal.js"></script>
 <script src="../lang.js"></script>
 <script>
 function toggleAcc(id) { document.getElementById(id).classList.toggle('open'); }
@@ -242,6 +228,24 @@ function copyVerslag(verslagId, btnId) {
     setTimeout(() => { btn.innerHTML = '⎘ <span data-nl="Kopieer" data-en="Copy">Kopieer</span>'; btn.classList.remove('copied'); if(typeof applyLang !== 'undefined') applyLang(lang); }, 2000);
   });
 }
+</script>
+<script>
+buildMateriaal('mat-ascites', [
+  { nl:'Steriele plakdoeken', en:'Sterile drapes', spec_nl:'1 voor tafel, 1 voor patiënt', spec_en:'1 for table, 1 for patient', aantal:'2' },
+  'spuit_10',
+  { ref:'optreknaald', nl:'Rode naald (optreknaald)', en:'Drawing-up needle', spec_nl:'Standaard', spec_en:'Standard' },
+  'verdovingsnaald',
+  { ref:'lidocaine', nl:'Lidocaïne 1%', en:'Lidocaine 1%' },
+  { nl:'Scalpel', en:'Scalpel', spec_nl:'Mesje voor kleine steekincisie', spec_en:'Blade for small stab incision' },
+  { nl:'Drain', en:'Drain', spec_nl:'6Fr, one-step', spec_en:'6Fr, one-step' },
+  { nl:'Connector', en:'Connector', spec_nl:'Drain naar drainzak', spec_en:'Drain to drainage bag' },
+  { ref:'drainzak', spec_nl:'1L', spec_en:'1L' },
+  'echoprobe_hoes',
+  { section_nl:'Optioneel (two-step)', section_en:'Optional (two-step)' },
+  { ref:'angionaald', nl:'Angionaald', spec_nl:'Standaard', spec_en:'Standard', aantal:'Optioneel' },
+  { ref:'amplatz', nl:'Amplatz draad', en:'Amplatz wire', spec_nl:'0.035 inch', spec_en:'0.035 inch', aantal:'Optioneel', link:'' },
+  { ref:'hechting_teugel', spec_nl:'Mersilene of Prolene 2-0 op rechte naald — alleen bij langduriger verblijf', spec_en:'Mersilene or Prolene 2-0 on straight needle — only for prolonged indwelling', aantal:'Optioneel' }
+]);
 </script>
 </body>
 </html>

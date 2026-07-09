@@ -93,21 +93,7 @@
 <th data-en="Specification" data-nl="Specificatie">Specificatie</th>
 <th data-en="Quantity" data-nl="Aantal">Aantal</th>
 </tr></thead>
-<tbody>
-<tr><td data-en="Sterile table" data-nl="Steriele tafel">Steriele tafel</td><td data-en="Sterile instrument cover" data-nl="Steriele afdekking instrumenten">Steriele afdekking instrumenten</td><td>1</td></tr>
-<tr><td data-en="Fenestrated drape" data-nl="Gatdoek">Gatdoek</td><td data-en="Patient drape" data-nl="Afdekking patiënt">Afdekking patiënt</td><td>1</td></tr>
-<tr><td data-en="Contrast bowl" data-nl="Bakje contrast">Bakje contrast</td><td data-en="Diluted contrast" data-nl="Verdund contrast">Verdund contrast</td><td>1</td></tr>
-<tr><td data-en="NaCl bowl" data-nl="Bakje NaCl">Bakje NaCl</td><td data-en="Flushing" data-nl="Spoelen">Spoelen</td><td>1</td></tr>
-<tr><td data-en="10 cc syringe" data-nl="10 cc spuit">10 cc spuit</td><td data-en="Standard" data-nl="Standaard">Standaard</td><td>2</td></tr>
-<tr><td data-en="Ultrasound probe cover" data-nl="Echoprobe hoes">Echoprobe hoes</td><td data-en="Sterile" data-nl="Steriel">Steriel</td><td>1</td></tr>
-<tr><td data-en="Amplatz guidewire" data-nl="Amplatz voerdraad"><a class="mat-link" data-en="Amplatz guidewire" data-nl="Amplatz voerdraad" href="../materiaal/draden.html">Amplatz voerdraad</a></td><td>0.035", <span data-en="short" data-nl="kort">kort</span></td><td>1</td></tr>
-<tr><td data-en="New drain" data-nl="Nieuwe drain"><a class="mat-link" data-en="New drain" data-nl="Nieuwe drain" href="../materiaal/sheaths-en-katheters.html">Nieuwe drain</a></td><td data-en="Same type/size as current drain, plastic stylet" data-nl="Zelfde type/maat als huidige drain, plastic stilet">Zelfde type/maat als huidige drain, plastic stilet</td><td>1</td></tr>
-<tr><td data-en="Drain fixation dressing" data-nl="Drainfix pleister">Drainfix pleister</td><td data-en="Standard" data-nl="Standaard">Standaard</td><td>1</td></tr>
-<tr class="mat-cat"><td colspan="3" data-en="Optional (first exchange or local pain)" data-nl="Optioneel (bij eerste wissel of lokale pijn)">Optioneel (bij eerste wissel of lokale pijn)</td></tr>
-<tr><td data-en="Drawing-up needle" data-nl="Rode naald (optreknaald)">Rode naald (optreknaald)</td><td data-en="Standard" data-nl="Standaard">Standaard</td><td data-en="Optional" data-nl="Optioneel">Optioneel</td></tr>
-<tr><td data-en="21G needle" data-nl="21G naald">21G naald</td><td data-en="Injection needle" data-nl="Verdovingsnaald">Verdovingsnaald</td><td data-en="Optional" data-nl="Optioneel">Optioneel</td></tr>
-<tr><td data-en="Lidocaine 1%" data-nl="Lidocaïne 1%">Lidocaïne 1%</td><td>10 cc</td><td data-en="Optional" data-nl="Optioneel">Optioneel</td></tr>
-</tbody>
+<tbody id="mat-wissel"></tbody>
 </table>
 </div>
 </div>
@@ -279,6 +265,7 @@ Wissel nefrodrain [links/rechts], [maat] Fr [type].</div>
 <script src="../procedures.js"></script>
 <script src="../nav.js"></script>
 <script src="../search.js"></script>
+<script src="../materiaal.js"></script>
 <script src="../lang.js"></script>
 <script>
 function toggleAcc(id) { document.getElementById(id).classList.toggle('open'); }
@@ -329,6 +316,23 @@ function closeLightboxOutside(e) {
 }
 
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+</script>
+<script>
+buildMateriaal('mat-wissel', [
+  { ref:'steriele_tafel', spec_nl:'Steriele afdekking instrumenten', spec_en:'Sterile instrument cover' },
+  'gatdoek',
+  { nl:'Bakje contrast', en:'Contrast bowl', spec_nl:'Verdund contrast', spec_en:'Diluted contrast' },
+  { nl:'Bakje NaCl', en:'NaCl bowl', spec_nl:'Spoelen', spec_en:'Flushing' },
+  { ref:'spuit_10', nl:'10 cc spuit', en:'10 cc syringe', spec_nl:'Standaard', spec_en:'Standard', aantal:'2' },
+  'echoprobe_hoes',
+  { ref:'amplatz', nl:'Amplatz voerdraad', spec_nl:'kort', spec_en:'short' },
+  { nl:'Nieuwe drain', en:'New drain', spec_nl:'Zelfde type/maat als huidige drain, plastic stilet', spec_en:'Same type/size as current drain, plastic stylet', link:'../materiaal/sheaths-en-katheters.html' },
+  'drainfix',
+  { section_nl:'Optioneel (bij eerste wissel of lokale pijn)', section_en:'Optional (first exchange or local pain)' },
+  { ref:'optreknaald', nl:'Rode naald (optreknaald)', en:'Drawing-up needle', spec_nl:'Standaard', spec_en:'Standard', aantal:'Optioneel' },
+  { ref:'verdovingsnaald', nl:'21G naald', en:'21G needle', spec_nl:'Verdovingsnaald', spec_en:'Injection needle', aantal:'Optioneel' },
+  { ref:'lidocaine', nl:'Lidocaïne 1%', en:'Lidocaine 1%', aantal:'Optioneel' }
+]);
 </script>
 </body>
 </html>

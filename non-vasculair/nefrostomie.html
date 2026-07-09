@@ -95,20 +95,7 @@
 <th data-en="Specification" data-nl="Specificatie">Specificatie</th>
 <th data-en="Quantity" data-nl="Aantal">Aantal</th>
 </tr></thead>
-<tbody>
-<tr><td><a class="mat-link" data-en="Angio set" data-nl="Angioset" href="../materiaal/angioset.html">Angioset</a></td><td data-en="Standard" data-nl="Standaard">Standaard</td><td>1</td></tr>
-<tr><td data-en="Needle guide" data-nl="Naaldgeleider">Naaldgeleider</td><td data-en="Ultrasound probe attachment for needle guidance" data-nl="Opzetstuk echoprobe voor naaldgeleiding">Opzetstuk echoprobe voor naaldgeleiding</td><td>1</td></tr>
-<tr><td data-en='Neff set (incl. Chiba needle 22G + Cope Mandrin 0.018")' data-nl='Neffset (incl. Chiba naald 22G + Cope Mandril 0.018")'><a class="mat-link" href="../materiaal/sheaths-en-katheters.html">Neffset</a> <em style="color:var(--muted);font-size:0.8rem">(incl. Chiba naald 22G + Cope Mandril 0.018")</em></td><td>4 Fr</td><td>1</td></tr>
-<tr><td><a class="mat-link" data-en="Amplatz guidewire" data-nl="Amplatz voerdraad" href="../materiaal/draden.html">Amplatz voerdraad</a></td><td>0.035", <span data-en="short" data-nl="kort">kort</span></td><td>1</td></tr>
-<tr><td data-en="Multipurpose drain" data-nl="Multipurpose drain"><a class="mat-link" href="../materiaal/sheaths-en-katheters.html">Multipurpose drain</a></td><td>8.5 Fr, <span data-en="metal stylet" data-nl="metalen stilet">metalen stilet</span></td><td>1</td></tr>
-<tr><td data-en="Dawson-Muller drain (for small collecting system)" data-nl="Dawson-Muller drain (bij slank pyelum)"><a class="mat-link" href="../materiaal/sheaths-en-katheters.html">Dawson-Muller drain</a> <em data-en="(for small collecting system)" data-nl="(bij slank pyelum)" style="color:var(--muted);font-size:0.8rem">(bij slank pyelum)</em></td><td>8.5 Fr</td><td data-en="Optional" data-nl="Optioneel">Optioneel</td></tr>
-<tr class="mat-cat"><td colspan="3" data-en="Optional" data-nl="Optioneel">Optioneel</td></tr>
-<tr><td data-en="Sheath" data-nl="Sheath">Sheath</td><td>7 Fr, 25 cm</td><td data-en="Optional" data-nl="Optioneel">Optioneel</td></tr>
-<tr><td><a class="mat-link" data-en="Hydrophilic guidewire" data-nl="Hydrofiele voerdraad" href="../materiaal/draden.html">Hydrofiele voerdraad</a></td><td>0.035"</td><td data-en="Optional" data-nl="Optioneel">Optioneel</td></tr>
-<tr><td><a class="mat-link" data-en="Cobra catheter" data-nl="Cobra katheter" href="../materiaal/sheaths-en-katheters.html">Cobra katheter</a></td><td>4 <span data-en="or" data-nl="of">of</span> 5 Fr</td><td data-en="Optional" data-nl="Optioneel">Optioneel</td></tr>
-<tr><td data-en="Red drawing-up needle" data-nl="Rode optreknaald">Rode optreknaald</td><td data-en="For drawing up lidocaine" data-nl="Voor optrekken lidocaïne">Voor optrekken lidocaïne</td><td>1</td></tr>
-<tr><td data-en="Non-absorbable suture" data-nl="Niet-resorbeerbare hechting">Niet-resorbeerbare hechting</td><td data-en="Mersilene or Prolene 2-0 on straight needle" data-nl="Mersilene of Prolene 2-0 op rechte naald">Mersilene of Prolene 2-0 op rechte naald</td><td>1</td></tr>
-</tbody>
+<tbody id="mat-nefro"></tbody>
 </table>
 </div>
 </div>
@@ -337,6 +324,7 @@ Bij koorts of forse toename hematurie laagdrempelig contact opnemen.</div>
 <script src="../procedures.js"></script>
 <script src="../nav.js"></script>
 <script src="../search.js"></script>
+<script src="../materiaal.js"></script>
 <script src="../lang.js"></script>
 <script>
 function toggleAcc(id) { document.getElementById(id).classList.toggle('open'); }
@@ -393,6 +381,22 @@ function closeLightboxOutside(e) {
 }
 
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+</script>
+<script>
+buildMateriaal('mat-nefro', [
+  'angioset',
+  { ref:'naaldgeleider', spec_en:'Ultrasound probe attachment for needle guidance' },
+  { ref:'neffset', nl:'Neffset (incl. Chiba naald 22G + Cope Mandril 0.018 inch)', en:'Neff set (incl. Chiba needle 22G + Cope Mandrin 0.018 inch)', spec_nl:'4 Fr', spec_en:'4 Fr', link:'../materiaal/sheaths-en-katheters.html' },
+  { ref:'amplatz', nl:'Amplatz voerdraad', spec_nl:'kort', spec_en:'short' },
+  { ref:'drain_multipurpose', spec_nl:'metalen stilet', spec_en:'metal stylet', link:'../materiaal/sheaths-en-katheters.html' },
+  { ref:'drain_dawson', nl:'Dawson-Muller drain (bij slank pyelum)', en:'Dawson-Muller drain (for small collecting system)', spec_nl:'8.5 Fr', spec_en:'8.5 Fr', aantal:'Optioneel', link:'../materiaal/sheaths-en-katheters.html' },
+  { section_nl:'Optioneel', section_en:'Optional' },
+  { ref:'sheath_7', nl:'Sheath', spec_nl:'7 Fr, 25 cm', spec_en:'7 Fr, 25 cm', aantal:'Optioneel', link:'' },
+  { ref:'hydrofiele_draad', nl:'Hydrofiele voerdraad', spec_nl:'0.035 inch', spec_en:'0.035 inch', aantal:'Optioneel' },
+  { ref:'cobra', spec_nl:'of', spec_en:'or', aantal:'Optioneel' },
+  'optreknaald',
+  { ref:'hechting_teugel', spec_nl:'Mersilene of Prolene 2-0 op rechte naald', spec_en:'Mersilene or Prolene 2-0 on straight needle' }
+]);
 </script>
 </body>
 </html>

@@ -99,19 +99,7 @@
 <th data-en="Specification" data-nl="Specificatie">Specificatie</th>
 <th data-en="Quantity" data-nl="Aantal">Aantal</th>
 </tr></thead>
-<tbody>
-<tr><td><a class="mat-link" data-en="Angio set" data-nl="Angioset" href="../materiaal/angioset.html">Angioset</a></td><td data-en="Standard" data-nl="Standaard">Standaard</td><td>1</td></tr>
-<tr><td data-en="Ultrasound probe cover" data-nl="Echoprobe hoes">Echoprobe hoes</td><td data-en="Sterile (for US guidance)" data-nl="Steriel">Steriel</td><td>1</td></tr>
-<tr><td data-en="Puncture needle" data-nl="Punctienaald">Punctienaald</td><td data-en="18–19G" data-nl="18–19G">18–19G</td><td>1</td></tr>
-<tr><td><a class="mat-link" data-en="Guidewire" data-nl="Voerdraad" href="../materiaal/draden.html">Voerdraad</a></td><td>0.035" stiff</td><td>1</td></tr>
-<tr><td data-en="Dilators" data-nl="Dilatatoren">Dilatatoren</td><td data-en="Sequential per drain size" data-nl="Oplopend conform drainmaat">Oplopend conform drainmaat</td><td data-en="Set" data-nl="Set">Set</td></tr>
-<tr><td data-en="Pigtail drainage catheter" data-nl="Pigtail drainagekatheter">Pigtail drainagekatheter</td><td data-en="8–14 Fr" data-nl="8–14 Fr">8–14 Fr</td><td>1</td></tr>
-<tr><td data-en="Drainage bag" data-nl="Drainzak">Drainzak</td><td data-en="With connector" data-nl="Met connector">Met connector</td><td>1</td></tr>
-<tr><td data-en="Culture tubes" data-nl="Kweekbuizen">Kweekbuizen</td><td data-en="Aerobic + anaerobic" data-nl="Aëroob + anaëroob">Aëroob + anaëroob</td><td>2</td></tr>
-<tr><td data-en="Local anaesthetic" data-nl="Lokaal anestheticum">Lokaal anestheticum</td><td>Lidocaïne 1%</td><td>1</td></tr>
-<tr><td data-en="Red drawing-up needle" data-nl="Rode optreknaald">Rode optreknaald</td><td data-en="For drawing up lidocaine" data-nl="Voor optrekken lidocaïne">Voor optrekken lidocaïne</td><td>1</td></tr>
-<tr><td data-en="Non-absorbable suture" data-nl="Niet-resorbeerbare hechting">Niet-resorbeerbare hechting</td><td data-en="Mersilene or Prolene 2-0 on straight needle" data-nl="Mersilene of Prolene 2-0 op rechte naald">Mersilene of Prolene 2-0 op rechte naald</td><td>1</td></tr>
-</tbody>
+<tbody id="mat-abces"></tbody>
 </table>
 </div>
 </div>
@@ -294,6 +282,7 @@ en klinische verbetering.</div>
 <script src="../procedures.js"></script>
 <script src="../nav.js"></script>
 <script src="../search.js"></script>
+<script src="../materiaal.js"></script>
 <script src="../lang.js"></script>
 <script>
 function toggleAcc(id) { document.getElementById(id).classList.toggle('open'); }
@@ -307,6 +296,21 @@ function copyVerslag(verslagId, btnId) {
     setTimeout(() => { btn.innerHTML = '⎘ <span data-nl="Kopieer" data-en="Copy">Kopieer</span>'; btn.classList.remove('copied'); if(typeof applyLang !== 'undefined') applyLang(lang); }, 2000);
   });
 }
+</script>
+<script>
+buildMateriaal('mat-abces', [
+  'angioset',
+  { ref:'echoprobe_hoes', spec_en:'Sterile (for US guidance)' },
+  'punctienaald',
+  { nl:'Voerdraad', en:'Guidewire', spec_nl:'0.035 inch stiff', spec_en:'0.035 inch stiff', link:'../materiaal/draden.html' },
+  { nl:'Dilatatoren', en:'Dilators', spec_nl:'Oplopend conform drainmaat', spec_en:'Sequential per drain size', aantal:'Set' },
+  { ref:'drain_pigtail', spec_nl:'8–14 Fr', spec_en:'8–14 Fr' },
+  'drainzak',
+  { nl:'Kweekbuizen', en:'Culture tubes', spec_nl:'Aëroob + anaëroob', spec_en:'Aerobic + anaerobic', aantal:'2' },
+  { ref:'lidocaine', nl:'Lokaal anestheticum', en:'Local anaesthetic', spec_nl:'Lidocaïne 1%', spec_en:'Lidocaine 1%' },
+  'optreknaald',
+  { ref:'hechting_teugel', spec_nl:'Mersilene of Prolene 2-0 op rechte naald', spec_en:'Mersilene or Prolene 2-0 on straight needle' }
+]);
 </script>
 </body>
 </html>
