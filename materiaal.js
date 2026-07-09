@@ -25,7 +25,7 @@
 const MAT = {
   // ---- Basis / steriel veld ----
   angioset:        { nl:'Angioset', en:'Angio set', spec_nl:'Standaard', spec_en:'Standard', link:'../materiaal/angioset.html' },
-  steriele_tafel:  { nl:'Steriele tafel', en:'Sterile table', spec_nl:'Standaard', spec_en:'Standard' },
+  steriele_tafel:  { nl:'Steriele tafel', en:'Sterile table', spec_nl:'', spec_en:'' },
   gatdoek:         { nl:'Gatdoek', en:'Fenestrated drape', spec_nl:'Afdekking patiënt', spec_en:'Patient drape' },
   echoprobe_hoes:  { nl:'Echoprobe hoes', en:'Ultrasound probe cover', spec_nl:'Steriel', spec_en:'Sterile' },
   naaldgeleider:   { nl:'Naaldgeleider', en:'Needle guide', spec_nl:'Opzetstuk echoprobe voor naaldgeleiding', spec_en:'Probe attachment for needle guidance' },
@@ -38,23 +38,24 @@ const MAT = {
   spuit_10:        { nl:'Spuit', en:'Syringe', spec_nl:'10 cc', spec_en:'10 cc' },
 
   // ---- Scherp / incisie ----
-  mesje_11:        { nl:'Mesje', en:'Scalpel', spec_nl:'Nr. 11, voor steekincisie', spec_en:'No. 11, for stab incision' },
+  mesje_11:        { nl:'Scalpel', en:'Scalpel', spec_nl:'Nr. 11, voor steekincisie', spec_en:'No. 11, for stab incision' },
 
   // ---- Punctienaalden ----
   angionaald:      { nl:'Angionaald', en:'Angio needle', spec_nl:'18G', spec_en:'18G' },
-  punctienaald:    { nl:'Punctienaald', en:'Puncture needle', spec_nl:'18–19G', spec_en:'18–19G' },
+  punctienaald:    { nl:'Punctienaald', en:'Puncture needle', spec_nl:'Angionaald, 18G', spec_en:'Angio needle, 18G' },
   chiba:           { nl:'Chiba naald', en:'Chiba needle', spec_nl:'22G', spec_en:'22G' },
-  neffset:         { nl:'Neff-set', en:'Neff set', spec_nl:'4 Fr, incl. Chiba 22G + Cope Mandril 0.018 inch', spec_en:'4 Fr, incl. Chiba 22G + Cope Mandril 0.018 inch' },
+  neffset:         { nl:'Neffset', en:'Neff set', spec_nl:'4Fr', spec_en:'4Fr' },
 
   // ---- Voerdraden ----
   hydrofiele_draad:{ nl:'Hydrofiele voerdraad', en:'Hydrophilic guidewire', spec_nl:'0.035 inch Terumo', spec_en:'0.035 inch Terumo', link:'../materiaal/draden.html' },
-  amplatz:         { nl:'Amplatz voerdraad', en:'Amplatz guidewire', spec_nl:'0.035 inch, stiff', spec_en:'0.035 inch, stiff', link:'../materiaal/draden.html' },
+  // NB: '0.035 inch' i.p.v. 0.035" — een " breekt het data-attribuut af
+  amplatz:         { nl:'Amplatz voerdraad', en:'Amplatz guidewire', spec_nl:'0.035 inch, kort', spec_en:'0.035 inch, short', link:'../materiaal/draden.html' },
   rosen:           { nl:'Rosen voerdraad', en:'Rosen guidewire', spec_nl:'0.035 inch, stiff', spec_en:'0.035 inch, stiff', link:'../materiaal/draden.html' },
   stijve_draad:    { nl:'Stijve draad', en:'Stiff guidewire', spec_nl:'Amplatz', spec_en:'Amplatz', link:'../materiaal/draden.html' },
 
   // ---- Sheaths & katheters ----
-  sheath_6:        { nl:'Introducersheath', en:'Introducer sheath', spec_nl:'6 Fr', spec_en:'6 Fr', link:'../materiaal/sheaths-en-katheters.html' },
-  sheath_7:        { nl:'Sheath', en:'Sheath', spec_nl:'7 Fr, kort', spec_en:'7 Fr, short', link:'../materiaal/sheaths-en-katheters.html' },
+  sheath_6:        { nl:'Introducersheath', en:'Introducer sheath', spec_nl:'6Fr, standaard', spec_en:'6Fr, standard', link:'../materiaal/sheaths-en-katheters.html' },
+  sheath_7:        { nl:'Sheath', en:'Sheath', spec_nl:'7Fr, kort', spec_en:'7Fr, short', link:'../materiaal/sheaths-en-katheters.html' },
   cobra:           { nl:'Cobra katheter', en:'Cobra catheter', spec_nl:'4 of 5 Fr', spec_en:'4 or 5 Fr', link:'../materiaal/sheaths-en-katheters.html' },
   pigtail_kath:    { nl:'Pigtail katheter', en:'Pigtail catheter', spec_nl:'4–5 Fr', spec_en:'4–5 Fr', link:'../materiaal/sheaths-en-katheters.html' },
 
@@ -62,6 +63,7 @@ const MAT = {
   drain_pigtail:   { nl:'Pigtail drainagekatheter', en:'Pigtail drainage catheter', spec_nl:'8–14 Fr, op viscositeit', spec_en:'8–14 Fr, by viscosity' },
   drain_multipurpose:{ nl:'Multipurpose drain', en:'Multipurpose drain', spec_nl:'8.5 Fr, metalen stilet', spec_en:'8.5 Fr, metal stylet' },
   drain_dawson:    { nl:'Dawson-Muller drain', en:'Dawson-Muller drain', spec_nl:'8.5 Fr, bij slank pyelum', spec_en:'8.5 Fr, for narrow collecting system' },
+  drain_inuit:     { nl:'In- &amp; uitwendige drain', en:'Internal-external drain', spec_nl:'8.5 Fr — tijdelijk naast stent', spec_en:'8.5 Fr — temporary alongside stent' },
   drainzak:        { nl:'Drainzak', en:'Drainage bag', spec_nl:'Met connector', spec_en:'With connector' },
 
   // ---- Fixatie / hechtingen ----
@@ -81,7 +83,7 @@ const MAT = {
   nacl:            { nl:'NaCl 0,9%', en:'NaCl 0.9%', spec_nl:'Voor flushen', spec_en:'For flushing' },
 
   // ---- Sluitsystemen ----
-  angioseal:       { nl:'Closure device', en:'Closure device', spec_nl:'Angioseal 6Fr', spec_en:'Angioseal 6Fr', link:'../materiaal/closure-devices.html' },
+  angioseal:       { nl:'Closure device', en:'Closure device', spec_nl:'Angio-Seal 6Fr', spec_en:'Angio-Seal 6Fr', link:'../materiaal/closure-devices.html' },
 };
 
 // ── Renderer ──────────────────────────────────────────────────────
