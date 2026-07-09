@@ -34,6 +34,9 @@ const PROCEDURES = [
   { naam: "PTCD galwegdrainage", categorie: "Non-vasculair", subcategorie: "Galwegen", tag: "nonvasc",
     url: "non-vasculair/ptcd.html",
     trefwoorden: ["PTCD","galweg","cholangio","icterus","drainage","obstructie","SEMS","cholangitis","Bismuth","Chiba","TESLA"] },
+  { naam: "Galblaasdrainage (cholecystostomie)", categorie: "Non-vasculair", subcategorie: "Galwegen", tag: "nonvasc",
+    url: "non-vasculair/galblaasdrain.html",
+    trefwoorden: ["galblaas","cholecystostomie","cholecystitis","cholecystostomy","gallbladder","drain","transhepatisch","empyeem","opspuitfoto","cholangiografie","pigtail"] },
 
   { naam: "PICC-lijn plaatsing", categorie: "Vasculair", subcategorie: "Vascular access", tag: "vasc",
     url: "vasculair/picc-lijn.html",

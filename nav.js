@@ -24,6 +24,7 @@ const NAV_ITEMS = [
       { label: 'Percutane nefrostomie', label_en: 'Percutaneous nephrostomy',  url: 'non-vasculair/nefrostomie.html' },
       { label: 'Wissel nefrodrain', label_en: 'Nephrostomy exchange',        url: 'non-vasculair/wissel-nefrodrain.html' },
       { label: 'PTCD galwegdrainage', label_en: 'PTCD biliary drainage',    url: 'non-vasculair/ptcd.html' },
+      { label: 'Galblaasdrainage (cholecystostomie)', label_en: 'Cholecystostomy', url: 'non-vasculair/galblaasdrain.html' },
       { label: 'Ascitesdrainage', label_en: 'Ascites drainage',          url: 'non-vasculair/ascitesdrainage.html' },
       { label: 'Permanente ascitesdrain (IPC)', label_en: 'Indwelling peritoneal catheter (IPC)', url: 'non-vasculair/permanente-ascitesdrain.html' },
       { label: 'Nierbiopt', label_en: 'Renal biopsy',                url: 'non-vasculair/nierbiopt.html' },
