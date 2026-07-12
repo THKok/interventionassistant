@@ -7,36 +7,43 @@ const NAV_ITEMS = [
   {
     label: 'Vasculair', label_en: 'Vascular',
     items: [
+      { header: 'Arterieel', header_en: 'Arterial' },
+      { label: 'EVAR', label_en: 'EVAR',  url: 'vasculair/evar.html' },
       { label: 'PTA ± stent beenvaten', label_en: 'PTA ± stent leg arteries',        url: 'vasculair/pta-beenvaten.html' },
       { label: 'rTPA acuut bedreigd been', label_en: 'rTPA acute limb ischaemia',      url: 'vasculair/rtpa-trombolyse.html', badge: 'URGENT' },
-      { label: 'Port-a-cath plaatsing', label_en: 'Port-a-cath placement',         url: 'vasculair/port-a-cath.html' },
-      { label: 'PICC-lijn plaatsing', label_en: 'PICC line placement',           url: 'vasculair/picc-lijn.html' },
+      { header: 'Embolisatie', header_en: 'Embolisation' },
+      { label: 'Bronchiaalarterie embolisatie', label_en: 'Bronchial artery embolisation',  url: 'vasculair/bae.html' },
+      { label: 'Prostaatembolisatie', label_en: 'Prostate embolisation (PAE)',           url: 'vasculair/pae.html' },
       { label: 'Uterusembolisatie bij fluxus', label_en: 'Uterine embolisation (PPH)',  url: 'vasculair/uterusembolisatie.html' },
       { label: 'Uterusembolisatie bij myomen/adenomyose', label_en: 'Uterine embolisation (fibroids/adenomyosis)',  url: 'vasculair/uterusembolisatie-electief.html' },
-      { label: 'Prostaatembolisatie', label_en: 'Prostate embolisation (PAE)',           url: 'vasculair/pae.html' },
-      { label: 'Bronchiaalarterie embolisatie', label_en: 'Bronchial artery embolisation',  url: 'vasculair/bae.html' },
-      { label: 'EVAR', label_en: 'EVAR',  url: 'vasculair/evar.html' },
+      { header: 'Veneuze toegang', header_en: 'Venous access' },
+      { label: 'PICC-lijn plaatsing', label_en: 'PICC line placement',           url: 'vasculair/picc-lijn.html' },
+      { label: 'Port-a-cath plaatsing', label_en: 'Port-a-cath placement',         url: 'vasculair/port-a-cath.html' },
     ]
   },
   {
     label: 'Non-vasculair', label_en: 'Non-vascular',
     items: [
+      { header: 'Urogenitaal', header_en: 'Urogenital' },
+      { label: 'Antegrade JJ-katheter', label_en: 'Antegrade JJ stent',    url: 'non-vasculair/jj-katheter.html' },
+      { label: 'Nierbiopt', label_en: 'Renal biopsy',                url: 'non-vasculair/nierbiopt.html' },
       { label: 'Percutane nefrostomie', label_en: 'Percutaneous nephrostomy',  url: 'non-vasculair/nefrostomie.html' },
       { label: 'Wissel nefrodrain', label_en: 'Nephrostomy exchange',        url: 'non-vasculair/wissel-nefrodrain.html' },
-      { label: 'PTCD galwegdrainage', label_en: 'PTCD biliary drainage',    url: 'non-vasculair/ptcd.html' },
+      { header: 'Lever & galwegen', header_en: 'Liver & biliary' },
       { label: 'Galblaasdrainage (cholecystostomie)', label_en: 'Cholecystostomy', url: 'non-vasculair/galblaasdrain.html' },
+      { label: 'Leverbiopt', label_en: 'Liver biopsy',                url: 'non-vasculair/leverbiopt.html' },
+      { label: 'PTCD galwegdrainage', label_en: 'PTCD biliary drainage',    url: 'non-vasculair/ptcd.html' },
+      { label: 'Stentplaatsing galwegen', label_en: 'Biliary stenting',         url: 'non-vasculair/biliary-stenting.html' },
+      { header: 'Drainage', header_en: 'Drainage' },
+      { label: 'Abcesdrainage', label_en: 'Abscess drainage',            url: 'non-vasculair/abcesdrainage.html' },
       { label: 'Ascitesdrainage', label_en: 'Ascites drainage',          url: 'non-vasculair/ascitesdrainage.html' },
       { label: 'Permanente ascitesdrain (IPC)', label_en: 'Indwelling peritoneal catheter (IPC)', url: 'non-vasculair/permanente-ascitesdrain.html' },
-      { label: 'Nierbiopt', label_en: 'Renal biopsy',                url: 'non-vasculair/nierbiopt.html' },
-      { label: 'Leverbiopt', label_en: 'Liver biopsy',                url: 'non-vasculair/leverbiopt.html' },
-      { label: 'Antegrade JJ-katheter', label_en: 'Antegrade JJ stent',    url: 'non-vasculair/jj-katheter.html' },
-      { label: 'Percutane gastrostomie (PRG)', label_en: 'Percutaneous gastrostomy (PRG)', url: 'non-vasculair/gastrostomie.html' },
-      { label: 'Abcesdrainage', label_en: 'Abscess drainage',            url: 'non-vasculair/abcesdrainage.html' },
       { label: 'Thoraxdrainage / pleurapunctie', label_en: 'Thoracic drainage / thoracentesis', url: 'non-vasculair/thoraxdrainage.html' },
-      { label: 'Stentplaatsing galwegen', label_en: 'Biliary stenting',         url: 'non-vasculair/biliary-stenting.html' },
+      { header: 'Overig', header_en: 'Other' },
+      { label: 'Percutane gastrostomie (PRG)', label_en: 'Percutaneous gastrostomy (PRG)', url: 'non-vasculair/gastrostomie.html' },
+      { label: 'Schildklierablatie (RFA)', label_en: 'Thyroid ablation (RFA)', url: 'non-vasculair/ablatie-schildklier.html' },
       { label: 'Sclerosering Morel-Lavallée', label_en: 'Morel-Lavallée sclerotherapy', url: 'non-vasculair/morel-lavallee.html' },
       { label: 'Sclerosering schildkliercyste', label_en: 'Thyroid cyst sclerotherapy', url: 'non-vasculair/schildkliercyste.html' },
-      { label: 'Schildklierablatie (RFA)', label_en: 'Thyroid ablation (RFA)', url: 'non-vasculair/ablatie-schildklier.html' },
     ]
   },
   {
@@ -52,9 +59,9 @@ const NAV_ITEMS = [
     label: 'MDO', label_en: 'MDT',
     dot: '#6040a0',
     items: [
+      { label: 'Aorta MDO', label_en: 'Aortic MDT', url: 'mdo/aorta-mdo.html' },
       { label: 'Shunt MDO', label_en: 'Shunt MDT',         url: 'mdo/shunt-mdo.html' },
       { label: 'Vaatchirurgie MDO — Bekken/Been', label_en: 'Vascular MDT — Pelvic/Leg', url: 'mdo/vaatchirurgie-mdo.html' },
-      { label: 'Aorta MDO', label_en: 'Aortic MDT', url: 'mdo/aorta-mdo.html' },
       { label: 'Visceraal MDO — Mesenteriaal', label_en: 'Visceral MDT — Mesenteric', url: 'mdo/visceraal-mdo.html' },
     ]
   },
@@ -65,10 +72,10 @@ const NAV_ITEMS = [
       { label: 'Overzicht materiaal', label_en: 'Equipment overview', url: 'materiaal/index.html' },
       { label: 'Antistolling bij interventies', label_en: 'Anticoagulation in interventions', url: 'materiaal/antistolling.html' },
       { label: 'Angioset', label_en: 'Angio set',            url: 'materiaal/angioset.html' },
-      { label: 'Sheaths & Katheters', label_en: 'Sheaths & Catheters', url: 'materiaal/sheaths-en-katheters.html' },
+      { label: 'Closure devices', label_en: 'Closure devices', url: 'materiaal/closure-devices.html' },
       { label: 'Draden', label_en: 'Guidewires',              url: 'materiaal/draden.html' },
       { label: 'Embolisatiematerialen', label_en: 'Embolization materials', url: 'materiaal/embolisatiematerialen.html' },
-      { label: 'Closure devices', label_en: 'Closure devices', url: 'materiaal/closure-devices.html' },
+      { label: 'Sheaths & Katheters', label_en: 'Sheaths & Catheters', url: 'materiaal/sheaths-en-katheters.html' },
     ]
   }
 ];
@@ -116,6 +123,9 @@ function buildNav() {
     const dotStyle = group.dot ? `style="background:${group.dot}"` : '';
 
     const itemsHTML = group.items.map(item => {
+      if (item.header) {
+        return `<div class="dropdown-subhead">${biLabel(item.header, item.header_en)}</div>`;
+      }
       const url = prefix + item.url;
       if (item.soon) {
         return `<div class="dropdown-item" style="color:var(--muted);cursor:default">
@@ -161,6 +171,9 @@ function buildNav() {
     const dotStyle = group.dot ? `style="background:${group.dot}"` : '';
     const header = `<div class="mob-group-label">${biLabel(group.label, group.label_en)}</div>`;
     const items = group.items.map(item => {
+      if (item.header) {
+        return `<div class="mob-subhead">${biLabel(item.header, item.header_en)}</div>`;
+      }
       const url = prefix + item.url;
       if (item.soon) {
         return `<div class="mob-item" style="color:var(--muted);cursor:default">

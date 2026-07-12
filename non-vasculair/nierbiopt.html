@@ -90,21 +90,7 @@
 <div class="acc-inner" style="padding:0">
 <table class="mat">
 <thead><tr><th data-en="Material" data-nl="Materiaal">Materiaal</th><th data-en="Specification" data-nl="Specificatie">Specificatie</th><th data-en="Quantity" data-nl="Aantal">Aantal</th></tr></thead>
-<tbody>
-<tr><td data-en="Sterile table" data-nl="Steriele tafel">Steriele tafel</td><td data-en="Sterile instrument cover" data-nl="Steriele afdekking instrumenten">Steriele afdekking instrumenten</td><td>1</td></tr>
-<tr><td data-en="Fenestrated drape" data-nl="Gatdoek">Gatdoek</td><td data-en="Patient drape" data-nl="Afdekking patiënt">Afdekking patiënt</td><td>1</td></tr>
-<tr><td data-en="Ultrasound probe cover" data-nl="Echoprobe hoes">Echoprobe hoes</td><td data-en="Sterile" data-nl="Steriel">Steriel</td><td>1</td></tr>
-<tr><td data-en="21G needle" data-nl="21G naald">21G naald</td><td data-en="Injection needle" data-nl="Verdovingsnaald">Verdovingsnaald</td><td>1</td></tr>
-<tr><td data-en="Drawing-up needle" data-nl="Rode naald (optreknaald)">Rode naald (optreknaald)</td><td data-en="Standard" data-nl="Standaard">Standaard</td><td>1</td></tr>
-<tr><td data-en="10 cc syringe" data-nl="10 cc spuit">10 cc spuit</td><td>Standaard</td><td>1</td></tr>
-<tr><td>Lidocaïne 1%</td><td>10 cc</td><td>1</td></tr>
-<tr><td data-en="NaCl 0.9%" data-nl="NaCl 0.9%">NaCl 0.9%</td><td>10 cc</td><td>1</td></tr>
-<tr><td data-en="Blade" data-nl="Mesje">Mesje</td><td data-en="Small stab incision" data-nl="Kleine steekincisie">Kleine steekincisie</td><td>1</td></tr>
-<tr><td data-en="15G coaxial needle" data-nl="15G steunnaald">15G steunnaald</td><td data-en="Guidance for biopsy device" data-nl="Geleiding voor biopteur">Geleiding voor biopteur</td><td>1</td></tr>
-<tr><td data-en="16G biopsy device" data-nl="16G biopteur">16G biopteur</td><td data-en="Automatic, 2 cm throw" data-nl="Automatisch, 2 cm uitslag">Automatisch, 2 cm uitslag</td><td>1</td></tr>
-<tr><td data-en="Sterile gauze" data-nl="Steriele gazen">Steriele gazen</td><td>Standaard</td><td>1</td></tr>
-<tr><td data-en="Sterile container with NaCl" data-nl="Steriele container met NaCl">Steriele container met NaCl</td><td data-en="For biopsy material" data-nl="Voor bioptmateriaal">Voor bioptmateriaal</td><td>1</td></tr>
-</tbody>
+<tbody id="mat-nierbiopt"></tbody>
 </table>
 </div>
 </div>
@@ -182,7 +168,10 @@
 <div class="acc-body">
 <div class="acc-inner">
 <div class="verslag-wrap">
-<div class="verslag" data-en="Patient prone. Ultrasound-guided identification of [left / right] kidney.
+<div class="verslag" data-en="Reference: [date/modality]
+Anticoagulation: [discontinued / not applicable]
+
+Patient prone. Ultrasound-guided identification of [left / right] kidney.
 After local anaesthesia of skin and renal capsule, ultrasound-guided placement of a
 15G coaxial needle to the renal capsule. Through the coaxial needle [__] cores
 taken from the cortical zone with a 16G biopsy device (2 cm throw).
@@ -191,7 +180,10 @@ Ultrasound after procedure shows no signs of active bleeding.
 No immediate complications.
 
 CONCLUSION:
-Ultrasound-guided renal biopsy [left/right], [__] cores." data-nl="Patiënt in buikligging. Echogeleide identificatie [linker / rechter] nier.
+Ultrasound-guided renal biopsy [left/right], [__] cores." data-nl="Ter vergelijking: [datum/modaliteit]
+Antistolling: [gestaakt / niet van toepassing]
+
+Patiënt in buikligging. Echogeleide identificatie [linker / rechter] nier.
 Na lokale verdoving van huid en nierkapsel echogeleide plaatsing van een
 15G steunnaald tot aan het nierkapsel. Via de steunnaald [__] biopten
 afgenomen van de corticale zone met een 16G biopteur (2 cm uitslag).
@@ -200,7 +192,10 @@ Echo na procedure toont geen tekenen van actieve bloeding.
 Geen directe complicaties.
 
 CONCLUSIE:
-Echogeleide nierbiopsie [links/rechts], [__] biopten." id="verslag-nb">Patiënt in buikligging. Echogeleide identificatie [linker / rechter] nier.
+Echogeleide nierbiopsie [links/rechts], [__] biopten." id="verslag-nb">Ter vergelijking: [datum/modaliteit]
+Antistolling: [gestaakt / niet van toepassing]
+
+Patiënt in buikligging. Echogeleide identificatie [linker / rechter] nier.
 Na lokale verdoving van huid en nierkapsel echogeleide plaatsing van een
 15G steunnaald tot aan het nierkapsel. Via de steunnaald [__] biopten
 afgenomen van de corticale zone met een 16G biopteur (2 cm uitslag).
@@ -237,6 +232,7 @@ Echogeleide nierbiopsie [links/rechts], [__] biopten.</div>
 <script src="../procedures.js"></script>
 <script src="../nav.js"></script>
 <script src="../search.js"></script>
+<script src="../materiaal.js"></script>
 <script src="../lang.js"></script>
 <script>
 function toggleAcc(id) { document.getElementById(id).classList.toggle('open'); }
@@ -250,6 +246,23 @@ function copyVerslag(verslagId, btnId) {
     setTimeout(() => { btn.innerHTML = '⎘ <span data-nl="Kopieer" data-en="Copy">Kopieer</span>'; btn.classList.remove('copied'); if(typeof applyLang !== 'undefined') applyLang(lang); }, 2000);
   });
 }
+</script>
+<script>
+buildMateriaal('mat-nierbiopt', [
+  { ref:'steriele_tafel', spec_nl:'Steriele afdekking instrumenten', spec_en:'Sterile instrument cover' },
+  'gatdoek',
+  'echoprobe_hoes',
+  { nl:'21G naald', en:'21G needle', spec_nl:'Verdovingsnaald', spec_en:'Injection needle' },
+  { nl:'Rode naald (optreknaald)', en:'Drawing-up needle', spec_nl:'Standaard', spec_en:'Standard' },
+  { nl:'10 cc spuit', en:'10 cc syringe', spec_nl:'Standaard' },
+  'lidocaine',
+  { nl:'NaCl 0.9%', en:'NaCl 0.9%', spec_nl:'10 cc' },
+  { nl:'Mesje', en:'Blade', spec_nl:'Kleine steekincisie', spec_en:'Small stab incision' },
+  { nl:'15G steunnaald', en:'15G coaxial needle', spec_nl:'Geleiding voor biopteur', spec_en:'Guidance for biopsy device' },
+  { nl:'16G biopteur', en:'16G biopsy device', spec_nl:'Automatisch, 2 cm uitslag', spec_en:'Automatic, 2 cm throw' },
+  { nl:'Steriele gazen', en:'Sterile gauze', spec_nl:'Standaard' },
+  { nl:'Steriele container met NaCl', en:'Sterile container with NaCl', spec_nl:'Voor bioptmateriaal', spec_en:'For biopsy material' }
+]);
 </script>
 </body>
 </html>

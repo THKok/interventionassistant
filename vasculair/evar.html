@@ -140,21 +140,7 @@
 <th data-en="Specification" data-nl="Specificatie">Specificatie</th>
 <th data-en="Quantity" data-nl="Aantal">Aantal</th>
 </tr></thead>
-<tbody>
-<tr><td data-en="Main body (stent graft)" data-nl="Mainbody (stentgraft)">Mainbody (stentgraft)</td><td data-en="Size per planning" data-nl="Maat conform planning">Maat conform planning</td><td>1</td></tr>
-<tr><td data-en="Iliac limbs (stents)" data-nl="Iliacale poten (stents)">Iliacale poten (stents)</td><td data-en="For ipsi- and contralateral iliac limb; size per planning" data-nl="Voor ipsi- en contralaterale iliacale poot; maat conform planning">Voor ipsi- en contralaterale iliacale poot; maat conform planning</td><td>2</td></tr>
-<tr><td data-en="Aortic extensions" data-nl="Aortale extensies">Aortale extensies</td><td data-en="As indicated; back-up sizes available" data-nl="Op indicatie; back-up maten beschikbaar">Op indicatie; back-up maten beschikbaar</td><td data-en="If needed" data-nl="Bij behoefte">Bij behoefte</td></tr>
-<tr><td data-en="Back-up Meier wires" data-nl="Back-up Meier draden">Back-up Meier draden</td><td data-en='0.035" stiff extra-support; bilateral' data-nl='0.035" stijve supersteun; bilateraal'>0.035" stijve supersteun; bilateraal</td><td>2</td></tr>
-<tr><td data-en="Introducer sheath" data-nl="Introducersheath">Introducersheath</td><td>6Fr</td><td>2</td></tr>
-<tr><td data-en="Sheath iliac limb" data-nl="Sheath iliacale poot">Sheath iliacale poot</td><td data-en="14 or 16 Fr, depending on planned limb diameter" data-nl="14 of 16 Fr, afhankelijk van geplande pootdiameter">14 of 16 Fr, afhankelijk van geplande pootdiameter</td><td>2</td></tr>
-<tr><td data-en="Sheath main body (consider)" data-nl="Sheath mainbody (overweeg)">Sheath mainbody (overweeg)</td><td data-en="18 or 20 Fr; consider with very tortuous iliac course" data-nl="18 of 20 Fr; overweeg bij zeer tortueus iliacaal traject">18 of 20 Fr; overweeg bij zeer tortueus iliacaal traject</td><td data-en="As indicated" data-nl="Op indicatie">Op indicatie</td></tr>
-<tr><td data-en="Measuring catheter / pigtail" data-nl="Meetkatheter / pigtail">Meetkatheter / pigtail</td><td data-en="Marked, for angiography and length measurement" data-nl="Gemarkeerd, voor angiografie en lengtemeting">Gemarkeerd, voor angiografie en lengtemeting</td><td>1</td></tr>
-<tr><td data-en="Hydrophilic guidewire" data-nl="Hydrofiele voerdraad">Hydrofiele voerdraad</td><td data-en="Stiff or floppy Terumo" data-nl="Stiff of floppy Terumo">Stiff of floppy Terumo</td><td>1</td></tr>
-<tr><td data-en="Compliant balloon" data-nl="Compliant ballon">Compliant ballon</td><td data-en="For post-dilating the main body and iliac limbs" data-nl="Voor naballoneren van de mainbody en iliacale poten">Voor naballoneren van de mainbody en iliacale poten</td><td>1</td></tr>
-<tr><td data-en="Contrast pump" data-nl="Contrastpomp">Contrastpomp</td><td data-en="For angiographic runs" data-nl="Voor angiografische series">Voor angiografische series</td><td>1</td></tr>
-<tr><td data-en="Heparin" data-nl="Heparine">Heparine</td><td data-en="5000 IU, systemic during the procedure" data-nl="5000 IE, systemisch tijdens de procedure">5000 IE, systemisch tijdens de procedure</td><td>1</td></tr>
-<tr><td data-en="Closure device" data-nl="Sluitsysteem">Sluitsysteem</td><td data-en="Perclose ProGlide (pre-close)" data-nl="Perclose ProGlide (pre-close)">Perclose ProGlide (pre-close)</td><td>4</td></tr>
-</tbody>
+<tbody id="mat-evar"></tbody>
 </table>
 </div>
 </div>
@@ -248,7 +234,10 @@
 <div class="acc-body">
 <div class="acc-inner">
 <div class="verslag-wrap">
-<div class="verslag" data-en="Indication: Infrarenal AAA (max. diameter [__] mm).
+<div class="verslag" data-en="Reference: [date/modality]
+Anticoagulation: [discontinued / not applicable]
+
+Indication: Infrarenal AAA (max. diameter [__] mm).
 Informed consent obtained. Time-out procedure.
 
 PROCEDURE:
@@ -267,7 +256,10 @@ Completion angiography: [no endoleak / type __ endoleak], limbs patent, renal ar
 Access sites closed with ProGlides; pressure dressing applied. Distal perfusion intact. No immediate complications.
 
 CONCLUSION:
-Technically successful EVAR procedure." data-nl="Indicatie: Infrarenaal AAA (max. diameter [__] mm).
+Technically successful EVAR procedure." data-nl="Ter vergelijking: [datum/modaliteit]
+Antistolling: [gestaakt / niet van toepassing]
+
+Indicatie: Infrarenaal AAA (max. diameter [__] mm).
 Informed consent verkregen. Time-out procedure.
 
 PROCEDURE:
@@ -286,7 +278,10 @@ Completie-angiografie: [geen endolek / type __ endolek], poten doorgankelijk, ni
 Toegangsplaatsen gesloten met ProGlides; drukverband aangelegd. Distale perfusie intact. Geen directe complicaties.
 
 CONCLUSIE:
-Technisch succesvolle EVAR procedure." id="verslag-evar">Indicatie: Infrarenaal AAA (max. diameter [__] mm).
+Technisch succesvolle EVAR procedure." id="verslag-evar">Ter vergelijking: [datum/modaliteit]
+Antistolling: [gestaakt / niet van toepassing]
+
+Indicatie: Infrarenaal AAA (max. diameter [__] mm).
 Informed consent verkregen. Time-out procedure.
 
 PROCEDURE:
@@ -373,6 +368,7 @@ Technisch succesvolle EVAR procedure.</div>
 <script src="../procedures.js"></script>
 <script src="../nav.js"></script>
 <script src="../search.js"></script>
+<script src="../materiaal.js"></script>
 <script src="../lang.js"></script>
 <script>
 function toggleAcc(id) { document.getElementById(id).classList.toggle('open'); }
@@ -429,6 +425,23 @@ function closeLightboxOutside(e) {
 }
 
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+</script>
+<script>
+buildMateriaal('mat-evar', [
+  { nl:'Mainbody (stentgraft)', en:'Main body (stent graft)', spec_nl:'Maat conform planning', spec_en:'Size per planning' },
+  { nl:'Iliacale poten (stents)', en:'Iliac limbs (stents)', spec_nl:'Voor ipsi- en contralaterale iliacale poot; maat conform planning', spec_en:'For ipsi- and contralateral iliac limb; size per planning', aantal:'2' },
+  { nl:'Aortale extensies', en:'Aortic extensions', spec_nl:'Op indicatie; back-up maten beschikbaar', spec_en:'As indicated; back-up sizes available', aantal:'Bij behoefte' },
+  { nl:'Back-up Meier draden', en:'Back-up Meier wires', spec_nl:'0.035" stijve supersteun; bilateraal', spec_en:'0.035" stiff extra-support; bilateral', aantal:'2' },
+  { ref:'sheath_6', spec_nl:'6Fr', aantal:'2', link:'' },
+  { nl:'Sheath iliacale poot', en:'Sheath iliac limb', spec_nl:'14 of 16 Fr, afhankelijk van geplande pootdiameter', spec_en:'14 or 16 Fr, depending on planned limb diameter', aantal:'2' },
+  { nl:'Sheath mainbody (overweeg)', en:'Sheath main body (consider)', spec_nl:'18 of 20 Fr; overweeg bij zeer tortueus iliacaal traject', spec_en:'18 or 20 Fr; consider with very tortuous iliac course', aantal:'Op indicatie' },
+  { nl:'Meetkatheter / pigtail', en:'Measuring catheter / pigtail', spec_nl:'Gemarkeerd, voor angiografie en lengtemeting', spec_en:'Marked, for angiography and length measurement' },
+  { ref:'hydrofiele_draad', spec_nl:'Stiff of floppy Terumo', spec_en:'Stiff or floppy Terumo', link:'' },
+  { nl:'Compliant ballon', en:'Compliant balloon', spec_nl:'Voor naballoneren van de mainbody en iliacale poten', spec_en:'For post-dilating the main body and iliac limbs' },
+  { nl:'Contrastpomp', en:'Contrast pump', spec_nl:'Voor angiografische series', spec_en:'For angiographic runs' },
+  { ref:'heparine', spec_nl:'5000 IE, systemisch tijdens de procedure', spec_en:'5000 IU, systemic during the procedure' },
+  { nl:'Sluitsysteem', en:'Closure device', spec_nl:'Perclose ProGlide (pre-close)', spec_en:'Perclose ProGlide (pre-close)', aantal:'4' }
+]);
 </script>
 </body>
 </html>

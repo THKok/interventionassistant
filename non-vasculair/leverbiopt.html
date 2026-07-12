@@ -101,16 +101,7 @@
             <th data-nl="Specificatie" data-en="Specification">Specificatie</th>
             <th data-nl="Aantal" data-en="Quantity">Aantal</th>
           </tr></thead>
-          <tbody>
-            <tr><td data-nl="Steriele tafel" data-en="Sterile table">Steriele tafel</td><td>—</td><td>1</td></tr>
-            <tr><td data-nl="Echo-inpak" data-en="Ultrasound cover">Echo-inpak</td><td data-nl="Steriele probehoes + gel" data-en="Sterile probe cover + gel">Steriele probehoes + gel</td><td>1</td></tr>
-            <tr><td data-nl="Lokaal anestheticum" data-en="Local anaesthetic">Lokaal anestheticum</td><td data-nl="Lidocaïne 1%, 10 cc" data-en="Lidocaine 1%, 10 cc">Lidocaïne 1%, 10 cc</td><td>2</td></tr>
-            <tr><td data-nl="Scalpel" data-en="Scalpel">Scalpel</td><td data-nl="No. 11" data-en="No. 11">No. 11</td><td>1</td></tr>
-            <tr><td data-nl="Steunnaald (coaxiaal)" data-en="Coaxial introducer needle">Steunnaald (coaxiaal)</td><td data-nl="17G" data-en="17G">17G</td><td>1</td></tr>
-            <tr><td data-nl="Biopteur (core needle)" data-en="Core biopsy needle">Biopteur (core needle)</td><td data-nl="18G, 10–20 cm afhankelijk van locatie laesie" data-en="18G, 10–20 cm depending on lesion location">18G, 10–20 cm afhankelijk van locatie laesie</td><td>1</td></tr>
-            <tr><td data-nl="Pathologiepotjes" data-en="Pathology containers">Pathologiepotjes</td><td data-nl="Formaline; extra potje voor normaal leverweefsel bij HCC-verdenking" data-en="Formalin; extra container for normal liver tissue if HCC suspected">Formaline; extra potje voor normaal leverweefsel bij HCC-verdenking</td><td data-nl="≥1" data-en="≥1">≥1</td></tr>
-            <tr><td data-nl="Eilandpleister" data-en="Island dressing">Eilandpleister</td><td data-nl="Steriel" data-en="Sterile">Steriel</td><td>1</td></tr>
-          </tbody>
+          <tbody id="mat-leverbiopt"></tbody>
         </table>
       </div>
     </div>
@@ -205,7 +196,10 @@
     <div class="acc-body">
       <div class="acc-inner">
         <div class="verslag-wrap">
-          <div class="verslag" id="verslag-leverbiopt" data-nl="Indicatie: [focale leverlaesie / diffuse leverziekte] — [diagnose/vraagstelling].
+          <div class="verslag" id="verslag-leverbiopt" data-nl="Ter vergelijking: [datum/modaliteit]
+Antistolling: [gestaakt / niet van toepassing]
+
+Indicatie: [focale leverlaesie / diffuse leverziekte] — [diagnose/vraagstelling].
 Informed consent verkregen. Time-out procedure.
 
 PROCEDURE:
@@ -222,7 +216,10 @@ Steunnaald verwijderd [met/zonder track-embolisatie]. Echografisch geen directe 
 Geen directe complicaties.
 
 CONCLUSIE:
-Technisch succesvol echogeleid leverbiopt." data-en="Indication: [focal liver lesion / diffuse liver disease] — [diagnosis/question].
+Technisch succesvol echogeleid leverbiopt." data-en="Reference: [date/modality]
+Anticoagulation: [discontinued / not applicable]
+
+Indication: [focal liver lesion / diffuse liver disease] — [diagnosis/question].
 Informed consent obtained. Time-out procedure.
 
 PROCEDURE:
@@ -239,7 +236,10 @@ Introducer needle removed [with/without track embolisation]. No immediate bleedi
 No immediate complications.
 
 CONCLUSION:
-Technically successful ultrasound-guided liver biopsy.">Indicatie: [focale leverlaesie / diffuse leverziekte] — [diagnose/vraagstelling].
+Technically successful ultrasound-guided liver biopsy.">Ter vergelijking: [datum/modaliteit]
+Antistolling: [gestaakt / niet van toepassing]
+
+Indicatie: [focale leverlaesie / diffuse leverziekte] — [diagnose/vraagstelling].
 Informed consent verkregen. Time-out procedure.
 
 PROCEDURE:
@@ -286,9 +286,22 @@ Technisch succesvol echogeleid leverbiopt.</div>
 <script src="../procedures.js"></script>
 <script src="../nav.js"></script>
 <script src="../search.js"></script>
+<script src="../materiaal.js"></script>
 <script src="../lang.js"></script>
 <script>
 function toggleAcc(id) { document.getElementById(id).classList.toggle('open'); }
+</script>
+<script>
+buildMateriaal('mat-leverbiopt', [
+  { ref:'steriele_tafel', spec_nl:'—' },
+  { nl:'Echo-inpak', en:'Ultrasound cover', spec_nl:'Steriele probehoes + gel', spec_en:'Sterile probe cover + gel' },
+  { nl:'Lokaal anestheticum', en:'Local anaesthetic', spec_nl:'Lidocaïne 1%, 10 cc', spec_en:'Lidocaine 1%, 10 cc', aantal:'2' },
+  { ref:'mesje_11', spec_nl:'No. 11', spec_en:'No. 11' },
+  { nl:'Steunnaald (coaxiaal)', en:'Coaxial introducer needle', spec_nl:'17G', spec_en:'17G' },
+  { nl:'Biopteur (core needle)', en:'Core biopsy needle', spec_nl:'18G, 10–20 cm afhankelijk van locatie laesie', spec_en:'18G, 10–20 cm depending on lesion location' },
+  { nl:'Pathologiepotjes', en:'Pathology containers', spec_nl:'Formaline; extra potje voor normaal leverweefsel bij HCC-verdenking', spec_en:'Formalin; extra container for normal liver tissue if HCC suspected', aantal:'≥1' },
+  'eilandpleister'
+]);
 </script>
 </body>
 </html>

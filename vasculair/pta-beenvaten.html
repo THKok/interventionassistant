@@ -94,19 +94,7 @@
       <div class="acc-inner" style="padding:0">
         <table class="mat">
           <thead><tr><th data-nl="Materiaal" data-en="Material">Materiaal</th><th data-nl="Specificatie" data-en="Specification">Specificatie</th><th data-nl="Aantal" data-en="Quantity">Aantal</th></tr></thead>
-          <tbody>
-            <tr><td data-nl="Angioset" data-en="Angio set">Angioset</td><td data-nl="Standaard" data-en="Standard">Standaard</td><td>1</td></tr>
-            <tr><td data-nl="Lidocaïne 1%" data-en="Lidocaine 1%">Lidocaïne 1%</td><td>10 cc</td><td>1</td></tr>
-            <tr><td data-nl="Introducersheath" data-en="Introducer sheath">Introducersheath</td><td>6Fr</td><td>1</td></tr>
-            <tr><td data-nl="Hydrofiele voerdraad" data-en="Hydrophilic guidewire">Hydrofiele voerdraad</td><td data-nl="Stiff of floppy Terumo" data-en="Stiff or floppy Terumo">Stiff of floppy Terumo</td><td>1</td></tr>
-            <tr><td data-nl="PTA-ballon" data-en="PTA balloon">PTA-ballon</td><td data-nl="Maat conform planning" data-en="Size per planning">Maat conform planning</td><td data-nl="Conform planning" data-en="Per planning">Conform planning</td></tr>
-            <tr><td data-nl="Self-expanding nitinol stent" data-en="Self-expanding nitinol stent">Self-expanding nitinol stent</td><td data-nl="Maat conform planning" data-en="Size per planning">Maat conform planning</td><td data-nl="Op indicatie" data-en="As indicated">Op indicatie</td></tr>
-            <tr><td data-nl="Pressure device" data-en="Pressure device">Pressure device</td><td data-nl="Gevuld 1:1 met contrast en NaCl" data-en="Filled 1:1 with contrast and NaCl">Gevuld 1:1 met contrast en NaCl</td><td>1</td></tr>
-            <tr><td data-nl="Closure device" data-en="Closure device">Closure device</td><td>Angioseal</td><td>1</td></tr>
-            <tr><td data-nl="Heparine" data-en="Heparin">Heparine</td><td data-nl="5000 IE, via de sheath" data-en="5000 IU, via the sheath">5000 IE, via de sheath</td><td>1</td></tr>
-            <tr><td data-nl="Contrast" data-en="Contrast">Contrast</td><td data-nl="Voor angiografische series" data-en="For angiographic runs">Voor angiografische series</td><td data-nl="Voldoende" data-en="Sufficient">Voldoende</td></tr>
-            <tr><td>NaCl</td><td data-nl="Voor flushen en pressure device" data-en="For flushing and pressure device">Voor flushen en pressure device</td><td data-nl="Voldoende" data-en="Sufficient">Voldoende</td></tr>
-          </tbody>
+          <tbody id="mat-ptabeenvaten"></tbody>
         </table>
       </div>
     </div>
@@ -193,94 +181,98 @@
     <div class="acc-body">
       <div class="acc-inner">
         <div class="verslag-wrap">
-          <div class="verslag" id="verslag-pta" data-nl="Ter vergelijking: [Datum/Modaliteit]
-Antistolling: [Gestaakt / Niet van toepassing]
+          <div class="verslag" id="verslag-pta" data-nl="Ter vergelijking: [datum/modaliteit]
+Antistolling: [gestaakt / niet van toepassing]
 
-INDICATIE:
-[Claudicatio intermittens / Kritieke ischemie] [rechts/links],
-TASC II [A/B/C/D], [stenose/occlusie] ter hoogte van [locatie].
+Indicatie: [Claudicatio intermittens (Fontaine 2) / kritieke ischemie (Fontaine 3–4)]
+[rechts/links], [stenose/occlusie] ter hoogte van [locatie].
 
 PROCEDURE:
-Na LA lidocaïne 2% werd [antegrade / contralaterale cross-over] punctie
-verricht van de A. femoralis communis [rechts/links] onder echogeleiding.
-Inbrengen [6Fr] sheath.
+Na lokale anesthesie met lidocaïne 1% echogeleide ipsilaterale antegrade
+punctie van de a. femoralis [rechts/links]. Inbrengen korte 6Fr sheath.
+Toedienen 5000 IE heparine via de sheath.
 
-Diagnostische angiografie toonde [stenose/occlusie] ter hoogte van [locatie],
-lengte ca. [__] cm, met [goede/matige/slechte] distale uitstroom via [cruraal vat].
+Diagnostische angiografie toont [stenose/occlusie] ter hoogte van
+[locatie], lengte ca. [__] cm, met [goede/matige/slechte] distale uitstroom.
 
-Heparine [5000 IE] iv direct na sheath. Crossing [transluminaal / subintimaal PIER].
-Dilatatie [PTA / DEB] [diameter] mm × [lengte] mm, max [__] atm, [__] sec.
-[Stentplaatsing: [type/merk] [diameter] mm × [lengte] mm.]
+Laesie gepasseerd met [hydrofiele draad / 0.018 inch draad]; intraluminale
+positie bevestigd met contrastinjectie via de katheter. Over stijve draad
+(Rosen) PTA met [diameter] × [lengte] mm ballon, 3 minuten op nominale druk.
 
-Reststenose &lt;30%. Hemostase: Angioseal 6Fr. Geen directe complicaties.
+Controle-DSA: [goed resultaat zonder significante reststenose /
+significante reststenose waarvoor stentplaatsing].
+[Stentplaatsing: self-expanding nitinolstent [diameter] × [lengte] mm,
+nagedilateerd. Controle-DSA toont goed resultaat.]
+
+Hemostase: Angio-Seal 6Fr. Geen directe complicaties.
 
 CONCLUSIE:
-Technisch succesvol PTA [± stent] van [locatie].
+Technisch succesvolle PTA [± stent] van [locatie] [rechts/links].
 
-MEDICATIE POST:
-DAPT [4 weken / 3 maanden], daarna monotherapie.
-Contrast: Iomeron [300/350], totaal [__] ml.
+NAZORG:
+Contrast: totaal [__] ml.
+ABI-meting na 4–6 weken. Duplex beenvaten na 3 maanden." data-en="Reference: [date/modality]
+Anticoagulation: [discontinued / not applicable]
 
-NACONTROLE:
-ABI meting na 4–6 weken. Duplex beenvaten na 3 maanden." data-en="Reference: [Date/Modality]
-Anticoagulation: [Discontinued / Not applicable]
-
-INDICATION:
-[Intermittent claudication / Critical ischaemia] [right/left],
-TASC II [A/B/C/D], [stenosis/occlusion] at the level of [location].
+Indication: [Intermittent claudication (Fontaine 2) / critical ischaemia (Fontaine 3–4)]
+[right/left], [stenosis/occlusion] at [location].
 
 PROCEDURE:
-After LA lidocaine 2%, [antegrade / contralateral cross-over] puncture
-of the common femoral artery [right/left] under ultrasound guidance.
-Introduction of [6Fr] sheath.
+After local anaesthesia with lidocaine 1%, ultrasound-guided ipsilateral
+antegrade puncture of the femoral artery [right/left]. Short 6Fr sheath
+introduced. 5000 IU heparin administered via the sheath.
 
-Diagnostic angiography showed [stenosis/occlusion] at the level of [location],
-length approx. [__] cm, with [good/moderate/poor] distal runoff via [crural vessel].
+Diagnostic angiography shows [stenosis/occlusion] at [location], length
+approx. [__] cm, with [good/moderate/poor] distal outflow.
 
-Heparin [5000 IU] iv immediately after sheath. Crossing [transluminal / subintimal PIER].
-Dilatation [PTA / DEB] [diameter] mm × [length] mm, max [__] atm, [__] sec.
-[Stent placement: [type/brand] [diameter] mm × [length] mm.]
+Lesion crossed with [hydrophilic wire / 0.018 inch wire]; intraluminal
+position confirmed with contrast injection through the catheter. Over a
+stiff wire (Rosen), PTA with a [diameter] × [length] mm balloon, 3 minutes
+at nominal pressure.
 
-Residual stenosis &lt;30%. Haemostasis: Angioseal 6Fr. No immediate complications.
+Control DSA: [good result without significant residual stenosis /
+significant residual stenosis requiring stent placement].
+[Stent placement: self-expanding nitinol stent [diameter] × [length] mm,
+post-dilated. Control DSA shows a good result.]
+
+Haemostasis: Angio-Seal 6Fr. No immediate complications.
 
 CONCLUSION:
-Technically successful PTA [± stent] of [location].
+Technically successful PTA [± stent] of [location] [right/left].
 
-POST MEDICATION:
-DAPT [4 weeks / 3 months], then monotherapy.
-Contrast: Iomeron [300/350], total [__] ml.
+AFTERCARE:
+Contrast: total [__] ml.
+ABI measurement after 4–6 weeks. Duplex of leg arteries after 3 months.">Ter vergelijking: [datum/modaliteit]
+Antistolling: [gestaakt / niet van toepassing]
 
-FOLLOW-UP:
-ABI measurement after 4–6 weeks. Duplex of leg arteries after 3 months.">Ter vergelijking: [Datum/Modaliteit]
-Antistolling: [Gestaakt / Niet van toepassing]
-
-INDICATIE:
-[Claudicatio intermittens / Kritieke ischemie] [rechts/links],
-TASC II [A/B/C/D], [stenose/occlusie] ter hoogte van [locatie].
+Indicatie: [Claudicatio intermittens (Fontaine 2) / kritieke ischemie (Fontaine 3–4)]
+[rechts/links], [stenose/occlusie] ter hoogte van [locatie].
 
 PROCEDURE:
-Na LA lidocaïne 2% werd [antegrade / contralaterale cross-over] punctie
-verricht van de A. femoralis communis [rechts/links] onder echogeleiding.
-Inbrengen [6Fr] sheath.
+Na lokale anesthesie met lidocaïne 1% echogeleide ipsilaterale antegrade
+punctie van de a. femoralis [rechts/links]. Inbrengen korte 6Fr sheath.
+Toedienen 5000 IE heparine via de sheath.
 
-Diagnostische angiografie toonde [stenose/occlusie] ter hoogte van [locatie],
-lengte ca. [__] cm, met [goede/matige/slechte] distale uitstroom via [cruraal vat].
+Diagnostische angiografie toont [stenose/occlusie] ter hoogte van
+[locatie], lengte ca. [__] cm, met [goede/matige/slechte] distale uitstroom.
 
-Heparine [5000 IE] iv direct na sheath. Crossing [transluminaal / subintimaal PIER].
-Dilatatie [PTA / DEB] [diameter] mm × [lengte] mm, max [__] atm, [__] sec.
-[Stentplaatsing: [type/merk] [diameter] mm × [lengte] mm.]
+Laesie gepasseerd met [hydrofiele draad / 0.018 inch draad]; intraluminale
+positie bevestigd met contrastinjectie via de katheter. Over stijve draad
+(Rosen) PTA met [diameter] × [lengte] mm ballon, 3 minuten op nominale druk.
 
-Reststenose &lt;30%. Hemostase: Angioseal 6Fr. Geen directe complicaties.
+Controle-DSA: [goed resultaat zonder significante reststenose /
+significante reststenose waarvoor stentplaatsing].
+[Stentplaatsing: self-expanding nitinolstent [diameter] × [lengte] mm,
+nagedilateerd. Controle-DSA toont goed resultaat.]
+
+Hemostase: Angio-Seal 6Fr. Geen directe complicaties.
 
 CONCLUSIE:
-Technisch succesvol PTA [± stent] van [locatie].
+Technisch succesvolle PTA [± stent] van [locatie] [rechts/links].
 
-MEDICATIE POST:
-DAPT [4 weken / 3 maanden], daarna monotherapie.
-Contrast: Iomeron [300/350], totaal [__] ml.
-
-NACONTROLE:
-ABI meting na 4–6 weken. Duplex beenvaten na 3 maanden.</div>
+NAZORG:
+Contrast: totaal [__] ml.
+ABI-meting na 4–6 weken. Duplex beenvaten na 3 maanden.</div>
           <button class="copy-btn" id="copy-pta" onclick="copyVerslag('verslag-pta','copy-pta')">⎘ <span data-nl="Kopieer" data-en="Copy">Kopieer</span></button>
         </div>
       </div>
@@ -307,6 +299,7 @@ ABI meting na 4–6 weken. Duplex beenvaten na 3 maanden.</div>
 <script src="../procedures.js"></script>
 <script src="../nav.js"></script>
 <script src="../search.js"></script>
+<script src="../materiaal.js"></script>
 <script src="../lang.js"></script>
 <script>
 function toggleAcc(id) { document.getElementById(id).classList.toggle('open'); }
@@ -320,6 +313,21 @@ function copyVerslag(verslagId, btnId) {
     setTimeout(() => { btn.innerHTML = '⎘ <span data-nl="Kopieer" data-en="Copy">Kopieer</span>'; btn.classList.remove('copied'); if(typeof applyLang !== 'undefined') applyLang(lang); }, 2000);
   });
 }
+</script>
+<script>
+buildMateriaal('mat-ptabeenvaten', [
+  { ref:'angioset', link:'' },
+  'lidocaine',
+  { ref:'sheath_6', link:'' },
+  { ref:'hydrofiele_draad', spec_nl:'Stiff of floppy Terumo', spec_en:'Stiff or floppy Terumo', link:'' },
+  { nl:'PTA-ballon', en:'PTA balloon', spec_nl:'Maat conform planning', spec_en:'Size per planning', aantal:'Conform planning' },
+  { nl:'Self-expanding nitinol stent', en:'Self-expanding nitinol stent', spec_nl:'Maat conform planning', spec_en:'Size per planning', aantal:'Op indicatie' },
+  { nl:'Pressure device', en:'Pressure device', spec_nl:'Gevuld 1:1 met contrast en NaCl', spec_en:'Filled 1:1 with contrast and NaCl' },
+  { ref:'angioseal', link:'' },
+  { ref:'heparine', spec_nl:'5000 IE, via de sheath', spec_en:'5000 IU, via the sheath' },
+  { nl:'Contrast', en:'Contrast', spec_nl:'Voor angiografische series', spec_en:'For angiographic runs', aantal:'Voldoende' },
+  { nl:'NaCl', spec_nl:'Voor flushen en pressure device', spec_en:'For flushing and pressure device', aantal:'Voldoende' }
+]);
 </script>
 </body>
 </html>

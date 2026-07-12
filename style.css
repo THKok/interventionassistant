@@ -117,6 +117,37 @@ nav {
 .dropdown-item:last-child { border-bottom: none; }
 .dropdown-item:hover { background: var(--blue-light); color: var(--blue); }
 
+.dropdown-subhead {
+  padding: 0.5rem 1rem 0.3rem;
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+}
+.dropdown-subhead:first-child { border-radius: 10px 10px 0 0; }
+
+.mob-subhead {
+  padding: 0.55rem 1.1rem 0.3rem;
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: var(--bg);
+}
+
+.proc-list-subhead {
+  padding: 0.55rem 0 0.25rem;
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
 .dropdown-dot {
   width: 7px;
   height: 7px;

@@ -118,7 +118,7 @@
 <li><div class="sn teal">2</div><div data-en="Determine the safest, shortest trajectory under ultrasound or CT guidance — avoid bowel, vessels and pleura." data-nl="Bepaal het veiligste, kortste traject onder echo- of CT-geleide — vermijd darm, vaten en pleura.">Bepaal het veiligste, kortste traject onder echo- of CT-geleide — vermijd darm, vaten en pleura.</div></li>
 <li><div class="sn teal">3</div><div data-en="Local anaesthesia from skin to the collection." data-nl="Lokale anesthesie van huid tot aan de collectie.">Lokale anesthesie van huid tot aan de collectie.</div></li>
 <li><div class="sn teal">4</div><div data-en="Diagnostic aspiration: aspirate some material for culture and assess viscosity — determines drain size." data-nl="Diagnostische aspiratie: aspireer wat materiaal voor kweek en beoordeel de viscositeit — bepaalt de drainmaat.">Diagnostische aspiratie: aspireer wat materiaal voor kweek en beoordeel de viscositeit — bepaalt de drainmaat.</div></li>
-<li><div class="sn teal">5</div><div data-en="&lt;strong&gt;Seldinger technique (standard):&lt;/strong&gt; puncture with needle, advance guidewire into the collection, dilate tract, introduce drain over the wire." data-nl="&lt;strong&gt;Seldinger-techniek (standaard):&lt;/strong&gt; punctie met naald, voerdraad opvoeren in de collectie, traject dilateren, drain over de draad inbrengen."><strong>Seldinger-techniek (standaard):</strong> punctie met naald, voerdraad opvoeren in de collectie, traject dilateren, drain over de draad inbrengen.</div></li>
+<li><div class="sn teal">5</div><div data-en="&lt;strong&gt;Seldinger technique (standard):&lt;/strong&gt; puncture with needle, advance guidewire into the collection, introduce drain over the wire." data-nl="&lt;strong&gt;Seldinger-techniek (standaard):&lt;/strong&gt; punctie met naald, voerdraad opvoeren in de collectie, drain over de draad inbrengen."><strong>Seldinger-techniek (standaard):</strong> punctie met naald, voerdraad opvoeren in de collectie, drain over de draad inbrengen.</div></li>
 <li><div class="sn teal">6</div><div data-en="&lt;strong&gt;Trocar technique (alternative):&lt;/strong&gt; for large, superficial collections — place drain with stylet directly into the collection in one motion." data-nl="&lt;strong&gt;Trocar-techniek (alternatief):&lt;/strong&gt; bij grote, oppervlakkige collecties — drain met stilet in één beweging direct in de collectie plaatsen."><strong>Trocar-techniek (alternatief):</strong> bij grote, oppervlakkige collecties — drain met stilet in één beweging direct in de collectie plaatsen.</div></li>
 <li><div class="sn teal">7</div><div data-en="Form the pigtail curl within the collection. Aspirate as much material as possible for culture." data-nl="Vorm de pigtail-krul in de collectie. Aspireer zoveel mogelijk materiaal voor kweek.">Vorm de pigtail-krul in de collectie. Aspireer zoveel mogelijk materiaal voor kweek.</div></li>
 <li><div class="sn teal">8</div><div data-en="Fix the drain to the skin with a retention suture (Mersilene or Prolene 2-0 on a straight needle). Connect to drainage bag. Flush with NaCl if needed to check patency." data-nl="Fixeer de drain aan de huid met een teugelhechting (Mersilene of Prolene 2-0 op rechte naald). Aansluiten op drainzak. Spoel zo nodig met NaCl ter controle van doorgankelijkheid.">Fixeer de drain aan de huid met een teugelhechting (Mersilene of Prolene 2-0 op rechte naald). Aansluiten op drainzak. Spoel zo nodig met NaCl ter controle van doorgankelijkheid.</div></li>
@@ -198,8 +198,8 @@ Diagnostic aspiration shows [clear / turbid / purulent] material —
 culture sent. Based on viscosity, [size] Fr drain chosen.
 
 [Seldinger / trocar] technique: [size] Fr pigtail drain placed with the
-curl in the collection. Aspiration of approx. [__] ml. Drain fixed to the
-skin and connected to drainage bag.
+curl in the collection. Aspiration of approx. [__] ml. Drain fixed to the skin with a
+retention suture and connected to drainage bag.
 
 No immediate complications.
 
@@ -221,8 +221,8 @@ Diagnostische aspiratie toont [helder / troebel / purulent] materiaal —
 kweek ingezet. Op basis van viscositeit gekozen voor [maat] Fr drain.
 
 [Seldinger / trocar] techniek: [maat] Fr pigtail drain geplaatst met de
-krul in de collectie. Aspiratie van ca. [__] ml. Drain gefixeerd aan de
-huid en aangesloten op drainzak.
+krul in de collectie. Aspiratie van ca. [__] ml. Drain gefixeerd aan de huid met
+teugelhechting en aangesloten op drainzak.
 
 Geen directe complicaties.
 
@@ -244,8 +244,8 @@ Diagnostische aspiratie toont [helder / troebel / purulent] materiaal —
 kweek ingezet. Op basis van viscositeit gekozen voor [maat] Fr drain.
 
 [Seldinger / trocar] techniek: [maat] Fr pigtail drain geplaatst met de
-krul in de collectie. Aspiratie van ca. [__] ml. Drain gefixeerd aan de
-huid en aangesloten op drainzak.
+krul in de collectie. Aspiratie van ca. [__] ml. Drain gefixeerd aan de huid met
+teugelhechting en aangesloten op drainzak.
 
 Geen directe complicaties.
 
@@ -299,11 +299,10 @@ function copyVerslag(verslagId, btnId) {
 </script>
 <script>
 buildMateriaal('mat-abces', [
-  'angioset',
+  'steriele_tafel',
   { ref:'echoprobe_hoes', spec_en:'Sterile (for US guidance)' },
   'punctienaald',
   'amplatz',
-  { nl:'Dilatatoren', en:'Dilators', spec_nl:'Oplopend conform drainmaat', spec_en:'Sequential per drain size', aantal:'Set' },
   { ref:'drain_pigtail', spec_nl:'8–14 Fr', spec_en:'8–14 Fr' },
   'drainzak',
   { nl:'Kweekbuizen', en:'Culture tubes', spec_nl:'Aëroob + anaëroob', spec_en:'Aerobic + anaerobic', aantal:'2' },

@@ -94,16 +94,7 @@
 <th data-en="Specification" data-nl="Specificatie">Specificatie</th>
 <th data-en="Quantity" data-nl="Aantal">Aantal</th>
 </tr></thead>
-<tbody>
-<tr><td data-en="Chlorhexidine + gauze ball" data-nl="Chloorhexidine + gaasbolletje">Chloorhexidine + gaasbolletje</td><td data-en="Puncture site disinfection" data-nl="Desinfectie punctieplaats">Desinfectie punctieplaats</td><td>1</td></tr>
-<tr><td data-en="Ultrasound probe cover" data-nl="Echoprobe hoes">Echoprobe hoes</td><td data-en="Sterile" data-nl="Steriel">Steriel</td><td>1</td></tr>
-<tr><td data-en="Lidocaine 1%" data-nl="Lidocaïne 1%">Lidocaïne 1%</td><td>10 cc</td><td>1</td></tr>
-<tr><td data-en="Alcohol 96%" data-nl="Alcohol 96%">Alcohol 96%</td><td data-en="Infusion concentrate 50 ml" data-nl="Infuusconcentraat 50 ml">Infuusconcentraat 50 ml</td><td data-en="Multiple if large lesion" data-nl="Meerdere indien grote laesie">Meerdere indien grote laesie</td></tr>
-<tr><td data-en="Needle or drain" data-nl="Naald of drain">Naald of drain</td><td data-en="Long green cannula or M-Drain single step 6Fr — depending on size and nature of lesion" data-nl="Lang groen infuus of M-Drain single step 6Fr — afhankelijk van grootte en aard laesie">Lang groen infuus of M-Drain single step 6Fr — afhankelijk van grootte en aard laesie</td><td>1–2</td></tr>
-<tr><td data-en="Syringe" data-nl="Spuit">Spuit</td><td data-en="20 ml or 50 ml LL syringe — depending on lesion size" data-nl="20 ml of 50 ml LL spuit — afhankelijk van grootte laesie">20 ml of 50 ml LL spuit — afhankelijk van grootte laesie</td><td>1</td></tr>
-<tr><td data-en="Extension tubing" data-nl="Verbindingsslang">Verbindingsslang</td><td>20 cm</td><td>1</td></tr>
-<tr><td data-en="Dressing" data-nl="Pleister">Pleister</td><td data-en="Standard" data-nl="Standaard">Standaard</td><td>1</td></tr>
-</tbody>
+<tbody id="mat-morellavallee"></tbody>
 </table>
 </div>
 </div>
@@ -188,6 +179,7 @@
 <div class="acc-inner">
 <div class="verslag-wrap">
 <div class="verslag" data-en="Reference: [date/modality]
+Anticoagulation: [discontinued / not applicable]
 
 Indication: Morel-Lavallée lesion / seroma [location].
 Procedure planned in consultation with [requesting specialist].
@@ -209,6 +201,7 @@ Aspiration and sclerotherapy of Morel-Lavallée lesion / seroma [location].
 AFTERCARE:
 15 minutes observation. Further follow-up by requesting specialist.
 Ultrasound follow-up not earlier than 3 months." data-nl="Ter vergelijking: [datum/modaliteit]
+Antistolling: [gestaakt / niet van toepassing]
 
 Indicatie: Morel-Lavallée laesie / seroom [locatie].
 Procedure in overleg met [aanvragend specialist].
@@ -230,6 +223,7 @@ Aspiratie en sclerosering Morel-Lavallée laesie / seroom [locatie].
 NAZORG:
 15 minuten observatie. Verdere follow-up via aanvragend specialist.
 Echo controle niet eerder dan 3 maanden." id="verslag-ml">Ter vergelijking: [datum/modaliteit]
+Antistolling: [gestaakt / niet van toepassing]
 
 Indicatie: Morel-Lavallée laesie / seroom [locatie].
 Procedure in overleg met [aanvragend specialist].
@@ -275,6 +269,7 @@ Echo controle niet eerder dan 3 maanden.</div>
 <script src="../procedures.js"></script>
 <script src="../nav.js"></script>
 <script src="../search.js"></script>
+<script src="../materiaal.js"></script>
 <script src="../lang.js"></script>
 <script>
 function toggleAcc(id) { document.getElementById(id).classList.toggle('open'); }
@@ -288,6 +283,18 @@ function copyVerslag(verslagId, btnId) {
     setTimeout(() => { btn.innerHTML = '⎘ <span data-nl="Kopieer" data-en="Copy">Kopieer</span>'; btn.classList.remove('copied'); if(typeof applyLang !== 'undefined') applyLang(lang); }, 2000);
   });
 }
+</script>
+<script>
+buildMateriaal('mat-morellavallee', [
+  { nl:'Chloorhexidine + gaasbolletje', en:'Chlorhexidine + gauze ball', spec_nl:'Desinfectie punctieplaats', spec_en:'Puncture site disinfection' },
+  'echoprobe_hoes',
+  'lidocaine',
+  { nl:'Alcohol 96%', en:'Alcohol 96%', spec_nl:'Infuusconcentraat 50 ml', spec_en:'Infusion concentrate 50 ml', aantal:'Meerdere indien grote laesie' },
+  { nl:'Naald of drain', en:'Needle or drain', spec_nl:'Lang groen infuus of M-Drain single step 6Fr — afhankelijk van grootte en aard laesie', spec_en:'Long green cannula or M-Drain single step 6Fr — depending on size and nature of lesion', aantal:'1–2' },
+  { ref:'spuit_10', spec_nl:'20 ml of 50 ml LL spuit — afhankelijk van grootte laesie', spec_en:'20 ml or 50 ml LL syringe — depending on lesion size' },
+  { nl:'Verbindingsslang', en:'Extension tubing', spec_nl:'20 cm' },
+  { nl:'Pleister', en:'Dressing', spec_nl:'Standaard', spec_en:'Standard' }
+]);
 </script>
 </body>
 </html>

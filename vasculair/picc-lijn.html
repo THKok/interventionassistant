@@ -92,16 +92,7 @@
       <div class="acc-inner" style="padding:0">
         <table class="mat">
           <thead><tr><th data-nl="Materiaal" data-en="Material">Materiaal</th><th data-nl="Specificatie" data-en="Specification">Specificatie</th><th data-nl="Aantal" data-en="Quantity">Aantal</th></tr></thead>
-          <tbody>
-            <tr><td data-nl="Angioset (of PICC-specifieke set)" data-en="Angio set (or PICC-specific set)">Angioset (of PICC-specifieke set)</td><td data-nl="Standaard" data-en="Standard">Standaard</td><td>1</td></tr>
-            <tr><td data-nl="PICC-lijn" data-en="PICC line">PICC-lijn</td><td data-nl="4–5Fr, enkelluming of dubbelluming" data-en="4–5Fr, single or double lumen">4–5Fr, enkelluming of dubbelluming</td><td>1</td></tr>
-            <tr><td data-nl="Lidocaïne 1%" data-en="Lidocaine 1%">Lidocaïne 1%</td><td>10 cc</td><td>1</td></tr>
-            <tr class="mat-cat"><td colspan="3" data-nl="Inbegrepen in PICC-set" data-en="Included in PICC set">Inbegrepen in PICC-set</td></tr>
-            <tr><td data-nl="Peel-away sheath" data-en="Peel-away sheath">Peel-away sheath</td><td data-nl="Conform set" data-en="Per set">Conform set</td><td>—</td></tr>
-            <tr><td data-nl="Dilatator" data-en="Dilator">Dilatator</td><td data-nl="Conform set" data-en="Per set">Conform set</td><td>—</td></tr>
-            <tr><td data-nl="Voerdraad" data-en="Guidewire">Voerdraad</td><td data-nl="Conform set" data-en="Per set">Conform set</td><td>—</td></tr>
-            <tr><td data-nl="Meetdraad" data-en="Measuring wire">Meetdraad</td><td data-nl="Conform set" data-en="Per set">Conform set</td><td>—</td></tr>
-          </tbody>
+          <tbody id="mat-picclijn"></tbody>
         </table>
       </div>
     </div>
@@ -187,7 +178,10 @@
     <div class="acc-body">
       <div class="acc-inner">
         <div class="verslag-wrap">
-          <div class="verslag" id="verslag-picc" data-nl="Echogeleid aanprikken vena [basilica / brachialis] [links / rechts] in de
+          <div class="verslag" id="verslag-picc" data-nl="Ter vergelijking: [datum/modaliteit]
+Antistolling: [gestaakt / niet van toepassing]
+
+Echogeleid aanprikken vena [basilica / brachialis] [links / rechts] in de
 bovenarm via micropunctieset. Stuwband losgemaakt na succesvolle punctie.
 Onder doorlichting voerdraad opgevoerd tot overgang VCS/rechter atrium.
 Peel-away sheath ingebracht. Lijn op maat geknipt na opmeting met
@@ -198,7 +192,10 @@ Fixatie met bijbehorende pleisters. Geen directe complicaties.
 
 CONCLUSIE:
 Plaatsing [enkel/dubbel]lumige PICC-lijn [links/rechts],
-tip op overgang VCS/rechter atrium." data-en="Ultrasound-guided puncture of [basilic / brachial] vein [left / right] in the
+tip op overgang VCS/rechter atrium." data-en="Reference: [date/modality]
+Anticoagulation: [discontinued / not applicable]
+
+Ultrasound-guided puncture of [basilic / brachial] vein [left / right] in the
 upper arm via micropuncture set. Tourniquet released after successful puncture.
 Under fluoroscopy guidewire advanced to the SVC/right atrium junction.
 Peel-away sheath introduced. Line cut to size after measurement with
@@ -209,7 +206,10 @@ Fixed with accompanying dressings. No immediate complications.
 
 CONCLUSION:
 Placement of [single/double] lumen PICC line [left/right],
-tip at the SVC/right atrium junction.">Echogeleid aanprikken vena [basilica / brachialis] [links / rechts] in de
+tip at the SVC/right atrium junction.">Ter vergelijking: [datum/modaliteit]
+Antistolling: [gestaakt / niet van toepassing]
+
+Echogeleid aanprikken vena [basilica / brachialis] [links / rechts] in de
 bovenarm via micropunctieset. Stuwband losgemaakt na succesvolle punctie.
 Onder doorlichting voerdraad opgevoerd tot overgang VCS/rechter atrium.
 Peel-away sheath ingebracht. Lijn op maat geknipt na opmeting met
@@ -292,6 +292,7 @@ tip op overgang VCS/rechter atrium.</div>
 <script src="../procedures.js"></script>
 <script src="../nav.js"></script>
 <script src="../search.js"></script>
+<script src="../materiaal.js"></script>
 <script src="../lang.js"></script>
 <script>
 function toggleAcc(id) { document.getElementById(id).classList.toggle('open'); }
@@ -348,6 +349,18 @@ function closeLightboxOutside(e) {
 }
 
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+</script>
+<script>
+buildMateriaal('mat-picclijn', [
+  { nl:'Angioset (of PICC-specifieke set)', en:'Angio set (or PICC-specific set)', spec_nl:'Standaard', spec_en:'Standard' },
+  { nl:'PICC-lijn', en:'PICC line', spec_nl:'4–5Fr, enkelluming of dubbelluming', spec_en:'4–5Fr, single or double lumen' },
+  'lidocaine',
+  { section_nl:'Inbegrepen in PICC-set', section_en:'Included in PICC set' },
+  { nl:'Peel-away sheath', en:'Peel-away sheath', spec_nl:'Conform set', spec_en:'Per set', aantal:'—' },
+  { nl:'Dilatator', en:'Dilator', spec_nl:'Conform set', spec_en:'Per set', aantal:'—' },
+  { nl:'Voerdraad', en:'Guidewire', spec_nl:'Conform set', spec_en:'Per set', aantal:'—' },
+  { nl:'Meetdraad', en:'Measuring wire', spec_nl:'Conform set', spec_en:'Per set', aantal:'—' }
+]);
 </script>
 </body>
 </html>

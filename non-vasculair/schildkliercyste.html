@@ -89,16 +89,7 @@
 <th data-en="Specification" data-nl="Specificatie">Specificatie</th>
 <th data-en="Quantity" data-nl="Aantal">Aantal</th>
 </tr></thead>
-<tbody>
-<tr><td data-en="Chlorhexidine + gauze ball" data-nl="Chloorhexidine + gaasbolletje">Chloorhexidine + gaasbolletje</td><td data-en="Puncture site disinfection" data-nl="Desinfectie punctieplaats">Desinfectie punctieplaats</td><td>1</td></tr>
-<tr><td data-en="Ultrasound probe cover" data-nl="Echoprobe hoes">Echoprobe hoes</td><td data-en="Sterile" data-nl="Steriel">Steriel</td><td>1</td></tr>
-<tr><td data-en="Lidocaine 1%" data-nl="Lidocaïne 1%">Lidocaïne 1%</td><td>10 cc</td><td>1</td></tr>
-<tr><td data-en="Alcohol 96%" data-nl="Alcohol 96%">Alcohol 96%</td><td data-en="Infusion concentrate 50 ml" data-nl="Infuusconcentraat 50 ml">Infuusconcentraat 50 ml</td><td>1</td></tr>
-<tr><td data-en="Long green cannula" data-nl="Lang groen infuus">Lang groen infuus</td><td data-en="Standard" data-nl="Standaard">Standaard</td><td>1</td></tr>
-<tr><td data-en="Syringe" data-nl="Spuit">Spuit</td><td data-en="20 ml LL syringe" data-nl="20 ml LL spuit">20 ml LL spuit</td><td>1</td></tr>
-<tr><td data-en="Extension tubing" data-nl="Verbindingsslang">Verbindingsslang</td><td>20 cm</td><td>1</td></tr>
-<tr><td data-en="Dressing" data-nl="Pleister">Pleister</td><td data-en="Standard" data-nl="Standaard">Standaard</td><td>1</td></tr>
-</tbody>
+<tbody id="mat-schildkliercyste"></tbody>
 </table>
 </div>
 </div>
@@ -185,6 +176,7 @@
 <div class="acc-inner">
 <div class="verslag-wrap">
 <div class="verslag" data-en="Reference: [date/modality]
+Anticoagulation: [discontinued / not applicable]
 
 Indication: thyroid cyst [location].
 Procedure planned in consultation with [requesting specialist].
@@ -205,6 +197,7 @@ Aspiration and sclerotherapy of thyroid cyst [location, left/right].
 AFTERCARE:
 15 minutes observation. Further follow-up by requesting specialist.
 Ultrasound follow-up not earlier than 3 months." data-nl="Ter vergelijking: [datum/modaliteit]
+Antistolling: [gestaakt / niet van toepassing]
 
 Indicatie: schildkliercyste [locatie].
 Procedure in overleg met [aanvragend specialist].
@@ -225,6 +218,7 @@ Aspiratie en sclerosering schildkliercyste [locatie, links/rechts].
 NAZORG:
 15 minuten observatie. Verdere follow-up via aanvragend specialist.
 Echo controle niet eerder dan 3 maanden." id="verslag-sk">Ter vergelijking: [datum/modaliteit]
+Antistolling: [gestaakt / niet van toepassing]
 
 Indicatie: schildkliercyste [locatie].
 Procedure in overleg met [aanvragend specialist].
@@ -269,6 +263,7 @@ Echo controle niet eerder dan 3 maanden.</div>
 <script src="../procedures.js"></script>
 <script src="../nav.js"></script>
 <script src="../search.js"></script>
+<script src="../materiaal.js"></script>
 <script src="../lang.js"></script>
 <script>
 function toggleAcc(id) { document.getElementById(id).classList.toggle('open'); }
@@ -282,6 +277,18 @@ function copyVerslag(verslagId, btnId) {
     setTimeout(() => { btn.innerHTML = '⎘ <span data-nl="Kopieer" data-en="Copy">Kopieer</span>'; btn.classList.remove('copied'); if(typeof applyLang !== 'undefined') applyLang(lang); }, 2000);
   });
 }
+</script>
+<script>
+buildMateriaal('mat-schildkliercyste', [
+  { nl:'Chloorhexidine + gaasbolletje', en:'Chlorhexidine + gauze ball', spec_nl:'Desinfectie punctieplaats', spec_en:'Puncture site disinfection' },
+  'echoprobe_hoes',
+  'lidocaine',
+  { nl:'Alcohol 96%', en:'Alcohol 96%', spec_nl:'Infuusconcentraat 50 ml', spec_en:'Infusion concentrate 50 ml' },
+  { nl:'Lang groen infuus', en:'Long green cannula', spec_nl:'Standaard', spec_en:'Standard' },
+  { ref:'spuit_10', spec_nl:'20 ml LL spuit', spec_en:'20 ml LL syringe' },
+  { nl:'Verbindingsslang', en:'Extension tubing', spec_nl:'20 cm' },
+  { nl:'Pleister', en:'Dressing', spec_nl:'Standaard', spec_en:'Standard' }
+]);
 </script>
 </body>
 </html>

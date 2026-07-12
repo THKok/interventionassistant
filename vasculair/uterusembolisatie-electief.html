@@ -99,23 +99,7 @@
       <div class="acc-inner" style="padding:0">
         <table class="mat">
           <thead><tr><th data-nl="Materiaal" data-en="Material">Materiaal</th><th data-nl="Specificatie" data-en="Specification">Specificatie</th><th data-nl="Aantal" data-en="Quantity">Aantal</th></tr></thead>
-          <tbody>
-            <tr><td data-nl="Angioset" data-en="Angio set">Angioset</td><td data-nl="Standaard" data-en="Standard">Standaard</td><td>1</td></tr>
-            <tr><td data-nl="Introducersheath" data-en="Introducer sheath">Introducersheath</td><td>6Fr, 11 cm</td><td>1</td></tr>
-            <tr><td data-nl="Heparine" data-en="Heparin">Heparine</td><td data-nl="5000 IE (via de sheath)" data-en="5000 IU (via the sheath)">5000 IE (via de sheath)</td><td>1</td></tr>
-            <tr><td data-nl="Selectiekatheter" data-en="Selection catheter">Selectiekatheter</td><td data-nl="RIM (start)" data-en="RIM (start)">RIM (start)</td><td>1</td></tr>
-            <tr><td data-nl="Back-up katheter" data-en="Back-up catheter">Back-up katheter</td><td data-nl="UF of Cobra C2" data-en="UF or Cobra C2">UF of Cobra C2</td><td data-nl="Bij behoefte" data-en="If needed">Bij behoefte</td></tr>
-            <tr><td data-nl="Microkathetersysteem" data-en="Microcatheter system">Microkathetersysteem</td><td data-nl="Progreat" data-en="Progreat">Progreat</td><td>1</td></tr>
-            <tr><td data-nl="Voerdraad" data-en="Guidewire">Voerdraad</td><td>0.035" floppy Terumo</td><td>1</td></tr>
-            <tr><td data-nl="Embolisatiepartikels" data-en="Embolic particles">Embolisatiepartikels</td><td data-nl="Contour 355–500 µm" data-en="Contour 355–500 µm">Contour 355–500 µm</td><td data-nl="½ potje" data-en="½ vial">½ potje</td></tr>
-            <tr><td data-nl="NaCl 0,9%" data-en="NaCl 0.9%">NaCl 0,9%</td><td data-nl="Voor partikelmix" data-en="For particle mix">Voor partikelmix</td><td>12 cc</td></tr>
-            <tr><td data-nl="Contrastmiddel" data-en="Contrast agent">Contrastmiddel</td><td data-nl="Voor partikelmix (Iomeron 300)" data-en="For particle mix (Iomeron 300)">Voor partikelmix (Iomeron 300)</td><td>28 cc</td></tr>
-            <tr><td data-nl="Spuit 10 cc" data-en="Syringe 10 cc">Spuit 10 cc</td><td data-nl="Toedienen partikelmix via driewegkraan" data-en="Administering particle mix via three-way stopcock">Toedienen partikelmix via driewegkraan</td><td>1</td></tr>
-            <tr><td data-nl="Spuit 1 cc" data-en="Syringe 1 cc">Spuit 1 cc</td><td data-nl="Gedoseerd toedienen partikelmix" data-en="Metered administration of particle mix">Gedoseerd toedienen partikelmix</td><td>1</td></tr>
-            <tr><td data-nl="Spuit 3 cc" data-en="Syringe 3 cc">Spuit 3 cc</td><td data-nl="Series/DSA over de microkatheter" data-en="Runs/DSA via the microcatheter">Series/DSA over de microkatheter</td><td>1</td></tr>
-            <tr><td data-nl="Driewegkraan" data-en="Three-way stopcock">Driewegkraan</td><td data-nl="Toedienen partikelmix" data-en="Administering particle mix">Toedienen partikelmix</td><td>1</td></tr>
-            <tr><td data-nl="Sluitsysteem" data-en="Closure device">Sluitsysteem</td><td>6Fr Angio-Seal</td><td>1</td></tr>
-          </tbody>
+          <tbody id="mat-uterusembolisatieelectief"></tbody>
         </table>
       </div>
     </div>
@@ -211,7 +195,9 @@
     <div class="acc-body">
       <div class="acc-inner">
         <div class="verslag-wrap">
-          <div class="verslag" id="verslag-uae-el" data-nl="Ter vergelijking: [Datum/Modaliteit]
+          <div class="verslag" id="verslag-uae-el" data-nl="Ter vergelijking: [datum/modaliteit]
+Antistolling: [gestaakt / niet van toepassing]
+
 Indicatie: [Symptomatische myomen / adenomyose], bij wens tot uterusbehoud.
 
 PROCEDURE:
@@ -238,7 +224,9 @@ Technisch succesvolle bilaterale uterusembolisatie met Contour-partikels (355-50
 NAZORG:
 - Opname met epiduraal voor pijnstilling (post-embolisatiesyndroom verwacht).
 - Aanvullend NSAID/paracetamol, anti-emetica zo nodig.
-- Follow-up via gynaecologie, controle-MRI na 3-6 maanden." data-en="Reference: [Date/Modality]
+- Follow-up via gynaecologie, controle-MRI na 3-6 maanden." data-en="Reference: [date/modality]
+Anticoagulation: [discontinued / not applicable]
+
 Indication: [Symptomatic fibroids / adenomyosis], with desire for uterine preservation.
 
 PROCEDURE:
@@ -265,7 +253,9 @@ Technically successful bilateral uterine artery embolisation with Contour partic
 AFTERCARE:
 - Admission with epidural for analgesia (post-embolisation syndrome expected).
 - Additional NSAID/paracetamol, antiemetics if needed.
-- Follow-up via gynaecology, control MRI after 3-6 months.">Ter vergelijking: [Datum/Modaliteit]
+- Follow-up via gynaecology, control MRI after 3-6 months.">Ter vergelijking: [datum/modaliteit]
+Antistolling: [gestaakt / niet van toepassing]
+
 Indicatie: [Symptomatische myomen / adenomyose], bij wens tot uterusbehoud.
 
 PROCEDURE:
@@ -326,6 +316,7 @@ NAZORG:
 <script src="../procedures.js"></script>
 <script src="../nav.js"></script>
 <script src="../search.js"></script>
+<script src="../materiaal.js"></script>
 <script src="../lang.js"></script>
 <script>
 function toggleAcc(id) { document.getElementById(id).classList.toggle('open'); }
@@ -339,6 +330,25 @@ function copyVerslag(verslagId, btnId) {
     setTimeout(() => { btn.innerHTML = '⎘ <span data-nl="Kopieer" data-en="Copy">Kopieer</span>'; btn.classList.remove('copied'); if(typeof applyLang !== 'undefined') applyLang(lang); }, 2000);
   });
 }
+</script>
+<script>
+buildMateriaal('mat-uterusembolisatieelectief', [
+  { ref:'angioset', link:'' },
+  { ref:'sheath_6', link:'' },
+  { ref:'heparine', spec_nl:'5000 IE (via de sheath)', spec_en:'5000 IU (via the sheath)' },
+  { nl:'Selectiekatheter', en:'Selection catheter', spec_nl:'RIM (start)', spec_en:'RIM (start)' },
+  { nl:'Back-up katheter', en:'Back-up catheter', spec_nl:'UF of Cobra C2', spec_en:'UF or Cobra C2', aantal:'Bij behoefte' },
+  { nl:'Microkathetersysteem', en:'Microcatheter system', spec_nl:'Progreat', spec_en:'Progreat' },
+  { nl:'Voerdraad', en:'Guidewire', spec_nl:'0.035" floppy Terumo' },
+  { nl:'Embolisatiepartikels', en:'Embolic particles', spec_nl:'Contour 355–500 µm', spec_en:'Contour 355–500 µm', aantal:'½ potje' },
+  { ref:'nacl', spec_nl:'Voor partikelmix', spec_en:'For particle mix', aantal:'12 cc' },
+  { ref:'contrast', spec_nl:'Voor partikelmix (Iomeron 300)', spec_en:'For particle mix (Iomeron 300)', aantal:'28 cc' },
+  { nl:'Spuit 10 cc', en:'Syringe 10 cc', spec_nl:'Toedienen partikelmix via driewegkraan', spec_en:'Administering particle mix via three-way stopcock' },
+  { nl:'Spuit 1 cc', en:'Syringe 1 cc', spec_nl:'Gedoseerd toedienen partikelmix', spec_en:'Metered administration of particle mix' },
+  { nl:'Spuit 3 cc', en:'Syringe 3 cc', spec_nl:'Series/DSA over de microkatheter', spec_en:'Runs/DSA via the microcatheter' },
+  { nl:'Driewegkraan', en:'Three-way stopcock', spec_nl:'Toedienen partikelmix', spec_en:'Administering particle mix' },
+  'angioseal'
+]);
 </script>
 </body>
 </html>

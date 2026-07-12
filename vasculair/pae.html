@@ -104,22 +104,7 @@
 <div class="acc-inner" style="padding:0">
 <table class="mat">
 <thead><tr><th data-en="Material" data-nl="Materiaal">Materiaal</th><th data-en="Specification" data-nl="Specificatie">Specificatie</th><th data-en="Quantity" data-nl="Aantal">Aantal</th></tr></thead>
-<tbody>
-<tr><td data-en="Introducer sheath" data-nl="Introducersheath">Introducersheath</td><td data-en="6Fr, standard" data-nl="6Fr, standaard">6Fr, standaard</td><td>1</td></tr>
-<tr><td data-en="Guidewire" data-nl="Voerdraad">Voerdraad</td><td>Floppy Terumo / Splashwire 0.035"</td><td>1</td></tr>
-<tr><td data-en="Macrocatheter" data-nl="Macrokatheter">Macrokatheter</td><td>5Fr Merit Medical RIM</td><td>1</td></tr>
-<tr><td data-en="Microcatheter guidewire" data-nl="Voerdraad microkatheter">Voerdraad microkatheter</td><td>Asahi Meister 16, angled 45°, 180 cm</td><td>1</td></tr>
-<tr><td data-en="Microcatheter" data-nl="Microkatheter">Microkatheter</td><td>Asahi Tellus 150, angled</td><td>1</td></tr>
-<tr><td data-en="Embolisation material" data-nl="Embolisatiemateriaal">Embolisatiemateriaal</td><td>Contour PVA 150–250 µm</td><td data-en="½ vial per side" data-nl="½ potje per zijde">½ potje per zijde</td></tr>
-<tr><td data-en="Verapamil" data-nl="Verapamil">Verapamil</td><td data-en="2.5 mg/ml ampoule" data-nl="2.5 mg/ml ampul">2.5 mg/ml ampul</td><td>1</td></tr>
-<tr><td data-en="Heparin" data-nl="Heparine">Heparine</td><td data-en="5000 IU/ml ampoule" data-nl="5000 IE/ml ampul">5000 IE/ml ampul</td><td>1</td></tr>
-<tr><td data-en="Contrast agent" data-nl="Contrastmiddel">Contrastmiddel</td><td>Visipaque</td><td>—</td></tr>
-<tr class="mat-cat"><td colspan="3">Reserve</td></tr>
-<tr><td data-en="Reserve catheter" data-nl="Reserve katheter">Reserve katheter</td><td>5Fr Cobra Glidecath</td><td>1</td></tr>
-<tr><td data-en="Reserve sheath" data-nl="Reserve sheath">Reserve sheath</td><td>6Fr, 45 cm</td><td>1</td></tr>
-<tr class="mat-cat"><td colspan="3">Afsluiting</td></tr>
-<tr><td data-en="Closure device" data-nl="Closure device">Closure device</td><td data-en="Starclose or Angioseal 6Fr" data-nl="Starclose of Angioseal 6Fr">Starclose of Angioseal 6Fr</td><td>1</td></tr>
-</tbody>
+<tbody id="mat-pae"></tbody>
 </table>
 </div>
 </div>
@@ -230,7 +215,10 @@
 <div class="acc-body">
 <div class="acc-inner">
 <div class="verslag-wrap">
-<div class="verslag" data-en="After local anaesthesia, retrograde puncture of the common femoral artery
+<div class="verslag" data-en="Reference: [date/modality]
+Anticoagulation: [discontinued / not applicable]
+
+After local anaesthesia, retrograde puncture of the common femoral artery
 right. Placement of a 6Fr introducer sheath. Heparin 5000 IU iv immediately after sheath.
 
 Via a 5Fr RIM catheter and Terumo guidewire, selective catheterisation
@@ -250,7 +238,10 @@ Balloon catheter refilled with 10 ml NaCl.
 No peri-procedural complications.
 
 CONCLUSION:
-Technically successful prostatic artery embolisation." data-nl="Na lokale anesthesie retrograde punctie van de arteria femoralis communis
+Technically successful prostatic artery embolisation." data-nl="Ter vergelijking: [datum/modaliteit]
+Antistolling: [gestaakt / niet van toepassing]
+
+Na lokale anesthesie retrograde punctie van de arteria femoralis communis
 rechts. Plaatsen van een 6Fr introducersheath. Heparine 5000 IE iv direct na sheath.
 
 Via een 5Fr RIM katheter en Terumo voerdraad selectieve katheterisatie
@@ -270,7 +261,10 @@ Ballonkatheter hervuld met 10 ml NaCl.
 Geen per-procedurele complicaties.
 
 CONCLUSIE:
-Technisch succesvolle prostaat arterie embolisatie." id="verslag-pae">Na lokale anesthesie retrograde punctie van de arteria femoralis communis
+Technisch succesvolle prostaat arterie embolisatie." id="verslag-pae">Ter vergelijking: [datum/modaliteit]
+Antistolling: [gestaakt / niet van toepassing]
+
+Na lokale anesthesie retrograde punctie van de arteria femoralis communis
 rechts. Plaatsen van een 6Fr introducersheath. Heparine 5000 IE iv direct na sheath.
 
 Via een 5Fr RIM katheter en Terumo voerdraad selectieve katheterisatie
@@ -320,6 +314,7 @@ Technisch succesvolle prostaat arterie embolisatie.</div>
 <script src="../procedures.js"></script>
 <script src="../nav.js"></script>
 <script src="../search.js"></script>
+<script src="../materiaal.js"></script>
 <script src="../lang.js"></script>
 <script>
 function toggleAcc(id) { document.getElementById(id).classList.toggle('open'); }
@@ -333,6 +328,24 @@ function copyVerslag(verslagId, btnId) {
     setTimeout(() => { btn.innerHTML = '⎘ <span data-nl="Kopieer" data-en="Copy">Kopieer</span>'; btn.classList.remove('copied'); if(typeof applyLang !== 'undefined') applyLang(lang); }, 2000);
   });
 }
+</script>
+<script>
+buildMateriaal('mat-pae', [
+  { ref:'sheath_6', link:'' },
+  { nl:'Voerdraad', en:'Guidewire', spec_nl:'Floppy Terumo / Splashwire 0.035"' },
+  { nl:'Macrokatheter', en:'Macrocatheter', spec_nl:'5Fr Merit Medical RIM' },
+  { nl:'Voerdraad microkatheter', en:'Microcatheter guidewire', spec_nl:'Asahi Meister 16, angled 45°, 180 cm' },
+  { nl:'Microkatheter', en:'Microcatheter', spec_nl:'Asahi Tellus 150, angled' },
+  { nl:'Embolisatiemateriaal', en:'Embolisation material', spec_nl:'Contour PVA 150–250 µm', aantal:'½ potje per zijde' },
+  { nl:'Verapamil', en:'Verapamil', spec_nl:'2.5 mg/ml ampul', spec_en:'2.5 mg/ml ampoule' },
+  { ref:'heparine', spec_nl:'5000 IE/ml ampul', spec_en:'5000 IU/ml ampoule' },
+  { ref:'contrast', spec_nl:'Visipaque' },
+  { section_nl:'Reserve', section_en:'Reserve' },
+  { nl:'Reserve katheter', en:'Reserve catheter', spec_nl:'5Fr Cobra Glidecath' },
+  { nl:'Reserve sheath', en:'Reserve sheath', spec_nl:'6Fr, 45 cm' },
+  { section_nl:'Afsluiting', section_en:'Afsluiting' },
+  { ref:'angioseal', spec_nl:'Starclose of Angio-Seal 6Fr', spec_en:'Starclose or Angio-Seal 6Fr', link:'' }
+]);
 </script>
 </body>
 </html>

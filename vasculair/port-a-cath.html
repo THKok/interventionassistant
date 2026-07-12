@@ -103,21 +103,7 @@
       <div class="acc-inner" style="padding:0">
         <table class="mat">
           <thead><tr><th data-nl="Materiaal" data-en="Material">Materiaal</th><th data-nl="Specificatie" data-en="Specification">Specificatie</th><th data-nl="Aantal" data-en="Quantity">Aantal</th></tr></thead>
-          <tbody>
-            <tr><td data-nl="Port-a-cath systeem (bovenarm)" data-en="Port-a-cath system (upper arm)">Port-a-cath systeem (bovenarm)</td><td>Incl. katheter en naald — bijv. Celsite bovenarmport</td><td>1</td></tr>
-            <tr><td data-nl="Peel-away sheath" data-en="Peel-away sheath">Peel-away sheath</td><td data-nl="Conform poortkatheterset" data-en="Per port catheter set">Conform poortkatheterset</td><td>1</td></tr>
-            <tr><td data-nl="Voerdraad" data-en="Guidewire">Voerdraad</td><td>0.035" J-tip of Terumo floppy</td><td>1</td></tr>
-            <tr><td data-nl="Echoprobe hoes" data-en="Ultrasound probe cover">Echoprobe hoes</td><td data-nl="Steriel" data-en="Sterile">Steriel</td><td>1</td></tr>
-            <tr><td data-nl="Dilatator" data-en="Dilator">Dilatator</td><td data-nl="Conform set" data-en="Per set">Conform set</td><td>1</td></tr>
-            <tr><td data-nl="Huber-naald" data-en="Huber needle">Huber-naald</td><td data-nl="Testpunctie na plaatsing" data-en="Test puncture after placement">Testpunctie na plaatsing</td><td>1</td></tr>
-            <tr class="mat-cat"><td colspan="3">Hechtingen</td></tr>
-            <tr><td data-nl="Hechting pocket (fasciefixatie)" data-en="Pocket suture (fascia fixation)">Hechting pocket (fasciefixatie)</td><td>2-0 Mersilene</td><td>1</td></tr>
-            <tr><td data-nl="Hechting subcutis" data-en="Subcutaneous suture">Hechting subcutis</td><td>3-0 Vicryl</td><td>1</td></tr>
-            <tr><td data-nl="Hechting huid" data-en="Skin suture">Hechting huid</td><td>4-0 Monocryl</td><td>1</td></tr>
-            <tr class="mat-cat"><td colspan="3">Overig</td></tr>
-            <tr><td data-nl="Contrastmiddel" data-en="Contrast agent">Contrastmiddel</td><td>Visipaque</td><td>—</td></tr>
-            <tr><td data-nl="Lokaal anestheticum" data-en="Local anaesthetic">Lokaal anestheticum</td><td data-nl="Lidocaïne 1%" data-en="Lidocaine 1%">Lidocaïne 1%</td><td>—</td></tr>
-          </tbody>
+          <tbody id="mat-portacath"></tbody>
         </table>
       </div>
     </div>
@@ -241,7 +227,10 @@
     <div class="acc-body">
       <div class="acc-inner">
         <div class="verslag-wrap">
-          <div class="verslag" id="verslag-pac" data-nl="Na lokale verdoving incisie mediale zijde bovenarm. Echogeleid aanprikken vena
+          <div class="verslag" id="verslag-pac" data-nl="Ter vergelijking: [datum/modaliteit]
+Antistolling: [gestaakt / niet van toepassing]
+
+Na lokale verdoving incisie mediale zijde bovenarm. Echogeleid aanprikken vena
 [basilica / cephalica] [links / rechts]. Opvoeren van een voerdraad onder doorlichting
 met positie van de tip op de overgang van de vena cava superior en het rechter atrium.
 Plaatsen van een 6F peel-away sheath. Opvoeren van een 5F katheter tot in het
@@ -263,7 +252,10 @@ Geen per-procedurele complicaties.
 
 CONCLUSIE:
 Technisch succesvolle implantatie bovenarmport [links / rechts].
-Kathetertip op de overgang VCS / rechter atrium." data-en="After local anaesthesia, incision on the medial side of the upper arm. Ultrasound-guided puncture of [basilic / cephalic] vein [left / right]. Advancement of a guidewire under fluoroscopy with the tip positioned at the junction of the superior vena cava and the right atrium.
+Kathetertip op de overgang VCS / rechter atrium." data-en="Reference: [date/modality]
+Anticoagulation: [discontinued / not applicable]
+
+After local anaesthesia, incision on the medial side of the upper arm. Ultrasound-guided puncture of [basilic / cephalic] vein [left / right]. Advancement of a guidewire under fluoroscopy with the tip positioned at the junction of the superior vena cava and the right atrium.
 Placement of a 6F peel-away sheath. Advancement of a 5F catheter into the right atrium.
 
 Blunt dissection of a subcutaneous pocket distal to the incision. Placement of a fixation suture (2-0 Mersilene) on the ulnar side of the pocket.
@@ -278,7 +270,10 @@ No peri-procedural complications.
 
 CONCLUSION:
 Technically successful implantation of upper arm port [left / right].
-Catheter tip at the SVC / right atrium junction.">Na lokale verdoving incisie mediale zijde bovenarm. Echogeleid aanprikken vena
+Catheter tip at the SVC / right atrium junction.">Ter vergelijking: [datum/modaliteit]
+Antistolling: [gestaakt / niet van toepassing]
+
+Na lokale verdoving incisie mediale zijde bovenarm. Echogeleid aanprikken vena
 [basilica / cephalica] [links / rechts]. Opvoeren van een voerdraad onder doorlichting
 met positie van de tip op de overgang van de vena cava superior en het rechter atrium.
 Plaatsen van een 6F peel-away sheath. Opvoeren van een 5F katheter tot in het
@@ -327,6 +322,7 @@ Kathetertip op de overgang VCS / rechter atrium.</div>
 <script src="../procedures.js"></script>
 <script src="../nav.js"></script>
 <script src="../search.js"></script>
+<script src="../materiaal.js"></script>
 <script src="../lang.js"></script>
 <script>
 function toggleAcc(id) { document.getElementById(id).classList.toggle('open'); }
@@ -342,5 +338,22 @@ function copyVerslag(verslagId, btnId) {
 }
 </script>
 
+<script>
+buildMateriaal('mat-portacath', [
+  { nl:'Port-a-cath systeem (bovenarm)', en:'Port-a-cath system (upper arm)', spec_nl:'Incl. katheter en naald — bijv. Celsite bovenarmport' },
+  { nl:'Peel-away sheath', en:'Peel-away sheath', spec_nl:'Conform poortkatheterset', spec_en:'Per port catheter set' },
+  { nl:'Voerdraad', en:'Guidewire', spec_nl:'0.035" J-tip of Terumo floppy' },
+  'echoprobe_hoes',
+  { nl:'Dilatator', en:'Dilator', spec_nl:'Conform set', spec_en:'Per set' },
+  { nl:'Huber-naald', en:'Huber needle', spec_nl:'Testpunctie na plaatsing', spec_en:'Test puncture after placement' },
+  { section_nl:'Hechtingen', section_en:'Hechtingen' },
+  { nl:'Hechting pocket (fasciefixatie)', en:'Pocket suture (fascia fixation)', spec_nl:'2-0 Mersilene' },
+  { nl:'Hechting subcutis', en:'Subcutaneous suture', spec_nl:'3-0 Vicryl' },
+  { nl:'Hechting huid', en:'Skin suture', spec_nl:'4-0 Monocryl' },
+  { section_nl:'Overig', section_en:'Overig' },
+  { ref:'contrast', spec_nl:'Visipaque' },
+  { nl:'Lokaal anestheticum', en:'Local anaesthetic', spec_nl:'Lidocaïne 1%', spec_en:'Lidocaine 1%', aantal:'—' }
+]);
+</script>
 </body>
 </html>

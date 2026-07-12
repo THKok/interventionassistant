@@ -91,18 +91,7 @@
 <div class="acc-inner" style="padding:0">
 <table class="mat">
 <thead><tr><th data-en="Material" data-nl="Materiaal">Materiaal</th><th data-en="Specification" data-nl="Specificatie">Specificatie</th><th data-en="Quantity" data-nl="Aantal">Aantal</th></tr></thead>
-<tbody>
-<tr><td data-en="Angio set" data-nl="Angioset">Angioset</td><td data-en="Standard" data-nl="Standaard">Standaard</td><td>1</td></tr>
-<tr><td data-en="Introducer sheath" data-nl="Introducersheath">Introducersheath</td><td>6Fr, 11 cm</td><td>1</td></tr>
-<tr><td data-en="Glidecath Cobra" data-nl="Glidecath Cobra">Glidecath Cobra</td><td data-en="Selection &amp; embolisation" data-nl="Selecteren &amp; embolisatie">Selecteren &amp; embolisatie</td><td>1</td></tr>
-<tr><td data-en="Back-up catheter" data-nl="Back-up katheter">Back-up katheter</td><td data-en="UF or RIM (crossing the aortic bifurcation if needed)" data-nl="UF of RIM (passage aortabifurcatie indien nodig)">UF of RIM (passage aortabifurcatie indien nodig)</td><td data-en="If needed" data-nl="Bij behoefte">Bij behoefte</td></tr>
-<tr><td data-en="Guidewire" data-nl="Voerdraad">Voerdraad</td><td>0.035" floppy Terumo</td><td>1</td></tr>
-<tr><td data-en="Spongostan (gelfoam)" data-nl="Spongostan (gelfoam)">Spongostan (gelfoam)</td><td data-en="Cut into strips for slurry" data-nl="Versneden tot reepjes voor slurry">Versneden tot reepjes voor slurry</td><td data-en="Sufficient" data-nl="Voldoende">Voldoende</td></tr>
-<tr><td data-en="Syringe 10 cc" data-nl="Spuit 10 cc">Spuit 10 cc</td><td data-en="For gelfoam slurry (mixing via three-way stopcock)" data-nl="Voor gelfoam-slurry (mengen via driewegkraan)">Voor gelfoam-slurry (mengen via driewegkraan)</td><td>2</td></tr>
-<tr><td data-en="Three-way stopcock" data-nl="Driewegkraan">Driewegkraan</td><td data-en="For mixing gelfoam slurry" data-nl="Voor mengen gelfoam-slurry">Voor mengen gelfoam-slurry</td><td>1</td></tr>
-<tr><td data-en="Contrast agent" data-nl="Contrastmiddel">Contrastmiddel</td><td data-en="Iomeron 300, diluted 1:1" data-nl="Iomeron 300, verdund 1:1">Iomeron 300, verdund 1:1</td><td>—</td></tr>
-<tr><td data-en="Closure device" data-nl="Sluitsysteem">Sluitsysteem</td><td>6Fr Angio-Seal</td><td>1</td></tr>
-</tbody>
+<tbody id="mat-uterusembolisatie"></tbody>
 </table>
 </div>
 </div>
@@ -185,7 +174,9 @@
 <div class="acc-body">
 <div class="acc-inner">
 <div class="verslag-wrap">
-<div class="verslag" data-en="Reference: [Date/Modality]
+<div class="verslag" data-en="Reference: [date/modality]
+Anticoagulation: [discontinued / not applicable]
+
 Indication: [Postpartum haemorrhage / haemorrhage after caesarean / other]
 refractory to medical treatment.
 
@@ -211,7 +202,9 @@ Technically successful bilateral uterine artery embolisation with Spongostan slu
 AFTERCARE:
 - Monitoring and Hb check via gynaecology/anaesthesia.
 - Analgesia per protocol (post-embolisation syndrome expected).
-- Follow-up via gynaecology." data-nl="Ter vergelijking: [Datum/Modaliteit]
+- Follow-up via gynaecology." data-nl="Ter vergelijking: [datum/modaliteit]
+Antistolling: [gestaakt / niet van toepassing]
+
 Indicatie: [Postpartum hemorragie / hemorragie na sectio / overig]
 refractair aan medicamenteuze behandeling.
 
@@ -237,7 +230,9 @@ Technisch succesvolle bilaterale uterusembolisatie met spongostan-slurry.
 NAZORG:
 - Bewaking en Hb-controle via gynaecologie/anesthesie.
 - Pijnstilling conform protocol (post-embolisatiesyndroom verwacht).
-- Follow-up via gynaecologie." id="verslag-uae">Ter vergelijking: [Datum/Modaliteit]
+- Follow-up via gynaecologie." id="verslag-uae">Ter vergelijking: [datum/modaliteit]
+Antistolling: [gestaakt / niet van toepassing]
+
 Indicatie: [Postpartum hemorragie / hemorragie na sectio / overig]
 refractair aan medicamenteuze behandeling.
 
@@ -293,6 +288,7 @@ NAZORG:
 <script src="../procedures.js"></script>
 <script src="../nav.js"></script>
 <script src="../search.js"></script>
+<script src="../materiaal.js"></script>
 <script src="../lang.js"></script>
 <script>
 function toggleAcc(id) { document.getElementById(id).classList.toggle('open'); }
@@ -306,6 +302,20 @@ function copyVerslag(verslagId, btnId) {
     setTimeout(() => { btn.innerHTML = '⎘ <span data-nl="Kopieer" data-en="Copy">Kopieer</span>'; btn.classList.remove('copied'); if(typeof applyLang !== 'undefined') applyLang(lang); }, 2000);
   });
 }
+</script>
+<script>
+buildMateriaal('mat-uterusembolisatie', [
+  { ref:'angioset', link:'' },
+  { ref:'sheath_6', link:'' },
+  { nl:'Glidecath Cobra', en:'Glidecath Cobra', spec_nl:'Selecteren & embolisatie', spec_en:'Selection & embolisation' },
+  { nl:'Back-up katheter', en:'Back-up catheter', spec_nl:'UF of RIM (passage aortabifurcatie indien nodig)', spec_en:'UF or RIM (crossing the aortic bifurcation if needed)', aantal:'Bij behoefte' },
+  { nl:'Voerdraad', en:'Guidewire', spec_nl:'0.035" floppy Terumo' },
+  { nl:'Spongostan (gelfoam)', en:'Spongostan (gelfoam)', spec_nl:'Versneden tot reepjes voor slurry', spec_en:'Cut into strips for slurry', aantal:'Voldoende' },
+  { nl:'Spuit 10 cc', en:'Syringe 10 cc', spec_nl:'Voor gelfoam-slurry (mengen via driewegkraan)', spec_en:'For gelfoam slurry (mixing via three-way stopcock)', aantal:'2' },
+  { nl:'Driewegkraan', en:'Three-way stopcock', spec_nl:'Voor mengen gelfoam-slurry', spec_en:'For mixing gelfoam slurry' },
+  { ref:'contrast', spec_nl:'Iomeron 300, verdund 1:1', spec_en:'Iomeron 300, diluted 1:1' },
+  'angioseal'
+]);
 </script>
 </body>
 </html>

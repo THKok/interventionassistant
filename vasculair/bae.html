@@ -92,20 +92,7 @@
       <div class="acc-inner" style="padding:0">
         <table class="mat">
           <thead><tr><th data-nl="Materiaal" data-en="Material">Materiaal</th><th data-nl="Specificatie" data-en="Specification">Specificatie</th><th data-nl="Aantal" data-en="Quantity">Aantal</th></tr></thead>
-          <tbody>
-            <tr><td data-nl="Angioset" data-en="Angio set">Angioset</td><td data-nl="Standaard" data-en="Standard">Standaard</td><td>1</td></tr>
-            <tr><td data-nl="Introducersheath" data-en="Introducer sheath">Introducersheath</td><td>6Fr, 11 cm</td><td>1</td></tr>
-            <tr><td data-nl="Heparine" data-en="Heparin">Heparine</td><td data-nl="5000 IE via sheath (poliklinisch; terughoudend bij actieve bloeding)" data-en="5000 IU via sheath (outpatient; cautious in active bleeding)">5000 IE via sheath (poliklinisch; terughoudend bij actieve bloeding)</td><td>1</td></tr>
-            <tr><td data-nl="Pigtail katheter" data-en="Pigtail catheter">Pigtail katheter</td><td>4–5Fr</td><td>1</td></tr>
-            <tr><td data-nl="Selectieve katheter" data-en="Selective catheter">Selectieve katheter</td><td data-nl="Cobra C2 of Simmons 1, 4–5Fr" data-en="Cobra C2 or Simmons 1, 4–5Fr">Cobra C2 of Simmons 1, 4–5Fr</td><td>1</td></tr>
-            <tr><td data-nl="Hydrofiele voerdraad" data-en="Hydrophilic guidewire">Hydrofiele voerdraad</td><td data-nl="0.035&quot; Terumo Glidewire angled" data-en="0.035&quot; Terumo Glidewire angled">0.035" Terumo Glidewire angled</td><td>1</td></tr>
-            <tr class="mat-cat"><td colspan="3">Superselectie (indien nodig)</td></tr>
-            <tr><td data-nl="Microkatheter" data-en="Microcatheter">Microkatheter</td><td data-nl="ProGreat (met draad) — vaak afdoende" data-en="ProGreat (with wire) — often sufficient">ProGreat (met draad) — vaak afdoende</td><td>1</td></tr>
-            <tr class="mat-cat"><td colspan="3">Embolisatiemateriaal</td></tr>
-            <tr><td data-nl="PVA partikels" data-en="PVA particles">PVA partikels</td><td data-nl="355–500 µm (voorkeur) of 500–700 µm" data-en="355–500 µm (preferred) or 500–700 µm">355–500 µm (voorkeur) of 500–700 µm</td><td data-nl="1–2 vials" data-en="1–2 vials">1–2 vials</td></tr>
-            <tr><td data-nl="Contrastmiddel" data-en="Contrast agent">Contrastmiddel</td><td data-nl="Iomeron 300, verdund 1:1" data-en="Iomeron 300, diluted 1:1">Iomeron 300, verdund 1:1</td><td>—</td></tr>
-                      <tr><td data-nl="Sluitsysteem" data-en="Closure device">Sluitsysteem</td><td>6Fr Angio-Seal</td><td>1</td></tr>
-          </tbody>
+          <tbody id="mat-bae"></tbody>
         </table>
       </div>
     </div>
@@ -191,6 +178,7 @@
       <div class="acc-inner">
         <div class="verslag-wrap">
           <div class="verslag" id="verslag-bae" data-nl="Ter vergelijking: [CTA thorax datum]
+Antistolling: [gestaakt / niet van toepassing]
 Indicatie: [massieve hemoptoe / recidiverende hemoptoe] bij [onderliggende diagnose].
 
 PROCEDURE:
@@ -214,6 +202,7 @@ Hemostase met 6Fr Angio-Seal. Geen directe complicaties.
 CONCLUSIE:
 Bronchiaalarterie embolisatie [links/rechts/bilateraal].
 Patiënt ter observatie naar [IC/bewaking]." data-en="Reference: [CT angiography thorax date]
+Anticoagulation: [discontinued / not applicable]
 Indication: [massive haemoptysis / recurrent haemoptysis] with [underlying diagnosis].
 
 PROCEDURE:
@@ -237,6 +226,7 @@ Haemostasis with a 6Fr Angio-Seal. No immediate complications.
 CONCLUSION:
 Bronchial artery embolisation [left/right/bilateral].
 Patient to [ICU/monitoring] for observation.">Ter vergelijking: [CTA thorax datum]
+Antistolling: [gestaakt / niet van toepassing]
 Indicatie: [massieve hemoptoe / recidiverende hemoptoe] bij [onderliggende diagnose].
 
 PROCEDURE:
@@ -286,6 +276,7 @@ Patiënt ter observatie naar [IC/bewaking].</div>
 <script src="../procedures.js"></script>
 <script src="../nav.js"></script>
 <script src="../search.js"></script>
+<script src="../materiaal.js"></script>
 <script src="../lang.js"></script>
 <script>
 function toggleAcc(id) { document.getElementById(id).classList.toggle('open'); }
@@ -299,6 +290,22 @@ function copyVerslag(verslagId, btnId) {
     setTimeout(() => { btn.innerHTML = '⎘ <span data-nl="Kopieer" data-en="Copy">Kopieer</span>'; btn.classList.remove('copied'); if(typeof applyLang !== 'undefined') applyLang(lang); }, 2000);
   });
 }
+</script>
+<script>
+buildMateriaal('mat-bae', [
+  { ref:'angioset', link:'' },
+  { ref:'sheath_6', link:'' },
+  { ref:'heparine', spec_nl:'5000 IE via sheath (poliklinisch; terughoudend bij actieve bloeding)', spec_en:'5000 IU via sheath (outpatient; cautious in active bleeding)' },
+  { ref:'pigtail_kath', spec_nl:'4–5Fr', link:'' },
+  { nl:'Selectieve katheter', en:'Selective catheter', spec_nl:'Cobra C2 of Simmons 1, 4–5Fr', spec_en:'Cobra C2 or Simmons 1, 4–5Fr' },
+  { ref:'hydrofiele_draad', spec_nl:'0.035" Terumo Glidewire angled', spec_en:'0.035" Terumo Glidewire angled', link:'' },
+  { section_nl:'Superselectie (indien nodig)', section_en:'Superselectie (indien nodig)' },
+  { nl:'Microkatheter', en:'Microcatheter', spec_nl:'ProGreat (met draad) — vaak afdoende', spec_en:'ProGreat (with wire) — often sufficient' },
+  { section_nl:'Embolisatiemateriaal', section_en:'Embolisatiemateriaal' },
+  { nl:'PVA partikels', en:'PVA particles', spec_nl:'355–500 µm (voorkeur) of 500–700 µm', spec_en:'355–500 µm (preferred) or 500–700 µm', aantal:'1–2 vials' },
+  { ref:'contrast', spec_nl:'Iomeron 300, verdund 1:1', spec_en:'Iomeron 300, diluted 1:1' },
+  'angioseal'
+]);
 </script>
 </body>
 </html>
