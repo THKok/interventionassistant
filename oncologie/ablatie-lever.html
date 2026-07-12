@@ -100,16 +100,7 @@
 <th data-en="Specification" data-nl="Specificatie">Specificatie</th>
 <th data-en="Quantity" data-nl="Aantal">Aantal</th>
 </tr></thead>
-<tbody>
-<tr><td><a class="mat-link" data-en="Angio set" data-nl="Angioset" href="../materiaal/angioset.html">Angioset</a></td><td data-en="Standard" data-nl="Standaard">Standaard</td><td>1</td></tr>
-<tr><td data-en="Ultrasound probe cover" data-nl="Echoprobe hoes">Echoprobe hoes</td><td data-en="Sterile (for US guidance)" data-nl="Steriel">Steriel</td><td>1</td></tr>
-<tr><td data-en="Ablation generator" data-nl="Ablatiegenerator">Ablatiegenerator</td><td data-en="RFA (60–250 W) or MWA (915–2450 MHz)" data-nl="RFA of MWA">RFA of MWA</td><td>1</td></tr>
-<tr><td data-en="Ablation probe / antenna" data-nl="Ablatieprobe / antenne">Ablatieprobe / antenne</td><td data-en="Length and active tip per lesion size" data-nl="Lengte en actief deel conform laesiegrootte">Lengte en actief deel conform laesiegrootte</td><td data-en="1 or more" data-nl="1 of meer">1 of meer</td></tr>
-<tr><td data-en="Grounding pads (RFA unipolar)" data-nl="Aardingsplaten (RFA unipolair)">Aardingsplaten (RFA unipolair)</td><td data-en="On the thighs" data-nl="Op de dijen">Op de dijen</td><td>2–4</td></tr>
-<tr><td data-en="Coaxial introducer needle" data-nl="Coaxiale introducernaald">Coaxiale introducernaald</td><td data-en="For probe positioning" data-nl="Voor probe-positionering">Voor probe-positionering</td><td>1</td></tr>
-<tr><td data-en="Hydrodissection set (optional)" data-nl="Hydrodissectie-set (optioneel)">Hydrodissectie-set (optioneel)</td><td data-en="NaCl/glucose to protect nearby structures" data-nl="NaCl/glucose ter bescherming nabije structuren">NaCl/glucose ter bescherming nabije structuren</td><td data-en="Optional" data-nl="Optioneel">Optioneel</td></tr>
-<tr><td data-en="Local anaesthetic" data-nl="Lokaal anestheticum">Lokaal anestheticum</td><td>Lidocaïne 1%</td><td>1</td></tr>
-</tbody>
+<tbody id="mat-ablatielever"></tbody>
 </table>
 </div>
 </div>
@@ -293,23 +284,27 @@ Observatie. Follow-up CT/MRI na ca. 1 maand. Verdere follow-up via MDO.</div>
 </div>
 </div>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/7.0.0/fuse.min.js"></script>
+<script src="../fuse.min.js"></script>
 <script src="../procedures.js"></script>
 <script src="../nav.js"></script>
 <script src="../search.js"></script>
+<script src="../materiaal.js"></script>
+<script src="../verslag.js"></script>
 <script src="../lang.js"></script>
 <script>
 function toggleAcc(id) { document.getElementById(id).classList.toggle('open'); }
-function copyVerslag(verslagId, btnId) {
-  const el = document.getElementById(verslagId);
-  const lang = localStorage.getItem('ia-lang') || 'nl';
-  const text = el.getAttribute('data-' + lang) || el.innerText;
-  navigator.clipboard.writeText(text).then(() => {
-    const btn = document.getElementById(btnId);
-    btn.innerHTML = lang === 'en' ? '✓ Copied' : '✓ Gekopieerd'; btn.classList.add('copied');
-    setTimeout(() => { btn.innerHTML = '⎘ <span data-nl="Kopieer" data-en="Copy">Kopieer</span>'; btn.classList.remove('copied'); if(typeof applyLang !== 'undefined') applyLang(lang); }, 2000);
-  });
-}
+</script>
+<script>
+buildMateriaal('mat-ablatielever', [
+  'angioset',
+  { ref:'echoprobe_hoes', spec_en:'Sterile (for US guidance)' },
+  { nl:'Ablatiegenerator', en:'Ablation generator', spec_nl:'RFA of MWA', spec_en:'RFA (60–250 W) or MWA (915–2450 MHz)' },
+  { nl:'Ablatieprobe / antenne', en:'Ablation probe / antenna', spec_nl:'Lengte en actief deel conform laesiegrootte', spec_en:'Length and active tip per lesion size', aantal:'1 of meer' },
+  { nl:'Aardingsplaten (RFA unipolair)', en:'Grounding pads (RFA unipolar)', spec_nl:'Op de dijen', spec_en:'On the thighs', aantal:'2–4' },
+  { nl:'Coaxiale introducernaald', en:'Coaxial introducer needle', spec_nl:'Voor probe-positionering', spec_en:'For probe positioning' },
+  { nl:'Hydrodissectie-set (optioneel)', en:'Hydrodissection set (optional)', spec_nl:'NaCl/glucose ter bescherming nabije structuren', spec_en:'NaCl/glucose to protect nearby structures', aantal:'Optioneel' },
+  { nl:'Lokaal anestheticum', en:'Local anaesthetic', spec_nl:'Lidocaïne 1%' }
+]);
 </script>
 </body>
 </html>

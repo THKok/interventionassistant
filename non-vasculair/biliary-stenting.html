@@ -99,20 +99,7 @@
 <th data-en="Specification" data-nl="Specificatie">Specificatie</th>
 <th data-en="Quantity" data-nl="Aantal">Aantal</th>
 </tr></thead>
-<tbody>
-<tr><td><a class="mat-link" data-en="Angio set" data-nl="Angioset" href="../materiaal/angioset.html">Angioset</a></td><td data-en="Standard" data-nl="Standaard">Standaard</td><td>1</td></tr>
-<tr><td data-en="Existing PTCD access or new puncture set" data-nl="Bestaande PTCD-toegang of Neffset">Bestaande PTCD-toegang of Neffset</td><td data-en="Via existing tract" data-nl="Via bestaand tractus">Via bestaand tractus</td><td>1</td></tr>
-<tr><td><a class="mat-link" data-en="Hydrophilic guidewire" data-nl="Hydrofiele voerdraad" href="../materiaal/draden.html">Hydrofiele voerdraad</a></td><td>0.035" Terumo</td><td>1</td></tr>
-<tr><td><a class="mat-link" data-en="Amplatz guidewire (stiff)" data-nl="Amplatz voerdraad" href="../materiaal/draden.html">Amplatz voerdraad</a></td><td data-en='0.035", stiff' data-nl='0.035", stiff'>0.035", stiff</td><td>1</td></tr>
-<tr><td><a class="mat-link" data-en="Cobra catheter" data-nl="Cobra katheter" href="../materiaal/sheaths-en-katheters.html">Cobra katheter</a></td><td data-en="4–5 Fr — crossing stricture" data-nl="4–5 Fr — passage strictuur">4–5 Fr — passage strictuur</td><td>1</td></tr>
-<tr><td data-en="Sheath" data-nl="Sheath">Sheath</td><td data-en="7–8 Fr, short" data-nl="7–8 Fr, kort">7–8 Fr, kort</td><td>1</td></tr>
-<tr class="mat-cat"><td colspan="3" data-en="Stent" data-nl="Stent">Stent</td></tr>
-<tr><td data-en="Self-expanding metallic stent (SEMS)" data-nl="Self-expanding metallic stent (SEMS)">Self-expanding metallic stent (SEMS)</td><td data-en="8–10 mm; uncovered (hilar/side branches) or covered (distal)" data-nl="8–10 mm; uncovered (hilair/zijtakken) of covered (distaal)">8–10 mm; uncovered (hilair/zijtakken) of covered (distaal)</td><td>1</td></tr>
-<tr><td data-en="Balloon catheter (optional)" data-nl="Ballonkatheter (optioneel)">Ballonkatheter (optioneel)</td><td data-en="For pre-/post-dilatation of stricture" data-nl="Voor pre-/postdilatatie strictuur">Voor pre-/postdilatatie strictuur</td><td data-en="Optional" data-nl="Optioneel">Optioneel</td></tr>
-<tr class="mat-cat"><td colspan="3" data-en="Safety drain" data-nl="Veiligheidsdrain">Veiligheidsdrain</td></tr>
-<tr><td data-en="Internal-external drain" data-nl="In- &amp; uitwendige drain"><a class="mat-link" data-en="Internal-external drain" data-nl="In- &amp; uitwendige drain" href="../materiaal/sheaths-en-katheters.html">In- &amp; uitwendige drain</a></td><td data-en="8.5 Fr — temporary alongside stent" data-nl="8.5 Fr — tijdelijk naast stent">8.5 Fr — tijdelijk naast stent</td><td data-en="Optional" data-nl="Optioneel">Optioneel</td></tr>
-<tr><td data-en="Contrast agent" data-nl="Contrastmiddel">Contrastmiddel</td><td data-en="Low osmolar (Iohexol), 5–10 ml per cholangiogram" data-nl="Laag osmolair (Iohexol)">Laag osmolair (Iohexol)</td><td>—</td></tr>
-</tbody>
+<tbody id="mat-biliarystenting"></tbody>
 </table>
 </div>
 </div>
@@ -313,23 +300,31 @@ functie. Bilirubine vervolgen. Bij koorts of toename icterus contact opnemen.</d
 </div>
 </div>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/7.0.0/fuse.min.js"></script>
+<script src="../fuse.min.js"></script>
 <script src="../procedures.js"></script>
 <script src="../nav.js"></script>
 <script src="../search.js"></script>
+<script src="../materiaal.js"></script>
+<script src="../verslag.js"></script>
 <script src="../lang.js"></script>
 <script>
 function toggleAcc(id) { document.getElementById(id).classList.toggle('open'); }
-function copyVerslag(verslagId, btnId) {
-  const el = document.getElementById(verslagId);
-  const lang = localStorage.getItem('ia-lang') || 'nl';
-  const text = el.getAttribute('data-' + lang) || el.innerText;
-  navigator.clipboard.writeText(text).then(() => {
-    const btn = document.getElementById(btnId);
-    btn.innerHTML = lang === 'en' ? '✓ Copied' : '✓ Gekopieerd'; btn.classList.add('copied');
-    setTimeout(() => { btn.innerHTML = '⎘ <span data-nl="Kopieer" data-en="Copy">Kopieer</span>'; btn.classList.remove('copied'); if(typeof applyLang !== 'undefined') applyLang(lang); }, 2000);
-  });
-}
+</script>
+<script>
+buildMateriaal('mat-biliarystenting', [
+  'angioset',
+  { nl:'Bestaande PTCD-toegang of Neffset', en:'Existing PTCD access or new puncture set', spec_nl:'Via bestaand tractus', spec_en:'Via existing tract' },
+  { ref:'hydrofiele_draad', spec_nl:'0.035" Terumo' },
+  { ref:'amplatz', spec_nl:'0.035", stiff', spec_en:'0.035", stiff' },
+  { ref:'cobra', spec_nl:'4–5 Fr — passage strictuur', spec_en:'4–5 Fr — crossing stricture' },
+  { ref:'sheath_7', spec_nl:'7–8 Fr, kort', spec_en:'7–8 Fr, short', link:'' },
+  { section_nl:'Stent', section_en:'Stent' },
+  { nl:'Self-expanding metallic stent (SEMS)', en:'Self-expanding metallic stent (SEMS)', spec_nl:'8–10 mm; uncovered (hilair/zijtakken) of covered (distaal)', spec_en:'8–10 mm; uncovered (hilar/side branches) or covered (distal)' },
+  { nl:'Ballonkatheter (optioneel)', en:'Balloon catheter (optional)', spec_nl:'Voor pre-/postdilatatie strictuur', spec_en:'For pre-/post-dilatation of stricture', aantal:'Optioneel' },
+  { section_nl:'Veiligheidsdrain', section_en:'Safety drain' },
+  { nl:'In- & uitwendige drain', en:'Internal-external drain', spec_nl:'8.5 Fr — tijdelijk naast stent', spec_en:'8.5 Fr — temporary alongside stent', aantal:'Optioneel', link:'../materiaal/sheaths-en-katheters.html' },
+  { ref:'contrast', spec_nl:'Laag osmolair (Iohexol)', spec_en:'Low osmolar (Iohexol), 5–10 ml per cholangiogram' }
+]);
 </script>
 </body>
 </html>

@@ -102,17 +102,7 @@
 <th data-en="Specification" data-nl="Specificatie">Specificatie</th>
 <th data-en="Quantity" data-nl="Aantal">Aantal</th>
 </tr></thead>
-<tbody>
-<tr><td><a class="mat-link" data-en="Angio set" data-nl="Angioset" href="../materiaal/angioset.html">Angioset</a></td><td data-en="Standard" data-nl="Standaard">Standaard</td><td>1</td></tr>
-<tr><td data-en="Nasogastric tube" data-nl="Nasogastrische sonde">Nasogastrische sonde</td><td data-en="For air insufflation" data-nl="Voor luchtinsufflatie">Voor luchtinsufflatie</td><td>1</td></tr>
-<tr><td data-en="T-fasteners (gastropexy anchors)" data-nl="T-fasteners (gastropexie-ankers)">T-fasteners (gastropexie-ankers)</td><td data-en="For fixation of gastric wall to abdominal wall" data-nl="Voor fixatie maagwand aan buikwand">Voor fixatie maagwand aan buikwand</td><td>3</td></tr>
-<tr><td data-en="Puncture needle" data-nl="Punctienaald">Punctienaald</td><td>18G</td><td>1</td></tr>
-<tr><td><a class="mat-link" data-en="Amplatz guidewire (extra stiff)" data-nl="Amplatz voerdraad" href="../materiaal/draden.html">Amplatz voerdraad</a></td><td data-en='0.035", extra stiff' data-nl='0.035", extra stiff'>0.035", extra stiff</td><td>1</td></tr>
-<tr><td data-en="Dilators" data-nl="Dilatatoren">Dilatatoren</td><td data-en="Sequential, 2–4 Fr wider than the tube" data-nl="Oplopend, 2–4 Fr ruimer dan de sonde">Oplopend, 2–4 Fr ruimer dan de sonde</td><td data-en="Set" data-nl="Set">Set</td></tr>
-<tr><td data-en="Peel-away sheath" data-nl="Peel-away sheath">Peel-away sheath</td><td data-en="Per tube size" data-nl="Conform sondemaat">Conform sondemaat</td><td>1</td></tr>
-<tr><td data-en="Balloon gastrostomy tube" data-nl="Ballon-gastrostomiesonde">Ballon-gastrostomiesonde</td><td data-en="12–16 Fr, with internal balloon and external retainer" data-nl="12–16 Fr, met interne ballon en externe retainer">12–16 Fr, met interne ballon en externe retainer</td><td>1</td></tr>
-<tr><td data-en="Contrast agent" data-nl="Contrastmiddel">Contrastmiddel</td><td data-en="Diluted, for position check and balloon filling" data-nl="Verdund, voor positiecontrole en ballonvulling">Verdund, voor positiecontrole en ballonvulling</td><td>—</td></tr>
-</tbody>
+<tbody id="mat-gastrostomie"></tbody>
 </table>
 </div>
 </div>
@@ -312,23 +302,28 @@ Bij koorts of buikpijn laagdrempelig contact opnemen.</div>
 </div>
 </div>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/7.0.0/fuse.min.js"></script>
+<script src="../fuse.min.js"></script>
 <script src="../procedures.js"></script>
 <script src="../nav.js"></script>
 <script src="../search.js"></script>
+<script src="../materiaal.js"></script>
+<script src="../verslag.js"></script>
 <script src="../lang.js"></script>
 <script>
 function toggleAcc(id) { document.getElementById(id).classList.toggle('open'); }
-function copyVerslag(verslagId, btnId) {
-  const el = document.getElementById(verslagId);
-  const lang = localStorage.getItem('ia-lang') || 'nl';
-  const text = el.getAttribute('data-' + lang) || el.innerText;
-  navigator.clipboard.writeText(text).then(() => {
-    const btn = document.getElementById(btnId);
-    btn.innerHTML = lang === 'en' ? '✓ Copied' : '✓ Gekopieerd'; btn.classList.add('copied');
-    setTimeout(() => { btn.innerHTML = '⎘ <span data-nl="Kopieer" data-en="Copy">Kopieer</span>'; btn.classList.remove('copied'); if(typeof applyLang !== 'undefined') applyLang(lang); }, 2000);
-  });
-}
+</script>
+<script>
+buildMateriaal('mat-gastrostomie', [
+  'angioset',
+  { nl:'Nasogastrische sonde', en:'Nasogastric tube', spec_nl:'Voor luchtinsufflatie', spec_en:'For air insufflation' },
+  { nl:'T-fasteners (gastropexie-ankers)', en:'T-fasteners (gastropexy anchors)', spec_nl:'Voor fixatie maagwand aan buikwand', spec_en:'For fixation of gastric wall to abdominal wall', aantal:'3' },
+  { ref:'punctienaald', spec_nl:'18G' },
+  { ref:'amplatz', spec_nl:'0.035", extra stiff', spec_en:'0.035", extra stiff' },
+  { nl:'Dilatatoren', en:'Dilators', spec_nl:'Oplopend, 2–4 Fr ruimer dan de sonde', spec_en:'Sequential, 2–4 Fr wider than the tube', aantal:'Set' },
+  { nl:'Peel-away sheath', en:'Peel-away sheath', spec_nl:'Conform sondemaat', spec_en:'Per tube size' },
+  { nl:'Ballon-gastrostomiesonde', en:'Balloon gastrostomy tube', spec_nl:'12–16 Fr, met interne ballon en externe retainer', spec_en:'12–16 Fr, with internal balloon and external retainer' },
+  { ref:'contrast', spec_nl:'Verdund, voor positiecontrole en ballonvulling', spec_en:'Diluted, for position check and balloon filling' }
+]);
 </script>
 </body>
 </html>

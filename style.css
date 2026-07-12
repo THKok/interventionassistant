@@ -1008,3 +1008,79 @@ ul.bullet li::before {
   top: 0.3rem;
 }
 ul.bullet li strong { font-weight: 600; }
+
+/* ═══════════════════════════════════════════
+   Invulbare verslag-placeholders (verslag.js)
+   ═══════════════════════════════════════════ */
+.verslag-hint {
+  font-size: 0.72rem;
+  color: var(--muted);
+  margin-bottom: 0.4rem;
+  font-style: italic;
+}
+.ph {
+  display: inline;
+  border-bottom: 1.5px dashed var(--blue);
+  background: var(--blue-light);
+  border-radius: 3px;
+  padding: 0 2px;
+  cursor: text;
+  outline: none;
+  transition: background 0.15s;
+}
+.ph:hover  { background: var(--teal-light); }
+.ph:focus  { background: var(--white); border-bottom-style: solid; box-shadow: 0 0 0 2px var(--blue-light); }
+.ph.filled { background: var(--green-light); border-bottom: 1.5px solid var(--green); color: var(--text); }
+.reset-btn {
+  position: absolute;
+  top: 0.6rem;
+  right: 6.2rem;
+  background: var(--card);
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 0.3rem 0.55rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+}
+.reset-btn:hover { color: var(--red); border-color: var(--red); }
+
+/* ═══════════════════════════════════════════
+   Donkere modus — overschrijft de design tokens
+   ═══════════════════════════════════════════ */
+html[data-theme="dark"] {
+  --blue:         #6aaae4;
+  --blue-light:   #1c2b3e;
+  --teal:         #45b8b8;
+  --teal-light:   #14302f;
+  --red:          #e2756c;
+  --red-light:    #3a2220;
+  --purple:       #a98fe3;
+  --purple-light: #292240;
+  --orange:       #e0a050;
+  --orange-light: #362a17;
+  --green:        #5cc287;
+  --green-light:  #17301f;
+  --text:         #e6e9f2;
+  --muted:        #9aa3b8;
+  --border:       #3a4152;
+  --bg:           #14161c;
+  --card:         #1d212a;
+  --white:        #242938;
+}
+html[data-theme="dark"] .copy-btn { color: #10131a; }
+html[data-theme="dark"] img { filter: brightness(0.9); }
+
+.theme-btn {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.28rem 0.5rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  color: var(--text);
+  line-height: 1;
+}
+.theme-btn:hover { border-color: var(--blue); }

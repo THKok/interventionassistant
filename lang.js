@@ -29,6 +29,13 @@ function applyLang(lang) {
 
   // Zet lang attribuut op html element
   document.documentElement.lang = lang;
+
+  // Verslag-placeholders opnieuw invulbaar maken (innerHTML is zojuist
+  // overschreven vanuit het data-attribuut, dus de invulvelden zijn weg)
+  if (typeof enhanceVerslagen === 'function') {
+    document.querySelectorAll('.verslag').forEach(v => { delete v.dataset.enhanced; });
+    enhanceVerslagen();
+  }
 }
 
 function updateLangBtn(lang) {

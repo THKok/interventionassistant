@@ -99,20 +99,7 @@
 <th data-en="Specification" data-nl="Specificatie">Specificatie</th>
 <th data-en="Quantity" data-nl="Aantal">Aantal</th>
 </tr></thead>
-<tbody>
-<tr><td><a class="mat-link" data-en="Angio set" data-nl="Angioset" href="../materiaal/angioset.html">Angioset</a></td><td data-en="Standard" data-nl="Standaard">Standaard</td><td>1</td></tr>
-<tr><td data-en="Existing nephrostomy drain (access)" data-nl="Bestaande nefrostomiedrain (toegang)">Bestaande nefrostomiedrain (toegang)</td><td data-en="Via existing tract" data-nl="Via bestaand tractus">Via bestaand tractus</td><td>1</td></tr>
-<tr><td><a class="mat-link" data-en="Terumo guidewire (hydrophilic)" data-nl="Terumo voerdraad" href="../materiaal/draden.html">Terumo voerdraad</a></td><td>0.035" angled</td><td>1</td></tr>
-<tr><td><a class="mat-link" data-en="Amplatz guidewire (long)" data-nl="Amplatz voerdraad (lang)" href="../materiaal/draden.html">Amplatz voerdraad (lang)</a></td><td data-en='0.035", stiff, 260 cm' data-nl='0.035", stiff, 260 cm'>0.035", stiff, 260 cm</td><td>1</td></tr>
-<tr><td><a class="mat-link" data-en="Cobra catheter or PIER catheter" data-nl="Cobra of PIER katheter" href="../materiaal/sheaths-en-katheters.html">Cobra of PIER katheter</a></td><td data-en="4–5 Fr — crossing obstruction" data-nl="4–5 Fr — passage obstructie">4–5 Fr — passage obstructie</td><td>1</td></tr>
-<tr><td data-en="Sheath" data-nl="Sheath">Sheath</td><td data-en="7–8 Fr, short — for better steerability towards ureter" data-nl="7–8 Fr, kort">7–8 Fr, kort</td><td>1</td></tr>
-<tr class="mat-cat"><td colspan="3" data-en="JJ stent set" data-nl="JJ-stentset">JJ-stentset</td></tr>
-<tr><td data-en="Double-J ureteral stent" data-nl="Dubbel-J ureterstent">Dubbel-J ureterstent</td><td data-en="6–7 Fr, 22–28 cm (sized to patient)" data-nl="6–7 Fr, 22–28 cm (op maat patiënt)">6–7 Fr, 22–28 cm (op maat patiënt)</td><td>1</td></tr>
-<tr><td data-en="Pusher catheter" data-nl="Pusher katheter">Pusher katheter</td><td data-en="Included in stent set" data-nl="Inbegrepen in stentset">Inbegrepen in stentset</td><td>1</td></tr>
-<tr class="mat-cat"><td colspan="3" data-en="After JJ — new nephrostomy drain" data-nl="Na JJ — nieuwe nefrostomiedrain">Na JJ — nieuwe nefrostomiedrain</td></tr>
-<tr><td data-en="Multipurpose drain or Dawson-Muller" data-nl="Multipurpose drain of Dawson-Muller"><a class="mat-link" data-en="Multipurpose drain or Dawson-Muller" data-nl="Multipurpose of Dawson-Muller drain" href="../materiaal/sheaths-en-katheters.html">Multipurpose of Dawson-Muller drain</a></td><td data-en="8.5 Fr — introduce via sheath as safety nephrostomy" data-nl="8.5 Fr">8.5 Fr</td><td>1</td></tr>
-<tr><td data-en="Contrast agent" data-nl="Contrastmiddel">Contrastmiddel</td><td data-en="Diluted 1:2 with NaCl" data-nl="Verdund 1:2 met NaCl">Verdund 1:2 met NaCl</td><td>—</td></tr>
-</tbody>
+<tbody id="mat-jjkatheter"></tbody>
 </table>
 </div>
 </div>
@@ -344,23 +331,31 @@ Follow-up via urologie.</div>
 </div>
 </div>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/7.0.0/fuse.min.js"></script>
+<script src="../fuse.min.js"></script>
 <script src="../procedures.js"></script>
 <script src="../nav.js"></script>
 <script src="../search.js"></script>
+<script src="../materiaal.js"></script>
+<script src="../verslag.js"></script>
 <script src="../lang.js"></script>
 <script>
 function toggleAcc(id) { document.getElementById(id).classList.toggle('open'); }
-function copyVerslag(verslagId, btnId) {
-  const el = document.getElementById(verslagId);
-  const lang = localStorage.getItem('ia-lang') || 'nl';
-  const text = el.getAttribute('data-' + lang) || el.innerText;
-  navigator.clipboard.writeText(text).then(() => {
-    const btn = document.getElementById(btnId);
-    btn.innerHTML = lang === 'en' ? '✓ Copied' : '✓ Gekopieerd'; btn.classList.add('copied');
-    setTimeout(() => { btn.innerHTML = '⎘ <span data-nl="Kopieer" data-en="Copy">Kopieer</span>'; btn.classList.remove('copied'); if(typeof applyLang !== 'undefined') applyLang(lang); }, 2000);
-  });
-}
+</script>
+<script>
+buildMateriaal('mat-jjkatheter', [
+  'angioset',
+  { nl:'Bestaande nefrostomiedrain (toegang)', en:'Existing nephrostomy drain (access)', spec_nl:'Via bestaand tractus', spec_en:'Via existing tract' },
+  { nl:'Terumo voerdraad', en:'Terumo guidewire (hydrophilic)', spec_nl:'0.035" angled', link:'../materiaal/draden.html' },
+  { nl:'Amplatz voerdraad (lang)', en:'Amplatz guidewire (long)', spec_nl:'0.035", stiff, 260 cm', spec_en:'0.035", stiff, 260 cm', link:'../materiaal/draden.html' },
+  { nl:'Cobra of PIER katheter', en:'Cobra catheter or PIER catheter', spec_nl:'4–5 Fr — passage obstructie', spec_en:'4–5 Fr — crossing obstruction', link:'../materiaal/sheaths-en-katheters.html' },
+  { ref:'sheath_7', spec_nl:'7–8 Fr, kort', spec_en:'7–8 Fr, short — for better steerability towards ureter', link:'' },
+  { section_nl:'JJ-stentset', section_en:'JJ stent set' },
+  { nl:'Dubbel-J ureterstent', en:'Double-J ureteral stent', spec_nl:'6–7 Fr, 22–28 cm (op maat patiënt)', spec_en:'6–7 Fr, 22–28 cm (sized to patient)' },
+  { nl:'Pusher katheter', en:'Pusher catheter', spec_nl:'Inbegrepen in stentset', spec_en:'Included in stent set' },
+  { section_nl:'Na JJ — nieuwe nefrostomiedrain', section_en:'After JJ — new nephrostomy drain' },
+  { nl:'Multipurpose drain of Dawson-Muller', en:'Multipurpose drain or Dawson-Muller', spec_nl:'8.5 Fr', spec_en:'8.5 Fr — introduce via sheath as safety nephrostomy', link:'../materiaal/sheaths-en-katheters.html' },
+  { ref:'contrast', spec_nl:'Verdund 1:2 met NaCl', spec_en:'Diluted 1:2 with NaCl' }
+]);
 </script>
 </body>
 </html>

@@ -99,15 +99,7 @@
 <th data-en="Specification" data-nl="Specificatie">Specificatie</th>
 <th data-en="Quantity" data-nl="Aantal">Aantal</th>
 </tr></thead>
-<tbody>
-<tr><td><a class="mat-link" data-en="Angio set" data-nl="Angioset" href="../materiaal/angioset.html">Angioset</a></td><td data-en="Standard" data-nl="Standaard">Standaard</td><td>1</td></tr>
-<tr><td data-en="Ultrasound probe cover" data-nl="Echoprobe hoes">Echoprobe hoes</td><td data-en="Sterile, high-frequency linear probe" data-nl="Steriel">Steriel</td><td>1</td></tr>
-<tr><td data-en="RFA generator" data-nl="RFA-generator">RFA-generator</td><td data-en="With monopolar mode" data-nl="Met monopolaire modus">Met monopolaire modus</td><td>1</td></tr>
-<tr><td data-en="Thyroid RFA electrode" data-nl="Schildklier-RFA-elektrode">Schildklier-RFA-elektrode</td><td data-en="Thin, internally cooled, short active tip (7–10 mm)" data-nl="Dun, intern gekoeld, kort actief topje">Dun, intern gekoeld, kort actief topje</td><td>1</td></tr>
-<tr><td data-en="Grounding pads" data-nl="Aardingsplaten">Aardingsplaten</td><td data-en="On the thighs" data-nl="Op de dijen">Op de dijen</td><td>2</td></tr>
-<tr><td data-en="Hydrodissection set" data-nl="Hydrodissectie-set">Hydrodissectie-set</td><td data-en="NaCl/glucose for the 'danger triangle' around the recurrent nerve" data-nl="NaCl/glucose voor de 'danger triangle' rond n. recurrens">NaCl/glucose voor de 'danger triangle' rond n. recurrens</td><td>1</td></tr>
-<tr><td data-en="Local anaesthetic" data-nl="Lokaal anestheticum">Lokaal anestheticum</td><td>Lidocaïne 1%</td><td>1</td></tr>
-</tbody>
+<tbody id="mat-ablatieschildklier"></tbody>
 </table>
 </div>
 </div>
@@ -297,23 +289,26 @@ volumereductie. Schildklierfunctie vervolgen. Bij heesheid laryngoscopie.</div>
 </div>
 </div>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/7.0.0/fuse.min.js"></script>
+<script src="../fuse.min.js"></script>
 <script src="../procedures.js"></script>
 <script src="../nav.js"></script>
 <script src="../search.js"></script>
+<script src="../materiaal.js"></script>
+<script src="../verslag.js"></script>
 <script src="../lang.js"></script>
 <script>
 function toggleAcc(id) { document.getElementById(id).classList.toggle('open'); }
-function copyVerslag(verslagId, btnId) {
-  const el = document.getElementById(verslagId);
-  const lang = localStorage.getItem('ia-lang') || 'nl';
-  const text = el.getAttribute('data-' + lang) || el.innerText;
-  navigator.clipboard.writeText(text).then(() => {
-    const btn = document.getElementById(btnId);
-    btn.innerHTML = lang === 'en' ? '✓ Copied' : '✓ Gekopieerd'; btn.classList.add('copied');
-    setTimeout(() => { btn.innerHTML = '⎘ <span data-nl="Kopieer" data-en="Copy">Kopieer</span>'; btn.classList.remove('copied'); if(typeof applyLang !== 'undefined') applyLang(lang); }, 2000);
-  });
-}
+</script>
+<script>
+buildMateriaal('mat-ablatieschildklier', [
+  'angioset',
+  { ref:'echoprobe_hoes', spec_en:'Sterile, high-frequency linear probe' },
+  { nl:'RFA-generator', en:'RFA generator', spec_nl:'Met monopolaire modus', spec_en:'With monopolar mode' },
+  { nl:'Schildklier-RFA-elektrode', en:'Thyroid RFA electrode', spec_nl:'Dun, intern gekoeld, kort actief topje', spec_en:'Thin, internally cooled, short active tip (7–10 mm)' },
+  { nl:'Aardingsplaten', en:'Grounding pads', spec_nl:'Op de dijen', spec_en:'On the thighs', aantal:'2' },
+  { nl:'Hydrodissectie-set', en:'Hydrodissection set', spec_nl:'NaCl/glucose voor de \'danger triangle\' rond n. recurrens', spec_en:'NaCl/glucose for the \'danger triangle\' around the recurrent nerve' },
+  { nl:'Lokaal anestheticum', en:'Local anaesthetic', spec_nl:'Lidocaïne 1%' }
+]);
 </script>
 </body>
 </html>

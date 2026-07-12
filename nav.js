@@ -160,7 +160,8 @@ function buildNav() {
     cursor:pointer;font-family:'Nunito',sans-serif;margin-left:0.35rem;
     flex-shrink:0;transition:all 0.12s;"
     onmouseover="this.style.borderColor='var(--blue)';this.style.color='var(--blue)'"
-    onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">EN</button>`;
+    onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">EN</button>
+  <button id="theme-btn" class="theme-btn" onclick="toggleTheme()" title="Licht/donker" style="margin-left:0.35rem;flex-shrink:0;">🌙</button>`;
 
   const hamburger = `<button class="hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -250,3 +251,34 @@ document.addEventListener('DOMContentLoaded', buildNav);
   s.src = '/_vercel/insights/script.js';
   document.head.appendChild(s);
 })();
+
+// ═══════════════════════════════════════════
+// Donkere modus
+// ═══════════════════════════════════════════
+function initTheme() {
+  const saved = localStorage.getItem('ia-theme');
+  const theme = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  document.documentElement.dataset.theme = theme;
+}
+function toggleTheme() {
+  const cur = document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light';
+  const next = cur === 'dark' ? 'light' : 'dark';
+  document.documentElement.dataset.theme = next;
+  localStorage.setItem('ia-theme', next);
+  updateThemeBtn();
+}
+function updateThemeBtn() {
+  const btn = document.getElementById('theme-btn');
+  if (btn) btn.textContent = document.documentElement.dataset.theme === 'dark' ? '☀️' : '🌙';
+}
+initTheme();
+document.addEventListener('DOMContentLoaded', updateThemeBtn);
+
+// ═══════════════════════════════════════════
+// Service worker — offline ondersteuning (PWA)
+// ═══════════════════════════════════════════
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js').catch(() => {});
+  });
+}

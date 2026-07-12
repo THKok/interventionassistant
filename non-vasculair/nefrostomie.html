@@ -320,27 +320,15 @@ Bij koorts of forse toename hematurie laagdrempelig contact opnemen.</div>
   </div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/7.0.0/fuse.min.js"></script>
+<script src="../fuse.min.js"></script>
 <script src="../procedures.js"></script>
 <script src="../nav.js"></script>
 <script src="../search.js"></script>
 <script src="../materiaal.js"></script>
+<script src="../verslag.js"></script>
 <script src="../lang.js"></script>
 <script>
 function toggleAcc(id) { document.getElementById(id).classList.toggle('open'); }
-function copyVerslag(verslagId, btnId) {
-  const el = document.getElementById(verslagId);
-  const lang = localStorage.getItem('ia-lang') || 'nl';
-  const text = el.getAttribute('data-' + lang) || el.innerText;
-  navigator.clipboard.writeText(text).then(() => {
-    const btn = document.getElementById(btnId);
-    const copied = lang === 'en' ? '✓ Copied' : '✓ Gekopieerd';
-    const copy = lang === 'en' ? '⎘ Copy' : '⎘ Kopieer';
-    btn.innerHTML = copied; btn.classList.add('copied');
-    setTimeout(() => { btn.innerHTML = copy; btn.classList.remove('copied'); }, 2000);
-  });
-}
-
 // Afbeeldingendata
 const FOTOS = {
   'nefro-1': { src: '../image/non-vasculair/nefrostomie/Nefrostomie1.webp', cap: 'Neff-set opgevoerd over de voerdraad' },
