@@ -140,13 +140,17 @@ nav {
 }
 
 .proc-list-subhead {
-  padding: 0.55rem 0 0.25rem;
+  padding: 0.45rem 1.1rem 0.4rem;
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
   font-size: 0.66rem;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--muted);
 }
+.proc-list-subhead:first-child { border-top: none; }
 
 .dropdown-dot {
   width: 7px;
