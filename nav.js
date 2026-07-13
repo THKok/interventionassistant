@@ -279,6 +279,18 @@ document.addEventListener('DOMContentLoaded', updateThemeBtn);
 // ═══════════════════════════════════════════
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js').catch(() => {});
+    navigator.serviceWorker.register('/sw.js').then((reg) => {
+      // Controleer bij elke paginalading op een nieuwe versie
+      reg.update().catch(() => {});
+    }).catch(() => {});
+  });
+
+  // Zodra een nieuwe service worker het overneemt: één keer herladen,
+  // zodat de verse bestanden meteen actief zijn.
+  let herladen = false;
+  navigator.serviceWorker.addEventListener('controllerchange', () => {
+    if (herladen) return;
+    herladen = true;
+    window.location.reload();
   });
 }
