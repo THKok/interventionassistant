@@ -294,3 +294,29 @@ if ('serviceWorker' in navigator) {
     window.location.reload();
   });
 }
+
+// ═══════════════════════════════════════════
+// Site-brede footer met disclaimer-link
+// Wordt automatisch op elke pagina geplaatst, dus ook op nieuwe pagina's.
+// ═══════════════════════════════════════════
+function buildFooter() {
+  if (document.querySelector('.site-footer')) return;
+
+  const path = window.location.pathname;
+  const depth = (path.match(/\//g) || []).length - 1;
+  const prefix = depth > 0 ? '../'.repeat(depth) : '';
+
+  const footer = document.createElement('footer');
+  footer.className = 'site-footer';
+  footer.innerHTML =
+    `<a href="${prefix}disclaimer.html" data-nl="Disclaimer" data-en="Disclaimer">Disclaimer</a>` +
+    `<span class="foot-warn" data-nl="Niet-gevalideerd naslagwerk. Richtlijnen en lokale protocollen zijn leidend."` +
+    ` data-en="Unvalidated reference. Guidelines and local protocols take precedence.">` +
+    `Niet-gevalideerd naslagwerk. Richtlijnen en lokale protocollen zijn leidend.</span>`;
+
+  document.body.appendChild(footer);
+
+  const lang = localStorage.getItem('ia-lang') || 'nl';
+  if (typeof applyLang === 'function') applyLang(lang);
+}
+document.addEventListener('DOMContentLoaded', buildFooter);

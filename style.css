@@ -1084,3 +1084,60 @@ html[data-theme="dark"] img { filter: brightness(0.9); }
   line-height: 1;
 }
 .theme-btn:hover { border-color: var(--blue); }
+
+/* ═══════════════════════════════════════════
+   Disclaimerpagina
+   ═══════════════════════════════════════════ */
+.disc-alert {
+  background: var(--red-light);
+  border: 1px solid var(--red);
+  border-left: 4px solid var(--red);
+  border-radius: 8px;
+  padding: 1rem 1.1rem;
+  margin-bottom: 1.6rem;
+  font-size: 0.87rem;
+  line-height: 1.65;
+}
+.disc-alert-title {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  color: var(--red);
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
+}
+.disc-section { margin-bottom: 1.5rem; }
+.disc-section h2 {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--blue);
+  margin: 0 0 0.5rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--border);
+}
+.disc-section p {
+  font-size: 0.87rem;
+  line-height: 1.7;
+  margin: 0 0 0.7rem;
+  color: var(--text);
+}
+
+/* ═══════════════════════════════════════════
+   Site-brede footer
+   ═══════════════════════════════════════════ */
+.site-footer {
+  margin-top: 3rem;
+  padding: 1.1rem 1.5rem 1.6rem;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  font-size: 0.76rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.site-footer a {
+  color: var(--blue);
+  text-decoration: none;
+  font-weight: 700;
+}
+.site-footer a:hover { text-decoration: underline; }
+.site-footer .foot-warn { display: block; margin-top: 0.3rem; }

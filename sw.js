@@ -18,6 +18,7 @@ const FONT_CACHE    = 'ia-fonts-v1';   // fonts wijzigen niet; apart van de site
 // Alles wat de site nodig heeft om volledig offline te werken.
 const CORE = [
   '/',
+  '/disclaimer.html',
   '/index.html',
   '/materiaal/angioset.html',
   '/materiaal/antistolling.html',

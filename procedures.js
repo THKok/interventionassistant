@@ -95,5 +95,8 @@ const PROCEDURES = [
     trefwoorden: ["visceraal","mesenteriaal","ischemie","AMI","CMI","SMA","truncus coeliacus","Koelemay","CoBaGI","darmangina","stent"] },
   { naam: "Shunt MDO", categorie: "MDO", subcategorie: "Hemodialyse toegang", tag: "vasc",
     url: "mdo/shunt-mdo.html",
-    trefwoorden: ["shunt","AVF","AVG","hemodialyse","MDO","fistel","RCAVF","BCAVF","basilica transpositie","duplex"] }
+    trefwoorden: ["shunt","AVF","AVG","hemodialyse","MDO","fistel","RCAVF","BCAVF","basilica transpositie","duplex"] },
+  { naam: "Disclaimer", categorie: "Overig", subcategorie: "Referentie", tag: "mat",
+    url: "disclaimer.html",
+    trefwoorden: ["disclaimer","aansprakelijkheid","voorwaarden","gebruik","validatie","richtlijn","protocol"] },
 ];
