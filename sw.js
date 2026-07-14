@@ -51,6 +51,8 @@ const CORE = [
   '/oncologie/ablatie-lever.html',
   '/vasculair/bae.html',
   '/vasculair/evar.html',
+  '/vasculair/miltembolisatie.html',
+  '/vasculair/nierembolisatie.html',
   '/vasculair/pae.html',
   '/vasculair/picc-lijn.html',
   '/vasculair/port-a-cath.html',

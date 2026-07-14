@@ -99,4 +99,10 @@ const PROCEDURES = [
   { naam: "Disclaimer", categorie: "Overig", subcategorie: "Referentie", tag: "mat",
     url: "disclaimer.html",
     trefwoorden: ["disclaimer","aansprakelijkheid","voorwaarden","gebruik","validatie","richtlijn","protocol"] },
+  { naam: "Miltembolisatie", categorie: "Vasculair", subcategorie: "Embolisatie", tag: "vasc",
+    url: "vasculair/miltembolisatie.html",
+    trefwoorden: ["milt","miltembolisatie","lienalis","splenic","trauma","bloeding","AAST","coils","plug","proximaal","distaal","pseudoaneurysma","splenectomie","miltbehoud","extravasatie"] },
+  { naam: "Nierembolisatie", categorie: "Vasculair", subcategorie: "Embolisatie", tag: "vasc",
+    url: "vasculair/nierembolisatie.html",
+    trefwoorden: ["nier","nierembolisatie","renalis","renal","trauma","bloeding","hematurie","PCNL","nierbiopt","pseudoaneurysma","AV-fistel","superselectief","microcoils","sandwichtechniek","AAST"] },
 ];

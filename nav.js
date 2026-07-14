@@ -13,6 +13,8 @@ const NAV_ITEMS = [
       { label: 'rTPA acuut bedreigd been', label_en: 'rTPA acute limb ischaemia',      url: 'vasculair/rtpa-trombolyse.html', badge: 'URGENT' },
       { header: 'Embolisatie', header_en: 'Embolisation' },
       { label: 'Bronchiaalarterie embolisatie', label_en: 'Bronchial artery embolisation',  url: 'vasculair/bae.html' },
+      { label: 'Miltembolisatie', label_en: 'Splenic artery embolisation', url: 'vasculair/miltembolisatie.html' },
+      { label: 'Nierembolisatie', label_en: 'Renal artery embolisation', url: 'vasculair/nierembolisatie.html' },
       { label: 'Prostaatembolisatie', label_en: 'Prostate embolisation (PAE)',           url: 'vasculair/pae.html' },
       { label: 'Uterusembolisatie bij fluxus', label_en: 'Uterine embolisation (PPH)',  url: 'vasculair/uterusembolisatie.html' },
       { label: 'Uterusembolisatie bij myomen/adenomyose', label_en: 'Uterine embolisation (fibroids/adenomyosis)',  url: 'vasculair/uterusembolisatie-electief.html' },
