@@ -48,7 +48,7 @@
 <div class="acc-inner-split">
 <div>
 <p class="acc-sublabel" data-en="Indications" data-nl="Indicaties">Indicaties</p>
-<ul>
+<ul class="clean">
 <li data-en="Blunt renal trauma AAST grade III–V with a vascular injury in a haemodynamically stable or stabilised patient" data-nl="Stomp niertrauma AAST graad III–V met vaatletsel bij een hemodynamisch stabiele of gestabiliseerde patiënt">Stomp niertrauma AAST graad III–V met vaatletsel bij een hemodynamisch stabiele of gestabiliseerde patiënt</li>
 <li data-en="Iatrogenic bleeding: after PCNL, renal biopsy, partial nephrectomy or nephrostomy — the most common indication in practice" data-nl="Iatrogene bloeding: na PCNL, nierbiopt, partiële nefrectomie of nefrostomie — in de praktijk de meest voorkomende indicatie">Iatrogene bloeding: na PCNL, nierbiopt, partiële nefrectomie of nefrostomie — in de praktijk de meest voorkomende indicatie</li>
 <li data-en="Pseudoaneurysm, arteriovenous fistula or active extravasation on CT angiography" data-nl="Pseudoaneurysma, arterioveneuze fistel of actieve extravasatie op CT-angiografie">Pseudoaneurysma, arterioveneuze fistel of actieve extravasatie op CT-angiografie</li>
@@ -58,7 +58,7 @@
 </div>
 <div>
 <p class="acc-sublabel" data-en="Contraindications" data-nl="Contra-indicaties">Contra-indicaties</p>
-<ul>
+<ul class="clean">
 <li data-en="Haemodynamic instability refractory to resuscitation → surgery" data-nl="Hemodynamische instabiliteit refractair aan resuscitatie → chirurgie">Hemodynamische instabiliteit refractair aan resuscitatie → chirurgie</li>
 <li data-en="Avulsion of the renal pedicle or a completely devascularised kidney — embolisation adds nothing" data-nl="Avulsie van de niersteel of een volledig gedevasculariseerde nier — embolisatie voegt niets toe">Avulsie van de niersteel of een volledig gedevasculariseerde nier — embolisatie voegt niets toe</li>
 <li data-en="Relative: severe renal impairment or a solitary kidney — weigh contrast load and nephron loss, but bleeding takes precedence" data-nl="Relatief: ernstige nierfunctiestoornis of een solitaire nier — weeg contrastbelasting en nefronverlies af, maar de bloeding gaat voor">Relatief: ernstige nierfunctiestoornis of een solitaire nier — weeg contrastbelasting en nefronverlies af, maar de bloeding gaat voor</li>
@@ -77,7 +77,8 @@
 <span class="acc-chevron">▾</span>
 </div>
 <div class="acc-body">
-<ul class="checklist">
+<div class="acc-inner">
+<ul class="clean">
 <li data-en="Recent CT angiography: site of the vascular injury, which segmental branch feeds it, number of renal arteries (accessory arteries are common)" data-nl="Recente CT-angiografie: locatie van het vaatletsel, welke segmentale tak het voedt, aantal nierarteriën (accessoire arteriën komen vaak voor)">Recente CT-angiografie: locatie van het vaatletsel, welke segmentale tak het voedt, aantal nierarteriën (accessoire arteriën komen vaak voor)</li>
 <li data-en="Relevant history: PCNL, biopsy, partial nephrectomy, nephrostomy? Bleeding after an intervention is typically a pseudoaneurysm" data-nl="Relevante voorgeschiedenis: PCNL, biopt, partiële nefrectomie, nefrostomie? Een bloeding na een ingreep is typisch een pseudoaneurysma">Relevante voorgeschiedenis: PCNL, biopt, partiële nefrectomie, nefrostomie? Een bloeding na een ingreep is typisch een pseudoaneurysma</li>
 <li data-en="Renal function and contralateral kidney: is there a functioning kidney on the other side? Solitary kidney changes the risk-benefit balance" data-nl="Nierfunctie en contralaterale nier: is er een functionerende nier aan de andere kant? Een solitaire nier verandert de risicoafweging">Nierfunctie en contralaterale nier: is er een functionerende nier aan de andere kant? Een solitaire nier verandert de risicoafweging</li>
@@ -88,6 +89,7 @@
 </ul>
 </div>
 </div>
+</div>
 <!-- Materiaal -->
 <div class="accordion" id="acc-mat">
 <div class="acc-header" onclick="toggleAcc('acc-mat')">
@@ -95,7 +97,8 @@
 <span class="acc-chevron">▾</span>
 </div>
 <div class="acc-body">
-<table class="mat-table">
+<div class="acc-inner" style="padding:0">
+<table class="mat">
 <thead><tr>
 <th data-en="Item" data-nl="Item">Item</th>
 <th data-en="Specification" data-nl="Specificatie">Specificatie</th>
@@ -105,6 +108,7 @@
 </table>
 </div>
 </div>
+</div>
 <!-- Stappenplan -->
 <div class="accordion" id="acc-stap">
 <div class="acc-header" onclick="toggleAcc('acc-stap')">
@@ -112,6 +116,7 @@
 <span class="acc-chevron">▾</span>
 </div>
 <div class="acc-body">
+<div class="acc-inner">
 <p class="acc-sublabel" data-en="Access and diagnostic angiography" data-nl="Toegang en diagnostische angiografie">Toegang en diagnostische angiografie</p>
 <ol class="steps">
 <li><div class="sn teal">1</div><div data-en="Patient supine. Sterile conditions. Local anaesthesia with lidocaine 1%." data-nl="Patiënt in rugligging. Steriele omstandigheden. Lokale anesthesie met lidocaïne 1%.">Patiënt in rugligging. Steriele omstandigheden. Lokale anesthesie met lidocaïne 1%.</div></li>
@@ -136,6 +141,7 @@
 <div class="note green"><strong data-en="Negative angiogram after PCNL or biopsy?" data-nl="Negatief angiogram na PCNL of biopt?">Negatief angiogram na PCNL of biopt?</strong> <span data-en="A pseudoaneurysm can be masked by vasospasm, a clot or hypotension. If the clinical picture is convincing (transfusion requirement, ongoing haematuria), consider selectively imaging the branch along the puncture tract, or repeating the angiography after a short interval. Empirical embolisation of the suspected branch is defensible when bleeding persists." data-nl="Een pseudoaneurysma kan gemaskeerd worden door vasospasme, een stolsel of hypotensie. Bij een overtuigend klinisch beeld (transfusiebehoefte, aanhoudende hematurie): overweeg de tak langs het punctietraject selectief af te beelden, of de angiografie na een kort interval te herhalen. Empirische embolisatie van de verdachte tak is verdedigbaar bij aanhoudende bloeding.">Een pseudoaneurysma kan gemaskeerd worden door vasospasme, een stolsel of hypotensie. Bij een overtuigend klinisch beeld (transfusiebehoefte, aanhoudende hematurie): overweeg de tak langs het punctietraject selectief af te beelden, of de angiografie na een kort interval te herhalen. Empirische embolisatie van de verdachte tak is verdedigbaar bij aanhoudende bloeding.</span></div>
 </div>
 </div>
+</div>
 <!-- Complicaties -->
 <div class="accordion" id="acc-comp">
 <div class="acc-header" onclick="toggleAcc('acc-comp')">
@@ -146,7 +152,7 @@
 <div class="acc-inner-split">
 <div>
 <p class="acc-sublabel" data-en="Common" data-nl="Frequent">Frequent</p>
-<ul>
+<ul class="clean">
 <li data-en="Post-embolisation syndrome: flank pain, fever, nausea. Usually self-limiting" data-nl="Post-embolisatiesyndroom: flankpijn, koorts, misselijkheid. Meestal zelflimiterend">Post-embolisatiesyndroom: flankpijn, koorts, misselijkheid. Meestal zelflimiterend</li>
 <li data-en="Segmental renal infarction: expected and accepted — the price of haemostasis. Usually less than 10% of the parenchyma with good superselective technique" data-nl="Segmentaal nierinfarct: verwacht en geaccepteerd — de prijs van hemostase. Bij goede superselectieve techniek meestal minder dan 10% van het parenchym">Segmentaal nierinfarct: verwacht en geaccepteerd — de prijs van hemostase. Bij goede superselectieve techniek meestal minder dan 10% van het parenchym</li>
 <li data-en="Transient rise in creatinine" data-nl="Voorbijgaande stijging van het kreatinine">Voorbijgaande stijging van het kreatinine</li>
@@ -154,7 +160,7 @@
 </div>
 <div>
 <p class="acc-sublabel" data-en="Serious" data-nl="Ernstig">Ernstig</p>
-<ul>
+<ul class="clean">
 <li data-en="Persistent or recurrent bleeding: often a second focus or a missed accessory renal artery. Re-intervention" data-nl="Persisterende of recidiverende bloeding: vaak een tweede haard of een gemiste accessoire nierarterie. Re-interventie">Persisterende of recidiverende bloeding: vaak een tweede haard of een gemiste accessoire nierarterie. Re-interventie</li>
 <li data-en="Non-target embolisation with extensive infarction and loss of renal function — the main risk of embolising too proximally" data-nl="Non-target embolisatie met uitgebreide infarcering en verlies van nierfunctie — het belangrijkste risico van te proximaal emboliseren">Non-target embolisatie met uitgebreide infarcering en verlies van nierfunctie — het belangrijkste risico van te proximaal emboliseren</li>
 <li data-en="Coil migration, including into the renal vein in an AV fistula with high flow" data-nl="Coilmigratie, ook naar de vena renalis bij een AV-fistel met hoge flow">Coilmigratie, ook naar de vena renalis bij een AV-fistel met hoge flow</li>
@@ -173,7 +179,8 @@
 <span class="acc-chevron">▾</span>
 </div>
 <div class="acc-body">
-<ul class="checklist">
+<div class="acc-inner">
+<ul class="clean">
 <li data-en="Bed rest and monitoring of the puncture site as per local protocol" data-nl="Bedrust en controle van de punctieplaats volgens lokaal protocol">Bedrust en controle van de punctieplaats volgens lokaal protocol</li>
 <li data-en="Monitoring: haemodynamics, serial Hb, urine colour (clearing of haematuria is the clinical endpoint)" data-nl="Bewaking: hemodynamiek, seriële Hb-controle, urinekleur (het opklaren van de hematurie is het klinische eindpunt)">Bewaking: hemodynamiek, seriële Hb-controle, urinekleur (het opklaren van de hematurie is het klinische eindpunt)</li>
 <li data-en="Check renal function: creatinine before and after. Adequate hydration" data-nl="Nierfunctiecontrole: kreatinine vóór en na. Goede hydratie">Nierfunctiecontrole: kreatinine vóór en na. Goede hydratie</li>
@@ -183,6 +190,7 @@
 </ul>
 </div>
 </div>
+</div>
 <!-- Standaardverslag -->
 <div class="accordion" id="acc-verslag">
 <div class="acc-header" onclick="toggleAcc('acc-verslag')">
@@ -190,6 +198,7 @@
 <span class="acc-chevron">▾</span>
 </div>
 <div class="acc-body">
+<div class="acc-inner">
 <div class="verslag-wrap">
 <div class="verslag" id="verslag-nier" data-nl="Ter vergelijking: [datum/modaliteit]
 Antistolling: [gestaakt / niet van toepassing]
@@ -322,6 +331,7 @@ Kreatininecontrole. Adequate pijnstilling.</div>
 </div>
 </div>
 </div>
+</div>
 <!-- Bronnen -->
 <div class="accordion" id="acc-bronnen">
 <div class="acc-header" onclick="toggleAcc('acc-bronnen')">
@@ -329,7 +339,8 @@ Kreatininecontrole. Adequate pijnstilling.</div>
 <span class="acc-chevron">▾</span>
 </div>
 <div class="acc-body">
-<ul class="bronnen">
+<div class="acc-inner">
+<ul class="bronnen-lijst">
 <li><a href="https://link.springer.com/article/10.1007/s00270-023-03620-w" target="_blank" rel="noopener">CIRSE Standards of Practice: Endovascular Treatment of Visceral and Renal Artery Aneurysms and Pseudoaneurysms (2023)</a></li>
 <li><a href="https://qims.amegroups.org/article/view/16210/html" target="_blank" rel="noopener">Endovascular management of arterial injuries after blunt or iatrogenic renal trauma — Loffroy et al., QIMS</a></li>
 <li><a href="https://www.ajronline.org/doi/10.2214/AJR.19.21486" target="_blank" rel="noopener">The AAST Updated Kidney Injury Scale — AJR</a></li>
@@ -337,6 +348,7 @@ Kreatininecontrole. Adequate pijnstilling.</div>
 <li><a href="https://link.springer.com/article/10.1186/s12893-024-02572-3" target="_blank" rel="noopener">Super-selective renal artery embolization for iatrogenic and traumatic renal haemorrhage — BMC Surgery (2024)</a></li>
 <li><a href="https://www.wjes.org/" target="_blank" rel="noopener">WSES-AAST — Kidney and uro-trauma guidelines</a></li>
 </ul>
+</div>
 </div>
 </div>
 </div>
@@ -358,7 +370,7 @@ buildMateriaal('mat-nierembolisatie', [
   { ref:'pigtail_kath', spec_nl:'4–5 Fr — aortografie L1–L2', spec_en:'4–5 Fr — aortography at L1–L2' },
   { ref:'cobra', spec_nl:'4–5 Fr — sondering arteria renalis', spec_en:'4–5 Fr — catheterisation of the renal artery' },
   { section_nl:'Superselectie (essentieel)', section_en:'Superselective catheterisation (essential)' },
-  { ref:'microkatheter', spec_nl:'2.4–2.8 Fr, met microvoerdraad — zo distaal mogelijk', spec_en:'2.4–2.8 Fr, with microguidewire — as distal as possible' },
+  { ref:'microkatheter', spec_nl:'Progreat (met microvoerdraad) — zo distaal mogelijk', spec_en:'Progreat (with microguidewire) — as distal as possible' },
   { section_nl:'Embolisatiemateriaal', section_en:'Embolisation material' },
   { ref:'coil_micro', spec_nl:'0.018 inch — materiaal van keuze, via microkatheter', spec_en:'0.018 inch — material of choice, via microcatheter' },
   { ref:'coil_pushable', spec_nl:'0.035 inch — bij embolisatie via de macrokatheter', spec_en:'0.035 inch — for embolisation via the macrocatheter' },

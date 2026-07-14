@@ -83,7 +83,7 @@ const MAT = {
   nacl:            { nl:'NaCl 0,9%', en:'NaCl 0.9%', spec_nl:'Voor flushen', spec_en:'For flushing' },
 
   // ---- Embolisatie ----
-  microkatheter:   { nl:'Microkatheter', en:'Microcatheter', spec_nl:'2.4–2.8 Fr, met microvoerdraad — voor superselectie', spec_en:'2.4–2.8 Fr, with microguidewire — for superselective catheterisation', link:'../materiaal/sheaths-en-katheters.html' },
+  microkatheter:   { nl:'Microkatheter', en:'Microcatheter', spec_nl:'Progreat (met microvoerdraad) — voor superselectie', spec_en:'Progreat (with microguidewire) — for superselective catheterisation', link:'../materiaal/sheaths-en-katheters.html' },
   coil_pushable:   { nl:'Pushable coils', en:'Pushable coils', spec_nl:'0.035 inch, diameter op vatmaat', spec_en:'0.035 inch, diameter matched to vessel', link:'../materiaal/embolisatiematerialen.html' },
   coil_detach:     { nl:'Detachable coils', en:'Detachable coils', spec_nl:'Interlock — controleerbaar afzetbaar, herpositioneerbaar tot losmaken', spec_en:'Interlock — controlled detachment, repositionable until released', link:'../materiaal/embolisatiematerialen.html' },
   coil_micro:      { nl:'Microcoils', en:'Microcoils', spec_nl:'0.018 inch, via microkatheter', spec_en:'0.018 inch, via microcatheter', link:'../materiaal/embolisatiematerialen.html' },
