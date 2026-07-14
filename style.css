@@ -476,6 +476,19 @@ nav {
 .risk-badge.hoog .risk-dot         { background: var(--red); }
 .risk-badge-arr { font-size: 0.75rem; opacity: 0.7; }
 
+/* Spoedbadge — zelfde vorm als de risk-badge, maar niet klikbaar.
+   Voor procedures bij een actieve bloeding: er is geen electief
+   antistollingsvenster, dus een risicoclassificatie is niet van toepassing. */
+.spoed-badge {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  padding: 0.4rem 0.85rem; border-radius: 8px; font-size: 0.8rem; font-weight: 700;
+  border: 1.5px solid var(--red);
+  background: var(--red-light);
+  color: var(--red);
+  cursor: default;
+}
+.spoed-badge .risk-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; background: var(--red); }
+
 /* ══════════════════════════════════════
    ACCORDION
    ══════════════════════════════════════ */
