@@ -622,6 +622,29 @@ ul.clean li::before {
 }
 ul.clean li strong { font-weight: 600; }
 
+/* Neutrale opsomming — zelfde ritme als .clean maar met een gewoon
+   opsommingsteken i.p.v. een groen vinkje. Voor lijsten die geen
+   positieve strekking hebben (bv. complicaties, nazorg). */
+ul.bullets { list-style: none; padding: 0; }
+ul.bullets li {
+  font-size: 0.875rem;
+  padding: 0.35rem 0 0.35rem 1.1rem;
+  position: relative;
+  border-bottom: 1px solid #edf0f5;
+  line-height: 1.5;
+  color: var(--text);
+}
+ul.bullets li:last-child { border-bottom: none; }
+ul.bullets li::before {
+  content: '•';
+  position: absolute;
+  left: 0.15rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  top: 0.32rem;
+}
+ul.bullets li strong { font-weight: 600; }
+
 ol.steps { list-style: none; padding: 0; }
 ol.steps li {
   display: flex;
