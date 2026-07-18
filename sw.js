@@ -61,6 +61,7 @@ const CORE = [
   '/vasculair/rtpa-trombolyse.html',
   '/vasculair/uterusembolisatie-electief.html',
   '/vasculair/uterusembolisatie.html',
+  '/vasculair/vena-cava-filter.html',
   '/style.css',
   '/nav.js',
   '/search.js',

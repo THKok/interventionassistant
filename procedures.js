@@ -5,7 +5,7 @@ const PROCEDURES = [
   { naam: "rTPA opstarten — acuut bedreigd been", categorie: "Vasculair", subcategorie: "Arterieel", tag: "urgent",
     url: "vasculair/rtpa-trombolyse.html",
     trefwoorden: ["trombolyse","rTPA","alteplase","acuut","bedreigd been","Rutherford","CDT","McNamara","heparine","fibrinogeen"] },
-  { naam: "Port-a-cath plaatsing bovenarmport", categorie: "Vasculair", subcategorie: "Veneuze toegang", tag: "vasc",
+  { naam: "Port-a-cath plaatsing bovenarmport", categorie: "Vasculair", subcategorie: "Veneus", tag: "vasc",
     url: "vasculair/port-a-cath.html",
     trefwoorden: ["port","port-a-cath","bovenarmport","chemotherapie","veneuze toegang","basilica","cephalica","Huber","peel-away","pocket"] },
   { naam: "Uterusembolisatie bij fluxus", categorie: "Vasculair", subcategorie: "Embolisatie", tag: "vasc",
@@ -38,7 +38,7 @@ const PROCEDURES = [
     url: "non-vasculair/galblaasdrain.html",
     trefwoorden: ["galblaas","cholecystostomie","cholecystitis","cholecystostomy","gallbladder","drain","transhepatisch","empyeem","opspuitfoto","cholangiografie","pigtail"] },
 
-  { naam: "PICC-lijn plaatsing", categorie: "Vasculair", subcategorie: "Veneuze toegang", tag: "vasc",
+  { naam: "PICC-lijn plaatsing", categorie: "Vasculair", subcategorie: "Veneus", tag: "vasc",
     url: "vasculair/picc-lijn.html",
     trefwoorden: ["PICC","lijn","centraal veneus","basilica","brachialis","peel-away","micropunctie","chemotherapie","antibiotica","TPN"] },
   { naam: "Ascitesdrainage", categorie: "Non-vasculair", subcategorie: "Drainage", tag: "nonvasc",
@@ -108,4 +108,7 @@ const PROCEDURES = [
   { naam: "Levercyste scleroseren", categorie: "Non-vasculair", subcategorie: "Lever & galwegen", tag: "nonvasc",
     url: "non-vasculair/levercyste.html",
     trefwoorden: ["levercyste","cyste","lever","scleroseren","sclerotherapie","aspiratie","PAS","ethanol","alcohol","simpele cyste","OK-432","pigtail","hepatisch"] },
+  { naam: "Vena cava filter", categorie: "Vasculair", subcategorie: "Veneus", tag: "vasc",
+    url: "vasculair/vena-cava-filter.html",
+    trefwoorden: ["vena cava filter","IVC filter","cavafilter","longembolie","VTE","DVT","trombose","retrievable","verwijderbaar","snare","cavografie","infrarenaal","filter verwijderen","filterplaatsing"] },
 ];
