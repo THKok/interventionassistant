@@ -40,6 +40,7 @@ const CORE = [
   '/non-vasculair/gastrostomie.html',
   '/non-vasculair/jj-katheter.html',
   '/non-vasculair/leverbiopt.html',
+  '/non-vasculair/levercyste.html',
   '/non-vasculair/morel-lavallee.html',
   '/non-vasculair/nefrostomie.html',
   '/non-vasculair/nierbiopt.html',

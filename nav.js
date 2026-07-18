@@ -34,6 +34,7 @@ const NAV_ITEMS = [
       { header: 'Lever & galwegen', header_en: 'Liver & biliary' },
       { label: 'Galblaasdrainage (cholecystostomie)', label_en: 'Cholecystostomy', url: 'non-vasculair/galblaasdrain.html' },
       { label: 'Leverbiopt', label_en: 'Liver biopsy',                url: 'non-vasculair/leverbiopt.html' },
+      { label: 'Levercyste scleroseren', label_en: 'Liver cyst sclerotherapy', url: 'non-vasculair/levercyste.html' },
       { label: 'PTCD galwegdrainage', label_en: 'PTCD biliary drainage',    url: 'non-vasculair/ptcd.html' },
       { label: 'Stentplaatsing galwegen', label_en: 'Biliary stenting',         url: 'non-vasculair/biliary-stenting.html' },
       { header: 'Drainage', header_en: 'Drainage' },
@@ -114,6 +115,7 @@ function biSoon() {
 
 function buildNav() {
   const prefix = getPrefix();
+  const curPath = window.location.pathname;
   const nav = document.querySelector('nav');
   if (!nav) return;
 
@@ -124,10 +126,7 @@ function buildNav() {
     const dotClass = group.dot ? '' : getDotClass(group.label);
     const dotStyle = group.dot ? `style="background:${group.dot}"` : '';
 
-    const itemsHTML = group.items.map(item => {
-      if (item.header) {
-        return `<div class="dropdown-subhead">${biLabel(item.header, item.header_en)}</div>`;
-      }
+    const renderItem = (item) => {
       const url = prefix + item.url;
       if (item.soon) {
         return `<div class="dropdown-item" style="color:var(--muted);cursor:default">
@@ -140,6 +139,30 @@ function buildNav() {
         <span class="dropdown-dot ${dotClass}" ${dotStyle}></span>
         ${biLabel(item.label, item.label_en)}${badge}
       </div>`;
+    };
+    // Groepeer items onder hun subkopje. Items vóór het eerste subkopje
+    // (of in groepen zonder subkopjes) horen bij een naamloze groep.
+    const groups = [];
+    let current = null;
+    group.items.forEach(item => {
+      if (item.header) {
+        current = { header: item, items: [] };
+        groups.push(current);
+      } else {
+        if (!current) { current = { header: null, items: [] }; groups.push(current); }
+        current.items.push(item);
+      }
+    });
+    const itemsHTML = groups.map((g, gi) => {
+      const body = g.items.map(renderItem).join('');
+      if (!g.header) return body;
+      const subId = ddId + '-sub-' + gi;
+      const active = g.items.some(it => it.url && curPath.endsWith(it.url.split('/').pop()));
+      const op = active ? ' open' : '';
+      return `<div class="dropdown-subhead${op}" onclick="toggleSubcat('${subId}')">
+        ${biLabel(g.header.header, g.header.header_en)}<span class="subhead-chevron">▾</span>
+      </div>
+      <div class="dropdown-subitems${op}" id="${subId}">${body}</div>`;
     }).join('');
 
     return `<div class="nav-item">
@@ -169,14 +192,11 @@ function buildNav() {
     <span></span><span></span><span></span>
   </button>`;
 
-  const mobileItems = NAV_ITEMS.map(group => {
+  const mobileItems = NAV_ITEMS.map((group, gi0) => {
     const dotClass = group.dot ? '' : getDotClass(group.label);
     const dotStyle = group.dot ? `style="background:${group.dot}"` : '';
     const header = `<div class="mob-group-label">${biLabel(group.label, group.label_en)}</div>`;
-    const items = group.items.map(item => {
-      if (item.header) {
-        return `<div class="mob-subhead">${biLabel(item.header, item.header_en)}</div>`;
-      }
+    const renderItem = (item) => {
       const url = prefix + item.url;
       if (item.soon) {
         return `<div class="mob-item" style="color:var(--muted);cursor:default">
@@ -189,6 +209,23 @@ function buildNav() {
         <span class="dropdown-dot ${dotClass}" ${dotStyle}></span>
         ${biLabel(item.label, item.label_en)}${badge}
       </div>`;
+    };
+    const subgroups = [];
+    let cur = null;
+    group.items.forEach(item => {
+      if (item.header) { cur = { header: item, items: [] }; subgroups.push(cur); }
+      else { if (!cur) { cur = { header: null, items: [] }; subgroups.push(cur); } cur.items.push(item); }
+    });
+    const items = subgroups.map((g, gi) => {
+      const body = g.items.map(renderItem).join('');
+      if (!g.header) return body;
+      const subId = 'mob-' + gi0 + '-sub-' + gi;
+      const active = g.items.some(it => it.url && curPath.endsWith(it.url.split('/').pop()));
+      const op = active ? ' open' : '';
+      return `<div class="mob-subhead${op}" onclick="toggleSubcat('${subId}')">
+        ${biLabel(g.header.header, g.header.header_en)}<span class="subhead-chevron">▾</span>
+      </div>
+      <div class="mob-subitems${op}" id="${subId}">${body}</div>`;
     }).join('');
     return header + items;
   }).join('');
@@ -228,6 +265,14 @@ function toggleDropdown(id) {
   document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('open'));
   document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('open'));
   if (!isOpen) { dd.classList.add('open'); btn.classList.add('open'); }
+}
+
+function toggleSubcat(id) {
+  const box = document.getElementById(id);
+  if (!box) return;
+  const head = box.previousElementSibling;
+  const open = box.classList.toggle('open');
+  if (head) head.classList.toggle('open', open);
 }
 
 function toggleMobileMenu() {

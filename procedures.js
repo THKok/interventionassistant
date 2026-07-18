@@ -105,4 +105,7 @@ const PROCEDURES = [
   { naam: "Nierembolisatie", categorie: "Vasculair", subcategorie: "Embolisatie", tag: "vasc",
     url: "vasculair/nierembolisatie.html",
     trefwoorden: ["nier","nierembolisatie","renalis","renal","trauma","bloeding","hematurie","PCNL","nierbiopt","pseudoaneurysma","AV-fistel","superselectief","microcoils","sandwichtechniek","AAST"] },
+  { naam: "Levercyste scleroseren", categorie: "Non-vasculair", subcategorie: "Lever & galwegen", tag: "nonvasc",
+    url: "non-vasculair/levercyste.html",
+    trefwoorden: ["levercyste","cyste","lever","scleroseren","sclerotherapie","aspiratie","PAS","ethanol","alcohol","simpele cyste","OK-432","pigtail","hepatisch"] },
 ];

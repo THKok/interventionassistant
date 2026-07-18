@@ -118,7 +118,10 @@ nav {
 .dropdown-item:hover { background: var(--blue-light); color: var(--blue); }
 
 .dropdown-subhead {
-  padding: 0.5rem 1rem 0.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.55rem 1rem;
   font-size: 0.66rem;
   font-weight: 800;
   letter-spacing: 0.08em;
@@ -126,18 +129,45 @@ nav {
   color: var(--muted);
   border-bottom: 1px solid var(--border);
   background: var(--bg);
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.12s;
 }
+.dropdown-subhead:hover { color: var(--text); }
 .dropdown-subhead:first-child { border-radius: 10px 10px 0 0; }
+.dropdown-subhead .subhead-chevron {
+  font-size: 0.7rem;
+  transition: transform 0.18s;
+  opacity: 0.7;
+}
+.dropdown-subhead.open .subhead-chevron { transform: rotate(180deg); }
+.dropdown-subitems {
+  display: none;
+}
+.dropdown-subitems.open { display: block; }
 
 .mob-subhead {
-  padding: 0.55rem 1.1rem 0.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 1.1rem;
   font-size: 0.64rem;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--muted);
   background: var(--bg);
+  cursor: pointer;
+  user-select: none;
 }
+.mob-subhead .subhead-chevron {
+  font-size: 0.7rem;
+  transition: transform 0.18s;
+  opacity: 0.7;
+}
+.mob-subhead.open .subhead-chevron { transform: rotate(180deg); }
+.mob-subitems { display: none; }
+.mob-subitems.open { display: block; }
 
 .proc-list-subhead {
   padding: 0.45rem 1.1rem 0.4rem;
