@@ -722,7 +722,19 @@ table.mat tr:hover td { background: var(--blue-light); }
 .note.orange { border-color: var(--orange); background: #fff8ee; }
 .note.red    { border-color: var(--red);    background: #fff2f2; }
 .note.green  { border-color: var(--green);  background: #f2fbf5; }
+.note.blue   { border-color: var(--blue);   background: #eef5fc; }
+.note.teal   { border-color: var(--teal);   background: #eefaf9; }
+.note.purple { border-color: var(--purple); background: #f5f1fc; }
 .note strong { font-weight: 600; }
+
+/* Dark mode: de lichte note-achtergronden zouden lichte tekst onleesbaar
+   maken, dus een donkere tint per accentkleur (border blijft de accentkleur). */
+html[data-theme="dark"] .note.orange { background: #2a1f0f; }
+html[data-theme="dark"] .note.red    { background: #2a1414; }
+html[data-theme="dark"] .note.green  { background: #10241a; }
+html[data-theme="dark"] .note.blue   { background: #101d2c; }
+html[data-theme="dark"] .note.teal   { background: #0f2422; }
+html[data-theme="dark"] .note.purple { background: #1c142c; }
 
 /* ══════════════════════════════════════
    STANDAARDVERSLAG
