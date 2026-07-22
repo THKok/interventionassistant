@@ -96,6 +96,7 @@ const CORE = [
   '/image/vasculair/evar/EVAR2.webp',
   '/image/vasculair/evar/EVAR3.webp',
   '/image/vasculair/evar/EVAR4.webp',
+  '/image/vasculair/evar/EVAR5.webp',
   '/image/vasculair/picc-lijn/PICCdoorlichting.jpg',
   '/image/vasculair/picc-lijn/PICCecho1.jpg',
   '/image/vasculair/picc-lijn/PICCecho2.jpg',
