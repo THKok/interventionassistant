@@ -111,4 +111,7 @@ const PROCEDURES = [
   { naam: "Vena cava filter", categorie: "Vasculair", subcategorie: "Veneus", tag: "vasc",
     url: "vasculair/vena-cava-filter.html",
     trefwoorden: ["vena cava filter","IVC filter","cavafilter","longembolie","VTE","DVT","trombose","retrievable","verwijderbaar","snare","cavografie","infrarenaal","filter verwijderen","filterplaatsing"] },
+  { naam: "Lumbaalpunctie (doorlichting)", categorie: "Non-vasculair", subcategorie: "Overig", tag: "nonvasc",
+    url: "non-vasculair/lumbaalpunctie.html",
+    trefwoorden: ["lumbaalpunctie","LP","liquor","liquorpunctie","doorlichting","fluoroscopie","openingsdruk","spinaalnaald","intrathecaal","myelografie","subarachnoidaal","postpunctionele hoofdpijn","atraumatisch","Quincke"] },
 ];

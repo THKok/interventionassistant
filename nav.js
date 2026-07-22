@@ -44,6 +44,7 @@ const NAV_ITEMS = [
       { label: 'Permanente ascitesdrain (IPC)', label_en: 'Indwelling peritoneal catheter (IPC)', url: 'non-vasculair/permanente-ascitesdrain.html' },
       { label: 'Thoraxdrainage / pleurapunctie', label_en: 'Thoracic drainage / thoracentesis', url: 'non-vasculair/thoraxdrainage.html' },
       { header: 'Overig', header_en: 'Other' },
+      { label: 'Lumbaalpunctie (doorlichting)', label_en: 'Lumbar puncture (fluoroscopy)', url: 'non-vasculair/lumbaalpunctie.html' },
       { label: 'Percutane gastrostomie (PRG)', label_en: 'Percutaneous gastrostomy (PRG)', url: 'non-vasculair/gastrostomie.html' },
       { label: 'Schildklierablatie (RFA)', label_en: 'Thyroid ablation (RFA)', url: 'non-vasculair/ablatie-schildklier.html' },
       { label: 'Sclerosering Morel-Lavallée', label_en: 'Morel-Lavallée sclerotherapy', url: 'non-vasculair/morel-lavallee.html' },
