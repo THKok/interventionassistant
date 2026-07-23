@@ -543,6 +543,7 @@ nav {
   border-bottom: none;
 }
 .acc-header:hover { background: #edf0f6; }
+html[data-theme="dark"] .acc-header:hover { background: var(--card); }
 
 .acc-title-wrap { display: flex; align-items: center; gap: 0.65rem; }
 

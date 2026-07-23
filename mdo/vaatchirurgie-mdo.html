@@ -162,6 +162,11 @@
     .infobox.oranje { border-color: var(--orange); background: #fff8ee; }
     .infobox.rood   { border-color: var(--red);    background: #fff2f2; }
     .infobox strong { font-weight: 700; }
+    /* Dark mode: vaste lichte achtergronden zouden de lichte tekst
+       onleesbaar maken, dus een donkere tint per accentkleur. */
+    html[data-theme="dark"] .infobox.groen  { background: #10241a; }
+    html[data-theme="dark"] .infobox.oranje { background: #2a1f0f; }
+    html[data-theme="dark"] .infobox.rood   { background: #2a1414; }
 
     /* Bronnenlijst */
     .bronnen-lijst { list-style: none; padding: 0; }

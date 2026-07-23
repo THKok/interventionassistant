@@ -140,6 +140,15 @@
       .vorm-cell { gap: 0.8rem; }
     }
     .note.teal { border-color: var(--teal); background: #eefafa; }
+  
+    /* Dark mode: vaste lichte/witte achtergronden zouden de lichte tekst
+       onleesbaar maken; gebruik de themavariabelen. */
+    html[data-theme="dark"] .fr-explain        { background: var(--card); }
+    html[data-theme="dark"] .sheath-color-table { background: var(--white); }
+    html[data-theme="dark"] .katheter-svg-wrap { background: var(--card); }
+    html[data-theme="dark"] .katheter-table    { background: var(--white); }
+    html[data-theme="dark"] .fr-explain code   { background: var(--white); }
+    html[data-theme="dark"] .katheter-table tr:hover { background: var(--card); }
   </style>
 </head>
 <body>
