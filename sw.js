@@ -52,6 +52,8 @@ const CORE = [
   '/non-vasculair/wissel-nefrodrain.html',
   '/oncologie/ablatie-lever.html',
   '/vasculair/bae.html',
+  '/vasculair/centrale-lijn.html',
+  '/vasculair/dialysekatheter.html',
   '/vasculair/evar.html',
   '/vasculair/miltembolisatie.html',
   '/vasculair/nierembolisatie.html',

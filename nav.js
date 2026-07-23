@@ -19,6 +19,8 @@ const NAV_ITEMS = [
       { label: 'Uterusembolisatie bij fluxus', label_en: 'Uterine embolisation (PPH)',  url: 'vasculair/uterusembolisatie.html' },
       { label: 'Uterusembolisatie bij myomen/adenomyose', label_en: 'Uterine embolisation (fibroids/adenomyosis)',  url: 'vasculair/uterusembolisatie-electief.html' },
       { header: 'Veneus', header_en: 'Venous' },
+      { label: 'Centrale lijn (CVC)', label_en: 'Central venous catheter (CVC)',   url: 'vasculair/centrale-lijn.html' },
+      { label: 'Dialysekatheter (getunneld)', label_en: 'Tunnelled dialysis catheter', url: 'vasculair/dialysekatheter.html' },
       { label: 'PICC-lijn plaatsing', label_en: 'PICC line placement',           url: 'vasculair/picc-lijn.html' },
       { label: 'Port-a-cath plaatsing', label_en: 'Port-a-cath placement',         url: 'vasculair/port-a-cath.html' },
       { label: 'Vena cava filter', label_en: 'IVC filter',                        url: 'vasculair/vena-cava-filter.html' },

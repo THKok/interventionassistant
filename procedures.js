@@ -114,4 +114,10 @@ const PROCEDURES = [
   { naam: "Lumbaalpunctie (doorlichting)", categorie: "Non-vasculair", subcategorie: "Overig", tag: "nonvasc",
     url: "non-vasculair/lumbaalpunctie.html",
     trefwoorden: ["lumbaalpunctie","LP","liquor","liquorpunctie","doorlichting","fluoroscopie","openingsdruk","spinaalnaald","intrathecaal","myelografie","subarachnoidaal","postpunctionele hoofdpijn","atraumatisch","Quincke"] },
+  { naam: "Centrale lijn (CVC)", categorie: "Vasculair", subcategorie: "Veneus", tag: "vasc",
+    url: "vasculair/centrale-lijn.html",
+    trefwoorden: ["centrale lijn","CVC","centraalveneuze katheter","3-lumen","multilumen","subclavia","AML","chemotherapie","neutropenie","cavo-atriale overgang","pinch-off","pneumothorax"] },
+  { naam: "Dialysekatheter (getunneld)", categorie: "Vasculair", subcategorie: "Veneus", tag: "vasc",
+    url: "vasculair/dialysekatheter.html",
+    trefwoorden: ["dialysekatheter","hemodialyse","getunneld","gecufft","jugularis","rechter atrium","cuff","tunnel","fibrineschede","shunt","fistel","nierfalen","peel-away"] },
 ];
