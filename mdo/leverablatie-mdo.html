@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-nl="Leverablatie MDO — InterventionAssistant" data-en="Liver Ablation MDO — InterventionAssistant">Leverablatie MDO — InterventionAssistant</title>
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#1e6db5">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .mdo-wrap {
+      display: grid;
+      grid-template-columns: 1fr 220px;
+      gap: 2.5rem;
+      align-items: start;
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    .toc {
+      position: sticky;
+      top: 78px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .toc-title {
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 1rem;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--muted);
+    }
+    .toc-list { list-style: none; padding: 0.4rem 0; }
+    .toc-list li a {
+      display: block;
+      padding: 0.35rem 1rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.12s, background 0.12s;
+      border-left: 2px solid transparent;
+    }
+    .toc-list li a:hover { color: var(--blue); background: var(--blue-light); border-color: var(--blue); }
+    .toc-list li.sub a { padding-left: 1.6rem; font-size: 0.74rem; }
+    .mdo-content { min-width: 0; }
+    .mdo-section { margin-bottom: 2.5rem; }
+    .mdo-h2 {
+      font-family: 'Nunito', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 2px solid var(--blue);
+    }
+    .mdo-h3 {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      margin: 1.25rem 0 0.5rem;
+    }
+    .mdo-p {
+      font-size: 0.875rem;
+      line-height: 1.7;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+    .mdo-p strong { font-weight: 700; }
+
+    /* Fontaine tabel + classificatiekaartjes */
+    .class-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.6rem;
+      margin: 0.75rem 0;
+    }
+    .class-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.75rem;
+      text-align: center;
+    }
+    .class-card.rood { border-top: 3px solid var(--red); }
+    .class-card.oranje { border-top: 3px solid var(--orange); }
+    .class-card.geel { border-top: 3px solid #c8a400; }
+    .class-card.groen { border-top: 3px solid var(--teal); }
+    .class-nr { font-family: 'Nunito', sans-serif; font-size: 1.4rem; font-weight: 800; color: var(--text); }
+    .class-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: var(--muted); margin-top: 0.2rem; }
+    .class-desc { font-size: 0.75rem; color: var(--text); margin-top: 0.35rem; line-height: 1.4; }
+
+    /* Beslisboom stijl */
+    .beslisboom {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.1rem;
+      margin: 0.75rem 0;
+    }
+    .bb-stap {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #edf0f5;
+      font-size: 0.875rem;
+      line-height: 1.5;
+    }
+    .bb-stap:last-child { border-bottom: none; }
+    .bb-nr {
+      width: 22px; height: 22px; border-radius: 50%;
+      background: var(--blue); color: white;
+      font-size: 0.7rem; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; font-family: 'Nunito', sans-serif;
+    }
+    .bb-nr.red { background: var(--red); }
+    .bb-nr.teal { background: var(--teal); }
+
+    /* Behandelmatrix tabel */
+    .mdo-table { width: 100%; border-collapse: collapse; font-size: 0.845rem; margin-bottom: 1rem; }
+    .mdo-table th {
+      text-align: left; padding: 0.55rem 0.85rem;
+      background: var(--card); font-size: 0.68rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted);
+      border-bottom: 2px solid var(--border);
+    }
+    .mdo-table td {
+      padding: 0.6rem 0.85rem; border-bottom: 1px solid #edf0f5;
+      vertical-align: top; line-height: 1.5; color: var(--text);
+    }
+    .mdo-table tr:last-child td { border-bottom: none; }
+    .mdo-table tr:hover td { background: var(--blue-light); }
+    .mdo-table .cat-row td {
+      background: var(--card); font-size: 0.68rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted);
+      padding: 0.5rem 0.85rem 0.15rem;
+    }
+
+    /* Infoboxen */
+    .infobox {
+      border-left: 3px solid; padding: 0.65rem 0.9rem;
+      font-size: 0.835rem; line-height: 1.55; margin: 0.75rem 0;
+      border-radius: 0 5px 5px 0; color: var(--text);
+    }
+    .infobox.blauw  { border-color: var(--blue);   background: var(--blue-light); }
+    .infobox.groen  { border-color: var(--green);  background: #f2fbf5; }
+    .infobox.oranje { border-color: var(--orange); background: #fff8ee; }
+    .infobox.rood   { border-color: var(--red);    background: #fff2f2; }
+    .infobox strong { font-weight: 700; }
+    /* Dark mode: vaste lichte achtergronden zouden de lichte tekst
+       onleesbaar maken, dus een donkere tint per accentkleur. */
+    html[data-theme="dark"] .infobox.groen  { background: #10241a; }
+    html[data-theme="dark"] .infobox.oranje { background: #2a1f0f; }
+    html[data-theme="dark"] .infobox.rood   { background: #2a1414; }
+
+    /* Bronnenlijst */
+    .bronnen-lijst { list-style: none; padding: 0; }
+    .bronnen-lijst li { padding: 0.35rem 0; border-bottom: 1px solid #edf0f5; font-size: 0.84rem; }
+    .bronnen-lijst li:last-child { border-bottom: none; }
+    .bronnen-lijst a { color: var(--blue); text-decoration: none; font-weight: 500; }
+    .bronnen-lijst a:hover { text-decoration: underline; }
+
+    @media (max-width: 800px) {
+      .mdo-wrap { grid-template-columns: 1fr; padding: 1rem; }
+      .toc { display: none; }
+      .class-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .mdo-ul { margin: 0 0 1rem 1.1rem; padding: 0; }
+    .mdo-ul li { font-size: 0.845rem; line-height: 1.55; margin-bottom: 0.4rem; color: var(--text); }
+  </style>
+</head>
+<body>
+<nav></nav>
+<div class="mdo-wrap">
+  <div class="mdo-content">
+    <div class="breadcrumb">
+      <a href="../index.html">Home</a><span class="sep">&rsaquo;</span>
+      <span data-nl="MDO" data-en="MDO">MDO</span><span class="sep">&rsaquo;</span>
+      <span data-nl="Leverablatie MDO" data-en="Liver Ablation MDO">Leverablatie MDO</span>
+    </div>
+
+    <div style="margin-bottom:1.75rem">
+      <div class="mdo-h2" style="border-color:#6040a0;font-size:1.5rem;margin-bottom:0.35rem" data-nl="Leverablatie MDO &mdash; HCC &amp; Colorectale Metastasen" data-en="Liver Ablation MDO &mdash; HCC &amp; Colorectal Metastases">Leverablatie MDO &mdash; HCC &amp; Colorectale Metastasen</div>
+      <p style="font-size:0.875rem;color:var(--muted)"><span data-nl="Multidisciplinaire bespreking lokale behandeling van levertumoren &mdash; MDL, oncologie, chirurgie &amp; interventieradiologie &middot; gebaseerd op BCLC 2022, COLLISION (2025) en de COLLISION-consensus" data-en="Multidisciplinary discussion of local treatment of liver tumours &mdash; hepatology, oncology, surgery &amp; interventional radiology &middot; based on BCLC 2022, COLLISION (2025) and the COLLISION consensus">Multidisciplinaire bespreking lokale behandeling van levertumoren &mdash; MDL, oncologie, chirurgie &amp; interventieradiologie &middot; gebaseerd op BCLC 2022, COLLISION (2025) en de COLLISION-consensus</span></p>
+    </div>
+
+    <div class="mdo-section" id="s-achtergrond">
+      <div class="mdo-h2" data-nl="1. Achtergrond &amp; Uitgangspunten" data-en="1. Background &amp; Principles">1. Achtergrond &amp; Uitgangspunten</div>
+      <p class="mdo-p" data-nl="Twee ziektebeelden domineren de lokale behandeling van levertumoren: het hepatocellulair carcinoom (HCC) en colorectale levermetastasen (CRLM). Ze verschillen fundamenteel in de manier waarop de behandelindicatie tot stand komt, en die verschillen bepalen de MDO-vraagstelling." data-en="Two disease entities dominate the local treatment of liver tumours: hepatocellular carcinoma (HCC) and colorectal liver metastases (CRLM). They differ fundamentally in how the treatment indication is reached, and those differences shape the MDO question.">Twee ziektebeelden domineren de lokale behandeling van levertumoren: het hepatocellulair carcinoom (HCC) en colorectale levermetastasen (CRLM). Ze verschillen fundamenteel in de manier waarop de behandelindicatie tot stand komt, en die verschillen bepalen de MDO-vraagstelling.</p>
+      <table class="mdo-table">
+        <thead><tr><th data-nl="Aspect" data-en="Aspect">Aspect</th><th data-nl="HCC" data-en="HCC">HCC</th><th data-nl="Colorectale metastasen" data-en="Colorectal metastases">Colorectale metastasen</th></tr></thead>
+        <tbody>
+          <tr><td data-nl="Onderliggende lever" data-en="Underlying liver">Onderliggende lever</td><td data-nl="Vrijwel altijd cirrose &mdash; leverfunctie beperkt mede de behandeling" data-en="Almost always cirrhotic &mdash; liver function itself constrains treatment">Vrijwel altijd cirrose &mdash; leverfunctie beperkt mede de behandeling</td><td data-nl="Doorgaans gezond parenchym &mdash; meer reserve" data-en="Usually healthy parenchyma &mdash; more reserve">Doorgaans gezond parenchym &mdash; meer reserve</td></tr>
+          <tr><td data-nl="Leidend kader" data-en="Guiding framework">Leidend kader</td><td data-nl="BCLC-stadium (tumorlast + leverfunctie + performance)" data-en="BCLC stage (tumour burden + liver function + performance)">BCLC-stadium (tumorlast + leverfunctie + performance)</td><td data-nl="Resectabiliteit en ablatabiliteit" data-en="Resectability and ablatability">Resectabiliteit en ablatabiliteit</td></tr>
+          <tr><td data-nl="Kernvraag in het MDO" data-en="Core MDO question">Kernvraag in het MDO</td><td data-nl="Welk BCLC-stadium, en is transplantatie in beeld?" data-en="Which BCLC stage, and is transplantation on the table?">Welk BCLC-stadium, en is transplantatie in beeld?</td><td data-nl="Is alle ziekte lokaal te behandelen met curatieve intentie?" data-en="Can all disease be treated locally with curative intent?">Is alle ziekte lokaal te behandelen met curatieve intentie?</td></tr>
+          <tr><td data-nl="Rol systemische therapie" data-en="Role of systemic therapy">Rol systemische therapie</td><td data-nl="Bij gevorderd stadium; zelden als voorbehandeling voor lokale therapie" data-en="In advanced stage; rarely as a run-up to local therapy">Bij gevorderd stadium; zelden als voorbehandeling voor lokale therapie</td><td data-nl="Vaak bepalend &mdash; downstaging kan lokale behandeling mogelijk maken" data-en="Often decisive &mdash; downstaging can make local treatment possible">Vaak bepalend &mdash; downstaging kan lokale behandeling mogelijk maken</td></tr>
+        </tbody>
+      </table>
+      <div class="infobox blauw"><strong data-nl="Uitgangspunt:" data-en="Starting point:">Uitgangspunt:</strong> <span data-nl="Een lokale behandeling met curatieve intentie is alleen zinvol als &aacute;lle bekende ziektelokalisaties behandeld kunnen worden. Blijft er ziekte onbehandeld, dan verschuift het doel naar ziektecontrole en verandert de afweging &mdash; dat onderscheid hoort expliciet in het MDO te vallen." data-en="Local treatment with curative intent is only meaningful if all known sites of disease can be treated. If disease is left untreated, the goal shifts to disease control and the trade-off changes &mdash; that distinction belongs explicitly in the MDO.">Een lokale behandeling met curatieve intentie is alleen zinvol als &aacute;lle bekende ziektelokalisaties behandeld kunnen worden. Blijft er ziekte onbehandeld, dan verschuift het doel naar ziektecontrole en verandert de afweging &mdash; dat onderscheid hoort expliciet in het MDO te vallen.</span></div>
+    </div>
+
+    <div class="mdo-section" id="s-hcc">
+      <div class="mdo-h2" data-nl="2. HCC &mdash; BCLC-stadium &amp; behandelkeuze" data-en="2. HCC &mdash; BCLC Stage &amp; Treatment Choice">2. HCC &mdash; BCLC-stadium &amp; behandelkeuze</div>
+      <p class="mdo-p" data-nl="Het BCLC-systeem koppelt tumorlast, leverfunctie en performance status aan een behandeladvies. De update van 2022 heeft levertransplantatie nadrukkelijker in het algoritme gezet en de rol van de interventieradiologie verbreed, onder meer via downstaging naar transplantatie." data-en="The BCLC system links tumour burden, liver function and performance status to a treatment recommendation. The 2022 update placed liver transplantation more prominently in the algorithm and broadened the role of interventional radiology, including downstaging towards transplantation.">Het BCLC-systeem koppelt tumorlast, leverfunctie en performance status aan een behandeladvies. De update van 2022 heeft levertransplantatie nadrukkelijker in het algoritme gezet en de rol van de interventieradiologie verbreed, onder meer via downstaging naar transplantatie.</p>
+      <table class="mdo-table">
+        <thead><tr><th data-nl="BCLC" data-en="BCLC">BCLC</th><th data-nl="Kenmerken" data-en="Characteristics">Kenmerken</th><th data-nl="Eerste keus" data-en="First choice">Eerste keus</th><th data-nl="Rol IR" data-en="Role of IR">Rol IR</th></tr></thead>
+        <tbody>
+          <tr><td data-nl="0 (zeer vroeg)" data-en="0 (very early)">0 (zeer vroeg)</td><td data-nl="Solitair &le;2 cm, Child-Pugh A, PS 0" data-en="Single &le;2 cm, Child-Pugh A, PS 0">Solitair &le;2 cm, Child-Pugh A, PS 0</td><td data-nl="Ablatie" data-en="Ablation">Ablatie</td><td data-nl="Ablatie is de voorkeursbehandeling; bij &le;2 cm gelijkwaardig aan resectie" data-en="Ablation is the preferred treatment; equivalent to resection at &le;2 cm">Ablatie is de voorkeursbehandeling; bij &le;2 cm gelijkwaardig aan resectie</td></tr>
+          <tr><td data-nl="A (vroeg)" data-en="A (early)">A (vroeg)</td><td data-nl="Solitair of &le;3 nodi &le;3 cm, behouden leverfunctie" data-en="Single, or &le;3 nodules &le;3 cm, preserved liver function">Solitair of &le;3 nodi &le;3 cm, behouden leverfunctie</td><td data-nl="Resectie, ablatie of transplantatie" data-en="Resection, ablation or transplantation">Resectie, ablatie of transplantatie</td><td data-nl="Ablatie bij &le;3 cm (MWA mogelijk beste optie tot 4 cm); TACE/TARE als bridging bij wachttijd &gt;6 maanden" data-en="Ablation up to 3 cm (MWA possibly best option up to 4 cm); TACE/TARE as bridging when waiting time &gt;6 months">Ablatie bij &le;3 cm (MWA mogelijk beste optie tot 4 cm); TACE/TARE als bridging bij wachttijd &gt;6 maanden</td></tr>
+          <tr><td data-nl="B (intermediair)" data-en="B (intermediate)">B (intermediair)</td><td data-nl="Multinodulair, behouden leverfunctie, PS 0" data-en="Multinodular, preserved liver function, PS 0">Multinodulair, behouden leverfunctie, PS 0</td><td data-nl="TACE" data-en="TACE">TACE</td><td data-nl="TACE bij goed afgrensbare tumoren en behouden portale perfusie; TARE bij geselecteerde pati&euml;nten; downstaging naar transplantatie" data-en="TACE for well-defined tumours with preserved portal perfusion; TARE in selected patients; downstaging towards transplantation">TACE bij goed afgrensbare tumoren en behouden portale perfusie; TARE bij geselecteerde pati&euml;nten; downstaging naar transplantatie</td></tr>
+          <tr><td data-nl="C (gevorderd)" data-en="C (advanced)">C (gevorderd)</td><td data-nl="Vasculaire invasie of extrahepatische spreiding, PS 1&ndash;2" data-en="Vascular invasion or extrahepatic spread, PS 1&ndash;2">Vasculaire invasie of extrahepatische spreiding, PS 1&ndash;2</td><td data-nl="Systemische therapie" data-en="Systemic therapy">Systemische therapie</td><td data-nl="Beperkt; TARE in studieverband of bij geselecteerde casus" data-en="Limited; TARE within trials or in selected cases">Beperkt; TARE in studieverband of bij geselecteerde casus</td></tr>
+          <tr><td data-nl="D (eindstadium)" data-en="D (end stage)">D (eindstadium)</td><td data-nl="Child-Pugh C, PS &gt;2" data-en="Child-Pugh C, PS &gt;2">Child-Pugh C, PS &gt;2</td><td data-nl="Ondersteunende zorg" data-en="Supportive care">Ondersteunende zorg</td><td data-nl="Geen lokale behandeling" data-en="No local treatment">Geen lokale behandeling</td></tr>
+        </tbody>
+      </table>
+      <div class="infobox oranje"><strong data-nl="Stage migration:" data-en="Stage migration:">Stage migration:</strong> <span data-nl="Is de eerste-keus behandeling van een stadium niet haalbaar (locatie, comorbiditeit, beschikbaarheid), dan schuift het advies op naar de optie van het volgende stadium. Concreet: lukt ablatie in BCLC 0/A niet, dan komt resectie in beeld, en daarna TACE. Dit is geen afzwakking maar een expliciet onderdeel van het algoritme." data-en="If the first-choice treatment for a stage is not feasible (location, comorbidity, availability), the recommendation migrates to the option of the next stage. Concretely: if ablation fails in BCLC 0/A, resection comes into view, and after that TACE. This is not a downgrade but an explicit part of the algorithm.">Is de eerste-keus behandeling van een stadium niet haalbaar (locatie, comorbiditeit, beschikbaarheid), dan schuift het advies op naar de optie van het volgende stadium. Concreet: lukt ablatie in BCLC 0/A niet, dan komt resectie in beeld, en daarna TACE. Dit is geen afzwakking maar een expliciet onderdeel van het algoritme.</span></div>
+      <div class="mdo-h3" data-nl="Grenswaarden bij HCC" data-en="Size thresholds in HCC">Grenswaarden bij HCC</div>
+      <ul class="mdo-ul">
+        <li data-nl="&le;2 cm &mdash; ablatie en resectie geven vergelijkbare overleving; ablatie is minder invasief en daarmee eerste keus" data-en="&le;2 cm &mdash; ablation and resection give comparable survival; ablation is less invasive and therefore first choice">&le;2 cm &mdash; ablatie en resectie geven vergelijkbare overleving; ablatie is minder invasief en daarmee eerste keus</li>
+        <li data-nl="&le;3 cm &mdash; ablatie blijft goed effectief; boven deze grens neemt de primaire effectiviteit duidelijk af" data-en="&le;3 cm &mdash; ablation remains effective; above this threshold primary efficacy clearly declines">&le;3 cm &mdash; ablatie blijft goed effectief; boven deze grens neemt de primaire effectiviteit duidelijk af</li>
+        <li data-nl="&le;4 cm &mdash; MWA wordt gezien als mogelijk beste optie in deze categorie" data-en="&le;4 cm &mdash; MWA is regarded as possibly the best option in this category">&le;4 cm &mdash; MWA wordt gezien als mogelijk beste optie in deze categorie</li>
+        <li data-nl="&le;8 cm solitair &mdash; TARE komt in aanmerking op basis van de LEGACY-criteria, mits geen vasculaire invasie" data-en="&le;8 cm single lesion &mdash; TARE qualifies based on the LEGACY criteria, provided there is no vascular invasion">&le;8 cm solitair &mdash; TARE komt in aanmerking op basis van de LEGACY-criteria, mits geen vasculaire invasie</li>
+        <li data-nl="Milaan-criteria (1 laesie &le;5 cm, of 2&ndash;3 laesies elk &le;3 cm) &mdash; drempel voor transplantatie" data-en="Milan criteria (1 lesion &le;5 cm, or 2&ndash;3 lesions each &le;3 cm) &mdash; threshold for transplantation">Milaan-criteria (1 laesie &le;5 cm, of 2&ndash;3 laesies elk &le;3 cm) &mdash; drempel voor transplantatie</li>
+      </ul>
+      <div class="infobox rood"><strong data-nl="Let op &mdash; resectie bij multinodulair HCC:" data-en="Note &mdash; resection in multinodular HCC:">Let op &mdash; resectie bij multinodulair HCC:</strong> <span data-nl="De BCLC-versie van 2022 beveelt resectie niet aan bij multinodulair HCC binnen de Milaan-criteria; de voorkeur gaat uit naar ablatie bij nodi &le;3 cm en anders TACE. Cohortstudies naar resectie laten bemoedigende resultaten zien, maar prospectieve data ontbreken nog." data-en="The 2022 BCLC version does not recommend resection for multinodular HCC within the Milan criteria; ablation is preferred for nodules &le;3 cm and TACE otherwise. Cohort studies of resection show encouraging results, but prospective data are still lacking.">De BCLC-versie van 2022 beveelt resectie niet aan bij multinodulair HCC binnen de Milaan-criteria; de voorkeur gaat uit naar ablatie bij nodi &le;3 cm en anders TACE. Cohortstudies naar resectie laten bemoedigende resultaten zien, maar prospectieve data ontbreken nog.</span></div>
+    </div>
+
+    <div class="mdo-section" id="s-crlm">
+      <div class="mdo-h2" data-nl="3. Colorectale metastasen &mdash; resectabiliteit &amp; ablatabiliteit" data-en="3. Colorectal Metastases &mdash; Resectability &amp; Ablatability">3. Colorectale metastasen &mdash; resectabiliteit &amp; ablatabiliteit</div>
+      <p class="mdo-p" data-nl="Bij CRLM draait de indicatiestelling niet om een stadiumindeling maar om twee vragen: is de ziekte technisch te verwijderen of te ableren, en is de pati&euml;nt daarvoor fit genoeg. De COLLISION-consensus vertaalt dat naar een stadiering die het MDO houvast geeft." data-en="In CRLM the indication does not follow a stage classification but two questions: can the disease be technically removed or ablated, and is the pati&euml;nt fit enough for that. The COLLISION consensus translates this into a staging that gives the MDO a foothold.">Bij CRLM draait de indicatiestelling niet om een stadiumindeling maar om twee vragen: is de ziekte technisch te verwijderen of te ableren, en is de pati&euml;nt daarvoor fit genoeg. De COLLISION-consensus vertaalt dat naar een stadiering die het MDO houvast geeft.</p>
+      <table class="mdo-table">
+        <thead><tr><th data-nl="Stadium" data-en="Stage">Stadium</th><th data-nl="Situatie" data-en="Situation">Situatie</th><th data-nl="Beleid" data-en="Management">Beleid</th></tr></thead>
+        <tbody>
+          <tr><td data-nl="IVa" data-en="IVa">IVa</td><td data-nl="Eenvoudig resectabel en/of ablatabel" data-en="Easily resectable and/or ablatable">Eenvoudig resectabel en/of ablatabel</td><td data-nl="Directe lokale behandeling; (neo)adjuvante systemische therapie niet ge&iuml;ndiceerd" data-en="Direct local treatment; (neo)adjuvant systemic therapy not indicated">Directe lokale behandeling; (neo)adjuvante systemische therapie niet ge&iuml;ndiceerd</td></tr>
+          <tr><td data-nl="IVb" data-en="IVb">IVb</td><td data-nl="Vereist majeure hepatectomie" data-en="Requires major hepatectomy">Vereist majeure hepatectomie</td><td data-nl="Neoadjuvante systemische therapie passend bij vroeg metachrone ziekte en om het procedurele risico te verlagen" data-en="Neoadjuvant systemic therapy appropriate for early metachronous disease and to reduce procedural risk">Neoadjuvante systemische therapie passend bij vroeg metachrone ziekte en om het procedurele risico te verlagen</td></tr>
+          <tr><td data-nl="IVc" data-en="IVc">IVc</td><td data-nl="Nog niet lokaal behandelbaar" data-en="Not yet amenable to local treatment">Nog niet lokaal behandelbaar</td><td data-nl="Downsizing met inductie-systeemtherapie en/of augmentatie van de future liver remnant" data-en="Downsizing with induction systemic therapy and/or future liver remnant augmentation">Downsizing met inductie-systeemtherapie en/of augmentatie van de future liver remnant</td></tr>
+          <tr><td data-nl="IVd" data-en="IVd">IVd</td><td data-nl="Downstaging mislukt" data-en="Downstaging failed">Downstaging mislukt</td><td data-nl="Pas dan definitief ongeschikt voor lokale therapie" data-en="Only then permanently unsuitable for local therapy">Pas dan definitief ongeschikt voor lokale therapie</td></tr>
+        </tbody>
+      </table>
+      <div class="infobox blauw"><strong data-nl="Fitheid voor curatieve intentie:" data-en="Fitness for curative intent:">Fitheid voor curatieve intentie:</strong> <span data-nl="De COLLISION-consensus hanteert ECOG &le;2, ASA &le;3 en een Charlson comorbiditeitsindex &le;8 als drempel om een pati&euml;nt fit te achten voor lokale behandeling met curatieve intentie." data-en="The COLLISION consensus uses ECOG &le;2, ASA &le;3 and a Charlson comorbidity index &le;8 as the threshold to consider a pati&euml;nt fit for local treatment with curative intent.">De COLLISION-consensus hanteert ECOG &le;2, ASA &le;3 en een Charlson comorbiditeitsindex &le;8 als drempel om een pati&euml;nt fit te achten voor lokale behandeling met curatieve intentie.</span></div>
+      <div class="mdo-h3" data-nl="Technische resectabiliteit" data-en="Technical resectability">Technische resectabiliteit</div>
+      <p class="mdo-p" data-nl="Ziekte geldt als technisch resectabel wanneer een complete macroscopische resectie haalbaar is met behoud van ten minste 30% future liver remnant, zonder dat daarvoor geavanceerde technieken nodig zijn zoals een tweetraps-hepatectomie, veneuze reconstructie of poortaderembolisatie." data-en="Disease is technically resectable when complete macroscopic resection is feasible while preserving at least 30% future liver remnant, without requiring advanced techniques such as two-stage hepatectomy, venous reconstruction or portal vein embolisation.">Ziekte geldt als technisch resectabel wanneer een complete macroscopische resectie haalbaar is met behoud van ten minste 30% future liver remnant, zonder dat daarvoor geavanceerde technieken nodig zijn zoals een tweetraps-hepatectomie, veneuze reconstructie of poortaderembolisatie.</p>
+      <div class="infobox groen"><strong data-nl="COLLISION (2025) &mdash; ablatie versus resectie:" data-en="COLLISION (2025) &mdash; ablation versus resection:">COLLISION (2025) &mdash; ablatie versus resectie:</strong> <span data-nl="Deze gerandomiseerde fase 3 non-inferioriteitstrial (Amsterdam UMC, Meijerink) includeerde pati&euml;nten met tien of minder resectabele CRLM &le;3 cm zonder extrahepatische ziekte. Thermische ablatie bleek non-inferieur aan chirurgische resectie qua overleving, met minder complicaties, kortere opnameduur en betere lokale controle. De conclusie van de onderzoekers is dat de aanname dat ablatie voorbehouden zou zijn aan irresectabele ziekte herziening behoeft: de keuze hoort ge&iuml;ndividualiseerd te worden op klinische kenmerken en beschikbare expertise." data-en="This randomised phase 3 non-inferiority trial (Amsterdam UMC, Meijerink) enrolled patients with ten or fewer resectable CRLM &le;3 cm without extrahepatic disease. Thermal ablation proved non-inferior to surgical resection in terms of survival, with fewer complications, shorter hospital stay and better local control. The investigators conclude that the assumption that ablation should be reserved for unresectable disease requires re-evaluation: the choice should be individualised based on clinical characteristics and available expertise.">Deze gerandomiseerde fase 3 non-inferioriteitstrial (Amsterdam UMC, Meijerink) includeerde pati&euml;nten met tien of minder resectabele CRLM &le;3 cm zonder extrahepatische ziekte. Thermische ablatie bleek non-inferieur aan chirurgische resectie qua overleving, met minder complicaties, kortere opnameduur en betere lokale controle. De conclusie van de onderzoekers is dat de aanname dat ablatie voorbehouden zou zijn aan irresectabele ziekte herziening behoeft: de keuze hoort ge&iuml;ndividualiseerd te worden op klinische kenmerken en beschikbare expertise.</span></div>
+      <div class="mdo-h3" data-nl="Wanneer welke lokale techniek bij CRLM" data-en="Which local technique in CRLM">Wanneer welke lokale techniek bij CRLM</div>
+      <table class="mdo-table">
+        <thead><tr><th data-nl="Situatie" data-en="Situation">Situatie</th><th data-nl="Advies" data-en="Recommendation">Advies</th></tr></thead>
+        <tbody>
+          <tr><td data-nl="Resectabel, &le;3 cm" data-en="Resectable, &le;3 cm">Resectabel, &le;3 cm</td><td data-nl="Thermische ablatie is non-inferieur aan resectie (COLLISION) &mdash; keuze in het MDO op locatie, aantal en pati&euml;ntfactoren" data-en="Thermal ablation is non-inferior to resection (COLLISION) &mdash; decide in the MDO on location, number and pati&euml;nt factors">Thermische ablatie is non-inferieur aan resectie (COLLISION) &mdash; keuze in het MDO op locatie, aantal en pati&euml;ntfactoren</td></tr>
+          <tr><td data-nl="Diep gelegen, resectabel" data-en="Deep-seated, resectable">Diep gelegen, resectabel</td><td data-nl="Ablatie verdient overweging: parenchymsparend waar resectie veel gezond weefsel kost" data-en="Ablation deserves consideration: parenchyma-sparing where resection costs much healthy tissue">Ablatie verdient overweging: parenchymsparend waar resectie veel gezond weefsel kost</td></tr>
+          <tr><td data-nl="Irresectabel &le;3 cm" data-en="Unresectable &le;3 cm">Irresectabel &le;3 cm</td><td data-nl="Thermische ablatie" data-en="Thermal ablation">Thermische ablatie</td></tr>
+          <tr><td data-nl="Irresectabel 3&ndash;5 cm" data-en="Unresectable 3&ndash;5 cm">Irresectabel 3&ndash;5 cm</td><td data-nl="Klinische equipoise tussen MWA en SBRT; onderwerp van de COLLISION-XL trial" data-en="Clinical equipoise between MWA and SBRT; subject of the COLLISION-XL trial">Klinische equipoise tussen MWA en SBRT; onderwerp van de COLLISION-XL trial</td></tr>
+          <tr><td data-nl="Perihilair of perivasculair, 0&ndash;5 cm, irresectabel" data-en="Perihilar or perivascular, 0&ndash;5 cm, unresectable">Perihilair of perivasculair, 0&ndash;5 cm, irresectabel</td><td data-nl="Overweeg IRE of SBRT &mdash; thermische ablatie geeft hier risico op letsel aan galwegen en vaten" data-en="Consider IRE or SBRT &mdash; thermal ablation carries a risk of injury to bile ducts and vessels here">Overweeg IRE of SBRT &mdash; thermische ablatie geeft hier risico op letsel aan galwegen en vaten</td></tr>
+          <tr><td data-nl="Slechte conditie" data-en="Poor health">Slechte conditie</td><td data-nl="Ablatie te overwegen boven resectie" data-en="Ablation may be considered over resection">Ablatie te overwegen boven resectie</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="mdo-section" id="s-techniek">
+      <div class="mdo-h2" data-nl="4. Ablatietechniek &mdash; MWA, RFA &amp; IRE" data-en="4. Ablation Technique &mdash; MWA, RFA &amp; IRE">4. Ablatietechniek &mdash; MWA, RFA &amp; IRE</div>
+      <p class="mdo-p" data-nl="RFA en MWA zijn beide aanbevolen thermische technieken. MWA heeft RFA in de praktijk grotendeels verdrongen door consistentere energie-afgifte, en is minder gevoelig voor het heat-sink effect bij tumoren nabij grote vaten. In gerandomiseerd onderzoek bij levertumoren van 1,5&ndash;4 cm gaven MWA en RFA vergelijkbare effectiviteit en veiligheid." data-en="RFA and MWA are both recommended thermal techniques. In practice MWA has largely displaced RFA due to more consistent energy delivery, and it is less susceptible to the heat-sink effect in tumours near large vessels. In randomised research on liver tumours of 1.5&ndash;4 cm, MWA and RFA showed comparable effectiveness and safety.">RFA en MWA zijn beide aanbevolen thermische technieken. MWA heeft RFA in de praktijk grotendeels verdrongen door consistentere energie-afgifte, en is minder gevoelig voor het heat-sink effect bij tumoren nabij grote vaten. In gerandomiseerd onderzoek bij levertumoren van 1,5&ndash;4 cm gaven MWA en RFA vergelijkbare effectiviteit en veiligheid.</p>
+      <table class="mdo-table">
+        <thead><tr><th data-nl="Techniek" data-en="Technique">Techniek</th><th data-nl="Sterkte" data-en="Strength">Sterkte</th><th data-nl="Aandachtspunt" data-en="Consideration">Aandachtspunt</th></tr></thead>
+        <tbody>
+          <tr><td data-nl="MWA" data-en="MWA">MWA</td><td data-nl="Snellere, grotere en consistentere ablatiezone; minder last van heat-sink bij perivasculaire tumoren" data-en="Faster, larger and more consistent ablation zone; less affected by heat-sink in perivascular tumours">Snellere, grotere en consistentere ablatiezone; minder last van heat-sink bij perivasculaire tumoren</td><td data-nl="Ablatiezone minder voorspelbaar bij variabele weefselimpedantie" data-en="Ablation zone less predictable with variable tissue impedance">Ablatiezone minder voorspelbaar bij variabele weefselimpedantie</td></tr>
+          <tr><td data-nl="RFA" data-en="RFA">RFA</td><td data-nl="Best onderzocht, langste follow-up beschikbaar" data-en="Best studied, longest follow-up available">Best onderzocht, langste follow-up beschikbaar</td><td data-nl="Effectiviteit daalt bij perivasculaire ligging door heat-sink" data-en="Effectiveness declines in perivascular location due to heat-sink">Effectiviteit daalt bij perivasculaire ligging door heat-sink</td></tr>
+          <tr><td data-nl="IRE" data-en="IRE">IRE</td><td data-nl="Niet-thermisch: spaart galwegen en vaatwanden" data-en="Non-thermal: spares bile ducts and vessel walls">Niet-thermisch: spaart galwegen en vaatwanden</td><td data-nl="Gereserveerd voor centrale, perihilaire of perivasculaire laesies waar thermische ablatie te riskant is" data-en="Reserved for central, perihilar or perivascular lesions where thermal ablation is too risky">Gereserveerd voor centrale, perihilaire of perivasculaire laesies waar thermische ablatie te riskant is</td></tr>
+        </tbody>
+      </table>
+      <div class="infobox rood"><strong data-nl="Ablatiemarge is de bepalende factor:" data-en="The ablative margin is the decisive factor:">Ablatiemarge is de bepalende factor:</strong> <span data-nl="Ongeacht de gekozen thermische techniek is de minimale ablatiemarge de belangrijkste voorspeller van lokale controle. Een marge groter dan 5 mm is cruciaal; bij marges boven 10 mm werd in de betreffende serie geen enkele lokale tumorprogressie gezien. In een 3D-margeanalyse van CRLM trad lokale progressie op bij 92,5% van de tumoren met een marge onder 5 mm, tegenover 7,5% bij een marge van 5 mm of meer. Streef daarom naar een marge van minimaal 5 mm, en bij voorkeur 10 mm, en beoordeel die marge expliciet op de post-ablatie beeldvorming." data-en="Regardless of the thermal technique chosen, the minimal ablative margin is the most important predictor of local control. A margin greater than 5 mm is critical; with margins above 10 mm no local tumour progression at all was seen in that series. In a 3D margin analysis of CRLM, local progression occurred in 92.5% of tumours with a margin under 5 mm, versus 7.5% with a margin of 5 mm or more. Aim for a margin of at least 5 mm, preferably 10 mm, and assess that margin explicitly on post-ablation imaging.">Ongeacht de gekozen thermische techniek is de minimale ablatiemarge de belangrijkste voorspeller van lokale controle. Een marge groter dan 5 mm is cruciaal; bij marges boven 10 mm werd in de betreffende serie geen enkele lokale tumorprogressie gezien. In een 3D-margeanalyse van CRLM trad lokale progressie op bij 92,5% van de tumoren met een marge onder 5 mm, tegenover 7,5% bij een marge van 5 mm of meer. Streef daarom naar een marge van minimaal 5 mm, en bij voorkeur 10 mm, en beoordeel die marge expliciet op de post-ablatie beeldvorming.</span></div>
+      <div class="mdo-h3" data-nl="Factoren die de ablatiekeuze beperken" data-en="Factors limiting the ablation option">Factoren die de ablatiekeuze beperken</div>
+      <ul class="mdo-ul">
+        <li data-nl="Grootte: boven 3 cm daalt de primaire effectiviteit; boven 5 cm nemen lokale controle en progressievrije overleving duidelijk af" data-en="Size: above 3 cm primary efficacy declines; above 5 cm local control and progression-free survival clearly decrease">Grootte: boven 3 cm daalt de primaire effectiviteit; boven 5 cm nemen lokale controle en progressievrije overleving duidelijk af</li>
+        <li data-nl="Ligging nabij grote vaten: heat-sink, vooral bij RFA" data-en="Location near large vessels: heat-sink, particularly with RFA">Ligging nabij grote vaten: heat-sink, vooral bij RFA</li>
+        <li data-nl="Ligging nabij galwegen: risico op stricturen &mdash; overweeg IRE" data-en="Location near bile ducts: risk of strictures &mdash; consider IRE">Ligging nabij galwegen: risico op stricturen &mdash; overweeg IRE</li>
+        <li data-nl="Subcapsulaire of diafragmale ligging: marge vaak niet haalbaar, hoger risico op pijn en letsel aan omliggende structuren" data-en="Subcapsular or diaphragmatic location: margin often not achievable, higher risk of pain and injury to adjacent structures">Subcapsulaire of diafragmale ligging: marge vaak niet haalbaar, hoger risico op pijn en letsel aan omliggende structuren</li>
+        <li data-nl="Slechte zichtbaarheid op echo: overweeg CT-geleiding, fusiebeeldvorming of contrastversterkte echo" data-en="Poor visibility on ultrasound: consider CT guidance, fusion imaging or contrast-enhanced ultrasound">Slechte zichtbaarheid op echo: overweeg CT-geleiding, fusiebeeldvorming of contrastversterkte echo</li>
+      </ul>
+    </div>
+
+    <div class="mdo-section" id="s-intraarterieel">
+      <div class="mdo-h2" data-nl="5. Intra-arteri&euml;le therapie &mdash; TACE &amp; TARE/SIRT" data-en="5. Intra-arterial Therapy &mdash; TACE &amp; TARE/SIRT">5. Intra-arteri&euml;le therapie &mdash; TACE &amp; TARE/SIRT</div>
+      <p class="mdo-p" data-nl="Waar ablatie een lokale, curatief bedoelde behandeling is van een aanwijsbare laesie, richten TACE en TARE zich op grotere of meervoudige tumorlast via de arteri&euml;le bloedvoorziening. Levertumoren zijn overwegend arterieel gevasculariseerd, terwijl het gezonde parenchym vooral portaal doorbloed wordt &mdash; dat verschil maakt selectieve toediening mogelijk." data-en="Where ablation is a local, curative-intent treatment of an identifiable lesion, TACE and TARE address larger or multiple tumour burden via the arterial supply. Liver tumours are predominantly arterially vascularised while healthy parenchyma is mainly portally perfused &mdash; that difference makes selective delivery possible.">Waar ablatie een lokale, curatief bedoelde behandeling is van een aanwijsbare laesie, richten TACE en TARE zich op grotere of meervoudige tumorlast via de arteri&euml;le bloedvoorziening. Levertumoren zijn overwegend arterieel gevasculariseerd, terwijl het gezonde parenchym vooral portaal doorbloed wordt &mdash; dat verschil maakt selectieve toediening mogelijk.</p>
+      <table class="mdo-table">
+        <thead><tr><th data-nl="" data-en=""></th><th data-nl="TACE" data-en="TACE">TACE</th><th data-nl="TARE / SIRT (Y-90)" data-en="TARE / SIRT (Y-90)">TARE / SIRT (Y-90)</th></tr></thead>
+        <tbody>
+          <tr><td data-nl="Werkingsprincipe" data-en="Mechanism">Werkingsprincipe</td><td data-nl="Lokale chemotherapie plus embolisatie van de tumorvoedende arterie" data-en="Local chemotherapy plus embolisation of the tumour-feeding artery">Lokale chemotherapie plus embolisatie van de tumorvoedende arterie</td><td data-nl="Interne bestraling via Y-90 microsferen; nauwelijks embolisch effect" data-en="Internal radiation via Y-90 microspheres; minimal embolic effect">Interne bestraling via Y-90 microsferen; nauwelijks embolisch effect</td></tr>
+          <tr><td data-nl="Rol bij HCC" data-en="Role in HCC">Rol bij HCC</td><td data-nl="Standaard bij BCLC B met goed afgrensbare tumoren en behouden portale perfusie" data-en="Standard in BCLC B with well-defined tumours and preserved portal perfusion">Standaard bij BCLC B met goed afgrensbare tumoren en behouden portale perfusie</td><td data-nl="Even effectief geacht als TACE; bij solitair HCC &le;8 cm op basis van LEGACY" data-en="Considered as effective as TACE; for single HCC &le;8 cm based on LEGACY">Even effectief geacht als TACE; bij solitair HCC &le;8 cm op basis van LEGACY</td></tr>
+          <tr><td data-nl="Rol bij CRLM" data-en="Role in CRLM">Rol bij CRLM</td><td data-nl="Beperkt; als tweede lijn of salvage, met lokale ziektecontrole rond 43% in retrospectief onderzoek" data-en="Limited; as second-line or salvage, with local disease control around 43% in retrospective research">Beperkt; als tweede lijn of salvage, met lokale ziektecontrole rond 43% in retrospectief onderzoek</td><td data-nl="Vooral bij chemorefractaire, lever-dominante ziekte die niet resectabel of ablatabel is" data-en="Mainly in chemorefractory, liver-dominant disease not amenable to resection or ablation">Vooral bij chemorefractaire, lever-dominante ziekte die niet resectabel of ablatabel is</td></tr>
+          <tr><td data-nl="Portale trombose" data-en="Portal thrombosis">Portale trombose</td><td data-nl="Relatieve contra-indicatie &mdash; embolisatie bij afwezige portale flow bedreigt het parenchym" data-en="Relative contraindication &mdash; embolisation with absent portal flow threatens the parenchyma">Relatieve contra-indicatie &mdash; embolisatie bij afwezige portale flow bedreigt het parenchym</td><td data-nl="Beter verdragen door het geringe embolische effect" data-en="Better tolerated due to the minimal embolic effect">Beter verdragen door het geringe embolische effect</td></tr>
+        </tbody>
+      </table>
+      <div class="infobox oranje"><strong data-nl="SIRT bij colorectale metastasen &mdash; plaats in de lijn:" data-en="SIRT in colorectal metastases &mdash; position in the sequence:">SIRT bij colorectale metastasen &mdash; plaats in de lijn:</strong> <span data-nl="SIRT wordt bij CRLM overwegend ingezet in de salvage-setting: chemorefractaire, lever-dominante ziekte bij pati&euml;nten die niet in aanmerking komen voor resectie of ablatie. Toevoeging van SIRT aan eerstelijns chemotherapie (SIRFLOX, FOXFIRE, FOXFIRE-Global) verbeterde de respons in de lever, maar leverde geen overlevingswinst op en wordt daarom niet standaard eerstelijns toegepast. Downsizing naar resectabiliteit is beschreven maar blijft een geselecteerde indicatie." data-en="In CRLM, SIRT is predominantly used in the salvage setting: chemorefractory, liver-dominant disease in patients not eligible for resection or ablation. Adding SIRT to first-line chemotherapy (SIRFLOX, FOXFIRE, FOXFIRE-Global) improved response within the liver but did not yield a survival benefit, and it is therefore not applied as standard first-line therapy. Downsizing towards resectability has been described but remains a selected indication.">SIRT wordt bij CRLM overwegend ingezet in de salvage-setting: chemorefractaire, lever-dominante ziekte bij pati&euml;nten die niet in aanmerking komen voor resectie of ablatie. Toevoeging van SIRT aan eerstelijns chemotherapie (SIRFLOX, FOXFIRE, FOXFIRE-Global) verbeterde de respons in de lever, maar leverde geen overlevingswinst op en wordt daarom niet standaard eerstelijns toegepast. Downsizing naar resectabiliteit is beschreven maar blijft een geselecteerde indicatie.</span></div>
+      <div class="infobox blauw"><strong data-nl="Werkbestek voor TARE:" data-en="Work-up for TARE:">Werkbestek voor TARE:</strong> <span data-nl="TARE vraagt een voorbereidende angiografie met technetium-macroaggregaat om de lung shunt fraction te bepalen en extrahepatische shunts te identificeren en zo nodig te emboliseren. Zonder die werkbestek-stap is behandeling niet veilig." data-en="TARE requires a preparatory angiogram with technetium macroaggregated albumin to determine the lung shunt fraction and to identify and, if needed, embolise extrahepatic shunts. Treatment is not safe without that work-up step.">TARE vraagt een voorbereidende angiografie met technetium-macroaggregaat om de lung shunt fraction te bepalen en extrahepatische shunts te identificeren en zo nodig te emboliseren. Zonder die werkbestek-stap is behandeling niet veilig.</span></div>
+    </div>
+
+    <div class="mdo-section" id="s-keuze">
+      <div class="mdo-h2" data-nl="6. Behandelkeuze in het MDO" data-en="6. Treatment Choice in the MDO">6. Behandelkeuze in het MDO</div>
+      <p class="mdo-p" data-nl="De onderstaande volgorde vat samen hoe de keuze doorgaans loopt. Het blijft een MDO-afweging: locatie, aantal, leverfunctie, comorbiditeit en lokale expertise wegen mee en kunnen de volgorde veranderen." data-en="The sequence below summarises how the choice usually runs. It remains an MDO judgement: location, number, liver function, comorbidity and local expertise all weigh in and can change the order.">De onderstaande volgorde vat samen hoe de keuze doorgaans loopt. Het blijft een MDO-afweging: locatie, aantal, leverfunctie, comorbiditeit en lokale expertise wegen mee en kunnen de volgorde veranderen.</p>
+      <table class="mdo-table">
+        <thead><tr><th data-nl="Vraag" data-en="Question">Vraag</th><th data-nl="HCC" data-en="HCC">HCC</th><th data-nl="Colorectale metastasen" data-en="Colorectal metastases">Colorectale metastasen</th></tr></thead>
+        <tbody>
+          <tr><td data-nl="Is curatieve intentie haalbaar?" data-en="Is curative intent achievable?">Is curatieve intentie haalbaar?</td><td data-nl="BCLC 0/A met behouden leverfunctie" data-en="BCLC 0/A with preserved liver function">BCLC 0/A met behouden leverfunctie</td><td data-nl="Alle laesies resectabel en/of ablatabel, geen onbehandelbare extrahepatische ziekte" data-en="All lesions resectable and/or ablatable, no untreatable extrahepatic disease">Alle laesies resectabel en/of ablatabel, geen onbehandelbare extrahepatische ziekte</td></tr>
+          <tr><td data-nl="Ablatie of resectie?" data-en="Ablation or resection?">Ablatie of resectie?</td><td data-nl="Ablatie bij &le;2 cm gelijkwaardig; MWA mogelijk beste optie tot 4 cm" data-en="Ablation equivalent at &le;2 cm; MWA possibly best option up to 4 cm">Ablatie bij &le;2 cm gelijkwaardig; MWA mogelijk beste optie tot 4 cm</td><td data-nl="Bij &le;3 cm non-inferieur (COLLISION); ablatie bij diepe ligging, resectie bij oppervlakkig en groot" data-en="Non-inferior at &le;3 cm (COLLISION); ablation for deep-seated, resection for superficial and large">Bij &le;3 cm non-inferieur (COLLISION); ablatie bij diepe ligging, resectie bij oppervlakkig en groot</td></tr>
+          <tr><td data-nl="Transplantatie in beeld?" data-en="Transplantation on the table?">Transplantatie in beeld?</td><td data-nl="Binnen Milaan-criteria, of na succesvolle downstaging met TACE/TARE" data-en="Within Milan criteria, or after successful downstaging with TACE/TARE">Binnen Milaan-criteria, of na succesvolle downstaging met TACE/TARE</td><td data-nl="Zeer geselecteerd, in studieverband" data-en="Highly selected, within trials">Zeer geselecteerd, in studieverband</td></tr>
+          <tr><td data-nl="Geen lokale curatieve optie" data-en="No local curative option">Geen lokale curatieve optie</td><td data-nl="BCLC B: TACE (of TARE bij geselecteerde pati&euml;nten); BCLC C: systemische therapie" data-en="BCLC B: TACE (or TARE in selected patients); BCLC C: systemic therapy">BCLC B: TACE (of TARE bij geselecteerde pati&euml;nten); BCLC C: systemische therapie</td><td data-nl="Systemische therapie; SIRT bij chemorefractaire, lever-dominante ziekte" data-en="Systemic therapy; SIRT in chemorefractory, liver-dominant disease">Systemische therapie; SIRT bij chemorefractaire, lever-dominante ziekte</td></tr>
+        </tbody>
+      </table>
+      <div class="infobox groen"><strong data-nl="Combineren mag:" data-en="Combining is legitimate:">Combineren mag:</strong> <span data-nl="Resectie en ablatie sluiten elkaar niet uit. Een veelgebruikte strategie is resectie van de grote of oppervlakkige laesies gecombineerd met ablatie van diep gelegen of lastig bereikbare laesies, om zo voldoende future liver remnant te behouden." data-en="Resection and ablation are not mutually exclusive. A commonly used strategy is resection of large or superficial lesions combined with ablation of deep-seated or difficult lesions, in order to preserve sufficient future liver remnant.">Resectie en ablatie sluiten elkaar niet uit. Een veelgebruikte strategie is resectie van de grote of oppervlakkige laesies gecombineerd met ablatie van diep gelegen of lastig bereikbare laesies, om zo voldoende future liver remnant te behouden.</span></div>
+    </div>
+
+    <div class="mdo-section" id="s-ir">
+      <div class="mdo-h2" data-nl="7. Rol Interventieradiologie" data-en="7. Role of Interventional Radiology">7. Rol Interventieradiologie</div>
+      <ul class="mdo-ul">
+        <li data-nl="Beoordelen van ablatabiliteit op de beeldvorming: grootte, ligging ten opzichte van vaten, galwegen, diafragma en darm, en de haalbaarheid van een marge van 5&ndash;10 mm" data-en="Assessing ablatability on imaging: size, position relative to vessels, bile ducts, diaphragm and bowel, and the feasibility of a 5&ndash;10 mm margin">Beoordelen van ablatabiliteit op de beeldvorming: grootte, ligging ten opzichte van vaten, galwegen, diafragma en darm, en de haalbaarheid van een marge van 5&ndash;10 mm</li>
+        <li data-nl="Uitvoeren van MWA, RFA of IRE, met keuze van geleidingsmodaliteit (echo, CT, fusie, contrastversterkte echo)" data-en="Performing MWA, RFA or IRE, choosing the guidance modality (ultrasound, CT, fusion, contrast-enhanced ultrasound)">Uitvoeren van MWA, RFA of IRE, met keuze van geleidingsmodaliteit (echo, CT, fusie, contrastversterkte echo)</li>
+        <li data-nl="Beoordelen van de ablatiemarge op de post-ablatie scan en bijablatie overwegen bij een marge onder 5 mm" data-en="Assessing the ablative margin on the post-ablation scan and considering additional ablation when the margin is under 5 mm">Beoordelen van de ablatiemarge op de post-ablatie scan en bijablatie overwegen bij een marge onder 5 mm</li>
+        <li data-nl="Uitvoeren van TACE en TARE, inclusief de voorbereidende angiografie en dosimetrie voor TARE" data-en="Performing TACE and TARE, including the preparatory angiogram and dosimetry for TARE">Uitvoeren van TACE en TARE, inclusief de voorbereidende angiografie en dosimetrie voor TARE</li>
+        <li data-nl="Poortaderembolisatie ter vergroting van de future liver remnant voorafgaand aan majeure resectie" data-en="Portal vein embolisation to augment the future liver remnant prior to major resection">Poortaderembolisatie ter vergroting van de future liver remnant voorafgaand aan majeure resectie</li>
+        <li data-nl="Bridging en downstaging bij transplantatiekandidaten met een wachttijd boven zes maanden" data-en="Bridging and downstaging in transplant candidates with a waiting time over six months">Bridging en downstaging bij transplantatiekandidaten met een wachttijd boven zes maanden</li>
+        <li data-nl="Biopsie ter bevestiging van de diagnose wanneer beeldvorming niet afdoende is" data-en="Biopsy to confirm the diagnosis when imaging is inconclusive">Biopsie ter bevestiging van de diagnose wanneer beeldvorming niet afdoende is</li>
+      </ul>
+    </div>
+
+    <div class="mdo-section" id="s-followup">
+      <div class="mdo-h2" data-nl="8. Follow-up na lokale behandeling" data-en="8. Follow-up after Local Treatment">8. Follow-up na lokale behandeling</div>
+      <ul class="mdo-ul">
+        <li data-nl="Eerste controle met contrastversterkte CT of MRI doorgaans 4&ndash;8 weken na ablatie, ter beoordeling van de volledigheid en de ablatiemarge" data-en="First check with contrast-enhanced CT or MRI usually 4&ndash;8 weeks after ablation, to assess completeness and the ablative margin">Eerste controle met contrastversterkte CT of MRI doorgaans 4&ndash;8 weken na ablatie, ter beoordeling van de volledigheid en de ablatiemarge</li>
+        <li data-nl="Een randstandige aankleuring direct na ablatie kan reactief zijn; nodulaire of excentrische aankleuring is verdacht voor restziekte" data-en="Rim enhancement immediately after ablation may be reactive; nodular or eccentric enhancement is suspicious for residual disease">Een randstandige aankleuring direct na ablatie kan reactief zijn; nodulaire of excentrische aankleuring is verdacht voor restziekte</li>
+        <li data-nl="Lokale tumorprogressie treedt vrijwel altijd op aan de rand van de ablatiezone en is sterk gekoppeld aan een krappe marge" data-en="Local tumour progression almost always occurs at the edge of the ablation zone and is strongly linked to a narrow margin">Lokale tumorprogressie treedt vrijwel altijd op aan de rand van de ablatiezone en is sterk gekoppeld aan een krappe marge</li>
+        <li data-nl="Bij HCC: vervolg de leverfunctie en blijf screenen op nieuwe laesies &mdash; de cirrotische lever blijft een risicolever" data-en="In HCC: monitor liver function and continue screening for new lesions &mdash; the cirrhotic liver remains at risk">Bij HCC: vervolg de leverfunctie en blijf screenen op nieuwe laesies &mdash; de cirrotische lever blijft een risicolever</li>
+        <li data-nl="Bij CRLM: volg conform het oncologische schema, met aandacht voor zowel intrahepatische als extrahepatische recidieven" data-en="In CRLM: follow the oncological schedule, with attention to both intrahepatic and extrahepatic recurrence">Bij CRLM: volg conform het oncologische schema, met aandacht voor zowel intrahepatische als extrahepatische recidieven</li>
+        <li data-nl="Lokale progressie na eerdere ablatie kan opnieuw lokaal behandeld worden; bespreek dit terug in het MDO" data-en="Local progression after previous ablation can be treated locally again; bring this back to the MDO">Lokale progressie na eerdere ablatie kan opnieuw lokaal behandeld worden; bespreek dit terug in het MDO</li>
+      </ul>
+    </div>
+
+    <div class="mdo-section" id="s-bronnen">
+      <div class="mdo-h2" data-nl="9. Bronnen" data-en="9. References">9. Bronnen</div>
+      <ul class="mdo-ul">
+        <li>Reig M, Forner A, Rimola J, et al. <a href="https://www.journal-of-hepatology.eu/article/S0168-8278(21)02223-6/fulltext" target="_blank" rel="noopener">BCLC strategy for prognosis prediction and treatment recommendation: the 2022 update</a>. J Hepatol. 2022;76:681-693.</li>
+        <li>Meijerink MR, van der Lei S, Dijkstra M, et al. <a href="https://www.thelancet.com/journals/lanonc/article/PIIS1470-2045(24)00660-0/abstract" target="_blank" rel="noopener">Thermal ablation versus surgical resection of small-size colorectal liver metastases (COLLISION): an international, randomised, controlled, phase 3 non-inferiority trial</a>. Lancet Oncol. 2025. <em>(Amsterdam UMC)</em></li>
+        <li>Nieuwenhuizen S, Puijk RS, van den Bemd B, et al. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7407587/" target="_blank" rel="noopener">Resectability and ablatability criteria for the treatment of liver only colorectal metastases: multidisciplinary consensus document from the COLLISION trial group</a>. Cancers. 2020;12:1779.</li>
+        <li>Shady W, Petre EN, Do KG, et al. <a href="https://www.jvir.org/article/S1051-0443(17)30825-4/abstract" target="_blank" rel="noopener">Percutaneous microwave versus radiofrequency ablation of colorectal liver metastases: ablation with clear margins (A0) provides the best local tumor control</a>. J Vasc Interv Radiol. 2018;29:268-275. <em>(ablatiemarge)</em></li>
+        <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9442248/" target="_blank" rel="noopener">3D margin assessment predicts local tumor progression after ablation of colorectal cancer liver metastases</a>.</li>
+        <li>van der Lei S, Dijkstra M, Nieuwenhuizen S, et al. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10382334/" target="_blank" rel="noopener">Unresectable intermediate-size (3&ndash;5 cm) colorectal liver metastases: SBRT versus MWA (COLLISION-XL)</a>. Cardiovasc Intervent Radiol. 2023.</li>
+        <li>Salem R, Johnson GE, Kim E, et al. <a href="https://aasldpubs.onlinelibrary.wiley.com/doi/10.1002/hep.31819" target="_blank" rel="noopener">Yttrium-90 radioembolization for the treatment of solitary, unresectable HCC: the LEGACY study</a>. Hepatology. 2021;74:2342-2352.</li>
+        <li>Wasan HS, Gibbs P, Sharma NK, et al. <a href="https://www.thelancet.com/journals/lanonc/article/PIIS1470-2045(17)30457-6/fulltext" target="_blank" rel="noopener">First-line SIRT plus chemotherapy versus chemotherapy alone in liver metastases from colorectal cancer (FOXFIRE, SIRFLOX, FOXFIRE-Global)</a>. Lancet Oncol. 2017;18:1159-1171.</li>
+        <li>Cervantes A, Adam R, Rosello S, et al. <a href="https://www.annalsofoncology.org/article/S0923-7534(22)04192-8/fulltext" target="_blank" rel="noopener">Metastatic colorectal cancer: ESMO Clinical Practice Guideline</a>. Ann Oncol. 2023;34:10-32.</li>
+        <li><a href="https://link.springer.com/article/10.1007/s00270-021-03047-1" target="_blank" rel="noopener">2022 update of BCLC treatment algorithm of HCC: what&rsquo;s new for interventional radiologists?</a> Cardiovasc Intervent Radiol. 2022.</li>
+      </ul>
+      <p style="font-size:0.78rem;color:var(--muted);margin-top:1rem"><span data-nl="Deze pagina is een naslagwerk voor het MDO en vervangt geen individuele klinische afweging. Drempelwaarden zijn richtinggevend; de uiteindelijke keuze volgt uit de multidisciplinaire bespreking en lokale protocollen." data-en="This page is a reference for the MDO and does not replace individual clinical judgement. Thresholds are indicative; the final choice follows from the multidisciplinary discussion and local protocols.">Deze pagina is een naslagwerk voor het MDO en vervangt geen individuele klinische afweging. Drempelwaarden zijn richtinggevend; de uiteindelijke keuze volgt uit de multidisciplinaire bespreking en lokale protocollen.</span></p>
+    </div>
+
+  </div>
+
+  <div class="toc">
+    <div class="toc-title" data-nl="Inhoud" data-en="Contents">Inhoud</div>
+    <ul class="toc-list">
+      <li><a href="#s-achtergrond" data-nl="1. Achtergrond" data-en="1. Background">1. Achtergrond</a></li>
+      <li><a href="#s-hcc" data-nl="2. HCC &mdash; BCLC" data-en="2. HCC &mdash; BCLC">2. HCC &mdash; BCLC</a></li>
+      <li><a href="#s-crlm" data-nl="3. Colorectale metastasen" data-en="3. Colorectal metastases">3. Colorectale metastasen</a></li>
+      <li><a href="#s-techniek" data-nl="4. Ablatietechniek" data-en="4. Ablation technique">4. Ablatietechniek</a></li>
+      <li><a href="#s-intraarterieel" data-nl="5. TACE &amp; TARE/SIRT" data-en="5. TACE &amp; TARE/SIRT">5. TACE &amp; TARE/SIRT</a></li>
+      <li><a href="#s-keuze" data-nl="6. Behandelkeuze" data-en="6. Treatment choice">6. Behandelkeuze</a></li>
+      <li><a href="#s-ir" data-nl="7. Rol IR" data-en="7. Role of IR">7. Rol IR</a></li>
+      <li><a href="#s-followup" data-nl="8. Follow-up" data-en="8. Follow-up">8. Follow-up</a></li>
+      <li><a href="#s-bronnen" data-nl="9. Bronnen" data-en="9. References">9. Bronnen</a></li>
+    </ul>
+  </div>
+</div>
+
+<script src="../fuse.min.js"></script>
+<script src="../procedures.js"></script>
+<script src="../nav.js"></script>
+<script src="../search.js"></script>
+<script src="../lang.js"></script>
+</body>
+</html>

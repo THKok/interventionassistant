@@ -67,6 +67,7 @@ const NAV_ITEMS = [
     dot: '#6040a0',
     items: [
       { label: 'Aorta MDO', label_en: 'Aortic MDT', url: 'mdo/aorta-mdo.html' },
+      { label: 'Leverablatie MDO', label_en: 'Liver Ablation MDT', url: 'mdo/leverablatie-mdo.html' },
       { label: 'Shunt MDO', label_en: 'Shunt MDT',         url: 'mdo/shunt-mdo.html' },
       { label: 'Vaatchirurgie MDO — Bekken/Been', label_en: 'Vascular MDT — Pelvic/Leg', url: 'mdo/vaatchirurgie-mdo.html' },
       { label: 'Visceraal MDO — Mesenteriaal', label_en: 'Visceral MDT — Mesenteric', url: 'mdo/visceraal-mdo.html' },

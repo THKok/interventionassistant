@@ -29,6 +29,7 @@ const CORE = [
   '/materiaal/sheaths-en-katheters.html',
   '/mdo/aorta-mdo.html',
   '/mdo/index.html',
+  '/mdo/leverablatie-mdo.html',
   '/mdo/shunt-mdo.html',
   '/mdo/vaatchirurgie-mdo.html',
   '/mdo/visceraal-mdo.html',

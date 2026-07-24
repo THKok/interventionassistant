@@ -120,4 +120,7 @@ const PROCEDURES = [
   { naam: "Dialysekatheter (getunneld)", categorie: "Vasculair", subcategorie: "Veneus", tag: "vasc",
     url: "vasculair/dialysekatheter.html",
     trefwoorden: ["dialysekatheter","hemodialyse","getunneld","gecufft","jugularis","rechter atrium","cuff","tunnel","fibrineschede","shunt","fistel","nierfalen","peel-away"] },
+  { naam: "Leverablatie MDO", categorie: "MDO", subcategorie: "MDO", tag: "onco",
+    url: "mdo/leverablatie-mdo.html",
+    trefwoorden: ["leverablatie","MDO","HCC","hepatocellulair carcinoom","colorectale metastasen","CRLM","BCLC","MWA","microwave","RFA","TACE","TARE","SIRT","Y-90","ablatiemarge","COLLISION","Milaan","resectabiliteit","IRE"] },
 ];
