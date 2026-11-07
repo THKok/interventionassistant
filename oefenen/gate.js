@@ -2,9 +2,9 @@
    Vragen staan in Supabase en worden pas opgehaald na inloggen met een goedgekeurd account.
    Vul hieronder de Project URL en de anon/publishable key in (Supabase → Project Settings → API).
    De anon key mag publiek zijn: de beveiliging zit in de Row Level Security van de database. */
-const IA_SUPABASE_URL = "https://JOUW-PROJECT.supabase.co";
-const IA_SUPABASE_ANON_KEY = "JOUW-ANON-KEY";
-const IA_ADMIN_CONTACT = "info@interventionassistant.com";
+const IA_SUPABASE_URL = "https://tygfjblnbuvjwzeujtjh.supabase.co";
+const IA_SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR5Z2ZqYmxuYnV2and6ZXVqdGpoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTQwMTc2MDUsImV4cCI6MjEwOTU5MzYwNX0.o1JibnTNOMVntwraKvl0dsGLHYpblPtNoem_ub6XEL8";
+const IA_ADMIN_CONTACT = ""; // optioneel: e-mailadres dat afgewezen aanvragers te zien krijgen
 
 (function () {
   const LSK = "rad-oefententamen-v1";
@@ -80,7 +80,7 @@ const IA_ADMIN_CONTACT = "info@interventionassistant.com";
       h("h2", { text: t("pending_t") }), h("p", { text: t("pending_p") }), note(),
       h("div", { class: "row" }, h("button", { class: "btn blue", onclick: afterLogin }, t("refresh")), h("button", { class: "btn", onclick: logout }, t("logout")))));
     if (profile.status === "rejected") return shell(h("div", { class: "card gcard" }, h("div", { class: "stripe red" }),
-      h("h2", { text: t("rejected_t") }), h("p", {}, t("rejected_p"), h("a", { href: "mailto:" + IA_ADMIN_CONTACT, text: IA_ADMIN_CONTACT })),
+      h("h2", { text: t("rejected_t") }), h("p", {}, IA_ADMIN_CONTACT ? [t("rejected_p"), h("a", { href: "mailto:" + IA_ADMIN_CONTACT, text: IA_ADMIN_CONTACT })] : t("rejected_p").replace(/: $/, ".")),
       h("div", { class: "row" }, h("button", { class: "btn", onclick: logout }, t("logout")))));
   }
   function drawAuth() {
