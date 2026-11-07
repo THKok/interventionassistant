@@ -12,7 +12,7 @@
 // automatisch opgeruimd bij activatie.
 // ══════════════════════════════════════════════════════════════════
 
-const CACHE_VERSION = 'ia-v3';
+const CACHE_VERSION = 'ia-v4';
 const FONT_CACHE    = 'ia-fonts-v1';   // fonts wijzigen niet; apart van de site-cache
 
 // Alles wat de site nodig heeft om volledig offline te werken.
@@ -62,6 +62,7 @@ const CORE = [
   '/vasculair/picc-lijn.html',
   '/vasculair/port-a-cath.html',
   '/vasculair/pta-beenvaten.html',
+  '/vasculair/pulmonalis-angiografie.html',
   '/vasculair/rtpa-trombolyse.html',
   '/vasculair/uterusembolisatie-electief.html',
   '/vasculair/uterusembolisatie.html',

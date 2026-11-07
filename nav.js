@@ -10,6 +10,7 @@ const NAV_ITEMS = [
       { header: 'Arterieel', header_en: 'Arterial' },
       { label: 'EVAR', label_en: 'EVAR',  url: 'vasculair/evar.html' },
       { label: 'PTA ± stent beenvaten', label_en: 'PTA ± stent leg arteries',        url: 'vasculair/pta-beenvaten.html' },
+      { label: 'Pulmonalis angiografie', label_en: 'Pulmonary angiography', url: 'vasculair/pulmonalis-angiografie.html' },
       { label: 'rTPA acuut bedreigd been', label_en: 'rTPA acute limb ischaemia',      url: 'vasculair/rtpa-trombolyse.html' },
       { header: 'Embolisatie', header_en: 'Embolisation' },
       { label: 'Bronchiaalarterie embolisatie', label_en: 'Bronchial artery embolisation',  url: 'vasculair/bae.html' },
