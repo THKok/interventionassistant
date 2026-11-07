@@ -29,6 +29,7 @@ const IA_ADMIN_CONTACT = ""; // optioneel: e-mailadres dat afgewezen aanvragers 
       admin: "Beheer", feedback: "Meldingen", mark_done: "Afgehandeld", reopen: "Heropenen", copy_open: "Kopieer open meldingen", copied: "Gekopieerd ✓",
       key: "Juiste antwoord", show_full: "Hele vraag met uitleg", no_fb: "Geen open meldingen.", done_list: "Afgehandelde meldingen", q_missing: "Deze vraag bestaat niet meer.",
       n_req: "aanvra|ag|gen", n_fb: "melding||en",
+      mail_sent: "Goedgekeurd — {e} heeft een e-mail gekregen met een inloglink.", mail_fail: "Goedgekeurd, maar de e-mail aan {e} kon niet worden verstuurd: ", resend_mail: "Mail opnieuw",
       not_configured: "De koppeling met de database is nog niet ingesteld (IA_SUPABASE_URL en IA_SUPABASE_ANON_KEY in gate.js).",
       privacy: "We bewaren je naam, e-mailadres, instelling en je oefenvoortgang, alleen voor deze oefenomgeving."
     },
@@ -46,6 +47,7 @@ const IA_ADMIN_CONTACT = ""; // optioneel: e-mailadres dat afgewezen aanvragers 
       admin: "Admin", feedback: "Reports", mark_done: "Resolved", reopen: "Reopen", copy_open: "Copy open reports", copied: "Copied ✓",
       key: "Correct answer", show_full: "Full question with explanation", no_fb: "No open reports.", done_list: "Resolved reports", q_missing: "This question no longer exists.",
       n_req: "request||s", n_fb: "report||s",
+      mail_sent: "Approved — {e} has received an email with a sign-in link.", mail_fail: "Approved, but the email to {e} could not be sent: ", resend_mail: "Email again",
       not_configured: "The database connection has not been configured yet (IA_SUPABASE_URL and IA_SUPABASE_ANON_KEY in gate.js).",
       privacy: "We store your name, email, institution and practice progress, only for this practice environment."
     }
@@ -243,13 +245,13 @@ const IA_ADMIN_CONTACT = ""; // optioneel: e-mailadres dat afgewezen aanvragers 
   /* beheerpagina (#beheer): meldingen over vragen en toegangsaanvragen. Alleen voor profiles.is_admin. */
   const FB_CAT = { key: ["Juiste antwoord klopt niet", "Answer key wrong"], unclear: ["Vraag/opties onduidelijk", "Question/options unclear"], image: ["Beeld klopt niet of ontbreekt", "Image wrong or missing"], explanation: ["Uitleg kan beter", "Explanation could be better"], other: ["Anders", "Other"] };
   const L = "ABCDEFGHIJ";
-  let adminTab = "fb";
+  let adminTab = "fb", adminMsg = null;
   function openAdmin() {
     if (document.querySelector(".gpage")) return;
     if (location.hash !== "#beheer") history.replaceState(null, "", "#beheer");
     const page = h("div", { class: "gpage", role: "dialog", "aria-modal": "true", "aria-label": t("admin") });
     const esc = e => { if (e.key === "Escape") close(); };
-    const close = () => { page.remove(); document.body.style.overflow = ""; document.removeEventListener("keydown", esc); history.replaceState(null, "", location.pathname + location.search); refreshCounts(); };
+    const close = () => { adminMsg = null; page.remove(); document.body.style.overflow = ""; document.removeEventListener("keydown", esc); history.replaceState(null, "", location.pathname + location.search); refreshCounts(); };
     document.addEventListener("keydown", esc);
     const fmt = d => new Date(d).toLocaleString(lang === "nl" ? "nl-NL" : "en-GB", { dateStyle: "medium", timeStyle: "short" });
     const Q = Object.fromEntries((window.__QUESTIONS || []).map(q => [q.id, q]));
@@ -262,7 +264,18 @@ const IA_ADMIN_CONTACT = ""; // optioneel: e-mailadres dat afgewezen aanvragers 
       const pend = profs.filter(r => r.status === "pending"), ok = profs.filter(r => r.status === "approved");
       const fbs = fb.data || [], fbOpen = fbs.filter(x => x.status === "open"), fbDone = fbs.filter(x => x.status !== "open");
       counts = { req: pend.length, fb: fbOpen.length };
-      const decide = async (id, status) => { await sb.from("profiles").update({ status, decided_at: new Date().toISOString() }).eq("id", id); load(); };
+      const notifyApproved = async (email) => {
+        const { error } = await sb.auth.signInWithOtp({ email, options: { shouldCreateUser: false, emailRedirectTo: location.origin + location.pathname } });
+        adminMsg = error ? { text: t("mail_fail").replace("{e}", email) + error.message } : { ok: true, text: t("mail_sent").replace("{e}", email) };
+      };
+      const decide = async (id, status) => {
+        const r = profs.find(x => x.id === id);
+        const { error } = await sb.from("profiles").update({ status, decided_at: new Date().toISOString() }).eq("id", id);
+        if (error) adminMsg = { text: t("err") + error.message };
+        else if (status === "approved" && r && r.status !== "approved") await notifyApproved(r.email);
+        else adminMsg = null;
+        load();
+      };
       const setFb = async (id, status) => { await sb.from("feedback").update({ status, handled_at: status === "done" ? new Date().toISOString() : null }).eq("id", id); load(); };
       const who = x => { const u = byUser[x.user_id]; return u ? (u.name || u.email) + (u.institution ? " · " + u.institution : "") : "?"; };
       const fbItem = x => {
@@ -290,6 +303,7 @@ const IA_ADMIN_CONTACT = ""; // optioneel: e-mailadres dat afgewezen aanvragers 
       const tabs = h("div", { class: "gtabs" }, [["fb", t("feedback") + " (" + fbOpen.length + ")"], ["req", t("requests") + " (" + pend.length + ")"]].map(([k, l]) =>
         h("button", { class: "gtab" + (adminTab === k ? " on" : ""), onclick: () => { adminTab = k; load(); } }, l)));
       const errs = [pr.error, fb.error].filter(Boolean).map(e => h("p", { class: "gmsg bad", text: t("err") + e.message }));
+      if (adminMsg) errs.push(h("p", { class: "gmsg " + (adminMsg.ok ? "ok" : "bad"), role: "status", text: adminMsg.text }));
       const body = adminTab === "fb"
         ? [fbOpen.length ? h("div", { class: "row" }, h("button", { class: "btn", onclick: e => copyOpen(e.currentTarget) }, t("copy_open"))) : null,
            fbOpen.length ? fbOpen.map(fbItem) : h("p", { class: "muted", text: t("no_fb") }),
@@ -301,7 +315,8 @@ const IA_ADMIN_CONTACT = ""; // optioneel: e-mailadres dat afgewezen aanvragers 
             : h("p", { class: "muted", text: t("none") }),
           h("details", { class: "gdone" }, h("summary", { text: t("approved_list") + " (" + ok.length + ")" }),
             ok.map(r => h("div", { class: "greq small" }, h("span", { text: (r.name || "") + " · " + r.email + " · " + (r.institution || "") }),
-              r.is_admin ? null : h("button", { class: "linkbtn", onclick: () => decide(r.id, "rejected") }, t("reject")))))];
+              r.is_admin ? null : h("span", {}, h("button", { class: "linkbtn", onclick: async () => { await notifyApproved(r.email); load(); } }, t("resend_mail")), " · ",
+                h("button", { class: "linkbtn", onclick: () => decide(r.id, "rejected") }, t("reject"))))))];
       page.replaceChildren(h("div", { class: "gpage-in" },
         h("div", { class: "row between" }, h("h2", { text: t("admin") }), h("button", { class: "btn", onclick: close }, t("close"))),
         tabs, errs, body));
