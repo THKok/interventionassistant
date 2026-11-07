@@ -2,7 +2,7 @@ const PROCEDURES = [
   { naam: "PTA ± stentplaatsing beenvaten", categorie: "Vasculair", subcategorie: "Arterieel", tag: "vasc",
     url: "vasculair/pta-beenvaten.html",
     trefwoorden: ["PTA","angioplastiek","stent","beenvaten","femoropopliteaal","cruraal","claudicatio","ischemie","Fontaine","DEB","nitinol"] },
-  { naam: "Pulmonalis angiografie", categorie: "Vasculair", subcategorie: "Arterieel", tag: "vasc",
+  { naam: "Pulmonalis angiografie", categorie: "Vasculair", subcategorie: "Veneus", tag: "vasc",
     url: "vasculair/pulmonalis-angiografie.html",
     trefwoorden: ["pulmonalis","pulmonalisangiografie","pulmonary angiography","a. pulmonalis","longembolie","CTEPH","CTEPD","PAVM","AVM","HHT","Grollman","hooked pigtail","rechter hart","RVEDP","pulmonale hypertensie","BPA","endarteriectomie","DSA"] },
   { naam: "rTPA opstarten — acuut bedreigd been", categorie: "Vasculair", subcategorie: "Arterieel", tag: "urgent",

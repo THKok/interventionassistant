@@ -10,7 +10,6 @@ const NAV_ITEMS = [
       { header: 'Arterieel', header_en: 'Arterial' },
       { label: 'EVAR', label_en: 'EVAR',  url: 'vasculair/evar.html' },
       { label: 'PTA ± stent beenvaten', label_en: 'PTA ± stent leg arteries',        url: 'vasculair/pta-beenvaten.html' },
-      { label: 'Pulmonalis angiografie', label_en: 'Pulmonary angiography', url: 'vasculair/pulmonalis-angiografie.html' },
       { label: 'rTPA acuut bedreigd been', label_en: 'rTPA acute limb ischaemia',      url: 'vasculair/rtpa-trombolyse.html' },
       { header: 'Embolisatie', header_en: 'Embolisation' },
       { label: 'Bronchiaalarterie embolisatie', label_en: 'Bronchial artery embolisation',  url: 'vasculair/bae.html' },
@@ -24,6 +23,7 @@ const NAV_ITEMS = [
       { label: 'Dialysekatheter (getunneld)', label_en: 'Tunnelled dialysis catheter', url: 'vasculair/dialysekatheter.html' },
       { label: 'PICC-lijn plaatsing', label_en: 'PICC line placement',           url: 'vasculair/picc-lijn.html' },
       { label: 'Port-a-cath plaatsing', label_en: 'Port-a-cath placement',         url: 'vasculair/port-a-cath.html' },
+      { label: 'Pulmonalis angiografie', label_en: 'Pulmonary angiography', url: 'vasculair/pulmonalis-angiografie.html' },
       { label: 'Vena cava filter', label_en: 'IVC filter',                        url: 'vasculair/vena-cava-filter.html' },
     ]
   },
