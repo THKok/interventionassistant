@@ -138,19 +138,28 @@ const IA_ADMIN_CONTACT = "info@interventionassistant.com";
     if (profile.status !== "approved") { draw(); return; }
     shell(h("p", { class: "muted", text: t("loading") }));
     try {
-      const qs = [];
-      for (let from = 0; ; from += 1000) {
-        const r = await sb.from("questions").select("data").order("sort").range(from, from + 999);
-        if (r.error) throw r.error;
-        qs.push(...r.data.map(x => x.data));
-        if (r.data.length < 1000) break;
-      }
-      const names = [...new Set(qs.flatMap(q => (q.images || []).map(n => n.replace(/\.[a-z]+$/i, "") + ".webp")))];
+      const ks = await sb.from("app_secrets").select("value").eq("id", "content_key").maybeSingle();
+      if (ks.error || !ks.data) throw new Error(ks.error ? ks.error.message : "sleutel ontbreekt");
+      const raw = Uint8Array.from(atob(ks.data.value), c => c.charCodeAt(0));
+      const ckey = await crypto.subtle.importKey("raw", raw, "AES-GCM", false, ["decrypt"]);
+      const dec = async (url) => {
+        const r = await fetch(url, { cache: "no-cache" }); if (!r.ok) throw new Error(url + " " + r.status);
+        const b = new Uint8Array(await r.arrayBuffer());
+        return crypto.subtle.decrypt({ name: "AES-GCM", iv: b.slice(0, 12) }, ckey, b.slice(12));
+      };
+      const plain = await dec("data/vragen.bin?v=" + (window.IA_APP_VERSION || "1"));
+      const json = await new Response(new Blob([plain]).stream().pipeThrough(new DecompressionStream("gzip"))).text();
+      const bundle = JSON.parse(json), qs = bundle.questions;
       window.__iaImg = {};
-      for (let i = 0; i < names.length; i += 100) {
-        const r = await sb.storage.from("vgt-img").createSignedUrls(names.slice(i, i + 100), 7 * 86400);
-        if (r.data) for (const x of r.data) if (x.signedUrl) window.__iaImg[x.path] = x.signedUrl;
-      }
+      const loading = {};
+      window.__iaNeedImg = (k) => {
+        if (loading[k] || !bundle.img[k]) return;
+        loading[k] = dec("data/img/" + bundle.img[k]).then(buf => {
+          const u = URL.createObjectURL(new Blob([buf], { type: "image/webp" }));
+          window.__iaImg[k] = u;
+          document.querySelectorAll('img[data-ia-img="' + k + '"]').forEach(i => { i.src = u; });
+        }).catch(() => { delete loading[k]; });
+      };
       const key = LSK + "-" + session.user.id;
       const remote = await sb.from("progress").select("data").eq("user_id", session.user.id).maybeSingle();
       let local = null; try { local = JSON.parse(localStorage.getItem(key) || "null"); } catch (e) {}

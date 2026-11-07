@@ -133,7 +133,7 @@ function seeded(str) { let s = 2166136261; for (const c of str) s = Math.imul(s 
 function uniq(key) { return [...new Set(QUESTIONS.map(q => q[key]).filter(Boolean))]; }
 function sources() { const first = {}; QUESTIONS.forEach((q, i) => { if (!(q.source in first)) first[q.source] = i; }); return uniq("source").sort((a, b) => first[b] - first[a]); }
 function topics() { return uniq("topic").sort((a, b) => a.localeCompare(b, "nl")); }
-function imgSrc(name) { const k = name.replace(/\.[a-z]+$/i, "") + ".webp"; return (window.__iaImg && window.__iaImg[k]) || "img/" + k; }
+function imgSrc(name) { const k = name.replace(/\.[a-z]+$/i, "") + ".webp"; if (window.__iaImg && window.__iaImg[k]) return window.__iaImg[k]; if (window.__iaNeedImg) window.__iaNeedImg(k); return "data:image/gif;base64,R0lGODlhAQABAAAAACw="; }
 function rpUrl(term) { return "https://radiopaedia.org/search?lang=us&q=" + encodeURIComponent(term) + "&scope=articles"; }
 function linksFor(q) {
   const list = (q.links || []).filter(l => l && /^https?:\/\//.test(l.url));
@@ -153,7 +153,7 @@ function figures(names, labels, credit) {
     h("div", { class: "figs" + (names.length === 1 ? " single" : "") },
       names.map((n, i) => h("figure", { class: "fig" },
         h("button", { type: "button", "aria-label": "Afbeelding vergroten", onclick: () => openLightbox(imgSrc(n)) },
-          h("img", { src: imgSrc(n), alt: labels && labels[i] ? "Afbeelding " + labels[i] : "Afbeelding bij de vraag", loading: "lazy", decoding: "async" })),
+          h("img", { src: imgSrc(n), "data-ia-img": n.replace(/\.[a-z]+$/i, "") + ".webp", alt: labels && labels[i] ? "Afbeelding " + labels[i] : "Afbeelding bij de vraag", loading: "lazy", decoding: "async" })),
         labels && labels[i] ? h("figcaption", { text: labels[i] }) : null))),
     credit ? (credit.url ? h("a", { class: "credit", href: credit.url, target: "_blank", rel: "noopener", text: credit.text }) : h("span", { class: "credit", text: credit.text })) : null);
 }
