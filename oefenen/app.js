@@ -22,7 +22,7 @@ const T = {
   goal_title: ["Dagdoel en VGT", "Daily goal and exam"], goal_sub: ["Houd het ritme vast tussen de toetsen door", "Keep the rhythm between exams"],
   goal: ["Dagdoel", "Daily goal"], next_vgt: ["Volgende VGT", "Next progress test"], days_left: ["nog {n} dagen", "{n} days to go"],
   goal_hint: ["Bij {n} vragen per dag zie je vóór de VGT de hele database {k}× terug.", "At {n} questions a day you will see the whole database {k}× before the test."],
-  mastery: ["Beheersing per onderwerp", "Mastery per topic"], mastery_hint: ["Deel van de vragen in het onderwerp dat je bij je laatste poging goed had.", "Share of the questions in the topic you answered correctly at your last attempt."],
+  mastery: ["Beheersing per onderwerp", "Mastery per topic"], mastery_hint: ["Percentage van alle beschikbare vragen per onderwerp dat je juist hebt beantwoord. Per vraag telt je laatste poging; vragen die je nog niet hebt gemaakt tellen als niet juist.", "Percentage of all available questions per topic that you answered correctly. Your last attempt per question counts; questions you have not tried yet count as not correct."],
   activity: ["Activiteit", "Activity"], activity_hint: ["Beantwoorde vragen per dag, laatste 18 weken.", "Questions answered per day, last 18 weeks."],
   history: ["Eerdere rondes", "Previous rounds"], badges_title: ["Badges", "Badges"], about: ["Over deze vragen", "About these questions"],
   about_text: ["De vragen zijn na afloop door AIOS gereconstrueerd en kunnen afwijken van de echte toets. Open vragen zijn omgezet naar meerkeuze. Waar de sleutel is aangepast of de vraag is herschreven, staat dat bij de uitleg. Beelden zijn representatieve voorbeelden met bronvermelding. De vragen zelf zijn in het Nederlands.", "Questions were reconstructed by residents after each exam and may differ from the real test. Open questions were converted to multiple choice. Where the key was corrected or a question rewritten, this is noted in the explanation. Images are representative examples with attribution. The questions themselves are in Dutch."],
@@ -31,7 +31,17 @@ const T = {
   prev: ["← Vorige", "← Previous"], stop: ["Stoppen", "Stop"], q_of: ["Vraag {i} van {n}", "Question {i} of {n}"], correct_n: ["{n} goed", "{n} correct"],
   combo: ["{n} op rij", "{n} in a row"], keys: ["Toets A–{L} of klik · ← vorige", "Press A–{L} or click · ← previous"],
   good: ["Goed", "Correct"], wrong_is: ["Fout, het is {L}", "Wrong, it is {L}"], next: ["Volgende →", "Next →"], to_result: ["Bekijk resultaat", "See result"],
-  enter_next: ["Enter of → volgende", "Enter or → next"], read_more: ["Lees verder:", "Read more:"], earlier_wrong: ["eerder fout", "missed before"],
+  enter_next: ["Enter of → volgende", "Enter or → next"],
+  fb_open: ["Meld een probleem met deze vraag", "Report a problem with this question"], fb_what: ["Wat klopt er niet?", "What is wrong?"],
+  fb_ph: ["Beschrijf kort wat er mis is of beter kan (bijv. juiste antwoord + bron).", "Briefly describe what is wrong or could be better (e.g. correct answer + source)."],
+  fb_send: ["Versturen", "Send"], fb_cancel: ["Annuleren", "Cancel"], fb_thanks: ["Bedankt! Je melding is doorgestuurd naar de beheerder.", "Thanks! Your report has been sent to the administrator."], fb_err: ["Versturen mislukt: ", "Sending failed: "],
+  install: ["Zet de oefenapp op je beginscherm", "Add the practice app to your home screen"],
+  install_ios: ["iPhone of iPad (Safari)", "iPhone or iPad (Safari)"],
+  install_ios_steps: [["Open deze pagina in Safari.", "Tik op de deelknop (vierkant met pijl omhoog). Op iOS 26: tik eerst op ••• rechtsonder en dan op Deel.", "Scroll omlaag en kies Zet op beginscherm.", "Laat Open als webapp aan staan en tik op Voeg toe."], ["Open this page in Safari.", "Tap the share button (square with an up arrow). On iOS 26: first tap ••• at the bottom right, then Share.", "Scroll down and choose Add to Home Screen.", "Keep Open as Web App switched on and tap Add."]],
+  install_android: ["Android (Chrome)", "Android (Chrome)"],
+  install_android_steps: [["Open deze pagina in Chrome.", "Tik op ⋮ rechtsboven.", "Kies Toevoegen aan startscherm of App installeren en bevestig."], ["Open this page in Chrome.", "Tap ⋮ at the top right.", "Choose Add to Home screen or Install app and confirm."]],
+  install_note: ["Daarna open je de oefenapp met één tik, schermvullend en zonder adresbalk. Log er de eerste keer één keer in; daarna blijf je ingelogd.", "After that the practice app opens with one tap, full screen without an address bar. Sign in once the first time; you will stay signed in."],
+  install_banner: ["Tip: zet de oefenapp op je beginscherm, dan open je hem met één tik.", "Tip: add the practice app to your home screen to open it with one tap."], install_how: ["Zo werkt het", "How"], dismiss: ["Sluiten", "Dismiss"], read_more: ["Lees verder:", "Read more:"], earlier_wrong: ["eerder fout", "missed before"],
   show_answer: ["Toon antwoord", "Show answer"], knew: ["Wist ik", "Knew it"], didnt: ["Wist ik niet", "Didn't know"],
   round_done: ["Ronde klaar", "Round complete"], review_done: ["Herhaling klaar", "Review complete"], daily_done_t: ["Uitdaging klaar", "Challenge complete"],
   score: ["Score", "Score"], xp_earned: ["XP verdiend", "XP earned"], best_combo: ["Langste reeks", "Longest streak"],
@@ -212,7 +222,7 @@ function checkBadges() {
 
 /* ---------- state ---------- */
 let session = null, view = "home", topicFilter = "", sourceFilter = "", imagesOnly = false, confirmReset = false;
-const openAcc = { mastery: false, badges: false, about: false, activity: true, history: true, pmastery: true, pbadges: true };
+const openAcc = { mastery: false, badges: false, about: false, install: false, activity: true, history: true, pmastery: true, pbadges: true };
 function pool() { return QUESTIONS.filter(q => (!topicFilter || q.topic === topicFilter) && (!sourceFilter || q.source === sourceFilter) && (!imagesOnly || hasImages(q))); }
 function rerender() { if (session && view === "quiz") renderQuestion(); else if (session && view === "result") renderResult(); else if (view === "progress") renderProgress(); else renderHome(); }
 function goHome() { session = null; view = "home"; renderHome(); window.scrollTo(0, 0); }
@@ -257,7 +267,7 @@ function heroStats() {
 }
 function accordion(key, dot, title, body) {
   const open = openAcc[key];
-  return h("div", { class: "accordion" + (open ? " open" : "") },
+  return h("div", { class: "accordion" + (open ? " open" : ""), id: "acc-" + key },
     h("button", { class: "acc-header", "aria-expanded": open ? "true" : "false", onclick: () => { openAcc[key] = !openAcc[key]; rerender(); } },
       h("span", { class: "acc-title-wrap" }, h("span", { class: "acc-dot " + dot }), h("span", { class: "acc-title", text: title })),
       h("span", { class: "acc-chevron", text: "▾" })),
@@ -330,15 +340,35 @@ function renderHome() {
       goalCard,
       accordion("mastery", "teal", t("mastery"), masteryBlock),
       accordion("badges", "orange", t("badges_title") + " · " + Object.keys(progress.badges).length + "/" + BADGES.length, badgesBlock),
+      window.__iaSite ? accordion("install", "purple", "📱 " + t("install"), installBlock) : null,
       accordion("about", "blue", t("about"), () => h("p", { style: "margin:0;font-size:0.88rem;line-height:1.6", text: t("about_text") }))),
     footer());
+  const banner = installBanner(); if (banner) document.querySelector("main.main").prepend(banner);
+}
+function installBlock() {
+  const steps = arr => h("ol", { class: "isteps" }, arr.map(x => h("li", { text: x })));
+  return h("div", { class: "install" },
+    h("div", { class: "igrid" },
+      h("div", null, h("h4", { text: t("install_ios") }), steps(T.install_ios_steps[lang === "nl" ? 0 : 1])),
+      h("div", null, h("h4", { text: t("install_android") }), steps(T.install_android_steps[lang === "nl" ? 0 : 1]))),
+    h("p", { class: "hint", style: "margin:0", text: t("install_note") }));
+}
+function isStandalone() { try { return window.matchMedia("(display-mode: standalone)").matches || navigator.standalone === true; } catch (e) { return false; } }
+function installBanner() {
+  if (!window.__iaSite || isStandalone() || !/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) return null;
+  try { if (localStorage.getItem("ia-install-tip") === "x") return null; } catch (e) {}
+  const el = h("div", { class: "ibanner", role: "note" },
+    h("span", { text: "📱 " + t("install_banner") }),
+    h("button", { class: "linkbtn", type: "button", onclick: () => { openAcc.install = true; renderHome(); const a = document.getElementById("acc-install"); if (a) a.scrollIntoView({ behavior: "smooth", block: "start" }); } }, t("install_how")),
+    h("button", { class: "chip-btn", type: "button", "aria-label": t("dismiss"), onclick: () => { try { localStorage.setItem("ia-install-tip", "x"); } catch (e) {} el.remove(); } }, "✕"));
+  return el;
 }
 function masteryBlock() {
   const tm = topicMastery();
   return h("div", null, h("p", { class: "hint", style: "margin:0 0 0.5rem", text: t("mastery_hint") }),
     Object.keys(tm).sort((a, b) => a.localeCompare(b, "nl")).map(k => {
       const r = tm[k]; const pct = Math.round(100 * r.ok / r.total); const tier = pct >= 80 ? "t4" : pct >= 50 ? "t3" : pct >= 20 ? "t2" : "t1";
-      return h("div", { class: "mast" }, h("span", { style: "overflow-wrap:anywhere", text: k + " (" + r.total + ")" }),
+      return h("div", { class: "mast" }, h("span", { style: "overflow-wrap:anywhere", text: k }),
         h("div", { class: "mbar" }, h("span", { class: tier, style: "width:" + (r.ok ? Math.max(pct, 2) : 0) + "%" })),
         h("span", { class: "num muted", style: "text-align:right", text: pct + "%" }));
     }));
@@ -512,7 +542,32 @@ function explain(q, res) {
     q.flag ? h("p", { class: "flagnote", text: t(FLAG_LABEL[q.flag]) + ". " + t(FLAG_NOTE[q.flag]) }) : null,
     figures(q.explImages, null, q.explCredit),
     linkLine(q),
-    h("div", { class: "row" }, h("button", { class: "btn blue", "data-autofocus": true, onclick: () => go(1) }, last ? t("to_result") : t("next")), h("span", { class: "hint", text: t("enter_next") })));
+    h("div", { class: "row" }, h("button", { class: "btn blue", "data-autofocus": true, onclick: () => go(1) }, last ? t("to_result") : t("next")), h("span", { class: "hint", text: t("enter_next") }),
+      window.__iaFeedback && !(session.fb && session.fb[q.id]) ? [h("span", { class: "spacer" }), h("button", { class: "linkbtn fblink", type: "button", onclick: () => { (session.fb = session.fb || {})[q.id] = "open"; if (fbDraft.id !== q.id) fbDraft = { id: q.id, cat: "key", text: "", err: "" }; renderQuestion(); const ta = document.getElementById("fb-text"); if (ta) ta.focus(); } }, "⚑ " + t("fb_open"))] : null),
+    feedbackBox(q));
+}
+const FB_CATS = [["key", "Het juiste antwoord klopt niet", "The answer key is wrong"], ["unclear", "Vraag of antwoordopties onduidelijk", "Question or options unclear"], ["image", "Beeld klopt niet of ontbreekt", "Image wrong or missing"], ["explanation", "Uitleg kan beter", "Explanation could be better"], ["other", "Anders", "Other"]];
+let fbDraft = { id: null, cat: "key", text: "", err: "" };
+function feedbackBox(q) {
+  const st = session.fb && session.fb[q.id];
+  if (!window.__iaFeedback || !st) return null;
+  if (st === "sent") return h("p", { class: "fbdone", role: "status", text: "✓ " + t("fb_thanks") });
+  const sending = st === "sending";
+  const send = async () => {
+    if (!fbDraft.text.trim()) { const ta = document.getElementById("fb-text"); if (ta) ta.focus(); return; }
+    session.fb[q.id] = "sending"; fbDraft.err = ""; renderQuestion();
+    try { await window.__iaFeedback({ question_id: q.id, category: fbDraft.cat, message: fbDraft.text.trim() }); session.fb[q.id] = "sent"; fbDraft = { id: null, cat: "key", text: "", err: "" }; }
+    catch (e) { session.fb[q.id] = "open"; fbDraft.err = t("fb_err") + (e.message || e); }
+    if (view === "quiz" && byId[session.queue[session.idx]] === q) renderQuestion();
+  };
+  return h("div", { class: "fbbox" },
+    h("label", { class: "flabel", for: "fb-cat", text: t("fb_what") }),
+    h("select", { id: "fb-cat", disabled: sending, onchange: e => { fbDraft.cat = e.target.value; } }, FB_CATS.map(c => h("option", { value: c[0], selected: fbDraft.cat === c[0] }, lang === "nl" ? c[1] : c[2]))),
+    h("textarea", { id: "fb-text", rows: 3, maxlength: 2000, disabled: sending, placeholder: t("fb_ph"), oninput: e => { fbDraft.text = e.target.value; } }, fbDraft.text),
+    fbDraft.err ? h("p", { class: "hint", style: "color:var(--red);margin:0", text: fbDraft.err }) : null,
+    h("div", { class: "row" },
+      h("button", { class: "btn teal", type: "button", disabled: sending, onclick: send }, t("fb_send")),
+      h("button", { class: "btn", type: "button", disabled: sending, onclick: () => { delete session.fb[q.id]; renderQuestion(); } }, t("fb_cancel"))));
 }
 
 /* ---------- resultaat ---------- */

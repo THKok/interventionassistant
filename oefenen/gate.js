@@ -25,6 +25,9 @@ const IA_ADMIN_CONTACT = ""; // optioneel: e-mailadres dat afgewezen aanvragers 
       refresh: "Opnieuw controleren", logout: "Uitloggen", loading: "Vragen laden…", err: "Er ging iets mis: ", bad_login: "E-mailadres of wachtwoord klopt niet.",
       confirm_mail: "Bevestig eerst je e-mailadres via de link in je mailbox en log daarna in.", exists: "Er bestaat al een account met dit e-mailadres. Log in.",
       requests: "Aanvragen", approve: "Goedkeuren", reject: "Afwijzen", none: "Geen openstaande aanvragen.", close: "Sluiten", approved_list: "Goedgekeurd",
+      admin: "Beheer", feedback: "Meldingen", mark_done: "Afgehandeld", reopen: "Heropenen", copy_open: "Kopieer open meldingen", copied: "Gekopieerd ✓",
+      key: "Juiste antwoord", show_full: "Hele vraag met uitleg", no_fb: "Geen open meldingen.", done_list: "Afgehandelde meldingen", q_missing: "Deze vraag bestaat niet meer.",
+      n_req: "aanvra|ag|gen", n_fb: "melding||en",
       not_configured: "De koppeling met de database is nog niet ingesteld (IA_SUPABASE_URL en IA_SUPABASE_ANON_KEY in gate.js).",
       privacy: "We bewaren je naam, e-mailadres, instelling en je oefenvoortgang, alleen voor deze oefenomgeving."
     },
@@ -38,6 +41,9 @@ const IA_ADMIN_CONTACT = ""; // optioneel: e-mailadres dat afgewezen aanvragers 
       refresh: "Check again", logout: "Sign out", loading: "Loading questions…", err: "Something went wrong: ", bad_login: "Incorrect email or password.",
       confirm_mail: "Please confirm your email address via the link in your inbox, then sign in.", exists: "An account with this email already exists. Please sign in.",
       requests: "Requests", approve: "Approve", reject: "Reject", none: "No open requests.", close: "Close", approved_list: "Approved",
+      admin: "Admin", feedback: "Reports", mark_done: "Resolved", reopen: "Reopen", copy_open: "Copy open reports", copied: "Copied ✓",
+      key: "Correct answer", show_full: "Full question with explanation", no_fb: "No open reports.", done_list: "Resolved reports", q_missing: "This question no longer exists.",
+      n_req: "request||s", n_fb: "report||s",
       not_configured: "The database connection has not been configured yet (IA_SUPABASE_URL and IA_SUPABASE_ANON_KEY in gate.js).",
       privacy: "We store your name, email, institution and practice progress, only for this practice environment."
     }
@@ -181,37 +187,101 @@ const IA_ADMIN_CONTACT = ""; // optioneel: e-mailadres dat afgewezen aanvragers 
     window.__iaSync = p => { pending = JSON.parse(JSON.stringify(p)); clearTimeout(syncTimer); syncTimer = setTimeout(pushProgress, 2500); };
     window.addEventListener("pagehide", () => { if (pending) pushProgress(); });
     document.addEventListener("visibilitychange", () => { if (document.visibilityState === "hidden" && pending) pushProgress(); });
+    window.__iaSite = true;
+    window.__iaFeedback = async (o) => { const { error } = await sb.from("feedback").insert(o); if (error) throw new Error(error.message); if (profile.is_admin) refreshCounts(); };
     window.__iaFootExtra = (hh) => [
       hh("span", { text: (profile.name || session.user.email) + " · " }),
-      profile.is_admin ? hh("button", { class: "linkbtn", onclick: openAdmin }, t("requests")) : null,
+      profile.is_admin ? hh("button", { class: "linkbtn", id: "ia-admin-link", onclick: () => openAdmin() }, adminLabel()) : null,
+      profile.is_admin ? hh("span", { text: " · " }) : null,
       hh("button", { class: "linkbtn", onclick: logout }, t("logout"))];
-    const s = document.createElement("script"); s.src = "app.js?v=" + (window.IA_APP_VERSION || "1"); document.body.append(s);
+    const s = document.createElement("script"); s.src = "app.js?v=" + (window.IA_APP_VERSION || "1");
+    s.onload = () => { if (profile.is_admin) { refreshCounts(); if (location.hash === "#beheer") openAdmin(); } };
+    document.body.append(s);
   }
 
-  /* beheer: aanvragen beoordelen (alleen zichtbaar voor profiles.is_admin) */
-  async function openAdmin() {
-    const box = h("div", { class: "gadmin", role: "dialog", "aria-modal": "true" });
-    const close = () => box.remove();
+  /* beheer: tellers in de voettekst */
+  let counts = null;
+  const plural = (key, n) => { const [a, one, more] = t(key).split("|"); return n + " " + a + (n === 1 ? one : more); };
+  function adminLabel() {
+    if (!counts || (!counts.req && !counts.fb)) return t("admin");
+    return t("admin") + " (" + [counts.fb ? plural("n_fb", counts.fb) : null, counts.req ? plural("n_req", counts.req) : null].filter(Boolean).join(", ") + ")";
+  }
+  async function refreshCounts() {
+    const [p, f] = await Promise.all([
+      sb.from("profiles").select("id", { count: "exact", head: true }).eq("status", "pending"),
+      sb.from("feedback").select("id", { count: "exact", head: true }).eq("status", "open")]);
+    counts = { req: p.count || 0, fb: f.count || 0 };
+    const el = document.getElementById("ia-admin-link"); if (el) el.textContent = adminLabel();
+  }
+
+  /* beheerpagina (#beheer): meldingen over vragen en toegangsaanvragen. Alleen voor profiles.is_admin. */
+  const FB_CAT = { key: ["Juiste antwoord klopt niet", "Answer key wrong"], unclear: ["Vraag/opties onduidelijk", "Question/options unclear"], image: ["Beeld klopt niet of ontbreekt", "Image wrong or missing"], explanation: ["Uitleg kan beter", "Explanation could be better"], other: ["Anders", "Other"] };
+  const L = "ABCDEFGHIJ";
+  let adminTab = "fb";
+  function openAdmin() {
+    if (document.querySelector(".gpage")) return;
+    if (location.hash !== "#beheer") history.replaceState(null, "", "#beheer");
+    const page = h("div", { class: "gpage", role: "dialog", "aria-modal": "true", "aria-label": t("admin") });
+    const esc = e => { if (e.key === "Escape") close(); };
+    const close = () => { page.remove(); document.body.style.overflow = ""; document.removeEventListener("keydown", esc); history.replaceState(null, "", location.pathname + location.search); refreshCounts(); };
+    document.addEventListener("keydown", esc);
+    const fmt = d => new Date(d).toLocaleString(lang === "nl" ? "nl-NL" : "en-GB", { dateStyle: "medium", timeStyle: "short" });
+    const Q = Object.fromEntries((window.__QUESTIONS || []).map(q => [q.id, q]));
+    const answerOf = q => q.options ? L[q.answer] + ". " + q.options[q.answer] : (q.modelAnswer || "");
     async function load() {
-      const { data, error } = await sb.from("profiles").select("*").order("created_at", { ascending: false });
-      const rows = error ? [] : data;
-      const pend = rows.filter(r => r.status === "pending"), ok = rows.filter(r => r.status === "approved");
+      const [pr, fb] = await Promise.all([
+        sb.from("profiles").select("*").order("created_at", { ascending: false }),
+        sb.from("feedback").select("*").order("created_at", { ascending: false }).limit(1000)]);
+      const profs = pr.data || [], byUser = Object.fromEntries(profs.map(p => [p.id, p]));
+      const pend = profs.filter(r => r.status === "pending"), ok = profs.filter(r => r.status === "approved");
+      const fbs = fb.data || [], fbOpen = fbs.filter(x => x.status === "open"), fbDone = fbs.filter(x => x.status !== "open");
+      counts = { req: pend.length, fb: fbOpen.length };
       const decide = async (id, status) => { await sb.from("profiles").update({ status, decided_at: new Date().toISOString() }).eq("id", id); load(); };
-      box.replaceChildren(h("div", { class: "card gcard gadmin-in" }, h("div", { class: "stripe purple" }),
-        h("div", { class: "row between" }, h("h2", { text: t("requests") + " (" + pend.length + ")" }), h("button", { class: "btn", onclick: close }, t("close"))),
-        error ? h("p", { class: "gmsg bad", text: t("err") + error.message }) : null,
-        pend.length ? pend.map(r => h("div", { class: "greq" },
-          h("div", {}, h("b", { text: r.name || r.email }), h("div", { class: "muted", text: r.email + " · " + (r.institution || "–") }), r.reason ? h("div", { text: r.reason }) : null,
-            h("div", { class: "hint", text: new Date(r.created_at).toLocaleString(lang === "nl" ? "nl-NL" : "en-GB") })),
-          h("div", { class: "row" }, h("button", { class: "btn teal", onclick: () => decide(r.id, "approved") }, t("approve")), h("button", { class: "btn", onclick: () => decide(r.id, "rejected") }, t("reject")))))
-          : h("p", { class: "muted", text: t("none") }),
-        h("details", {}, h("summary", { text: t("approved_list") + " (" + ok.length + ")" }),
-          ok.map(r => h("div", { class: "greq small" }, h("span", { text: (r.name || "") + " · " + r.email + " · " + (r.institution || "") }),
-            r.is_admin ? null : h("button", { class: "linkbtn", onclick: () => decide(r.id, "rejected") }, t("reject")))))));
+      const setFb = async (id, status) => { await sb.from("feedback").update({ status, handled_at: status === "done" ? new Date().toISOString() : null }).eq("id", id); load(); };
+      const who = x => { const u = byUser[x.user_id]; return u ? (u.name || u.email) + (u.institution ? " · " + u.institution : "") : "?"; };
+      const fbItem = x => {
+        const q = Q[x.question_id];
+        return h("div", { class: "gfb" + (x.status === "open" ? "" : " done") },
+          h("div", { class: "gfb-top" }, h("span", { class: "gtag", text: (FB_CAT[x.category] || FB_CAT.other)[lang === "nl" ? 0 : 1] }),
+            h("b", { text: x.question_id }), q ? h("span", { class: "muted", text: q.source + " · " + q.topic }) : null),
+          q ? h("p", { class: "gfb-q", text: q.question }) : h("p", { class: "muted", text: t("q_missing") }),
+          q ? h("p", { class: "gfb-a" }, h("span", { class: "muted", text: t("key") + ": " }), answerOf(q)) : null,
+          h("blockquote", { class: "gfb-msg", text: x.message }),
+          q ? h("details", { class: "gfb-full" }, h("summary", { text: t("show_full") }),
+            q.options ? h("ol", { class: "gfb-opts" }, q.options.map((o, i) => h("li", { class: i === q.answer ? "right" : null, text: L[i] + ". " + o }))) : null,
+            q.explanation ? h("p", { text: q.explanation }) : null) : null,
+          h("div", { class: "row" }, h("span", { class: "hint", text: who(x) + " · " + fmt(x.created_at) }), h("span", { class: "spacer" }),
+            h("button", { class: x.status === "open" ? "btn teal" : "btn", onclick: () => setFb(x.id, x.status === "open" ? "done" : "open") }, x.status === "open" ? "✓ " + t("mark_done") : t("reopen"))));
+      };
+      const copyOpen = async (btn) => {
+        const txt = fbOpen.map(x => { const q = Q[x.question_id];
+          return "## " + x.question_id + (q ? " (" + q.source + ", " + q.topic + ")" : "") + " — " + (FB_CAT[x.category] || FB_CAT.other)[0] + "\n" +
+            (q ? "Vraag: " + q.question + "\n" + (q.options ? "Opties: " + q.options.map((o, i) => L[i] + ". " + o).join(" | ") + "\n" : "") + "Huidig antwoord: " + answerOf(q) + "\n" : "") +
+            "Melding (" + who(x) + ", " + fmt(x.created_at) + "): " + x.message; }).join("\n\n");
+        try { await navigator.clipboard.writeText(txt); } catch (e) { const ta = h("textarea", {}, txt); document.body.append(ta); ta.select(); document.execCommand("copy"); ta.remove(); }
+        btn.textContent = t("copied"); setTimeout(() => { btn.textContent = t("copy_open"); }, 2000);
+      };
+      const tabs = h("div", { class: "gtabs" }, [["fb", t("feedback") + " (" + fbOpen.length + ")"], ["req", t("requests") + " (" + pend.length + ")"]].map(([k, l]) =>
+        h("button", { class: "gtab" + (adminTab === k ? " on" : ""), onclick: () => { adminTab = k; load(); } }, l)));
+      const errs = [pr.error, fb.error].filter(Boolean).map(e => h("p", { class: "gmsg bad", text: t("err") + e.message }));
+      const body = adminTab === "fb"
+        ? [fbOpen.length ? h("div", { class: "row" }, h("button", { class: "btn", onclick: e => copyOpen(e.currentTarget) }, t("copy_open"))) : null,
+           fbOpen.length ? fbOpen.map(fbItem) : h("p", { class: "muted", text: t("no_fb") }),
+           fbDone.length ? h("details", { class: "gdone" }, h("summary", { text: t("done_list") + " (" + fbDone.length + ")" }), fbDone.map(fbItem)) : null]
+        : [pend.length ? pend.map(r => h("div", { class: "greq" },
+            h("div", {}, h("b", { text: r.name || r.email }), h("div", { class: "muted", text: r.email + " · " + (r.institution || "–") }), r.reason ? h("div", { text: r.reason }) : null,
+              h("div", { class: "hint", text: fmt(r.created_at) })),
+            h("div", { class: "row" }, h("button", { class: "btn teal", onclick: () => decide(r.id, "approved") }, t("approve")), h("button", { class: "btn", onclick: () => decide(r.id, "rejected") }, t("reject")))))
+            : h("p", { class: "muted", text: t("none") }),
+          h("details", { class: "gdone" }, h("summary", { text: t("approved_list") + " (" + ok.length + ")" }),
+            ok.map(r => h("div", { class: "greq small" }, h("span", { text: (r.name || "") + " · " + r.email + " · " + (r.institution || "") }),
+              r.is_admin ? null : h("button", { class: "linkbtn", onclick: () => decide(r.id, "rejected") }, t("reject")))))];
+      page.replaceChildren(h("div", { class: "gpage-in" },
+        h("div", { class: "row between" }, h("h2", { text: t("admin") }), h("button", { class: "btn", onclick: close }, t("close"))),
+        tabs, errs, body));
     }
-    box.addEventListener("click", e => { if (e.target === box) close(); });
-    document.addEventListener("keydown", function esc(e) { if (e.key === "Escape") { close(); document.removeEventListener("keydown", esc); } });
-    document.body.append(box); load();
+    document.body.style.overflow = "hidden";
+    document.body.append(page); load();
   }
 
   async function boot() {
