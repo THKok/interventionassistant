@@ -9,7 +9,7 @@ const IA_ADMIN_CONTACT = ""; // optioneel: e-mailadres dat afgewezen aanvragers 
 (function () {
   const LSK = "rad-oefententamen-v1";
   const root = document.getElementById("app");
-  let sb = null, session = null, profile = null, mode = "login", busy = false, msg = null;
+  let sb = null, session = null, profile = null, mode = "login", busy = false, msg = null, recovery = false;
   let lang = "nl";
   try { const l = localStorage.getItem("ia-lang"); if (l === "en" || l === "nl") lang = l; } catch (e) {}
   try { const s = localStorage.getItem("ia-theme"); if (s === "dark" || s === "light") document.documentElement.dataset.theme = s; } catch (e) {}
@@ -19,7 +19,8 @@ const IA_ADMIN_CONTACT = ""; // optioneel: e-mailadres dat afgewezen aanvragers 
       title: "VGT-<span>oefenen</span>", sub: "Oefenvragen voor de radiologie-voortgangstoets. Alleen toegankelijk voor aios en radiologen met een goedgekeurd account.",
       login: "Inloggen", request: "Toegang aanvragen", email: "E-mailadres", pw: "Wachtwoord", pw_new: "Kies een wachtwoord (min. 8 tekens)",
       name: "Naam", inst: "Opleidingsziekenhuis of instelling", reason: "Toelichting (bijv. aios jaar 3, opleider dr. X)",
-      do_login: "Inloggen", do_request: "Aanvraag versturen", forgot: "Wachtwoord vergeten?", reset_sent: "Als dit adres bekend is, is er een resetlink verstuurd.",
+      do_login: "Inloggen", do_request: "Aanvraag versturen", forgot: "Wachtwoord vergeten?", reset_sent: "Als er een account met dit adres bestaat, is er een e-mail met een link verstuurd. Kijk ook in je spammap.", reset_need: "Vul eerst je e-mailadres in en klik dan op Wachtwoord vergeten.", reset_fail: "Versturen lukte niet: ",
+      new_pw_t: "Kies een nieuw wachtwoord", new_pw: "Nieuw wachtwoord (min. 8 tekens)", new_pw2: "Herhaal het nieuwe wachtwoord", save_pw: "Wachtwoord opslaan", pw_mismatch: "De wachtwoorden zijn niet gelijk.", pw_saved: "Je wachtwoord is gewijzigd.", link_bad: "Deze link is verlopen of al gebruikt. Vraag een nieuwe aan via Wachtwoord vergeten.",
       pending_t: "Je aanvraag is ontvangen", pending_p: "Je krijgt toegang zodra je aanvraag is goedgekeurd. Je hoeft niets te doen: log later opnieuw in of ververs deze pagina.",
       rejected_t: "Geen toegang", rejected_p: "Je aanvraag is niet goedgekeurd. Neem contact op als je denkt dat dit een vergissing is: ",
       refresh: "Opnieuw controleren", logout: "Uitloggen", loading: "Vragen laden…", err: "Er ging iets mis: ", bad_login: "E-mailadres of wachtwoord klopt niet.",
@@ -35,7 +36,8 @@ const IA_ADMIN_CONTACT = ""; // optioneel: e-mailadres dat afgewezen aanvragers 
       title: "VGT <span>practice</span>", sub: "Practice questions for the Dutch radiology progress test. Only for residents and radiologists with an approved account.",
       login: "Sign in", request: "Request access", email: "Email", pw: "Password", pw_new: "Choose a password (min. 8 characters)",
       name: "Name", inst: "Training hospital or institution", reason: "Note (e.g. resident year 3, programme director Dr X)",
-      do_login: "Sign in", do_request: "Send request", forgot: "Forgot password?", reset_sent: "If this address is known, a reset link has been sent.",
+      do_login: "Sign in", do_request: "Send request", forgot: "Forgot password?", reset_sent: "If an account with this address exists, an email with a link has been sent. Check your spam folder too.", reset_need: "Enter your email address first, then click Forgot password.", reset_fail: "Sending failed: ",
+      new_pw_t: "Choose a new password", new_pw: "New password (min. 8 characters)", new_pw2: "Repeat the new password", save_pw: "Save password", pw_mismatch: "The passwords do not match.", pw_saved: "Your password has been changed.", link_bad: "This link has expired or was already used. Request a new one via Forgot password.",
       pending_t: "Your request has been received", pending_p: "You will get access once your request is approved. Sign in again later or refresh this page.",
       rejected_t: "No access", rejected_p: "Your request was not approved. Contact us if you think this is a mistake: ",
       refresh: "Check again", logout: "Sign out", loading: "Loading questions…", err: "Something went wrong: ", bad_login: "Incorrect email or password.",
@@ -80,6 +82,7 @@ const IA_ADMIN_CONTACT = ""; // optioneel: e-mailadres dat afgewezen aanvragers 
 
   function draw() {
     if (!sb) { shell(h("div", { class: "card gcard" }, h("p", { text: t("not_configured") }))); return; }
+    if (recovery && session) return drawRecovery();
     if (!session) return drawAuth();
     if (!profile) { shell(h("p", { class: "muted", text: t("loading") })); return; }
     if (profile.status === "pending") return shell(h("div", { class: "card gcard" }, h("div", { class: "stripe blue" }),
@@ -111,6 +114,25 @@ const IA_ADMIN_CONTACT = ""; // optioneel: e-mailadres dat afgewezen aanvragers 
     shell(h("div", { class: "card gcard" }, h("div", { class: "stripe teal" }), tabs, form));
   }
   const val = id => (document.getElementById(id) || {}).value || "";
+  function drawRecovery() {
+    shell(h("div", { class: "card gcard" }, h("div", { class: "stripe teal" }), h("h2", { text: t("new_pw_t") }),
+      h("form", { onsubmit: e => { e.preventDefault(); doNewPassword(); } },
+        h("input", { type: "email", autocomplete: "username", value: session.user.email || "", hidden: true, readonly: true }),
+        field("g-pw", t("new_pw"), "password", { autocomplete: "new-password", required: true, minlength: 8 }),
+        field("g-pw2", t("new_pw2"), "password", { autocomplete: "new-password", required: true, minlength: 8 }),
+        note(),
+        h("button", { class: "btn teal wide", type: "submit", disabled: busy }, t("save_pw")))));
+  }
+  async function doNewPassword() {
+    const pw = val("g-pw");
+    if (pw !== val("g-pw2")) { msg = { text: t("pw_mismatch") }; draw(); return; }
+    busy = true; msg = null; draw();
+    const { error } = await sb.auth.updateUser({ password: pw });
+    busy = false;
+    if (error) { msg = { text: t("err") + error.message }; draw(); return; }
+    recovery = false; history.replaceState(null, "", location.pathname);
+    afterLogin().then(() => { if (!document.querySelector(".qcard,.hero-stats")) { msg = { ok: true, text: t("pw_saved") }; draw(); } });
+  }
 
   async function doLogin() {
     busy = true; msg = null;
@@ -130,9 +152,13 @@ const IA_ADMIN_CONTACT = ""; // optioneel: e-mailadres dat afgewezen aanvragers 
     session = data.session; afterLogin();
   }
   async function doReset() {
-    const email = val("g-email").trim(); if (!email) { document.getElementById("g-email").focus(); return; }
-    await sb.auth.resetPasswordForEmail(email, { redirectTo: location.href.split("#")[0] });
-    msg = { ok: true, text: t("reset_sent") }; draw();
+    const email = val("g-email").trim();
+    if (!email) { msg = { text: t("reset_need") }; draw(); const el = document.getElementById("g-email"); if (el) el.focus(); return; }
+    busy = true; msg = null; draw(); document.getElementById("g-email").value = email;
+    const { error } = await sb.auth.resetPasswordForEmail(email, { redirectTo: location.origin + location.pathname });
+    busy = false;
+    msg = error ? { text: t("reset_fail") + error.message } : { ok: true, text: t("reset_sent") };
+    draw(); const el = document.getElementById("g-email"); if (el) el.value = email;
   }
   async function logout() { if (sb) await sb.auth.signOut(); session = null; profile = null; mode = "login"; msg = null; location.reload(); }
 
@@ -286,13 +312,18 @@ const IA_ADMIN_CONTACT = ""; // optioneel: e-mailadres dat afgewezen aanvragers 
 
   async function boot() {
     if (!window.supabase || /JOUW-/.test(IA_SUPABASE_URL + IA_SUPABASE_ANON_KEY)) { draw(); return; }
+    const hashParams = new URLSearchParams(location.hash.slice(1));
+    recovery = hashParams.get("type") === "recovery";
+    if (hashParams.get("error_code")) { msg = { text: t("link_bad") }; history.replaceState(null, "", location.pathname); }
     sb = window.supabase.createClient(IA_SUPABASE_URL, IA_SUPABASE_ANON_KEY, { auth: { persistSession: true, autoRefreshToken: true } });
     const { data } = await sb.auth.getSession();
     session = data.session;
     sb.auth.onAuthStateChange((ev, s) => {
-      if (ev === "PASSWORD_RECOVERY") { const pw = prompt(lang === "nl" ? "Nieuw wachtwoord (min. 8 tekens):" : "New password (min. 8 characters):"); if (pw && pw.length >= 8) sb.auth.updateUser({ password: pw }); }
+      if (ev === "PASSWORD_RECOVERY") { recovery = true; session = s; draw(); }
       if (ev === "SIGNED_OUT") session = null;
     });
+    if (recovery && session) { draw(); return; }
+    recovery = false;
     if (session) afterLogin(); else draw();
   }
   boot();
