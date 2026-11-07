@@ -25,7 +25,9 @@ ASSETS = [
     '/favicon-192.png', '/favicon-512.png', '/apple-touch-icon.png',
 ]
 
-pages = sorted('/' + p.replace(os.sep, '/') for p in glob.glob('**/*.html', recursive=True))
+# oefenen/ werkt alleen online (inlog + database), dus niet pre-cachen
+pages = sorted('/' + p.replace(os.sep, '/') for p in glob.glob('**/*.html', recursive=True)
+               if not p.replace(os.sep, '/').startswith('oefenen/'))
 images = sorted(
     '/' + p.replace(os.sep, '/')
     for p in glob.glob('image/**/*', recursive=True)

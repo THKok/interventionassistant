@@ -85,6 +85,13 @@ const NAV_ITEMS = [
       { label: 'Embolisatiematerialen', label_en: 'Embolization materials', url: 'materiaal/embolisatiematerialen.html' },
       { label: 'Sheaths & Katheters', label_en: 'Sheaths & Catheters', url: 'materiaal/sheaths-en-katheters.html' },
     ]
+  },
+  {
+    label: 'Oefenen', label_en: 'Practice',
+    dot: '#138a8a',
+    items: [
+      { label: 'VGT-oefenen (radiologie)', label_en: 'Progress test practice (radiology)', url: 'oefenen/index.html' },
+    ]
   }
 ];
 
