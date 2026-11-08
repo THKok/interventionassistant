@@ -233,6 +233,10 @@ const IA_ADMIN_CONTACT = ""; // optioneel: e-mailadres dat afgewezen aanvragers 
     for (const k of ["daily", "goalDays", "badges"]) for (const [d, v] of Object.entries(older[k] || {})) if (m[k][d] == null) m[k][d] = v;
     for (const [k, v] of Object.entries(older.stats || {})) m.stats[k] = typeof v === "boolean" ? (m.stats[k] || v) : Math.max(m.stats[k] || 0, v || 0);
     m.xp = Math.max(m.xp || 0, older.xp || 0);
+    m.rank = Math.max(m.rank || 0, older.rank || 0);
+    m.vgtBest = Object.assign({}, m.vgtBest || {}); for (const [k, v] of Object.entries(older.vgtBest || {})) m.vgtBest[k] = Math.max(m.vgtBest[k] || 0, v);
+    const msum = x => x ? (x.chest ? 1e6 : 0) + (x.list || []).reduce((a, y) => a + (y.p || 0), 0) : -1;
+    if (older.missions && (!m.missions || older.missions.day > m.missions.day || (older.missions.day === m.missions.day && msum(older.missions) > msum(m.missions)))) m.missions = older.missions;
     const seenH = new Set((m.history || []).map(r => JSON.stringify(r)));
     m.history = (older.history || []).filter(r => !seenH.has(JSON.stringify(r))).concat(m.history || []).slice(-40);
     m._ts = Math.max(a._ts || 0, b._ts || 0);
