@@ -14,7 +14,8 @@ const T = {
   topic: ["Onderwerp", "Topic"], exam: ["Toets", "Exam"], length: ["Aantal vragen", "Number of questions"],
   all_topics: ["Alle onderwerpen", "All topics"], all_exams: ["Alle toetsen", "All exams"], other: ["anders", "other"],
   images_only: ["Alleen vragen met beeld", "Image questions only"], start_n: ["Start {n} vragen", "Start {n} questions"],
-  in_sel: ["{n} vragen in selectie · nieuwere toetsen komen vaker voor", "{n} questions in selection · newer exams appear more often"],
+  in_sel: ["{n} vragen in selectie · {u} nog nooit gemaakt, die krijg je eerst", "{n} questions in selection · {u} never answered, you get those first"],
+  in_sel_done: ["{n} vragen in selectie · alles al eens gemaakt 🎉 nu gaan je fouten en minst geoefende vragen voor", "{n} questions in selection · all answered at least once 🎉 your mistakes and least practised questions now come first"],
   dx_title: ["Diagnose van de dag", "Diagnosis of the day"], dx_sub: ["Elke dag een andere diagnose uit de toetsvragen", "A different diagnosis from the exam questions every day"],
   dx_img: ["Karakteristiek beeld", "Characteristic imaging"], dx_dd: ["Differentiaaldiagnose", "Differential diagnosis"], dx_pearl: ["Onthoud", "Remember"],
   dx_practice: ["Oefen {n} vragen hierover", "Practise {n} related questions"], dx_prev: ["Vorige", "Previous"], dx_next: ["Volgende", "Next"], dx_today: ["Vandaag", "Today"], dx_nl_only: ["Tekst in het Nederlands", "Text in Dutch"],
@@ -163,7 +164,7 @@ function short(text, n) { n = n || 110; return text.length > n ? text.slice(0, n
 function hasImages(q) { return (q.images || []).length > 0; }
 function qYear(q) { if (q.year) return q.year; const m = /(20\d\d)/.exec(q.source || ""); return m ? Number(m[1]) : 2020; }
 function qWeight(q) { return 1 + Math.max(0, Math.min(1, (qYear(q) - 2013) / 12)); }
-function weightedSample(list, k, rnd) { rnd = rnd || Math.random; return list.map(q => ({ q, key: Math.pow(rnd(), 1 / qWeight(q)) })).sort((a, b) => b.key - a.key).slice(0, k).map(x => x.q); }
+function weightedSample(list, k, rnd, wf) { rnd = rnd || Math.random; wf = wf || qWeight; return list.map(q => ({ q, key: Math.pow(rnd(), 1 / wf(q)) })).sort((a, b) => b.key - a.key).slice(0, k).map(x => x.q); }
 function color(q) { return TOPIC_COLOR[q.topic] || "blue"; }
 function figures(names, labels, credit) {
   if (!names || !names.length) return null;
@@ -312,7 +313,7 @@ function renderHome() {
       h("label", { class: "check" }, h("input", { type: "checkbox", id: "imgonly", checked: imagesOnly, onchange: e => { imagesOnly = e.target.checked; renderHome(); } }), t("images_only")),
       h("div", { class: "spacer" }),
       h("button", { class: "btn teal wide pill", id: "start", disabled: !examCount, onclick: () => startSession("exam") }, t("start_n", { n: examCount })),
-      h("p", { class: "hint", style: "margin:0", text: t("in_sel", { n: p.length }) })));
+      h("p", { class: "hint", style: "margin:0", text: (u => u ? t("in_sel", { n: p.length, u }) : t("in_sel_done", { n: p.length }))(p.filter(q => !progress.seen[q.id]).length) })));
 
   const dailyCard = h("section", { class: "card" }, cardHead("🧩", "teal", t("daily_title"), t("daily_sub")),
     h("div", { class: "card-body" },
@@ -461,7 +462,13 @@ function startSession(mode, ids) {
   if (ids) queue = shuffle(ids);
   else if (mode === "wrong") queue = shuffle(dueIds());
   else if (mode === "daily") queue = weightedSample(QUESTIONS.filter(q => q.type === "mc"), 10, seeded("vgt-" + dayKey())).map(q => q.id);
-  else queue = weightedSample(pool(), examSize).map(q => q.id);
+  else {
+    // eerst vragen die je nog nooit hebt gemaakt; daarna aanvullen met eerder gemaakte (minder vaak gezien en laatst fout gaan voor)
+    const pl = pool(), fresh = pl.filter(q => !progress.seen[q.id]), old = pl.filter(q => progress.seen[q.id]);
+    const a = weightedSample(fresh, examSize);
+    const b = a.length < examSize ? weightedSample(old, examSize - a.length, null, q => qWeight(q) * ((progress.qs[q.id] && progress.qs[q.id].last === false) ? 3 : 1) / progress.seen[q.id]) : [];
+    queue = shuffle(a.concat(b).map(q => q.id));
+  }
   if (!queue.length) return renderHome();
   session = { mode, queue, idx: 0, res: [], reveal: false, combo: 0, bestCombo: 0, xp: 0, levelStart: levelOf(progress.xp).i, unlocked: [] };
   view = "quiz"; window.scrollTo(0, 0); renderQuestion();
