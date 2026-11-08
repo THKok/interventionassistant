@@ -29,6 +29,9 @@ const IA_ADMIN_CONTACT = ""; // optioneel: e-mailadres dat afgewezen aanvragers 
       admin: "Beheer", feedback: "Meldingen", mark_done: "Afgehandeld", reopen: "Heropenen", copy_open: "Kopieer open meldingen", copied: "Gekopieerd ✓",
       key: "Juiste antwoord", show_full: "Hele vraag met uitleg", no_fb: "Geen open meldingen.", done_list: "Afgehandelde meldingen", q_missing: "Deze vraag bestaat niet meer.",
       n_req: "aanvra|ag|gen", n_fb: "melding||en",
+      name_t: "Kies je naam", name_p: "Met deze naam doe je straks mee aan ranglijsten, zoals die van de dagelijkse uitdaging. Je kunt hem later altijd aanpassen via je profiel.",
+      name_lbl: "Naam in ranglijsten (2–24 tekens)", anon_lbl: "Anoniem meedoen: anderen zien \u2018Anoniem\u2019 in plaats van je naam", name_save: "Opslaan en verder", name_need: "Vul een naam in van minstens 2 tekens.",
+      profile: "Profiel", profile_saved: "Opgeslagen.", save: "Opslaan", account: "Account", acc_name: "Naam bij aanvraag", acc_inst: "Instelling",
       stats: "Statistieken", st_answers: "Antwoorden", st_users: "Deelnemers", st_q: "Vragen beantwoord", st_7d: "Laatste 7 dagen", st_min: "Minimaal aantal antwoorden", st_hard: "Moeilijkst eerst", st_easy: "Makkelijkst eerst", st_most: "Meest beantwoord", st_pct: "% goed", st_first: "1e poging", st_none: "Nog geen antwoorden met dit minimum.", st_hint: "Lage % goed + één populaire foute keuze: controleer of de sleutel klopt. Bijna 100% goed: vraag is mogelijk te makkelijk.", st_choices: "Gekozen antwoorden", st_more: "Meer tonen",
       mail_sent: "Goedgekeurd — {e} heeft een e-mail gekregen met een inloglink.", mail_fail: "Goedgekeurd, maar de e-mail aan {e} kon niet worden verstuurd: ", resend_mail: "Mail opnieuw",
       not_configured: "De koppeling met de database is nog niet ingesteld (IA_SUPABASE_URL en IA_SUPABASE_ANON_KEY in gate.js).",
@@ -48,6 +51,9 @@ const IA_ADMIN_CONTACT = ""; // optioneel: e-mailadres dat afgewezen aanvragers 
       admin: "Admin", feedback: "Reports", mark_done: "Resolved", reopen: "Reopen", copy_open: "Copy open reports", copied: "Copied ✓",
       key: "Correct answer", show_full: "Full question with explanation", no_fb: "No open reports.", done_list: "Resolved reports", q_missing: "This question no longer exists.",
       n_req: "request||s", n_fb: "report||s",
+      name_t: "Choose your name", name_p: "This name will be used in leaderboards, such as the daily challenge. You can always change it later in your profile.",
+      name_lbl: "Leaderboard name (2–24 characters)", anon_lbl: "Take part anonymously: others see \u2018Anonymous\u2019 instead of your name", name_save: "Save and continue", name_need: "Enter a name of at least 2 characters.",
+      profile: "Profile", profile_saved: "Saved.", save: "Save", account: "Account", acc_name: "Name on request", acc_inst: "Institution",
       stats: "Statistics", st_answers: "Answers", st_users: "Participants", st_q: "Questions answered", st_7d: "Last 7 days", st_min: "Minimum number of answers", st_hard: "Hardest first", st_easy: "Easiest first", st_most: "Most answered", st_pct: "% correct", st_first: "1st attempt", st_none: "No answers yet with this minimum.", st_hint: "Low % correct + one popular wrong choice: check the answer key. Nearly 100% correct: the question may be too easy.", st_choices: "Chosen answers", st_more: "Show more",
       mail_sent: "Approved — {e} has received an email with a sign-in link.", mail_fail: "Approved, but the email to {e} could not be sent: ", resend_mail: "Email again",
       not_configured: "The database connection has not been configured yet (IA_SUPABASE_URL and IA_SUPABASE_ANON_KEY in gate.js).",
@@ -166,12 +172,67 @@ const IA_ADMIN_CONTACT = ""; // optioneel: e-mailadres dat afgewezen aanvragers 
   }
   async function logout() { if (sb) await sb.auth.signOut(); session = null; profile = null; mode = "login"; msg = null; location.reload(); }
 
+  // weergavenaam (voor ranglijsten) opslaan via de beveiligde functie set_display_name
+  async function saveName(name, anon) {
+    name = (name || "").trim().replace(/\s+/g, " ");
+    if (name.length < 2) throw new Error(t("name_need"));
+    const { data, error } = await sb.rpc("set_display_name", { p_name: name, p_anonymous: !!anon });
+    if (error) throw new Error(error.message);
+    profile.display_name = data || name; profile.anonymous = !!anon;
+  }
+  const nameFields = (val, anon) => [
+    h("label", { class: "fld" }, h("span", { text: t("name_lbl") }), h("input", { id: "dn", type: "text", maxlength: 24, autocomplete: "nickname", value: val || "" })),
+    h("label", { class: "check gcheck" }, h("input", { id: "anon", type: "checkbox", checked: !!anon }), h("span", { text: t("anon_lbl") }))];
+  function drawName() {
+    const sugg = (profile.name || "").trim().split(/\s+/)[0] || "";
+    const go = async (e) => {
+      e.preventDefault(); if (busy) return; busy = true;
+      const v = document.getElementById("dn").value, a = document.getElementById("anon").checked;
+      try { await saveName(v, a); msg = null; busy = false; afterLogin(); }
+      catch (err) { busy = false; msg = { text: err.message }; drawNameKeep(v, a); }
+    };
+    const drawNameKeep = (v, a) => shell(h("div", { class: "card gcard" }, h("div", { class: "stripe teal" }),
+      h("h2", { text: t("name_t") }), h("p", { text: t("name_p") }),
+      h("form", { onsubmit: go }, nameFields(v, a), note(), h("button", { class: "btn teal", type: "submit" }, t("name_save")))));
+    drawNameKeep(sugg, false);
+  }
+  function openProfile() {
+    if (document.querySelector(".gpage")) return;
+    if (location.hash !== "#profiel") history.replaceState(null, "", "#profiel");
+    const page = h("div", { class: "gpage", role: "dialog", "aria-modal": "true", "aria-label": t("profile") });
+    const esc = e => { if (e.key === "Escape") close(); };
+    const close = () => { page.remove(); document.body.style.overflow = ""; document.removeEventListener("keydown", esc); history.replaceState(null, "", location.pathname + location.search); };
+    document.addEventListener("keydown", esc);
+    let pmsg = null;
+    const render = (v, a) => {
+      const save = async (e) => {
+        e.preventDefault();
+        const nv = page.querySelector("#dn").value, na = page.querySelector("#anon").checked;
+        try { await saveName(nv, na); pmsg = { ok: true, text: t("profile_saved") }; render(profile.display_name, profile.anonymous); if (window.__iaRefreshFoot) window.__iaRefreshFoot(); }
+        catch (err) { pmsg = { text: err.message }; render(nv, na); }
+      };
+      page.replaceChildren(h("div", { class: "gpage-in" },
+        h("div", { class: "row between" }, h("h2", { text: t("profile") }), h("button", { class: "btn", onclick: close }, t("close"))),
+        h("section", { class: "card gcard" }, h("div", { class: "stripe teal" }), h("h2", { text: t("name_lbl").replace(/ \(.*$/, "") }), h("p", { class: "muted", text: t("name_p") }),
+          h("form", { onsubmit: save }, nameFields(v, a), pmsg ? h("p", { class: "gmsg " + (pmsg.ok ? "ok" : "bad"), role: "status", text: pmsg.text }) : null,
+            h("div", { class: "row" }, h("button", { class: "btn teal", type: "submit" }, t("save"))))),
+        h("section", { class: "card gcard" }, h("div", { class: "stripe blue" }), h("h2", { text: t("account") }),
+          h("p", { class: "gacc" }, h("b", { text: t("email") + ": " }), session.user.email),
+          profile.name ? h("p", { class: "gacc" }, h("b", { text: t("acc_name") + ": " }), profile.name) : null,
+          profile.institution ? h("p", { class: "gacc" }, h("b", { text: t("acc_inst") + ": " }), profile.institution) : null,
+          h("div", { class: "row" }, h("button", { class: "btn", onclick: logout }, t("logout"))))));
+    };
+    render(profile.display_name, profile.anonymous);
+    document.body.style.overflow = "hidden";
+    document.body.append(page);
+  }
   async function afterLogin() {
     profile = null; msg = null; draw();
     const { data, error } = await sb.from("profiles").select("*").eq("id", session.user.id).maybeSingle();
     if (error || !data) { profile = { status: "pending" }; msg = error ? { text: t("err") + error.message } : null; draw(); return; }
     profile = data;
     if (profile.status !== "approved") { draw(); return; }
+    if (!profile.display_name) { drawName(); return; }
     shell(h("p", { class: "muted", text: t("loading") }));
     try {
       const ks = await sb.from("app_secrets").select("value").eq("id", "content_key").maybeSingle();
@@ -291,12 +352,14 @@ const IA_ADMIN_CONTACT = ""; // optioneel: e-mailadres dat afgewezen aanvragers 
     document.addEventListener("visibilitychange", () => { if (document.visibilityState === "hidden") flushAnswers(); });
     window.__iaFeedback = async (o) => { const { error } = await sb.from("feedback").insert(o); if (error) throw new Error(error.message); if (profile.is_admin) refreshCounts(); };
     window.__iaFootExtra = (hh) => [
-      hh("span", { text: (profile.name || session.user.email) + " · " }),
+      hh("button", { class: "linkbtn", id: "ia-profile-link", title: t("profile"), onclick: () => openProfile() }, "👤 " + (profile.display_name || profile.name || session.user.email)),
+      hh("span", { text: " · " }),
       profile.is_admin ? hh("button", { class: "linkbtn", id: "ia-admin-link", onclick: () => openAdmin() }, adminLabel()) : null,
       profile.is_admin ? hh("span", { text: " · " }) : null,
       hh("button", { class: "linkbtn", onclick: logout }, t("logout"))];
     const s = document.createElement("script"); s.src = "app.js?v=" + (window.IA_APP_VERSION || "1");
-    s.onload = () => { if (profile.is_admin) { refreshCounts(); if (location.hash === "#beheer") openAdmin(); } };
+    s.onload = () => { if (profile.is_admin) { refreshCounts(); if (location.hash === "#beheer") openAdmin(); } if (location.hash === "#profiel") openProfile(); };
+    window.__iaRefreshFoot = () => { const b = document.getElementById("ia-profile-link"); if (b) b.textContent = "👤 " + (profile.display_name || profile.name || session.user.email); };
     document.body.append(s);
   }
 
