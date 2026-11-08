@@ -29,6 +29,7 @@ const IA_ADMIN_CONTACT = ""; // optioneel: e-mailadres dat afgewezen aanvragers 
       admin: "Beheer", feedback: "Meldingen", mark_done: "Afgehandeld", reopen: "Heropenen", copy_open: "Kopieer open meldingen", copied: "Gekopieerd ✓",
       key: "Juiste antwoord", show_full: "Hele vraag met uitleg", no_fb: "Geen open meldingen.", done_list: "Afgehandelde meldingen", q_missing: "Deze vraag bestaat niet meer.",
       n_req: "aanvra|ag|gen", n_fb: "melding||en",
+      stats: "Statistieken", st_answers: "Antwoorden", st_users: "Deelnemers", st_q: "Vragen beantwoord", st_7d: "Laatste 7 dagen", st_min: "Minimaal aantal antwoorden", st_hard: "Moeilijkst eerst", st_easy: "Makkelijkst eerst", st_most: "Meest beantwoord", st_pct: "% goed", st_first: "1e poging", st_none: "Nog geen antwoorden met dit minimum.", st_hint: "Lage % goed + één populaire foute keuze: controleer of de sleutel klopt. Bijna 100% goed: vraag is mogelijk te makkelijk.", st_choices: "Gekozen antwoorden", st_more: "Meer tonen",
       mail_sent: "Goedgekeurd — {e} heeft een e-mail gekregen met een inloglink.", mail_fail: "Goedgekeurd, maar de e-mail aan {e} kon niet worden verstuurd: ", resend_mail: "Mail opnieuw",
       not_configured: "De koppeling met de database is nog niet ingesteld (IA_SUPABASE_URL en IA_SUPABASE_ANON_KEY in gate.js).",
       privacy: "We bewaren je naam, e-mailadres, instelling en je oefenvoortgang, alleen voor deze oefenomgeving."
@@ -47,6 +48,7 @@ const IA_ADMIN_CONTACT = ""; // optioneel: e-mailadres dat afgewezen aanvragers 
       admin: "Admin", feedback: "Reports", mark_done: "Resolved", reopen: "Reopen", copy_open: "Copy open reports", copied: "Copied ✓",
       key: "Correct answer", show_full: "Full question with explanation", no_fb: "No open reports.", done_list: "Resolved reports", q_missing: "This question no longer exists.",
       n_req: "request||s", n_fb: "report||s",
+      stats: "Statistics", st_answers: "Answers", st_users: "Participants", st_q: "Questions answered", st_7d: "Last 7 days", st_min: "Minimum number of answers", st_hard: "Hardest first", st_easy: "Easiest first", st_most: "Most answered", st_pct: "% correct", st_first: "1st attempt", st_none: "No answers yet with this minimum.", st_hint: "Low % correct + one popular wrong choice: check the answer key. Nearly 100% correct: the question may be too easy.", st_choices: "Chosen answers", st_more: "Show more",
       mail_sent: "Approved — {e} has received an email with a sign-in link.", mail_fail: "Approved, but the email to {e} could not be sent: ", resend_mail: "Email again",
       not_configured: "The database connection has not been configured yet (IA_SUPABASE_URL and IA_SUPABASE_ANON_KEY in gate.js).",
       privacy: "We store your name, email, institution and practice progress, only for this practice environment."
@@ -184,6 +186,7 @@ const IA_ADMIN_CONTACT = ""; // optioneel: e-mailadres dat afgewezen aanvragers 
       const plain = await dec("data/vragen.bin?v=" + (window.IA_APP_VERSION || "1"));
       const json = await new Response(new Blob([plain]).stream().pipeThrough(new DecompressionStream("gzip"))).text();
       const bundle = JSON.parse(json), qs = bundle.questions;
+      window.__iaBundleDx = bundle.diagnoses || [];
       window.__iaImg = {};
       const loading = {};
       window.__iaNeedImg = (k) => {
@@ -211,11 +214,17 @@ const IA_ADMIN_CONTACT = ""; // optioneel: e-mailadres dat afgewezen aanvragers 
   }
   function startApp(qs) {
     window.__QUESTIONS = qs;
+    window.__DIAGNOSES = window.__iaBundleDx || [];
     window.__iaUid = session.user.id;
     window.__iaSync = p => { pending = JSON.parse(JSON.stringify(p)); clearTimeout(syncTimer); syncTimer = setTimeout(pushProgress, 2500); };
     window.addEventListener("pagehide", () => { if (pending) pushProgress(); });
     document.addEventListener("visibilitychange", () => { if (document.visibilityState === "hidden" && pending) pushProgress(); });
     window.__iaSite = true;
+    let ansQueue = [], ansTimer = null;
+    const flushAnswers = async () => { if (!ansQueue.length) return; const rows = ansQueue; ansQueue = []; const { error } = await sb.from("answers").insert(rows); if (error) console.warn("answers", error.message); };
+    window.__iaAnswer = (o) => { ansQueue.push({ question_id: o.question_id, correct: o.correct, chosen: o.chosen, mode: o.mode, first_try: !!o.first }); clearTimeout(ansTimer); ansTimer = setTimeout(flushAnswers, 4000); };
+    window.addEventListener("pagehide", flushAnswers);
+    document.addEventListener("visibilitychange", () => { if (document.visibilityState === "hidden") flushAnswers(); });
     window.__iaFeedback = async (o) => { const { error } = await sb.from("feedback").insert(o); if (error) throw new Error(error.message); if (profile.is_admin) refreshCounts(); };
     window.__iaFootExtra = (hh) => [
       hh("span", { text: (profile.name || session.user.email) + " · " }),
@@ -245,7 +254,44 @@ const IA_ADMIN_CONTACT = ""; // optioneel: e-mailadres dat afgewezen aanvragers 
   /* beheerpagina (#beheer): meldingen over vragen en toegangsaanvragen. Alleen voor profiles.is_admin. */
   const FB_CAT = { key: ["Juiste antwoord klopt niet", "Answer key wrong"], unclear: ["Vraag/opties onduidelijk", "Question/options unclear"], image: ["Beeld klopt niet of ontbreekt", "Image wrong or missing"], explanation: ["Uitleg kan beter", "Explanation could be better"], other: ["Anders", "Other"] };
   const L = "ABCDEFGHIJ";
-  let adminTab = "fb", adminMsg = null;
+  let adminTab = "fb", adminMsg = null, stMin = 3, stSort = "hard", stLimit = 50;
+  async function statsView(Q, answerOf) {
+    const since = new Date(Date.now() - 7 * 864e5).toISOString().slice(0, 10);
+    const [qs, days, tot] = await Promise.all([sb.from("question_stats").select("*").limit(5000), sb.from("answer_days").select("*").order("day", { ascending: false }).limit(60), sb.from("answer_totals").select("*").maybeSingle()]);
+    if (qs.error) return [h("p", { class: "gmsg bad", text: t("err") + qs.error.message })];
+    const rows = qs.data || [], dd = days.data || [];
+    const T = tot.data || { n: 0, users: 0, questions: 0 }, last7 = dd.filter(r => r.day >= since).reduce((a, r) => a + r.n, 0);
+    const kpi = (v, l) => h("div", { class: "rstat" }, h("div", { class: "lbl", text: l }), h("div", { class: "bigfig num", text: String(v) }));
+    const pct = (a, b) => b ? Math.round(100 * a / b) : null;
+    let list = rows.filter(r => r.n >= stMin).map(r => Object.assign({ p: pct(r.ok, r.n), fp: pct(r.first_ok, r.first_n) }, r));
+    list.sort(stSort === "hard" ? (a, b) => a.p - b.p || b.n - a.n : stSort === "easy" ? (a, b) => b.p - a.p || b.n - a.n : (a, b) => b.n - a.n);
+    const ctrl = h("div", { class: "row" },
+      h("label", { class: "hint" }, t("st_min") + " ", h("select", { onchange: e => { stMin = +e.target.value; rerenderAdmin(); } }, [1, 3, 5, 10, 20].map(v => h("option", { value: v, selected: v === stMin }, String(v))))),
+      h("span", { class: "spacer" }),
+      h("div", { class: "gtabs", style: "margin:0" }, [["hard", t("st_hard")], ["easy", t("st_easy")], ["most", t("st_most")]].map(([k, l]) => h("button", { class: "gtab" + (stSort === k ? " on" : ""), onclick: () => { stSort = k; rerenderAdmin(); } }, l))));
+    const item = r => {
+      const q = Q[r.question_id];
+      const det = h("details", { class: "gfb-full" }, h("summary", { text: t("st_choices") }));
+      det.addEventListener("toggle", async () => {
+        if (!det.open || det.dataset.loaded) return; det.dataset.loaded = "1";
+        const { data } = await sb.from("answer_choices").select("*").eq("question_id", r.question_id).order("n", { ascending: false });
+        const tot = (data || []).reduce((a, c) => a + c.n, 0);
+        det.append(h("ul", { class: "gfb-opts" }, (data || []).map(c => h("li", { class: c.is_correct ? "right" : null, text: (pct(c.n, tot)) + "% · " + c.chosen + " (" + c.n + ")" }))));
+      });
+      return h("div", { class: "gfb st" + (r.p < 40 ? " low" : r.p > 90 ? " high" : "") },
+        h("div", { class: "gfb-top" }, h("span", { class: "gtag", text: r.p + "% " + (lang === "nl" ? "goed" : "correct") }), h("b", { text: r.question_id }),
+          q ? h("span", { class: "muted", text: q.source + " · " + q.topic }) : null, h("span", { class: "spacer" }),
+          h("span", { class: "hint", text: "n=" + r.n + " · " + r.users + "×👤" + (r.fp != null ? " · " + t("st_first") + " " + r.fp + "%" : "") })),
+        q ? h("p", { class: "gfb-q", text: q.question }) : null,
+        q ? h("p", { class: "gfb-a" }, h("span", { class: "muted", text: (lang === "nl" ? "Juiste antwoord" : "Correct answer") + ": " }), answerOf(q)) : null,
+        det);
+    };
+    return [h("div", { class: "resgrid" }, kpi(T.n, t("st_answers")), kpi(T.users, t("st_users")), kpi(T.questions, t("st_q")), kpi(last7, t("st_7d"))),
+      h("p", { class: "hint", text: t("st_hint") }), ctrl,
+      list.length ? list.slice(0, stLimit).map(item) : h("p", { class: "muted", text: t("st_none") }),
+      list.length > stLimit ? h("button", { class: "btn", onclick: () => { stLimit += 50; rerenderAdmin(); } }, t("st_more")) : null];
+  }
+  let rerenderAdmin = () => {};
   function openAdmin() {
     if (document.querySelector(".gpage")) return;
     if (location.hash !== "#beheer") history.replaceState(null, "", "#beheer");
@@ -257,6 +303,7 @@ const IA_ADMIN_CONTACT = ""; // optioneel: e-mailadres dat afgewezen aanvragers 
     const Q = Object.fromEntries((window.__QUESTIONS || []).map(q => [q.id, q]));
     const answerOf = q => q.options ? L[q.answer] + ". " + q.options[q.answer] : (q.modelAnswer || "");
     async function load() {
+      rerenderAdmin = load;
       const [pr, fb] = await Promise.all([
         sb.from("profiles").select("*").order("created_at", { ascending: false }),
         sb.from("feedback").select("*").order("created_at", { ascending: false }).limit(1000)]);
@@ -300,11 +347,11 @@ const IA_ADMIN_CONTACT = ""; // optioneel: e-mailadres dat afgewezen aanvragers 
         try { await navigator.clipboard.writeText(txt); } catch (e) { const ta = h("textarea", {}, txt); document.body.append(ta); ta.select(); document.execCommand("copy"); ta.remove(); }
         btn.textContent = t("copied"); setTimeout(() => { btn.textContent = t("copy_open"); }, 2000);
       };
-      const tabs = h("div", { class: "gtabs" }, [["fb", t("feedback") + " (" + fbOpen.length + ")"], ["req", t("requests") + " (" + pend.length + ")"]].map(([k, l]) =>
+      const tabs = h("div", { class: "gtabs" }, [["fb", t("feedback") + " (" + fbOpen.length + ")"], ["req", t("requests") + " (" + pend.length + ")"], ["stats", t("stats")]].map(([k, l]) =>
         h("button", { class: "gtab" + (adminTab === k ? " on" : ""), onclick: () => { adminTab = k; load(); } }, l)));
       const errs = [pr.error, fb.error].filter(Boolean).map(e => h("p", { class: "gmsg bad", text: t("err") + e.message }));
       if (adminMsg) errs.push(h("p", { class: "gmsg " + (adminMsg.ok ? "ok" : "bad"), role: "status", text: adminMsg.text }));
-      const body = adminTab === "fb"
+      const body = adminTab === "stats" ? await statsView(Q, answerOf) : adminTab === "fb"
         ? [fbOpen.length ? h("div", { class: "row" }, h("button", { class: "btn", onclick: e => copyOpen(e.currentTarget) }, t("copy_open"))) : null,
            fbOpen.length ? fbOpen.map(fbItem) : h("p", { class: "muted", text: t("no_fb") }),
            fbDone.length ? h("details", { class: "gdone" }, h("summary", { text: t("done_list") + " (" + fbDone.length + ")" }), fbDone.map(fbItem)) : null]

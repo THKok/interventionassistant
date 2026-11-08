@@ -1,4 +1,5 @@
 const QUESTIONS = window.__QUESTIONS || [];
+const DIAGNOSES = window.__DIAGNOSES || [];
 const LETTERS = "ABCDEFGHIJ";
 const LS_KEY = "rad-oefententamen-v1" + (window.__iaUid ? "-" + window.__iaUid : "");
 const SIZE_PRESETS = [10, 25, 50, 100];
@@ -14,6 +15,9 @@ const T = {
   all_topics: ["Alle onderwerpen", "All topics"], all_exams: ["Alle toetsen", "All exams"], other: ["anders", "other"],
   images_only: ["Alleen vragen met beeld", "Image questions only"], start_n: ["Start {n} vragen", "Start {n} questions"],
   in_sel: ["{n} vragen in selectie · nieuwere toetsen komen vaker voor", "{n} questions in selection · newer exams appear more often"],
+  dx_title: ["Diagnose van de dag", "Diagnosis of the day"], dx_sub: ["Elke dag een andere diagnose uit de toetsvragen", "A different diagnosis from the exam questions every day"],
+  dx_img: ["Karakteristiek beeld", "Characteristic imaging"], dx_dd: ["Differentiaaldiagnose", "Differential diagnosis"], dx_pearl: ["Onthoud", "Remember"],
+  dx_practice: ["Oefen {n} vragen hierover", "Practise {n} related questions"], dx_prev: ["Vorige", "Previous"], dx_next: ["Volgende", "Next"], dx_today: ["Vandaag", "Today"], dx_nl_only: ["Tekst in het Nederlands", "Text in Dutch"],
   daily_title: ["Dagelijkse uitdaging", "Daily challenge"], daily_sub: ["Elke dag 10 vragen, voor iedereen dezelfde", "10 questions every day, the same for everyone"],
   daily_go: ["Doe de uitdaging", "Take the challenge"], daily_done: ["Vandaag gedaan: {c}/{t}", "Done today: {c}/{t}"], daily_again: ["Nog een keer", "Again"],
   review_title: ["Slim herhalen", "Smart review"], review_sub: ["Foute vragen komen terug na 1, 3, 7, 14 en 30 dagen", "Missed questions return after 1, 3, 7, 14 and 30 days"],
@@ -330,6 +334,7 @@ function renderHome() {
           h("input", { type: "date", id: "vgt", value: progress.vgt || "", onchange: e => { progress.vgt = e.target.value; saveProgress(); renderHome(); } }))),
       daysLeft != null && daysLeft > 0 ? h("p", { class: "hint", style: "margin:0", text: t("goal_hint", { n: goal, k: (Math.round(10 * goal * daysLeft / QUESTIONS.length) / 10).toString().replace(".", lang === "nl" ? "," : ".") }) }) : null));
 
+  const dx = diagnosisCard();
   mount(navBar(),
     h("header", { class: "hero gutter" }, h("div", { class: "hero-in" },
       h("h1", null, "Oefen", h("span", { text: "tentamen" })),
@@ -337,6 +342,7 @@ function renderHome() {
       heroStats())),
     h("main", { class: "main gutter" },
       h("div", { class: "grid2" }, startCard, h("div", { style: "display:flex;flex-direction:column;gap:1rem;min-width:0" }, dailyCard, reviewCard)),
+      dx,
       goalCard,
       accordion("mastery", "teal", t("mastery"), masteryBlock),
       accordion("badges", "orange", t("badges_title") + " · " + Object.keys(progress.badges).length + "/" + BADGES.length, badgesBlock),
@@ -419,6 +425,33 @@ function renderProgress() {
 }
 
 /* ---------- sessie ---------- */
+let dxOffset = 0;
+function dxOrder() {
+  const order = DIAGNOSES.map((_, i) => i), rnd = seeded("dx-volgorde-v1");
+  for (let i = order.length - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); [order[i], order[j]] = [order[j], order[i]]; }
+  return order;
+}
+function diagnosisCard() {
+  if (!DIAGNOSES.length) return null;
+  const order = dxOrder(), n = order.length, day = TODAY() + dxOffset;
+  const d = DIAGNOSES[order[((day % n) + n) % n]];
+  const qids = (d.qids || []).filter(id => byId[id]);
+  const nav = (delta) => { dxOffset += delta; renderHome(); const el = document.getElementById("dx-card"); if (el) el.scrollIntoView({ block: "nearest" }); };
+  return h("section", { class: "card dx", id: "dx-card" }, cardHead("🩻", "purple", t("dx_title"), dxOffset ? (dxOffset > 0 ? "+" : "") + dxOffset + " · " + t("dx_sub") : t("dx_sub")),
+    h("div", { class: "card-body" },
+      h("div", { class: "row" }, h("h3", { class: "dx-name", text: d.naam }), h("span", { class: "tag", text: d.rubriek }), lang === "en" ? h("span", { class: "hint", text: t("dx_nl_only") }) : null),
+      h("p", { class: "dx-kern", text: d.kern }),
+      h("div", { class: "dx-sec" }, h("b", { text: t("dx_img") }), h("ul", null, d.beeld.map(x => h("li", { text: x })))),
+      h("p", { class: "dx-sec" }, h("b", { text: t("dx_dd") + ": " }), d.dd),
+      h("p", { class: "dx-pearl" }, h("b", { text: "💡 " + t("dx_pearl") + ": " }), d.pearl),
+      h("div", { class: "row" },
+        qids.length ? h("button", { class: "btn purple pill", onclick: () => startSession("exam", qids) }, t("dx_practice", { n: qids.length })) : null,
+        h("a", { class: "linkbtn", href: rpUrl(d.rp[0]), target: "_blank", rel: "noopener" }, "Radiopaedia ↗"),
+        h("span", { class: "spacer" }),
+        h("button", { class: "chip-btn", "aria-label": t("dx_prev"), onclick: () => nav(-1) }, "‹"),
+        dxOffset ? h("button", { class: "chip-btn", onclick: () => { dxOffset = 0; renderHome(); } }, t("dx_today")) : null,
+        h("button", { class: "chip-btn", "aria-label": t("dx_next"), onclick: () => nav(1) }, "›"))));
+}
 function startSession(mode, ids) {
   let queue;
   if (ids) queue = shuffle(ids);
@@ -443,6 +476,7 @@ function record(q, correct, extra) {
   const goal = progress.goal || 20;
   if (before < goal && before + 1 >= goal && !progress.goalDays[dk]) { progress.goalDays[dk] = 1; gain += 50; goalHit = true; }
   progress.xp += gain; session.xp += gain;
+  if (window.__iaAnswer) { try { window.__iaAnswer({ question_id: q.id, correct: !!correct, chosen: extra && extra.chosen != null && q.options ? String(q.options[extra.chosen]).slice(0, 300) : null, mode: session.mode, first: !prev.n }); } catch (e) {} }
   progress.qs[q.id] = { n: prev.n + 1, ok: prev.ok + (correct ? 1 : 0), last: correct, mastered: !!prev.mastered && correct };
   progress.seen[q.id] = (progress.seen[q.id] || 0) + 1;
   if (correct) {
