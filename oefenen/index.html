@@ -262,6 +262,37 @@ details.rev .inner { padding: 0 1rem 0.9rem; display: flex; flex-direction: colu
 @keyframes fall { to { transform: translateY(105vh) rotate(540deg); } }
 @media (prefers-reduced-motion: reduce) { .confetti { display: none; } .bar span, .qtrack span { transition: none; } .toast { animation: none; } }
 
+/* ---- prikkelarme startpagina ---- */
+.main.narrow { max-width: 640px; }
+.card.start .card-body { gap: 0.7rem; }
+.bigstart { font-size: 1.15rem; padding: 1rem 1.2rem; }
+.settings { border-top: 1px solid var(--border); padding-top: 0.6rem; }
+.settings > summary { list-style: none; cursor: pointer; display: flex; gap: 0.5rem; align-items: center; font-size: 0.85rem; color: var(--muted); }
+.settings > summary::-webkit-details-marker { display: none; }
+.settings > summary::after { content: "▾"; margin-left: auto; transition: transform .2s; }
+.settings[open] > summary::after { transform: rotate(180deg); }
+.set-sum { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.set-body { display: flex; flex-direction: column; gap: 0.8rem; padding-top: 0.8rem; }
+.card.today { padding: 0.4rem 0; }
+.today-h { font-family: var(--font-head); font-weight: 800; font-size: 0.75rem; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); padding: 0.6rem 1.1rem 0.2rem; }
+.trow { display: grid; grid-template-columns: 1.6rem 1fr auto; gap: 0.6rem; align-items: center; padding: 0.65rem 1.1rem; min-height: 2.8rem; font-size: 0.95rem; }
+.trow + .trow, .trow + .trow-d, .trow-d + .trow, .trow-d + .trow-d { border-top: 1px solid var(--hair); }
+.trow-d > summary { list-style: none; cursor: pointer; }
+.trow-d > summary::-webkit-details-marker { display: none; }
+.trow-d > summary .tr-r::after { content: " ▾"; color: var(--muted); }
+.trow-d[open] > summary .tr-r::after { content: " ▴"; }
+.trow-d > .card-body { padding: 0 1.1rem 1rem; }
+.tr-l { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tr-ic { text-align: center; }
+.tr-s { display: block; font-size: 0.72rem; color: var(--muted); line-height: 1.2; }
+.btn.sm { padding: 0.35rem 0.9rem; font-size: 0.85rem; }
+.chest-dot { color: var(--orange); font-weight: 800; }
+/* ---- uitleg per antwoordoptie ---- */
+.why { border-top: 1px solid var(--border); padding-top: 0.6rem; margin-top: 0.2rem; display: flex; flex-direction: column; gap: 0.4rem; }
+.why-t { font-family: var(--font-head); font-weight: 800; font-size: 0.78rem; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+.why-i { margin: 0; font-size: 0.9rem; line-height: 1.5; }
+.why-i .tag { margin-left: 0.35rem; vertical-align: 1px; }
+.why-i.mine { background: color-mix(in srgb, var(--red) 8%, transparent); border-radius: 8px; padding: 0.35rem 0.5rem; margin-inline: -0.5rem; }
 /* ---- avatars, zeldzaamheid, missies, atlas ---- */
 .zavw { display: inline-flex; line-height: 0; flex: none; }
 .zav { display: block; overflow: visible; }
@@ -352,6 +383,18 @@ details.rev .inner { padding: 0 1rem 0.9rem; display: flex; flex-direction: colu
 .gfb { background: var(--white); border: 1px solid var(--border); border-left: 3px solid var(--orange); border-radius: 0 10px 10px 0; padding: 0.8rem 1rem; display: flex; flex-direction: column; gap: 0.45rem; font-size: 0.88rem; }
 .gfb.done { border-left-color: var(--green); opacity: 0.8; }
 .gfb.st { border-left-color: var(--blue); }
+.gfb.qc { border-left-color: var(--purple); }
+.gfb.qc.done { border-left-color: var(--green); }
+.gfb.qc.fixme { border-left-color: var(--red); }
+.qc-flag { font-size: 0.8rem; font-weight: 700; color: var(--orange); background: var(--orange-light); border-radius: 6px; padding: 0.25rem 0.5rem; }
+.qc-opts { margin: 0; padding-left: 1.4rem; display: flex; flex-direction: column; gap: 0.3rem; }
+.qc-opts li.right { font-weight: 800; color: var(--green); }
+.qc-why { font-weight: 400; color: var(--muted); font-size: 0.8rem; }
+.qc-exp { margin: 0; font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
+.qc-note { display: flex; flex-direction: column; gap: 0.4rem; }
+.qc-note[hidden] { display: none; }
+.qc-note textarea { font: inherit; padding: 0.5rem; border-radius: 8px; border: 1px solid var(--border); background: var(--white); color: var(--ink); }
+.qc-sel { font: inherit; padding: 0.45rem; border-radius: 8px; border: 1px solid var(--border); background: var(--white); color: var(--ink); max-width: 100%; }
 .gfb.st.low { border-left-color: var(--red); }
 .gfb.st.high { border-left-color: var(--green); }
 .gfb-top { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }

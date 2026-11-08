@@ -14,7 +14,9 @@ const T = {
   start_title: ["Start een ronde", "Start a round"], start_sub: ["Kies onderwerp, toets en lengte", "Pick topic, exam and length"],
   topic: ["Onderwerp", "Topic"], exam: ["Toets", "Exam"], length: ["Aantal vragen", "Number of questions"],
   all_topics: ["Alle onderwerpen", "All topics"], all_exams: ["Alle toetsen", "All exams"], other: ["anders", "other"],
-  images_only: ["Alleen vragen met beeld", "Image questions only"], start_n: ["Start {n} vragen", "Start {n} questions"],
+  images_only: ["Alleen vragen met beeld", "Image questions only"], q_short: ["vragen", "questions"], img_short: ["alleen beeld", "images only"],
+  in_sel_s: ["{u} nieuwe vragen in deze selectie · herhaalvragen worden meegemengd", "{u} new questions in this selection · review questions are mixed in"], in_sel_done_s: ["Alles al eens gemaakt 🎉 · je fouten en herhaalvragen gaan voor", "All answered once 🎉 · your mistakes and reviews come first"],
+  today_t: ["Vandaag", "Today"], review_short: ["{n} vragen aan herhaling toe", "{n} questions due for review"], review_only: ["Alleen herhalen", "Review only"], go: ["Start", "Start"], settings_t: ["Instellingen", "Settings"], start_n: ["Start {n} vragen", "Start {n} questions"],
   in_sel: ["{n} vragen in selectie · {u} nog nooit gemaakt, die krijg je eerst, samen met vragen die aan herhaling toe zijn", "{n} questions in selection · {u} never answered, you get those first, together with questions due for review"],
   in_sel_done: ["{n} vragen in selectie · alles al eens gemaakt 🎉 nu gaan je fouten en minst geoefende vragen voor", "{n} questions in selection · all answered at least once 🎉 your mistakes and least practised questions now come first"],
   dx_title: ["Diagnose van de dag", "Diagnosis of the day"], dx_sub: ["Elke dag een andere diagnose uit de toetsvragen", "A different diagnosis from the exam questions every day"],
@@ -47,7 +49,7 @@ const T = {
   install_android: ["Android (Chrome)", "Android (Chrome)"],
   install_android_steps: [["Open deze pagina in Chrome.", "Tik op ⋮ rechtsboven.", "Kies Toevoegen aan startscherm of App installeren en bevestig."], ["Open this page in Chrome.", "Tap ⋮ at the top right.", "Choose Add to Home screen or Install app and confirm."]],
   install_note: ["Daarna open je de oefenapp met één tik, schermvullend en zonder adresbalk. Log er de eerste keer één keer in; daarna blijf je ingelogd.", "After that the practice app opens with one tap, full screen without an address bar. Sign in once the first time; you will stay signed in."],
-  install_banner: ["Tip: zet de oefenapp op je beginscherm, dan open je hem met één tik.", "Tip: add the practice app to your home screen to open it with one tap."], install_how: ["Zo werkt het", "How"], dismiss: ["Sluiten", "Dismiss"], read_more: ["Lees verder:", "Read more:"], earlier_wrong: ["eerder fout", "missed before"],
+  install_banner: ["Tip: zet de oefenapp op je beginscherm, dan open je hem met één tik.", "Tip: add the practice app to your home screen to open it with one tap."], install_how: ["Zo werkt het", "How"], dismiss: ["Sluiten", "Dismiss"], read_more: ["Lees verder:", "Read more:"], why_t: ["Waarom de andere antwoorden niet kloppen", "Why the other answers are wrong"], your_pick: ["jouw keuze", "your pick"], earlier_wrong: ["eerder fout", "missed before"],
   show_answer: ["Toon antwoord", "Show answer"], knew: ["Wist ik", "Knew it"], didnt: ["Wist ik niet", "Didn't know"],
   round_done: ["Ronde klaar", "Round complete"], review_done: ["Herhaling klaar", "Review complete"], daily_done_t: ["Uitdaging klaar", "Challenge complete"],
   score: ["Score", "Score"], xp_earned: ["XP verdiend", "XP earned"], best_combo: ["Langste reeks", "Longest streak"],
@@ -385,21 +387,23 @@ function openChest() {
   toast(n >= 500 ? t("chest_jackpot", { n }) : t("chest_got", { n })); confetti(); rerender();
 }
 function missionsCard() {
+  return h("section", { class: "card", id: "missions" }, cardHead("⭐", "orange", t("m_title"), t("m_sub")), missionsBody());
+}
+function missionsBody() {
   const m = missions(); const all = m.list.every(x => x.p >= x.n);
-  return h("section", { class: "card", id: "missions" }, cardHead("⭐", "orange", t("m_title"), t("m_sub")),
-    h("div", { class: "card-body" },
+  return h("div", { class: "card-body" },
       m.list.map(x => h("div", { class: "mission" + (x.p >= x.n ? " done" : "") },
         h("span", { class: "mcheck", text: x.p >= x.n ? "✓" : "" }),
         h("span", { class: "mtxt", text: missionText(x) }),
         h("div", { class: "mbar" }, h("span", { class: x.p >= x.n ? "t4" : "t3", style: "width:" + Math.round(100 * Math.min(x.p, x.n) / x.n) + "%" })),
         h("span", { class: "num muted mnum", text: Math.min(x.p, x.n) + "/" + x.n }))),
       m.chest ? h("div", { class: "chest got", text: "🎁 " + (m.chest >= 500 ? t("chest_jackpot", { n: m.chest }) : t("chest_got", { n: m.chest })) })
-        : h("button", { class: "btn orange wide pill chestbtn" + (all ? " ready" : ""), disabled: !all, onclick: openChest }, all ? t("chest_open") : "🔒 " + t("chest_locked"))));
+        : h("button", { class: "btn orange wide pill chestbtn" + (all ? " ready" : ""), disabled: !all, onclick: openChest }, all ? t("chest_open") : "🔒 " + t("chest_locked")));
 }
 
 /* ---------- state ---------- */
 let session = null, view = "home", topicFilter = "", sourceFilter = "", imagesOnly = false, confirmReset = false;
-const openAcc = { mastery: false, badges: false, about: false, install: false, activity: true, history: true, pmastery: true, pbadges: true, zoo: true, ranks: false, atlas: true };
+const openAcc = { settings: false, missions: false, dx: false, goal: false, mastery: false, badges: false, about: false, install: false, activity: true, history: true, pmastery: true, pbadges: true, zoo: true, ranks: false, atlas: true };
 function pool() { return QUESTIONS.filter(q => (!topicFilter || q.topic === topicFilter) && (!sourceFilter || q.source === sourceFilter) && (!imagesOnly || hasImages(q))); }
 function rerender() { if (session && view === "quiz") renderQuestion(); else if (session && view === "result") renderResult(); else if (view === "progress") renderProgress(); else renderHome(); }
 function goHome() { session = null; view = "home"; renderHome(); window.scrollTo(0, 0); }
@@ -464,14 +468,13 @@ function renderHome() {
   view = "home"; session = null;
   const p = pool(); const examCount = Math.min(examSize, p.length);
   const count = (key, val) => QUESTIONS.filter(q => q[key] === val).length;
-  const due = dueIds(); const inBox = Object.keys(progress.box).filter(id => byId[id]).length;
-  const mastered = Object.values(progress.qs).filter(s => s.mastered).length;
-  const today = progress.daily[dayKey()];
-  const goal = progress.goal || 20; const tcp = Math.min(100, Math.round(100 * todayCount() / goal));
-  const daysLeft = progress.vgt ? dayNum(progress.vgt) - TODAY() : null;
-
-  const startCard = h("section", { class: "card" }, cardHead("📝", "blue", t("start_title"), t("start_sub")),
-    h("div", { class: "card-body" },
+  const due = dueIds(); const today = progress.daily[dayKey()];
+  const u = p.filter(q => !progress.seen[q.id]).length;
+  const full = sourceFilter && !topicFilter && !imagesOnly;
+  const summary = [topicFilter || t("all_topics"), sourceFilter || t("all_exams"), examCount + " " + t("q_short"), imagesOnly ? t("img_short") : null].filter(Boolean).join(" · ");
+  const settings = h("details", { class: "settings", open: openAcc.settings || null, ontoggle: e => { openAcc.settings = e.currentTarget.open; } },
+    h("summary", null, h("span", { class: "set-ic", "aria-hidden": "true", text: "⚙" }), h("span", { class: "set-sum", text: summary })),
+    h("div", { class: "set-body" },
       h("div", { class: "field" }, h("label", { class: "flabel", for: "topic", text: t("topic") }),
         h("select", { id: "topic", onchange: e => { topicFilter = e.target.value; renderHome(); } },
           h("option", { value: "", text: t("all_topics") }), topics().map(x => h("option", { value: x, selected: x === topicFilter, text: x + " (" + count("topic", x) + ")" })))),
@@ -484,53 +487,44 @@ function renderHome() {
           h("input", { type: "number", id: "size-custom", min: "1", max: "500", inputmode: "numeric", class: SIZE_PRESETS.includes(examSize) ? null : "on", value: SIZE_PRESETS.includes(examSize) ? "" : examSize, placeholder: t("other"), "aria-label": t("other"),
             onchange: e => { const v = parseInt(e.target.value, 10); if (v > 0) { setExamSize(v); renderHome(); } } }))),
       h("label", { class: "check" }, h("input", { type: "checkbox", id: "imgonly", checked: imagesOnly, onchange: e => { imagesOnly = e.target.checked; renderHome(); } }), t("images_only")),
-      h("div", { class: "spacer" }),
-      h("button", { class: "btn teal wide pill", id: "start", disabled: !examCount, onclick: () => startSession("exam") }, t("start_n", { n: examCount })),
-      h("p", { class: "hint", style: "margin:0", text: (u => u ? t("in_sel", { n: p.length, u }) : t("in_sel_done", { n: p.length }))(p.filter(q => !progress.seen[q.id]).length) }),
-      sourceFilter && !topicFilter && !imagesOnly ? h("button", { class: "btn wide pill", id: "full", onclick: () => startFull(sourceFilter) }, "🏆 " + t("full_exam", { n: p.length })) : null,
-      sourceFilter && !topicFilter && !imagesOnly ? h("p", { class: "hint", style: "margin:0", text: t("full_hint") + (progress.vgtBest && progress.vgtBest[sourceFilter] != null ? " · " + t("atlas_best", { p: progress.vgtBest[sourceFilter] }) : "") }) : null));
+      full ? h("button", { class: "btn wide pill", id: "full", onclick: () => startFull(sourceFilter) }, "🏆 " + t("full_exam", { n: p.length })) : null,
+      full ? h("p", { class: "hint", style: "margin:0", text: t("full_hint") + (progress.vgtBest && progress.vgtBest[sourceFilter] != null ? " · " + t("atlas_best", { p: progress.vgtBest[sourceFilter] }) : "") }) : null));
+  const startCard = h("section", { class: "card start" }, h("div", { class: "card-body" },
+    h("button", { class: "btn teal wide pill bigstart", id: "start", disabled: !examCount, onclick: () => startSession("exam") }, t("start_n", { n: examCount })),
+    h("p", { class: "hint", style: "margin:0;text-align:center", text: u ? t("in_sel_s", { u }) : t("in_sel_done_s") }),
+    settings));
 
-  const dailyCard = h("section", { class: "card" }, cardHead("🧩", "teal", t("daily_title"), t("daily_sub")),
-    h("div", { class: "card-body" },
-      today ? h("div", { class: "row" }, h("span", { class: "tag green", text: "✓ " + t("daily_done", { c: today.c, t: today.t }) }), h("span", { class: "spacer" }),
-        h("button", { class: "btn pill", onclick: () => startSession("daily") }, t("daily_again")))
-        : h("button", { class: "btn teal wide pill", id: "daily", onclick: () => startSession("daily") }, t("daily_go"))));
+  const m = missions(); const mDone = m.list.filter(x => x.p >= x.n).length; const chestReady = mDone === m.list.length && !m.chest;
+  const dxc = DIAGNOSES.length ? dxCurrent() : null;
+  const dxNav = (delta) => { dxOffset += delta; openAcc.dx = true; renderHome(); };
+  const trow = (ic, label, right) => [h("span", { class: "tr-ic", "aria-hidden": "true", text: ic }), typeof label === "string" ? h("span", { class: "tr-l", text: label }) : label, h("span", { class: "tr-r" }, right)];
+  const todayCard = h("section", { class: "card today" }, h("div", { class: "today-h", text: t("today_t") }),
+    h("div", { class: "trow" }, trow("🧩", t("daily_title"), today ? h("span", { class: "tag green", text: "✓ " + today.c + "/" + today.t }) : h("button", { class: "btn teal pill sm", id: "daily", onclick: () => startSession("daily") }, t("go")))),
+    h("details", { class: "trow-d", open: openAcc.missions || null, ontoggle: e => { openAcc.missions = e.currentTarget.open; } },
+      h("summary", { class: "trow" }, trow("⭐", t("m_title"), h("span", { class: "num" + (chestReady ? " chest-dot" : ""), text: (chestReady ? "🎁 " : "") + mDone + "/" + m.list.length }))),
+      missionsBody()),
+    dxc ? h("details", { class: "trow-d", id: "dx-card", open: openAcc.dx || null, ontoggle: e => { openAcc.dx = e.currentTarget.open; } },
+      h("summary", { class: "trow" }, trow("🩻", h("span", { class: "tr-l" }, h("small", { class: "tr-s", text: t("dx_title") }), dxc.d.naam), null)),
+      dxBody(dxc.d, dxc.qids, dxNav)) : null,
+    due.length ? h("div", { class: "trow" }, trow("🔁", t("review_short", { n: due.length }), h("button", { class: "linkbtn", id: "repeat", onclick: () => startSession("wrong") }, t("review_only")))) : null);
 
-  const reviewCard = h("section", { class: "card" }, cardHead("🔁", "red", t("review_title"), t("review_sub")),
-    h("div", { class: "card-body" },
-      h("div", { class: "row", style: "gap:1.4rem" },
-        h("div", null, h("div", { class: "bigfig num", text: due.length }), h("div", { class: "hint", text: t("due_now") })),
-        h("div", null, h("div", { class: "bigfig num muted", text: inBox }), h("div", { class: "hint", text: t("in_queue") })),
-        h("div", null, h("div", { class: "bigfig num", style: "color:var(--green)", text: mastered }), h("div", { class: "hint", text: t("mastered") }))),
-      h("button", { class: "btn red wide pill", id: "repeat", disabled: !due.length, onclick: () => startSession("wrong") }, due.length ? t("review_go", { n: due.length }) : t("review_none"))));
-
-  const goalCard = h("section", { class: "card" }, cardHead("🎯", "purple", t("goal_title"), t("goal_sub")),
-    h("div", { class: "card-body" },
-      h("div", { class: "row", style: "gap:1rem" },
-        h("div", { class: "ring", style: "--p:" + tcp }, h("b", { class: "num", text: tcp + "%" })),
-        h("div", { class: "field", style: "flex:1;min-width:9rem" }, h("span", { class: "flabel", text: t("goal") }),
-          h("div", { class: "seg" }, [10, 20, 40].map(n => h("button", { type: "button", class: n === goal ? "on" : null, onclick: () => { progress.goal = n; saveProgress(); renderHome(); } }, String(n))))),
-        h("div", { class: "field", style: "flex:1;min-width:11rem" }, h("label", { class: "flabel", for: "vgt", text: t("next_vgt") + (daysLeft != null && daysLeft >= 0 ? " · " + t("days_left", { n: daysLeft }) : "") }),
-          h("input", { type: "date", id: "vgt", value: progress.vgt || "", onchange: e => { progress.vgt = e.target.value; saveProgress(); renderHome(); } }))),
-      daysLeft != null && daysLeft > 0 ? h("p", { class: "hint", style: "margin:0", text: t("goal_hint", { n: goal, k: (Math.round(10 * goal * daysLeft / QUESTIONS.length) / 10).toString().replace(".", lang === "nl" ? "," : ".") }) }) : null));
-
-  const dx = diagnosisCard();
   mount(navBar(),
     h("header", { class: "hero gutter" }, h("div", { class: "hero-in" },
       h("h1", null, "Oefen", h("span", { text: "tentamen" })),
-      h("p", { class: "sub", text: t("hero_sub", { n: QUESTIONS.length }) }),
       heroStats())),
-    h("main", { class: "main gutter" },
-      h("div", { class: "grid2" }, startCard, h("div", { style: "display:flex;flex-direction:column;gap:1rem;min-width:0" }, dailyCard, reviewCard)),
-      missionsCard(),
-      dx,
-      goalCard,
-      accordion("mastery", "teal", t("mastery"), masteryBlock),
-      accordion("badges", "orange", t("badges_title") + " · " + Object.keys(progress.badges).length + "/" + BADGES.length, badgesBlock),
-      window.__iaSite ? accordion("install", "purple", "📱 " + t("install"), installBlock) : null,
-      accordion("about", "blue", t("about"), () => h("p", { style: "margin:0;font-size:0.88rem;line-height:1.6", text: t("about_text") }))),
+    h("main", { class: "main gutter narrow" }, startCard, todayCard),
     footer());
   const banner = installBanner(); if (banner) document.querySelector("main.main").prepend(banner);
+}
+function goalBlock() {
+  const goal = progress.goal || 20; const daysLeft = progress.vgt ? dayNum(progress.vgt) - TODAY() : null;
+  return h("div", { class: "card-body", style: "padding:0" },
+    h("div", { class: "row", style: "gap:1rem" },
+      h("div", { class: "field", style: "flex:1;min-width:9rem" }, h("span", { class: "flabel", text: t("goal") }),
+        h("div", { class: "seg" }, [10, 20, 40].map(n => h("button", { type: "button", class: n === goal ? "on" : null, onclick: () => { progress.goal = n; saveProgress(); rerender(); } }, String(n))))),
+      h("div", { class: "field", style: "flex:1;min-width:11rem" }, h("label", { class: "flabel", for: "vgt", text: t("next_vgt") + (daysLeft != null && daysLeft >= 0 ? " · " + t("days_left", { n: daysLeft }) : "") }),
+        h("input", { type: "date", id: "vgt", value: progress.vgt || "", onchange: e => { progress.vgt = e.target.value; saveProgress(); rerender(); } }))),
+    daysLeft != null && daysLeft > 0 ? h("p", { class: "hint", style: "margin:0", text: t("goal_hint", { n: goal, k: (Math.round(10 * goal * daysLeft / QUESTIONS.length) / 10).toString().replace(".", lang === "nl" ? "," : ".") }) }) : null);
 }
 function installBlock() {
   const steps = arr => h("ol", { class: "isteps" }, arr.map(x => h("li", { text: x })));
@@ -546,7 +540,7 @@ function installBanner() {
   try { if (localStorage.getItem("ia-install-tip") === "x") return null; } catch (e) {}
   const el = h("div", { class: "ibanner", role: "note" },
     h("span", { text: "📱 " + t("install_banner") }),
-    h("button", { class: "linkbtn", type: "button", onclick: () => { openAcc.install = true; renderHome(); const a = document.getElementById("acc-install"); if (a) a.scrollIntoView({ behavior: "smooth", block: "start" }); } }, t("install_how")),
+    h("button", { class: "linkbtn", type: "button", onclick: () => { openAcc.install = true; goProgress(); const a = document.getElementById("acc-install"); if (a) a.scrollIntoView({ behavior: "smooth", block: "start" }); } }, t("install_how")),
     h("button", { class: "chip-btn", type: "button", "aria-label": t("dismiss"), onclick: () => { try { localStorage.setItem("ia-install-tip", "x"); } catch (e) {} el.remove(); } }, "✕"));
   return el;
 }
@@ -648,7 +642,10 @@ function renderProgress() {
       accordion("atlas", "green", t("atlas"), atlasBlock),
       accordion("pmastery", "blue", t("mastery"), masteryBlock),
       accordion("pbadges", "orange", t("badges_title") + " · " + Object.keys(progress.badges).length + "/" + BADGES.length, badgesBlock),
-      accordion("history", "purple", t("history"), historyBlock)),
+      accordion("history", "purple", t("history"), historyBlock),
+      accordion("goal", "purple", "🎯 " + t("goal_title"), goalBlock),
+      window.__iaSite ? accordion("install", "purple", "📱 " + t("install"), installBlock) : null,
+      accordion("about", "blue", t("about"), () => h("p", { style: "margin:0;font-size:0.88rem;line-height:1.6", text: t("about_text") }))),
     footer());
 }
 
@@ -665,8 +662,11 @@ function diagnosisCard() {
   const d = DIAGNOSES[order[((day % n) + n) % n]];
   const qids = (d.qids || []).filter(id => byId[id]);
   const nav = (delta) => { dxOffset += delta; renderHome(); const el = document.getElementById("dx-card"); if (el) el.scrollIntoView({ block: "nearest" }); };
-  return h("section", { class: "card dx", id: "dx-card" }, cardHead("🩻", "purple", t("dx_title"), dxOffset ? (dxOffset > 0 ? "+" : "") + dxOffset + " · " + t("dx_sub") : t("dx_sub")),
-    h("div", { class: "card-body" },
+  return h("section", { class: "card dx", id: "dx-card" }, cardHead("🩻", "purple", t("dx_title"), dxOffset ? (dxOffset > 0 ? "+" : "") + dxOffset + " · " + t("dx_sub") : t("dx_sub")), dxBody(d, qids, nav));
+}
+function dxCurrent() { const order = dxOrder(), n = order.length, day = TODAY() + dxOffset; const d = DIAGNOSES[order[((day % n) + n) % n]]; return { d, qids: (d.qids || []).filter(id => byId[id]) }; }
+function dxBody(d, qids, nav) {
+  return h("div", { class: "card-body dx" },
       h("div", { class: "row" }, h("h3", { class: "dx-name", text: d.naam }), h("span", { class: "tag", text: d.rubriek }), lang === "en" ? h("span", { class: "hint", text: t("dx_nl_only") }) : null),
       h("p", { class: "dx-kern", text: d.kern }),
       h("div", { class: "dx-sec" }, h("b", { text: t("dx_img") }), h("ul", null, d.beeld.map(x => h("li", { text: x })))),
@@ -678,7 +678,7 @@ function diagnosisCard() {
         h("span", { class: "spacer" }),
         h("button", { class: "chip-btn", "aria-label": t("dx_prev"), onclick: () => nav(-1) }, "‹"),
         dxOffset ? h("button", { class: "chip-btn", onclick: () => { dxOffset = 0; renderHome(); } }, t("dx_today")) : null,
-        h("button", { class: "chip-btn", "aria-label": t("dx_next"), onclick: () => nav(1) }, "›"))));
+        h("button", { class: "chip-btn", "aria-label": t("dx_next"), onclick: () => nav(1) }, "›")));
 }
 function startSession(mode, ids) {
   let queue;
@@ -828,6 +828,14 @@ function renderOpen(q, el, res) {
   el.append(explain(q, res));
 }
 function linkLine(q) { return h("p", { class: "links" }, t("read_more") + " ", linksFor(q).map((l, i) => [i ? " · " : null, h("a", { href: l.url, target: "_blank", rel: "noopener", text: l.label })])); }
+function whyBlock(q, chosen) {
+  if (!q.why || !q.options) return null;
+  const idx = q.options.map((_, i) => i).filter(i => i !== q.answer && q.why[i]);
+  if (!idx.length) return null;
+  idx.sort((a, b) => (b === chosen) - (a === chosen));
+  return h("div", { class: "why" }, h("div", { class: "why-t", text: t("why_t") }),
+    idx.map(i => h("p", { class: "why-i" + (i === chosen ? " mine" : "") }, h("b", { text: LETTERS[i] + ". " + q.options[i] }), i === chosen ? h("span", { class: "tag red", text: t("your_pick") }) : null, h("span", { text: " " + q.why[i] }))));
+}
 function explain(q, res) {
   const last = session.idx + 1 >= session.queue.length;
   const verdict = res.correct ? t("good") : (q.options ? t("wrong_is", { L: LETTERS[q.answer] }) : t("didnt"));
@@ -835,6 +843,7 @@ function explain(q, res) {
     h("div", { class: "verdict" }, verdict, res.gain ? h("span", { class: "xpgain num", text: "+" + res.gain + " XP" }) : null, res.correct && res.combo >= 3 ? h("span", { class: "combo", text: "🔥 " + res.combo }) : null,
       res.crit ? h("span", { class: "crit", text: "💥 " + t("crit", { m: res.crit }) }) : null),
     q.explanation ? h("p", { class: "etext", text: q.explanation }) : null,
+    whyBlock(q, res.chosen),
     q.flag ? h("p", { class: "flagnote", text: t(FLAG_LABEL[q.flag]) + ". " + t(FLAG_NOTE[q.flag]) }) : null,
     figures(q.explImages, null, q.explCredit),
     linkLine(q),
@@ -899,6 +908,7 @@ function renderResult() {
               q.type === "open" ? h("p", { class: "model", text: q.modelAnswer })
                 : h("p", { style: "margin:0" }, h("strong", { text: LETTERS[q.answer] + ". " + q.options[q.answer] }), r.chosen != null ? h("span", { class: "muted", text: "  (" + t("yours") + ": " + LETTERS[r.chosen] + ")" }) : null),
               q.explanation ? h("p", { class: "etext", text: q.explanation }) : null,
+              whyBlock(q, r.chosen),
               linkLine(q)));
         })) : h("p", { class: "muted", style: "margin:0", text: total ? t("all_good") : t("none_answered") })),
     footer());

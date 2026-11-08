@@ -32,6 +32,13 @@ const IA_ADMIN_CONTACT = ""; // optioneel: e-mailadres dat afgewezen aanvragers 
       name_t: "Kies je naam", name_p: "Met deze naam doe je straks mee aan ranglijsten, zoals die van de dagelijkse uitdaging. Je kunt hem later altijd aanpassen via je profiel.",
       name_lbl: "Naam in ranglijsten (2–24 tekens)", anon_lbl: "Anoniem meedoen: anderen zien \u2018Anoniem\u2019 in plaats van je naam", name_save: "Opslaan en verder", name_need: "Vul een naam in van minstens 2 tekens.",
       profile: "Profiel", profile_saved: "Opgeslagen.", save: "Opslaan", account: "Account", acc_name: "Naam bij aanvraag", acc_inst: "Instelling",
+      qc: "Controle", qc_ok: "Nagekeken", qc_todo: "Te controleren", qc_fix: "Aan te passen", qc_claude: "Twijfel Claude",
+      qc_m_flag: "Gemarkeerd", qc_m_fix: "Aan te passen", qc_m_topic: "Per onderwerp", qc_m_ok: "Nagekeken",
+      qc_hint: "Gemarkeerd = automatische signalen uit de antwoorden (lage % goed, populaire foute keuze, sterke spelers scoren slechter) en vragen waar Claude bij de uitleg twijfelde. Keur goed met ✓, of noteer wat er aan moet gebeuren.",
+      qc_good: "✓ Klopt", qc_bad: "✗ Aanpassen", qc_note: "Wat moet er anders?", qc_save: "Opslaan", qc_undo: "Ongedaan maken", qc_none: "Niets in deze lijst.", qc_copy: "Kopieer aanpassingen voor Claude",
+      qc_missing: "De database-uitbreiding voor controle is nog niet geïnstalleerd (08_controle.sql).", qc_topic_all: "Kies een onderwerp", qc_unrev: "nog niet nagekeken",
+      f_claude: "Claude twijfelt: ", f_key: "Slechts {p}% goed (n={n}): klopt de sleutel?", f_dis: "Fout antwoord \u201e{c}\u201d vaker gekozen ({a}\u00d7) dan het juiste ({b}\u00d7)", f_disc: "Sterkere spelers scoren slechter ({a}% vs {b}%)",
+      why_t: "Waarom de andere antwoorden niet kloppen",
       stats: "Statistieken", st_answers: "Antwoorden", st_users: "Deelnemers", st_q: "Vragen beantwoord", st_7d: "Laatste 7 dagen", st_min: "Minimaal aantal antwoorden", st_hard: "Moeilijkst eerst", st_easy: "Makkelijkst eerst", st_most: "Meest beantwoord", st_pct: "% goed", st_first: "1e poging", st_none: "Nog geen antwoorden met dit minimum.", st_hint: "Lage % goed + één populaire foute keuze: controleer of de sleutel klopt. Bijna 100% goed: vraag is mogelijk te makkelijk.", st_choices: "Gekozen antwoorden", st_more: "Meer tonen",
       mail_sent: "Goedgekeurd — {e} heeft een e-mail gekregen met een inloglink.", mail_fail: "Goedgekeurd, maar de e-mail aan {e} kon niet worden verstuurd: ", resend_mail: "Mail opnieuw",
       not_configured: "De koppeling met de database is nog niet ingesteld (IA_SUPABASE_URL en IA_SUPABASE_ANON_KEY in gate.js).",
@@ -54,6 +61,13 @@ const IA_ADMIN_CONTACT = ""; // optioneel: e-mailadres dat afgewezen aanvragers 
       name_t: "Choose your name", name_p: "This name will be used in leaderboards, such as the daily challenge. You can always change it later in your profile.",
       name_lbl: "Leaderboard name (2–24 characters)", anon_lbl: "Take part anonymously: others see \u2018Anonymous\u2019 instead of your name", name_save: "Save and continue", name_need: "Enter a name of at least 2 characters.",
       profile: "Profile", profile_saved: "Saved.", save: "Save", account: "Account", acc_name: "Name on request", acc_inst: "Institution",
+      qc: "Review", qc_ok: "Reviewed", qc_todo: "To check", qc_fix: "To fix", qc_claude: "Claude unsure",
+      qc_m_flag: "Flagged", qc_m_fix: "To fix", qc_m_topic: "By topic", qc_m_ok: "Reviewed",
+      qc_hint: "Flagged = automatic signals from answers (low % correct, popular wrong choice, stronger players score worse) and questions where Claude was unsure about the explanation. Approve with ✓ or note what needs to change.",
+      qc_good: "✓ Correct", qc_bad: "✗ Needs fix", qc_note: "What should change?", qc_save: "Save", qc_undo: "Undo", qc_none: "Nothing in this list.", qc_copy: "Copy fixes for Claude",
+      qc_missing: "The review database extension is not installed yet (08_controle.sql).", qc_topic_all: "Choose a topic", qc_unrev: "not reviewed yet",
+      f_claude: "Claude unsure: ", f_key: "Only {p}% correct (n={n}): is the key right?", f_dis: "Wrong answer \u201c{c}\u201d chosen more often ({a}\u00d7) than the correct one ({b}\u00d7)", f_disc: "Stronger players score worse ({a}% vs {b}%)",
+      why_t: "Why the other answers are wrong",
       stats: "Statistics", st_answers: "Answers", st_users: "Participants", st_q: "Questions answered", st_7d: "Last 7 days", st_min: "Minimum number of answers", st_hard: "Hardest first", st_easy: "Easiest first", st_most: "Most answered", st_pct: "% correct", st_first: "1st attempt", st_none: "No answers yet with this minimum.", st_hint: "Low % correct + one popular wrong choice: check the answer key. Nearly 100% correct: the question may be too easy.", st_choices: "Chosen answers", st_more: "Show more",
       mail_sent: "Approved — {e} has received an email with a sign-in link.", mail_fail: "Approved, but the email to {e} could not be sent: ", resend_mail: "Email again",
       not_configured: "The database connection has not been configured yet (IA_SUPABASE_URL and IA_SUPABASE_ANON_KEY in gate.js).",
@@ -418,6 +432,73 @@ const IA_ADMIN_CONTACT = ""; // optioneel: e-mailadres dat afgewezen aanvragers 
       list.length ? list.slice(0, stLimit).map(item) : h("p", { class: "muted", text: t("st_none") }),
       list.length > stLimit ? h("button", { class: "btn", onclick: () => { stLimit += 50; rerenderAdmin(); } }, t("st_more")) : null];
   }
+  let qcMode = "flag", qcTopic = "", qcLimit = 30;
+  const fill = (str, o) => str.replace(/\{(\w+)\}/g, (m, k) => o[k] != null ? o[k] : m);
+  async function qcView(Q) {
+    const [st, ch, ds, rv] = await Promise.all([sb.from("question_stats").select("*").limit(5000), sb.from("answer_choices").select("*").limit(20000),
+      sb.from("question_disc").select("*").limit(5000), sb.from("question_review").select("*").limit(5000)]);
+    if (rv.error) return [h("p", { class: "gmsg bad", text: t("qc_missing") + " (" + rv.error.message + ")" })];
+    const idx = (rows) => Object.fromEntries((rows || []).map(r => [r.question_id, r]));
+    const S = idx(st.data), R = idx(rv.data), D = idx(ds.data), C = {};
+    for (const c of ch.data || []) (C[c.question_id] = C[c.question_id] || []).push(c);
+    const flagsOf = q => {
+      const f = [], s = S[q.id];
+      if (q.chk) f.push(t("f_claude") + q.chk);
+      if (s && s.n >= 5 && s.ok / s.n < 0.25) f.push(fill(t("f_key"), { p: Math.round(100 * s.ok / s.n), n: s.n }));
+      const cs = C[q.id];
+      if (cs && s && s.n >= 5) { const right = cs.filter(c => c.is_correct).reduce((a, c) => a + c.n, 0); const top = cs.filter(c => !c.is_correct).sort((a, b) => b.n - a.n)[0]; if (top && top.n > right) f.push(fill(t("f_dis"), { c: top.chosen, a: top.n, b: right })); }
+      const d = D[q.id]; if (d && d.n_hi >= 3 && d.n_lo >= 3 && d.p_hi < d.p_lo - 0.1) f.push(fill(t("f_disc"), { a: Math.round(100 * d.p_hi), b: Math.round(100 * d.p_lo) }));
+      return f;
+    };
+    const all = Object.values(Q); const N = all.length;
+    const isOk = q => R[q.id] && R[q.id].status === "ok", isFix = q => R[q.id] && R[q.id].status === "fix";
+    const flagged = all.filter(q => !R[q.id] && flagsOf(q).length);
+    const fixes = all.filter(isFix), oks = all.filter(isOk);
+    const topics = [...new Set(all.map(q => q.topic))].sort((a, b) => a.localeCompare(b, "nl"));
+    const list = qcMode === "flag" ? flagged : qcMode === "fix" ? fixes : qcMode === "ok" ? oks : (qcTopic ? all.filter(q => q.topic === qcTopic && !R[q.id]) : []);
+    const save = async (q, status, note) => {
+      const { error } = await sb.from("question_review").upsert({ question_id: q.id, status, note: note || null, reviewed_at: new Date().toISOString() });
+      if (error) adminMsg = { text: t("err") + error.message };
+      rerenderAdmin();
+    };
+    const undo = async (q) => { await sb.from("question_review").delete().eq("question_id", q.id); rerenderAdmin(); };
+    const item = q => {
+      const fl = flagsOf(q), r = R[q.id], s = S[q.id];
+      const noteBox = h("div", { class: "qc-note", hidden: true },
+        h("textarea", { rows: 3, maxlength: 1000, placeholder: t("qc_note") }),
+        h("button", { class: "btn", onclick: e => save(q, "fix", e.currentTarget.previousSibling.value.trim()) }, t("qc_save")));
+      return h("div", { class: "gfb qc" + (r ? (r.status === "ok" ? " done" : " fixme") : "") },
+        h("div", { class: "gfb-top" }, h("b", { text: q.id }), h("span", { class: "muted", text: q.source + " · " + q.topic }), h("span", { class: "spacer" }),
+          s ? h("span", { class: "hint", text: Math.round(100 * s.ok / s.n) + "% · n=" + s.n }) : null),
+        fl.map(x => h("div", { class: "qc-flag", text: "⚑ " + x })),
+        h("p", { class: "gfb-q", text: q.question }),
+        q.images && q.images.length ? h("p", { class: "hint", text: "🖼 " + q.images.length + "×" + (q.imageCredit ? " · " + q.imageCredit.text : "") }) : null,
+        q.options ? h("ol", { class: "qc-opts", type: "A" }, q.options.map((o, i) => h("li", { class: i === q.answer ? "right" : null }, o,
+          q.why && q.why[i] ? h("div", { class: "qc-why", text: q.why[i] }) : null))) : null,
+        q.explanation ? h("p", { class: "qc-exp", text: q.explanation }) : null,
+        r && r.note ? h("p", { class: "gfb-msg", text: r.note }) : null,
+        h("div", { class: "row" },
+          r ? h("button", { class: "linkbtn", onclick: () => undo(q) }, t("qc_undo")) : [
+            h("button", { class: "btn teal", onclick: () => save(q, "ok") }, t("qc_good")),
+            h("button", { class: "btn", onclick: e => { noteBox.hidden = false; e.currentTarget.remove(); } }, t("qc_bad"))]),
+        noteBox);
+    };
+    const copyFix = async (btn) => {
+      const txt = fixes.map(q => "## " + q.id + " (" + q.source + ", " + q.topic + ")\nVraag: " + q.question + "\n" + (q.options ? "Opties: " + q.options.map((o, i) => L[i] + ". " + o).join(" | ") + "\nHuidig antwoord: " + L[q.answer] + ". " + q.options[q.answer] + "\n" : "") + "Aanpassing: " + (R[q.id].note || "")).join("\n\n");
+      try { await navigator.clipboard.writeText(txt); } catch (e) { const ta = h("textarea", {}, txt); document.body.append(ta); ta.select(); document.execCommand("copy"); ta.remove(); }
+      btn.textContent = t("copied");
+    };
+    const kpi = (v, l) => h("div", { class: "rstat" }, h("div", { class: "lbl", text: l }), h("div", { class: "bigfig num", text: String(v) }));
+    return [h("div", { class: "resgrid" }, kpi(oks.length + "/" + N, t("qc_ok")), kpi(flagged.length, t("qc_todo")), kpi(fixes.length, t("qc_fix")), kpi(all.filter(q => q.chk && !R[q.id]).length, t("qc_claude"))),
+      h("p", { class: "hint", text: t("qc_hint") }),
+      h("div", { class: "gtabs" }, [["flag", t("qc_m_flag") + " (" + flagged.length + ")"], ["fix", t("qc_m_fix") + " (" + fixes.length + ")"], ["topic", t("qc_m_topic")], ["ok", t("qc_m_ok") + " (" + oks.length + ")"]].map(([k, l]) =>
+        h("button", { class: "gtab" + (qcMode === k ? " on" : ""), onclick: () => { qcMode = k; qcLimit = 30; rerenderAdmin(); } }, l))),
+      qcMode === "topic" ? h("select", { class: "qc-sel", onchange: e => { qcTopic = e.target.value; qcLimit = 30; rerenderAdmin(); } }, h("option", { value: "" }, t("qc_topic_all")),
+        topics.map(tp => h("option", { value: tp, selected: tp === qcTopic }, tp + " (" + all.filter(q => q.topic === tp && !R[q.id]).length + " " + t("qc_unrev") + ")"))) : null,
+      qcMode === "fix" && fixes.length ? h("div", { class: "row" }, h("button", { class: "btn", onclick: e => copyFix(e.currentTarget) }, t("qc_copy"))) : null,
+      list.length ? list.slice(0, qcLimit).map(item) : h("p", { class: "muted", text: t("qc_none") }),
+      list.length > qcLimit ? h("button", { class: "btn", onclick: () => { qcLimit += 30; rerenderAdmin(); } }, t("st_more")) : null];
+  }
   let rerenderAdmin = () => {};
   function openAdmin() {
     if (document.querySelector(".gpage")) return;
@@ -474,11 +555,11 @@ const IA_ADMIN_CONTACT = ""; // optioneel: e-mailadres dat afgewezen aanvragers 
         try { await navigator.clipboard.writeText(txt); } catch (e) { const ta = h("textarea", {}, txt); document.body.append(ta); ta.select(); document.execCommand("copy"); ta.remove(); }
         btn.textContent = t("copied"); setTimeout(() => { btn.textContent = t("copy_open"); }, 2000);
       };
-      const tabs = h("div", { class: "gtabs" }, [["fb", t("feedback") + " (" + fbOpen.length + ")"], ["req", t("requests") + " (" + pend.length + ")"], ["stats", t("stats")]].map(([k, l]) =>
+      const tabs = h("div", { class: "gtabs" }, [["fb", t("feedback") + " (" + fbOpen.length + ")"], ["req", t("requests") + " (" + pend.length + ")"], ["qc", t("qc")], ["stats", t("stats")]].map(([k, l]) =>
         h("button", { class: "gtab" + (adminTab === k ? " on" : ""), onclick: () => { adminTab = k; load(); } }, l)));
       const errs = [pr.error, fb.error].filter(Boolean).map(e => h("p", { class: "gmsg bad", text: t("err") + e.message }));
       if (adminMsg) errs.push(h("p", { class: "gmsg " + (adminMsg.ok ? "ok" : "bad"), role: "status", text: adminMsg.text }));
-      const body = adminTab === "stats" ? await statsView(Q, answerOf) : adminTab === "fb"
+      const body = adminTab === "stats" ? await statsView(Q, answerOf) : adminTab === "qc" ? await qcView(Q) : adminTab === "fb"
         ? [fbOpen.length ? h("div", { class: "row" }, h("button", { class: "btn", onclick: e => copyOpen(e.currentTarget) }, t("copy_open"))) : null,
            fbOpen.length ? fbOpen.map(fbItem) : h("p", { class: "muted", text: t("no_fb") }),
            fbDone.length ? h("details", { class: "gdone" }, h("summary", { text: t("done_list") + " (" + fbDone.length + ")" }), fbDone.map(fbItem)) : null]
