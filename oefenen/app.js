@@ -111,6 +111,10 @@ function loadProgress() {
 }
 function saveProgress() { progress._ts = Date.now(); try { localStorage.setItem(LS_KEY, JSON.stringify(progress)); } catch (e) {} if (window.__iaSync) window.__iaSync(progress); }
 let progress = loadProgress();
+window.__iaProgress = {
+  get: () => progress,
+  set: (p) => { const n = blank(); Object.assign(n, p); n.stats = Object.assign(blank().stats, p.stats || {}); progress = n; try { localStorage.setItem(LS_KEY, JSON.stringify(progress)); } catch (e) {} if (!session) rerender(); }
+};
 let examSize = 25;
 try { const v = parseInt(localStorage.getItem("rad-oefententamen-size"), 10); if (v > 0) examSize = v; } catch (e) {}
 function setExamSize(n) { examSize = Math.max(1, Math.min(500, Math.round(n) || 25)); try { localStorage.setItem("rad-oefententamen-size", String(examSize)); } catch (e) {} }
@@ -477,7 +481,7 @@ function record(q, correct, extra) {
   if (before < goal && before + 1 >= goal && !progress.goalDays[dk]) { progress.goalDays[dk] = 1; gain += 50; goalHit = true; }
   progress.xp += gain; session.xp += gain;
   if (window.__iaAnswer) { try { window.__iaAnswer({ question_id: q.id, correct: !!correct, chosen: extra && extra.chosen != null && q.options ? String(q.options[extra.chosen]).slice(0, 300) : null, mode: session.mode, first: !prev.n }); } catch (e) {} }
-  progress.qs[q.id] = { n: prev.n + 1, ok: prev.ok + (correct ? 1 : 0), last: correct, mastered: !!prev.mastered && correct };
+  progress.qs[q.id] = { n: prev.n + 1, ok: prev.ok + (correct ? 1 : 0), last: correct, mastered: !!prev.mastered && correct, t: Date.now() };
   progress.seen[q.id] = (progress.seen[q.id] || 0) + 1;
   if (correct) {
     delete progress.wrong[q.id];

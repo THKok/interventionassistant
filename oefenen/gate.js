@@ -200,17 +200,75 @@ const IA_ADMIN_CONTACT = ""; // optioneel: e-mailadres dat afgewezen aanvragers 
       const key = LSK + "-" + session.user.id;
       const remote = await sb.from("progress").select("data").eq("user_id", session.user.id).maybeSingle();
       let local = null; try { local = JSON.parse(localStorage.getItem(key) || "null"); } catch (e) {}
-      if (remote.data && remote.data.data && (!local || (remote.data.data._ts || 0) > (local._ts || 0))) {
-        try { localStorage.setItem(key, JSON.stringify(remote.data.data)); } catch (e) {}
-      }
+      const rem = remote.data && remote.data.data || null;
+      const merged = mergeProgress(local, rem);
+      if (merged) { try { localStorage.setItem(key, JSON.stringify(merged)); } catch (e) {} }
+      lastRemoteTs = rem ? rem._ts || 0 : 0;
       startApp(qs);
+      if (merged && sig(merged) !== sig(rem)) window.__iaSync(merged);
     } catch (e) { msg = { text: t("err") + (e.message || e) }; shell(h("div", { class: "card gcard" }, note(), h("button", { class: "btn", onclick: afterLogin }, t("refresh")))); }
   }
 
-  let syncTimer = null, pending = null;
+  /* Voortgang synchroniseren tussen apparaten: per vraag wint het laatst gegeven antwoord,
+     dagtellingen/badges/doelen worden samengevoegd. Zo overschrijft een oud tabblad nooit nieuwere voortgang. */
+  function sig(p) { if (!p) return ""; const c = Object.assign({}, p); delete c._ts; return JSON.stringify(c); }
+  function mergeProgress(a, b) {
+    if (!a) return b ? JSON.parse(JSON.stringify(b)) : null; if (!b) return JSON.parse(JSON.stringify(a));
+    const newer = (b._ts || 0) > (a._ts || 0) ? b : a, older = newer === a ? b : a;
+    const m = JSON.parse(JSON.stringify(newer));
+    for (const k of ["qs", "wrong", "box", "seen", "days", "daily", "goalDays", "badges", "stats"]) m[k] = m[k] || {};
+    const oq = older.qs || {}, ow = older.wrong || {}, ob = older.box || {}, os = older.seen || {};
+    for (const id of Object.keys(oq)) {
+      const x = oq[id], y = m.qs[id];
+      const tx = x.t || 0, ty = y ? (y.t || 0) : -1;
+      if (!y || tx > ty || (tx === ty && (x.n || 0) > (y.n || 0))) {
+        m.qs[id] = x;
+        if (ow[id] != null) m.wrong[id] = ow[id]; else delete m.wrong[id];
+        if (ob[id]) m.box[id] = ob[id]; else delete m.box[id];
+      }
+    }
+    for (const id of Object.keys(ow)) if (!oq[id] && !m.qs[id] && m.wrong[id] == null) { m.wrong[id] = ow[id]; if (ob[id]) m.box[id] = ob[id]; }
+    for (const id of Object.keys(os)) m.seen[id] = Math.max(m.seen[id] || 0, os[id]);
+    for (const [d, n] of Object.entries(older.days || {})) m.days[d] = Math.max(m.days[d] || 0, n);
+    for (const k of ["daily", "goalDays", "badges"]) for (const [d, v] of Object.entries(older[k] || {})) if (m[k][d] == null) m[k][d] = v;
+    for (const [k, v] of Object.entries(older.stats || {})) m.stats[k] = typeof v === "boolean" ? (m.stats[k] || v) : Math.max(m.stats[k] || 0, v || 0);
+    m.xp = Math.max(m.xp || 0, older.xp || 0);
+    const seenH = new Set((m.history || []).map(r => JSON.stringify(r)));
+    m.history = (older.history || []).filter(r => !seenH.has(JSON.stringify(r))).concat(m.history || []).slice(-40);
+    m._ts = Math.max(a._ts || 0, b._ts || 0);
+    return m;
+  }
+
+  let syncTimer = null, pending = null, lastRemoteTs = 0, pulling = false, lastPull = 0;
+  async function fetchRemote() {
+    const r = await sb.from("progress").select("data").eq("user_id", session.user.id).maybeSingle();
+    if (r.error) throw r.error; return r.data && r.data.data || null;
+  }
   async function pushProgress() {
-    if (!pending) return; const data = pending; pending = null;
-    await sb.from("progress").upsert({ user_id: session.user.id, data, updated_at: new Date().toISOString() });
+    if (!pending) return; let data = pending; pending = null;
+    try {
+      const rem = await fetchRemote();
+      if (rem && (rem._ts || 0) > lastRemoteTs) {
+        data = mergeProgress(data, rem);
+        if (window.__iaProgress && sig(data) !== sig(window.__iaProgress.get())) window.__iaProgress.set(data);
+      }
+    } catch (e) {}
+    const { error } = await sb.from("progress").upsert({ user_id: session.user.id, data, updated_at: new Date().toISOString() });
+    if (!error) lastRemoteTs = data._ts || 0;
+  }
+  async function pullProgress() {
+    if (pulling || pending || !window.__iaProgress || Date.now() - lastPull < 5000) return;
+    pulling = true; lastPull = Date.now();
+    try {
+      const rem = await fetchRemote();
+      if (rem && (rem._ts || 0) > lastRemoteTs) {
+        const cur = window.__iaProgress.get();
+        const merged = mergeProgress(cur, rem);
+        lastRemoteTs = rem._ts || 0;
+        if (sig(merged) !== sig(cur)) window.__iaProgress.set(merged);
+        if (sig(merged) !== sig(rem)) window.__iaSync(merged);
+      }
+    } catch (e) {} finally { pulling = false; }
   }
   function startApp(qs) {
     window.__QUESTIONS = qs;
@@ -218,7 +276,9 @@ const IA_ADMIN_CONTACT = ""; // optioneel: e-mailadres dat afgewezen aanvragers 
     window.__iaUid = session.user.id;
     window.__iaSync = p => { pending = JSON.parse(JSON.stringify(p)); clearTimeout(syncTimer); syncTimer = setTimeout(pushProgress, 2500); };
     window.addEventListener("pagehide", () => { if (pending) pushProgress(); });
-    document.addEventListener("visibilitychange", () => { if (document.visibilityState === "hidden" && pending) pushProgress(); });
+    document.addEventListener("visibilitychange", () => { if (document.visibilityState === "hidden") { if (pending) pushProgress(); } else pullProgress(); });
+    window.addEventListener("focus", pullProgress);
+    window.addEventListener("pageshow", (e) => { if (e.persisted) pullProgress(); });
     window.__iaSite = true;
     let ansQueue = [], ansTimer = null;
     const flushAnswers = async () => { if (!ansQueue.length) return; const rows = ansQueue; ansQueue = []; const { error } = await sb.from("answers").insert(rows); if (error) console.warn("answers", error.message); };
