@@ -15,14 +15,14 @@ const T = {
   topic: ["Onderwerp", "Topic"], exam: ["Toets", "Exam"], length: ["Aantal vragen", "Number of questions"],
   all_topics: ["Alle onderwerpen", "All topics"], all_exams: ["Alle toetsen", "All exams"], other: ["anders", "other"],
   images_only: ["Alleen vragen met beeld", "Image questions only"], start_n: ["Start {n} vragen", "Start {n} questions"],
-  in_sel: ["{n} vragen in selectie · {u} nog nooit gemaakt, die krijg je eerst", "{n} questions in selection · {u} never answered, you get those first"],
+  in_sel: ["{n} vragen in selectie · {u} nog nooit gemaakt, die krijg je eerst, samen met vragen die aan herhaling toe zijn", "{n} questions in selection · {u} never answered, you get those first, together with questions due for review"],
   in_sel_done: ["{n} vragen in selectie · alles al eens gemaakt 🎉 nu gaan je fouten en minst geoefende vragen voor", "{n} questions in selection · all answered at least once 🎉 your mistakes and least practised questions now come first"],
   dx_title: ["Diagnose van de dag", "Diagnosis of the day"], dx_sub: ["Elke dag een andere diagnose uit de toetsvragen", "A different diagnosis from the exam questions every day"],
   dx_img: ["Karakteristiek beeld", "Characteristic imaging"], dx_dd: ["Differentiaaldiagnose", "Differential diagnosis"], dx_pearl: ["Onthoud", "Remember"],
   dx_practice: ["Oefen {n} vragen hierover", "Practise {n} related questions"], dx_prev: ["Vorige", "Previous"], dx_next: ["Volgende", "Next"], dx_today: ["Vandaag", "Today"], dx_nl_only: ["Tekst in het Nederlands", "Text in Dutch"],
   daily_title: ["Dagelijkse uitdaging", "Daily challenge"], daily_sub: ["Elke dag 10 vragen, voor iedereen dezelfde", "10 questions every day, the same for everyone"],
   daily_go: ["Doe de uitdaging", "Take the challenge"], daily_done: ["Vandaag gedaan: {c}/{t}", "Done today: {c}/{t}"], daily_again: ["Nog een keer", "Again"],
-  review_title: ["Slim herhalen", "Smart review"], review_sub: ["Foute vragen komen terug na 1, 3, 7, 14 en 30 dagen", "Missed questions return after 1, 3, 7, 14 and 30 days"],
+  review_title: ["Slim herhalen", "Smart review"], review_sub: ["Fouten komen terug na 1, 3, 7, 14 en 30 dagen, goede antwoorden na 7, 14 en 30 dagen. Ze zitten ook in je gewone rondes.", "Misses return after 1, 3, 7, 14 and 30 days, correct answers after 7, 14 and 30 days. They are also mixed into your regular rounds."], review_tag: ["Herhaling", "Review"],
   due_now: ["nu te herhalen", "due now"], in_queue: ["in herhaalschema", "in review schedule"], mastered: ["onder de knie", "mastered"],
   review_go: ["Herhaal {n} vragen", "Review {n} questions"], review_none: ["Niets te herhalen", "Nothing due"],
   goal_title: ["Dagdoel en VGT", "Daily goal and exam"], goal_sub: ["Houd het ritme vast tussen de toetsen door", "Keep the rhythm between exams"],
@@ -166,6 +166,11 @@ function dayNum(k) { const [y, m, d] = (k || dayKey()).split("-").map(Number); r
 function dayKeyFromNum(n) { const d = new Date(n * 864e5); return d.getUTCFullYear() + "-" + String(d.getUTCMonth() + 1).padStart(2, "0") + "-" + String(d.getUTCDate()).padStart(2, "0"); }
 const TODAY = () => dayNum();
 for (const id of Object.keys(progress.wrong)) { if (!byId[id]) delete progress.wrong[id]; else if (!progress.box[id]) progress.box[id] = { b: 0, due: TODAY() }; }
+// goede antwoorden ook gespreid herhalen: eenmalig de eerder goed beantwoorde vragen inplannen (7 dagen na het laatste antwoord)
+for (const [id, st] of Object.entries(progress.qs)) {
+  if (!byId[id] || !st.last || st.mastered || progress.box[id]) continue;
+  progress.box[id] = { b: 2, due: (st.t ? Math.floor((st.t - new Date(st.t).getTimezoneOffset() * 6e4) / 864e5) : TODAY()) + INTERVALS[2] };
+}
 for (const id of Object.keys(progress.box)) if (!byId[id]) delete progress.box[id];
 if (ZOO_DEFS && !document.getElementById("zoo-defs")) document.body.insertAdjacentHTML("afterbegin", '<svg id="zoo-defs" width="0" height="0" style="position:absolute" aria-hidden="true"><defs>' + ZOO_DEFS + "</defs></svg>");
 
@@ -337,7 +342,7 @@ function checkBadges() {
 /* ---------- dagmissies ---------- */
 const MISSIONS = {
   answer: { n: () => progress.goal || 20 }, correct: { n: () => 15 }, img: { n: () => 3 },
-  fix: { n: () => 3, ok: () => Object.keys(progress.box).filter(id => byId[id]).length >= 3 },
+  fix: { n: () => 3, ok: () => Object.keys(progress.wrong).filter(id => byId[id]).length >= 3 },
   topic: { n: () => 8 }, combo: { n: () => 8 },
   fresh: { n: () => 10, ok: () => QUESTIONS.filter(q => !progress.seen[q.id]).length >= 10 },
   daily: { n: () => 1, ok: () => !progress.daily[dayKey()] }
@@ -682,8 +687,11 @@ function startSession(mode, ids) {
   else if (mode === "daily") queue = weightedSample(QUESTIONS.filter(q => q.type === "mc"), 10, seeded("vgt-" + dayKey())).map(q => q.id);
   else {
     // eerst vragen die je nog nooit hebt gemaakt; daarna aanvullen met eerder gemaakte (minder vaak gezien en laatst fout gaan voor)
-    const pl = pool(), fresh = pl.filter(q => !progress.seen[q.id]), old = pl.filter(q => progress.seen[q.id]);
-    const a = weightedSample(fresh, examSize);
+    const pl = pool(), now = TODAY();
+    const dueQ = shuffle(pl.filter(q => progress.box[q.id] && progress.box[q.id].due <= now)).slice(0, Math.round(examSize / 3));
+    const inDue = new Set(dueQ.map(q => q.id));
+    const fresh = pl.filter(q => !progress.seen[q.id]), old = pl.filter(q => progress.seen[q.id] && !inDue.has(q.id));
+    const a = dueQ.concat(weightedSample(fresh, examSize - dueQ.length));
     const b = a.length < examSize ? weightedSample(old, examSize - a.length, null, q => qWeight(q) * ((progress.qs[q.id] && progress.qs[q.id].last === false) ? 3 : 1) / progress.seen[q.id]) : [];
     queue = shuffle(a.concat(b).map(q => q.id));
   }
@@ -722,7 +730,7 @@ function record(q, correct, extra) {
       const nb = box.b + 1;
       if (nb >= INTERVALS.length) { delete progress.box[q.id]; progress.qs[q.id].mastered = true; }
       else progress.box[q.id] = { b: nb, due: tn + INTERVALS[nb] };
-    }
+    } else if (!progress.qs[q.id].mastered) progress.box[q.id] = { b: 2, due: tn + INTERVALS[2] };
     if (hasImages(q)) { progress.stats.imgCorrect++; progress.stats.imgRun = (progress.stats.imgRun || 0) + 1; progress.stats.imgRunBest = Math.max(progress.stats.imgRunBest || 0, progress.stats.imgRun); }
   } else {
     if (hasImages(q)) progress.stats.imgRun = 0;
@@ -786,12 +794,14 @@ function renderQuestion() {
       h("button", { class: "btn", id: "stop", onclick: finish }, t("stop"))),
     h("div", { class: "qtrack" }, h("span", { style: "width:" + (100 * done.length / n) + "%" })));
   const col = color(q);
-  const wasWrong = progress.box[q.id] && session.mode !== "wrong" && !res;
+  const bx = progress.box[q.id]; const wasWrong = !!progress.wrong[q.id] && session.mode !== "wrong" && !res;
+  const isReview = !res && !wasWrong && bx && bx.b > 0 && bx.due <= TODAY() && progress.seen[q.id];
   const inner = h("div", { class: "qinner" },
     h("div", { class: "qmeta" },
       h("span", { class: "tag " + col, text: q.topic }), h("span", { class: "tag", style: "background:var(--card);color:var(--muted)", text: q.source }),
       session.mode === "daily" ? h("span", { class: "tag teal", text: t("daily_title") }) : null,
       wasWrong ? h("span", { class: "tag red", text: t("earlier_wrong") }) : null,
+      isReview ? h("span", { class: "tag teal", text: "🔁 " + t("review_tag") }) : null,
       h("span", { class: "spacer" }), h("span", { class: "hint num", text: t("correct_n", { n: ok }) })),
     h("p", { class: "stem", text: q.question }),
     figures(q.images, q.imageLabels, q.imageCredit));
