@@ -669,7 +669,7 @@ function dxBody(d, qids, nav) {
   return h("div", { class: "card-body dx" },
       h("div", { class: "row" }, h("h3", { class: "dx-name", text: d.naam }), h("span", { class: "tag", text: d.rubriek }), lang === "en" ? h("span", { class: "hint", text: t("dx_nl_only") }) : null),
       h("p", { class: "dx-kern", text: d.kern }),
-      h("div", { class: "dx-sec" }, h("b", { text: t("dx_img") }), h("ul", null, d.beeld.map(x => h("li", { text: x })))),
+      h("div", { class: "dx-sec" }, h("b", { text: t("dx_img") }), d.img ? h("div", { class: "dx-fig" }, figures(d.img, null, d.imgCredit)) : null, h("ul", null, d.beeld.map(x => h("li", { text: x })))),
       h("p", { class: "dx-sec" }, h("b", { text: t("dx_dd") + ": " }), d.dd),
       h("p", { class: "dx-pearl" }, h("b", { text: "💡 " + t("dx_pearl") + ": " }), d.pearl),
       h("div", { class: "row" },
