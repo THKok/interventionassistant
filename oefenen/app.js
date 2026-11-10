@@ -199,7 +199,7 @@ function seeded(str) { let s = 2166136261; for (const c of str) s = Math.imul(s 
 function uniq(key) { return [...new Set(QUESTIONS.map(q => q[key]).filter(Boolean))]; }
 function sources() { const first = {}; QUESTIONS.forEach((q, i) => { if (!(q.source in first)) first[q.source] = i; }); return uniq("source").sort((a, b) => first[b] - first[a]); }
 function topics() { return uniq("topic").sort((a, b) => a.localeCompare(b, "nl")); }
-function imgSrc(name) { const k = name.replace(/\.[a-z]+$/i, "") + ".webp"; if (window.__iaImg && window.__iaImg[k]) return window.__iaImg[k]; if (window.__iaNeedImg) window.__iaNeedImg(k); return "data:image/gif;base64,R0lGODlhAQABAAAAACw="; }
+function imgSrc(name) { const k = name.replace(/\.[a-z]+$/i, "") + ".webp"; if (window.__iaImg && window.__iaImg[k]) return window.__iaImg[k]; if (window.__iaNeedImg) window.__iaNeedImg(k); return "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"; }
 function rpUrl(term) { return "https://radiopaedia.org/search?lang=us&q=" + encodeURIComponent(term) + "&scope=articles"; }
 function linksFor(q) {
   const list = (q.links || []).filter(l => l && /^https?:\/\//.test(l.url));
