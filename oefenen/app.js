@@ -15,7 +15,7 @@ const T = {
   start_title: ["Start een ronde", "Start a round"], start_sub: ["Kies onderwerp, toets en lengte", "Pick topic, exam and length"],
   topic: ["Onderwerp", "Topic"], exam: ["Toets", "Exam"], length: ["Aantal vragen", "Number of questions"],
   all_topics: ["Alle onderwerpen", "All topics"], all_exams: ["Alle toetsen", "All exams"], other: ["anders", "other"],
-  images_only: ["Alleen vragen met beeld", "Image questions only"], q_short: ["vragen", "questions"], img_short: ["alleen beeld", "images only"],
+  images_only: ["Alleen vragen met beeld", "Image questions only"], extra_on: ["Eigen vragen o.b.v. recente Radiology Assistant-artikelen ({n})", "Own questions based on recent Radiology Assistant articles ({n})"], q_short: ["vragen", "questions"], img_short: ["alleen beeld", "images only"],
   in_sel_s: ["{u} nieuwe vragen in deze selectie · herhaalvragen worden meegemengd", "{u} new questions in this selection · review questions are mixed in"], in_sel_done_s: ["Alles al eens gemaakt 🎉 · je fouten en herhaalvragen gaan voor", "All answered once 🎉 · your mistakes and reviews come first"],
   today_t: ["Vandaag", "Today"], review_short: ["{n} vragen aan herhaling toe", "{n} questions due for review"], review_only: ["Alleen herhalen", "Review only"], go: ["Start", "Start"], settings_t: ["Instellingen", "Settings"], start_n: ["Start {n} vragen", "Start {n} questions"],
   in_sel: ["{n} vragen in selectie · {u} nog nooit gemaakt, die krijg je eerst, samen met vragen die aan herhaling toe zijn", "{n} questions in selection · {u} never answered, you get those first, together with questions due for review"],
@@ -161,7 +161,15 @@ window.__iaProgress = {
 let examSize = 25;
 try { const v = parseInt(localStorage.getItem("rad-oefententamen-size"), 10); if (v > 0) examSize = v; } catch (e) {}
 function setExamSize(n) { examSize = Math.max(1, Math.min(500, Math.round(n) || 25)); try { localStorage.setItem("rad-oefententamen-size", String(examSize)); } catch (e) {} }
-const byId = Object.fromEntries(QUESTIONS.map(q => [q.id, q]));
+// eigen vragen (o.b.v. recente Radiology Assistant-artikelen) staan standaard uit
+const ALLQ = QUESTIONS.slice(); window.__iaAllQ = ALLQ;
+const isExtra = q => /eigen vragen/i.test(q.source || "");
+let extraOn = false;
+try { extraOn = localStorage.getItem("ia-extra-on") === "1"; } catch (e) {}
+function applyExtra() { const keep = ALLQ.filter(q => extraOn || !isExtra(q)); QUESTIONS.length = 0; QUESTIONS.push(...keep); }
+function setExtra(on) { extraOn = !!on; try { localStorage.setItem("ia-extra-on", extraOn ? "1" : "0"); } catch (e) {} applyExtra(); }
+applyExtra();
+const byId = Object.fromEntries(ALLQ.map(q => [q.id, q]));
 
 /* ---------- datum ---------- */
 function dayKey(d) { d = d || new Date(); return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0"); }
@@ -487,6 +495,7 @@ function renderHome() {
           SIZE_PRESETS.map(n => h("button", { type: "button", class: n === examSize ? "on" : null, "aria-pressed": n === examSize ? "true" : "false", onclick: () => { setExamSize(n); renderHome(); } }, String(n))),
           h("input", { type: "number", id: "size-custom", min: "1", max: "500", inputmode: "numeric", class: SIZE_PRESETS.includes(examSize) ? null : "on", value: SIZE_PRESETS.includes(examSize) ? "" : examSize, placeholder: t("other"), "aria-label": t("other"),
             onchange: e => { const v = parseInt(e.target.value, 10); if (v > 0) { setExamSize(v); renderHome(); } } }))),
+      h("label", { class: "check" }, h("input", { type: "checkbox", id: "extraon", checked: extraOn, onchange: e => { setExtra(e.target.checked); if (!extraOn && /eigen vragen/i.test(sourceFilter)) sourceFilter = ""; renderHome(); } }), t("extra_on", { n: ALLQ.filter(isExtra).length })),
       h("label", { class: "check" }, h("input", { type: "checkbox", id: "imgonly", checked: imagesOnly, onchange: e => { imagesOnly = e.target.checked; renderHome(); } }), t("images_only")),
       full ? h("button", { class: "btn wide pill", id: "full", onclick: () => startFull(sourceFilter) }, "🏆 " + t("full_exam", { n: p.length })) : null,
       full ? h("p", { class: "hint", style: "margin:0", text: t("full_hint") + (progress.vgtBest && progress.vgtBest[sourceFilter] != null ? " · " + t("atlas_best", { p: progress.vgtBest[sourceFilter] }) : "") }) : null));

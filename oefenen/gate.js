@@ -508,7 +508,7 @@ const IA_ADMIN_CONTACT = ""; // optioneel: e-mailadres dat afgewezen aanvragers 
     const close = () => { adminMsg = null; page.remove(); document.body.style.overflow = ""; document.removeEventListener("keydown", esc); history.replaceState(null, "", location.pathname + location.search); refreshCounts(); };
     document.addEventListener("keydown", esc);
     const fmt = d => new Date(d).toLocaleString(lang === "nl" ? "nl-NL" : "en-GB", { dateStyle: "medium", timeStyle: "short" });
-    const Q = Object.fromEntries((window.__QUESTIONS || []).map(q => [q.id, q]));
+    const Q = Object.fromEntries((window.__iaAllQ || window.__QUESTIONS || []).map(q => [q.id, q]));
     const answerOf = q => q.options ? L[q.answer] + ". " + q.options[q.answer] : (q.modelAnswer || "");
     async function load() {
       rerenderAdmin = load;
