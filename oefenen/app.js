@@ -812,13 +812,28 @@ function renderQuestion() {
   const focus = inner.querySelector("[data-autofocus]");
   if (focus) focus.focus({ preventScroll: true });
 }
+// antwoordvolgorde per sessie husselen; niet bij juist/onjuist, getallen, Romeinse cijfers of verwijzingen naar andere opties
+const OPT_NUM = /\d/, OPT_ROM = /(^|[^A-Za-z])(I{1,3}|IV|VI{0,3}|IX|XI{0,3})($|[^A-Za-z])/, OPT_REF = /bovenstaande|\bbeide\b|geen van|\b[A-F] en [A-F]\b/i;
+const OPT_TF = /^(juist|onjuist|ja|nee|waar|onwaar)$/i;
+function optOrder(q) {
+  const id = (q.options || []).map((_, i) => i), n = id.length;
+  if (!session) return id;
+  const c = session.ord || (session.ord = {});
+  if (c[q.id]) return c[q.id];
+  const o = q.options;
+  if (n > 2 && !o.some(x => OPT_TF.test(x.trim()) || OPT_NUM.test(x) || OPT_ROM.test(x) || OPT_REF.test(x)))
+    for (let i = n - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [id[i], id[j]] = [id[j], id[i]]; }
+  return (c[q.id] = id);
+}
+function optL(q, i) { return LETTERS[optOrder(q).indexOf(i)]; }
 function renderMC(q, el, res) {
   el.append(h("ol", { class: "opts", "aria-label": "Antwoordopties" },
-    q.options.map((text, i) => {
+    optOrder(q).map((i, pos) => {
+      const text = q.options[i];
       let cls = "opt";
       if (res) cls += i === q.answer ? " right" : (i === res.chosen ? " wrong" : " dim");
       return h("li", null, h("button", { class: cls, disabled: !!res, onclick: () => { record(q, i === q.answer, { chosen: i }); renderQuestion(); } },
-        h("span", { class: "sn", text: LETTERS[i] }), h("span", { class: "txt", text })));
+        h("span", { class: "sn", text: LETTERS[pos] }), h("span", { class: "txt", text })));
     })));
   if (!res) { el.append(h("p", { class: "hint", style: "margin:0", text: t("keys", { L: LETTERS[q.options.length - 1] }) })); return; }
   el.append(explain(q, res));
@@ -834,13 +849,14 @@ function whyBlock(q, chosen) {
   if (!q.why || !q.options) return null;
   const idx = q.options.map((_, i) => i).filter(i => i !== q.answer && q.why[i]);
   if (!idx.length) return null;
-  idx.sort((a, b) => (b === chosen) - (a === chosen));
+  const ord = optOrder(q);
+  idx.sort((a, b) => (b === chosen) - (a === chosen) || ord.indexOf(a) - ord.indexOf(b));
   return h("div", { class: "why" }, h("div", { class: "why-t", text: t("why_t") }),
-    idx.map(i => h("p", { class: "why-i" + (i === chosen ? " mine" : "") }, h("b", { text: LETTERS[i] + ". " + q.options[i] }), i === chosen ? h("span", { class: "tag red", text: t("your_pick") }) : null, h("span", { text: " " + q.why[i] }))));
+    idx.map(i => h("p", { class: "why-i" + (i === chosen ? " mine" : "") }, h("b", { text: optL(q, i) + ". " + q.options[i] }), i === chosen ? h("span", { class: "tag red", text: t("your_pick") }) : null, h("span", { text: " " + q.why[i] }))));
 }
 function explain(q, res) {
   const last = session.idx + 1 >= session.queue.length;
-  const verdict = res.correct ? t("good") : (q.options ? t("wrong_is", { L: LETTERS[q.answer] }) : t("didnt"));
+  const verdict = res.correct ? t("good") : (q.options ? t("wrong_is", { L: optL(q, q.answer) }) : t("didnt"));
   return h("section", { class: "note " + (res.correct ? "ok" : "bad") },
     h("div", { class: "verdict" }, verdict, res.gain ? h("span", { class: "xpgain num", text: "+" + res.gain + " XP" }) : null, res.correct && res.combo >= 3 ? h("span", { class: "combo", text: "🔥 " + res.combo }) : null,
       res.crit ? h("span", { class: "crit", text: "💥 " + t("crit", { m: res.crit }) }) : null),
@@ -908,7 +924,7 @@ function renderResult() {
           return h("details", { class: "rev" }, h("summary", { text: short(q.question, 150) }),
             h("div", { class: "inner" },
               q.type === "open" ? h("p", { class: "model", text: q.modelAnswer })
-                : h("p", { style: "margin:0" }, h("strong", { text: LETTERS[q.answer] + ". " + q.options[q.answer] }), r.chosen != null ? h("span", { class: "muted", text: "  (" + t("yours") + ": " + LETTERS[r.chosen] + ")" }) : null),
+                : h("p", { style: "margin:0" }, h("strong", { text: optL(q, q.answer) + ". " + q.options[q.answer] }), r.chosen != null ? h("span", { class: "muted", text: "  (" + t("yours") + ": " + optL(q, r.chosen) + ")" }) : null),
               q.explanation ? h("p", { class: "etext", text: q.explanation }) : null,
               whyBlock(q, r.chosen),
               linkLine(q)));
@@ -937,7 +953,7 @@ document.addEventListener("keydown", e => {
   const k = e.key.toUpperCase();
   let i = k.length === 1 ? LETTERS.indexOf(k) : -1;
   if (i < 0 && /^[1-9]$/.test(e.key)) i = Number(e.key) - 1;
-  if (i >= 0 && i < q.options.length) { e.preventDefault(); record(q, i === q.answer, { chosen: i }); renderQuestion(); }
+  if (i >= 0 && i < q.options.length) { e.preventDefault(); i = optOrder(q)[i]; record(q, i === q.answer, { chosen: i }); renderQuestion(); }
 });
 document.documentElement.lang = lang;
 try { const r0 = rankInfo().i; if (r0 > (progress.rank || 0)) progress.rank = r0; } catch (e) {}
