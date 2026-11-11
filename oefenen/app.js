@@ -82,15 +82,15 @@ const T = {
 // [id, nl, en, % bank goed, min % per onderwerp, duurzaam beheerst, rand, pips]
 const RANKS = [
   ["coas", "Coassistent", "Medical student", 0, 0, 0, "grijs", 0],
-  ["anios", "ANIOS", "Junior doctor", 250, 0, 0, "grijs", 0],
-  ["aios1", "AIOS 1", "Resident year 1", 750, 0, 0, "brons", 1],
-  ["aios2", "AIOS 2", "Resident year 2", 1500, 0, 0, "brons", 2],
-  ["aios3", "AIOS 3", "Resident year 3", 2500, 0, 0, "brons", 3],
-  ["aios4", "AIOS 4", "Resident year 4", 4000, 0, 0, "brons", 4],
-  ["aios5", "AIOS 5", "Resident year 5", 6000, 0, 0, "brons", 5],
-  ["fellow", "Fellow", "Fellow", 9000, 0, 0, "zilver", 0],
-  ["rad", "Radioloog", "Radiologist", 13000, 0, 0, "goud", 0],
-  ["prof", "Professor", "Professor", 20000, 0, 0, "prof", 0]
+  ["anios", "ANIOS", "Junior doctor", 500, 0, 0, "grijs", 0],
+  ["aios1", "AIOS 1", "Resident year 1", 1500, 0, 0, "brons", 1],
+  ["aios2", "AIOS 2", "Resident year 2", 3500, 0, 0, "brons", 2],
+  ["aios3", "AIOS 3", "Resident year 3", 6500, 0, 0, "brons", 3],
+  ["aios4", "AIOS 4", "Resident year 4", 10500, 0, 0, "brons", 4],
+  ["aios5", "AIOS 5", "Resident year 5", 16000, 0, 0, "brons", 5],
+  ["fellow", "Fellow", "Fellow", 23000, 0, 0, "zilver", 0],
+  ["rad", "Radioloog", "Radiologist", 32000, 0, 0, "goud", 0],
+  ["prof", "Professor", "Professor", 45000, 0, 0, "prof", 0]
 ];
 const RARITY = { c: ["Gewoon", "Common", 0], r: ["Zeldzaam", "Rare", 1], e: ["Episch", "Epic", 2], l: ["Legendarisch", "Legendary", 3] };
 // [id, nl, en, badge die het dier vrijspeelt (null = startdier), zeldzaamheid]
@@ -279,7 +279,6 @@ function rankNeed(r, k) {
 function rankInfo(k) {
   k = k || knowledge();
   let i = 0; for (let j = 1; j < RANKS.length; j++) { if (rankMeets(RANKS[j], k)) i = j; else break; }
-  i = Math.max(i, progress.rank || 0);
   const cur = RANKS[i], nxt = RANKS[i + 1];
   const bar = nxt ? Math.max(0, Math.min(100, Math.round(100 * ((progress.xp || 0) - cur[3]) / (nxt[3] - cur[3])))) : 100;
   return { i, name: lang === "en" ? cur[2] : cur[1], next: nxt ? (lang === "en" ? nxt[2] : nxt[1]) : null, need: nxt ? rankNeed(nxt, k) : "", bar, k };
