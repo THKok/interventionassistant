@@ -7,6 +7,7 @@ const SIZE_PRESETS = [10, 25, 50, 100];
 
 /* ---------- taal (zelfde sleutel als interventionassistant.com) ---------- */
 const T = {
+  back_home: ["← Terug naar oefenen", "← Back to practice"],
   nav_practice: ["Oefenen", "Practice"], nav_progress: ["Voortgang", "Progress"],
   hero_sub: ["{n} vragen uit de radiologie-voortgangstoetsen 2013–2026 · direct uitleg · slim herhalen", "{n} questions from the Dutch radiology progress tests 2013–2026 · instant feedback · smart review"],
   level: ["Niveau", "Level"], streak: ["Dagenreeks", "Day streak"], today: ["Vandaag", "Today"],
@@ -631,7 +632,7 @@ function renderProgress() {
   const pct = s.answered ? Math.round(100 * okTotal / s.answered) : 0;
   const stat = (lbl, val) => h("div", { class: "rstat" }, h("div", { class: "lbl", text: lbl }), h("div", { class: "bigfig num", text: val }));
   mount(navBar(),
-    h("header", { class: "hero gutter" }, h("div", { class: "hero-in" }, h("h1", null, "Voort", h("span", { text: "gang" })), heroStats())),
+    h("header", { class: "hero gutter" }, h("div", { class: "hero-in" }, h("button", { class: "hero-back", type: "button", onclick: goHome }, t("back_home")), h("h1", null, "Voort", h("span", { text: "gang" })), heroStats())),
     h("main", { class: "main gutter" },
       h("div", { class: "resgrid" },
         stat(t("answered_total"), s.answered), stat(t("accuracy"), pct + "%"), stat(t("best_combo"), s.bestCombo),
@@ -645,7 +646,8 @@ function renderProgress() {
       accordion("history", "purple", t("history"), historyBlock),
       accordion("goal", "purple", "🎯 " + t("goal_title"), goalBlock),
       window.__iaSite ? accordion("install", "purple", "📱 " + t("install"), installBlock) : null,
-      accordion("about", "blue", t("about"), () => h("p", { style: "margin:0;font-size:0.88rem;line-height:1.6", text: t("about_text") }))),
+      accordion("about", "blue", t("about"), () => h("p", { style: "margin:0;font-size:0.88rem;line-height:1.6", text: t("about_text") })),
+      h("div", { class: "back-row" }, h("button", { class: "btn", type: "button", onclick: goHome }, t("back_home")))),
     footer());
 }
 

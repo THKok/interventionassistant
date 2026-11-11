@@ -82,6 +82,9 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 /* HERO */
 .hero { background: linear-gradient(120deg, var(--hero-a) 0%, var(--hero-b) 100%); color: #fff; padding-block: 2.2rem 2rem; }
 .hero-in { max-width: 880px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.1rem; }
+.hero-back { align-self: flex-start; margin-bottom: -0.4rem; background: rgba(255,255,255,0.16); color: #fff; border: 1px solid rgba(255,255,255,0.35); border-radius: 999px; padding: 0.35rem 0.85rem; font-size: 0.82rem; font-weight: 700; cursor: pointer; }
+.hero-back:hover { background: rgba(255,255,255,0.26); }
+.back-row { display: flex; justify-content: center; margin-top: 1.2rem; }
 .hero h1 { font-family: var(--font-head); font-weight: 800; font-size: 2rem; margin: 0; line-height: 1.15; text-align: center; }
 .hero h1 span { color: var(--hero-accent); }
 .hero p.sub { margin: 0; text-align: center; font-size: 0.9rem; opacity: 0.85; }
