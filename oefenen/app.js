@@ -234,7 +234,7 @@ function figures(names, labels, credit) {
       names.map((n, i) => h("figure", { class: "fig" },
         h("button", { type: "button", "aria-label": "Afbeelding vergroten", onclick: () => openLightbox(imgSrc(n)) },
           h("img", { src: imgSrc(n), "data-ia-img": n.replace(/\.[a-z]+$/i, "") + ".webp", alt: labels && labels[i] ? "Afbeelding " + labels[i] : "Afbeelding bij de vraag", loading: "lazy", decoding: "async" })),
-        labels && labels[i] ? h("figcaption", { text: labels[i] }) : null))),
+        labels && labels[i] ? h("figcaption", { class: labels[i].length > 3 ? "below" : null, text: labels[i] }) : null))),
     credit ? (credit.url ? h("a", { class: "credit", href: credit.url, target: "_blank", rel: "noopener", text: credit.text }) : h("span", { class: "credit", text: credit.text })) : null);
 }
 let lightboxEl = null;
@@ -876,7 +876,7 @@ function explain(q, res) {
     q.explanation ? h("p", { class: "etext", text: q.explanation }) : null,
     whyBlock(q, res.chosen),
     q.flag ? h("p", { class: "flagnote", text: t(FLAG_LABEL[q.flag]) + ". " + t(FLAG_NOTE[q.flag]) }) : null,
-    figures(q.explImages, null, q.explCredit),
+    figures(q.explImages, q.explLabels, q.explCredit),
     linkLine(q),
     h("div", { class: "row" }, h("button", { class: "btn blue", "data-autofocus": true, onclick: () => go(1) }, last ? t("to_result") : t("next")), h("span", { class: "hint", text: t("enter_next") }),
       window.__iaFeedback && !(session.fb && session.fb[q.id]) ? [h("span", { class: "spacer" }), h("button", { class: "linkbtn fblink", type: "button", onclick: () => { (session.fb = session.fb || {})[q.id] = "open"; if (fbDraft.id !== q.id) fbDraft = { id: q.id, cat: "key", text: "", err: "" }; renderQuestion(); const ta = document.getElementById("fb-text"); if (ta) ta.focus(); } }, "⚑ " + t("fb_open"))] : null),
