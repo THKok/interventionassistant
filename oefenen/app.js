@@ -60,13 +60,13 @@ const T = {
   no_history: ["Nog geen rondes gespeeld.", "No rounds played yet."], round_kind: { exam: ["Ronde", "Round"], daily: ["Uitdaging", "Challenge"], wrong: ["Herhaling", "Review"] },
   answered_total: ["Beantwoord", "Answered"], accuracy: ["Goed", "Correct"],
   rank_of_bank: ["{p}% van de vragenbank goed", "{p}% of the question bank correct"], next_rank: ["Volgende: {r} · {need}", "Next: {r} · {need}"], top_rank: ["Hoogste niveau bereikt", "Highest level reached"],
-  need_ok: ["nog {n} vragen goed", "{n} more correct"], need_topic: ["elk onderwerp ≥{p}% (laagste: {t} {q}%)", "every topic ≥{p}% (lowest: {t} {q}%)"], need_dur: ["nog {n} duurzaam beheerst", "{n} more retained"],
-  rankup: ["Nieuw niveau: {r}", "New level: {r}"], rankup_sub: ["Je beheerst nu {p}% van de vragenbank.", "You now know {p}% of the question bank."],
+  need_ok: ["nog {n} vragen goed", "{n} more correct"], need_xp: ["nog {n} XP", "{n} XP to go"], need_topic: ["elk onderwerp ≥{p}% (laagste: {t} {q}%)", "every topic ≥{p}% (lowest: {t} {q}%)"], need_dur: ["nog {n} duurzaam beheerst", "{n} more retained"],
+  rankup: ["Nieuw niveau: {r}", "New level: {r}"], rankup_sub: ["Je hebt nu {x} XP verdiend.", "You have now earned {x} XP."],
   new_animal: ["Nieuw dier: {a}", "New animal: {a}"], new_animal_sub: ["Verdiend met {b}. Staat nu als je avatar.", "Earned with {b}. Now your avatar."], new_animal_sub2: ["Verdiend met {b}.", "Earned with {b}."],
   zoo: ["Röntgen-dierentuin", "X-ray zoo"], zoo_hint: ["Elk dier verdien je met een badge. Een nieuw dier wordt automatisch je avatar als het minstens zo zeldzaam is als je huidige. De rand toont je niveau.", "Each animal is earned with a badge. A new animal automatically becomes your avatar if it is at least as rare as your current one. The ring shows your level."],
   zoo_pick: ["Kies", "Pick"], zoo_on: ["Je avatar", "Your avatar"], zoo_start: ["Startdier", "Starter"], zoo_how: ["Verdien: {b}", "Earn: {b}"],
-  ranks_title: ["Niveaus", "Levels"], ranks_req: ["{p}% goed", "{p}% correct"], ranks_topic: ["elk onderwerp ≥{p}%", "every topic ≥{p}%"], ranks_dur: ["{n} duurzaam beheerst", "{n} retained"],
-  ranks_hint: ["Een vraag telt als goed als je laatste antwoord goed was. Duurzaam beheerst: minstens twee keer goed, met minstens 14 dagen tussen je eerste en laatste goede antwoord. Een bereikt niveau zakt niet terug.", "A question counts as correct if your last answer was right. Retained: correct at least twice, at least 14 days between your first and last correct answer. A level once reached is kept."],
+  ranks_title: ["Niveaus", "Levels"], ranks_req: ["{p} XP", "{p} XP"], ranks_topic: ["elk onderwerp ≥{p}%", "every topic ≥{p}%"], ranks_dur: ["{n} duurzaam beheerst", "{n} retained"],
+  ranks_hint: ["Je niveau stijgt met de XP die je verdient: 10 XP per goed antwoord, meer bij een reeks, plus bonussen voor je dagdoel en dagmissies. XP gaat nooit omlaag, dus een bereikt niveau blijft.", "Your level rises with the XP you earn: 10 XP per correct answer, more on a streak, plus bonuses for your daily goal and missions. XP never goes down, so a level once reached stays."],
   crit: ["Kritieke treffer ×{m}", "Critical hit ×{m}"], mult: ["×{m}", "×{m}"],
   m_title: ["Dagmissies", "Daily missions"], m_sub: ["Drie opdrachten per dag · haal ze alle drie voor het kistje", "Three tasks a day · complete all three for the chest"],
   m_answer: ["Beantwoord {n} vragen", "Answer {n} questions"], m_correct: ["{n} vragen goed", "{n} correct answers"], m_img: ["{n} beeldvragen goed", "{n} image questions correct"],
@@ -81,11 +81,16 @@ const T = {
 // niveau = hoeveel van de vragenbank je beheerst (laatste antwoord goed); hogere niveaus vragen ook breedte en duurzaamheid
 // [id, nl, en, % bank goed, min % per onderwerp, duurzaam beheerst, rand, pips]
 const RANKS = [
-  ["coas", "Coassistent", "Medical student", 0, 0, 0, "grijs", 0], ["anios", "ANIOS", "Junior doctor", 5, 0, 0, "grijs", 0],
-  ["aios1", "AIOS 1", "Resident year 1", 10, 0, 0, "brons", 1], ["aios2", "AIOS 2", "Resident year 2", 20, 0, 0, "brons", 2],
-  ["aios3", "AIOS 3", "Resident year 3", 30, 0, 0, "brons", 3], ["aios4", "AIOS 4", "Resident year 4", 40, 0, 0, "brons", 4],
-  ["aios5", "AIOS 5", "Resident year 5", 50, 0, 0, "brons", 5], ["fellow", "Fellow", "Fellow", 60, 40, 0, "zilver", 0],
-  ["rad", "Radioloog", "Radiologist", 75, 60, 0, "goud", 0], ["prof", "Professor", "Professor", 95, 90, 1000, "prof", 0]
+  ["coas", "Coassistent", "Medical student", 0, 0, 0, "grijs", 0],
+  ["anios", "ANIOS", "Junior doctor", 250, 0, 0, "grijs", 0],
+  ["aios1", "AIOS 1", "Resident year 1", 750, 0, 0, "brons", 1],
+  ["aios2", "AIOS 2", "Resident year 2", 1500, 0, 0, "brons", 2],
+  ["aios3", "AIOS 3", "Resident year 3", 2500, 0, 0, "brons", 3],
+  ["aios4", "AIOS 4", "Resident year 4", 4000, 0, 0, "brons", 4],
+  ["aios5", "AIOS 5", "Resident year 5", 6000, 0, 0, "brons", 5],
+  ["fellow", "Fellow", "Fellow", 9000, 0, 0, "zilver", 0],
+  ["rad", "Radioloog", "Radiologist", 13000, 0, 0, "goud", 0],
+  ["prof", "Professor", "Professor", 20000, 0, 0, "prof", 0]
 ];
 const RARITY = { c: ["Gewoon", "Common", 0], r: ["Zeldzaam", "Rare", 1], e: ["Episch", "Epic", 2], l: ["Legendarisch", "Legendary", 3] };
 // [id, nl, en, badge die het dier vrijspeelt (null = startdier), zeldzaamheid]
@@ -263,10 +268,10 @@ function knowledge() {
   const N = QUESTIONS.length || 1; const vals = Object.values(tm);
   return { tm, ok, dur, seen, N, pct: 100 * ok / N, minTopic: vals.length ? Math.min(...vals.map(r => 100 * r.ok / r.total)) : 0 };
 }
-function rankMeets(r, k) { return k.pct >= r[3] && (!r[4] || k.minTopic >= r[4]) && (!r[5] || k.dur >= r[5]); }
+function rankMeets(r) { return (progress.xp || 0) >= r[3]; }
 function rankNeed(r, k) {
   const parts = [];
-  if (k.pct < r[3]) parts.push(t("need_ok", { n: Math.ceil(r[3] * k.N / 100) - k.ok }));
+  if ((progress.xp || 0) < r[3]) parts.push(t("need_xp", { n: r[3] - (progress.xp || 0) }));
   if (r[4] && k.minTopic < r[4]) { const low = Object.entries(k.tm).sort((a, b) => a[1].ok / a[1].total - b[1].ok / b[1].total)[0]; parts.push(t("need_topic", { p: r[4], t: low[0], q: Math.floor(100 * low[1].ok / low[1].total) })); }
   if (r[5] && k.dur < r[5]) parts.push(t("need_dur", { n: r[5] - k.dur }));
   return parts.join(" · ");
@@ -276,7 +281,7 @@ function rankInfo(k) {
   let i = 0; for (let j = 1; j < RANKS.length; j++) { if (rankMeets(RANKS[j], k)) i = j; else break; }
   i = Math.max(i, progress.rank || 0);
   const cur = RANKS[i], nxt = RANKS[i + 1];
-  const bar = nxt ? Math.max(0, Math.min(100, Math.round(100 * (k.pct - cur[3]) / (nxt[3] - cur[3])))) : 100;
+  const bar = nxt ? Math.max(0, Math.min(100, Math.round(100 * ((progress.xp || 0) - cur[3]) / (nxt[3] - cur[3])))) : 100;
   return { i, name: lang === "en" ? cur[2] : cur[1], next: nxt ? (lang === "en" ? nxt[2] : nxt[1]) : null, need: nxt ? rankNeed(nxt, k) : "", bar, k };
 }
 function rarityOf(a) { return RARITY[a[4]][2]; }
@@ -448,7 +453,7 @@ function heroStats() {
     h("div", { class: "hstat level" },
       h("button", { class: "hav", type: "button", "aria-label": t("zoo"), onclick: goZoo }, avatarEl(58, null, lv.i)),
       h("div", { style: "min-width:0;flex:1" },
-        h("div", { class: "lbl", text: t("level") + " · " + Math.floor(lv.k.pct) + "%" }),
+        h("div", { class: "lbl", text: t("level") }),
         h("div", { class: "val" }, lv.name, " ", h("small", { class: "num", text: progress.xp + " XP" })),
         h("div", { class: "bar" }, h("span", { style: "width:" + lv.bar + "%" })),
         h("div", { class: "hneed", text: lv.next ? t("next_rank", { r: lv.next, need: lv.need }) : t("top_rank") }))),
@@ -917,7 +922,7 @@ function renderResult() {
       heroStats())),
     h("main", { class: "main gutter" },
       h("div", { class: "resgrid" }, stat(t("score"), pct + "%"), stat(t("xp_earned"), "+" + session.xp, "color:var(--teal)"), stat(t("best_combo"), session.bestCombo)),
-      leveled ? h("div", { class: "unlock big" }, avatarEl(96, null, lv.i), h("div", null, h("div", { class: "card-title", text: t("rankup", { r: lv.name }) }), h("div", { class: "hint", text: t("rankup_sub", { p: Math.floor(lv.k.pct) }) }))) : null,
+      leveled ? h("div", { class: "unlock big" }, avatarEl(96, null, lv.i), h("div", null, h("div", { class: "card-title", text: t("rankup", { r: lv.name }) }), h("div", { class: "hint", text: t("rankup_sub", { x: progress.xp }) }))) : null,
       session.animals.map(x => h("div", { class: "unlock big rar-" + x.a[4] }, avatarEl(96, x.a[0], lv.i), h("div", null,
         h("div", { class: "card-title", text: t("new_animal", { a: lang === "en" ? x.a[2] : x.a[1] }) }), h("span", { class: "rtag rar-" + x.a[4], text: t(RARITY[x.a[4]]) }),
         h("div", { class: "hint", text: t(x.auto ? "new_animal_sub" : "new_animal_sub2", { b: badgeName(x.a[3]) }) })))),
