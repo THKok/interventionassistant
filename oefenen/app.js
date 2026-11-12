@@ -15,7 +15,7 @@ const T = {
   start_title: ["Start een ronde", "Start a round"], start_sub: ["Kies onderwerp, toets en lengte", "Pick topic, exam and length"],
   topic: ["Onderwerp", "Topic"], exam: ["Toets", "Exam"], length: ["Aantal vragen", "Number of questions"],
   all_topics: ["Alle onderwerpen", "All topics"], all_exams: ["Alle toetsen", "All exams"], other: ["anders", "other"],
-  images_only: ["Alleen vragen met beeld", "Image questions only"], extra_on: ["Eigen vragen o.b.v. recente Radiology Assistant-artikelen ({n})", "Own questions based on recent Radiology Assistant articles ({n})"], q_short: ["vragen", "questions"], img_short: ["alleen beeld", "images only"],
+  images_only: ["Alleen vragen met beeld", "Image questions only"], extra_on: ["Eigen vragen o.b.v. Radiology Assistant-artikelen ({n})", "Own questions based on Radiology Assistant articles ({n})"], q_short: ["vragen", "questions"], img_short: ["alleen beeld", "images only"],
   in_sel_s: ["{u} nieuwe vragen in deze selectie · herhaalvragen worden meegemengd", "{u} new questions in this selection · review questions are mixed in"], in_sel_done_s: ["Alles al eens gemaakt 🎉 · je fouten en herhaalvragen gaan voor", "All answered once 🎉 · your mistakes and reviews come first"],
   today_t: ["Vandaag", "Today"], review_short: ["{n} vragen aan herhaling toe", "{n} questions due for review"], review_only: ["Alleen herhalen", "Review only"], go: ["Start", "Start"], settings_t: ["Instellingen", "Settings"], start_n: ["Start {n} vragen", "Start {n} questions"],
   in_sel: ["{n} vragen in selectie · {u} nog nooit gemaakt, die krijg je eerst, samen met vragen die aan herhaling toe zijn", "{n} questions in selection · {u} never answered, you get those first, together with questions due for review"],
