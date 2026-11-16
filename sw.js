@@ -4,7 +4,7 @@
 // Strategie: NETWORK-FIRST met volledige pre-cache.
 //  - Mét internet: altijd de verse versie van de server; de cache wordt
 //    op de achtergrond bijgewerkt. Updates komen dus gewoon door.
-//  - Zónder internet: de gecachete versie wordt geserveerd. Alle 39
+//  - Zónder internet: de gecachete versie wordt geserveerd. Alle
 //    pagina's staan vooraf in de cache, dus ook pagina's die je nog
 //    nooit hebt geopend werken offline.
 //
@@ -12,7 +12,7 @@
 // automatisch opgeruimd bij activatie.
 // ══════════════════════════════════════════════════════════════════
 
-const CACHE_VERSION = 'ia-v4';
+const CACHE_VERSION = 'ia-v5';
 const FONT_CACHE    = 'ia-fonts-v1';   // fonts wijzigen niet; apart van de site-cache
 
 // Alles wat de site nodig heeft om volledig offline te werken.
@@ -39,6 +39,7 @@ const CORE = [
   '/non-vasculair/biliary-stenting.html',
   '/non-vasculair/galblaasdrain.html',
   '/non-vasculair/gastrostomie.html',
+  '/non-vasculair/hj-dilatatie.html',
   '/non-vasculair/jj-katheter.html',
   '/non-vasculair/leverbiopt.html',
   '/non-vasculair/levercyste.html',
@@ -64,9 +65,11 @@ const CORE = [
   '/vasculair/pta-beenvaten.html',
   '/vasculair/pulmonalis-angiografie.html',
   '/vasculair/rtpa-trombolyse.html',
+  '/vasculair/tips.html',
   '/vasculair/uterusembolisatie-electief.html',
   '/vasculair/uterusembolisatie.html',
   '/vasculair/vena-cava-filter.html',
+  '/vasculair/vena-porta-embolisatie.html',
   '/style.css',
   '/nav.js',
   '/search.js',
